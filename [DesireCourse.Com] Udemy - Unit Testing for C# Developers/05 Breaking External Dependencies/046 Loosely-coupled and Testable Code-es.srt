@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:04,000
+La mayora de las aplicaciones heredadas se crean sin tener
+
+2
+00:00:04,000 --> 00:00:08,000
+en cuenta las pruebas unitarias. Entonces, para probarlos en
+
+3
+00:00:08,000 --> 00:00:12,000
+una unidad, necesita refactorizarlos hacia un diseo comprobable
+
+4
+00:00:12,000 --> 00:00:16,000
+y dbilmente acoplado. En un diseo dbilmente acoplado, puede reemplazar un
+
+5
+00:00:16,000 --> 00:00:20,000
+objeto por otro en tiempo de ejecucin. Entonces, cuando la unidad prueba
+
+6
+00:00:20,000 --> 00:00:24,000
+una clase que usa un objeto que habla con un
+
+7
+00:00:24,000 --> 00:00:28,000
+recurso externo, puede reemplazar ese objeto con un objeto falso,
+
+8
+00:00:28,000 --> 00:00:32,000
+lo que llamamos una prueba doble. Ahora hay tres pasos que debe seguir para
+
+9
+00:00:32,000 --> 00:00:36,000
+lograr un diseo comprobable y dbilmente acoplado. Primero, extrae el
+
+10
+00:00:36,000 --> 00:00:40,000
+cdigo que usa un recurso externo
+
+11
+00:00:40,000 --> 00:00:44,000
+en una clase separada. As que pones el cdigo que habla con
+
+12
+00:00:44,000 --> 00:00:48,000
+un recurso externo en una clase separada y lo aslas del resto de tu cdigo.
+
+13
+00:00:48,000 --> 00:00:52,000
+A continuacin, extrae una interfaz de esa clase.
+
+14
+00:00:52,000 --> 00:00:56,000
+Por qu una interfaz? Porque una interfaz es como un contrato.
+
+15
+00:00:56,000 --> 00:01:00,000
+Simplemente declara un grupo de mtodos y propiedades, pero ninguno
+
+16
+00:01:00,000 --> 00:01:04,000
+de estos tiene una implementacin, ninguno de estos mtodos tiene cdigo.
+
+17
+00:01:04,000 --> 00:01:08,000
+Una interfaz simplemente le dice al compilador de C #
+
+18
+00:01:08,000 --> 00:01:12,000
+que en alguna parte del cdigo probablemente haya una o
+
+19
+00:01:12,000 --> 00:01:16,000
+ms clases que implementen este contrato. Entonces estas clases implementan los
+
+20
+00:01:16,000 --> 00:01:20,000
+miembros declarados en la interfaz. Puedes tener dos clases
+
+21
+00:01:20,000 --> 00:01:24,000
+diferentes que implementan esa interfaz. Uno es la implementacin real
+
+22
+00:01:24,000 --> 00:01:28,000
+que usa un recurso externo, el otro es el falso
+
+23
+00:01:28,000 --> 00:01:32,000
+que llamamos el doble de prueba. Finalmente, modifica la clase bajo
+
+24
+00:01:32,000 --> 00:01:36,000
+prueba, habla con esta interfaz en lugar de con una
+
+25
+00:01:36,000 --> 00:01:40,000
+de sus implementaciones concretas. Entonces, en lugar de
+
+26
+00:01:40,000 --> 00:01:44,000
+depender de una implementacin especfica, depender solo de
+
+27
+00:01:44,000 --> 00:01:48,000
+la interfaz o el contrato. Puede pasar cualquier objeto que
+
+28
+00:01:48,000 --> 00:01:52,000
+implemente esa interfaz, y de esta manera la clase se
+
+29
+00:01:52,000 --> 00:01:56,000
+acopla y prueba de forma flexible. En trminos prcticos, esto significa
+
+30
+00:01:56,000 --> 00:02:00,000
+que debe eliminar las lneas donde crea una instancia de
+
+31
+00:02:00,000 --> 00:02:04,000
+mala implementacin utilizando el nuevo operador. Porque cuando utilizas el nuevo
+
+32
+00:02:04,000 --> 00:02:08,000
+operador dentro de una clase, ests haciendo que esa clase
+
+33
+00:02:08,000 --> 00:02:12,000
+est estrechamente unida o dependa estrechamente de una implementacin determinada.
+
+34
+00:02:12,000 --> 00:02:16,000
+Por lo tanto, no podemos reemplazar esa implementacin en tu
+
+35
+00:02:16,000 --> 00:02:20,000
+prueba con un objeto falso, de acuerdo? Entonces, en lugar de
+
+36
+00:02:20,000 --> 00:02:24,000
+renovar una implementacin especfica, su programa comienza una interfaz
+
+37
+00:02:24,000 --> 00:02:28,000
+o contrato, y luego transfiere la implementacin de esa
+
+38
+00:02:28,000 --> 00:02:32,000
+interfaz desde afuera. Aqu hay una manera de hacer esto. Entonces, puedes pasar eso
+
+39
+00:02:32,000 --> 00:02:36,000
+como un parmetro a un mtodo. Tambin puede pasar una dependencia por
+
+40
+00:02:36,000 --> 00:02:40,000
+un constructor o una propiedad. Veremos ejemplos de cada uno
+
+41
+00:02:40,000 --> 00:02:44,000
+de estos enfoques en breve. Entonces, cuando programa
+
+42
+00:02:44,000 --> 00:02:48,000
+contra interfaces, puede proporcionar diferentes implementaciones
+
+43
+00:02:48,000 --> 00:02:52,000
+en diferentes momentos. En su cdigo de produccin,
+
+44
+00:02:52,000 --> 00:02:56,000
+proporcionar la implementacin real que habla con un recurso externo en
+
+45
+00:02:56,000 --> 00:03:00,000
+sus pruebas, usted proporciona una implementacin falsa, y esto es lo
+
+46
+00:03:00,000 --> 00:03:04,000
+que llamamos inyeccin de dependencia. En lugar de renovar las dependencias,
+
+47
+00:03:04,000 --> 00:03:08,000
+las inyectamos desde el exterior. Recibo muchos correos electrnicos de mis alumnos preguntndome,
+
+48
+00:03:08,000 --> 00:03:12,000
+Mosh, qu es la inyeccin de dependencia? Es tan
+
+49
+00:03:12,000 --> 00:03:16,000
+complicado. No es. La inyeccin de dependencia es un
+
+50
+00:03:16,000 --> 00:03:20,000
+trmino de 25 dlares para un concepto de 5 centavos. Simplemente significa inyectar o suministrar
+
+51
+00:03:20,000 --> 00:03:24,000
+las dependencias de una clase desde el exterior, y
+
+52
+00:03:24,000 --> 00:03:28,000
+esto hace que sus clases se acoplen y se
+
+53
+00:03:28,000 --> 00:03:32,000
+puedan probar de manera flexible. Entonces, veremos estos tres pasos en accin.
+

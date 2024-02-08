@@ -1,0 +1,484 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, agora no nosso projeto
+
+2
+00:00:04,000 --> 00:00:08,000
+de teste de unidade, na pasta
+
+3
+00:00:08,000 --> 00:00:12,000
+Mocking, vamos adicionar uma nova classe
+
+4
+00:00:12,000 --> 00:00:16,000
+de teste chamada Testes do InstallerHelper.
+
+5
+00:00:16,000 --> 00:00:20,000
+Ns decoramos isso com o dispositivo de teste.
+
+6
+00:00:20,000 --> 00:00:24,000
+E tambm crie um mtodo Setup, public
+
+7
+00:00:24,000 --> 00:00:28,000
+void method, SetUp e decore isso com
+
+8
+00:00:28,000 --> 00:00:32,000
+o atributo SetUp. Agora aqui precisamos simular
+
+9
+00:00:32,000 --> 00:00:36,000
+a interface IFileDownloader. Ento, eu vou
+
+10
+00:00:36,000 --> 00:00:40,000
+criar um campo privado chamado
+
+11
+00:00:40,000 --> 00:00:44,000
+_file Downloader e inicializ-lo para
+
+12
+00:00:44,000 --> 00:00:48,000
+uma nova instncia do Mock
+
+13
+00:00:48,000 --> 00:00:52,000
+of IFile Downloader. Agora, podemos pressionar alt e
+
+14
+00:00:52,000 --> 00:00:56,000
+enter para criar um campo particular com esse nome.
+
+15
+00:00:56,000 --> 00:01:00,000
+Ento, aqui est nosso campo privado, do tipo
+
+16
+00:01:00,000 --> 00:01:04,000
+mock do IFileDownloader, ok? Agora, da mesma forma, precisamos
+
+17
+00:01:04,000 --> 00:01:08,000
+de um ajudante de instalao. Ento, o Installer
+
+18
+00:01:08,000 --> 00:01:12,000
+Helper  um novo InstallerHelper que
+
+19
+00:01:12,000 --> 00:01:16,000
+pega um objeto FileDownloader, ento ns
+
+20
+00:01:16,000 --> 00:01:20,000
+passamos o fileDownloader. objeto.
+
+21
+00:01:20,000 --> 00:01:24,000
+E, em seguida, use o IDE para criar
+
+22
+00:01:24,000 --> 00:01:28,000
+esse campo particular. Bonita. Ento, nossa configurao
+
+23
+00:01:28,000 --> 00:01:32,000
+est pronta agora, vamos criar nosso primeiro mtodo de teste.
+
+24
+00:01:32,000 --> 00:01:36,000
+Ento teste public void, o
+
+25
+00:01:36,000 --> 00:01:40,000
+mtodo  chamado de DownloadInstaller.
+
+26
+00:01:40,000 --> 00:01:44,000
+O primeiro cenrio  onde o
+
+27
+00:01:44,000 --> 00:01:48,000
+download falha, portanto, DownloadFails, esse mtodo
+
+28
+00:01:48,000 --> 00:01:52,000
+deve retornar False. Agora, na parte de
+
+29
+00:01:52,000 --> 00:01:56,000
+organizao, precisamos programar nossa simulao. Ento, fileDownloader, usamos o
+
+30
+00:01:56,000 --> 00:02:00,000
+mtodo Setup, agora passamos uma expresso lambda, fileDownloader
+
+31
+00:02:00,000 --> 00:02:04,000
+vai para quando chamamos o mtodo DownloadFile, e
+
+32
+00:02:04,000 --> 00:02:08,000
+damos a ele dois argumentos, nesse caso eu
+
+33
+00:02:08,000 --> 00:02:12,000
+vou passar uma string vazia e vou te
+
+34
+00:02:12,000 --> 00:02:16,000
+dizer porque em um segundo. Ento este mtodo, deveria
+
+35
+00:02:16,000 --> 00:02:20,000
+lanar uma exceo. Ento lana uma exceo
+
+36
+00:02:20,000 --> 00:02:24,000
+web porque esse  o tipo de iseno
+
+37
+00:02:24,000 --> 00:02:28,000
+que temos em nosso bloco catch aqui, tudo bem.
+
+38
+00:02:28,000 --> 00:02:32,000
+Ento aqui est a parte do
+
+39
+00:02:32,000 --> 00:02:36,000
+arranjo, agora precisamos agir, ento installerHelper.
+
+40
+00:02:36,000 --> 00:02:40,000
+DownloadInstaller. Aqui precisamos passar dois argumentos.
+
+41
+00:02:40,000 --> 00:02:44,000
+O primeiro  o cliente e o segundo  o nome do instalador.
+
+42
+00:02:44,000 --> 00:02:48,000
+Ento eu posso passar aeb como valores simples, mas
+
+43
+00:02:48,000 --> 00:02:52,000
+algum olhando para esse cdigo, eles no sabem exatamente
+
+44
+00:02:52,000 --> 00:02:56,000
+quais so esses valores. Ento, neste caso, vou quebrar as
+
+45
+00:02:56,000 --> 00:03:00,000
+regras que eu lhe falei anteriormente e usar um nome descritivo,
+
+46
+00:03:00,000 --> 00:03:04,000
+assim, cliente e instalador. Isso torna o nosso teste mais real (? Agora,
+
+47
+00:03:04,000 --> 00:03:08,000
+obtemos o resultado e
+
+48
+00:03:08,000 --> 00:03:12,000
+afirmamos que o resultado
+
+49
+00:03:12,000 --> 00:03:16,000
+ falso. Vamos executar o
+
+50
+00:03:16,000 --> 00:03:20,000
+teste e ver o que acontece.
+
+51
+00:03:20,000 --> 00:03:24,000
+Nosso teste falhou. Ns espervamos falso, mas
+
+52
+00:03:24,000 --> 00:03:28,000
+nos tornamos verdade. Como isso aconteceu? Bem, algo interessante
+
+53
+00:03:28,000 --> 00:03:32,000
+sobre esses objetos simulados que voc precisa saber  que,
+
+54
+00:03:32,000 --> 00:03:36,000
+quando voc os programa usando o mtodo de configurao, esse
+
+55
+00:03:36,000 --> 00:03:40,000
+comportamento definido nesse caso, lanando uma exceo da web, s
+
+56
+00:03:40,000 --> 00:03:44,000
+acontece quando chamamos esse mtodo de arquivo de download para
+
+57
+00:03:44,000 --> 00:03:48,000
+os mesmos argumentos. . Em outras palavras, se
+
+58
+00:03:48,000 --> 00:03:52,000
+voc passar qualquer outro argumento, esse comportamento no acontecer.
+
+59
+00:03:52,000 --> 00:03:56,000
+Ento esse mtodo no far nada. Neste caso, na nossa
+
+60
+00:03:56,000 --> 00:04:00,000
+classe auxiliar do instalador, este  o
+
+61
+00:04:00,000 --> 00:04:04,000
+argumento que estamos passando para um FileDownloader.
+
+62
+00:04:04,000 --> 00:04:08,000
+Ento, para corrigir nosso teste, precisamos substituir
+
+63
+00:04:08,000 --> 00:04:12,000
+essa string vazia por uma url como
+
+64
+00:04:12,000 --> 00:04:16,000
+esta, exemplo http. com /
+
+65
+00:04:16,000 --> 00:04:20,000
+cliente / instalador. E para o segundo
+
+66
+00:04:20,000 --> 00:04:24,000
+argumento, em vez de uma string vazia,
+
+67
+00:04:24,000 --> 00:04:28,000
+devemos usar null. Porque se voc olhar
+
+68
+00:04:28,000 --> 00:04:32,000
+para o auxiliar do instalador, o segundo argumento 
+
+69
+00:04:32,000 --> 00:04:36,000
+o arquivo setupDestination, e este campo no  inicializado
+
+70
+00:04:36,000 --> 00:04:40,000
+em lugar algum. Ento, por padro,  nulo. Agora, voltemos
+
+71
+00:04:40,000 --> 00:04:44,000
+ao nosso teste. Com esses argumentos, se voc executar
+
+72
+00:04:44,000 --> 00:04:48,000
+esse teste, ele dever passar. Vamos verificar isso.
+
+73
+00:04:48,000 --> 00:04:52,000
+Ok, linda, passou.
+
+74
+00:04:52,000 --> 00:04:56,000
+No entanto, no gosto muito da maneira
+
+75
+00:04:56,000 --> 00:05:00,000
+como escrevemos este teste. Est ficando um pouco barulhento,
+
+76
+00:05:00,000 --> 00:05:04,000
+ longo (? ) corda. E este  um exemplo simplificado. s vezes, em
+
+77
+00:05:04,000 --> 00:05:08,000
+seus aplicativos, voc nem sequer tem acesso a esse argumento que  enviado
+
+78
+00:05:08,000 --> 00:05:12,000
+para um determinado mtodo, como o DownloadFile. Nesse caso, voc
+
+79
+00:05:12,000 --> 00:05:16,000
+deseja programar essa simulao de maneira
+
+80
+00:05:16,000 --> 00:05:20,000
+mais genrica. Ento, ao invs desse
+
+81
+00:05:20,000 --> 00:05:24,000
+primeiro argumento, podemos passar, essa  uma das
+
+82
+00:05:24,000 --> 00:05:28,000
+classes definidas em mock. Tem um mtodo chamado
+
+83
+00:05:28,000 --> 00:05:32,000
+IsAny que  genrico, ento passamos uma string.
+
+84
+00:05:32,000 --> 00:05:36,000
+Da mesma forma, eu vou usar isso para o segundo
+
+85
+00:05:36,000 --> 00:05:40,000
+argumento, ento  qualquer string. Como isso.
+
+86
+00:05:40,000 --> 00:05:44,000
+Agora, nossa simulao  mais genrica.
+
+87
+00:05:44,000 --> 00:05:48,000
+Ento, quando ns chamamos o DownloadFile, com qualquer
+
+88
+00:05:48,000 --> 00:05:52,000
+argumento, ele vai lanar essa exceo da web, ok?
+
+89
+00:05:52,000 --> 00:05:56,000
+Agora, finalmente, vamos reformatar esse cdigo para torn-lo um pouco mais legvel.
+
+90
+00:05:56,000 --> 00:06:00,000
+Como isso. Vamos executar
+
+91
+00:06:00,000 --> 00:06:04,000
+o teste mais uma vez.
+
+92
+00:06:04,000 --> 00:06:08,000
+Est passando. Bonita. Agora, o segundo teste.
+
+93
+00:06:08,000 --> 00:06:12,000
+Ento, para economizar tempo, vou
+
+94
+00:06:12,000 --> 00:06:16,000
+duplicar esse mtodo, alterar o
+
+95
+00:06:16,000 --> 00:06:20,000
+cenrio de falha no download
+
+96
+00:06:20,000 --> 00:06:24,000
+para download concludo, e esperamos
+
+97
+00:06:24,000 --> 00:06:28,000
+ser verdadeiros. Ento, aqui no precisamos programar nosso
+
+98
+00:06:28,000 --> 00:06:32,000
+mock, porque por padro quando chamamos esse mtodo de arquivo de download,
+
+99
+00:06:32,000 --> 00:06:36,000
+ele no faz nada, ele no lana uma exceo, e ns no
+
+100
+00:06:36,000 --> 00:06:40,000
+esperamos um valor aqui tambm. Ento, vamos apagar isso.
+
+101
+00:06:40,000 --> 00:06:44,000
+E finalmente vamos afirmar que o resultado  verdadeiro.
+
+102
+00:06:44,000 --> 00:06:48,000
+Vamos executar o teste.
+
+103
+00:06:48,000 --> 00:06:52,000
+Bonita. Ora aqui est uma pergunta para voc.
+
+104
+00:06:52,000 --> 00:06:56,000
+Voc pode perguntar, Mosh, aqui estamos escrevendo um teste para esta exceo
+
+105
+00:06:56,000 --> 00:07:00,000
+da web e ns afirmamos que o resultado deve ser falso.
+
+106
+00:07:00,000 --> 00:07:04,000
+E se esse mtodo de arquivo de download lanar um tipo diferente
+
+107
+00:07:04,000 --> 00:07:08,000
+de exceo no tempo de execuo. Devemos escrever outro teste
+
+108
+00:07:08,000 --> 00:07:12,000
+e programar nossa simulao para lanar um tipo
+
+109
+00:07:12,000 --> 00:07:16,000
+diferente de exceo? No, no
+
+110
+00:07:16,000 --> 00:07:20,000
+precisamos fazer isso. Porque todo o propsito desse mtodo.
+
+111
+00:07:20,000 --> 00:07:24,000
+ retornar true se o download for concludo e
+
+112
+00:07:24,000 --> 00:07:28,000
+false, se o download falhar. Portanto, a exceo da web  especificamente o tipo
+
+113
+00:07:28,000 --> 00:07:32,000
+de exceo que pode acontecer ao baixar um arquivo. Se voc obtiver um tipo
+
+114
+00:07:32,000 --> 00:07:36,000
+diferente de exceo, digamos exceo de referncia nula ou
+
+115
+00:07:36,000 --> 00:07:40,000
+exceo de argumento fora do intervalo ou exceo de
+
+116
+00:07:40,000 --> 00:07:44,000
+diviso por zero, no queremos ocultar essa exceo retornando false.
+
+117
+00:07:44,000 --> 00:07:48,000
+Ento, queremos que essa exceo seja propagada, talvez haja um registrador de
+
+118
+00:07:48,000 --> 00:07:52,000
+excees em algum lugar programado globalmente, de modo a obter essa exceo
+
+119
+00:07:52,000 --> 00:07:56,000
+e registr-la em algum lugar. S queremos retornar false
+
+120
+00:07:56,000 --> 00:08:00,000
+se obtivermos uma exceo da web e, por isso
+
+121
+00:08:00,000 --> 00:08:04,000
+mesmo, no precisaremos escrever outro teste para esse mtodo.
+

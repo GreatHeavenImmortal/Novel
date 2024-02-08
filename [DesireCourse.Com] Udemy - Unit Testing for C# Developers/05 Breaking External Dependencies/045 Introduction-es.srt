@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:04,000
+En la ltima seccin, aprendiste los fundamentos
+
+2
+00:00:04,000 --> 00:00:08,000
+de las pruebas unitarias. Sin embargo, en esa seccin,
+
+3
+00:00:08,000 --> 00:00:12,000
+nos centramos exclusivamente en las clases de utilidad de
+
+4
+00:00:12,000 --> 00:00:16,000
+prueba que no tenan dependencias externas como archivos, bases
+
+5
+00:00:16,000 --> 00:00:20,000
+de datos, servidores web, etc. Pero en el mundo real, nuestras
+
+6
+00:00:20,000 --> 00:00:24,000
+aplicaciones casi siempre usan uno o ms de estos recursos externos.
+
+7
+00:00:24,000 --> 00:00:28,000
+Por lo tanto, es posible que se pregunte cmo podemos probar la unidad de una
+
+8
+00:00:28,000 --> 00:00:32,000
+clase que depende de un recurso externo. Bueno, como
+
+9
+00:00:32,000 --> 00:00:36,000
+te dije antes. La prueba de su unidad
+
+10
+00:00:36,000 --> 00:00:40,000
+no debe tocar recursos externos. Una prueba que toca un recurso
+
+11
+00:00:40,000 --> 00:00:44,000
+externo se clasifica como una prueba de integracin, que es un tema separado.
+
+12
+00:00:44,000 --> 00:00:48,000
+Pero an puede probar la lgica de la unidad en sus clases, al
+
+13
+00:00:48,000 --> 00:00:52,000
+tiempo que excluye sus dependencias externas. Y, eso es lo que vas a
+
+14
+00:00:52,000 --> 00:00:56,000
+aprender en esta seccin. Entonces aqu hay un principio bsico. Imagina que tienes una
+
+15
+00:00:56,000 --> 00:01:00,000
+clase llamada servicio de video. Esta clase usa la clase de archivo
+
+16
+00:01:00,000 --> 00:01:04,000
+para leer el contenido de un archivo. En su aplicacin, este servicio de video puede usar
+
+17
+00:01:04,000 --> 00:01:08,000
+la clase de contexto db para editar un (? ) framework para leer un
+
+18
+00:01:08,000 --> 00:01:12,000
+registro de la base de datos, por lo que tiene
+
+19
+00:01:12,000 --> 00:01:16,000
+una dependencia a un recurso externo. Para probar la clase de servicio
+
+20
+00:01:16,000 --> 00:01:20,000
+de video, debe realizar alguna operacin en su cdigo y desacoplar el servicio
+
+21
+00:01:20,000 --> 00:01:24,000
+de video de la clase de archivo o el contexto de base de
+
+22
+00:01:24,000 --> 00:01:28,000
+datos o cualquier otra dependencia externa. De esta manera, al probar la
+
+23
+00:01:28,000 --> 00:01:32,000
+unidad en esta clase, puede reemplazar la clase de archivo con otra clase
+
+24
+00:01:32,000 --> 00:01:36,000
+que se parece a la clase de archivo desde el exterior, pero no
+
+25
+00:01:36,000 --> 00:01:40,000
+habla con el sistema de archivos. De hecho, no hace nada, es como una clase
+
+26
+00:01:40,000 --> 00:01:44,000
+con un montn de mtodos que no tienen implementacin. Llamamos a esta clase
+
+27
+00:01:44,000 --> 00:01:48,000
+una falsa, o una prueba doble, como un
+
+28
+00:01:48,000 --> 00:01:52,000
+doble doble en las pelculas. En escenas de accin, un doble de accin
+
+29
+00:01:52,000 --> 00:01:56,000
+que reemplaza al hroe de la pelcula, verdad? Tenemos el mismo concepto aqu.
+
+30
+00:01:56,000 --> 00:02:00,000
+Cuando la unidad prueba clases con dependencias externas, reemplazamos un
+
+31
+00:02:00,000 --> 00:02:04,000
+objeto de produccin con una prueba doble o un objeto falso.
+
+32
+00:02:04,000 --> 00:02:08,000
+Est bien, pero ahora podra estar preguntando, cmo deberamos hacer eso,
+
+33
+00:02:08,000 --> 00:02:12,000
+que requiere ciruga para desacoplar nuestras clases de sus recursos externos.
+
+34
+00:02:12,000 --> 00:02:16,000
+Ese es el tema para la prxima conferencia.
+

@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:04,000
+Una pregunta que me hacen mucho es quin debera
+
+2
+00:00:04,000 --> 00:00:08,000
+escribir estas pruebas automatizadas? Es el trabajo de
+
+3
+00:00:08,000 --> 00:00:12,000
+un desarrollador o un probador? Bueno, eso depende.
+
+4
+00:00:12,000 --> 00:00:16,000
+La unidad de escritura y las pruebas de integracin son tarea de un desarrollador de software.
+
+5
+00:00:16,000 --> 00:00:20,000
+Entonces, si est construyendo una nueva caracterstica, modificando una caracterstica
+
+6
+00:00:20,000 --> 00:00:24,000
+existente o arreglando un error, antes de ingresar su cdigo
+
+7
+00:00:24,000 --> 00:00:28,000
+al repositorio, usted es responsable de cubrir su cdigo con
+
+8
+00:00:28,000 --> 00:00:32,000
+un (? ) de pruebas de unidad e integracin. No puede esperar que alguien ms
+
+9
+00:00:32,000 --> 00:00:36,000
+escriba las pruebas del cdigo que ha escrito. Esto es exactamente como escribir un cdigo
+
+10
+00:00:36,000 --> 00:00:40,000
+que no se compila y luego pasrselo a su compaero de trabajo y pedirle
+
+11
+00:00:40,000 --> 00:00:44,000
+que solucione el problema de la compilacin. En uno de los equipos en
+
+12
+00:00:44,000 --> 00:00:48,000
+los que trabaj anteriormente, tena un miembro del equipo que era flojo
+
+13
+00:00:48,000 --> 00:00:52,000
+al escribir pruebas para su cdigo. Hubo momentos en que tuve que extender
+
+14
+00:00:52,000 --> 00:00:56,000
+su cdigo, tal vez para hacer un cambio o para implementar una nueva funcin.
+
+15
+00:00:56,000 --> 00:01:00,000
+Me di cuenta de que su cdigo no tena pruebas en absoluto, as que
+
+16
+00:01:00,000 --> 00:01:04,000
+tuve que escribir todas las pruebas que debera haber escrito en primer lugar, y
+
+17
+00:01:04,000 --> 00:01:08,000
+luego empezar a cambiar su cdigo. Si eres ese tipo
+
+18
+00:01:08,000 --> 00:01:12,000
+de desarrollador, qu vergenza! Esto solo demuestra su
+
+19
+00:01:12,000 --> 00:01:16,000
+pereza y falta de profesionalismo. A nadie le importa qu tan
+
+20
+00:01:16,000 --> 00:01:20,000
+bueno sea un codificador o qu tan inteligente es usted si no
+
+21
+00:01:20,000 --> 00:01:24,000
+puede trabajar con otros de manera profesional. Entonces, escribir pruebas de unidad
+
+22
+00:01:24,000 --> 00:01:28,000
+e integracin es su trabajo como desarrollador de software.
+
+23
+00:01:28,000 --> 00:01:32,000
+Las pruebas de extremo a extremo son una historia diferente. A veces estn escritos
+
+24
+00:01:32,000 --> 00:01:36,000
+por desarrolladores, otras las escriben ingenieros de pruebas.
+
+25
+00:01:36,000 --> 00:01:40,000
+Entonces, a un ingeniero de pruebas no le importa cmo haya implementado una funcin determinada.
+
+26
+00:01:40,000 --> 00:01:44,000
+No les importan sus clases, mtodos y parmetros, prueban
+
+27
+00:01:44,000 --> 00:01:48,000
+la aplicacin en un nivel alto, como un usuario
+
+28
+00:01:48,000 --> 00:01:52,000
+final, entonces, ejecutan la aplicacin y la prueban manualmente,
+
+29
+00:01:52,000 --> 00:01:56,000
+o pueden escribir pruebas automatizadas que simulan un verdadero usuario.
+
+30
+00:01:56,000 --> 00:02:00,000
+De cualquier manera, no les importa la implementacin interna.
+

@@ -1,0 +1,324 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, so here in the Mocking folder
+
+2
+00:00:04,000 --> 00:00:08,000
+let's add a new class
+
+3
+00:00:08,000 --> 00:00:12,000
+EmployeeStorage. Some people may
+
+4
+00:00:12,000 --> 00:00:16,000
+prefer to call this EmployeeService, but I personally
+
+5
+00:00:16,000 --> 00:00:20,000
+prefer not to use the word service, because service is over
+
+6
+00:00:20,000 --> 00:00:24,000
+loaded in the community, it can mean different things, it also has different
+
+7
+00:00:24,000 --> 00:00:28,000
+meanings depending on what layer it's used in, I personally
+
+8
+00:00:28,000 --> 00:00:32,000
+use services to implement an application service layer.
+
+9
+00:00:32,000 --> 00:00:36,000
+An application service layer is a layer around your application
+
+10
+00:00:36,000 --> 00:00:40,000
+that is responsible for the high level orchestration. So it
+
+11
+00:00:40,000 --> 00:00:44,000
+delegates tasks to different objects. For example, it may talk
+
+12
+00:00:44,000 --> 00:00:48,000
+to an object to store something in a database, and then it may talk to
+
+13
+00:00:48,000 --> 00:00:52,000
+another object to send a notification to the user, and then finally
+
+14
+00:00:52,000 --> 00:00:56,000
+it may talk to a logger object to write something to the log.
+
+15
+00:00:56,000 --> 00:01:00,000
+So this is what we call high level orchestration.
+
+16
+00:01:00,000 --> 00:01:04,000
+And when I have scenarios like that, I use the word service. But in this case
+
+17
+00:01:04,000 --> 00:01:08,000
+we don't have high level orchestration, we don't need an application service layer
+
+18
+00:01:08,000 --> 00:01:12,000
+all you're doing is deleting an employee from our database.
+
+19
+00:01:12,000 --> 00:01:16,000
+That's why I prefer to call this class EmployeeStorage.
+
+20
+00:01:16,000 --> 00:01:20,000
+Because it's purely responsible for storage. Now you might ask
+
+21
+00:01:20,000 --> 00:01:24,000
+why I didn't call this EmployeeRepository.
+
+22
+00:01:24,000 --> 00:01:28,000
+Well, we could certainly do that, but repositories should not have
+
+23
+00:01:28,000 --> 00:01:32,000
+a save method. So we can not call respository.save
+
+24
+00:01:32,000 --> 00:01:36,000
+changes. I've explained the reason for that in my editing framework course
+
+25
+00:01:36,000 --> 00:01:40,000
+I've also written block posts about that. So simply search for Mosh
+
+26
+00:01:40,000 --> 00:01:44,000
+Hamedani, repository pattern. You will see I have a few blog posts
+
+27
+00:01:44,000 --> 00:01:48,000
+about repository and how you should use them. So if you want to use
+
+28
+00:01:48,000 --> 00:01:52,000
+a repository pattern here, you should also bring in a unit award (?)
+
+29
+00:01:52,000 --> 00:01:56,000
+and that makes this design a little bit more complicated. So that's why I
+
+30
+00:01:56,000 --> 00:02:00,000
+prefer to use an EmployeeStorage instead of EmployeeRepository
+
+31
+00:02:00,000 --> 00:02:04,000
+and unit award (?) in this context. So,
+
+32
+00:02:04,000 --> 00:02:08,000
+EmployeeStorage should have one method,
+
+33
+00:02:08,000 --> 00:02:12,000
+DeleteEmployee, it takes
+
+34
+00:02:12,000 --> 00:02:16,000
+an integer. Now, back to our controller,
+
+35
+00:02:16,000 --> 00:02:20,000
+I'm going to take these three lines. Cut.
+
+36
+00:02:20,000 --> 00:02:24,000
+And move it inside this method. So
+
+37
+00:02:24,000 --> 00:02:28,000
+here you can see we need a reference to our db context, so I'm going
+
+38
+00:02:28,000 --> 00:02:32,000
+to go back to our controller and move this private
+
+39
+00:02:32,000 --> 00:02:36,000
+field into our storage class as well.
+
+40
+00:02:36,000 --> 00:02:40,000
+And finally, let's initialize this in the
+
+41
+00:02:40,000 --> 00:02:44,000
+constructor. So a new EmployeeContext.
+
+42
+00:02:44,000 --> 00:02:48,000
+And by the way, this code has a bug, because on this
+
+43
+00:02:48,000 --> 00:02:52,000
+line it is possible that we don't find an employee with this ID.
+
+44
+00:02:52,000 --> 00:02:56,000
+So when we pass null here, we're going to get an exception.
+
+45
+00:02:56,000 --> 00:03:00,000
+So I'm going to modify this to if employee
+
+46
+00:03:00,000 --> 00:03:04,000
+is not null, then we're going to remove it from
+
+47
+00:03:04,000 --> 00:03:08,000
+context, and save the changes, okay? Or,
+
+48
+00:03:08,000 --> 00:03:12,000
+another way to rewrite this code is to reverse this
+
+49
+00:03:12,000 --> 00:03:16,000
+conditional statement and then you can get rid of this code block
+
+50
+00:03:16,000 --> 00:03:20,000
+and this extra indentation. Let me show you what I mean. So,
+
+51
+00:03:20,000 --> 00:03:24,000
+if employee is null, then we can return
+
+52
+00:03:24,000 --> 00:03:28,000
+immediately, right? And with that we no longer need
+
+53
+00:03:28,000 --> 00:03:32,000
+this code block, and this extra indentation.
+
+54
+00:03:32,000 --> 00:03:36,000
+Like this.
+
+55
+00:03:36,000 --> 00:03:40,000
+Okay, so this is our employee storage, it's
+
+56
+00:03:40,000 --> 00:03:44,000
+purely responsible for working with our database. Now
+
+57
+00:03:44,000 --> 00:03:48,000
+today in this implementation we're using any (?) framework to achieve that.
+
+58
+00:03:48,000 --> 00:03:52,000
+Maybe tomorrow we'll decide to use a different framework, or
+
+59
+00:03:52,000 --> 00:03:56,000
+you might decide to use plain sequel connection and sequel commands
+
+60
+00:03:56,000 --> 00:04:00,000
+to delete an employee from a database. That's implementation detail
+
+61
+00:04:00,000 --> 00:04:04,000
+and can change in the future. Our controller doesn't care
+
+62
+00:04:04,000 --> 00:04:08,000
+about this implementation detail, as long as this EmployeeStorage
+
+63
+00:04:08,000 --> 00:04:12,000
+has a mechanism to delete an employee, our controller is
+
+64
+00:04:12,000 --> 00:04:16,000
+going to be happy. So, now we need to extract an interface
+
+65
+00:04:16,000 --> 00:04:20,000
+from this class. So alt and enter. Refactor
+
+66
+00:04:20,000 --> 00:04:24,000
+Extract interface. And
+
+67
+00:04:24,000 --> 00:04:28,000
+Let's add this member. Okay, done.
+
+68
+00:04:28,000 --> 00:04:32,000
+So, here's our new interface, now we need to inject this into the constructor
+
+69
+00:04:32,000 --> 00:04:36,000
+of our EmployeeController, so,
+
+70
+00:04:36,000 --> 00:04:40,000
+back here, here in the constructor IEmployeeStorage.
+
+71
+00:04:40,000 --> 00:04:44,000
+Let's call that storage, and
+
+72
+00:04:44,000 --> 00:04:48,000
+create and initialize a private field in one
+
+73
+00:04:48,000 --> 00:04:52,000
+go. So we no longer need to new up this employee.
+
+74
+00:04:52,000 --> 00:04:56,000
+Context instead we have a private field of type
+
+75
+00:04:56,000 --> 00:05:00,000
+IEmployeeStorage. Now finally,
+
+76
+00:05:00,000 --> 00:05:04,000
+in our DeleteEmployee method, we
+
+77
+00:05:04,000 --> 00:05:08,000
+need to call storage.DeleteEmployee and pass
+
+78
+00:05:08,000 --> 00:05:12,000
+this ID here. So we can see with this refactoring
+
+79
+00:05:12,000 --> 00:05:16,000
+we have proper separation of concerns. Nowhere
+
+80
+00:05:16,000 --> 00:05:20,000
+in our controller we are touching our database, all that responsibility
+
+81
+00:05:20,000 --> 00:05:24,000
+is encapsulated inside our storage.
+

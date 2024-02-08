@@ -1,0 +1,462 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now we're ready to write interaction
+
+2
+00:00:04,000 --> 00:00:08,000
+tests for this method. But before we get started, I just want to
+
+3
+00:00:08,000 --> 00:00:12,000
+highlight something. Earlier in the course, I talked about
+
+4
+00:00:12,000 --> 00:00:16,000
+application services. I told you that application services are
+
+5
+00:00:16,000 --> 00:00:20,000
+responsible for orchestration. They do high level
+
+6
+00:00:20,000 --> 00:00:24,000
+jobs. And here this class is a perfect example
+
+7
+00:00:24,000 --> 00:00:28,000
+of an application service. Because this method is orchestrating
+
+8
+00:00:28,000 --> 00:00:32,000
+a few different things. It's getting housekeeper records from
+
+9
+00:00:32,000 --> 00:00:36,000
+the database, and for each housekeeper is generating
+
+10
+00:00:36,000 --> 00:00:40,000
+a statement, and also emailing that statement
+
+11
+00:00:40,000 --> 00:00:44,000
+to the Housekeeper. So this is all about orchestration.
+
+12
+00:00:44,000 --> 00:00:48,000
+So I would rather to rename this class
+
+13
+00:00:48,000 --> 00:00:52,000
+from HouseKeeperHelper, to HouseKeeperService.
+
+14
+00:00:52,000 --> 00:00:56,000
+So it's clear this is an application service. So
+
+15
+00:00:56,000 --> 00:01:00,000
+let's rename this HouseKeeperService.
+
+16
+00:01:00,000 --> 00:01:04,000
+So, as part of this unit testing
+
+17
+00:01:04,000 --> 00:01:08,000
+journey, we started with a helper class with a bunch of
+
+18
+00:01:08,000 --> 00:01:12,000
+static methods. We moved away from that design, now we have
+
+19
+00:01:12,000 --> 00:01:16,000
+a proper application service, HouseKeeperService.
+
+20
+00:01:16,000 --> 00:01:20,000
+And we also have better separation of concerns.
+
+21
+00:01:20,000 --> 00:01:24,000
+So earlier, all this code for sending emails or generating
+
+22
+00:01:24,000 --> 00:01:28,000
+statements was implemented as private static
+
+23
+00:01:28,000 --> 00:01:32,000
+methods in this class. This violates the single
+
+24
+00:01:32,000 --> 00:01:36,000
+responsibility principle. Because sending emails is an
+
+25
+00:01:36,000 --> 00:01:40,000
+entirely different concern. It shouldn't be implemented as a private
+
+26
+00:01:40,000 --> 00:01:44,000
+static method in this class. The same is true
+
+27
+00:01:44,000 --> 00:01:48,000
+for generating statements. So with this design,
+
+28
+00:01:48,000 --> 00:01:52,000
+we put the code where it belongs. We have proper
+
+29
+00:01:52,000 --> 00:01:56,000
+separation of concerns. And also our class is loosely coupled
+
+30
+00:01:56,000 --> 00:02:00,000
+and testable. Because we are programming against interfaces.
+
+31
+00:02:00,000 --> 00:02:04,000
+So now, let's create our first interaction test.
+
+32
+00:02:04,000 --> 00:02:08,000
+Back in our unit testing project,
+
+33
+00:02:08,000 --> 00:02:12,000
+inside the Mocking folder, let's add a new class,
+
+34
+00:02:12,000 --> 00:02:16,000
+HouseKeeper
+
+35
+00:02:16,000 --> 00:02:20,000
+ServiceTests.
+
+36
+00:02:20,000 --> 00:02:24,000
+We add the TestFixture attribute,
+
+37
+00:02:24,000 --> 00:02:28,000
+and create our first unit test.
+
+38
+00:02:28,000 --> 00:02:32,000
+public void, the method under test is send.
+
+39
+00:02:32,000 --> 00:02:36,000
+StatementEmails. So,
+
+40
+00:02:36,000 --> 00:02:40,000
+what scenario do we want to test? We want to make sure that when we call this method
+
+41
+00:02:40,000 --> 00:02:44,000
+it's going to generate statements for our housekeepers.
+
+42
+00:02:44,000 --> 00:02:48,000
+So, WhenCalledShouldGenerate
+
+43
+00:02:48,000 --> 00:02:52,000
+Statements. Now, let's quickly look
+
+44
+00:02:52,000 --> 00:02:56,000
+at the implementation of this method.
+
+45
+00:02:56,000 --> 00:03:00,000
+Here, we need to get the housekeepers from the database.
+
+46
+00:03:00,000 --> 00:03:04,000
+So, we need to mock this unitOfWork, and return a list of
+
+47
+00:03:04,000 --> 00:03:08,000
+housekeepers in memory.
+
+48
+00:03:08,000 --> 00:03:12,000
+So, var unitOfWork
+
+49
+00:03:12,000 --> 00:03:16,000
+we'll set this to a new Mock, of IUnitOfWork
+
+50
+00:03:16,000 --> 00:03:20,000
+and here we call UnitOfWork.SetUp
+
+51
+00:03:20,000 --> 00:03:24,000
+when we call the unit of work.
+
+52
+00:03:24,000 --> 00:03:28,000
+Query of Housekeeper
+
+53
+00:03:28,000 --> 00:03:32,000
+we should return a new list
+
+54
+00:03:32,000 --> 00:03:36,000
+ofHousekeeper Objects, let's import the
+
+55
+00:03:36,000 --> 00:03:40,000
+list class. And we initialize it here, now we
+
+56
+00:03:40,000 --> 00:03:44,000
+have a compilation issue, because this query method defined a unit of work
+
+57
+00:03:44,000 --> 00:03:48,000
+returns an IQueryable object. So,
+
+58
+00:03:48,000 --> 00:03:52,000
+after the initialization of the list, we need to call as
+
+59
+00:03:52,000 --> 00:03:56,000
+queryable. And the compilation error is gone.
+
+60
+00:03:56,000 --> 00:04:00,000
+Now here we create a new Housekeeper object.
+
+61
+00:04:00,000 --> 00:04:04,000
+Let's set it's properties, so we have
+
+62
+00:04:04,000 --> 00:04:08,000
+four different properties here, and three of them are strings.
+
+63
+00:04:08,000 --> 00:04:12,000
+So, let's set Email to a, FullName,
+
+64
+00:04:12,000 --> 00:04:16,000
+to b, Oid is an identifier
+
+65
+00:04:16,000 --> 00:04:20,000
+we set that to 1, and finally StatementEmailBody
+
+66
+00:04:20,000 --> 00:04:24,000
+to c. Simple values. So this is
+
+67
+00:04:24,000 --> 00:04:28,000
+our UnitOfWork. Now we need to create our InstanceOfOurService
+
+68
+00:04:28,000 --> 00:04:32,000
+So, service is a new
+
+69
+00:04:32,000 --> 00:04:36,000
+HouseKeeperService, the first dependency is
+
+70
+00:04:36,000 --> 00:04:40,000
+our unitOfWork, so we pass unitofWork with object.
+
+71
+00:04:40,000 --> 00:04:44,000
+But we have three more dependencies, so let's quickly
+
+72
+00:04:44,000 --> 00:04:48,000
+create a few more mock objects. The second one
+
+73
+00:04:48,000 --> 00:04:52,000
+is statementGenerator
+
+74
+00:04:52,000 --> 00:04:56,000
+we set this to a new Mock
+
+75
+00:04:56,000 --> 00:05:00,000
+ofIStatementGenerator
+
+76
+00:05:00,000 --> 00:05:04,000
+the third one is emailSender, so email
+
+77
+00:05:04,000 --> 00:05:08,000
+Sender set it to a new Mock, of I
+
+78
+00:05:08,000 --> 00:05:12,000
+EmailSender. And the last one
+
+79
+00:05:12,000 --> 00:05:16,000
+is our messageBox. So message box is also a new
+
+80
+00:05:16,000 --> 00:05:20,000
+Mock. of IMessageBox.
+
+81
+00:05:20,000 --> 00:05:24,000
+XtraMessageBox, more accurate. So now with these
+
+82
+00:05:24,000 --> 00:05:28,000
+dependencies, we can create our service.
+
+83
+00:05:28,000 --> 00:05:32,000
+So, let's pass statementGenerator.object
+
+84
+00:05:32,000 --> 00:05:36,000
+emailSender.object
+
+85
+00:05:36,000 --> 00:05:40,000
+and finally, messageBox.Object.
+
+86
+00:05:40,000 --> 00:05:44,000
+We can see our code is going beyond the screen, so let's put
+
+87
+00:05:44,000 --> 00:05:48,000
+each argument on a separate line and make this code
+
+88
+00:05:48,000 --> 00:05:52,000
+more readable. So here we have a service. Now, we
+
+89
+00:05:52,000 --> 00:05:56,000
+need to act. So, service,
+
+90
+00:05:56,000 --> 00:06:00,000
+.SendStatementEmails. We need to pass
+
+91
+00:06:00,000 --> 00:06:04,000
+a DateTime, let's just send an arbitrary date.
+
+92
+00:06:04,000 --> 00:06:08,000
+And finally, we need to
+
+93
+00:06:08,000 --> 00:06:12,000
+verify that the right method in statementGenerator
+
+94
+00:06:12,000 --> 00:06:16,000
+was called. So, statement
+
+95
+00:06:16,000 --> 00:06:20,000
+Generator.Verify sg
+
+96
+00:06:20,000 --> 00:06:24,000
+goes to sg.SaveStatement.
+
+97
+00:06:24,000 --> 00:06:28,000
+Now what argument should we pass here? The first argument is Id
+
+98
+00:06:28,000 --> 00:06:32,000
+of our HouseKeeper, I'm going to pass 1, the second argument
+
+99
+00:06:32,000 --> 00:06:36,000
+is HouseKeeper's name, we use b here, so we should
+
+100
+00:06:36,000 --> 00:06:40,000
+pass b here as well.
+
+101
+00:06:40,000 --> 00:06:44,000
+And the third argument is the statement date. And
+
+102
+00:06:44,000 --> 00:06:48,000
+that's the same date we use right here.
+
+103
+00:06:48,000 --> 00:06:52,000
+So, let's pass that here as well, and we are missing
+
+104
+00:06:52,000 --> 00:06:56,000
+1 closing parenthesis, got it. Okay,
+
+105
+00:06:56,000 --> 00:07:00,000
+so here's our first unit test, it's very
+
+106
+00:07:00,000 --> 00:07:04,000
+fat, it's bulky and noisy, we're going to refactor this later, but first
+
+107
+00:07:04,000 --> 00:07:08,000
+let's make sure that it passes. So,
+
+108
+00:07:08,000 --> 00:07:12,000
+okay, we have compilation error here, in EmailSender
+
+109
+00:07:12,000 --> 00:07:16,000
+class, looks like we're missing the reference to the file
+
+110
+00:07:16,000 --> 00:07:20,000
+class. So, let's import the name space.
+
+111
+00:07:20,000 --> 00:07:24,000
+Done. Back in our unit test class, let's
+
+112
+00:07:24,000 --> 00:07:28,000
+run this test,
+
+113
+00:07:28,000 --> 00:07:32,000
+Okay, here's our test,
+
+114
+00:07:32,000 --> 00:07:36,000
+and it successfully passed. Beautiful. In the next lecture, we're
+
+115
+00:07:36,000 --> 00:07:40,000
+going to refactor this code, and make it cleaner.
+
+
+

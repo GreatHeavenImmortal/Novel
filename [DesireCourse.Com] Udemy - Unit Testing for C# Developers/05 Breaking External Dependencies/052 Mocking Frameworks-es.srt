@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:04,000
+As que antes en esta seccin, creamos este FakeFileReader, y
+
+2
+00:00:04,000 --> 00:00:08,000
+lo usamos para escribir una prueba unitaria para nuestra clase
+
+3
+00:00:08,000 --> 00:00:12,000
+de servicio de video. Entonces en esta prueba,
+
+4
+00:00:12,000 --> 00:00:16,000
+estamos probando solo una de las rutas de ejecucin,
+
+5
+00:00:16,000 --> 00:00:20,000
+en el mtodo ReadVideoTitle, esa es la ruta de
+
+6
+00:00:20,000 --> 00:00:24,000
+ejecucin que estamos probando. Pero, y si quieres probar
+
+7
+00:00:24,000 --> 00:00:28,000
+las otras rutas de ejecucin? Bueno, tenemos que cambiar
+
+8
+00:00:28,000 --> 00:00:32,000
+nuestro FakeFileReader, as que en lugar de devolver
+
+9
+00:00:32,000 --> 00:00:36,000
+una cadena vaca, deberamos devolver un objeto de
+
+10
+00:00:36,000 --> 00:00:40,000
+video real, serializado como json. Pero aqu est el problema, si modifica este cdigo,
+
+11
+00:00:40,000 --> 00:00:44,000
+la prueba de unidad existente se va a romper. Entonces deberamos crear otro
+
+12
+00:00:44,000 --> 00:00:48,000
+FakeFileReader que implemente esta interfaz y en ese objeto
+
+13
+00:00:48,000 --> 00:00:52,000
+falso, en lugar de devolver una cadena vaca, deberamos
+
+14
+00:00:52,000 --> 00:00:56,000
+devolver un objeto json real. Podemos ver que este
+
+15
+00:00:56,000 --> 00:01:00,000
+enfoque consume mucho tiempo. Crear todos estos objetos falsos
+
+16
+00:01:00,000 --> 00:01:04,000
+a mano requiere mucho tiempo. Entonces, es por eso que utilizamos
+
+17
+00:01:04,000 --> 00:01:08,000
+un marco de aislamiento burln. Entonces, hay marcos que
+
+18
+00:01:08,000 --> 00:01:12,000
+nos ayudan a crear dinmicamente estos objetos
+
+19
+00:01:12,000 --> 00:01:16,000
+falsos o falsos. Entonces no tenemos que codificarlos a mano.
+
+20
+00:01:16,000 --> 00:01:20,000
+Podemos crearlos dinmicamente como parte de nuestras pruebas. y lo que es
+
+21
+00:01:20,000 --> 00:01:24,000
+ms interesante, podemos programarlos para que se comporten
+
+22
+00:01:24,000 --> 00:01:28,000
+de la manera que queramos. Entonces podemos programarlos para lanzar excepciones, para devolver
+
+23
+00:01:28,000 --> 00:01:32,000
+valores, para generar eventos, y as sucesivamente. De nuevo, tenemos diferentes
+
+24
+00:01:32,000 --> 00:01:36,000
+marcos de aislamiento o burlas, tenemos simulacros con
+
+25
+00:01:36,000 --> 00:01:40,000
+una q, tenemos Nsubstitute, tenemos FakeItEasy, tenemos Rhino
+
+26
+00:01:40,000 --> 00:01:44,000
+Mocks y dems. Despus de todos estos marcos, el
+
+27
+00:01:44,000 --> 00:01:48,000
+que personalmente prefiero es falso. En la prxima conferencia,
+
+28
+00:01:48,000 --> 00:01:52,000
+les mostrar cmo usar este marco para
+
+29
+00:01:52,000 --> 00:01:55,000
+crear dinmicamente o simular objetos.
+

@@ -1,0 +1,368 @@
+1
+00:00:00,000 --> 00:00:04,000
+In this lecture, we're going to look at testing methods
+
+2
+00:00:04,000 --> 00:00:08,000
+that return an array or a collection. So,
+
+3
+00:00:08,000 --> 00:00:12,000
+back to our math class, we have another method
+
+4
+00:00:12,000 --> 00:00:16,000
+here, that takes the limit, and returns the odd numbers
+
+5
+00:00:16,000 --> 00:00:20,000
+starting from 0, up to that limit.
+
+6
+00:00:20,000 --> 00:00:24,000
+So it's returning an IEnumberable of this version. When
+
+7
+00:00:24,000 --> 00:00:28,000
+testing methods that return an array or a collection, again
+
+8
+00:00:28,000 --> 00:00:32,000
+you need to do your own assessment on how general, or how
+
+9
+00:00:32,000 --> 00:00:36,000
+specific your tests should be. Let me show you a few examples.
+
+10
+00:00:36,000 --> 00:00:40,000
+So, back to our math tests class.
+
+11
+00:00:40,000 --> 00:00:44,000
+I'm going to define a new test method here,
+
+13
+00:00:48,000 --> 00:00:52,000
+public void GetOdd
+
+14
+00:00:52,000 --> 00:00:56,000
+Numbers. Now what scenarios do we have here? Again,
+
+15
+00:00:56,000 --> 00:01:00,000
+we don't want to look at the implementation, we want to think of this method as
+
+16
+00:01:00,000 --> 00:01:04,000
+a black box. So it has one argument, limit, this limit
+
+17
+00:01:04,000 --> 00:01:08,000
+can be a negative number, it can be 0, it can be a positive number.
+
+18
+00:01:08,000 --> 00:01:12,000
+So these are the three test cases I would write for this method. Now,
+
+19
+00:01:12,000 --> 00:01:16,000
+in this lecture, I don't want to implement all these test cases, because
+
+20
+00:01:16,000 --> 00:01:20,000
+our focus is on testing arrays and collections. I'm going to show you
+
+21
+00:01:20,000 --> 00:01:24,000
+one test case, and then you can implement the other test cases on your own.
+
+22
+00:01:24,000 --> 00:01:28,000
+So, the scenario is Limit
+
+23
+00:01:28,000 --> 00:01:32,000
+IsGreaterThanZero. It should
+
+24
+00:01:32,000 --> 00:01:36,000
+return OddNumbers
+
+25
+00:01:36,000 --> 00:01:40,000
+UpToLimit. So, you have
+
+26
+00:01:40,000 --> 00:01:44,000
+a math object to simply call math.GetOddNumbers.
+
+27
+00:01:44,000 --> 00:01:48,000
+And as the limit, I'm going to pass 5.
+
+28
+00:01:48,000 --> 00:01:52,000
+You will ask why I didn't use 1 here. Because if
+
+29
+00:01:52,000 --> 00:01:56,000
+we use one, we get an array with only one item.
+
+30
+00:01:56,000 --> 00:02:00,000
+When dealing with arrays, I would like my array to have three items.
+
+31
+00:02:00,000 --> 00:02:04,000
+So it's more real life. So 5,
+
+32
+00:02:04,000 --> 00:02:08,000
+we get the result, now.
+
+33
+00:02:08,000 --> 00:02:12,000
+Let's look at a few different ways to write our Assertions.
+
+34
+00:02:12,000 --> 00:02:16,000
+Here's the most general way to write an Assertion.
+
+35
+00:02:16,000 --> 00:02:20,000
+Assert That Result
+
+36
+00:02:20,000 --> 00:02:24,000
+Is Not Empty.
+
+37
+00:02:24,000 --> 00:02:28,000
+Very general, I can have any numbers in this array and it will pass.
+
+38
+00:02:28,000 --> 00:02:32,000
+Sometimes you don't hear about specific values in an array or a collection,
+
+39
+00:02:32,000 --> 00:02:36,000
+you just want to make sure that there is something in the array or collection that is
+
+40
+00:02:36,000 --> 00:02:40,000
+returned from your methods. In that case, this Assertion is perfectly fine.
+
+41
+00:02:40,000 --> 00:02:44,000
+But in this case, it's a little bit too general, a more specific
+
+42
+00:02:44,000 --> 00:02:48,000
+way is to test for the number of items in
+
+43
+00:02:48,000 --> 00:02:52,000
+this array. So, Assert
+
+44
+00:02:52,000 --> 00:02:56,000
+That result.Count
+
+45
+00:02:56,000 --> 00:03:00,000
+Is EqualTo3
+
+46
+00:03:00,000 --> 00:03:04,000
+A little bit more specific, but we can have any numbers
+
+47
+00:03:04,000 --> 00:03:08,000
+in this array, you can have 1, 1, 1. It doesn't give us much confidence.
+
+48
+00:03:08,000 --> 00:03:12,000
+Again, another general way to write an Assertion
+
+49
+00:03:12,000 --> 00:03:16,000
+is like this. Assert That result
+
+50
+00:03:16,000 --> 00:03:20,000
+Does Contain 1.
+
+51
+00:03:20,000 --> 00:03:24,000
+I'm going to duplicate this, it also contains
+
+52
+00:03:24,000 --> 00:03:28,000
+3, and 5.
+
+53
+00:03:28,000 --> 00:03:32,000
+So I just want to clarify something,
+
+54
+00:03:32,000 --> 00:03:36,000
+I'm showing you different Assertions here, but that doesn't mean when
+
+55
+00:03:36,000 --> 00:03:40,000
+you're testing this method, you should write all these Assertions, you should
+
+56
+00:03:40,000 --> 00:03:44,000
+either use an Assertion like this, to make sure the result is
+
+57
+00:03:44,000 --> 00:03:48,000
+not empty, or you should check for the count,
+
+58
+00:03:48,000 --> 00:03:52,000
+or if you want to be more specific you want to check for the
+
+59
+00:03:52,000 --> 00:03:56,000
+existence of certain objects in the array, but you don't care about the order.
+
+60
+00:03:56,000 --> 00:04:00,000
+because if you care about the order, your test is very specific.
+
+61
+00:04:00,000 --> 00:04:04,000
+Now sometimes, maybe that's what you want because your array
+
+62
+00:04:04,000 --> 00:04:08,000
+is supposed to return items that are sorted ahead of time. But in this
+
+63
+00:04:08,000 --> 00:04:12,000
+case, chances are we don't care about the order of these
+
+64
+00:04:12,000 --> 00:04:16,000
+items in the array. So we can write three Assertions
+
+65
+00:04:16,000 --> 00:04:20,000
+to just make sure that we have 1, 3, and 5. But there is
+
+66
+00:04:20,000 --> 00:04:24,000
+a shorter, and cleaner way to write the same three Assertions.
+
+67
+00:04:24,000 --> 00:04:28,000
+You can write Assert,
+
+68
+00:04:28,000 --> 00:04:32,000
+That, result Is
+
+69
+00:04:32,000 --> 00:04:36,000
+Equivalent to, and here we create
+
+70
+00:04:36,000 --> 00:04:40,000
+an array with three numbers.
+
+71
+00:04:40,000 --> 00:04:44,000
+1, 3, 5. So this is equivalent to
+
+72
+00:04:44,000 --> 00:04:48,000
+make sure that we have all these items
+
+73
+00:04:48,000 --> 00:04:52,000
+in the result array, it doesn't care about the order, it just
+
+74
+00:04:52,000 --> 00:04:56,000
+checks for the existence of each of these items. So this line
+
+75
+00:04:56,000 --> 00:05:00,000
+is equivalent to writing these three lines.
+
+76
+00:05:00,000 --> 00:05:04,000
+So this is my preferred way to test the Get
+
+77
+00:05:04,000 --> 00:05:08,000
+OddNumbers method. Let's run this test and make sure it
+
+78
+00:05:08,000 --> 00:05:12,000
+passes.
+
+79
+00:05:12,000 --> 00:05:16,000
+Okay. It's passing, beautiful. Now, before we
+
+80
+00:05:16,000 --> 00:05:20,000
+finish this lecture, I'm going to show you a couple more useful Assertions.
+
+81
+00:05:20,000 --> 00:05:24,000
+Assert,
+
+82
+00:05:24,000 --> 00:05:28,000
+That result IsOrdered.
+
+83
+00:05:28,000 --> 00:05:32,000
+So if your method is supposed to sort the items,
+
+84
+00:05:32,000 --> 00:05:36,000
+you can make sure they're ordered. You have
+
+85
+00:05:36,000 --> 00:05:40,000
+another useful Assertion, Assert That
+
+86
+00:05:40,000 --> 00:05:44,000
+result Is Unique. So with this you make sure
+
+87
+00:05:44,000 --> 00:05:48,000
+that there are no duplicate items in your array.
+
+88
+00:05:48,000 --> 00:05:52,000
+For this particular method, we don't really need these Assertions.
+
+89
+00:05:52,000 --> 00:05:56,000
+But I want you to be aware of them, maybe you will need these in your applications.
+
+90
+00:05:56,000 --> 00:06:00,000
+So this is what I want you to take away. When you're testing methods that
+
+91
+00:06:00,000 --> 00:06:04,000
+return an array or a collection, make sure you're
+
+92
+00:06:04,000 --> 00:06:08,000
+test methods are not too general, or too specific.
+
+93
+00:06:08,000 --> 00:06:11,000
+Find a right balance.
+

@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:04,000
+Nesta seo, vou lhe dar um
+
+2
+00:00:04,000 --> 00:00:08,000
+exerccio mais desafiador. Ento, dentro desta
+
+3
+00:00:08,000 --> 00:00:12,000
+pasta Mocking, veja esta classe BookingHelper.
+
+4
+00:00:12,000 --> 00:00:16,000
+Aqui temos um mtodo chamado
+
+5
+00:00:16,000 --> 00:00:20,000
+OverlappingBookings Exist. Por isso,  necessrio um objeto de reserva, primeiro
+
+6
+00:00:20,000 --> 00:00:24,000
+ele verifica se esta reserva foi cancelada ou no. Se for cancelado, retornar
+
+7
+00:00:24,000 --> 00:00:28,000
+uma string vazia. Caso contrrio, ele executar uma
+
+8
+00:00:28,000 --> 00:00:32,000
+consulta para obter todas as reservas existentes que no
+
+9
+00:00:32,000 --> 00:00:36,000
+forem canceladas e sua ID no ser igual ao
+
+10
+00:00:36,000 --> 00:00:40,000
+ID desse objeto de reserva que  passado aqui.
+
+11
+00:00:40,000 --> 00:00:44,000
+Agora, nessa implementao, esse cdigo est usando alguns wrappers ao
+
+12
+00:00:44,000 --> 00:00:48,000
+redor do framework de entidades. Em seus aplicativos, voc pode ter um mecanismo
+
+13
+00:00:48,000 --> 00:00:52,000
+diferente para consultar seu banco de dados. Voc pode usar a estrutura de
+
+14
+00:00:52,000 --> 00:00:56,000
+entidade, voc pode usar um ORM diferente. Ou voc pode usar
+
+15
+00:00:56,000 --> 00:01:00,000
+o ADO simples. NET objetos como conexo SQL, comando SQL e assim por diante.
+
+16
+00:01:00,000 --> 00:01:04,000
+O que importa aqui  que esse cdigo est acessando algum recurso externo,
+
+17
+00:01:04,000 --> 00:01:08,000
+neste caso, um banco de dados. E, como voc aprendeu, precisamos
+
+18
+00:01:08,000 --> 00:01:12,000
+refatorar esse cdigo e torn-lo fracamente acoplado e testvel.
+
+19
+00:01:12,000 --> 00:01:16,000
+Ento, assim que tivermos todas as reservas existentes que
+
+20
+00:01:16,000 --> 00:01:20,000
+no forem canceladas, excluindo a reserva que  passada
+
+21
+00:01:20,000 --> 00:01:24,000
+para esse mtodo, voc deseja verificar se esse objeto
+
+22
+00:01:24,000 --> 00:01:28,000
+de reserva que passamos aqui se sobrepe a qualquer
+
+23
+00:01:28,000 --> 00:01:32,000
+uma das reservas existentes. E, finalmente, se no houver sobreposio,
+
+24
+00:01:32,000 --> 00:01:36,000
+esse mtodo retornar uma string vazia. Caso contrrio, ele retornar
+
+25
+00:01:36,000 --> 00:01:40,000
+a referncia para a primeira reserva que ultrapassar
+
+26
+00:01:40,000 --> 00:01:44,000
+a reserva existente. Ento, v em frente e
+
+27
+00:01:44,000 --> 00:01:48,000
+passe algum tempo e escreva todos os testes de unidade
+
+28
+00:01:48,000 --> 00:01:52,000
+necessrios para esse mtodo. Certifique-se de testar todos os caminhos
+
+29
+00:01:52,000 --> 00:01:56,000
+de execuo, certifique-se de que seus testes sejam limpos, sustentveis e confiveis, de
+
+30
+00:01:56,000 --> 00:02:00,000
+modo que todas as melhores prticas que voc aprendeu neste curso eu quero
+
+31
+00:02:00,000 --> 00:02:04,000
+que voc as aplique em sua soluo. Ento pause o vdeo agora,
+
+32
+00:02:04,000 --> 00:02:08,000
+faa este exerccio e, quando terminar, volte, continue e veja
+
+33
+00:02:08,000 --> 00:02:12,000
+como eu escrevo os testes de unidade para esse mtodo.
+

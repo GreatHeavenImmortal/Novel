@@ -1,0 +1,484 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, olhe para estes 3 testes que
+
+2
+00:00:04,000 --> 00:00:08,000
+escrevemos na ltima aula. Aqui est um exemplo.
+
+3
+00:00:08,000 --> 00:00:12,000
+Esse teste no  to ruim,  bem curto, mas no
+
+4
+00:00:12,000 --> 00:00:16,000
+estou 100% satisfeito com essa implementao. Podemos levar isso para o prximo nvel
+
+5
+00:00:16,000 --> 00:00:20,000
+e torn-lo mais limpo e mais sustentvel. Olha, essa parte de organizao
+
+6
+00:00:20,000 --> 00:00:24,000
+ de 3 linhas de cdigo e ns repetimos isso
+
+7
+00:00:24,000 --> 00:00:28,000
+em alguns lugares diferentes. A nica diferena
+
+8
+00:00:28,000 --> 00:00:32,000
+so os argumentos que passamos para
+
+9
+00:00:32,000 --> 00:00:36,000
+o mtodo de retorno. Agora, em contraste,
+
+10
+00:00:36,000 --> 00:00:40,000
+veja como implementamos esse cenrio.
+
+11
+00:00:40,000 --> 00:00:44,000
+Onde o email da empregada  uma string vazia ou
+
+12
+00:00:44,000 --> 00:00:48,000
+espao em branco. ou nulo. Nossa parte de organizao
+
+13
+00:00:48,000 --> 00:00:52,000
+ apenas uma linha de cdigo. Ento, a primeira coisa que
+
+14
+00:00:52,000 --> 00:00:56,000
+eu quero melhorar aqui  mudar a implementao desses
+
+15
+00:00:56,000 --> 00:01:00,000
+mtodos de teste, e ao invs de programar o
+
+16
+00:01:00,000 --> 00:01:04,000
+mock aqui, eu quero programar o mock em nosso
+
+17
+00:01:04,000 --> 00:01:08,000
+mtodo SetUp, e ento aqui ns podemos simplesmente setar
+
+18
+00:01:08,000 --> 00:01:12,000
+statementFileName para digamos null para este caso de teste.
+
+19
+00:01:12,000 --> 00:01:16,000
+Mas atualmente, isso no funciona porque definimos esse
+
+20
+00:01:16,000 --> 00:01:20,000
+campo como somente leitura. Ento, primeiro vamos mover
+
+21
+00:01:20,000 --> 00:01:24,000
+essas poucas linhas dentro do nosso mtodo SetUp.
+
+22
+00:01:24,000 --> 00:01:28,000
+Cortar. Ok, aqui est
+
+23
+00:01:28,000 --> 00:01:32,000
+o mtodo SetUp. Ento  aqui que estamos inicializando
+
+24
+00:01:32,000 --> 00:01:36,000
+o objeto gerador de instruo. Ento, logo depois eu
+
+25
+00:01:36,000 --> 00:01:40,000
+quero colar esse cdigo e adicionar uma
+
+26
+00:01:40,000 --> 00:01:44,000
+quebra de linha. Ento essas duas linhas,
+
+27
+00:01:44,000 --> 00:01:48,000
+altamente relacionadas, so puramente para programar nosso
+
+28
+00:01:48,000 --> 00:01:52,000
+gerador de instrues Mock Now, ao invs
+
+29
+00:01:52,000 --> 00:01:56,000
+de retornar null aqui, eu vou retornar statementFileName.
+
+30
+00:01:56,000 --> 00:02:00,000
+OK? E aqui no mtodo SetUp,
+
+31
+00:02:00,000 --> 00:02:04,000
+eu quero definir os valores iniciais para os caminhos felizes.
+
+32
+00:02:04,000 --> 00:02:08,000
+E ento nos casos de teste em que estamos testando algo
+
+33
+00:02:08,000 --> 00:02:12,000
+negativo, modificaremos esse caminho feliz. Ento, aqui, definimos
+
+34
+00:02:12,000 --> 00:02:16,000
+statementFileName para um valor real como
+
+35
+00:02:16,000 --> 00:02:20,000
+fileName e, em seguida, podemos sobrescrev-lo
+
+36
+00:02:20,000 --> 00:02:24,000
+nesses trs testes negativos. Voc pode defini-lo como null,
+
+37
+00:02:24,000 --> 00:02:28,000
+string vazia ou espao em branco. Agora vamos nos livrar
+
+38
+00:02:28,000 --> 00:02:32,000
+desse problema de compilao. Ento, precisamos remover o
+
+39
+00:02:32,000 --> 00:02:36,000
+modificador somente leitura aqui. E com essa nova
+
+40
+00:02:36,000 --> 00:02:40,000
+implementao, devemos inicializar esse campo dentro do mtodo SetUp,
+
+41
+00:02:40,000 --> 00:02:44,000
+porque queremos ter certeza de que, antes de cada
+
+42
+00:02:44,000 --> 00:02:48,000
+teste, tenhamos um estado limpo. Ento, vamos apagar esta
+
+43
+00:02:48,000 --> 00:02:52,000
+inicializao aqui, ok agora, de volta aos nossos
+
+44
+00:02:52,000 --> 00:02:56,000
+testes unitrios negativos. Ento, at o final
+
+45
+00:02:56,000 --> 00:03:00,000
+aqui, ok, aqui est um, envie o
+
+46
+00:03:00,000 --> 00:03:04,000
+statementEmails onde StatementFileName  uma string vazia.
+
+47
+00:03:04,000 --> 00:03:08,000
+Assim, podemos simplificar essas trs linhas e,
+
+48
+00:03:08,000 --> 00:03:12,000
+em vez disso, adicionar statementFileName, defini-lo como
+
+49
+00:03:12,000 --> 00:03:16,000
+uma string vazia. Aqui est outro.
+
+50
+00:03:16,000 --> 00:03:20,000
+Ns definimos statementFileName para o espao em branco,
+
+51
+00:03:20,000 --> 00:03:24,000
+olha, o teste j est mais limpo.
+
+52
+00:03:24,000 --> 00:03:28,000
+E aqui est o outro caso de teste negativo.
+
+53
+00:03:28,000 --> 00:03:32,000
+Vamos executar esses testes, ento vou colocar o
+
+54
+00:03:32,000 --> 00:03:36,000
+cursor no nome da classe e executar todos
+
+55
+00:03:36,000 --> 00:03:40,000
+os testes, ok. Esses trs testes, todos
+
+56
+00:03:40,000 --> 00:03:44,000
+eles quebraram. Por qu? Deixe-me explicar. Ento,
+
+57
+00:03:44,000 --> 00:03:48,000
+olhe o mtodo SetUp.
+
+58
+00:03:48,000 --> 00:03:52,000
+Aqui ns definimos statementFileName, para essa string,
+
+59
+00:03:52,000 --> 00:03:56,000
+declarao fileName, e ento programamos este Mock
+
+60
+00:03:56,000 --> 00:04:00,000
+para retornar este valor. Portanto, mesmo que sobrescrevamos
+
+61
+00:04:00,000 --> 00:04:04,000
+o valor desse campo em nossos mtodos
+
+62
+00:04:04,000 --> 00:04:08,000
+de teste, essa simulao  programada antecipadamente
+
+63
+00:04:08,000 --> 00:04:12,000
+para retornar um fileName. Portanto, no estamos testando o
+
+64
+00:04:12,000 --> 00:04:16,000
+cenrio em que nosso gerador de instrues no pode gerar
+
+65
+00:04:16,000 --> 00:04:20,000
+um arquivo de instruo. Como resolvemos esse problema?  muito fcil.
+
+66
+00:04:20,000 --> 00:04:24,000
+Na ltima palestra, eu disse a voc que este
+
+67
+00:04:24,000 --> 00:04:28,000
+mtodo Returns tem duas sobrecargas. Um que leva um valor extra, como uma string.
+
+68
+00:04:28,000 --> 00:04:32,000
+E o outro que leva um funk, um delegado, uma expresso lambda.
+
+69
+00:04:32,000 --> 00:04:36,000
+Ns usamos isso para avaliao preguiosa.
+
+70
+00:04:36,000 --> 00:04:40,000
+Ento, se ao invs de passar este campo
+
+71
+00:04:40,000 --> 00:04:44,000
+privado aqui, ns passamos. uma expresso lambda, a
+
+72
+00:04:44,000 --> 00:04:48,000
+expresso lambda, uma funo sem argumentos, vai para
+
+73
+00:04:48,000 --> 00:04:52,000
+esse campo privado. Aqui temos
+
+74
+00:04:52,000 --> 00:04:56,000
+avaliao preguiosa. Assim, com essa tcnica, poderemos
+
+75
+00:04:56,000 --> 00:05:00,000
+alterar o valor desses campos em nossos mtodos de teste,
+
+76
+00:05:00,000 --> 00:05:04,000
+e essa expresso ser avaliada posteriormente. Agora, vamos executar todos os
+
+77
+00:05:04,000 --> 00:05:08,000
+testes, ento eu coloco o cursor de volta no nome
+
+78
+00:05:08,000 --> 00:05:12,000
+da classe, e executo os testes, voc pode ver que
+
+79
+00:05:12,000 --> 00:05:16,000
+eles esto todos passando, lindos. Agora, vamos dar
+
+80
+00:05:16,000 --> 00:05:20,000
+uma olhada final nos testes que
+
+81
+00:05:20,000 --> 00:05:24,000
+escrevemos na ltima palestra. Ento, esses trs testes negativos
+
+82
+00:05:24,000 --> 00:05:28,000
+que podemos ver sua afirmao so exatamente os mesmos.
+
+83
+00:05:28,000 --> 00:05:32,000
+Voc est verificando que esse mtodo no  chamado e estamos usando o IsAny
+
+84
+00:05:32,000 --> 00:05:36,000
+string e o Times. Nunca. E isso
+
+85
+00:05:36,000 --> 00:05:40,000
+ repetido nos ltimos trs testes.
+
+86
+00:05:40,000 --> 00:05:44,000
+Portanto, ao escrever testes unitrios,  muito til extrair alguns
+
+87
+00:05:44,000 --> 00:05:48,000
+mtodos auxiliares particulares para tornar seus testes mais legveis.
+
+88
+00:05:48,000 --> 00:05:52,000
+Por exemplo, aqui, podemos selecionar esse
+
+89
+00:05:52,000 --> 00:05:56,000
+cdigo e extra-lo em um mtodo
+
+90
+00:05:56,000 --> 00:06:00,000
+privado, portanto, alt e digite, refatorar
+
+91
+00:06:00,000 --> 00:06:04,000
+esse mtodo de extrao. Podemos chamar
+
+92
+00:06:04,000 --> 00:06:08,000
+isso de VerifyEmail NotSent.  muito descritivo.
+
+93
+00:06:08,000 --> 00:06:12,000
+Em seguida, olhe para este mtodo de teste, apenas trs linhas de cdigo.
+
+94
+00:06:12,000 --> 00:06:16,000
+No pode ser mais simples do que isso, definimos o nome
+
+95
+00:06:16,000 --> 00:06:20,000
+do arquivo de instruo como null, agimos e verificamos que EmailIsNotSent.
+
+96
+00:06:20,000 --> 00:06:24,000
+Agora, vou mover isso para o final
+
+97
+00:06:24,000 --> 00:06:28,000
+desta aula, porque colocamos. todos os mtodos
+
+98
+00:06:28,000 --> 00:06:32,000
+auxiliares no fundo. E modifique
+
+99
+00:06:32,000 --> 00:06:36,000
+estas duas ocorrncias, para
+
+100
+00:06:36,000 --> 00:06:40,000
+chamar VerifyEmailNotSent. E
+
+101
+00:06:40,000 --> 00:06:44,000
+mais um aqui.
+
+102
+00:06:44,000 --> 00:06:48,000
+OK. Muito melhor. Agora, potencialmente no
+
+103
+00:06:48,000 --> 00:06:52,000
+outro caso de teste, onde queremos afirmar que
+
+104
+00:06:52,000 --> 00:06:56,000
+o email  enviado, novamente, podemos extrair isso
+
+105
+00:06:56,000 --> 00:07:00,000
+no mtodo auxiliar chamado VerifyEmailSent. E assim teremos simetria
+
+106
+00:07:00,000 --> 00:07:04,000
+em nosso cdigo. Ento, vamos fazer isso tambm.
+
+107
+00:07:04,000 --> 00:07:08,000
+Alt e digite. Refatorar. Extraia
+
+108
+00:07:08,000 --> 00:07:12,000
+o mtodo. VerifyEmailSent.
+
+109
+00:07:12,000 --> 00:07:16,000
+Muito melhor. E tambm no precisamos
+
+110
+00:07:16,000 --> 00:07:20,000
+mais dessas poucas linhas, porque programamos nosso
+
+111
+00:07:20,000 --> 00:07:24,000
+simulador de gerador de declaraes para retornar
+
+112
+00:07:24,000 --> 00:07:28,000
+um nome de arquivo vlido dentro do
+
+113
+00:07:28,000 --> 00:07:32,000
+mtodo SetUp, ento vamos apagar essas duas
+
+114
+00:07:32,000 --> 00:07:36,000
+linhas e mover esse mtodo auxiliar para baixo.
+
+115
+00:07:36,000 --> 00:07:40,000
+Como isso. Ento, isso  o que voc
+
+116
+00:07:40,000 --> 00:07:44,000
+chama de teste unitrio adequado. Muito, muito
+
+117
+00:07:44,000 --> 00:07:48,000
+curto, muito limpo. Em uma das empresas em que trabalhei
+
+118
+00:07:48,000 --> 00:07:52,000
+h alguns anos, tivemos testes de unidade com 50 linhas de cdigo, o que
+
+119
+00:07:52,000 --> 00:07:56,000
+no  um teste de unidade. Esse tipo de teste de unidade
+
+120
+00:07:56,000 --> 00:08:00,000
+atrasa voc, quebra facilmente, e quando ele quebra, voc leva mais tempo
+
+121
+00:08:00,000 --> 00:08:02,000
+para descobrir o que est acontecendo.
+

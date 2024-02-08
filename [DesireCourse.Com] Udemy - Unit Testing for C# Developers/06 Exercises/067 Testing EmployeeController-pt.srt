@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+Agora, vamos testar a interao desse
+
+2
+00:00:04,000 --> 00:00:08,000
+controlador com esse novo objeto de armazenamento.
+
+3
+00:00:08,000 --> 00:00:12,000
+Ento, de volta ao nosso projeto
+
+4
+00:00:12,000 --> 00:00:16,000
+de testes unitrios, dentro da pasta
+
+5
+00:00:16,000 --> 00:00:20,000
+Mocking, vou adicionar uma nova classe EmployeeControllerTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+Vamos adicionar um atributo TestFixture.
+
+7
+00:00:24,000 --> 00:00:28,000
+E crie um teste
+
+8
+00:00:28,000 --> 00:00:32,000
+para o mtodo DeleteEmployee.
+
+9
+00:00:32,000 --> 00:00:36,000
+Portanto, quando isso  chamado, ele deve
+
+10
+00:00:36,000 --> 00:00:40,000
+excluir o funcionrio do banco de dados.
+
+11
+00:00:40,000 --> 00:00:44,000
+Agora precisamos criar um objeto Mock,
+
+12
+00:00:44,000 --> 00:00:48,000
+ento var storage como um novo
+
+13
+00:00:48,000 --> 00:00:52,000
+Mock de IEmployeeStorage, com isso podemos
+
+14
+00:00:52,000 --> 00:00:56,000
+criar um objeto controller, ento controller,
+
+15
+00:00:56,000 --> 00:01:00,000
+ um novo EmployeeController, e como
+
+16
+00:01:00,000 --> 00:01:04,000
+argumento o pass pass storage. objeto.
+
+17
+00:01:04,000 --> 00:01:08,000
+Agora, precisamos agir, ento controlador. DeleteEmployee. Usamos o valor
+
+18
+00:01:08,000 --> 00:01:12,000
+simples aqui como 1. Neste caso, no nos importamos
+
+19
+00:01:12,000 --> 00:01:16,000
+com o resultado, apenas queremos testar a interao deste controlador
+
+20
+00:01:16,000 --> 00:01:20,000
+com um objeto de armazenamento. Ento, ns chamamos armazenamento. Verificar. D a ele uma expresso
+
+21
+00:01:20,000 --> 00:01:24,000
+lambda que voc deseja certificar-se
+
+22
+00:01:24,000 --> 00:01:28,000
+de que o mtodo de armazenamento DeleteEmployee seja chamado, DeleteEmployee
+
+23
+00:01:28,000 --> 00:01:32,000
+e o argumento para esse mtodo deve ser 1. Vamos rodar esse
+
+24
+00:01:32,000 --> 00:01:36,000
+teste.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ento aqui est nosso teste, passou com sucesso.
+
+26
+00:01:40,000 --> 00:01:44,000
+Bonita. Portanto, este  um teste, para o
+
+27
+00:01:44,000 --> 00:01:48,000
+nosso mtodo DeleteEmployee. Mas esse mtodo realmente requer outro
+
+28
+00:01:48,000 --> 00:01:52,000
+teste que no vou escrever nesta
+
+29
+00:01:52,000 --> 00:01:56,000
+palestra, s quero destacar isso, voc pode fazer isso como um exerccio. Ento, de volta ao nosso controlador, tambm
+
+30
+00:01:56,000 --> 00:02:00,000
+devemos nos certificar de
+
+31
+00:02:00,000 --> 00:02:04,000
+que esse mtodo retorne o valor correto
+
+32
+00:02:04,000 --> 00:02:08,000
+ou o objeto correto para o cliente. Ento, neste caso, estamos chamando um mtodo
+
+33
+00:02:08,000 --> 00:02:12,000
+privado chamado RedirectToAction. E dentro desse mtodo, estamos
+
+34
+00:02:12,000 --> 00:02:16,000
+retornando um novo objeto RedirectResult. Portanto, devemos escrever outro teste
+
+35
+00:02:16,000 --> 00:02:20,000
+e garantir que o que
+
+36
+00:02:20,000 --> 00:02:24,000
+obtemos desse mtodo seja um objeto do tipo resultado de redirecionamento.
+
+37
+00:02:24,000 --> 00:02:28,000
+Ok, tambm, apenas para refrescar sua memria, observe que
+
+38
+00:02:28,000 --> 00:02:32,000
+aqui estamos chamando um mtodo privado e, como eu
+
+39
+00:02:32,000 --> 00:02:36,000
+disse antes, voc no deve testar mtodos privados ou
+
+40
+00:02:36,000 --> 00:02:40,000
+protegidos, porque eles so puramente responsveis pela implementao. Portanto, no queremos escrever um teste e afirmar que
+
+41
+00:02:40,000 --> 00:02:44,000
+esse mtodo  chamado. Esse detalhe de implementao
+
+42
+00:02:44,000 --> 00:02:48,000
+pode mudar no futuro. Porque, no futuro, em vez
+
+43
+00:02:48,000 --> 00:02:52,000
+de chamar esse mtodo particular,
+
+44
+00:02:52,000 --> 00:02:56,000
+voc pode decidir retornar diretamente um novo objeto RedirectResult.
+
+45
+00:02:56,000 --> 00:03:00,000
+OK? Ento, vamos reverter isso, e uma ltima coisa
+
+46
+00:03:00,000 --> 00:03:04,000
+antes de terminarmos essa
+
+47
+00:03:04,000 --> 00:03:08,000
+palestra, vamos dar uma olhada no nosso objeto EmployeeStorage.
+
+48
+00:03:08,000 --> 00:03:12,000
+Ento, ns movemos alguns dos nossos cdigos aqui, dentro deste
+
+49
+00:03:12,000 --> 00:03:16,000
+mtodo, mas no temos nenhum teste de unidade para este mtodo. Precisamos de testes
+
+50
+00:03:16,000 --> 00:03:20,000
+unitrios aqui? No, porque aqui estamos trabalhando
+
+51
+00:03:20,000 --> 00:03:24,000
+diretamente com um recurso externo. Portanto, a maneira correta de testar esse mtodo  usar um
+
+52
+00:03:24,000 --> 00:03:28,000
+teste de integrao, e isso est alm do escopo deste curso.
+
+53
+00:03:28,000 --> 00:03:32,000
+Esse  um curso separado que eu vou criar no futuro,
+
+54
+00:03:32,000 --> 00:03:36,000
+com um teste de integrao, podemos chamar esse mtodo e garantir
+
+55
+00:03:36,000 --> 00:03:40,000
+que o dado funcionrio do banco de dados seja excludo. Ns no nos importamos como esse mtodo
+
+56
+00:03:40,000 --> 00:03:44,000
+alcana esse resultado. Pode usar qualquer framework que possa
+
+57
+00:03:44,000 --> 00:03:48,000
+usar o simples a-dio (? ). net, pode usar um diferente (? ) so todos detalhes
+
+58
+00:03:48,000 --> 00:03:52,000
+de implementao. Ento, terminamos este exerccio,
+
+59
+00:03:52,000 --> 00:03:56,000
+espero que tenham gostado e obrigado por assistir.
+
+60
+00:03:56,000 --> 00:04:00,000
+&nbsp;
+

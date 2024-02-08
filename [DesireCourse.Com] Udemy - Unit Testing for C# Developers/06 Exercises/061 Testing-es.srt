@@ -1,0 +1,476 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ahora estamos listos para probar esta unidad de este mtodo.
+
+2
+00:00:04,000 --> 00:00:08,000
+Tengo una pregunta para ti. Cuntas pruebas necesitamos
+
+3
+00:00:08,000 --> 00:00:12,000
+para este mtodo? Voy a colapsar esta implementacin, por lo que
+
+4
+00:00:12,000 --> 00:00:16,000
+piensas en este mtodo como una caja negra. Entonces, cuntas pruebas necesitamos aqu?
+
+5
+00:00:16,000 --> 00:00:20,000
+Bueno, en este servicio estamos obteniendo la lista de
+
+6
+00:00:20,000 --> 00:00:24,000
+videos de nuestro repositorio. Cules son las posibilidades aqu?
+
+7
+00:00:24,000 --> 00:00:28,000
+Una posibilidad es que nuestro repositorio devuelva
+
+8
+00:00:28,000 --> 00:00:32,000
+una lista vaca. En ese caso, qu deberamos
+
+9
+00:00:32,000 --> 00:00:36,000
+obtener de este servicio, deberamos obtener una cadena vaca.
+
+10
+00:00:36,000 --> 00:00:40,000
+Otra posibilidad es que nuestro repositorio regrese una
+
+11
+00:00:40,000 --> 00:00:44,000
+lista con uno o ms objetos de video.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces, imagine que tenemos una matriz, con mltiples objetos
+
+13
+00:00:48,000 --> 00:00:52,000
+de video, 1, 2, 3, y cada objeto de
+
+14
+00:00:52,000 --> 00:00:56,000
+video tiene una ID. Entonces, este mtodo obtendr la ID
+
+15
+00:00:56,000 --> 00:01:00,000
+de estos objetos de video y los unir usando una coma.
+
+16
+00:01:00,000 --> 00:01:04,000
+As que aqu deberamos obtener una cadena como esta, 1, 2, 3, donde
+
+17
+00:01:04,000 --> 00:01:08,000
+estos son identificadores de video, de acuerdo? As que sigamos adelante
+
+18
+00:01:08,000 --> 00:01:12,000
+y escriba estas pruebas. Entonces, de vuelta en
+
+19
+00:01:12,000 --> 00:01:16,000
+nuestro proyecto de pruebas unitarias. En la
+
+20
+00:01:16,000 --> 00:01:20,000
+carpeta Mocking tenemos VideoServiceTests, hermoso.
+
+21
+00:01:20,000 --> 00:01:24,000
+Entonces, creemos un nuevo
+
+22
+00:01:24,000 --> 00:01:28,000
+mtodo de prueba public void.
+
+23
+00:01:28,000 --> 00:01:32,000
+GetUnprocessedVideos, como Csv.
+
+24
+00:01:32,000 --> 00:01:36,000
+Cul es el primer escenario? Sin videos
+
+25
+00:01:36,000 --> 00:01:40,000
+sin procesar. Entonces NoUnprocessedVideos.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ahora, este escenario es un poco confuso
+
+27
+00:01:44,000 --> 00:01:48,000
+porque tenemos doble negativo. Es mejor cambiar esto a
+
+28
+00:01:48,000 --> 00:01:52,000
+Todos los videos son procesados. AllVideos
+
+29
+00:01:52,000 --> 00:01:56,000
+AreProcessed. Entonces, este mtodo debera
+
+30
+00:01:56,000 --> 00:02:00,000
+devolver una cadena vaca, as que en
+
+31
+00:02:00,000 --> 00:02:04,000
+la parte de arreglos, necesitamos crear un
+
+32
+00:02:04,000 --> 00:02:08,000
+objeto simulado. Volvamos a nuestro mtodo de
+
+33
+00:02:08,000 --> 00:02:12,000
+configuracin, aqu tenemos que crear un nuevo
+
+34
+00:02:12,000 --> 00:02:16,000
+objeto simulado, llamemos a ese repositorio y
+
+35
+00:02:16,000 --> 00:02:20,000
+configuremos este al nuevo Mock de IVideoRepository.
+
+36
+00:02:20,000 --> 00:02:24,000
+Ahora no tenemos este campo, as que creemos esto aqu.
+
+37
+00:02:24,000 --> 00:02:28,000
+Bueno. As que aqu est nuestro
+
+38
+00:02:28,000 --> 00:02:32,000
+nuevo campo, Mock up IvideoRepository. Ahora vamos a pasar eso
+
+39
+00:02:32,000 --> 00:02:36,000
+como un segundo argumento con un constructor de servicio de video.
+
+40
+00:02:36,000 --> 00:02:40,000
+So_repository. objeto.
+
+41
+00:02:40,000 --> 00:02:44,000
+Ahora, de vuelta en nuestro mtodo de prueba, en la parte
+
+42
+00:02:44,000 --> 00:02:48,000
+de arreglos, necesitamos programar nuestro simulacro. As que _Repository. Configuracin, aqu pasamos una
+
+43
+00:02:48,000 --> 00:02:52,000
+expresin lambda, el repositorio va al repositorio. Obtenga Retiros sin procesarVideos,
+
+44
+00:02:52,000 --> 00:02:56,000
+va a
+
+45
+00:02:56,000 --> 00:03:00,000
+devolver una lista vaca. As que nueva lista de
+
+46
+00:03:00,000 --> 00:03:04,000
+videos como esta. E importaremos video en
+
+47
+00:03:04,000 --> 00:03:08,000
+la parte superior. A continuacin, llamaremos al
+
+48
+00:03:08,000 --> 00:03:12,000
+servicio de video. GetUnprocessedVideos.
+
+49
+00:03:12,000 --> 00:03:16,000
+Obtenga el resultado
+
+50
+00:03:16,000 --> 00:03:20,000
+y aseverar que el resultado es
+
+51
+00:03:20,000 --> 00:03:24,000
+igual a A una pantalla vaca (? ) Vamos a ejecutar esta prueba.
+
+52
+00:03:24,000 --> 00:03:28,000
+Hermoso,
+
+53
+00:03:28,000 --> 00:03:32,000
+est pasando. Ahora, la segunda prueba.
+
+54
+00:03:32,000 --> 00:03:36,000
+Entonces, para ahorrar
+
+55
+00:03:36,000 --> 00:03:40,000
+tiempo, voy a duplicar esta prueba. Ahora el segundo escenario es que tenemos
+
+56
+00:03:40,000 --> 00:03:44,000
+algunos videos sin procesar. Entonces,
+
+57
+00:03:44,000 --> 00:03:48,000
+AFewUnprocessed
+
+58
+00:03:48,000 --> 00:03:52,000
+Videos. Por lo tanto, este mtodo debe devolver una cadena con la
+
+59
+00:03:52,000 --> 00:03:56,000
+ID de los videos no procesados. Entonces, devuelve
+
+60
+00:03:56,000 --> 00:04:00,000
+una cadena
+
+61
+00:04:00,000 --> 00:04:04,000
+con ID de UnprocessedVideos.
+
+62
+00:04:04,000 --> 00:04:08,000
+Bueno? Entonces aqu en la parte de arreglos, voy a inicializar esta
+
+63
+00:04:08,000 --> 00:04:12,000
+lista, con algunos objetos de video.
+
+64
+00:04:12,000 --> 00:04:16,000
+Entonces, un video nuevo, creemos un video con
+
+65
+00:04:16,000 --> 00:04:20,000
+ID 1, no necesitamos establecer otras propiedades aqu
+
+66
+00:04:20,000 --> 00:04:24,000
+porque solo crean un ruido extra en el cdigo. No necesitamos estos parntesis tampoco.
+
+67
+00:04:24,000 --> 00:04:28,000
+Ahora dupliquemos esto y
+
+68
+00:04:28,000 --> 00:04:32,000
+cambiemos la ID a 2 y 3. Finalmente, vamos a Afirmar que el resultado es
+
+69
+00:04:32,000 --> 00:04:36,000
+una cadena como esta. 1,2,3, hagamos
+
+70
+00:04:36,000 --> 00:04:40,000
+la prueba.
+
+71
+00:04:40,000 --> 00:04:44,000
+Todava pasando hermoso, quiero asegurarme de que no comet ningn error
+
+72
+00:04:44,000 --> 00:04:48,000
+aqu, as que voy a volver a nuestro servicio de video.
+
+73
+00:04:48,000 --> 00:04:52,000
+y comentar la lnea que
+
+74
+00:04:52,000 --> 00:04:56,000
+hara pasar estas dos pruebas. Entonces, esta es la lnea, si cambio
+
+75
+00:04:56,000 --> 00:05:00,000
+esto a, digamos return
+
+76
+00:05:00,000 --> 00:05:04,000
+1, entonces nuestras dos pruebas deberan fallar. Por lo tanto, aqu voy a poner este cursor
+
+77
+00:05:04,000 --> 00:05:08,000
+en el nombre de la
+
+78
+00:05:08,000 --> 00:05:12,000
+clase, y ejecutar todas las pruebas en esta clase.
+
+79
+00:05:12,000 --> 00:05:16,000
+Bien, puedes ver que dos de
+
+80
+00:05:16,000 --> 00:05:20,000
+ellos fallaron, ambos son mtodos ForgetUnprocessedVideos, hermosos.
+
+81
+00:05:20,000 --> 00:05:24,000
+Por lo tanto, esto verifica que hemos implementado
+
+82
+00:05:24,000 --> 00:05:28,000
+nuestras pruebas correctamente, as que volvamos a nuestro
+
+83
+00:05:28,000 --> 00:05:32,000
+servicio de video y recuperemos el cdigo original. Y ya no necesitamos
+
+84
+00:05:32,000 --> 00:05:36,000
+esta columna. Ahora una cosa final antes
+
+85
+00:05:36,000 --> 00:05:40,000
+de que terminemos esta conferencia. Regresemos a nuestra clase de prueba.
+
+86
+00:05:40,000 --> 00:05:44,000
+Mire la inicializacin de este servicio de video.
+
+87
+00:05:44,000 --> 00:05:48,000
+Estamos pasando estos dos objetos como dependencias, y esto no
+
+88
+00:05:48,000 --> 00:05:52,000
+es terriblemente malo, pero en una aplicacin ms grande y
+
+89
+00:05:52,000 --> 00:05:56,000
+ms empresarial, puede terminar con un constructor con bastantes parmetros.
+
+90
+00:05:56,000 --> 00:06:00,000
+Y su cdigo de configuracin va a ser complejo. Si tiene esta situacin en su cdigo, eso puede significar que
+
+91
+00:06:00,000 --> 00:06:04,000
+tal vez esa clase est
+
+92
+00:06:04,000 --> 00:06:08,000
+haciendo demasiadas cosas, tal vez tiene demasiadas dependencias, tal vez algunos
+
+93
+00:06:08,000 --> 00:06:12,000
+de los mtodos en esa clase pertenecen a una clase diferente. Entonces, cuando mueve esos mtodos a
+
+94
+00:06:12,000 --> 00:06:16,000
+una clase diferente,
+
+95
+00:06:16,000 --> 00:06:20,000
+algunas de las dependencias desaparecern automticamente. As que eso es algo que quizs quieras ver.
+
+96
+00:06:20,000 --> 00:06:24,000
+Otra razn para tener un constructor
+
+97
+00:06:24,000 --> 00:06:28,000
+con dos parmetros es cuando te ests burlando de todo, una
+
+98
+00:06:28,000 --> 00:06:32,000
+vez ms, debes reservar burlas que tratan principalmente con dependencias externas. La nica excepcin es si tiene mtodos complejos con
+
+99
+00:06:32,000 --> 00:06:36,000
+rutas de ejecucin complejas,
+
+100
+00:06:36,000 --> 00:06:40,000
+entonces desea probarlos de manera aislada sin sus dependencias.
+
+101
+00:06:40,000 --> 00:06:44,000
+Porque de lo contrario tus mtodos de
+
+102
+00:06:44,000 --> 00:06:48,000
+prueba pueden volverse realmente complejos y voluminosos. Y lo ltimo que querr ver es dnde
+
+103
+00:06:48,000 --> 00:06:52,000
+se usan esas dependencias. En este caso, hemos utilizado el
+
+104
+00:06:52,000 --> 00:06:56,000
+lector de archivos solo en este
+
+105
+00:06:56,000 --> 00:07:00,000
+mtodo, ReadVideoTitle, y este repositorio solo en este otro mtodo.
+
+106
+00:07:00,000 --> 00:07:04,000
+GetUnprocessedVideos. Derecha? Si una dependencia se usa solo en un
+
+107
+00:07:04,000 --> 00:07:08,000
+nico mtodo desde
+
+108
+00:07:08,000 --> 00:07:12,000
+una perspectiva de diseo, es mejor pasar la
+
+109
+00:07:12,000 --> 00:07:16,000
+dependencia como un parmetro para ese mtodo. Por ejemplo, en nuestro servicio
+
+110
+00:07:16,000 --> 00:07:20,000
+de video este
+
+111
+00:07:20,000 --> 00:07:24,000
+FileReader se usa solo aqu. En ninguna otra parte de esta clase. As que potencialmente puede pasar esto como un
+
+112
+00:07:24,000 --> 00:07:28,000
+parmetro aqu. As que
+
+113
+00:07:28,000 --> 00:07:32,000
+IFile Reader. De esta forma terminars con un
+
+114
+00:07:32,000 --> 00:07:36,000
+constructor voluminoso con demasiados parmetros. Pero como expliqu antes, esta caracterstica puede no
+
+115
+00:07:36,000 --> 00:07:40,000
+ser compatible con el marco de inyeccin de
+
+116
+00:07:40,000 --> 00:07:44,000
+dependencias que est utilizando, por lo que su nica opcin podra ser la inyeccin de constructor.
+
+117
+00:07:44,000 --> 00:07:48,000
+De acuerdo, volvamos esto. Hemos terminado con este ejercicio, a continuacin, vamos
+
+118
+00:07:48,000 --> 00:07:52,000
+a ver otro ejercicio.
+
+119
+00:07:52,000 --> 00:07:55,000
+&nbsp;
+

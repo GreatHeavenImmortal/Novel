@@ -1,0 +1,76 @@
+1
+00:00:01,420 --> 00:00:05,760
+En esta accin aprendes los fundamentos de las pruebas unitarias.
+
+2
+00:00:05,760 --> 00:00:11,760
+Aprender acerca de las caractersticas de las buenas pruebas unitarias que deberan ser pequeas, tienen una responsabilidad
+
+3
+00:00:11,840 --> 00:00:13,340
+nica y ninguna lgica.
+
+4
+00:00:13,340 --> 00:00:19,860
+No deberan ser demasiado genricos o demasiado especficos, y deberan aislarse, lo que significa que cada prueba debera ejecutarse
+
+5
+00:00:19,860 --> 00:00:25,170
+utilizando un estado fresco y limpio como si fuera la nica prueba en el mundo.
+
+6
+00:00:25,650 --> 00:00:31,050
+Aprende sobre las pruebas de agua y sobre qu no evaluar, especficamente, aprende que debe probar
+
+7
+00:00:31,200 --> 00:00:38,520
+el resultado de una funcin, independientemente de cmo se implemente, y que no debe probar las caractersticas del lenguaje o el
+
+8
+00:00:38,700 --> 00:00:40,120
+cdigo de un tercero.
+
+9
+00:00:40,540 --> 00:00:45,380
+Tambin aprendemos un par de tcnicas bsicas para escribir pruebas limpias y mantenibles.
+
+10
+00:00:45,570 --> 00:00:51,420
+Aprendemos cmo usar el mtodo de configuracin para hacer toda la inicializacin antes o probar mtodos
+
+11
+00:00:51,420 --> 00:00:53,740
+y cmo escribir pruebas de parmetros.
+
+12
+00:00:53,790 --> 00:01:00,900
+Y finalmente aprendi sobre dos formas de escribir pruebas fiables y confiables: o bien usa el desarrollo basado en pruebas que est
+
+13
+00:01:00,900 --> 00:01:06,990
+ms all del alcance de este curso o hace un pequeo cambio en su cdigo de produccin que debera
+
+14
+00:01:06,990 --> 00:01:08,890
+hacer que la prueba falle.
+
+15
+00:01:09,300 --> 00:01:16,740
+Si la prueba an se aprueba, significa que la prueba no es confiable y puede confiar en la prxima
+
+16
+00:01:16,740 --> 00:01:17,150
+seccin.
+
+17
+00:01:17,150 --> 00:01:23,010
+Hemos estado examinando las tcnicas de prueba de la unidad central. Aprender cmo probar mtodos que
+
+18
+00:01:23,130 --> 00:01:29,020
+devuelven una cadena o una coleccin, o lanzar una excepcin sobre un evento y otros escenarios.
+
+19
+00:01:29,040 --> 00:01:30,410
+Entonces lo vemos en la siguiente seccin.
+

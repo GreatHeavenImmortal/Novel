@@ -1,0 +1,268 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, de volta  nossa aula de teste, vamos implementar
+
+2
+00:00:04,000 --> 00:00:08,000
+nosso primeiro mtodo de teste. BookingStartsAndFinishes
+
+3
+00:00:08,000 --> 00:00:12,000
+BeforeAnExistingBooking. Ento, primeiro precisamos criar um objeto
+
+4
+00:00:12,000 --> 00:00:16,000
+simulado para o nosso repositrio. Ento, simulamos,
+
+5
+00:00:16,000 --> 00:00:20,000
+definimos isso para um
+
+6
+00:00:20,000 --> 00:00:24,000
+novo Mock, do IBookingRepository.
+
+7
+00:00:24,000 --> 00:00:28,000
+agora aqui, precisamos programar essa simulao chamando
+
+8
+00:00:28,000 --> 00:00:32,000
+o mtodo Setup. Ento, se ns chamamos repositrio.
+
+9
+00:00:32,000 --> 00:00:36,000
+GetActiveBookings e passar 1 como o
+
+10
+00:00:36,000 --> 00:00:40,000
+ID da reserva excluindo, queremos que
+
+11
+00:00:40,000 --> 00:00:44,000
+isso retorne uma lista como esta.
+
+12
+00:00:44,000 --> 00:00:48,000
+Uma lista de reserva, podemos inicializar esta lista
+
+13
+00:00:48,000 --> 00:00:52,000
+aqui, e veja aqui temos um erro de
+
+14
+00:00:52,000 --> 00:00:56,000
+compilao, porque este mtodo deve retornar um objeto
+
+15
+00:00:56,000 --> 00:01:00,000
+IQueryable, mas aqui estamos programando essa simulao para
+
+16
+00:01:00,000 --> 00:01:04,000
+retornar uma nova lista. Ento, precisamos converter explicitamente essa lista
+
+17
+00:01:04,000 --> 00:01:08,000
+em um objeto iQueryable, e  muito fcil, ns simplesmente ligamos. AsQueryable neste
+
+18
+00:01:08,000 --> 00:01:12,000
+objeto de lista. OK? Portanto, o erro de compilao desapareceu.
+
+19
+00:01:12,000 --> 00:01:16,000
+Agora, nesta
+
+20
+00:01:16,000 --> 00:01:20,000
+lista, desejo adicionar uma reserva existente. Ento, vamos criar uma reserva existente.
+
+21
+00:01:20,000 --> 00:01:24,000
+Ns definimos o ArrivalDate,
+
+22
+00:01:24,000 --> 00:01:28,000
+vamos escolher uma data, novo DateTime, digamos 2017.
+
+23
+00:01:28,000 --> 00:01:32,000
+15 de janeiro. Agora, vamos imaginar este cdigo,  para
+
+24
+00:01:32,000 --> 00:01:36,000
+uma reserva de hotel.
+
+25
+00:01:36,000 --> 00:01:40,000
+Como voc sabe, na maioria dos hotis,
+
+26
+00:01:40,000 --> 00:01:44,000
+a chegada ou check-in,  s 14:00. E partida, ou check-out,  s
+
+27
+00:01:44,000 --> 00:01:48,000
+10 da manh. Ento, aqui, vou definir a chegada para a
+
+28
+00:01:48,000 --> 00:01:52,000
+hora 14, minuto 0 e segundo 0.
+
+29
+00:01:52,000 --> 00:01:56,000
+Agora, vamos definir a data de
+
+30
+00:01:56,000 --> 00:02:00,000
+partida que definimos para 5 dias
+
+31
+00:02:00,000 --> 00:02:04,000
+depois, portanto, nova data, 2017, 20
+
+32
+00:02:04,000 --> 00:02:08,000
+de janeiro, s 10h. Alm disso, devemos definir a propriedade
+
+33
+00:02:08,000 --> 00:02:12,000
+Reference, vamos definir
+
+34
+00:02:12,000 --> 00:02:16,000
+isso para uma string simples como a. E finalmente, a
+
+35
+00:02:16,000 --> 00:02:20,000
+propriedade Id. Agora eu prefiro colocar o Id primeiro,
+
+36
+00:02:20,000 --> 00:02:24,000
+como  mais convencional, ento aqui temos
+
+37
+00:02:24,000 --> 00:02:28,000
+uma lista de reservas existentes, e essa  a parte do nosso arranjo.
+
+38
+00:02:28,000 --> 00:02:32,000
+Agora precisamos agir. Ento, ns chamamos
+
+39
+00:02:32,000 --> 00:02:36,000
+BookingHelper. Sobre lappingBookingsExist, precisamos
+
+40
+00:02:36,000 --> 00:02:40,000
+dar-lhe um objeto
+
+41
+00:02:40,000 --> 00:02:44,000
+de reserva, e este repositrio Mock. Ento vamos criar outro objeto Booking,
+
+42
+00:02:44,000 --> 00:02:48,000
+eu vou definir
+
+43
+00:02:48,000 --> 00:02:52,000
+o Id deste para 1. Porque este  o mesmo valor que passamos.
+
+44
+00:02:52,000 --> 00:02:56,000
+aqui, para GetActiveBookings, ento
+
+45
+00:02:56,000 --> 00:03:00,000
+esta reserva  excluda, agora precisamos definir as
+
+46
+00:03:00,000 --> 00:03:04,000
+datas de chegada e partida, para economizar tempo,
+
+47
+00:03:04,000 --> 00:03:08,000
+vou copiar essas duas linhas aqui e modific-las. Ns temos este problema de compilao, porque ns
+
+48
+00:03:08,000 --> 00:03:12,000
+no distribumos o repositrio
+
+49
+00:03:12,000 --> 00:03:16,000
+simulado como o segundo argumento para este mtodo. Ento, esse repositrio de passagem. Objeto. Oops, eu acabei de perceber que eu cometi um erro
+
+50
+00:03:16,000 --> 00:03:20,000
+antes, ento eu chamo esse
+
+51
+00:03:20,000 --> 00:03:24,000
+objeto de Mock,  melhor
+
+52
+00:03:24,000 --> 00:03:28,000
+cham-lo de repositrio, ok, e aqui ns passamos pelo repositrio. Objeto. OK? Agora, precisamos
+
+53
+00:03:28,000 --> 00:03:32,000
+modificar essas datas. Ento, o cenrio que estamos testando  onde esta nova reserva
+
+54
+00:03:32,000 --> 00:03:36,000
+comea e termina
+
+55
+00:03:36,000 --> 00:03:40,000
+antes de uma reserva existente. Ento, vou definir isso
+
+56
+00:03:40,000 --> 00:03:44,000
+para 10 de janeiro e a data de
+
+57
+00:03:44,000 --> 00:03:48,000
+partida para o dia 14. Em seguida, precisamos obter os resultados.
+
+58
+00:03:48,000 --> 00:03:52,000
+resultado, e afirma,
+
+59
+00:03:52,000 --> 00:03:56,000
+esse
+
+60
+00:03:56,000 --> 00:04:00,000
+resultado est vazio. Ento isso significa que esta  uma string vazia.
+
+61
+00:04:00,000 --> 00:04:04,000
+Vamos executar este teste, ok, aqui est o nosso teste,
+
+62
+00:04:04,000 --> 00:04:08,000
+e passou com sucesso, bonito.
+
+63
+00:04:08,000 --> 00:04:12,000
+No entanto, como voc pode ver, este mtodo de teste  muito
+
+64
+00:04:12,000 --> 00:04:16,000
+volumoso,  muito gordo e temos todos esses valores mgicos aqui.
+
+65
+00:04:16,000 --> 00:04:20,000
+Ento, na prxima palestra, vamos refatorar esse cdigo e torn-lo mais limpo.
+
+66
+00:04:20,000 --> 00:04:24,000
+&nbsp;
+
+67
+00:04:24,000 --> 00:04:28,000
+&nbsp;
+

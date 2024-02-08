@@ -1,0 +1,242 @@
+1
+00:00:00,000 --> 00:00:04,000
+Now, let's go ahead and test the interaction
+
+2
+00:00:04,000 --> 00:00:08,000
+of this controller, with this new storage object.
+
+3
+00:00:08,000 --> 00:00:12,000
+So, back in our unit testing project, inside
+
+4
+00:00:12,000 --> 00:00:16,000
+the Mocking folder, I'm going to add a new class
+
+5
+00:00:16,000 --> 00:00:20,000
+EmployeeControllerTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+Let's add a TestFixture attribute.
+
+7
+00:00:24,000 --> 00:00:28,000
+And create a test
+
+8
+00:00:28,000 --> 00:00:32,000
+for DeleteEmployee method.
+
+9
+00:00:32,000 --> 00:00:36,000
+So when this is called, it should delete
+
+10
+00:00:36,000 --> 00:00:40,000
+the employee from database.
+
+11
+00:00:40,000 --> 00:00:44,000
+Now we need to create a Mock object, so var
+
+12
+00:00:44,000 --> 00:00:48,000
+storage as a new Mock of
+
+13
+00:00:48,000 --> 00:00:52,000
+IEmployeeStorage, with this we can create a controller
+
+14
+00:00:52,000 --> 00:00:56,000
+object, so controller, is a new
+
+15
+00:00:56,000 --> 00:01:00,000
+EmployeeController, and as an argument the
+
+16
+00:01:00,000 --> 00:01:04,000
+pass storage.object.
+
+17
+00:01:04,000 --> 00:01:08,000
+Now, we need to act, so controller.DeleteEmployee. We use
+
+18
+00:01:08,000 --> 00:01:12,000
+the simple value here like 1. In this case, we don't
+
+19
+00:01:12,000 --> 00:01:16,000
+care about the result, we just want to test the interaction of this controller
+
+20
+00:01:16,000 --> 00:01:20,000
+with a storage object. So, we call storage
+
+21
+00:01:20,000 --> 00:01:24,000
+.Verify. Give it a lambda expression
+
+22
+00:01:24,000 --> 00:01:28,000
+you want to make sure that the DeleteEmployee method of storage
+
+23
+00:01:28,000 --> 00:01:32,000
+is called, DeleteEmployee, and
+
+24
+00:01:32,000 --> 00:01:36,000
+argument to this method should be 1. Let's run this
+
+25
+00:01:36,000 --> 00:01:40,000
+test.
+
+26
+00:01:40,000 --> 00:01:44,000
+So here's our test, it passed successfully.
+
+27
+00:01:44,000 --> 00:01:48,000
+Beautiful. So this is one test,
+
+28
+00:01:48,000 --> 00:01:52,000
+for our DeleteEmployee method. But this method
+
+29
+00:01:52,000 --> 00:01:56,000
+actually requires another test that I'm not going to write in this lecture, I'm just want to
+
+30
+00:01:56,000 --> 00:02:00,000
+highlight it, you can do it as an exercise. So,
+
+31
+00:02:00,000 --> 00:02:04,000
+back to our controller, we should also make sure that this
+
+32
+00:02:04,000 --> 00:02:08,000
+method returns the right value, or the right object
+
+33
+00:02:08,000 --> 00:02:12,000
+for the client. So in this case we're calling a private method called
+
+34
+00:02:12,000 --> 00:02:16,000
+RedirectToAction. And inside this method we are returning
+
+35
+00:02:16,000 --> 00:02:20,000
+a new RedirectResult object. So we should
+
+36
+00:02:20,000 --> 00:02:24,000
+write another test and ensure that what we get from this method
+
+37
+00:02:24,000 --> 00:02:28,000
+is an object of type redirect result.
+
+38
+00:02:28,000 --> 00:02:32,000
+Okay, also, just to refresh your memory, note
+
+39
+00:02:32,000 --> 00:02:36,000
+that here we're calling a private method, and as I told you before
+
+40
+00:02:36,000 --> 00:02:40,000
+you should not test private or protected methods, because
+
+41
+00:02:40,000 --> 00:02:44,000
+they're purely responsible for implementation. So, we don't want to
+
+42
+00:02:44,000 --> 00:02:48,000
+write a test and Assert that this method is called. That's
+
+43
+00:02:48,000 --> 00:02:52,000
+implementation detail that can change in the future. Because in the future,
+
+44
+00:02:52,000 --> 00:02:56,000
+instead of calling this private method, you may decide
+
+45
+00:02:56,000 --> 00:03:00,000
+to directly return a new RedirectResult object.
+
+46
+00:03:00,000 --> 00:03:04,000
+Okay? So, let's revert this back,
+
+47
+00:03:04,000 --> 00:03:08,000
+and one last thing before we finish this lecture,
+
+48
+00:03:08,000 --> 00:03:12,000
+let's take a look at our EmployeeStorage object.
+
+49
+00:03:12,000 --> 00:03:16,000
+So we move some of our code here, inside this method,
+
+50
+00:03:16,000 --> 00:03:20,000
+but we don't have any unit tests for this method. Do we need
+
+51
+00:03:20,000 --> 00:03:24,000
+unit tests here? No because here we are working directly with an
+
+52
+00:03:24,000 --> 00:03:28,000
+external resource. So the proper way to test this method,
+
+53
+00:03:28,000 --> 00:03:32,000
+is using an integration test, and that's beyond the scope of this course.
+
+54
+00:03:32,000 --> 00:03:36,000
+That's a separate course that I'm going to create in the future, with an integration test,
+
+55
+00:03:36,000 --> 00:03:40,000
+we can call this method and ensure that the given employee
+
+56
+00:03:40,000 --> 00:03:44,000
+from the database is deleted. We don't care how this method
+
+57
+00:03:44,000 --> 00:03:48,000
+achieves that result. It may use any framework
+
+58
+00:03:48,000 --> 00:03:52,000
+it may use plain a-dio (?) .net, it may use a different (?)
+
+59
+00:03:52,000 --> 00:03:56,000
+these are all implementation details. So, we are done with this
+
+60
+00:03:56,000 --> 00:04:00,000
+exercise, I hope you enjoyed, and thank you for watching.
+
+
+

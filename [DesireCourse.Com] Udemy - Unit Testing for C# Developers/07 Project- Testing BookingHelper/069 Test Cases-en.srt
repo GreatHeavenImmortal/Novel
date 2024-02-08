@@ -1,0 +1,221 @@
+1
+00:00:00,000 --> 00:00:04,000
+As I told you before, when I want to test
+
+2
+00:00:04,000 --> 00:00:08,000
+a method, first I brainstorm all the different possibilities
+
+3
+00:00:08,000 --> 00:00:12,000
+and test cases. So, I'm going to collapse this method
+
+4
+00:00:12,000 --> 00:00:16,000
+so we don't get lost in the implementation detail,
+
+5
+00:00:16,000 --> 00:00:20,000
+and look at it as a black box. What are various
+
+6
+00:00:20,000 --> 00:00:24,000
+test cases we need to write for this method? Well, imagine we have
+
+7
+00:00:24,000 --> 00:00:28,000
+an existing booking. It is possible that our new booking
+
+8
+00:00:28,000 --> 00:00:32,000
+starts and finishes before this existing booking.
+
+9
+00:00:32,000 --> 00:00:36,000
+In this case, we don't have an overlap. The other scenario is
+
+10
+00:00:36,000 --> 00:00:40,000
+our new booking finishes in the middle of an existing booking.
+
+11
+00:00:40,000 --> 00:00:44,000
+In this case, we have an overlap, so our methods should return
+
+12
+00:00:44,000 --> 00:00:48,000
+the reference of an existing booking. It is also possible
+
+13
+00:00:48,000 --> 00:00:52,000
+that this new booking finishes after an existing booking.
+
+14
+00:00:52,000 --> 00:00:56,000
+Again, we have overlap, or, our new booking can start
+
+15
+00:00:56,000 --> 00:01:00,000
+in the middle of an existing booking and finish after, or it can
+
+16
+00:01:00,000 --> 00:01:04,000
+finish after the middle of an existing booking. And finally, the last possibility is where
+
+17
+00:01:04,000 --> 00:01:08,000
+this new booking starts and finishes after an existing
+
+18
+00:01:08,000 --> 00:01:12,000
+booking. In this case, we don't have an overlap, and our
+
+19
+00:01:12,000 --> 00:01:16,000
+methods should return an empty string. Now, assuming
+
+20
+00:01:16,000 --> 00:01:20,000
+that we have an overlap, we have two more scenarios, one
+
+21
+00:01:20,000 --> 00:01:24,000
+is that the existing booking is cancelled, in this case this method
+
+22
+00:01:24,000 --> 00:01:28,000
+will return an empty string because w don't have an overlap. Or, it is
+
+23
+00:01:28,000 --> 00:01:32,000
+possible that this new booking is cancelled. Again, this method
+
+24
+00:01:32,000 --> 00:01:36,000
+is going to assume that there is no overlap. So these are all
+
+25
+00:01:36,000 --> 00:01:40,000
+test cases we need to write for this method. So back in our solution
+
+26
+00:01:40,000 --> 00:01:44,000
+in our unit testing project,
+
+27
+00:01:44,000 --> 00:01:48,000
+inside the Mocking folder, let's add a new class called
+
+28
+00:01:48,000 --> 00:01:52,000
+BookingHelperTests.
+
+29
+00:01:52,000 --> 00:01:56,000
+And here we apply the test
+
+30
+00:01:56,000 --> 00:02:00,000
+fixture attribute. And write our
+
+31
+00:02:00,000 --> 00:02:04,000
+first unit test. Test
+
+32
+00:02:04,000 --> 00:02:08,000
+so the method we are testing is Overlapping
+
+33
+00:02:08,000 --> 00:02:12,000
+BookingsExist. First scenario
+
+34
+00:02:12,000 --> 00:02:16,000
+is where our new booking starts and finishes before
+
+35
+00:02:16,000 --> 00:02:20,000
+an existing booking, so, Booking
+
+36
+00:02:20,000 --> 00:02:24,000
+StartsAndFinishesBefore
+
+37
+00:02:24,000 --> 00:02:28,000
+AnExistingBooking.
+
+38
+00:02:28,000 --> 00:02:32,000
+And we expect this method to return an empty string.
+
+39
+00:02:32,000 --> 00:02:36,000
+Because there is no overlap. So, Return
+
+40
+00:02:36,000 --> 00:02:40,000
+EmptyString. Now, we can see that the
+
+41
+00:02:40,000 --> 00:02:44,000
+name of this method is a little too long, and this is not necessarily a bad thing because
+
+42
+00:02:44,000 --> 00:02:48,000
+our method name is very descriptive, it's telling us exactly
+
+43
+00:02:48,000 --> 00:02:52,000
+what we are testing, however, even though I have reduced the font size
+
+44
+00:02:52,000 --> 00:02:56,000
+the method name still doesn't completely fit on the
+
+45
+00:02:56,000 --> 00:03:00,000
+screen. So here, to make it easier for you to see all these test methods
+
+46
+00:03:00,000 --> 00:03:04,000
+I'm going to take the name of the method here,
+
+47
+00:03:04,000 --> 00:03:08,000
+and put it in the class. So booking helper, underline
+
+48
+00:03:08,000 --> 00:03:12,000
+OverlappingBookings
+
+49
+00:03:12,000 --> 00:03:16,000
+ExistTests. And this way we can
+
+50
+00:03:16,000 --> 00:03:20,000
+make these methods a little bit shorter. That's better.
+
+51
+00:03:20,000 --> 00:03:24,000
+So now, back in our BookingHelper class,
+
+52
+00:03:24,000 --> 00:03:28,000
+let's expand this. So, we have this concrete
+
+53
+00:03:28,000 --> 00:03:32,000
+dependency, and we need to get rid of it. So, in the next lecture,
+
+54
+00:03:32,000 --> 00:03:36,000
+I'm going to extract this code into a separate class, and
+
+55
+00:03:36,000 --> 00:03:40,000
+isolate it from our BookingHelper class.
+
+

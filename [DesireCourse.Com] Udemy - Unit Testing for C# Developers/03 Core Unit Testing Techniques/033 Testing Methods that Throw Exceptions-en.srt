@@ -1,0 +1,249 @@
+1
+00:00:00,000 --> 00:00:04,000
+So our log method should throw out
+
+2
+00:00:04,000 --> 00:00:08,000
+an exception if this error is null or white space.
+
+3
+00:00:08,000 --> 00:00:12,000
+How many test cases do we need here? We need three.
+
+4
+00:00:12,000 --> 00:00:16,000
+One is to check for null, the other is to check for
+
+5
+00:00:16,000 --> 00:00:20,000
+an empty string, and the last one is to check for a string
+
+6
+00:00:20,000 --> 00:00:24,000
+that has whitespace, like this. So I'm going to
+
+7
+00:00:24,000 --> 00:00:28,000
+create a parameterized test method with three test cases.
+
+8
+00:00:28,000 --> 00:00:32,000
+Let's delete this. Back
+
+9
+00:00:32,000 --> 00:00:36,000
+in our test class,
+
+10
+00:00:36,000 --> 00:00:40,000
+another test method, public
+
+11
+00:00:40,000 --> 00:00:44,000
+void Log, the scenario is
+
+12
+00:00:44,000 --> 00:00:48,000
+InvalidError. It should Throw
+
+13
+00:00:48,000 --> 00:00:52,000
+ArgumentNullException.
+
+14
+00:00:52,000 --> 00:00:56,000
+So, I'm going to make this parameterized,
+
+15
+00:00:56,000 --> 00:01:00,000
+string error,
+
+16
+00:01:00,000 --> 00:01:04,000
+and add three test cases here,
+
+17
+00:01:04,000 --> 00:01:08,000
+so TestCase, the first one is null,
+
+18
+00:01:08,000 --> 00:01:12,000
+the second one is an empty string and the last one is a white space.
+
+19
+00:01:12,000 --> 00:01:16,000
+Once again, we create a logger object,
+
+20
+00:01:16,000 --> 00:01:20,000
+and of course we could do that in the set up method.
+
+21
+00:01:20,000 --> 00:01:24,000
+But I leave that to you as an exercise. So here's the tricky part,
+
+22
+00:01:24,000 --> 00:01:28,000
+if I call logger.log
+
+23
+00:01:28,000 --> 00:01:32,000
+error. This line is going to throw an
+
+24
+00:01:32,000 --> 00:01:36,000
+exception, and our test method is going to fail. So the way to
+
+25
+00:01:36,000 --> 00:01:40,000
+write assertions, for methods that throw an exception, is by using
+
+26
+00:01:40,000 --> 00:01:44,000
+a delegate. So I'm going to wrap this call, inside a
+
+27
+00:01:44,000 --> 00:01:48,000
+delegate when writing the Assertion. Let me show you what I mean.
+
+28
+00:01:48,000 --> 00:01:52,000
+So,
+
+29
+00:01:52,000 --> 00:01:56,000
+Assert.That, here I'm going to add
+
+30
+00:01:56,000 --> 00:02:00,000
+a delegate or an inline function or a lambda expression.
+
+31
+00:02:00,000 --> 00:02:04,000
+If you're not familiar with these, you need to watch my C# Advanced course.
+
+32
+00:02:04,000 --> 00:02:08,000
+I've covered this topic in detail, so here we pass a
+
+33
+00:02:08,000 --> 00:02:12,000
+lambda expression, and this is where we can call
+
+34
+00:02:12,000 --> 00:02:16,000
+the log method. So logger.Log
+
+35
+00:02:16,000 --> 00:02:20,000
+error. Now, as the second argument
+
+36
+00:02:20,000 --> 00:02:24,000
+we specify the type of exception.
+
+37
+00:02:24,000 --> 00:02:28,000
+So previously you have seen is and does classes,
+
+38
+00:02:28,000 --> 00:02:32,000
+we also have Throws, you have a bunch of useful
+
+39
+00:02:32,000 --> 00:02:36,000
+helper properties like argument exception, argument null
+
+40
+00:02:36,000 --> 00:02:40,000
+exception, invalid operation exception, and so on.
+
+41
+00:02:40,000 --> 00:02:44,000
+But in this case I'm going to use Argument Null exception. Sometimes
+
+42
+00:02:44,000 --> 00:02:48,000
+you're working with different kinds of exceptions, if that's the case
+
+43
+00:02:48,000 --> 00:02:52,000
+you can use Throws, Exception,
+
+44
+00:02:52,000 --> 00:02:56,000
+type of and here you specify the type. For
+
+45
+00:02:56,000 --> 00:03:00,000
+example divide by zero exception. Okay?
+
+46
+00:03:00,000 --> 00:03:04,000
+But in this case, because we have this helper property, ArgumentNullException,
+
+47
+00:03:04,000 --> 00:03:08,000
+I prefer the first syntax which is shorter and cleaner.
+
+48
+00:03:08,000 --> 00:03:12,000
+So, let's delete this, and
+
+49
+00:03:12,000 --> 00:03:16,000
+run our test
+
+50
+00:03:16,000 --> 00:03:20,000
+alright, so we can see we have this test method with three test
+
+51
+00:03:20,000 --> 00:03:24,000
+cases, they are all passing, once again to
+
+52
+00:03:24,000 --> 00:03:28,000
+make sure that this is a trustworthy test, I'm going to go back
+
+53
+00:03:28,000 --> 00:03:32,000
+in the production code, and comment out the line that is responsible
+
+54
+00:03:32,000 --> 00:03:36,000
+to make this test pass, so I'm going to comment out
+
+55
+00:03:36,000 --> 00:03:40,000
+these first two lines. Let's see if our test
+
+56
+00:03:40,000 --> 00:03:44,000
+fails now or not. So while this is selected, I'm going
+
+57
+00:03:44,000 --> 00:03:48,000
+to write it again, this time our
+
+58
+00:03:48,000 --> 00:03:52,000
+test failed. So, this is a trustworthy test.
+
+59
+00:03:52,000 --> 00:03:56,000
+Back here, I'm going to remove the comment.
+
+60
+00:03:56,000 --> 00:04:00,000
+Beautiful. In the next lecture, I'm going to show you how to test
+
+61
+00:04:00,000 --> 00:04:04,000
+methods that raise an event, this is particularly
+
+62
+00:04:04,000 --> 00:04:08,000
+useful when building wpf, or Xamarin application.
+
+

@@ -1,0 +1,16 @@
+{
+  "ContentClear": [
+
+  ],
+  "NovelbinnetOption": {
+    "BookName": "a.novel-title",
+    "IsBookNameInUrl": true,
+    "BookNameUrlAttribute": "title",
+    "ChapterTitle": "h2",
+    "Content": ".chapter,.container p",
+    "NextChapterUrl": "#next_chap",
+    "ClearBookName": [],
+    "ClearChapterTitle": [ "\\(.*" ],
+    "ClearContent": []
+  }
+}

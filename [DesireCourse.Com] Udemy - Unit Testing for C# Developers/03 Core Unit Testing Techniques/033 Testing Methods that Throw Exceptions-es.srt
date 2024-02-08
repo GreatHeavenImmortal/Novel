@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:04,000
+Por lo tanto, nuestro mtodo de registro debera arrojar una
+
+2
+00:00:04,000 --> 00:00:08,000
+excepcin si este error es nulo o en blanco.
+
+3
+00:00:08,000 --> 00:00:12,000
+Cuntos casos de prueba necesitamos aqu? Necesitamos tres.
+
+4
+00:00:12,000 --> 00:00:16,000
+Una es comprobar si hay nulo, la otra es buscar una
+
+5
+00:00:16,000 --> 00:00:20,000
+cadena vaca, y la ltima es buscar una cadena que tenga
+
+6
+00:00:20,000 --> 00:00:24,000
+espacios en blanco, como este. As que voy a crear
+
+7
+00:00:24,000 --> 00:00:28,000
+un mtodo de prueba parametrizado con tres casos de prueba.
+
+8
+00:00:28,000 --> 00:00:32,000
+Vamos a eliminar esto. De vuelta
+
+9
+00:00:32,000 --> 00:00:36,000
+en nuestra clase de
+
+10
+00:00:36,000 --> 00:00:40,000
+prueba, otro mtodo de
+
+11
+00:00:40,000 --> 00:00:44,000
+prueba, Log public void,
+
+12
+00:00:44,000 --> 00:00:48,000
+el escenario es InvalidError. Debera
+
+13
+00:00:48,000 --> 00:00:52,000
+lanzar ArgumentNullException.
+
+14
+00:00:52,000 --> 00:00:56,000
+Por lo tanto, voy a hacer esto parametrizado,
+
+15
+00:00:56,000 --> 00:01:00,000
+error de cadena y agregar tres casos de
+
+16
+00:01:00,000 --> 00:01:04,000
+prueba aqu, entonces TestCase, el primero es nulo,
+
+17
+00:01:04,000 --> 00:01:08,000
+el segundo es una cadena vaca y el
+
+18
+00:01:08,000 --> 00:01:12,000
+ltimo es un espacio en blanco.
+
+19
+00:01:12,000 --> 00:01:16,000
+Una vez ms, creamos un objeto logger y,
+
+20
+00:01:16,000 --> 00:01:20,000
+por supuesto, podramos hacerlo en el mtodo de configuracin.
+
+21
+00:01:20,000 --> 00:01:24,000
+Pero te lo dejo como un ejercicio. As que aqu est la
+
+22
+00:01:24,000 --> 00:01:28,000
+parte difcil, si llamo logger. error de
+
+23
+00:01:28,000 --> 00:01:32,000
+registro Esta lnea arrojar una excepcin, y
+
+24
+00:01:32,000 --> 00:01:36,000
+nuestro mtodo de prueba va a fallar. Entonces, la forma de escribir
+
+25
+00:01:36,000 --> 00:01:40,000
+afirmaciones, para los mtodos que generan una excepcin, es mediante
+
+26
+00:01:40,000 --> 00:01:44,000
+el uso de un delegado. As que voy a envolver esta llamada, dentro
+
+27
+00:01:44,000 --> 00:01:48,000
+de un delegado al escribir la Afirmacin. Djame mostrarte lo que quiero decir.
+
+28
+00:01:48,000 --> 00:01:52,000
+Entonces,
+
+29
+00:01:52,000 --> 00:01:56,000
+Assert. Eso, aqu voy a agregar
+
+30
+00:01:56,000 --> 00:02:00,000
+un delegado o una funcin en lnea o una expresin lambda.
+
+31
+00:02:00,000 --> 00:02:04,000
+Si no est familiarizado con estos, debe ver mi curso avanzado C #.
+
+32
+00:02:04,000 --> 00:02:08,000
+He cubierto este tema en detalle, as que aqu pasamos
+
+33
+00:02:08,000 --> 00:02:12,000
+una expresin lambda, y aqu es donde podemos llamar al
+
+34
+00:02:12,000 --> 00:02:16,000
+mtodo de registro. Entonces logger. Error
+
+35
+00:02:16,000 --> 00:02:20,000
+de registro Ahora, como el
+
+36
+00:02:20,000 --> 00:02:24,000
+segundo argumento especificamos el tipo de excepcin.
+
+37
+00:02:24,000 --> 00:02:28,000
+Entonces, previamente ha visto que es y hace
+
+38
+00:02:28,000 --> 00:02:32,000
+clases, tambin tenemos Throws, tiene muchas propiedades de
+
+39
+00:02:32,000 --> 00:02:36,000
+ayuda tiles como excepcin de argumento, excepcin de
+
+40
+00:02:36,000 --> 00:02:40,000
+argumento nulo, excepcin de operacin no vlida, y as sucesivamente.
+
+41
+00:02:40,000 --> 00:02:44,000
+Pero en este caso voy a usar la excepcin Argument Null. A veces trabajas con
+
+42
+00:02:44,000 --> 00:02:48,000
+diferentes tipos de excepciones, si ese es el
+
+43
+00:02:48,000 --> 00:02:52,000
+caso, puedes usar Throws, Exception, type of y
+
+44
+00:02:52,000 --> 00:02:56,000
+aqu especificas el tipo. Por ejemplo, divide por
+
+45
+00:02:56,000 --> 00:03:00,000
+cero la excepcin. Bueno?
+
+46
+00:03:00,000 --> 00:03:04,000
+Pero en este caso, debido a que tenemos esta propiedad de ayuda,
+
+47
+00:03:04,000 --> 00:03:08,000
+ArgumentNullException, prefiero la primera sintaxis, que es ms corta y ms clara.
+
+48
+00:03:08,000 --> 00:03:12,000
+Entonces, eliminemos esto y ejecutemos bien nuestra prueba, para
+
+49
+00:03:12,000 --> 00:03:16,000
+que podamos ver que tenemos este mtodo de prueba
+
+50
+00:03:16,000 --> 00:03:20,000
+con tres casos de prueba, todos estn pasando, una
+
+51
+00:03:20,000 --> 00:03:24,000
+vez ms para asegurarnos de que esta es una
+
+52
+00:03:24,000 --> 00:03:28,000
+prueba confiable, voy a volver en el cdigo de
+
+53
+00:03:28,000 --> 00:03:32,000
+produccin, y comente la lnea que es responsable de
+
+54
+00:03:32,000 --> 00:03:36,000
+hacer pasar esta prueba, as que voy a comentar
+
+55
+00:03:36,000 --> 00:03:40,000
+estas dos primeras lneas. Veamos si nuestra prueba
+
+56
+00:03:40,000 --> 00:03:44,000
+falla ahora o no. Entonces, mientras est
+
+57
+00:03:44,000 --> 00:03:48,000
+seleccionado, voy a escribirlo nuevamente, esta
+
+58
+00:03:48,000 --> 00:03:52,000
+vez nuestra prueba fall. Entonces, esta es una prueba confiable.
+
+59
+00:03:52,000 --> 00:03:56,000
+De vuelta aqu, voy a eliminar el comentario.
+
+60
+00:03:56,000 --> 00:04:00,000
+Hermosa. En la prxima conferencia, voy
+
+61
+00:04:00,000 --> 00:04:04,000
+a mostrar cmo probar los mtodos que plantean un evento,
+
+62
+00:04:04,000 --> 00:04:08,000
+esto es particularmente til al compilar wpf o la aplicacin Xamarin.
+

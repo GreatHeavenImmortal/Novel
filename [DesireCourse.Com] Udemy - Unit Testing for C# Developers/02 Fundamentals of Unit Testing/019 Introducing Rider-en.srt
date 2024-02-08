@@ -1,0 +1,114 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now let me give you a quick introduction
+
+2
+00:00:04,000 --> 00:00:08,000
+to Rider. Rider is a cross platform ID
+
+3
+00:00:08,000 --> 00:00:12,000
+built by Jet Brains, the same company that has created
+
+4
+00:00:12,000 --> 00:00:16,000
+ReSharper. It's super fast, it's light weight, and it's
+
+5
+00:00:16,000 --> 00:00:20,000
+my preferred IDE at the time of recording this video. If you want to use
+
+6
+00:00:20,000 --> 00:00:24,000
+Visual Studio, that's perfectly fine, but let me show you one of my favorite features
+
+7
+00:00:24,000 --> 00:00:28,000
+in Rider, that you can also get with ReSharper, inside
+
+8
+00:00:28,000 --> 00:00:32,000
+Visual Studio. Look at this icon we have
+
+9
+00:00:32,000 --> 00:00:36,000
+in front of this test method. Just click it, look,
+
+10
+00:00:36,000 --> 00:00:40,000
+with Rider, or with ReSharper, we can run a single test,
+
+11
+00:00:40,000 --> 00:00:44,000
+and this is something we don't currently have in Visual Studio.
+
+12
+00:00:44,000 --> 00:00:48,000
+In Visual Studio, you can only run all the tests in your project.
+
+13
+00:00:48,000 --> 00:00:52,000
+but that's very inefficient, because in a large, real world
+
+14
+00:00:52,000 --> 00:00:56,000
+application, you might have hundreds, or thousands of tests.
+
+15
+00:00:56,000 --> 00:01:00,000
+Sometimes you're working on a particular test, you're making changes, and you want to run
+
+16
+00:01:00,000 --> 00:01:04,000
+only that test. You don't want to run all the tests and wait
+
+17
+00:01:04,000 --> 00:01:08,000
+every time you are making a simple change, in a single test method.
+
+18
+00:01:08,000 --> 00:01:12,000
+Also, here we can run all the tests inside
+
+19
+00:01:12,000 --> 00:01:16,000
+this reservation test class, you can see we have this icon here,
+
+20
+00:01:16,000 --> 00:01:20,000
+so we can run all the tests inside this class.
+
+21
+00:01:20,000 --> 00:01:24,000
+The short cut to run this is command and T, and then command and
+
+22
+00:01:24,000 --> 00:01:28,000
+R. If you're on Windows, the short cut
+
+23
+00:01:28,000 --> 00:01:32,000
+is control T, and control R. And
+
+24
+00:01:32,000 --> 00:01:36,000
+Here is our rest runner, which is faster than the test runner we get
+
+25
+00:01:36,000 --> 00:01:40,000
+in Visual Studio. So these are some of the reasons that I love
+
+26
+00:01:40,000 --> 00:01:44,000
+ReSharper, but again, you don't have to get ReSharper, Rider,
+
+27
+00:01:44,000 --> 00:01:48,000
+you can simply use Visual Studio on Windows, and that's perfectly fine.
+
+28
+00:01:48,000 --> 00:01:52,000
+But I'm going to use Rider for the rest of the course.
+
+
+

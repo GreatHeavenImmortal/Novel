@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:04,000
+Na prxima palestra, voc vai escrever seu
+
+2
+00:00:04,000 --> 00:00:08,000
+primeiro teste de unidade. Ento, baixe o arquivo zip que
+
+3
+00:00:08,000 --> 00:00:12,000
+eu anexei nesta palestra, esta  uma soluo do Visual Studio que inclui
+
+4
+00:00:12,000 --> 00:00:15,000
+algum cdigo que voc vai testar ao longo deste curso.
+

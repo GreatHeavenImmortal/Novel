@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+In this section, we're going to explore the
+
+2
+00:00:04,000 --> 00:00:08,000
+fundamentals of unit testing. So you're going to learn about characteristics
+
+3
+00:00:08,000 --> 00:00:12,000
+of good unit tests. What to test and what not to test,
+
+4
+00:00:12,000 --> 00:00:16,000
+this is one of the common questions I get from a lot of my students,
+
+5
+00:00:16,000 --> 00:00:20,000
+they say, "Mosh, I don't know what to test!" So in this section, I'm going to give you some
+
+6
+00:00:20,000 --> 00:00:24,000
+guidelines that help you get started. You're also going to learn about
+
+7
+00:00:24,000 --> 00:00:28,000
+naming and organizing your tests, along with some basic
+
+8
+00:00:28,000 --> 00:00:32,000
+techniques for writing clean and maintainable tests. And finally you're
+
+9
+00:00:32,000 --> 00:00:36,000
+going to learn how to write reliable tests that don't lie.
+
+10
+00:00:36,000 --> 00:00:40,000
+So, when they pass, you know that your production code is working,
+
+11
+00:00:40,000 --> 00:00:44,000
+and when they fail, you know that there is something wrong in the production code.
+
+12
+00:00:44,000 --> 00:00:47,000
+So now, let's get started!
+

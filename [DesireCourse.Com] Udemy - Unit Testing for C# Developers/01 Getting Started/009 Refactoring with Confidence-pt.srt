@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:04,000
+Por isso, renomei esses mtodos de teste para
+
+2
+00:00:04,000 --> 00:00:08,000
+torn-los mais consistentes e fceis de ler.
+
+3
+00:00:08,000 --> 00:00:12,000
+Portanto, temos trs cenrios, cancelamento de administrador, cancelamento
+
+4
+00:00:12,000 --> 00:00:16,000
+de mesmo usurio e cancelamento de outro usurio.
+
+5
+00:00:16,000 --> 00:00:20,000
+Uma coisa que voc pode ver sobre este teste  que eles funcionam
+
+6
+00:00:20,000 --> 00:00:24,000
+como algum tipo de documentao sobre nosso cdigo fonte, este  outro benefcio
+
+7
+00:00:24,000 --> 00:00:28,000
+de escrever testes, imagine voc se juntar a uma nova equipe que lhe
+
+8
+00:00:28,000 --> 00:00:32,000
+d um novo projeto, e sua tarefa  fazer algum modificaes em uma classe.
+
+9
+00:00:32,000 --> 00:00:36,000
+Se essa classe for devidamente suportada por vrios
+
+10
+00:00:36,000 --> 00:00:40,000
+testes de unidade, voc poder descobrir facilmente qual
+
+11
+00:00:40,000 --> 00:00:44,000
+ a responsabilidade dessa classe. Agora deixe-me mostrar outro benefcio de escrever testes.
+
+12
+00:00:44,000 --> 00:00:48,000
+Anteriormente nesta seo, eu lhe disse que, depois de fazer os testes, voc
+
+13
+00:00:48,000 --> 00:00:52,000
+poder refatorar seu cdigo com confiana. Ento, de volta  nossa
+
+14
+00:00:52,000 --> 00:00:56,000
+classe de reserva, eu no gosto da maneira como este
+
+15
+00:00:56,000 --> 00:01:00,000
+mtodo  implementado, parece muito amador, ento vou refator-lo e
+
+16
+00:01:00,000 --> 00:01:04,000
+ento executar todos os meus testes, e ver se eu
+
+17
+00:01:04,000 --> 00:01:08,000
+quebrei alguma coisa ou no . Ento, a primeira mudana que
+
+18
+00:01:08,000 --> 00:01:12,000
+vou fazer aqui  que, em vez de ter
+
+19
+00:01:12,000 --> 00:01:16,000
+duas declaraes if, terei uma declarao if e usarei
+
+20
+00:01:16,000 --> 00:01:20,000
+a lgica ou o operador. Ento, se o usurio  admin,
+
+21
+00:01:20,000 --> 00:01:24,000
+ou MadeBy  igual ao usurio. Voc vai retornar true,
+
+22
+00:01:24,000 --> 00:01:28,000
+caso contrrio, vamos retornar false. Agora, de volta ao
+
+23
+00:01:28,000 --> 00:01:32,000
+test explorer, execute todos os testes, ento,
+
+24
+00:01:32,000 --> 00:01:36,000
+meus testes esto verificando se nosso aplicativo
+
+25
+00:01:36,000 --> 00:01:40,000
+ainda est funcionando. Eu no quebrei nada.
+
+26
+00:01:40,000 --> 00:01:44,000
+Eu posso levar isso para o prximo nvel. Ento, ao invs
+
+27
+00:01:44,000 --> 00:01:48,000
+de ter esta declarao if aqui, e
+
+28
+00:01:48,000 --> 00:01:52,000
+ento retornar false, eu simplesmente retornarei o
+
+29
+00:01:52,000 --> 00:01:56,000
+resultado dessa expresso. Agora, temos apenas uma
+
+30
+00:01:56,000 --> 00:02:00,000
+linha de cdigo aqui. Mais uma vez,
+
+31
+00:02:00,000 --> 00:02:04,000
+ns executamos todos os testes, todos os
+
+32
+00:02:04,000 --> 00:02:08,000
+testes esto passando, nosso cdigo  muito
+
+33
+00:02:08,000 --> 00:02:12,000
+mais limpo e voc pode ver outro
+
+34
+00:02:12,000 --> 00:02:14,666
+benefcio de escrever testes.
+

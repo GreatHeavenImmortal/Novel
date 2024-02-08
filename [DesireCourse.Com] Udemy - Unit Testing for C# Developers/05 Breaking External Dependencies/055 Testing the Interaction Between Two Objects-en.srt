@@ -1,0 +1,218 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, once
+
+2
+00:00:04,000 --> 00:00:08,000
+again, in the Mocking folder, let's take a look at this
+
+3
+00:00:08,000 --> 00:00:12,000
+order service. This is the order service that you saw in the last lecture.
+
+4
+00:00:12,000 --> 00:00:16,000
+So we're going to write the test for this method,
+
+5
+00:00:16,000 --> 00:00:20,000
+add Assert .storage.Store is called with the
+
+6
+00:00:20,000 --> 00:00:24,000
+same object that we passed to this PlaceOrder method, okay?
+
+7
+00:00:24,000 --> 00:00:28,000
+So, in our unit testing project, inside the Mocking
+
+8
+00:00:28,000 --> 00:00:32,000
+folder, let's add a new class,
+
+9
+00:00:32,000 --> 00:00:36,000
+OrderServiceTests.
+
+10
+00:00:36,000 --> 00:00:40,000
+So first we apply the Test
+
+11
+00:00:40,000 --> 00:00:44,000
+Fixture attribute, and then create
+
+12
+00:00:44,000 --> 00:00:48,000
+a Test method. So public void,
+
+13
+00:00:48,000 --> 00:00:52,000
+PlaceOrder_WhenCalled
+
+14
+00:00:52,000 --> 00:00:56,000
+should StoreTheOrder.
+
+15
+00:00:56,000 --> 00:01:00,000
+Now back to our order service, look at the
+
+16
+00:01:00,000 --> 00:01:04,000
+constructor of this class. We are injecting this
+
+17
+00:01:04,000 --> 00:01:08,000
+IStorage object here. So in our test, we need to create
+
+18
+00:01:08,000 --> 00:01:12,000
+a mock object for this interface. So,
+
+19
+00:01:12,000 --> 00:01:16,000
+let's create a new
+
+20
+00:01:16,000 --> 00:01:20,000
+Mock of IStorage interface.
+
+21
+00:01:20,000 --> 00:01:24,000
+Now, we create an order service
+
+22
+00:01:24,000 --> 00:01:28,000
+so new OrderService
+
+23
+00:01:28,000 --> 00:01:32,000
+and we pass storage.object as an argument.
+
+24
+00:01:32,000 --> 00:01:36,000
+So this is the arrange part. Now, we need to act.
+
+25
+00:01:36,000 --> 00:01:40,000
+Service.PlaceOrder.
+
+26
+00:01:40,000 --> 00:01:44,000
+We give it an order object, very simple,
+
+27
+00:01:44,000 --> 00:01:48,000
+now finally we need to assert that storage.store
+
+28
+00:01:48,000 --> 00:01:52,000
+is called. To do that we call storage
+
+29
+00:01:52,000 --> 00:01:56,000
+. so far you have seen the set up method, right?
+
+30
+00:01:56,000 --> 00:02:00,000
+This is how we program a mock object. We also have
+
+31
+00:02:00,000 --> 00:02:04,000
+a Verify method. And with this we can verify
+
+32
+00:02:04,000 --> 00:02:08,000
+any given method is called with the right arguments are not. So again,
+
+33
+00:02:08,000 --> 00:02:12,000
+here we pass a Lambda expression, storage goes to
+
+34
+00:02:12,000 --> 00:02:16,000
+storage.Store, and as
+
+35
+00:02:16,000 --> 00:02:20,000
+an argument we need to pass the same order object that is passed
+
+36
+00:02:20,000 --> 00:02:24,000
+to the PlaceOrder method. So I'm going to extract
+
+37
+00:02:24,000 --> 00:02:28,000
+this into a local variable, so var order
+
+38
+00:02:28,000 --> 00:02:32,000
+pass an object here,
+
+39
+00:02:32,000 --> 00:02:36,000
+and also, verify that the same object
+
+40
+00:02:36,000 --> 00:02:40,000
+is passed to the store method of the storage. So,
+
+41
+00:02:40,000 --> 00:02:44,000
+we add order here. Now, let's run this test.
+
+42
+00:02:44,000 --> 00:02:48,000
+Okay, here's our new test.
+
+43
+00:02:48,000 --> 00:02:52,000
+It's passing, beautiful, let's just make sure that we're passing the right
+
+44
+00:02:52,000 --> 00:02:56,000
+thing, so I'm going to go back to order service, if we comment out this
+
+45
+00:02:56,000 --> 00:03:00,000
+line, that test is going to fail, so, we can either comment
+
+46
+00:03:00,000 --> 00:03:04,000
+this out or we can return something earlier that has the same affect.
+
+47
+00:03:04,000 --> 00:03:08,000
+So, back here, let's run the test one more time.
+
+49
+00:03:12,000 --> 00:03:16,000
+Okay, our test failed. Look at the error message. Expected
+
+50
+00:03:16,000 --> 00:03:20,000
+in location on the mock at least once, but was never performed.
+
+51
+00:03:20,000 --> 00:03:24,000
+So this verifies that we're testing the right thing.
+
+52
+00:03:24,000 --> 00:03:28,000
+Now back to our order service, let's revert this back.
+
+53
+00:03:28,000 --> 00:03:32,000
+Okay, so to recap,
+
+54
+00:03:32,000 --> 00:03:36,000
+in order to test the interaction between two objects, you can
+
+55
+00:03:36,000 --> 00:03:40,000
+use the verify method of mock objects.
+
+
+

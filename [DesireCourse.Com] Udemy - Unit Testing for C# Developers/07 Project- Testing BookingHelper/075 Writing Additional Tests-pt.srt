@@ -1,0 +1,284 @@
+1
+00:00:00,000 --> 00:00:04,000
+O prximo caso de teste que queremos escrever aqui 
+
+2
+00:00:04,000 --> 00:00:08,000
+onde a nossa reserva comea e termina no meio de
+
+3
+00:00:08,000 --> 00:00:12,000
+uma reserva existente. Ento, novamente, ns temos uma sobreposio. Agora, mais
+
+4
+00:00:12,000 --> 00:00:16,000
+uma vez, vou selecionar esse
+
+5
+00:00:16,000 --> 00:00:20,000
+cdigo e duplicar, para que
+
+6
+00:00:20,000 --> 00:00:24,000
+o cenrio seja o local
+
+7
+00:00:24,000 --> 00:00:28,000
+em que o Booking StartsAndFinishes InTheMiddleOfAnExistingBooking.
+
+8
+00:00:28,000 --> 00:00:32,000
+Ento aqui podemos definir o
+
+9
+00:00:32,000 --> 00:00:36,000
+ArrivalDate para 1 dia AfterTheArrivalDateofExistingBooking.
+
+10
+00:00:36,000 --> 00:00:40,000
+Ento, depois, e da mesma forma, podemos definir a
+
+11
+00:00:40,000 --> 00:00:44,000
+data de partida para 1 diaAntes da data de
+
+12
+00:00:44,000 --> 00:00:48,000
+partida da reserva existente. Ento, vamos
+
+13
+00:00:48,000 --> 00:00:52,000
+executar este teste. Ela passou, linda, vamos
+
+14
+00:00:52,000 --> 00:00:56,000
+para o prximo teste.  possvel que a
+
+15
+00:00:56,000 --> 00:01:00,000
+nossa nova reserva comece no meio de uma
+
+16
+00:01:00,000 --> 00:01:04,000
+reserva existente, mas termine depois. Portanto, semelhante a
+
+17
+00:01:04,000 --> 00:01:08,000
+este caso de teste, selecionarei
+
+18
+00:01:08,000 --> 00:01:12,000
+isso, duplicarei e alterarei o
+
+19
+00:01:12,000 --> 00:01:16,000
+nome do teste para StartsInTheMiddle OfAnExistingBookingButFinishesAfter.
+
+20
+00:01:16,000 --> 00:01:20,000
+ButFinishesAfter. Ento, para simular isso,
+
+21
+00:01:20,000 --> 00:01:24,000
+ns simplesmente precisamos substituir Before, with After.
+
+22
+00:01:24,000 --> 00:01:28,000
+Vamos rodar esse teste.
+
+23
+00:01:28,000 --> 00:01:32,000
+Isso tambm est passando, excelente. E, o ltimo caso de
+
+24
+00:01:32,000 --> 00:01:36,000
+teste  onde a nossa reserva comea e termina depois
+
+25
+00:01:36,000 --> 00:01:40,000
+de uma reserva existente, neste caso no temos uma sobreposio.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ento, vamos selecionar esse
+
+27
+00:01:44,000 --> 00:01:48,000
+cdigo, duplicar e alterar
+
+28
+00:01:48,000 --> 00:01:52,000
+o nome do teste
+
+29
+00:01:52,000 --> 00:01:56,000
+para BookingStartsAndFinishes AfterAnExisting Booking.
+
+30
+00:01:56,000 --> 00:02:00,000
+E aqui
+
+31
+00:02:00,000 --> 00:02:04,000
+esperamos Retornar EmptyString. Ento, aqui para mudar
+
+32
+00:02:04,000 --> 00:02:08,000
+a lgica, devemos definir o ArrivalDate depois
+
+33
+00:02:08,000 --> 00:02:12,000
+de DepartureDateOfTheExistingBooking, mas devemos definir a data
+
+34
+00:02:12,000 --> 00:02:16,000
+de partida para digamos um dia extra depois.
+
+35
+00:02:16,000 --> 00:02:20,000
+Ento, voc precisa modificar nosso mtodo auxiliar.
+
+36
+00:02:20,000 --> 00:02:24,000
+E como podemos ter um argumento opcional?
+
+37
+00:02:24,000 --> 00:02:28,000
+Ento, IntegerDays, configuramos para 1 e substitumos
+
+38
+00:02:28,000 --> 00:02:32,000
+este 1 por Days. E ento podemos
+
+39
+00:02:32,000 --> 00:02:36,000
+definir o DepartureDate para 2 dias depois.
+
+40
+00:02:36,000 --> 00:02:40,000
+E, aqui, precisamos alterar nossa declarao e garantir que
+
+41
+00:02:40,000 --> 00:02:44,000
+o resultado esteja vazio. Vamos rodar esse teste.
+
+42
+00:02:44,000 --> 00:02:48,000
+Isso tambm est passando, excelente.
+
+43
+00:02:48,000 --> 00:02:52,000
+Ento, ns cobrimos vrias possibilidades de dois intervalos de
+
+44
+00:02:52,000 --> 00:02:56,000
+datas se sobrepondo, ns corrigimos o bug que tivemos
+
+45
+00:02:56,000 --> 00:03:00,000
+em nossa classe BookingHelper para tornar a lgica mais
+
+46
+00:03:00,000 --> 00:03:04,000
+curta e mais limpa. Mas ainda precisamos escrever mais dois testes aqui onde
+
+47
+00:03:04,000 --> 00:03:08,000
+temos uma sobreposio, mas uma das reservas  cancelada. A nova reserva ou
+
+48
+00:03:08,000 --> 00:03:12,000
+a reserva existente. Se a reserva existente for
+
+49
+00:03:12,000 --> 00:03:16,000
+cancelada, ela no deve ser retornada de nosso repositrio.
+
+50
+00:03:16,000 --> 00:03:20,000
+Porque dentro desse mtodo encapsulamos a lgica para retornar
+
+51
+00:03:20,000 --> 00:03:24,000
+reservas que no so canceladas. Ento, para testar esse cenrio, precisamos
+
+52
+00:03:24,000 --> 00:03:28,000
+escrever um teste de integrao para este mtodo, precisamos preencher nosso banco de
+
+53
+00:03:28,000 --> 00:03:32,000
+dados com um monte de reservas, e certifique-se que este mtodo retorna apenas
+
+54
+00:03:32,000 --> 00:03:36,000
+as reservas que no so canceladas. Portanto, os nicos outros testes de
+
+55
+00:03:36,000 --> 00:03:40,000
+unidade que precisamos escrever aqui  onde essa reserva  cancelada e
+
+56
+00:03:40,000 --> 00:03:44,000
+ela se sobrepe a uma reserva existente. Ento, voltando  nossa
+
+57
+00:03:44,000 --> 00:03:48,000
+aula de teste, eu vou pegar, um desses testes
+
+58
+00:03:48,000 --> 00:03:52,000
+onde ns temos uma sobreposio, ento no importa qual
+
+59
+00:03:52,000 --> 00:03:56,000
+voc pode escolher algum realmente. Vamos copiar
+
+60
+00:03:56,000 --> 00:04:00,000
+isso e col-lo aqui
+
+61
+00:04:00,000 --> 00:04:04,000
+e alterar o nome
+
+62
+00:04:04,000 --> 00:04:08,000
+do mtodo para Bookings
+
+63
+00:04:08,000 --> 00:04:12,000
+OverlapButNewBookingIs Canceled. Neste caso
+
+64
+00:04:12,000 --> 00:04:16,000
+devemos retornar EmptyString. Ento agora, com
+
+65
+00:04:16,000 --> 00:04:20,000
+essa lgica, temos reservas sobrepostas, mas
+
+66
+00:04:20,000 --> 00:04:24,000
+devemos definir o Status como Cancelado.
+
+67
+00:04:24,000 --> 00:04:28,000
+E ento afirme que o
+
+68
+00:04:28,000 --> 00:04:32,000
+resultado est vazio. Vamos rodar esse teste.
+
+69
+00:04:32,000 --> 00:04:36,000
+E este teste est passando tambm.
+
+70
+00:04:36,000 --> 00:04:40,000
+Portanto, temos um total de 7 testes unitrios
+
+71
+00:04:40,000 --> 00:04:44,000
+para esse mtodo, e isso conclui esse desafio.
+

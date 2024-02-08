@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, voc sabe sobre os benefcios de escrever testes,
+
+2
+00:00:04,000 --> 00:00:08,000
+mas no vivemos em um mundo ideal, e todo
+
+3
+00:00:08,000 --> 00:00:12,000
+projeto tem certas restries. Existem alguns cenrios em que
+
+4
+00:00:12,000 --> 00:00:16,000
+sugiro que voc pense em testes automatizados de forma mais realista.
+
+5
+00:00:16,000 --> 00:00:20,000
+Um cenrio  quando voc est lidando com um aplicativo
+
+6
+00:00:20,000 --> 00:00:24,000
+legado que  gravado sem o teste de unidade em mente.
+
+7
+00:00:24,000 --> 00:00:28,000
+Os aplicativos criados dessa maneira no so inerentemente testveis.
+
+8
+00:00:28,000 --> 00:00:32,000
+Se voc quiser torn-los testveis, voc ter que gastar muito tempo e seus custos sero potencialmente
+
+9
+00:00:32,000 --> 00:00:36,000
+mais do que os benefcios que voc obter. Ento o que voc
+
+10
+00:00:36,000 --> 00:00:40,000
+deveria fazer? Voc deve testar ou no.  a que
+
+11
+00:00:40,000 --> 00:00:44,000
+voc precisa fazer sua avaliao. Voc pode decidir refatorar uma parte
+
+12
+00:00:44,000 --> 00:00:48,000
+pequena ou crtica de sua inscrio e tornar essa parte testvel.
+
+13
+00:00:48,000 --> 00:00:52,000
+Dessa forma, podemos garantir que as partes crticas do aplicativo
+
+14
+00:00:52,000 --> 00:00:56,000
+continuem funcionando enquanto voc implementa novos requisitos de negcios.
+
+15
+00:00:56,000 --> 00:01:00,000
+Mas se voc quiser ter como objetivo testar todas as partes do aplicativo.
+
+16
+00:01:00,000 --> 00:01:04,000
+As chances so de que seu custo supere os benefcios.
+
+17
+00:01:04,000 --> 00:01:08,000
+Outro cenrio  quando voc trabalha em uma empresa iniciante
+
+18
+00:01:08,000 --> 00:01:12,000
+e tem pouco tempo para transformar rapidamente um conceito em
+
+19
+00:01:12,000 --> 00:01:16,000
+software operacional em produo. Nesse caso, novamente, voc pode no
+
+20
+00:01:16,000 --> 00:01:20,000
+ter tempo suficiente para escrever testes para cada parte do aplicativo.
+
+21
+00:01:20,000 --> 00:01:24,000
+Mas pelo menos voc pode escrever testes para as partes principais
+
+22
+00:01:24,000 --> 00:01:28,000
+e, como eu disse anteriormente nesta seo, se voc calcular funes,
+
+23
+00:01:28,000 --> 00:01:32,000
+voc pode testar essas unidades. E isso, na verdade,
+
+24
+00:01:32,000 --> 00:01:36,000
+ajudar voc a ir mais rpido e gastar menos
+
+25
+00:01:36,000 --> 00:01:40,000
+tempo testando manualmente essas funes. Ento voc precisa ser realista e
+
+26
+00:01:40,000 --> 00:01:44,000
+usar seu prprio julgamento sobre quais partes do aplicativo precisam ser testadas.
+
+27
+00:01:44,000 --> 00:01:48,000
+E o ltimo cenrio  onde voc  o
+
+28
+00:01:48,000 --> 00:01:52,000
+nico desenvolvedor da equipe, que pratica a escrita de
+
+29
+00:01:52,000 --> 00:01:56,000
+cdigo limpo e testvel. Se os outros desenvolvedores em sua equipe escreverem cdigos
+
+30
+00:01:56,000 --> 00:02:00,000
+bagunados, como funes com centenas de linhas de cdigo ou mais, voc realmente no conseguir implementar testes de
+
+31
+00:02:00,000 --> 00:02:04,000
+unidade em sua organizao, isso simplesmente no funcionar.  como nadar
+
+32
+00:02:04,000 --> 00:02:08,000
+contra um rio. A primeira coisa que voc precisa fazer
+
+33
+00:02:08,000 --> 00:02:12,000
+ educar sua equipe e ajud-los a escrever um cdigo mais limpo e mais testvel.
+
+34
+00:02:12,000 --> 00:02:16,000
+Caso voc no tenha assistido ao meu curso de cdigo limpo, recomendo
+
+35
+00:02:16,000 --> 00:02:20,000
+que faa o curso e faa com que todos em sua equipe
+
+36
+00:02:20,000 --> 00:02:24,000
+tambm assistam a esse curso. Esse  o primeiro passo
+
+37
+00:02:24,000 --> 00:02:28,000
+antes de escrever cdigo testvel. Se o seu cdigo
+
+38
+00:02:28,000 --> 00:02:32,000
+no estiver limpo, escrever testes  difcil ou impossvel.
+

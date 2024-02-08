@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, Let's start this section
+
+2
+00:00:04,000 --> 00:00:08,000
+by looking at the characteristics of good unit tests:
+
+3
+00:00:08,000 --> 00:00:12,000
+The first thing I want you to remember is that unit tests are
+
+4
+00:00:12,000 --> 00:00:16,000
+First-class citizens. So they are as important, if
+
+5
+00:00:16,000 --> 00:00:20,000
+not more than the production code. And that means all the best practices
+
+6
+00:00:20,000 --> 00:00:24,000
+we have learned about writing clean, and maintainable code have
+
+7
+00:00:24,000 --> 00:00:28,000
+applied to your test methods as well. More specifically,
+
+8
+00:00:28,000 --> 00:00:32,000
+each test should have a single responsibility, and should ideally be
+
+9
+00:00:32,000 --> 00:00:36,000
+less than ten lines of code. In fact, one of the reasons that people
+
+10
+00:00:36,000 --> 00:00:40,000
+fail with unit testing is because their tests are messy.
+
+11
+00:00:40,000 --> 00:00:44,000
+They have large and fat test methods that are really unmaintainable.
+
+12
+00:00:44,000 --> 00:00:48,000
+When these tests break, they spend so much time on debugging.
+
+13
+00:00:48,000 --> 00:00:52,000
+So as you are writing tests, you need to keep them clean,
+
+14
+00:00:52,000 --> 00:00:56,000
+ and refactor if necessary. I'll show you several examples of
+
+15
+00:00:56,000 --> 00:01:00,000
+ these later in this course. Another characteristic of good unit
+
+16
+00:01:00,000 --> 00:01:04,000
+tests, is they should not have any logic. So you should
+
+17
+00:01:04,000 --> 00:01:08,000
+not have any conditional statements, loops and other kinds of
+
+18
+00:01:08,000 --> 00:01:12,000
+logic in your tests. Why? Because when you write logic in unit (?)
+
+19
+00:01:12,000 --> 00:01:16,000
+test, it is possible that you will make a mistake. So, your test
+
+20
+00:01:16,000 --> 00:01:20,000
+will end up having a bug, and it will fail. When a test fails,
+
+21
+00:01:20,000 --> 00:01:24,000
+first you think there's something wrong with the production code. So you spend 20
+
+22
+00:01:24,000 --> 00:01:28,000
+minutes just to figure out that there is a bug in your test. So
+
+23
+00:01:28,000 --> 00:01:32,000
+no logic in your tests! You simply call a method
+
+24
+00:01:32,000 --> 00:01:36,000
+and make an assertion. Also, each
+
+25
+00:01:36,000 --> 00:01:40,000
+test should be written and executed as if it's the only
+
+26
+00:01:40,000 --> 00:01:44,000
+test in the world. So your tests methods should not call each other
+
+27
+00:01:44,000 --> 00:01:48,000
+and they should not assume any state created by another
+
+28
+00:01:48,000 --> 00:01:52,000
+test. And finally, your test should not be too specific.
+
+29
+00:01:52,000 --> 00:01:56,000
+Or too general. If they are too general, they may not give you
+
+30
+00:01:56,000 --> 00:02:00,000
+much confidence that your production code is working. Again, we'll look at
+
+31
+00:02:00,000 --> 00:02:03,000
+examples of this shortly.
+

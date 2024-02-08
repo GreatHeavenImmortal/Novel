@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,000
+Para escribir pruebas de unidad e integracin, necesita
+
+2
+00:00:04,000 --> 00:00:08,000
+un marco de prueba. Existen varios frameworks de
+
+3
+00:00:08,000 --> 00:00:12,000
+prueba, pero los ms populares son: NUnit: que es
+
+4
+00:00:12,000 --> 00:00:16,000
+uno de los frameworks ms antiguos, tenemos MSTest, que
+
+5
+00:00:16,000 --> 00:00:20,000
+es el marco de prueba de Microsoft integrado en
+
+6
+00:00:20,000 --> 00:00:24,000
+Visual Studio, y Xunit, que ha ganado ms popularidad.
+
+7
+00:00:24,000 --> 00:00:28,000
+en los ltimos aos. Todos estos marcos le brindan una
+
+8
+00:00:28,000 --> 00:00:32,000
+biblioteca de utilidad para escribir sus pruebas y un corredor de prueba
+
+9
+00:00:32,000 --> 00:00:36,000
+que ejecuta sus pruebas y le brinda un informe de las pruebas
+
+10
+00:00:36,000 --> 00:00:40,000
+de aprobacin y falla. Qu marco es mejor? Depende de a quin le
+
+11
+00:00:40,000 --> 00:00:44,000
+pregunte y cul es su definicin de mejor. A diferentes personas les
+
+12
+00:00:44,000 --> 00:00:48,000
+gustan diferentes herramientas. Por lo tanto, aqu est mi sugerencia: No te cuelgues de las herramientas.
+
+13
+00:00:48,000 --> 00:00:52,000
+En este curso, nuestro enfoque se centra en los fundamentos de redaccin de
+
+14
+00:00:52,000 --> 00:00:56,000
+pruebas de calidad que le dan valor. Eso es
+
+15
+00:00:56,000 --> 00:01:00,000
+lo que importa. Siempre puede usar un marco diferente a medida
+
+16
+00:01:00,000 --> 00:01:04,000
+que pasa de un proyecto o equipo a otro. En este curso, vas a
+
+17
+00:01:04,000 --> 00:01:08,000
+comenzar con MSTest porque est integrado en Visual Studio y
+
+18
+00:01:08,000 --> 00:01:12,000
+no requiere ningn paso adicional. Pero poco despus, le
+
+19
+00:01:12,000 --> 00:01:16,000
+mostrar cmo instalar NUnit y ejecutar pruebas de
+
+20
+00:01:16,000 --> 00:01:20,000
+NUnit en Visual Studio. Puede usar cualquiera de estos marcos,
+
+21
+00:01:20,000 --> 00:01:24,000
+esa es puramente su decisin personal. Pero durante la mayor parte de
+
+22
+00:01:24,000 --> 00:01:28,000
+este curso, usar NUnit porque tiene un historial ms largo que MSTest
+
+23
+00:01:28,000 --> 00:01:32,000
+y personalmente considero que es un marco de prueba ms elegante.
+
+24
+00:01:32,000 --> 00:01:36,000
+Ahora, una herramienta opcional que recomiendo es ReSharper porque tiene
+
+25
+00:01:36,000 --> 00:01:40,000
+un corredor de prueba ms rpido y poderoso que el
+
+26
+00:01:40,000 --> 00:01:44,000
+construido en Visual Studio. Solo para que lo sepan, ReSharper es un
+
+27
+00:01:44,000 --> 00:01:48,000
+producto comercial y no soy su afiliado! Puede decidir comprar una
+
+28
+00:01:48,000 --> 00:01:52,000
+licencia o no. Esa es completamente tu eleccin. Lo que quiero
+
+29
+00:01:52,000 --> 00:01:56,000
+enfatizar es que no necesita ReSharper para escribir
+
+30
+00:01:56,000 --> 00:02:00,000
+o ejecutar pruebas. Pero uso ReSharper porque es
+
+31
+00:02:00,000 --> 00:02:04,000
+un gran refuerzo de productividad. Otra herramienta opcional es Rider
+
+32
+00:02:04,000 --> 00:02:08,000
+ Si te gusta Visual Studio + ReSharper pero
+
+33
+00:02:08,000 --> 00:02:12,000
+crees que Visual Studio es demasiado lento para ti,
+
+34
+00:02:12,000 --> 00:02:16,000
+te recomiendo que pruebes Rider. Rider es bsicamente un
+
+35
+00:02:16,000 --> 00:02:20,000
+IDE multiplataforma construido por JetBrains, la misma compaa
+
+36
+00:02:20,000 --> 00:02:24,000
+que ha fabricado ReSharper. As que tienes un IDE
+
+37
+00:02:24,000 --> 00:02:28,000
++ ReSharper sper rpido con los mismos atajos exactos que
+
+38
+00:02:28,000 --> 00:02:32,000
+usas en Visual Studio. En este curso, voy a grabar
+
+39
+00:02:32,000 --> 00:02:36,000
+los primeros videos con Visual Studio porque ese es el IDE
+
+40
+00:02:36,000 --> 00:02:40,000
+predeterminado para la mayora de ustedes, pero ms tarde cambiar a
+
+41
+00:02:40,000 --> 00:02:44,000
+Rider porque es mucho ms rpido. Puede usar Visual Studio con o sin ReSharper.
+
+42
+00:02:44,000 --> 00:02:48,000
+Eso est perfectamente bien. Su enfoque debe estar en
+
+43
+00:02:48,000 --> 00:02:52,000
+los fundamentos de escribir buenas pruebas, y no en las herramientas.
+

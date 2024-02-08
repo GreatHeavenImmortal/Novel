@@ -1,0 +1,285 @@
+1
+00:00:00,000 --> 00:00:04,000
+The next test case we want to write here
+
+2
+00:00:04,000 --> 00:00:08,000
+is where our booking starts and finishes in the middle of an
+
+3
+00:00:08,000 --> 00:00:12,000
+existing booking. So again we have an overlap. Now, one more
+
+4
+00:00:12,000 --> 00:00:16,000
+time, I'm going to select this code, and duplicate,
+
+5
+00:00:16,000 --> 00:00:20,000
+so the scenario is where our Booking
+
+6
+00:00:20,000 --> 00:00:24,000
+StartsAndFinishes
+
+7
+00:00:24,000 --> 00:00:28,000
+InTheMiddleOfAnExistingBooking.
+
+8
+00:00:28,000 --> 00:00:32,000
+So here we can set the ArrivalDate to
+
+9
+00:00:32,000 --> 00:00:36,000
+1 day AfterTheArrivalDateofExistingBooking.
+
+10
+00:00:36,000 --> 00:00:40,000
+So After, and similarly,
+
+11
+00:00:40,000 --> 00:00:44,000
+we can set the departure date to 1 DayBefore
+
+12
+00:00:44,000 --> 00:00:48,000
+the departure date of existing booking. So,
+
+13
+00:00:48,000 --> 00:00:52,000
+let's run this test. It passed,
+
+14
+00:00:52,000 --> 00:00:56,000
+beautiful, let's move onto the next test case. It's possible
+
+15
+00:00:56,000 --> 00:01:00,000
+that our new booking starts in the middle of an existing booking but finishes
+
+16
+00:01:00,000 --> 00:01:04,000
+after. So, kind of similar to this test case, I'm going to
+
+17
+00:01:04,000 --> 00:01:08,000
+select this, duplicate and change
+
+18
+00:01:08,000 --> 00:01:12,000
+the test name to StartsInTheMiddle
+
+19
+00:01:12,000 --> 00:01:16,000
+OfAnExistingBookingButFinishesAfter.
+
+20
+00:01:16,000 --> 00:01:20,000
+ButFinishesAfter. So,
+
+21
+00:01:20,000 --> 00:01:24,000
+to simulate this, we simply need to replace Before, with After.
+
+22
+00:01:24,000 --> 00:01:28,000
+Let's run this test.
+
+23
+00:01:28,000 --> 00:01:32,000
+This is passing too, excellent. And,
+
+24
+00:01:32,000 --> 00:01:36,000
+the last test case is where our booking starts
+
+25
+00:01:36,000 --> 00:01:40,000
+and finishes after an existing booking, in this case we don't have an overlap.
+
+26
+00:01:40,000 --> 00:01:44,000
+So, let's select this code,
+
+27
+00:01:44,000 --> 00:01:48,000
+duplicate and change the test name to
+
+28
+00:01:48,000 --> 00:01:52,000
+BookingStartsAndFinishes
+
+29
+00:01:52,000 --> 00:01:56,000
+AfterAnExisting
+
+30
+00:01:56,000 --> 00:02:00,000
+Booking. And here we expect to Return
+
+31
+00:02:00,000 --> 00:02:04,000
+EmptyString. So here to
+
+32
+00:02:04,000 --> 00:02:08,000
+change the logic, we should set the ArrivalDate after
+
+33
+00:02:08,000 --> 00:02:12,000
+DepartureDateOfTheExistingBooking,
+
+34
+00:02:12,000 --> 00:02:16,000
+but we should set the departure date to let's say an extra day after.
+
+35
+00:02:16,000 --> 00:02:20,000
+So, you need to modify our helper method.
+
+36
+00:02:20,000 --> 00:02:24,000
+And how do we take an optional argument?
+
+37
+00:02:24,000 --> 00:02:28,000
+So, IntegerDays, we set it to 1, and replace
+
+38
+00:02:28,000 --> 00:02:32,000
+this 1 with Days. And then we can set the DepartureDate
+
+39
+00:02:32,000 --> 00:02:36,000
+to 2 days after.
+
+40
+00:02:36,000 --> 00:02:40,000
+And, here we need to change our Assertion and ensure
+
+41
+00:02:40,000 --> 00:02:44,000
+that result Is Empty. Let's run this test.
+
+42
+00:02:44,000 --> 00:02:48,000
+This is passing too, excellent.
+
+43
+00:02:48,000 --> 00:02:52,000
+So, we have covered various possibilities of two
+
+44
+00:02:52,000 --> 00:02:56,000
+date ranges overlapping, we've fixed the bug we had in our
+
+45
+00:02:56,000 --> 00:03:00,000
+BookingHelper class to make the logic shorter and
+
+46
+00:03:00,000 --> 00:03:04,000
+cleaner. But we still need to write two more tests here where
+
+47
+00:03:04,000 --> 00:03:08,000
+we have an overlap but one of the bookings is cancelled. Either the new booking
+
+48
+00:03:08,000 --> 00:03:12,000
+or the existing booking. If the existing booking is
+
+49
+00:03:12,000 --> 00:03:16,000
+cancelled, it should not be returned from our repository.
+
+50
+00:03:16,000 --> 00:03:20,000
+Because inside this method we have encapsulated the logic to return
+
+51
+00:03:20,000 --> 00:03:24,000
+bookings that are not cancelled. So to test that scenario we need to
+
+52
+00:03:24,000 --> 00:03:28,000
+write an integration test for this method we need to
+
+53
+00:03:28,000 --> 00:03:32,000
+populate our database with a bunch of bookings, and make sure that this method
+
+54
+00:03:32,000 --> 00:03:36,000
+only returns the bookings that are not cancelled. So the only other
+
+55
+00:03:36,000 --> 00:03:40,000
+unit tests we need to write here is where this booking is cancelled,
+
+56
+00:03:40,000 --> 00:03:44,000
+and it overlaps with an existing booking. So,
+
+57
+00:03:44,000 --> 00:03:48,000
+back to our test class, I'm going to grab,
+
+58
+00:03:48,000 --> 00:03:52,000
+one of these tests where we have an overlap, so it doesn't matter which one
+
+59
+00:03:52,000 --> 00:03:56,000
+you can pick anyone really. Let's copy this,
+
+60
+00:03:56,000 --> 00:04:00,000
+and paste it here, and change
+
+61
+00:04:00,000 --> 00:04:04,000
+the method name to Bookings
+
+62
+00:04:04,000 --> 00:04:08,000
+OverlapButNewBookingIs
+
+63
+00:04:08,000 --> 00:04:12,000
+Cancelled. In this case we should Return
+
+64
+00:04:12,000 --> 00:04:16,000
+EmptyString. So now with
+
+65
+00:04:16,000 --> 00:04:20,000
+this logic we have overlapping bookings, but
+
+66
+00:04:20,000 --> 00:04:24,000
+we should set the Status to Cancelled.
+
+67
+00:04:24,000 --> 00:04:28,000
+And then Assert that result is
+
+68
+00:04:28,000 --> 00:04:32,000
+Empty. Let's run this test.
+
+69
+00:04:32,000 --> 00:04:36,000
+And this test is passing too.
+
+70
+00:04:36,000 --> 00:04:40,000
+So, we have a total of 7 unit tests
+
+71
+00:04:40,000 --> 00:04:44,000
+for this method, and this concludes this challenge.
+
+

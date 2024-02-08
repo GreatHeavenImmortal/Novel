@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:04,000
+En esta seccin, vamos a explorar algunos
+
+2
+00:00:04,000 --> 00:00:08,000
+escenarios de pruebas unitarias. Entonces, aprender a probar mtodos que
+
+3
+00:00:08,000 --> 00:00:12,000
+devuelven un valor, con vistas (? ) en pruebas de
+
+4
+00:00:12,000 --> 00:00:16,000
+cadenas y secciones (? ) ms especficamente, tambin
+
+5
+00:00:16,000 --> 00:00:20,000
+aprender cmo probar mtodos vacos, mtodos que lanzan una
+
+6
+00:00:20,000 --> 00:00:24,000
+excepcin o plantear un evento, y finalmente, discutiremos sobre
+
+7
+00:00:24,000 --> 00:00:28,000
+probar mtodos privados y protegidos. Estos son temas muy
+
+8
+00:00:28,000 --> 00:00:32,000
+importantes en las pruebas unitarias, as que comencemos!
+

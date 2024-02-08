@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, the third test case we want to write
+
+2
+00:00:04,000 --> 00:00:08,000
+here, is where our new booking starts before an Existing
+
+3
+00:00:08,000 --> 00:00:12,000
+Booking, but finishes after that existing booking, in this case,
+
+4
+00:00:12,000 --> 00:00:16,000
+HaveOverlap. So once again to save time, I'm going to
+
+5
+00:00:16,000 --> 00:00:20,000
+select this code. duplicate and modify
+
+6
+00:00:20,000 --> 00:00:24,000
+accordingly. So BookingStartsBefore
+
+7
+00:00:24,000 --> 00:00:28,000
+AndFinishesAfter
+
+8
+00:00:28,000 --> 00:00:32,000
+AnExistingBooking. Okay, so
+
+9
+00:00:32,000 --> 00:00:36,000
+now we modify the logic, starts before Existing
+
+10
+00:00:36,000 --> 00:00:40,000
+BookingsArrivalDate, but finishes After
+
+11
+00:00:40,000 --> 00:00:44,000
+existingBookingsDepartureDate. And our Assertion
+
+12
+00:00:44,000 --> 00:00:48,000
+is right, so we want to make sure this reference returns
+
+13
+00:00:48,000 --> 00:00:52,000
+the existingBooking. So let's run the test,
+
+14
+00:00:52,000 --> 00:00:56,000
+Okay, this test failed.
+
+15
+00:00:56,000 --> 00:01:00,000
+So we expected to get a, which was our reference
+
+16
+00:01:00,000 --> 00:01:04,000
+but we got an empty string. So this test is
+
+17
+00:01:04,000 --> 00:01:08,000
+telling us that there is a bug in our production code, so,
+
+18
+00:01:08,000 --> 00:01:12,000
+back to our BookingHelper class, this logic
+
+19
+00:01:12,000 --> 00:01:16,000
+has a bug. This is why you write unit tests.
+
+20
+00:01:16,000 --> 00:01:20,000
+Look, with these three unit tests, you could catch a bug before
+
+21
+00:01:20,000 --> 00:01:24,000
+deploying this application to production. Imagine if you want to
+
+22
+00:01:24,000 --> 00:01:28,000
+test this manually, by filling out forms, setting
+
+23
+00:01:28,000 --> 00:01:32,000
+different dates, click, click, click, it would take you like, 20 minutes
+
+24
+00:01:32,000 --> 00:01:36,000
+to test all various possibilities. In contrast,
+
+25
+00:01:36,000 --> 00:01:40,000
+we can run our unit tests and catch bugs in a split of a second.
+
+26
+00:01:40,000 --> 00:01:44,000
+So, how should we fix this? Well,
+
+27
+00:01:44,000 --> 00:01:48,000
+here on Google, let's search for c#,
+
+28
+00:01:48,000 --> 00:01:52,000
+overlap date range stackoverflow.
+
+29
+00:01:52,000 --> 00:01:56,000
+Look at the first link here,
+
+30
+00:01:56,000 --> 00:02:00,000
+So algorithm to detect
+
+31
+00:02:00,000 --> 00:02:04,000
+overlapping period. You scroll down,
+
+32
+00:02:04,000 --> 00:02:08,000
+okay, here's the simple logic, to test if two
+
+33
+00:02:08,000 --> 00:02:12,000
+dates overlap, and chances are this logic has a bug,
+
+34
+00:02:12,000 --> 00:02:16,000
+you don't know, you're going to write all our unit tests and then we will know if this logic
+
+35
+00:02:16,000 --> 00:02:20,000
+test is correct or not, but this logic is actually simpler
+
+36
+00:02:20,000 --> 00:02:24,000
+than what we have here, so,
+
+37
+00:02:24,000 --> 00:02:28,000
+I'm going to copy this and
+
+38
+00:02:28,000 --> 00:02:32,000
+paste it here as a comment.  So,
+
+39
+00:02:32,000 --> 00:02:36,000
+there are two scenarios. One is
+
+40
+00:02:36,000 --> 00:02:40,000
+start of A is less than end of B,
+
+41
+00:02:40,000 --> 00:02:44,000
+So assuming that Booking object that we pass for this method is
+
+42
+00:02:44,000 --> 00:02:48,000
+A, we can rewrite this as Booking.ArrivalDate
+
+43
+00:02:48,000 --> 00:02:52,000
+less than b
+
+44
+00:02:52,000 --> 00:02:56,000
+.DepartureDate.
+
+45
+00:02:56,000 --> 00:03:00,000
+And, the second scenario is Start
+
+46
+00:03:00,000 --> 00:03:04,000
+of B is less than end of A. So,
+
+47
+00:03:04,000 --> 00:03:08,000
+that is b.ArrivalDate is less than
+
+48
+00:03:08,000 --> 00:03:12,000
+booking.Departure date, and then we can
+
+49
+00:03:12,000 --> 00:03:16,000
+get rid of these additional conditions. Look,
+
+50
+00:03:16,000 --> 00:03:20,000
+our code is already shorter and it's already bug free. So,
+
+51
+00:03:20,000 --> 00:03:24,000
+let's delete this comment here. Back to our test
+
+52
+00:03:24,000 --> 00:03:28,000
+class, I'm going to put this cursor on the class name,
+
+53
+00:03:28,000 --> 00:03:32,000
+and run all the tests.
+
+54
+00:03:32,000 --> 00:03:36,000
+So you can see all the tests in this class are passing,
+
+55
+00:03:36,000 --> 00:03:40,000
+so it looks like we have fixed the bug, but we don't know yet, so next we're going to
+
+56
+00:03:40,000 --> 00:03:43,000
+write more tests for this class.
+

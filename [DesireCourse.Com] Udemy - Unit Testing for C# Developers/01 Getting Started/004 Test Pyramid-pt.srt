@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, agora voc sabe sobre os diferentes
+
+2
+00:00:04,000 --> 00:00:08,000
+tipos de testes automatizados. Testes de unidade, testes de integrao
+
+3
+00:00:08,000 --> 00:00:12,000
+e testes de ponta a ponta. Mas que tipo de testes voc deve
+
+4
+00:00:12,000 --> 00:00:16,000
+escrever na sua aplicao? Bem, todos eles. Isso  o que
+
+5
+00:00:16,000 --> 00:00:20,000
+chamamos de pirmide de testes. Esta pirmide argumenta que a maioria dos
+
+6
+00:00:20,000 --> 00:00:24,000
+seus testes deve estar na categoria de testes unitrios, porque esses testes so fceis
+
+7
+00:00:24,000 --> 00:00:28,000
+de escrever e so executados rapidamente. Mas como eles no lhe do
+
+8
+00:00:28,000 --> 00:00:32,000
+muita confiana sobre a integridade do seu aplicativo, voc deve ter
+
+9
+00:00:32,000 --> 00:00:36,000
+vrios testes de integrao que testam a integrao do cdigo do
+
+10
+00:00:36,000 --> 00:00:40,000
+aplicativo com suas dependncias externas. Esses testes fornecem muitas
+
+11
+00:00:40,000 --> 00:00:44,000
+vantagens de testes de ponta a ponta, mas sem
+
+12
+00:00:44,000 --> 00:00:48,000
+as complexidades de lidar com a interface do usurio.
+
+13
+00:00:48,000 --> 00:00:52,000
+E, finalmente, voc deve escrever muito poucos testes de ponta a ponta para
+
+14
+00:00:52,000 --> 00:00:56,000
+as principais funes do aplicativo, mas no deve testar os casos de borda
+
+15
+00:00:56,000 --> 00:01:00,000
+com esses testes de ponta a ponta. Voc s testa o caminho feliz e deixa
+
+16
+00:01:00,000 --> 00:01:04,000
+os casos de borda para os testes de unidade. Agora esta pirmide 
+
+17
+00:01:04,000 --> 00:01:08,000
+apenas uma diretriz. No  uma regra difcil e rpida que
+
+18
+00:01:08,000 --> 00:01:12,000
+voc precisa seguir em todas as aplicaes. A relao real entre sua integrao de
+
+19
+00:01:12,000 --> 00:01:16,000
+unidade e os testes de ponta a ponta depende realmente do seu projeto.
+
+20
+00:01:16,000 --> 00:01:20,000
+Os testes de unidade so timos para testar rapidamente a lgica
+
+21
+00:01:20,000 --> 00:01:24,000
+de declaraes e loops condicionais. Se voc tiver mtodos com lgica
+
+22
+00:01:24,000 --> 00:01:28,000
+e clculo complexos, voc deve test-los com seus testes de unidade.
+
+23
+00:01:28,000 --> 00:01:32,000
+Anteriormente na seo, mostrei um exemplo de
+
+24
+00:01:32,000 --> 00:01:36,000
+uma funo de clculo. Os testes unitrios so ideais para
+
+25
+00:01:36,000 --> 00:01:40,000
+testar essas funes, porque voc pode testar rapidamente todos os caminhos de execuo
+
+26
+00:01:40,000 --> 00:01:44,000
+dessas funes em menos de um segundo. Testar manualmente essas funes
+
+27
+00:01:44,000 --> 00:01:48,000
+atravs da interface do usurio leva um tempo significativo
+
+28
+00:01:48,000 --> 00:01:52,000
+e  propenso a erros. No entanto, nem toda aplicao
+
+29
+00:01:52,000 --> 00:01:56,000
+possui uma lgica complexa e funciona como nossa funo de clculo.
+
+30
+00:01:56,000 --> 00:02:00,000
+Voc pode ter um aplicativo que simplesmente l alguns dados ou os
+
+31
+00:02:00,000 --> 00:02:04,000
+grava em um banco de dados. Nesse caso, voc pode precisar de mais testes
+
+32
+00:02:04,000 --> 00:02:08,000
+de integrao do que testes de unidade. Ento, em resumo, esta pirmide
+
+33
+00:02:08,000 --> 00:02:12,000
+de teste oferece trs recomendaes. Primeiro,  favorecer os
+
+34
+00:02:12,000 --> 00:02:16,000
+testes unitrios sobre a interface do usurio ou
+
+35
+00:02:16,000 --> 00:02:20,000
+testes de ponta a ponta. Porque esses testes de unidade so os mais rpidos de
+
+36
+00:02:20,000 --> 00:02:24,000
+executar e mais baratos de escrever, e so muito precisos. Assim, podemos identificar exatamente
+
+37
+00:02:24,000 --> 00:02:28,000
+onde algo falha. Eles lhe do
+
+38
+00:02:28,000 --> 00:02:32,000
+um feedback rpido. O segundo  cobrir as lacunas do
+
+39
+00:02:32,000 --> 00:02:36,000
+teste de unidade, com testes de integrao. E, finalmente, use testes
+
+40
+00:02:36,000 --> 00:02:40,000
+de ponta a ponta com moderao, apenas para as
+
+41
+00:02:40,000 --> 00:02:44,000
+principais funes de seu aplicativo. O equilbrio certo  diferente para
+
+42
+00:02:44,000 --> 00:02:48,000
+cada projeto e cada equipe. No final do dia, voc precisa usar seu
+
+43
+00:02:48,000 --> 00:02:52,000
+prprio julgamento para determinar que tipo de testes precisa escrever para diferentes partes de seus aplicativos.
+

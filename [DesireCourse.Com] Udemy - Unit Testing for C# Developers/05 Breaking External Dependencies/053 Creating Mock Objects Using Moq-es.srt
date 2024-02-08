@@ -1,0 +1,408 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en esta conferencia, voy a mostrarte
+
+2
+00:00:04,000 --> 00:00:08,000
+cmo crear objetos falsos o falsos utilizando
+
+3
+00:00:08,000 --> 00:00:12,000
+la biblioteca Moq. As que de vuelta en nuestra solucin, haga clic
+
+4
+00:00:12,000 --> 00:00:16,000
+derecho en el proyecto de prueba de la unidad. Y vaya a Administrar Paquetes NuGet.
+
+5
+00:00:16,000 --> 00:00:20,000
+Aqu, debe buscar Moq para que pueda ver
+
+6
+00:00:20,000 --> 00:00:24,000
+la versin actual, su versin es 4.
+
+7
+00:00:24,000 --> 00:00:28,000
+7. Entonces, necesitamos agregar esto a nuestro proyecto de pruebas unitarias.
+
+8
+00:00:28,000 --> 00:00:32,000
+Est bien, est bien, ahora para
+
+9
+00:00:32,000 --> 00:00:36,000
+mostrarte que ya no necesitamos esta
+
+10
+00:00:36,000 --> 00:00:40,000
+clase de FakeFileReader, voy a eliminarla
+
+11
+00:00:40,000 --> 00:00:44,000
+de nuestro proyecto, as que aqu est, eliminar.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces, de vuelta en nuestras pruebas de servicio de
+
+13
+00:00:48,000 --> 00:00:52,000
+video, en lugar de actualizar un Fake FileReader, vamos
+
+14
+00:00:52,000 --> 00:00:56,000
+a usar la biblioteca Moq para crear un simulacro dinmico.
+
+15
+00:00:56,000 --> 00:01:00,000
+Es muy fcil, as que voy a crear un
+
+16
+00:01:00,000 --> 00:01:04,000
+FileReader y establecerlo en un nuevo aspecto de Mock,
+
+17
+00:01:04,000 --> 00:01:08,000
+esto se define en el espacio de nombres falso
+
+18
+00:01:08,000 --> 00:01:12,000
+y esta es una clase genrica. Por lo tanto, especificamos el argumento
+
+19
+00:01:12,000 --> 00:01:16,000
+genrico en este caso IFileReader. Entonces le estamos diciendo
+
+20
+00:01:16,000 --> 00:01:20,000
+a la biblioteca de Moq que queremos un
+
+21
+00:01:20,000 --> 00:01:24,000
+objeto que implemente, esta interfaz de IFileReader, de acuerdo?
+
+22
+00:01:24,000 --> 00:01:28,000
+Entonces, este objeto FileReader aqu no es el
+
+23
+00:01:28,000 --> 00:01:32,000
+objeto real, es un objeto simulado, porque lo
+
+24
+00:01:32,000 --> 00:01:36,000
+configuramos como un nuevo simulacro de IFileReader, para
+
+25
+00:01:36,000 --> 00:01:40,000
+hacer esto ms claro, es posible que prefiera
+
+26
+00:01:40,000 --> 00:01:44,000
+renombrar esto para simular FileReader. Pero personalmente encuentro esto
+
+27
+00:01:44,000 --> 00:01:48,000
+un poco ruidoso. As que preferira usar
+
+28
+00:01:48,000 --> 00:01:52,000
+File Reader, de acuerdo? Ahora tenemos que programar este
+
+29
+00:01:52,000 --> 00:01:56,000
+simulacro, porque de manera predeterminada, no tiene ningn comportamiento, es
+
+30
+00:01:56,000 --> 00:02:00,000
+como un objeto que implementa la interfaz de iFileReader pero
+
+31
+00:02:00,000 --> 00:02:04,000
+no hace nada que no tenga ningn cdigo, ahora regresemos
+
+32
+00:02:04,000 --> 00:02:08,000
+a nuestro servicio de video clase, mira, en esta lnea,
+
+33
+00:02:08,000 --> 00:02:12,000
+estamos llamando al mtodo de lectura un fileReader, y lo
+
+34
+00:02:12,000 --> 00:02:16,000
+estamos pasando, video. txt como argumento Entonces ellos (? ) necesitamos programar
+
+35
+00:02:16,000 --> 00:02:20,000
+nuestro simulacro, por lo tanto, cuando llamemos al mtodo de lectura
+
+36
+00:02:20,000 --> 00:02:24,000
+y le demos un video. txt como una cadena, va a devolver una cadena.
+
+37
+00:02:24,000 --> 00:02:28,000
+Bueno? Entonces, de vuelta en nuestra prueba de unidad, la forma
+
+38
+00:02:28,000 --> 00:02:32,000
+en que hacemos esto es a travs del mtodo de configuracin. Entonces llamamos
+
+39
+00:02:32,000 --> 00:02:36,000
+a FileReader. Preparar.
+
+40
+00:02:36,000 --> 00:02:40,000
+Y aqu vamos a pasar una expresin lambda como esta.
+
+41
+00:02:40,000 --> 00:02:44,000
+fr como abreviatura de FileReader,
+
+42
+00:02:44,000 --> 00:02:48,000
+va a fr. Lee y especificamos
+
+43
+00:02:48,000 --> 00:02:52,000
+el argumento, video. txt, entonces con esto
+
+44
+00:02:52,000 --> 00:02:56,000
+le estamos diciendo a este fingido FileReader que
+
+45
+00:02:56,000 --> 00:03:00,000
+cuando llamemos al mtodo de lectura con este
+
+46
+00:03:00,000 --> 00:03:04,000
+argumento, debera Devolver una cadena. En esta prueba unitaria, como
+
+47
+00:03:04,000 --> 00:03:08,000
+el escenario que estamos probando es para un archivo vaco,
+
+48
+00:03:08,000 --> 00:03:12,000
+voy a devolver una cadena vaca. Ahora aqu tenemos otras opciones, podemos
+
+49
+00:03:12,000 --> 00:03:16,000
+Lanzar una excepcin, y usted puede especificar el tipo de la excepcin aqu.
+
+50
+00:03:16,000 --> 00:03:20,000
+Si desea conocer la lista completa de caractersticas disponibles
+
+51
+00:03:20,000 --> 00:03:24,000
+en estos objetos simulados. Busque documentacin
+
+52
+00:03:24,000 --> 00:03:28,000
+falsa. As que aqu en
+
+53
+00:03:28,000 --> 00:03:32,000
+el primer enlace Quickstart moq4 wiki en Github.
+
+54
+00:03:32,000 --> 00:03:36,000
+En esta pgina tiene varios ejemplos del uso de este
+
+55
+00:03:36,000 --> 00:03:40,000
+objeto simulado que estn perfectamente documentados, por lo que no
+
+56
+00:03:40,000 --> 00:03:44,000
+necesita un curso para aprender a usar Moq, de acuerdo?
+
+57
+00:03:44,000 --> 00:03:48,000
+Entonces, aqu, nuestro objeto simulado devolver una cadena vaca
+
+58
+00:03:48,000 --> 00:03:52,000
+cuando llamemos al mtodo de lectura con este argumento.
+
+59
+00:03:52,000 --> 00:03:56,000
+Ahora, como te dije, este FileReader no es el objeto
+
+60
+00:03:56,000 --> 00:04:00,000
+que implementa IFileReader, es un objeto simulado, pero aqu al
+
+61
+00:04:00,000 --> 00:04:04,000
+inicializar este servicio de video, necesitamos obtener ese objeto.
+
+62
+00:04:04,000 --> 00:04:08,000
+Eso es muy fcil. Simplemente pasamos
+
+63
+00:04:08,000 --> 00:04:12,000
+fileReader. Objeto.
+
+64
+00:04:12,000 --> 00:04:16,000
+Entonces este es el objeto real que implementa IFileReader.
+
+65
+00:04:16,000 --> 00:04:20,000
+Bueno? Ahora, cuando usa burlas, nuestros mtodos de prueba
+
+66
+00:04:20,000 --> 00:04:24,000
+se vuelven un poco ruidosos, como puede ver aqu. Es por eso que
+
+67
+00:04:24,000 --> 00:04:28,000
+dije que debes reservar burlas solo para tratar
+
+68
+00:04:28,000 --> 00:04:32,000
+con dependencias externas. Si quiere burlarse de todo, si quiere burlarse
+
+69
+00:04:32,000 --> 00:04:36,000
+de cada dependencia de este servicio de video, terminar con el mtodo de prueba con un
+
+70
+00:04:36,000 --> 00:04:40,000
+montn de cdigo de configuracin como este. Bueno?
+
+71
+00:04:40,000 --> 00:04:44,000
+As que use burlas solo para dependencias externas. Ahora, ejecutemos
+
+72
+00:04:44,000 --> 00:04:48,000
+esta prueba. De acuerdo, acaba
+
+73
+00:04:48,000 --> 00:04:52,000
+de pasar, hermosa. Ahora una ltima cosa antes
+
+74
+00:04:52,000 --> 00:04:56,000
+de que terminemos esta conferencia. Cuando utilizo los simulacros, prefiero mover
+
+75
+00:04:56,000 --> 00:05:00,000
+parte del arreglo en el mtodo SetUp. Djame mostrarte lo que quiero decir.
+
+76
+00:05:00,000 --> 00:05:04,000
+Entonces, creemos un nuevo mtodo aqu,
+
+77
+00:05:04,000 --> 00:05:08,000
+public void SetUp, y decore esto
+
+78
+00:05:08,000 --> 00:05:12,000
+con un atributo SetUp. Ahora, vamos a utilizar
+
+79
+00:05:12,000 --> 00:05:16,000
+este servicio en cada mtodo de prueba en
+
+80
+00:05:16,000 --> 00:05:20,000
+esta clase, verdad? Entonces deberamos promover esto a un
+
+81
+00:05:20,000 --> 00:05:24,000
+campo privado en esta clase. Entonces alt y enter,
+
+82
+00:05:24,000 --> 00:05:28,000
+Refactor Introduzca el campo. Si no est utilizando ReSharper
+
+83
+00:05:28,000 --> 00:05:32,000
+o Rider, tambin debera tener esto en Visual Studio.
+
+84
+00:05:32,000 --> 00:05:36,000
+As que aqu vamos a crear un
+
+85
+00:05:36,000 --> 00:05:40,000
+campo privado llamado _videoService. Bueno?
+
+86
+00:05:40,000 --> 00:05:44,000
+Adems, vamos a usar este objeto simulado en otros mtodos
+
+87
+00:05:44,000 --> 00:05:48,000
+de prueba en esta clase. Porque en este mtodo de prueba
+
+88
+00:05:48,000 --> 00:05:52,000
+estamos probando este escenario de archivo vaco, pero en otro mtodo de
+
+89
+00:05:52,000 --> 00:05:56,000
+prueba vamos a probar un escenario diferente. Entonces, no queremos crear este objeto falso
+
+90
+00:05:56,000 --> 00:06:00,000
+en todos los mtodos de prueba, verdad? Entonces, una vez ms, voy a promocionar esta
+
+91
+00:06:00,000 --> 00:06:04,000
+variable, a un campo privado en esta clase. Entonces alt
+
+92
+00:06:04,000 --> 00:06:08,000
+y entrar, refactorizar, introducir campo.
+
+93
+00:06:08,000 --> 00:06:12,000
+Bueno? Ahora, voy a mantener la
+
+94
+00:06:12,000 --> 00:06:16,000
+configuracin aqu, porque esto es muy especfico para esta prueba,
+
+95
+00:06:16,000 --> 00:06:20,000
+pero voy a mover la inicializacin de fileReader y videoService
+
+96
+00:06:20,000 --> 00:06:24,000
+a nuestro mtodo de configuracin. As que vamos a unir todo
+
+97
+00:06:24,000 --> 00:06:28,000
+para que creamos nuestro objeto simulado y luego creamos nuestro videoService
+
+98
+00:06:28,000 --> 00:06:32,000
+basado en ese objeto simulado. Ahora podemos mover estas
+
+99
+00:06:32,000 --> 00:06:36,000
+dos lneas dentro del mtodo de configuracin aqu.
+
+100
+00:06:36,000 --> 00:06:40,000
+Y esto hace que nuestra prueba sea
+
+101
+00:06:40,000 --> 00:06:44,000
+muy limpia y enfocada. Este es el escenario
+
+102
+00:06:44,000 --> 00:06:47,000
+en el que estamos probando especficamente.
+

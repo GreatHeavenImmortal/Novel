@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, el tercer caso de prueba que queremos escribir
+
+2
+00:00:04,000 --> 00:00:08,000
+aqu, es donde comienza nuestra nueva reserva antes de
+
+3
+00:00:08,000 --> 00:00:12,000
+una Reserva existente, pero termina despus de esa reserva
+
+4
+00:00:12,000 --> 00:00:16,000
+existente, en este caso, HaveOverlap. Entonces, una vez ms, para ahorrar
+
+5
+00:00:16,000 --> 00:00:20,000
+tiempo, voy a seleccionar este cdigo. duplicar y
+
+6
+00:00:20,000 --> 00:00:24,000
+modificar en consecuencia. As
+
+7
+00:00:24,000 --> 00:00:28,000
+que BookingStartsBefore
+
+8
+00:00:28,000 --> 00:00:32,000
+AndFinishesAfter AnExistingBooking. De acuerdo, entonces ahora modificamos
+
+9
+00:00:32,000 --> 00:00:36,000
+la lgica, comenzamos antes de las Reservas existentes Fecha
+
+10
+00:00:36,000 --> 00:00:40,000
+de arribo, pero termina Despus de la Fecha de
+
+11
+00:00:40,000 --> 00:00:44,000
+salida de las Reservas existentes. Y nuestra Afirmacin es
+
+12
+00:00:44,000 --> 00:00:48,000
+correcta, por lo que queremos asegurarnos de que esta
+
+13
+00:00:48,000 --> 00:00:52,000
+referencia devuelva la Reserva existente. Entonces, hagamos la
+
+14
+00:00:52,000 --> 00:00:56,000
+prueba, est bien, esta prueba fall.
+
+15
+00:00:56,000 --> 00:01:00,000
+As que esperbamos obtener una, que era nuestra referencia,
+
+16
+00:01:00,000 --> 00:01:04,000
+pero obtuvimos una cadena vaca. Entonces, esta prueba nos
+
+17
+00:01:04,000 --> 00:01:08,000
+dice que hay un error en nuestro cdigo de
+
+18
+00:01:08,000 --> 00:01:12,000
+produccin, as que, de vuelta a nuestra clase BookingHelper,
+
+19
+00:01:12,000 --> 00:01:16,000
+esta lgica tiene un error. Es por eso que escribes pruebas unitarias.
+
+20
+00:01:16,000 --> 00:01:20,000
+Mire, con estas tres pruebas unitarias, podra detectar un error antes de
+
+21
+00:01:20,000 --> 00:01:24,000
+implementar esta aplicacin en la produccin. Imagine que desea probar
+
+22
+00:01:24,000 --> 00:01:28,000
+esto manualmente, rellenando formularios, estableciendo diferentes fechas, haga clic,
+
+23
+00:01:28,000 --> 00:01:32,000
+haga clic, haga clic en, le tomar unos 20
+
+24
+00:01:32,000 --> 00:01:36,000
+minutos probar todas las posibilidades. Por el contrario, podemos ejecutar
+
+25
+00:01:36,000 --> 00:01:40,000
+nuestras pruebas unitarias y detectar errores en una fraccin de segundo.
+
+26
+00:01:40,000 --> 00:01:44,000
+Entonces, cmo deberamos arreglar esto? Bueno, aqu en
+
+27
+00:01:44,000 --> 00:01:48,000
+Google, busquemos c #, superposicin del
+
+28
+00:01:48,000 --> 00:01:52,000
+rango de fechas del stackoverflow.
+
+29
+00:01:52,000 --> 00:01:56,000
+Mira el primer enlace aqu, por
+
+30
+00:01:56,000 --> 00:02:00,000
+lo que el algoritmo para detectar
+
+31
+00:02:00,000 --> 00:02:04,000
+el perodo de superposicin. Se desplaza hacia abajo, est
+
+32
+00:02:04,000 --> 00:02:08,000
+bien, aqu est la lgica simple, para probar si dos
+
+33
+00:02:08,000 --> 00:02:12,000
+fechas se superponen, y es probable que esta lgica tenga
+
+34
+00:02:12,000 --> 00:02:16,000
+un error, usted no sabe, va a escribir todas nuestras
+
+35
+00:02:16,000 --> 00:02:20,000
+pruebas unitarias y entonces sabremos si esto la prueba lgica
+
+36
+00:02:20,000 --> 00:02:24,000
+es correcta o no, pero esta lgica es en realidad
+
+37
+00:02:24,000 --> 00:02:28,000
+ms simple que la que tenemos aqu, entonces, voy a
+
+38
+00:02:28,000 --> 00:02:32,000
+copiar esto y pegarlo aqu como un comentario. Entonces, hay
+
+39
+00:02:32,000 --> 00:02:36,000
+dos escenarios. Uno es el inicio de A
+
+40
+00:02:36,000 --> 00:02:40,000
+es menor que el final de B, por lo tanto, suponiendo
+
+41
+00:02:40,000 --> 00:02:44,000
+que el objeto de reserva que aprobamos para este mtodo sea
+
+42
+00:02:44,000 --> 00:02:48,000
+A, podemos reescribirlo como Reserva. ArrivalDate
+
+43
+00:02:48,000 --> 00:02:52,000
+menos que b. Fecha de salida.
+
+44
+00:02:52,000 --> 00:02:56,000
+Y, el segundo escenario es el inicio de
+
+45
+00:02:56,000 --> 00:03:00,000
+B es menor que el final de A. Entonces, eso es
+
+46
+00:03:00,000 --> 00:03:04,000
+b. ArrivalDate es menor
+
+47
+00:03:04,000 --> 00:03:08,000
+que la reserva. Fecha de salida, y luego podemos
+
+48
+00:03:08,000 --> 00:03:12,000
+deshacernos de estas condiciones adicionales. Mira, nuestro cdigo ya es ms
+
+49
+00:03:12,000 --> 00:03:16,000
+corto y ya est libre de errores. Entonces, borremos
+
+50
+00:03:16,000 --> 00:03:20,000
+este comentario aqu. De regreso a nuestra clase de
+
+51
+00:03:20,000 --> 00:03:24,000
+prueba, voy a poner este cursor
+
+52
+00:03:24,000 --> 00:03:28,000
+en el nombre de la clase y ejecutar todas las pruebas.
+
+53
+00:03:28,000 --> 00:03:32,000
+Para que pueda ver que todas las pruebas de esta clase estn
+
+54
+00:03:32,000 --> 00:03:36,000
+aprobadas, parece que hemos solucionado el error, pero an no lo sabemos,
+
+55
+00:03:36,000 --> 00:03:40,000
+as que, a continuacin, vamos a escribir ms pruebas para esta clase.
+
+56
+00:03:40,000 --> 00:03:43,000
+&nbsp;
+

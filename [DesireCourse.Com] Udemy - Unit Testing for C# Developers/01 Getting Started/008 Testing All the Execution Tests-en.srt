@@ -1,0 +1,320 @@
+1
+00:00:00,000 --> 00:00:04,000
+In the last lecture we renamed this class
+
+2
+00:00:04,000 --> 00:00:08,000
+to ReservationTests but apparently the renamed refactoring feature
+
+3
+00:00:08,000 --> 00:00:12,000
+in Visual Studio didn't work properly, because the name of the file
+
+4
+00:00:12,000 --> 00:00:16,000
+is still unit test one. So, I'm going to rename this to
+
+5
+00:00:16,000 --> 00:00:20,000
+ReservationTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+cs. With this convention, you can easily find all of the
+
+7
+00:00:24,000 --> 00:00:28,000
+tests for a given class.
+
+8
+00:00:28,000 --> 00:00:32,000
+Okay, beautiful, now let's write the second
+
+9
+00:00:32,000 --> 00:00:36,000
+unit test.
+
+10
+00:00:36,000 --> 00:00:40,000
+So, I'm going to write a public void
+
+11
+00:00:40,000 --> 00:00:44,000
+method, and by the way, all your test methods should be public
+
+12
+00:00:44,000 --> 00:00:48,000
+void. So, here we're going to use our convention to call
+
+13
+00:00:48,000 --> 00:00:52,000
+this method, the first part is the method on the test,
+
+14
+00:00:52,000 --> 00:00:56,000
+that is CanBeCancelledBy.
+
+15
+00:00:56,000 --> 00:01:00,000
+The second part is the scenario, so let's say we want to test
+
+16
+00:01:00,000 --> 00:01:04,000
+the scenario where the same user who made the reservation wants
+
+17
+00:01:04,000 --> 00:01:08,000
+to cancel this reservation. So,
+
+18
+00:01:08,000 --> 00:01:12,000
+SameUserCancellingThe
+
+19
+00:01:12,000 --> 00:01:16,000
+Reservation. Now the third part, is the
+
+20
+00:01:16,000 --> 00:01:20,000
+expected behavior, what do we expect this method to return?
+
+21
+00:01:20,000 --> 00:01:24,000
+It should return true,
+
+22
+00:01:24,000 --> 00:01:28,000
+Okay?
+
+23
+00:01:28,000 --> 00:01:32,000
+Now, inside this method we should have three parts
+
+24
+00:01:32,000 --> 00:01:36,000
+arrange, act, and assert. In the last lecture I added
+
+25
+00:01:36,000 --> 00:01:40,000
+comments to separate the arrange, act, and assert parts,
+
+26
+00:01:40,000 --> 00:01:44,000
+but in a real world scenario we don't necessarily have to do this, if your test method
+
+27
+00:01:44,000 --> 00:01:48,000
+is short and clean. So, in the arrange part, I'm going to
+
+28
+00:01:48,000 --> 00:01:52,000
+create a new reservation object. So,
+
+29
+00:01:52,000 --> 00:01:56,000
+reservation is a new reservation,
+
+30
+00:01:56,000 --> 00:02:00,000
+in the acts, I'm going to call
+
+31
+00:02:00,000 --> 00:02:04,000
+reservation, that CanBeCancelledBy
+
+32
+00:02:04,000 --> 00:02:08,000
+now here I want to simulate a scenario where the same user
+
+33
+00:02:08,000 --> 00:02:12,000
+is cancelling this reservation, so I'm going to create
+
+34
+00:02:12,000 --> 00:02:16,000
+a user object here,
+
+35
+00:02:16,000 --> 00:02:20,000
+and first of all
+
+36
+00:02:20,000 --> 00:02:24,000
+set the MadeBy property
+
+37
+00:02:24,000 --> 00:02:28,000
+to this user. So this user created this reservation before.
+
+38
+00:02:28,000 --> 00:02:32,000
+Now, I want to pass the same user object as an argument
+
+39
+00:02:32,000 --> 00:02:36,000
+to this method, user, now,
+
+40
+00:02:36,000 --> 00:02:40,000
+we get the result, and store it.
+
+41
+00:02:40,000 --> 00:02:44,000
+And finally make an assertion. So, we assert.
+
+42
+00:02:44,000 --> 00:02:48,000
+That result is true.
+
+43
+00:02:48,000 --> 00:02:52,000
+So now with these vertical spaces I have added
+
+44
+00:02:52,000 --> 00:02:56,000
+in the code, we can see the Arrange, the Act, and the Assert parts.
+
+45
+00:02:56,000 --> 00:03:00,000
+Back in our test, export window,
+
+46
+00:03:00,000 --> 00:03:04,000
+let's run all the tests,
+
+47
+00:03:04,000 --> 00:03:08,000
+so we have one failing test, and this is because in the last lecture
+
+48
+00:03:08,000 --> 00:03:12,000
+I created a bug in our code, so let me change this
+
+49
+00:03:12,000 --> 00:03:16,000
+here we return true, now back to our
+
+50
+00:03:16,000 --> 00:03:20,000
+test class, this new method I created here is not
+
+51
+00:03:20,000 --> 00:03:24,000
+picked up by a test explorer. We don't see that here.
+
+52
+00:03:24,000 --> 00:03:28,000
+Why? Because we forgot to decorate
+
+53
+00:03:28,000 --> 00:03:32,000
+it with the TestMethod attribute. So that's why you should decorate it
+
+54
+00:03:32,000 --> 00:03:36,000
+every test method with this attribute, so it can be
+
+55
+00:03:36,000 --> 00:03:40,000
+picked up by the test runner, now save, back in
+
+56
+00:03:40,000 --> 00:03:44,000
+Test Explorer, run all,
+
+57
+00:03:44,000 --> 00:03:48,000
+now we have two passing tests, beautiful,
+
+58
+00:03:48,000 --> 00:03:52,000
+now, let's write the last test,
+
+59
+00:03:52,000 --> 00:03:56,000
+so I'm going to start with test method,
+
+60
+00:03:56,000 --> 00:04:00,000
+then public void, can
+
+61
+00:04:00,000 --> 00:04:04,000
+CanBeCancelledBy
+
+62
+00:04:04,000 --> 00:04:08,000
+the third scenario is a user trying to cancel
+
+63
+00:04:08,000 --> 00:04:12,000
+someone else's reservation. So, another user
+
+64
+00:04:12,000 --> 00:04:16,000
+CancellingReservation.
+
+65
+00:04:16,000 --> 00:04:20,000
+What is the expected behavior? This method should
+
+66
+00:04:20,000 --> 00:04:24,000
+return false, so return false.
+
+68
+00:04:28,000 --> 00:04:32,000
+Once again, in the arrange part, I'm going to create
+
+69
+00:04:32,000 --> 00:04:36,000
+a reservation object, new Reservation
+
+70
+00:04:36,000 --> 00:04:40,000
+and act part we
+
+71
+00:04:40,000 --> 00:04:44,000
+call CanBeCancelledBy, now here we want to deal with two
+
+72
+00:04:44,000 --> 00:04:48,000
+different user objects. So here I can pass
+
+73
+00:04:48,000 --> 00:04:52,000
+the user object, and when initializing the
+
+74
+00:04:52,000 --> 00:04:56,000
+reservation, I can set MadeBy to a different
+
+75
+00:04:56,000 --> 00:05:00,000
+User object. And finally,
+
+76
+00:05:00,000 --> 00:05:04,000
+we need to store the result here,
+
+77
+00:05:04,000 --> 00:05:08,000
+and Assert that result is false.
+
+78
+00:05:08,000 --> 00:05:12,000
+So IsFalse, result. Now,
+
+79
+00:05:12,000 --> 00:05:16,000
+let's run all the tests.
+
+80
+00:05:16,000 --> 00:05:20,000
+So we have three passing tests,
+
+81
+00:05:20,000 --> 00:05:22,600
+beautiful.
+

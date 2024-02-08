@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, comencemos esta seccin observando las caractersticas de
+
+2
+00:00:04,000 --> 00:00:08,000
+las buenas pruebas unitarias: lo primero que quiero
+
+3
+00:00:08,000 --> 00:00:12,000
+que recuerden es que las pruebas unitarias son
+
+4
+00:00:12,000 --> 00:00:16,000
+ciudadanos de primera clase. Entonces son tan importantes, si no
+
+5
+00:00:16,000 --> 00:00:20,000
+ms que el cdigo de produccin. Y eso significa que todas las mejores
+
+6
+00:00:20,000 --> 00:00:24,000
+prcticas que hemos aprendido sobre la escritura limpia y el cdigo de mantenimiento tambin
+
+7
+00:00:24,000 --> 00:00:28,000
+se han aplicado a sus mtodos de prueba. Ms especficamente, cada prueba debera
+
+8
+00:00:28,000 --> 00:00:32,000
+tener una responsabilidad nica, y idealmente debera ser menos de
+
+9
+00:00:32,000 --> 00:00:36,000
+diez lneas de cdigo. De hecho, una de las razones por
+
+10
+00:00:36,000 --> 00:00:40,000
+las que la gente falla con las pruebas unitarias es porque sus pruebas son complicadas.
+
+11
+00:00:40,000 --> 00:00:44,000
+Tienen mtodos de prueba grandes y gordos que realmente no se pueden mantener.
+
+12
+00:00:44,000 --> 00:00:48,000
+Cuando se rompen estas pruebas, pasan mucho tiempo depurando.
+
+13
+00:00:48,000 --> 00:00:52,000
+Entonces, mientras est escribiendo pruebas, necesita mantenerlas limpias, y
+
+14
+00:00:52,000 --> 00:00:56,000
+refactorizar si es necesario. Le mostrar varios ejemplos de estos
+
+15
+00:00:56,000 --> 00:01:00,000
+ms adelante en este curso. Otra caracterstica de las buenas pruebas unitarias
+
+16
+00:01:00,000 --> 00:01:04,000
+es que no deberan tener ninguna lgica. Por lo tanto, no debe
+
+17
+00:01:04,000 --> 00:01:08,000
+tener ningn enunciado condicional, bucles y otros tipos de lgica
+
+18
+00:01:08,000 --> 00:01:12,000
+en sus pruebas. Por qu? Porque cuando escribes lgica en la unidad (? ) prueba, es
+
+19
+00:01:12,000 --> 00:01:16,000
+posible que cometa un error. Entonces, tu prueba terminar
+
+20
+00:01:16,000 --> 00:01:20,000
+teniendo un error, y fallar. Cuando falla una prueba, primero cree que hay
+
+21
+00:01:20,000 --> 00:01:24,000
+algn problema con el cdigo de produccin. Entonces pasas 20 minutos solo para descubrir
+
+22
+00:01:24,000 --> 00:01:28,000
+que hay un error en tu prueba. Entonces no hay lgica
+
+23
+00:01:28,000 --> 00:01:32,000
+en tus pruebas! Simplemente llama a un
+
+24
+00:01:32,000 --> 00:01:36,000
+mtodo y hace una afirmacin. Adems, cada prueba debe
+
+25
+00:01:36,000 --> 00:01:40,000
+escribirse y ejecutarse como si fuera la nica
+
+26
+00:01:40,000 --> 00:01:44,000
+prueba en el mundo. Por lo tanto, sus mtodos de
+
+27
+00:01:44,000 --> 00:01:48,000
+prueba no deben llamarse entre s y no deben asumir ningn
+
+28
+00:01:48,000 --> 00:01:52,000
+estado creado por otra prueba. Y finalmente, su prueba no debe ser demasiado especfica.
+
+29
+00:01:52,000 --> 00:01:56,000
+O muy general. Si son demasiado generales, es posible que no le den
+
+30
+00:01:56,000 --> 00:02:00,000
+mucha confianza de que su cdigo de produccin funciona. Nuevamente, veremos ejemplos
+
+31
+00:02:00,000 --> 00:02:03,000
+de esto en breve.
+

@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, aqu hay un ejercicio para ti.
+
+2
+00:00:04,000 --> 00:00:08,000
+Entonces, en la carpeta Mocking, mira EmployeeController.
+
+3
+00:00:08,000 --> 00:00:12,000
+Este es un ejemplo de cdigo que ves en una
+
+4
+00:00:12,000 --> 00:00:16,000
+gran cantidad de ASP. Aplicaciones NET MVC. Ahora bien, este no
+
+5
+00:00:16,000 --> 00:00:20,000
+es un ejemplo completamente funcional, es puramente simulacin, porque aqu no
+
+6
+00:00:20,000 --> 00:00:24,000
+tenemos un ASP. Proyecto NET MVC. Tenemos una biblioteca de clases simple.
+
+7
+00:00:24,000 --> 00:00:28,000
+Pero aparte de eso, veamos qu est pasando aqu. Entonces, en esta
+
+8
+00:00:28,000 --> 00:00:32,000
+clase, tenemos este campo privado de
+
+9
+00:00:32,000 --> 00:00:36,000
+tipo EmployeeContext. Esto es parte del marco de la entidad.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, si mira hacia abajo, este EmployeeContext se ve como
+
+11
+00:00:40,000 --> 00:00:44,000
+un contexto db en el marco de la entidad, por
+
+12
+00:00:44,000 --> 00:00:48,000
+lo que tiene una propiedad de tipo, DbSet of Employee.
+
+13
+00:00:48,000 --> 00:00:52,000
+Aqu deberamos derivar esto del contexto DB, me olvid de hacer eso, pero en realidad
+
+14
+00:00:52,000 --> 00:00:56,000
+no importa, porque no queremos ejecutar este cdigo. Entonces, tenemos este
+
+15
+00:00:56,000 --> 00:01:00,000
+EmployeeContext y lo hemos inicializado en
+
+16
+00:01:00,000 --> 00:01:04,000
+el constructor. Tenemos este mtodo, elimine Empleado,
+
+17
+00:01:04,000 --> 00:01:08,000
+toma un nmero entero, esa es la identificacin del empleado, ahora
+
+18
+00:01:08,000 --> 00:01:12,000
+aqu sobre estas tres lneas, tratamos de eliminar a este empleado
+
+19
+00:01:12,000 --> 00:01:16,000
+de la base de datos. Entonces, primero tratamos de encontrar
+
+20
+00:01:16,000 --> 00:01:20,000
+a ese empleado, luego lo eliminamos del contexto y en
+
+21
+00:01:20,000 --> 00:01:24,000
+este punto, ese empleado se marca para su eliminacin.
+
+22
+00:01:24,000 --> 00:01:28,000
+Pero los cambios no se conservan en la base de datos, an.
+
+23
+00:01:28,000 --> 00:01:32,000
+Cuando llamamos a DB. guardar cambios, el marco de entidad
+
+24
+00:01:32,000 --> 00:01:36,000
+genera la consulta correcta y la enva a la base de datos.
+
+25
+00:01:36,000 --> 00:01:40,000
+Y en este punto, el registro del empleado (? ) se borra
+
+26
+00:01:40,000 --> 00:01:44,000
+Y finalmente, dirigimos al usuario a la lista de empleados.
+
+27
+00:01:44,000 --> 00:01:48,000
+Por lo tanto, si desea probar la unidad de este
+
+28
+00:01:48,000 --> 00:01:52,000
+mtodo, debe escribir, dos pruebas, una para asegurarse de que
+
+29
+00:01:52,000 --> 00:01:56,000
+este mtodo arroje el resultado correcto. Y esto es lo que llamamos
+
+30
+00:01:56,000 --> 00:02:00,000
+pruebas basadas en el estado. Otra prueba es asegurar
+
+31
+00:02:00,000 --> 00:02:04,000
+que este mtodo elimine al empleado dado de
+
+32
+00:02:04,000 --> 00:02:08,000
+la base de datos. Entonces, en primer lugar, debe extraer
+
+33
+00:02:08,000 --> 00:02:12,000
+estas pocas lneas en una clase separada, porque estas lneas tocan un recurso
+
+34
+00:02:12,000 --> 00:02:16,000
+externo en este caso, una base de datos, por lo que desea extraer
+
+35
+00:02:16,000 --> 00:02:20,000
+esto en una clase separada, como EmployeeStorage. Luego, extraiga la interfaz,
+
+36
+00:02:20,000 --> 00:02:24,000
+inyectada en el constructor aqu, y finalmente, confirme
+
+37
+00:02:24,000 --> 00:02:28,000
+que este mtodo llama al mtodo correcto en
+
+38
+00:02:28,000 --> 00:02:32,000
+ese objeto de almacenamiento. Entonces, adelante y haga
+
+39
+00:02:32,000 --> 00:02:36,000
+este ejercicio, en la prxima conferencia veremos mi solucin.
+

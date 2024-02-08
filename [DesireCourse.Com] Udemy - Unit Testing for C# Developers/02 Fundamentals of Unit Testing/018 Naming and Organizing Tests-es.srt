@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en la ltima seccin, viste
+
+2
+00:00:04,000 --> 00:00:08,000
+cmo debes nombrar y estructurar tus pruebas.
+
+3
+00:00:08,000 --> 00:00:12,000
+Revisemos rpidamente la convencin que debe seguir para organizar sus pruebas
+
+4
+00:00:12,000 --> 00:00:16,000
+para que pueda ubicarlas fcilmente. Para cada proyecto en su solucin
+
+5
+00:00:16,000 --> 00:00:20,000
+tendr un proyecto de prueba de unidad. Entonces, si tienes un
+
+6
+00:00:20,000 --> 00:00:24,000
+proyecto llamado TestNinja, deberas tener un proyecto separado
+
+7
+00:00:24,000 --> 00:00:28,000
+llamado TestNinja. UnitTests. Y como te dije
+
+8
+00:00:28,000 --> 00:00:32,000
+antes, deseas separar las pruebas de unidad y de integracin, porque la
+
+9
+00:00:32,000 --> 00:00:36,000
+prueba unitaria se ejecuta rpidamente, las pruebas de integracin tardan ms.
+
+10
+00:00:36,000 --> 00:00:40,000
+As que queremos ejecutar pruebas de unidades con frecuencia mientras escribimos cdigo,
+
+11
+00:00:40,000 --> 00:00:44,000
+y ejecutamos pruebas de integracin justo antes de enviar nuestro cdigo al
+
+12
+00:00:44,000 --> 00:00:48,000
+repositorio para asegurarnos de que todo funciona. Entonces, cada proyecto en la
+
+13
+00:00:48,000 --> 00:00:52,000
+solucin, tendr un proyecto de prueba de unidad por separado.
+
+14
+00:00:52,000 --> 00:00:56,000
+En este proyecto, a menudo tiene una clase de prueba para cada
+
+15
+00:00:56,000 --> 00:01:00,000
+clase en su cdigo de produccin. Entonces, si tiene una clase
+
+16
+00:01:00,000 --> 00:01:04,000
+llamada reserva, debe tener una clase llamada pruebas de reserva.
+
+17
+00:01:04,000 --> 00:01:08,000
+Tenga en cuenta el nombre plural aqu. Esto indica que esta
+
+18
+00:01:08,000 --> 00:01:12,000
+clase tiene mltiples pruebas. Ahora, para cada mtodo en la
+
+19
+00:01:12,000 --> 00:01:16,000
+clase de reserva, debe tener uno o ms mtodos de prueba.
+
+20
+00:01:16,000 --> 00:01:20,000
+Cuntas pruebas necesitas? Depende de lo que ests probando.
+
+21
+00:01:20,000 --> 00:01:24,000
+A menudo, el nmero de pruebas es igual o mayor que
+
+22
+00:01:24,000 --> 00:01:28,000
+el nmero de rutas de ejecucin. Ahora, el nombre de los mtodos
+
+23
+00:01:28,000 --> 00:01:32,000
+de prueba debe especificar claramente la regla comercial que est probando. Estos
+
+24
+00:01:32,000 --> 00:01:36,000
+son algunos de los nombres principales. Test 1, SaveCustomerTest, GetMovie,
+
+25
+00:01:36,000 --> 00:01:40,000
+look podemos decir qu regla comercial se
+
+26
+00:01:40,000 --> 00:01:44,000
+est probando aqu. Es por eso que tenemos una
+
+27
+00:01:44,000 --> 00:01:48,000
+convencin para nombrar nuestras pruebas. El nombre del mtodo en nuestra prueba es
+
+28
+00:01:48,000 --> 00:01:52,000
+la prueba de escenario y el comportamiento esperado. Con esta convencin, podemos ver
+
+29
+00:01:52,000 --> 00:01:56,000
+el nombre de un mtodo de prueba y decir qu
+
+30
+00:01:56,000 --> 00:02:00,000
+regla comercial se est probando. Ahora, a veces se trata de
+
+31
+00:02:00,000 --> 00:02:04,000
+un mtodo complejo grande con tantas rutas de ejecucin y casos extremos.
+
+32
+00:02:04,000 --> 00:02:08,000
+En ese caso, puede ser mejor dedicar una clase de
+
+33
+00:02:08,000 --> 00:02:12,000
+prueba separada para ese mtodo. Porque de lo contrario, la prueba de este
+
+34
+00:02:12,000 --> 00:02:16,000
+mtodo puede coludir con su clase de prueba. Digamos en nuestro
+
+35
+00:02:16,000 --> 00:02:20,000
+ejemplo que el mtodo CanBeCancelled por
+
+36
+00:02:20,000 --> 00:02:24,000
+requiere varias pruebas. Puede extraer todas las
+
+37
+00:02:24,000 --> 00:02:28,000
+pruebas para este mtodo en una clase separada
+
+38
+00:02:28,000 --> 00:02:32,000
+y llamarlo reserva, subrayar CanBeCancelledByTests. De esta manera puede
+
+39
+00:02:32,000 --> 00:02:36,000
+ubicar fcilmente las pruebas para este mtodo.
+

@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, qu deberamos probar aqu?
+
+2
+00:00:04,000 --> 00:00:08,000
+Bueno, como te dije antes, siempre debes probar el
+
+3
+00:00:08,000 --> 00:00:12,000
+resultado de un mtodo. Entonces, solo para actualizar su
+
+4
+00:00:12,000 --> 00:00:16,000
+memoria, tenemos dos tipos de funciones, funciones de consulta que
+
+5
+00:00:16,000 --> 00:00:20,000
+devuelven algn tipo de valor y funciones de comando que
+
+6
+00:00:20,000 --> 00:00:24,000
+llevan a cabo una tarea. En este caso, qu tipo de
+
+7
+00:00:24,000 --> 00:00:28,000
+funcin crees que SendStatementEmails es? Es una funcin de consulta o
+
+8
+00:00:28,000 --> 00:00:32,000
+es una funcin de comando? Bueno, es una funcin de comando, que tambin
+
+9
+00:00:32,000 --> 00:00:36,000
+est devolviendo algn valor, un booleano, verdad? Pero su tarea principal es
+
+10
+00:00:36,000 --> 00:00:40,000
+realizar alguna accin, y eso es guardar la declaracin
+
+11
+00:00:40,000 --> 00:00:44,000
+y enviarla por correo electrnico al ama de llaves.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces, para probar el resultado de este mtodo,
+
+13
+00:00:48,000 --> 00:00:52,000
+deberamos tener 1 o. ms pruebas unitarias para el
+
+14
+00:00:52,000 --> 00:00:56,000
+valor que devuelve, tal vez en algunas condiciones devuelve verdadero,
+
+15
+00:00:56,000 --> 00:01:00,000
+en otras condiciones devuelve falso. Adems, como es una funcin de
+
+16
+00:01:00,000 --> 00:01:04,000
+comando, debemos asegurarnos de que este mtodo lleve a cabo las tareas
+
+17
+00:01:04,000 --> 00:01:08,000
+que se supone que debe hacer. Entonces, en este caso,
+
+18
+00:01:08,000 --> 00:01:12,000
+deberamos tener un montn de pruebas de interaccin para
+
+19
+00:01:12,000 --> 00:01:16,000
+asegurarnos de que este objeto, este objeto auxiliar de
+
+20
+00:01:16,000 --> 00:01:20,000
+ama de llaves, hable correctamente con otros objetos como
+
+21
+00:01:20,000 --> 00:01:24,000
+statementGenerator y emailSender. Entonces las pruebas de interaccin. Ahora, es ms fcil
+
+22
+00:01:24,000 --> 00:01:28,000
+comenzar con las pruebas basadas en estado. Por lo tanto, queremos
+
+23
+00:01:28,000 --> 00:01:32,000
+escribir pruebas unitarias para asegurarnos de que esta prueba
+
+24
+00:01:32,000 --> 00:01:36,000
+unitaria arroje el valor correcto. Ahora mira esta implementacin, la
+
+25
+00:01:36,000 --> 00:01:40,000
+nica forma de salir de este mtodo es aqu, devuelve true.
+
+26
+00:01:40,000 --> 00:01:44,000
+As que no importa qu, este mtodo siempre est
+
+27
+00:01:44,000 --> 00:01:48,000
+volviendo verdadero, no hay ningn lugar en este cdigo,
+
+28
+00:01:48,000 --> 00:01:52,000
+en el que volvemos falso. Entonces realmente no hay ningn valor para escribir tales pruebas unitarias.
+
+29
+00:01:52,000 --> 00:01:56,000
+Y esto me hace pensar que
+
+30
+00:01:56,000 --> 00:02:00,000
+este mtodo sera mejor definir como vaco.
+
+31
+00:02:00,000 --> 00:02:04,000
+Entonces, realmente no necesita esta declaracin de devolucin,
+
+32
+00:02:04,000 --> 00:02:08,000
+y podemos reducir esta implementacin en una lnea.
+
+33
+00:02:08,000 --> 00:02:12,000
+Haciendo que este mtodo sea ms corto, este es otro beneficio de
+
+34
+00:02:12,000 --> 00:02:16,000
+las pruebas de unidades de escritura. Te ayudan a idear un mejor
+
+35
+00:02:16,000 --> 00:02:20,000
+diseo para tus mtodos y funciones. Porque para cada mtodo, para
+
+36
+00:02:20,000 --> 00:02:24,000
+cada mtodo pblico que va a probar, observa ese mtodo
+
+37
+00:02:24,000 --> 00:02:28,000
+desde la perspectiva de sus clientes. Cmo van a utilizar
+
+38
+00:02:28,000 --> 00:02:32,000
+estos clientes este mtodo? Realmente necesitan este valor
+
+39
+00:02:32,000 --> 00:02:36,000
+de retorno, este booleano? Probablemente no, porque si este mtodo
+
+40
+00:02:36,000 --> 00:02:40,000
+siempre se est volviendo verdadero, los clientes de este mtodo no
+
+41
+00:02:40,000 --> 00:02:44,000
+tomarn ninguna decisin, est bien? Entonces, con un simple cambio, ya
+
+42
+00:02:44,000 --> 00:02:48,000
+no necesitamos escribir ninguna prueba basada en el estado para este mtodo.
+
+43
+00:02:48,000 --> 00:02:52,000
+En la prxima conferencia, comenzaremos a escribir nuestras primeras pruebas de interaccin.
+
+44
+00:02:52,000 --> 00:02:56,000
+Queremos asegurarnos de que esta clase
+
+45
+00:02:56,000 --> 00:02:59,000
+hable correctamente con statementGenerator.
+

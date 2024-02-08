@@ -1,0 +1,233 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, so we're ready to start our
+
+2
+00:00:04,000 --> 00:00:08,000
+unit testing journey. From this lecture onwards, in every lecture
+
+3
+00:00:08,000 --> 00:00:12,000
+I'm going to show you one or two techniques, you're going to start with simple
+
+4
+00:00:12,000 --> 00:00:16,000
+examples and then these examples will gradually get more
+
+5
+00:00:16,000 --> 00:00:20,000
+complex, are you ready? Let's get started.
+
+6
+00:00:20,000 --> 00:00:24,000
+So TestNinja project, open the fundamentals folder, and
+
+7
+00:00:24,000 --> 00:00:28,000
+look at this math class. The first test you want
+
+8
+00:00:28,000 --> 00:00:32,000
+to write is for this add method here. Very simple method,
+
+9
+00:00:32,000 --> 00:00:36,000
+with only one line of code. How many tests do we need here?
+
+10
+00:00:36,000 --> 00:00:40,000
+Well, look at how many execution paths we have in this method.
+
+11
+00:00:40,000 --> 00:00:44,000
+You have only a single execution path, you don't have
+
+12
+00:00:44,000 --> 00:00:48,000
+any conditional statements, you don't have e and l's (?) or switch
+
+13
+00:00:48,000 --> 00:00:52,000
+(?) case. So when testing this method, I'm going to supply to our
+
+14
+00:00:52,000 --> 00:00:56,000
+arguments like one and two, and verify that this method returns
+
+15
+00:00:56,000 --> 00:01:00,000
+three. If that works, then I don't need to test it again,
+
+16
+00:01:00,000 --> 00:01:04,000
+with another set of arguments, okay? So only
+
+17
+00:01:04,000 --> 00:01:08,000
+a single test is sufficient for the add method. Now,
+
+18
+00:01:08,000 --> 00:01:12,000
+back to our unit testing project, I'm going to add
+
+19
+00:01:12,000 --> 00:01:16,000
+a new class,
+
+20
+00:01:16,000 --> 00:01:20,000
+and call this math tests.
+
+21
+00:01:20,000 --> 00:01:24,000
+First, I should apply the
+
+22
+00:01:24,000 --> 00:01:28,000
+test fixture attribute here, otherwise
+
+23
+00:01:28,000 --> 00:01:32,000
+NUnit test runner is not going to run the in this test.
+
+24
+00:01:32,000 --> 00:01:36,000
+Now we create a public void method,
+
+25
+00:01:36,000 --> 00:01:40,000
+and use the convention I told you before, so the method on the test
+
+26
+00:01:40,000 --> 00:01:44,000
+is Add. Now what scenario are we testing here?
+
+27
+00:01:44,000 --> 00:01:48,000
+In this case we are dealing with a single scenario. So I'm going to use
+
+28
+00:01:48,000 --> 00:01:52,000
+a generic term. Like WhenCalled.
+
+29
+00:01:52,000 --> 00:01:56,000
+So the add method, when called, what should it do?
+
+30
+00:01:56,000 --> 00:02:00,000
+It should return the sum of argument.
+
+31
+00:02:00,000 --> 00:02:04,000
+Okay? Now we need to decorate
+
+32
+00:02:04,000 --> 00:02:08,000
+this method with test attribute.
+
+33
+00:02:08,000 --> 00:02:12,000
+So here we have three parts. Arrange, act,
+
+34
+00:02:12,000 --> 00:02:16,000
+and assert. In the arrange we create a new instance,
+
+35
+00:02:16,000 --> 00:02:20,000
+of the math class, make sure to use the
+
+36
+00:02:20,000 --> 00:02:24,000
+math class defined in TestNinja.fundamentals.
+
+37
+00:02:24,000 --> 00:02:28,000
+Not the one defined in the system main space that is part of .net,
+
+38
+00:02:28,000 --> 00:02:32,000
+framework. Okay? Now we add
+
+39
+00:02:32,000 --> 00:02:36,000
+so math.add, we give it two arguments
+
+40
+00:02:36,000 --> 00:02:40,000
+but what arguments should we use here? It's best to use simple values
+
+41
+00:02:40,000 --> 00:02:44,000
+like 1 and 2, as opposed to some magic random
+
+42
+00:02:44,000 --> 00:02:48,000
+numbers like 952. Because when someone looks at this
+
+43
+00:02:48,000 --> 00:02:52,000
+code, they wonder, what is the meaning of 952?
+
+44
+00:02:52,000 --> 00:02:56,000
+Does this number have a special meaning in the domain in the application,
+
+45
+00:02:56,000 --> 00:03:00,000
+is this a constant defined somewhere else, is it the idea of a
+
+46
+00:03:00,000 --> 00:03:04,000
+record in the database, so we don't want to create such confusions for others.
+
+47
+00:03:04,000 --> 00:03:08,000
+And we use simple values, 1 and 2.
+
+48
+00:03:08,000 --> 00:03:12,000
+We get the result, and then we need to verify
+
+49
+00:03:12,000 --> 00:03:16,000
+that result is equal to 3. So assert
+
+50
+00:03:16,000 --> 00:03:20,000
+that result, is
+
+51
+00:03:20,000 --> 00:03:24,000
+equal to 3.
+
+52
+00:03:24,000 --> 00:03:28,000
+Let's run this test. So, if you're using
+
+53
+00:03:28,000 --> 00:03:32,000
+Rider or ReSharper, your shortcut is command and T,
+
+54
+00:03:32,000 --> 00:03:36,000
+and Command and R on Mac, or Control T and Control R
+
+55
+00:03:36,000 --> 00:03:40,000
+on Windows. And if you're using Visual Studio without ReSharper, you need to run
+
+56
+00:03:40,000 --> 00:03:44,000
+all the tests. Unfortunately I don't remember the shortcut for that, so you need to look that up
+
+57
+00:03:44,000 --> 00:03:48,000
+yourself. So, let's run this test.
+
+58
+00:03:48,000 --> 00:03:52,000
+Okay, our test passed, beautiful.
+
+

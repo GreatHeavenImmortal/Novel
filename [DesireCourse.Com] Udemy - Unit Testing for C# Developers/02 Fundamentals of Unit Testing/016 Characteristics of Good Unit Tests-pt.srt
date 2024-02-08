@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, vamos comear esta seo observando as caractersticas
+
+2
+00:00:04,000 --> 00:00:08,000
+dos bons testes unitrios: A primeira coisa que quero
+
+3
+00:00:08,000 --> 00:00:12,000
+que voc se lembre  que os testes de
+
+4
+00:00:12,000 --> 00:00:16,000
+unidade so cidados de primeira classe. Ento eles so to importantes, se no
+
+5
+00:00:16,000 --> 00:00:20,000
+mais do que o cdigo de produo. E isso significa que todas as prticas
+
+6
+00:00:20,000 --> 00:00:24,000
+recomendadas que aprendemos sobre como escrever cdigo limpo e de fcil manuteno tambm se
+
+7
+00:00:24,000 --> 00:00:28,000
+aplicam aos seus mtodos de teste. Mais especificamente, cada teste deve
+
+8
+00:00:28,000 --> 00:00:32,000
+ter uma nica responsabilidade e, idealmente, deve ter menos de
+
+9
+00:00:32,000 --> 00:00:36,000
+dez linhas de cdigo. Na verdade, uma das razes pelas quais
+
+10
+00:00:36,000 --> 00:00:40,000
+as pessoas falham com o teste de unidade  porque seus testes so confusos.
+
+11
+00:00:40,000 --> 00:00:44,000
+Eles tm mtodos de teste grandes e gordos que so realmente insustentveis.
+
+12
+00:00:44,000 --> 00:00:48,000
+Quando esses testes quebram, eles gastam muito tempo na depurao.
+
+13
+00:00:48,000 --> 00:00:52,000
+Ento, ao escrever testes, voc precisa mant-los limpos
+
+14
+00:00:52,000 --> 00:00:56,000
+e refatorar, se necessrio. Mostrarei vrios exemplos disso
+
+15
+00:00:56,000 --> 00:01:00,000
+mais adiante neste curso. Outra caracterstica dos bons testes unitrios 
+
+16
+00:01:00,000 --> 00:01:04,000
+que eles no devem ter nenhuma lgica. Portanto, voc no deve ter
+
+17
+00:01:04,000 --> 00:01:08,000
+instrues condicionais, loops e outros tipos de lgica em
+
+18
+00:01:08,000 --> 00:01:12,000
+seus testes. Por qu? Porque quando voc escreve lgica na unidade (? teste,  possvel
+
+19
+00:01:12,000 --> 00:01:16,000
+que voc cometa um erro. Ento, seu teste terminar
+
+20
+00:01:16,000 --> 00:01:20,000
+com um bug e falhar. Quando um teste falha, primeiro voc pensa que
+
+21
+00:01:20,000 --> 00:01:24,000
+h algo errado com o cdigo de produo. Ento voc gasta 20 minutos apenas para descobrir
+
+22
+00:01:24,000 --> 00:01:28,000
+que h um bug no seu teste. Portanto, no h lgica
+
+23
+00:01:28,000 --> 00:01:32,000
+nos seus testes! Voc simplesmente chama um
+
+24
+00:01:32,000 --> 00:01:36,000
+mtodo e faz uma afirmao. Alm disso, cada teste
+
+25
+00:01:36,000 --> 00:01:40,000
+deve ser escrito e executado como se fosse
+
+26
+00:01:40,000 --> 00:01:44,000
+o nico teste no mundo. Portanto, seus mtodos de teste
+
+27
+00:01:44,000 --> 00:01:48,000
+no devem chamar um ao outro e no devem assumir
+
+28
+00:01:48,000 --> 00:01:52,000
+nenhum estado criado por outro teste. E, finalmente, seu teste no deve ser muito especfico.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ou muito geral. Se eles forem muito genricos, talvez no confiem
+
+30
+00:01:56,000 --> 00:02:00,000
+muito que seu cdigo de produo esteja funcionando. Mais uma vez, vamos
+
+31
+00:02:00,000 --> 00:02:03,000
+ver exemplos disso em breve.
+

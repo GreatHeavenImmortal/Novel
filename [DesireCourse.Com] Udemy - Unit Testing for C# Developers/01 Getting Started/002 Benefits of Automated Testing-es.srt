@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Recientemente, un alumno mo me pregunt: "Mosh, por qu deberamos
+
+2
+00:00:04,000 --> 00:00:08,000
+escribir cdigo para probar nuestro cdigo, cuando solo podemos ejecutar
+
+3
+00:00:08,000 --> 00:00:12,000
+la aplicacin y ver el resultado? ".
+
+4
+00:00:12,000 --> 00:00:16,000
+Bueno, en la ltima conferencia, aprendiste que con las
+
+5
+00:00:16,000 --> 00:00:20,000
+pruebas automatizadas puedes probar nuestro cdigo de aplicacin con
+
+6
+00:00:20,000 --> 00:00:24,000
+frecuencia y en menos tiempo. Pero este no es el nico
+
+7
+00:00:24,000 --> 00:00:28,000
+beneficio de las pruebas automatizadas. El beneficio ms importante es que puede detectar
+
+8
+00:00:28,000 --> 00:00:32,000
+los errores ANTES de implementar nuestra aplicacin. Y esto es extremadamente
+
+9
+00:00:32,000 --> 00:00:36,000
+importante porque le permite implementar su aplicacin
+
+10
+00:00:36,000 --> 00:00:40,000
+con ms confianza. Ha estado en una situacin en
+
+11
+00:00:40,000 --> 00:00:44,000
+la que termin todo el trabajo, implement su aplicacin, sali de la
+
+12
+00:00:44,000 --> 00:00:48,000
+oficina pensando que todo estaba funcionando y luego recibi una llamada de
+
+13
+00:00:48,000 --> 00:00:52,000
+su jefe o un usuario final, dicindole que una de las principales
+
+14
+00:00:52,000 --> 00:00:56,000
+funciones de la aplicacin no est trabajando? Luego tuviste que regresar a
+
+15
+00:00:56,000 --> 00:01:00,000
+la oficina y pensaste que era una solucin rpida, pero
+
+16
+00:01:00,000 --> 00:01:04,000
+terminaste quedndote all hasta la medianoche! Es por eso que debe escribir pruebas:
+
+17
+00:01:04,000 --> 00:01:08,000
+para reducir el nmero de defectos o errores que irn en la produccin ... Ahora,
+
+18
+00:01:08,000 --> 00:01:12,000
+tenga en cuenta que no estoy diciendo que con las pruebas automticas va a lanzar
+
+19
+00:01:12,000 --> 00:01:16,000
+el software libre de errores. Eso no es cierto! Pero ciertamente puede reducir
+
+20
+00:01:16,000 --> 00:01:20,000
+el nmero de errores y mejorar la calidad de su software.
+
+21
+00:01:20,000 --> 00:01:24,000
+Otro beneficio de las pruebas automatizadas es que le permiten
+
+22
+00:01:24,000 --> 00:01:28,000
+refactorizar su cdigo con confianza. Refactorizar significa cambiar la
+
+23
+00:01:28,000 --> 00:01:32,000
+estructura de su cdigo, sin cambiar su comportamiento.
+
+24
+00:01:32,000 --> 00:01:36,000
+Si extraes algunas lneas de un mtodo en un mtodo
+
+25
+00:01:36,000 --> 00:01:40,000
+privado separado, eso es refactorizacin. Si cambias el nombre de un
+
+26
+00:01:40,000 --> 00:01:44,000
+mtodo, eso tambin se refactoriza. Est cambiando la estructura de su cdigo
+
+27
+00:01:44,000 --> 00:01:48,000
+para hacerlo ms limpio y ms fcil de mantener, pero no est cambiando la funcionalidad.
+
+28
+00:01:48,000 --> 00:01:52,000
+Cuando no tiene pruebas automatizadas, cada vez que refactoriza su
+
+29
+00:01:52,000 --> 00:01:56,000
+cdigo, debe probar manualmente cada parte de la aplicacin que
+
+30
+00:01:56,000 --> 00:02:00,000
+podra verse afectada por su refactorizacin. Y esto es muy doloroso porque,
+
+31
+00:02:00,000 --> 00:02:04,000
+en primer lugar, lleva mucho tiempo y, en segundo lugar, a medida
+
+32
+00:02:04,000 --> 00:02:08,000
+que crece la aplicacin, puede olvidarse de las partes que deben probarse!
+
+33
+00:02:08,000 --> 00:02:12,000
+Con pruebas automatizadas, cada vez que refactoriza su cdigo, ejecuta
+
+34
+00:02:12,000 --> 00:02:16,000
+sus pruebas y se asegura de que no haya roto
+
+35
+00:02:16,000 --> 00:02:20,000
+nada que antes funcionaba. Y, por ltimo, otro beneficio de
+
+36
+00:02:20,000 --> 00:02:24,000
+escribir pruebas es que lo ayuda a enfocarse ms en la calidad
+
+37
+00:02:24,000 --> 00:02:28,000
+de los mtodos que est escribiendo. Asegrese de que todos
+
+38
+00:02:28,000 --> 00:02:32,000
+los mtodos funcionen con diferentes entradas en diferentes circunstancias.
+
+39
+00:02:32,000 --> 00:02:36,000
+A continuacin, voy a hablar sobre diferentes tipos de pruebas.
+

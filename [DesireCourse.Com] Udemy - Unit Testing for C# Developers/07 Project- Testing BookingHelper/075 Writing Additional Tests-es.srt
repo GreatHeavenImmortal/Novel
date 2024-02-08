@@ -1,0 +1,284 @@
+1
+00:00:00,000 --> 00:00:04,000
+El prximo caso de prueba que queremos escribir aqu es
+
+2
+00:00:04,000 --> 00:00:08,000
+donde comienza nuestra reserva y termina en el medio de
+
+3
+00:00:08,000 --> 00:00:12,000
+una reserva existente. As que de nuevo tenemos una superposicin. Ahora, una
+
+4
+00:00:12,000 --> 00:00:16,000
+vez ms, voy a seleccionar este
+
+5
+00:00:16,000 --> 00:00:20,000
+cdigo y a duplicarlo, de modo
+
+6
+00:00:20,000 --> 00:00:24,000
+que el escenario es donde comienza
+
+7
+00:00:24,000 --> 00:00:28,000
+nuestra reserva y termina en InTheMiddleOfAnExistingBooking.
+
+8
+00:00:28,000 --> 00:00:32,000
+As que aqu podemos establecer
+
+9
+00:00:32,000 --> 00:00:36,000
+ArrivalDate en 1 da AfterTheRrivalDateofExistingBooking.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, despus, y de manera similar, podemos establecer la fecha
+
+11
+00:00:40,000 --> 00:00:44,000
+de salida en 1 da antes de la fecha de
+
+12
+00:00:44,000 --> 00:00:48,000
+salida de la reserva existente. Entonces, ejecutemos
+
+13
+00:00:48,000 --> 00:00:52,000
+esta prueba. Pas, hermosa, pasemos al
+
+14
+00:00:52,000 --> 00:00:56,000
+siguiente caso de prueba. Es posible que nuestra
+
+15
+00:00:56,000 --> 00:01:00,000
+nueva reserva comience en el medio de una
+
+16
+00:01:00,000 --> 00:01:04,000
+reserva existente, pero termina despus. Por lo tanto, algo
+
+17
+00:01:04,000 --> 00:01:08,000
+similar a este caso de prueba, voy
+
+18
+00:01:08,000 --> 00:01:12,000
+a seleccionar esto, duplicar y cambiar el
+
+19
+00:01:12,000 --> 00:01:16,000
+nombre de la prueba a StartsInTheMiddle OfAnExistingBookingButFinishesAfter.
+
+20
+00:01:16,000 --> 00:01:20,000
+ButFinishesAfter. Entonces, para simular
+
+21
+00:01:20,000 --> 00:01:24,000
+esto, simplemente necesitamos reemplazar Antes, con Despus.
+
+22
+00:01:24,000 --> 00:01:28,000
+Vamos a ejecutar esta prueba.
+
+23
+00:01:28,000 --> 00:01:32,000
+Esto tambin est pasando, excelente. Y, el ltimo caso de
+
+24
+00:01:32,000 --> 00:01:36,000
+prueba es donde comienza nuestra reserva y finaliza despus de
+
+25
+00:01:36,000 --> 00:01:40,000
+una reserva existente, en este caso no tenemos una superposicin.
+
+26
+00:01:40,000 --> 00:01:44,000
+Por lo tanto, seleccionemos
+
+27
+00:01:44,000 --> 00:01:48,000
+este cdigo, dupliquemos y
+
+28
+00:01:48,000 --> 00:01:52,000
+cambiemos el nombre de
+
+29
+00:01:52,000 --> 00:01:56,000
+la prueba a BookingStartsAndFinishes
+
+30
+00:01:56,000 --> 00:02:00,000
+AfterAnExisting Booking. Y aqu
+
+31
+00:02:00,000 --> 00:02:04,000
+esperamos devolver EmptyString. Entonces aqu para
+
+32
+00:02:04,000 --> 00:02:08,000
+cambiar la lgica, debemos establecer ArrivalDate despus
+
+33
+00:02:08,000 --> 00:02:12,000
+de DepartureDateOfTheExistingBooking, pero debemos establecer la fecha
+
+34
+00:02:12,000 --> 00:02:16,000
+de salida, digamos un da extra despus.
+
+35
+00:02:16,000 --> 00:02:20,000
+Entonces, necesitas modificar nuestro mtodo de ayuda.
+
+36
+00:02:20,000 --> 00:02:24,000
+Y cmo tomamos un argumento opcional?
+
+37
+00:02:24,000 --> 00:02:28,000
+Por lo tanto, IntegerDays, lo configuramos en 1 y
+
+38
+00:02:28,000 --> 00:02:32,000
+reemplazamos este 1 con Das. Y luego podemos
+
+39
+00:02:32,000 --> 00:02:36,000
+establecer el DepartureDate a 2 das despus.
+
+40
+00:02:36,000 --> 00:02:40,000
+Y, aqu tenemos que cambiar nuestra Afirmacin y asegurar
+
+41
+00:02:40,000 --> 00:02:44,000
+que el resultado est vaco. Vamos a ejecutar esta prueba.
+
+42
+00:02:44,000 --> 00:02:48,000
+Esto tambin est pasando, excelente.
+
+43
+00:02:48,000 --> 00:02:52,000
+Por lo tanto, hemos cubierto varias posibilidades de solapar dos
+
+44
+00:02:52,000 --> 00:02:56,000
+rangos de fechas, hemos solucionado el error que tenamos en
+
+45
+00:02:56,000 --> 00:03:00,000
+nuestra clase BookingHelper para hacer que la lgica sea ms
+
+46
+00:03:00,000 --> 00:03:04,000
+corta y ms clara. Pero todava tenemos que escribir dos pruebas ms aqu donde
+
+47
+00:03:04,000 --> 00:03:08,000
+tenemos una superposicin, pero una de las reservas se cancela. Ya sea la nueva
+
+48
+00:03:08,000 --> 00:03:12,000
+reserva o la reserva existente. Si la reserva existente
+
+49
+00:03:12,000 --> 00:03:16,000
+se cancela, no debera devolverse desde nuestro repositorio.
+
+50
+00:03:16,000 --> 00:03:20,000
+Porque dentro de este mtodo hemos encapsulado la lgica para devolver
+
+51
+00:03:20,000 --> 00:03:24,000
+las reservas que no estn canceladas. Entonces para probar ese escenario necesitamos
+
+52
+00:03:24,000 --> 00:03:28,000
+escribir una prueba de integracin para este mtodo, necesitamos completar nuestra base de
+
+53
+00:03:28,000 --> 00:03:32,000
+datos con un montn de reservas, y asegurarnos de que este mtodo solo
+
+54
+00:03:32,000 --> 00:03:36,000
+devuelva las reservas que no se cancelan. Entonces, el nico otro examen de
+
+55
+00:03:36,000 --> 00:03:40,000
+unidad que necesitamos escribir aqu es donde se cancela esta reserva, y
+
+56
+00:03:40,000 --> 00:03:44,000
+se superpone con una reserva existente. Entonces, de vuelta a nuestra
+
+57
+00:03:44,000 --> 00:03:48,000
+clase de prueba, voy a tomar, una de estas pruebas
+
+58
+00:03:48,000 --> 00:03:52,000
+donde tenemos una superposicin, por lo que no importa en
+
+59
+00:03:52,000 --> 00:03:56,000
+cul pueda elegir realmente a alguien. Vamos a
+
+60
+00:03:56,000 --> 00:04:00,000
+copiar esto y pegarlo
+
+61
+00:04:00,000 --> 00:04:04,000
+aqu, y cambiar el
+
+62
+00:04:04,000 --> 00:04:08,000
+nombre del mtodo a
+
+63
+00:04:08,000 --> 00:04:12,000
+Reservas OverlapButNewBookingIs Canceled. En este caso,
+
+64
+00:04:12,000 --> 00:04:16,000
+deberamos devolver EmptyString. Entonces, ahora con
+
+65
+00:04:16,000 --> 00:04:20,000
+esta lgica, tenemos reservas superpuestas, pero
+
+66
+00:04:20,000 --> 00:04:24,000
+debemos establecer el estado como cancelado.
+
+67
+00:04:24,000 --> 00:04:28,000
+Y luego afirmar que el
+
+68
+00:04:28,000 --> 00:04:32,000
+resultado est vaco. Vamos a ejecutar esta prueba.
+
+69
+00:04:32,000 --> 00:04:36,000
+Y esta prueba tambin est pasando.
+
+70
+00:04:36,000 --> 00:04:40,000
+Entonces, tenemos un total de 7 pruebas unitarias
+
+71
+00:04:40,000 --> 00:04:44,000
+para este mtodo, y esto concluye este desafo.
+

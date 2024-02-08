@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:04,000
+Assim, o terceiro caso de teste que queremos escrever
+
+2
+00:00:04,000 --> 00:00:08,000
+aqui  onde nossa nova reserva comea antes de
+
+3
+00:00:08,000 --> 00:00:12,000
+uma Reserva existente, mas termina depois da reserva existente,
+
+4
+00:00:12,000 --> 00:00:16,000
+neste caso, HaveOverlap. Ento, mais uma vez para economizar
+
+5
+00:00:16,000 --> 00:00:20,000
+tempo, vou selecionar esse cdigo. duplicar e
+
+6
+00:00:20,000 --> 00:00:24,000
+modificar de acordo. Portanto,
+
+7
+00:00:24,000 --> 00:00:28,000
+BookingStartsBefore AndFinishesAfter
+
+8
+00:00:28,000 --> 00:00:32,000
+AnExistingBooking. Ok, agora
+
+9
+00:00:32,000 --> 00:00:36,000
+modificamos a lgica, iniciamos antes
+
+10
+00:00:36,000 --> 00:00:40,000
+de Existir BookingsArrivalDate, mas terminamos
+
+11
+00:00:40,000 --> 00:00:44,000
+After existingBookingsDepartureDate. E nossa afirmao est
+
+12
+00:00:44,000 --> 00:00:48,000
+correta, ento queremos ter certeza de que esta
+
+13
+00:00:48,000 --> 00:00:52,000
+referncia retorne o existenteBooking. Ento vamos executar
+
+14
+00:00:52,000 --> 00:00:56,000
+o teste, Ok, este teste falhou.
+
+15
+00:00:56,000 --> 00:01:00,000
+Ento, espervamos obter um, que era a nossa referncia,
+
+16
+00:01:00,000 --> 00:01:04,000
+mas conseguimos uma string vazia. Ento este teste est
+
+17
+00:01:04,000 --> 00:01:08,000
+nos dizendo que h um bug em nosso cdigo
+
+18
+00:01:08,000 --> 00:01:12,000
+de produo, ento, de volta para nossa classe BookingHelper,
+
+19
+00:01:12,000 --> 00:01:16,000
+essa lgica tem um bug.  por isso que voc escreve testes de unidade.
+
+20
+00:01:16,000 --> 00:01:20,000
+Veja, com esses trs testes de unidade, voc pode pegar um bug antes
+
+21
+00:01:20,000 --> 00:01:24,000
+de implantar este aplicativo na produo. Imagine se voc quiser
+
+22
+00:01:24,000 --> 00:01:28,000
+testar isso manualmente, preenchendo formulrios, definindo datas diferentes,
+
+23
+00:01:28,000 --> 00:01:32,000
+clique, clique, clique, voc levaria 20 minutos para
+
+24
+00:01:32,000 --> 00:01:36,000
+testar todas as vrias possibilidades. Em contraste, podemos executar nossos
+
+25
+00:01:36,000 --> 00:01:40,000
+testes de unidade e capturar erros em uma diviso de segundo.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ento, como devemos corrigir isso? Bem, aqui no
+
+27
+00:01:44,000 --> 00:01:48,000
+Google, vamos pesquisar por c #,
+
+28
+00:01:48,000 --> 00:01:52,000
+sobreponha o stackoverflow do intervalo de datas.
+
+29
+00:01:52,000 --> 00:01:56,000
+Olhe para o primeiro link
+
+30
+00:01:56,000 --> 00:02:00,000
+aqui, Ento, algoritmo para detectar
+
+31
+00:02:00,000 --> 00:02:04,000
+perodo de sobreposio. Voc rola para baixo, ok,
+
+32
+00:02:04,000 --> 00:02:08,000
+aqui est a lgica simples, para testar se duas datas
+
+33
+00:02:08,000 --> 00:02:12,000
+se sobrepem, e  provvel que essa lgica tenha um
+
+34
+00:02:12,000 --> 00:02:16,000
+bug, voc no sabe, voc vai escrever todos os nossos
+
+35
+00:02:16,000 --> 00:02:20,000
+testes unitrios e ento saberemos se isso O teste de
+
+36
+00:02:20,000 --> 00:02:24,000
+lgica est correto ou no, mas essa lgica  realmente
+
+37
+00:02:24,000 --> 00:02:28,000
+mais simples do que a que temos aqui, ento, vou
+
+38
+00:02:28,000 --> 00:02:32,000
+copiar isso e col-lo aqui como um comentrio. Ento, existem
+
+39
+00:02:32,000 --> 00:02:36,000
+dois cenrios. Uma  o incio de
+
+40
+00:02:36,000 --> 00:02:40,000
+A  menor que o final de B, portanto, supondo que
+
+41
+00:02:40,000 --> 00:02:44,000
+o objeto de reserva que passamos para esse mtodo seja A,
+
+42
+00:02:44,000 --> 00:02:48,000
+podemos reescrever isso como Reserva. ArrivalDate
+
+43
+00:02:48,000 --> 00:02:52,000
+menos que b. Data de partida.
+
+44
+00:02:52,000 --> 00:02:56,000
+E, o segundo cenrio  o incio de
+
+45
+00:02:56,000 --> 00:03:00,000
+B  menor que o final de A. Ento, isso 
+
+46
+00:03:00,000 --> 00:03:04,000
+b. ArrivalDate  menor
+
+47
+00:03:04,000 --> 00:03:08,000
+que a reserva. Data de partida e, em seguida,
+
+48
+00:03:08,000 --> 00:03:12,000
+podemos nos livrar dessas condies adicionais. Veja, nosso cdigo j  mais
+
+49
+00:03:12,000 --> 00:03:16,000
+curto e j est livre de erros. Ento, vamos deletar
+
+50
+00:03:16,000 --> 00:03:20,000
+esse comentrio aqui. De volta  nossa classe
+
+51
+00:03:20,000 --> 00:03:24,000
+de teste, vou colocar esse
+
+52
+00:03:24,000 --> 00:03:28,000
+cursor no nome da classe e executar todos os testes.
+
+53
+00:03:28,000 --> 00:03:32,000
+Ento voc pode ver todos os testes nesta classe passando,
+
+54
+00:03:32,000 --> 00:03:36,000
+ento parece que ns consertamos o bug, mas ainda no
+
+55
+00:03:36,000 --> 00:03:40,000
+sabemos, ento vamos escrever mais testes para esta classe.
+
+56
+00:03:40,000 --> 00:03:43,000
+&nbsp;
+

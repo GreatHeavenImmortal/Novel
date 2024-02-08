@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:04,000
+No incio desta seo, eu lhe contei as caractersticas
+
+2
+00:00:04,000 --> 00:00:08,000
+dos bons testes unitrios. Uma caracterstica que no
+
+3
+00:00:08,000 --> 00:00:12,000
+lhe contei anteriormente  que seus testes de
+
+4
+00:00:12,000 --> 00:00:16,000
+unidade devem ser confiveis. Eu no te falei sobre isso antes, porque
+
+5
+00:00:16,000 --> 00:00:20,000
+eu quero te mostrar um exemplo real. O que quero dizer
+
+6
+00:00:20,000 --> 00:00:24,000
+com um teste confivel? Um teste confivel  o tipo de teste em que podemos confiar.
+
+7
+00:00:24,000 --> 00:00:28,000
+Ento, se o teste passar, voc sabe que seu cdigo est funcionando
+
+8
+00:00:28,000 --> 00:00:32,000
+e, se ele falhar, voc sabe que h algo errado com seu cdigo.
+
+9
+00:00:32,000 --> 00:00:36,000
+Mas como podemos escrever testes confiveis? Bem, existem duas maneiras,
+
+10
+00:00:36,000 --> 00:00:40,000
+uma maneira  usar o desenvolvimento orientado a
+
+11
+00:00:40,000 --> 00:00:44,000
+testes, ou TDD. Com o desenvolvimento orientado a testes,
+
+12
+00:00:44,000 --> 00:00:48,000
+comeamos por escrever um teste com falha, depois escrevemos cdigo de produo
+
+13
+00:00:48,000 --> 00:00:52,000
+suficiente para fazer esse teste passar. Portanto, se o teste passar, significa
+
+14
+00:00:52,000 --> 00:00:56,000
+que voc escreveu o cdigo de produo correto para fazer esse teste passar.
+
+15
+00:00:56,000 --> 00:01:00,000
+E se o teste falhar, isso significa que algo estava errado com o cdigo de produo.
+
+16
+00:01:00,000 --> 00:01:04,000
+Ento, usar o TDD  uma maneira
+
+17
+00:01:04,000 --> 00:01:08,000
+de escrever testes confiveis. Mas como eu disse antes, o TDD pode
+
+18
+00:01:08,000 --> 00:01:12,000
+se tornar complexo em alguns cenrios do mundo real. At agora temos escrito testes
+
+19
+00:01:12,000 --> 00:01:16,000
+aps o cdigo de produo. Essa abordagem  um pouco arriscada,
+
+20
+00:01:16,000 --> 00:01:20,000
+porque voc pode testar a coisa errada. Mas se voc testar a coisa
+
+21
+00:01:20,000 --> 00:01:24,000
+errada, seu teste pode passar, mas seu cdigo de produo pode ter
+
+22
+00:01:24,000 --> 00:01:28,000
+um bug, ento este  um exemplo de testes no confiveis.
+
+23
+00:01:28,000 --> 00:01:32,000
+Vou simular esse cenrio nesta palestra, e depois mostrar
+
+24
+00:01:32,000 --> 00:01:36,000
+essa tcnica para escrever testes confiveis, mesmo que voc
+
+25
+00:01:36,000 --> 00:01:40,000
+escreva seus testes depois do cdigo de produo. Ento,
+
+26
+00:01:40,000 --> 00:01:44,000
+de volta  nossa aula de matemtica, vou criar
+
+27
+00:01:44,000 --> 00:01:48,000
+um bug neste mtodo add. Em vez de retornar a soma de A e B.
+
+28
+00:01:48,000 --> 00:01:52,000
+Eu vou retornar 0. Ento, de volta aos nossos
+
+29
+00:01:52,000 --> 00:01:56,000
+testes de matemtica, voc atualmente tem um teste com o mtodo
+
+30
+00:01:56,000 --> 00:02:00,000
+add, eu quero desabilitar o atributo ignore ento ns rodamos este
+
+31
+00:02:00,000 --> 00:02:04,000
+teste, ns damos este mtodo um e dois e esperamos trs.
+
+32
+00:02:04,000 --> 00:02:08,000
+Mas nosso mtodo est retornando zero, ento o teste deve falhar.
+
+33
+00:02:08,000 --> 00:02:12,000
+Vamos verificar isso. Ento, comando e T e comando e R.
+
+34
+00:02:12,000 --> 00:02:16,000
+Ok, nosso mtodo de teste falhou, voc pode
+
+35
+00:02:16,000 --> 00:02:20,000
+ver que esperamos trs, mas temos zero.
+
+36
+00:02:20,000 --> 00:02:24,000
+Bonita. Ento, este  um teste confivel,
+
+37
+00:02:24,000 --> 00:02:28,000
+porque est testando a coisa certa. No entanto, quando voc escreve
+
+38
+00:02:28,000 --> 00:02:32,000
+seus testes, aps o cdigo de produo,  possvel cometer
+
+39
+00:02:32,000 --> 00:02:36,000
+um erro na implementao desse teste. Em outras palavras, seu
+
+40
+00:02:36,000 --> 00:02:40,000
+teste pode ter um bug. Voc no pode testar seu teste, certo?
+
+41
+00:02:40,000 --> 00:02:44,000
+Ento, deixe-me simular esse cenrio e, em seguida, mostrarei a soluo para
+
+42
+00:02:44,000 --> 00:02:48,000
+garantir que seu teste seja confivel. Vou comentar essa linha
+
+43
+00:02:48,000 --> 00:02:52,000
+e reescrever minha afirmao assim. Asseverar That_math,
+
+44
+00:02:52,000 --> 00:02:56,000
+como nosso campo
+
+45
+00:02:56,000 --> 00:03:00,000
+particular, no 
+
+46
+00:03:00,000 --> 00:03:04,000
+nulo. Ento voc sabe que o nosso
+
+47
+00:03:04,000 --> 00:03:08,000
+objeto de matemtica no  nulo. Ento este teste deve sempre passar.
+
+48
+00:03:08,000 --> 00:03:12,000
+Agora, este  um exemplo exagerado,  claro, em um cenrio do mundo real, voc
+
+49
+00:03:12,000 --> 00:03:16,000
+no vai escrever uma afirmao como essa. Mas o que estou apontando aqui
+
+50
+00:03:16,000 --> 00:03:20,000
+ que, quando voc escreve seus testes depois do cdigo de produo,
+
+51
+00:03:20,000 --> 00:03:24,000
+ possvel que voc cometa um erro na implementao do seu teste.
+
+52
+00:03:24,000 --> 00:03:28,000
+Agora este teste no est testando a coisa certa. No est testando o
+
+53
+00:03:28,000 --> 00:03:32,000
+resultado do mtodo add. Ento, quando voc
+
+54
+00:03:32,000 --> 00:03:36,000
+corre isso, passa. No 
+
+55
+00:03:36,000 --> 00:03:40,000
+um teste confivel. Nosso cdigo de produo tem um
+
+56
+00:03:40,000 --> 00:03:44,000
+bug, mas nosso teste est passando. Ento, voc pode perguntar, como podemos
+
+57
+00:03:44,000 --> 00:03:48,000
+evitar que esse cenrio acontea ao escrever testes aps o cdigo de produo?
+
+58
+00:03:48,000 --> 00:03:52,000
+Aqui est a tcnica que vou compartilhar com voc.
+
+59
+00:03:52,000 --> 00:03:56,000
+Voc vai para o seu cdigo de produo e faz
+
+60
+00:03:56,000 --> 00:04:00,000
+uma mudana simples na linha que supostamente faz a linha passar.
+
+61
+00:04:00,000 --> 00:04:04,000
+Por isso, vou eliminar esta linha temporariamente, imagine que esta  a
+
+62
+00:04:04,000 --> 00:04:08,000
+implementao do nosso mtodo de anncios. Ento essa linha, supostamente
+
+63
+00:04:08,000 --> 00:04:12,000
+faz nosso teste passar. Vou comentar essa
+
+64
+00:04:12,000 --> 00:04:16,000
+linha, fazer uma pequena alterao e
+
+65
+00:04:16,000 --> 00:04:20,000
+retornar 1. Agora corremos nossos testes novamente.
+
+66
+00:04:20,000 --> 00:04:24,000
+Ento, voltando a esse teste, vou rodar novamente,
+
+67
+00:04:24,000 --> 00:04:28,000
+o teste ainda passa, criei um bug no
+
+68
+00:04:28,000 --> 00:04:32,000
+cdigo de produo, fiz uma alterao, ento ao
+
+69
+00:04:32,000 --> 00:04:36,000
+invs de retornar 0, retorno 1, e o
+
+70
+00:04:36,000 --> 00:04:40,000
+teste ainda est passagem. Isso significa que o teste no est testando a coisa certa.
+
+71
+00:04:40,000 --> 00:04:44,000
+Eu posso devolver qualquer coisa aqui, como int. Valor mximo e
+
+72
+00:04:44,000 --> 00:04:48,000
+esse teste ainda ser aprovado.
+
+73
+00:04:48,000 --> 00:04:52,000
+No  um teste confivel, ento o
+
+74
+00:04:52,000 --> 00:04:56,000
+teste tem um bug. D uma olhada aqui,
+
+75
+00:04:56,000 --> 00:05:00,000
+ok, a afirmao est errada, ento eu vou
+
+76
+00:05:00,000 --> 00:05:04,000
+deletar isso, e trazer de volta essa afirmao original.
+
+77
+00:05:04,000 --> 00:05:08,000
+Agora corremos isso, nosso
+
+78
+00:05:08,000 --> 00:05:12,000
+teste falhou. Ento este  um teste confivel, est testando a coisa certa.
+
+79
+00:05:12,000 --> 00:05:16,000
+Neste caso, este teste que resulta 
+
+80
+00:05:16,000 --> 00:05:20,000
+igual a trs. Ento, voltamos ao nosso
+
+81
+00:05:20,000 --> 00:05:24,000
+cdigo de produo e resolvemos o problema.
+
+82
+00:05:24,000 --> 00:05:28,000
+Retornar A + B. Ento, aqui est o que
+
+83
+00:05:28,000 --> 00:05:32,000
+eu quero que voc tire. Quando voc escrever seus testes aps
+
+84
+00:05:32,000 --> 00:05:36,000
+o cdigo de produo, execute seu teste se ele passar, ento v
+
+85
+00:05:36,000 --> 00:05:40,000
+no cdigo de produo e faa uma pequena alterao na linha que
+
+86
+00:05:40,000 --> 00:05:44,000
+deve fazer o teste passar. Crie um bug, retorne um valor
+
+87
+00:05:44,000 --> 00:05:48,000
+diferente, talvez comente essa linha, se voc alterar a linha que deve fazer
+
+88
+00:05:48,000 --> 00:05:52,000
+o teste passar e, em seguida, seu teste ainda passa, significa que o
+
+89
+00:05:52,000 --> 00:05:56,000
+teste no est testando a coisa certa. Porque se voc modificar essa
+
+90
+00:05:56,000 --> 00:06:00,000
+linha e criar um bug, o teste deve falhar, certo?
+
+91
+00:06:00,000 --> 00:06:04,000
+Ento, certifique-se de escrever testes confiveis que lhe do valor. Ento, quando eles passam, voc sabe
+
+92
+00:06:04,000 --> 00:06:08,000
+que seu cdigo est funcionando e, quando eles falham, voc sabe
+
+93
+00:06:08,000 --> 00:06:11,000
+que provavelmente h algo errado com o cdigo.
+

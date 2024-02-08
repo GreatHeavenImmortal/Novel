@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, nesta seo, voc aprendeu sobre testes
+
+2
+00:00:04,000 --> 00:00:08,000
+automatizados e seus benefcios. Mais especificamente, voc aprendeu que
+
+3
+00:00:08,000 --> 00:00:12,000
+isso ajuda voc a refatorar seu cdigo com confiana e
+
+4
+00:00:12,000 --> 00:00:16,000
+lanar softwares de melhor qualidade e com menos bugs.
+
+5
+00:00:16,000 --> 00:00:20,000
+Voc aprendeu sobre trs tipos de testes, unidade, integrao e
+
+6
+00:00:20,000 --> 00:00:24,000
+testes de ponta a ponta. E voc tambm viu um vislumbre
+
+7
+00:00:24,000 --> 00:00:28,000
+de testes unitrios em ao. Voc aprendeu a escrever um teste
+
+8
+00:00:28,000 --> 00:00:32,000
+de unidade bsico no Visual Studio e, finalmente, aprendeu como executar e
+
+9
+00:00:32,000 --> 00:00:36,000
+depurar seus testes de unidade. Na prxima seo, vamos examinar as
+
+10
+00:00:36,000 --> 00:00:40,000
+principais tcnicas para escrever testes unitrios. Ento, eu vou te ver na prxima seo!
+

@@ -1,0 +1,584 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, in the unit testing project, I'm going to add
+
+2
+00:00:04,000 --> 00:00:08,000
+a new class. And call it DemeritPoints
+
+3
+00:00:08,000 --> 00:00:12,000
+CalculatorTests.
+
+4
+00:00:12,000 --> 00:00:16,000
+First I'm going to
+
+5
+00:00:16,000 --> 00:00:20,000
+apply the TestFixture attribute here, and now
+
+6
+00:00:20,000 --> 00:00:24,000
+I'm going to generate all the test stops. So,
+
+7
+00:00:24,000 --> 00:00:28,000
+method, CalculateDemeritPoints,
+
+8
+00:00:28,000 --> 00:00:32,000
+What is the first scenario? Well, this function
+
+9
+00:00:32,000 --> 00:00:36,000
+gets an integer which determines the speed of the car.
+
+10
+00:00:36,000 --> 00:00:40,000
+What if we give it a negative number? It doesn't make sense.
+
+11
+00:00:40,000 --> 00:00:44,000
+So I expect this method to throw an argument out of range
+
+12
+00:00:44,000 --> 00:00:48,000
+exception, so speed is
+
+13
+00:00:48,000 --> 00:00:52,000
+Negative, it should ThrowArgument
+
+14
+00:00:52,000 --> 00:00:56,000
+out of range, exception.
+
+15
+00:00:56,000 --> 00:01:00,000
+Another test method.
+
+16
+00:01:00,000 --> 00:01:04,000
+CalculateDemeritPoints
+
+17
+00:01:04,000 --> 00:01:08,000
+What if the speed is zero? The car is stopped.
+
+18
+00:01:08,000 --> 00:01:12,000
+You should get 0 right? So SpeedIsZero
+
+19
+00:01:12,000 --> 00:01:16,000
+we should ReturnZero.
+
+20
+00:01:16,000 --> 00:01:20,000
+Another scenario is the speed is greater than zero,
+
+21
+00:01:20,000 --> 00:01:24,000
+but less than the speed limit. Again, you should get
+
+22
+00:01:24,000 --> 00:01:28,000
+zero, because as far as the driver drives under the speed limit,
+
+23
+00:01:28,000 --> 00:01:32,000
+they won't get any demerit points. So,
+
+24
+00:01:32,000 --> 00:01:36,000
+CalculateDemeritPoints,
+
+25
+00:01:36,000 --> 00:01:40,000
+SpeedIsLessThanSpeed
+
+26
+00:01:40,000 --> 00:01:44,000
+Limit, again, returns 0
+
+27
+00:01:44,000 --> 00:01:48,000
+Now, what if the driver is driving
+
+28
+00:01:48,000 --> 00:01:52,000
+exactly at the speed limit? Again, you should
+
+29
+00:01:52,000 --> 00:01:56,000
+get zero again, right? So I see a pattern, you're writing three tests
+
+30
+00:01:56,000 --> 00:02:00,000
+and all these tests are testing that the function
+
+31
+00:02:00,000 --> 00:02:04,000
+returns 0, I would rather we combine these
+
+32
+00:02:04,000 --> 00:02:08,000
+scenarios into one test with multiple test cases.
+
+33
+00:02:08,000 --> 00:02:12,000
+So, we can change the name of this method to something
+
+34
+00:02:12,000 --> 00:02:16,000
+more generic, SpeedIsLessThan
+
+35
+00:02:16,000 --> 00:02:20,000
+OrEqualToSpeedLimit.
+
+36
+00:02:20,000 --> 00:02:24,000
+Now here we need to add a parameter.
+
+37
+00:02:24,000 --> 00:02:28,000
+that is the speed, and we define multiple test cases.
+
+38
+00:02:28,000 --> 00:02:32,000
+So TestCase, when speed is
+
+39
+00:02:32,000 --> 00:02:36,000
+0, we should get 0 points, when the speed is less than
+
+40
+00:02:36,000 --> 00:02:40,000
+the speed limit like 64, again, you should get 0,
+
+41
+00:02:40,000 --> 00:02:44,000
+and this exactly, is the speed limit
+
+42
+00:02:44,000 --> 00:02:48,000
+we should still get zero, then we can delete.
+
+43
+00:02:48,000 --> 00:02:52,000
+This test method. Now, what if the driver is
+
+44
+00:02:52,000 --> 00:02:56,000
+over this speed limit, but less than
+
+45
+00:02:56,000 --> 00:03:00,000
+5 kilometers an hour. For example, what if you're driving
+
+46
+00:03:00,000 --> 00:03:04,000
+at 66 kilometers an hour. Again, they shouldn't get any
+
+47
+00:03:04,000 --> 00:03:08,000
+points. They would get a point for every 5 kilometers
+
+48
+00:03:08,000 --> 00:03:12,000
+of the speed limit. So I'm going to add another test case
+
+49
+00:03:12,000 --> 00:03:16,000
+here, set the speed to 66.
+
+50
+00:03:16,000 --> 00:03:20,000
+And again we should get 0. But the name of this
+
+51
+00:03:20,000 --> 00:03:24,000
+function no longer represents all these test cases. So I want to
+
+52
+00:03:24,000 --> 00:03:28,000
+make it even more generic. So,
+
+53
+00:03:28,000 --> 00:03:32,000
+let's change the scenario to WhenCalled
+
+54
+00:03:32,000 --> 00:03:36,000
+ReturnDemeritPoints.
+
+55
+00:03:36,000 --> 00:03:40,000
+Now we have a more generic name for our tests, let's add
+
+56
+00:03:40,000 --> 00:03:44,000
+a few more test cases. So the other test case is
+
+57
+00:03:44,000 --> 00:03:48,000
+five kilometers above the speed limit. So,
+
+58
+00:03:48,000 --> 00:03:52,000
+if the speed is 70, then we should get
+
+59
+00:03:52,000 --> 00:03:56,000
+1 point, and just for peace of mind, I want to make sure
+
+60
+00:03:56,000 --> 00:04:00,000
+that the speed is 75, then you should get 2 points.
+
+61
+00:04:00,000 --> 00:04:04,000
+If our function correctly calculates DemeritPoints,
+
+62
+00:04:04,000 --> 00:04:08,000
+for these two test cases, it's likely that it's going to work
+
+63
+00:04:08,000 --> 00:04:12,000
+if the speed is 80, 85, 90, and so on. But what
+
+64
+00:04:12,000 --> 00:04:16,000
+if the speed is ridiculously large number, like 500
+
+65
+00:04:16,000 --> 00:04:20,000
+kilometers an hour, or 50,000 kilometers an hour, it doesn't make sense.
+
+66
+00:04:20,000 --> 00:04:24,000
+In this case, I expect this function to throw an
+
+67
+00:04:24,000 --> 00:04:28,000
+argument out of range exception. So similar to the
+
+68
+00:04:28,000 --> 00:04:32,000
+first test, I'm going to duplicate this
+
+69
+00:04:32,000 --> 00:04:36,000
+let's make an assumption here. You can assume that most cars
+
+70
+00:04:36,000 --> 00:04:40,000
+don't go faster than 300 kilometers an hour, so
+
+71
+00:04:40,000 --> 00:04:44,000
+if SpeedIsOver
+
+72
+00:04:44,000 --> 00:04:48,000
+300, again it should throw an argument out of range exception.
+
+73
+00:04:48,000 --> 00:04:52,000
+So now that we have various test cases for this function,
+
+74
+00:04:52,000 --> 00:04:56,000
+let's go ahead and implement these tests.
+
+75
+00:04:56,000 --> 00:05:00,000
+First, I'm going to create calculator object, so calculator,
+
+76
+00:05:00,000 --> 00:05:04,000
+DemeritPointsCalculator.
+
+77
+00:05:04,000 --> 00:05:08,000
+Now we act (?) calculator,
+
+78
+00:05:08,000 --> 00:05:12,000
+.Calculate, and give it a negative number.
+
+79
+00:05:12,000 --> 00:05:16,000
+Again you want to use simple numbers, so minus 1,
+
+80
+00:05:16,000 --> 00:05:20,000
+is better than minus 10, because otherwise it creates confusion.
+
+81
+00:05:20,000 --> 00:05:24,000
+What is this minus 10, is it a special number in this domain? No we just
+
+82
+00:05:24,000 --> 00:05:28,000
+care about a negative number here. Now in this case, because this
+
+83
+00:05:28,000 --> 00:05:32,000
+method is going to throw an exception, we need to wrap it with a
+
+84
+00:05:32,000 --> 00:05:36,000
+lambda expression, and run it as part of making our Assertion.
+
+85
+00:05:36,000 --> 00:05:40,000
+So, Assert That
+
+86
+00:05:40,000 --> 00:05:44,000
+we add a lambda expression, and here we call
+
+87
+00:05:44,000 --> 00:05:48,000
+this method. Okay?
+
+88
+00:05:48,000 --> 00:05:52,000
+Now, we Assert that this method
+
+89
+00:05:52,000 --> 00:05:56,000
+Throws, look here we don't have argument
+
+90
+00:05:56,000 --> 00:06:00,000
+out of range exception, so we need to use Exception
+
+91
+00:06:00,000 --> 00:06:04,000
+property. And set it's type, TypeOf
+
+92
+00:06:04,000 --> 00:06:08,000
+ArgumentOutOfRangeException.
+
+93
+00:06:08,000 --> 00:06:12,000
+Let's run this test, Command and T and
+
+94
+00:06:12,000 --> 00:06:16,000
+Command and R
+
+95
+00:06:16,000 --> 00:06:20,000
+Okay the test passed, beautiful.
+
+96
+00:06:20,000 --> 00:06:24,000
+Now this second test case is very similar to the first one.
+
+97
+00:06:24,000 --> 00:06:28,000
+So instead of having two separate methods, you can
+
+98
+00:06:28,000 --> 00:06:32,000
+parameterize this test method, and add multiple
+
+99
+00:06:32,000 --> 00:06:36,000
+test cases. So I'm going to define a parameter called speed,
+
+100
+00:06:36,000 --> 00:06:40,000
+and here, we're going to have two test cases.
+
+101
+00:06:40,000 --> 00:06:44,000
+So TestCase, 1 is minus 1,
+
+102
+00:06:44,000 --> 00:06:48,000
+and the other is 301.
+
+103
+00:06:48,000 --> 00:06:52,000
+Now to keep our code clean, we should
+
+104
+00:06:52,000 --> 00:06:56,000
+change this scenario to something more generic, speed is out
+
+105
+00:06:56,000 --> 00:07:00,000
+of range. Okay? And finally
+
+106
+00:07:00,000 --> 00:07:04,000
+we replace minus 1 with speed.
+
+107
+00:07:04,000 --> 00:07:08,000
+Then we don't need this method anymore.
+
+108
+00:07:08,000 --> 00:07:12,000
+Let's run the test again.
+
+109
+00:07:12,000 --> 00:07:16,000
+Okay, our test failed. So,
+
+110
+00:07:16,000 --> 00:07:20,000
+here's our test method you can see, we have two test cases
+
+111
+00:07:20,000 --> 00:07:24,000
+the first one which was for minus one succeeded,
+
+112
+00:07:24,000 --> 00:07:28,000
+but the second one which was but (?) 301 failed.
+
+113
+00:07:28,000 --> 00:07:32,000
+Look at the details, so we expect that an argument
+
+114
+00:07:32,000 --> 00:07:36,000
+out of range exception, but we got no exception thrown
+
+115
+00:07:36,000 --> 00:07:40,000
+from this method. So this is telling me that there is something wrong in the
+
+116
+00:07:40,000 --> 00:07:44,000
+implementation of this method. Let's go back.
+
+117
+00:07:44,000 --> 00:07:48,000
+Look, nowhere here, we're checking
+
+118
+00:07:48,000 --> 00:07:52,000
+for the upper limit. So I'm going to change this to if speed
+
+119
+00:07:52,000 --> 00:07:56,000
+is less than 0, or greater than
+
+120
+00:07:56,000 --> 00:08:00,000
+300, we're going to throw an argument out of
+
+121
+00:08:00,000 --> 00:08:04,000
+range exception. Now to make the code more readable, I would
+
+122
+00:08:04,000 --> 00:08:08,000
+rather to replace this hard coded magic number with a
+
+123
+00:08:08,000 --> 00:08:12,000
+constant. So here we can define the private constant,
+
+124
+00:08:12,000 --> 00:08:16,000
+integer MaxSpeed,
+
+125
+00:08:16,000 --> 00:08:20,000
+and replace 300 with
+
+126
+00:08:20,000 --> 00:08:24,000
+MaxSpeed. Now, back to our test method, let's
+
+127
+00:08:24,000 --> 00:08:28,000
+run this one more time,
+
+128
+00:08:28,000 --> 00:08:32,000
+Okay, this time you can see
+
+129
+00:08:32,000 --> 00:08:36,000
+most test cases successfully passed. Beautiful.
+
+130
+00:08:36,000 --> 00:08:40,000
+Now, all these test cases,
+
+131
+00:08:40,000 --> 00:08:44,000
+so once again I'm going to create calculator object,
+
+132
+00:08:44,000 --> 00:08:48,000
+new DemeritPointsCalculator, call
+
+133
+00:08:48,000 --> 00:08:52,000
+Calculate function for calculate method, give it the speed
+
+134
+00:08:52,000 --> 00:08:56,000
+get the result, which is in this case
+
+135
+00:08:56,000 --> 00:09:00,000
+points. And Assert that
+
+136
+00:09:00,000 --> 00:09:04,000
+points is EqualTo
+
+137
+00:09:04,000 --> 00:09:08,000
+what? Well, we need to add another parameter here.
+
+138
+00:09:08,000 --> 00:09:12,000
+That is the expected result. So integer
+
+139
+00:09:12,000 --> 00:09:16,000
+expected result.
+
+140
+00:09:16,000 --> 00:09:20,000
+These numbers that we're supplying using our test case attribute,
+
+141
+00:09:20,000 --> 00:09:24,000
+these numbers represent expected result. I'm going to
+
+142
+00:09:24,000 --> 00:09:28,000
+use the argument here, expectedResult,
+
+143
+00:09:28,000 --> 00:09:32,000
+Now, let's run all these tests,
+
+144
+00:09:32,000 --> 00:09:36,000
+All of them are
+
+145
+00:09:36,000 --> 00:09:40,000
+passing, beautiful. So we have a total of eight unit tests,
+
+146
+00:09:40,000 --> 00:09:43,000
+for this class.
+

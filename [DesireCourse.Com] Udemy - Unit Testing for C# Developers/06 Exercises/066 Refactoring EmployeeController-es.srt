@@ -1,0 +1,324 @@
+1
+00:00:00,000 --> 00:00:04,000
+Muy bien, entonces aqu en
+
+2
+00:00:04,000 --> 00:00:08,000
+la carpeta Mocking, agreguemos una
+
+3
+00:00:08,000 --> 00:00:12,000
+nueva clase EmployeeStorage. Algunas personas pueden preferir llamar
+
+4
+00:00:12,000 --> 00:00:16,000
+a este EmployeeService, pero personalmente prefiero no usar el
+
+5
+00:00:16,000 --> 00:00:20,000
+servicio de palabras, porque el servicio est sobrecargado en
+
+6
+00:00:20,000 --> 00:00:24,000
+la comunidad, puede significar cosas diferentes, tambin tiene diferentes
+
+7
+00:00:24,000 --> 00:00:28,000
+significados dependiendo de en qu capa se use, yo
+
+8
+00:00:28,000 --> 00:00:32,000
+personalmente usar servicios para implementar una capa de servicio de aplicacin.
+
+9
+00:00:32,000 --> 00:00:36,000
+Una capa de servicio de aplicacin es una capa alrededor de su aplicacin que es
+
+10
+00:00:36,000 --> 00:00:40,000
+responsable de la orquestacin de alto nivel. Entonces delega tareas
+
+11
+00:00:40,000 --> 00:00:44,000
+a diferentes objetos. Por ejemplo, puede hablar con un
+
+12
+00:00:44,000 --> 00:00:48,000
+objeto para almacenar algo en una base de datos, y luego puede
+
+13
+00:00:48,000 --> 00:00:52,000
+hablar con otro objeto para enviar una notificacin al usuario, y finalmente
+
+14
+00:00:52,000 --> 00:00:56,000
+puede hablar con un objeto registrador para escribir algo en el registro.
+
+15
+00:00:56,000 --> 00:01:00,000
+Entonces esto es lo que llamamos orquestacin de alto nivel.
+
+16
+00:01:00,000 --> 00:01:04,000
+Y cuando tengo escenarios como ese, uso la palabra servicio. Pero en este caso no tenemos
+
+17
+00:01:04,000 --> 00:01:08,000
+una orquestacin de alto nivel, no necesitamos una capa de servicio de aplicacin.
+
+18
+00:01:08,000 --> 00:01:12,000
+Todo lo que hace es eliminar un empleado de nuestra base de datos.
+
+19
+00:01:12,000 --> 00:01:16,000
+Es por eso que prefiero llamar a esta clase EmployeeStorage.
+
+20
+00:01:16,000 --> 00:01:20,000
+Porque es puramente responsable del almacenamiento. Ahora puede preguntar
+
+21
+00:01:20,000 --> 00:01:24,000
+por qu no llam a este EmployeeRepository.
+
+22
+00:01:24,000 --> 00:01:28,000
+Bueno, ciertamente podramos hacer eso, pero los repositorios no deberan tener
+
+23
+00:01:28,000 --> 00:01:32,000
+un mtodo de guardado. Entonces no podemos llamar a un repositorio. guardar
+
+24
+00:01:32,000 --> 00:01:36,000
+cambios. Ya expliqu el motivo de eso en mi curso
+
+25
+00:01:36,000 --> 00:01:40,000
+de framework de edicin. Tambin escrib posts sobre eso. As que simplemente busque
+
+26
+00:01:40,000 --> 00:01:44,000
+Mosh Hamedani, patrn de repositorio. Ver que tengo algunas publicaciones en el blog
+
+27
+00:01:44,000 --> 00:01:48,000
+sobre el repositorio y cmo debe usarlas. Entonces, si desea usar un patrn de repositorio
+
+28
+00:01:48,000 --> 00:01:52,000
+aqu, tambin debe traer una adjudicacin de unidad (? ) y eso hace que este
+
+29
+00:01:52,000 --> 00:01:56,000
+diseo sea un poco ms complicado. Entonces, por eso prefiero usar
+
+30
+00:01:56,000 --> 00:02:00,000
+un EmployeeStorage en lugar de EmployeeRepository y la adjudicacin de
+
+31
+00:02:00,000 --> 00:02:04,000
+la unidad (? ) en este contexto. Entonces,
+
+32
+00:02:04,000 --> 00:02:08,000
+EmployeeStorage debe tener un
+
+33
+00:02:08,000 --> 00:02:12,000
+mtodo, DeleteEmployee, toma un
+
+34
+00:02:12,000 --> 00:02:16,000
+entero. Ahora, de vuelta a nuestro controlador,
+
+35
+00:02:16,000 --> 00:02:20,000
+voy a tomar estas tres lneas. Cortar.
+
+36
+00:02:20,000 --> 00:02:24,000
+Y muvelo dentro de este mtodo. Entonces, aqu puede ver
+
+37
+00:02:24,000 --> 00:02:28,000
+que necesitamos una referencia a nuestro contexto db, as
+
+38
+00:02:28,000 --> 00:02:32,000
+que voy a volver a nuestro controlador y mover
+
+39
+00:02:32,000 --> 00:02:36,000
+este campo privado a nuestra clase de almacenamiento tambin.
+
+40
+00:02:36,000 --> 00:02:40,000
+Y finalmente, vamos a inicializar esto
+
+41
+00:02:40,000 --> 00:02:44,000
+en el constructor. Entonces un nuevo EmployeeContext.
+
+42
+00:02:44,000 --> 00:02:48,000
+Y, por cierto, este cdigo tiene un error, porque en esta
+
+43
+00:02:48,000 --> 00:02:52,000
+lnea es posible que no encontremos un empleado con esta ID.
+
+44
+00:02:52,000 --> 00:02:56,000
+Entonces, cuando pasemos nulo aqu, obtendremos una excepcin.
+
+45
+00:02:56,000 --> 00:03:00,000
+As que voy a modificar esto para que si el
+
+46
+00:03:00,000 --> 00:03:04,000
+empleado no es nulo, entonces vamos a eliminarlo del contexto,
+
+47
+00:03:04,000 --> 00:03:08,000
+y guardar los cambios, est bien? O bien, otra forma de
+
+48
+00:03:08,000 --> 00:03:12,000
+reescribir este cdigo es invertir esta instruccin condicional y
+
+49
+00:03:12,000 --> 00:03:16,000
+luego puede deshacerse de este bloque de cdigo y
+
+50
+00:03:16,000 --> 00:03:20,000
+esta sangra adicional. Djame mostrarte lo que quiero decir. Entonces, si
+
+51
+00:03:20,000 --> 00:03:24,000
+el empleado es nulo, entonces podemos regresar
+
+52
+00:03:24,000 --> 00:03:28,000
+de inmediato, verdad? Y con eso ya no
+
+53
+00:03:28,000 --> 00:03:32,000
+necesitamos este bloque de cdigo y esta sangra extra.
+
+54
+00:03:32,000 --> 00:03:36,000
+Me gusta esto.
+
+55
+00:03:36,000 --> 00:03:40,000
+De acuerdo, este es nuestro almacenamiento de empleados, es puramente responsable de
+
+56
+00:03:40,000 --> 00:03:44,000
+trabajar con nuestra base de datos. Ahora, hoy en esta
+
+57
+00:03:44,000 --> 00:03:48,000
+implementacin, estamos usando cualquiera (? ) marco para lograr eso.
+
+58
+00:03:48,000 --> 00:03:52,000
+Quizs maana decidamos usar un marco diferente, o puede decidir utilizar una
+
+59
+00:03:52,000 --> 00:03:56,000
+conexin de secuencia simple y comandos de continuacin para eliminar un empleado
+
+60
+00:03:56,000 --> 00:04:00,000
+de una base de datos. Eso es detalle de implementacin y
+
+61
+00:04:00,000 --> 00:04:04,000
+puede cambiar en el futuro. Nuestro controlador no se
+
+62
+00:04:04,000 --> 00:04:08,000
+preocupa por este detalle de implementacin, siempre que
+
+63
+00:04:08,000 --> 00:04:12,000
+este EmployeeStorage tenga un mecanismo para eliminar un
+
+64
+00:04:12,000 --> 00:04:16,000
+empleado, nuestro controlador estar contento. Entonces, ahora tenemos que extraer una
+
+65
+00:04:16,000 --> 00:04:20,000
+interfaz de esta clase. Entonces alt y enter. Interfaz
+
+66
+00:04:20,000 --> 00:04:24,000
+Refactor Extract. Y agreguemos
+
+67
+00:04:24,000 --> 00:04:28,000
+este miembro. De acuerdo, hecho.
+
+68
+00:04:28,000 --> 00:04:32,000
+Entonces, aqu est nuestra nueva interfaz, ahora
+
+69
+00:04:32,000 --> 00:04:36,000
+necesitamos inyectar esto en el constructor de
+
+70
+00:04:36,000 --> 00:04:40,000
+nuestro EmployeeController, entonces, aqu, en el constructor IEmployeeStorage.
+
+71
+00:04:40,000 --> 00:04:44,000
+Llamemos a ese almacenamiento, y creamos
+
+72
+00:04:44,000 --> 00:04:48,000
+e inicializamos un campo privado de
+
+73
+00:04:48,000 --> 00:04:52,000
+una vez. Por lo tanto, ya no necesitamos actualizar a este empleado.
+
+74
+00:04:52,000 --> 00:04:56,000
+En su lugar, tenemos un campo privado
+
+75
+00:04:56,000 --> 00:05:00,000
+de tipo IEmployeeStorage. Ahora, finalmente,
+
+76
+00:05:00,000 --> 00:05:04,000
+en nuestro mtodo DeleteEmployee, necesitamos
+
+77
+00:05:04,000 --> 00:05:08,000
+llamar al almacenamiento. DeleteEmployee y pasa
+
+78
+00:05:08,000 --> 00:05:12,000
+esta identificacin aqu. Entonces, podemos ver con esta refactorizacin que
+
+79
+00:05:12,000 --> 00:05:16,000
+tenemos la separacin adecuada de las preocupaciones. En ninguna parte de
+
+80
+00:05:16,000 --> 00:05:20,000
+nuestro controlador estamos tocando nuestra base de datos,
+
+81
+00:05:20,000 --> 00:05:24,000
+toda esa responsabilidad est encapsulada dentro de nuestro almacenamiento.
+

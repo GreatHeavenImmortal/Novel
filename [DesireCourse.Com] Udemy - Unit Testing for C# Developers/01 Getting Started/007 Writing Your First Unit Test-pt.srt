@@ -1,0 +1,628 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, nesta palestra voc vai escrever seu
+
+2
+00:00:04,000 --> 00:00:08,000
+primeiro teste de unidade. Ento, aqui ns temos este projeto chamado ninja de
+
+3
+00:00:08,000 --> 00:00:12,000
+teste que eu vou usar ao longo deste curso. Eu te dei o link para
+
+4
+00:00:12,000 --> 00:00:16,000
+este projeto na ltima palestra, mas se voc perdeu isso, voc pode
+
+5
+00:00:16,000 --> 00:00:20,000
+v-lo anexado a esta palestra. Ento aqui temos essa pasta,
+
+6
+00:00:20,000 --> 00:00:24,000
+fundamentos, vamos dar uma olhada nessa classe de reserva, ento
+
+7
+00:00:24,000 --> 00:00:28,000
+imagine que voc est construindo uma aplicao para reservar uma
+
+8
+00:00:28,000 --> 00:00:32,000
+mesa em um restaurante. Uma classe de reserva
+
+9
+00:00:32,000 --> 00:00:36,000
+tem atualmente uma propriedade que especifica o usurio
+
+10
+00:00:36,000 --> 00:00:40,000
+que fez essa reserva. Agora, em um aplicativo do mundo
+
+11
+00:00:40,000 --> 00:00:44,000
+real, essa classe pode ter muitas outras propriedades, mas no queremos
+
+12
+00:00:44,000 --> 00:00:48,000
+nos distrair com muitos detalhes. Este  o mtodo que queremos testar,
+
+13
+00:00:48,000 --> 00:00:52,000
+pode ser cancelado por um determinado usurio. Ento aqui eu implementei
+
+14
+00:00:52,000 --> 00:00:56,000
+uma regra de negcio simples. Se o usurio for
+
+15
+00:00:56,000 --> 00:01:00,000
+admin, ou o usurio que fez a reserva,
+
+16
+00:01:00,000 --> 00:01:04,000
+poder cancelar a reserva, caso contrrio no poder
+
+17
+00:01:04,000 --> 00:01:08,000
+cancelar a reserva, ok? E se voc rolar para baixo,
+
+18
+00:01:08,000 --> 00:01:12,000
+podemos ver nossa classe de usurio, muito simples, com uma propriedade.
+
+19
+00:01:12,000 --> 00:01:16,000
+IsAdmin. Ento, vamos em frente e escreva o
+
+20
+00:01:16,000 --> 00:01:20,000
+primeiro teste de unidade, para este mtodo. Aqui, no
+
+21
+00:01:20,000 --> 00:01:24,000
+explorador de solues. Vou adicionar um novo
+
+22
+00:01:24,000 --> 00:01:28,000
+projeto  soluo. Ento, adicione
+
+23
+00:01:28,000 --> 00:01:32,000
+novo projeto. No teste C #
+
+24
+00:01:32,000 --> 00:01:36,000
+visual instalado, voc deve ver este modelo,
+
+25
+00:01:36,000 --> 00:01:40,000
+Unit Test Project. Se voc no v isso aqui,  provvel que
+
+26
+00:01:40,000 --> 00:01:44,000
+voc no tenha instalado a propriedade do visual studio. Ento v e baixe a
+
+27
+00:01:44,000 --> 00:01:48,000
+ltima verso do Visual Studio, atualmente estou usando o Visual
+
+28
+00:01:48,000 --> 00:01:52,000
+Studio 2017 Community Edition. Ento, aqui ns selecionamos o
+
+29
+00:01:52,000 --> 00:01:56,000
+Unit Test Project, e ns damos um nome a ele.
+
+30
+00:01:56,000 --> 00:02:00,000
+Ento o nome do nosso projeto principal  o teste ninja, e eu
+
+31
+00:02:00,000 --> 00:02:04,000
+vou chamar esse projeto de testninja. testes
+
+32
+00:02:04,000 --> 00:02:08,000
+unitrios. Esta  a conveno que seguimos
+
+33
+00:02:08,000 --> 00:02:12,000
+para organizar nosso projeto de teste. Queremos separar os testes unitrios de
+
+34
+00:02:12,000 --> 00:02:16,000
+teste e integrao, porque os testes de unidade so executados rapidamente.
+
+35
+00:02:16,000 --> 00:02:20,000
+enquanto testes de integrao levam mais tempo. Queremos separ-los, para que possamos
+
+36
+00:02:20,000 --> 00:02:24,000
+executar testes de unidade com mais frequncia e testes de
+
+37
+00:02:24,000 --> 00:02:28,000
+integrao antes de confirmar nosso cdigo em um repositrio.
+
+38
+00:02:28,000 --> 00:02:32,000
+OK? Vamos em frente, ento
+
+39
+00:02:32,000 --> 00:02:36,000
+o Visual Studio cria esse novo projeto.
+
+40
+00:02:36,000 --> 00:02:40,000
+E voc pode ver aqui que temos um arquivo, teste
+
+41
+00:02:40,000 --> 00:02:44,000
+unitrio 1,  uma simples classe c # que possui
+
+42
+00:02:44,000 --> 00:02:48,000
+o atributo TestClass, e tem um mtodo chamado TestMethod1 um
+
+43
+00:02:48,000 --> 00:02:52,000
+com este atributo, mtodo de teste. Esses dois atributos que voc
+
+44
+00:02:52,000 --> 00:02:56,000
+v aqui pertencem ao MSTestFramework. Assim, o corredor de teste que
+
+45
+00:02:56,000 --> 00:03:00,000
+temos no visual studio olha para todas as classes decoradas, com um
+
+46
+00:03:00,000 --> 00:03:04,000
+atributo de classe de teste. Em seguida, ele observa todos
+
+47
+00:03:04,000 --> 00:03:08,000
+os mtodos dessa classe decorados com um atributo de mtodo
+
+48
+00:03:08,000 --> 00:03:12,000
+de teste e os executar. Ento, a primeira coisa que
+
+49
+00:03:12,000 --> 00:03:16,000
+quero fazer aqui  alterar o nome dessa classe.
+
+50
+00:03:16,000 --> 00:03:20,000
+Ento, pressione o controle R e, em seguida, R
+
+51
+00:03:20,000 --> 00:03:24,000
+novamente Agora voc pode renomear isso, eu vou chamar
+
+52
+00:03:24,000 --> 00:03:28,000
+isso de testes de reserva. Como estamos testando a classe
+
+53
+00:03:28,000 --> 00:03:32,000
+de reserva, a conveno que seguimos  o nome da
+
+54
+00:03:32,000 --> 00:03:36,000
+classe, alm de testes. Entrar.
+
+55
+00:03:36,000 --> 00:03:40,000
+Agora, da mesma forma, vou renomear este mtodo novamente
+
+56
+00:03:40,000 --> 00:03:44,000
+para controlar R e R. O mtodo
+
+57
+00:03:44,000 --> 00:03:48,000
+que eu quero testar
+
+58
+00:03:48,000 --> 00:03:52,000
+ CanBeCancelled By. Agora aqui ns
+
+59
+00:03:52,000 --> 00:03:56,000
+adicionamos um sublinhado, voc especifica
+
+60
+00:03:56,000 --> 00:04:00,000
+um cenrio sublinhado novamente e
+
+61
+00:04:00,000 --> 00:04:04,000
+ExpectedBehavior aqui. O que  isso? Vamos voltar para nossa
+
+62
+00:04:04,000 --> 00:04:08,000
+classe de reserva, ao escrever testes de unidade para esse mtodo,
+
+63
+00:04:08,000 --> 00:04:12,000
+queremos testar todos os cenrios. Quais cenrios ns
+
+64
+00:04:12,000 --> 00:04:16,000
+temos aqui? Ns temos trs cenrios. Um cenrio  quando
+
+65
+00:04:16,000 --> 00:04:20,000
+o usurio  um administrador. O outro cenrio  quando
+
+66
+00:04:20,000 --> 00:04:24,000
+o usurio  a mesma pessoa que fez essa reserva.
+
+67
+00:04:24,000 --> 00:04:28,000
+E o terceiro cenrio  quando algum
+
+68
+00:04:28,000 --> 00:04:32,000
+tenta cancelar essa reserva. Ento, aqui temos trs cenrios,
+
+69
+00:04:32,000 --> 00:04:36,000
+ou trs caminhos de execuo. Portanto, existem trs maneiras
+
+70
+00:04:36,000 --> 00:04:40,000
+de sair desse mtodo.  por isso que chamamos isso
+
+71
+00:04:40,000 --> 00:04:44,000
+de trs caminhos de execuo, ok? Ento, de volta
+
+72
+00:04:44,000 --> 00:04:48,000
+ nossa classe de teste de unidade,
+
+73
+00:04:48,000 --> 00:04:52,000
+o primeiro cenrio que queremos testar 
+
+74
+00:04:52,000 --> 00:04:56,000
+o User IsAdmin. Agora qual  o
+
+75
+00:04:56,000 --> 00:05:00,000
+comportamento esperado se o administrador do usurio este
+
+76
+00:05:00,000 --> 00:05:04,000
+mtodo deve retornar true. Ento RetornaTrue.
+
+77
+00:05:04,000 --> 00:05:08,000
+Esta  a conveno que usamos para nomear e
+
+78
+00:05:08,000 --> 00:05:12,000
+organizar nossos mtodos de teste. Todo mtodo de teste
+
+79
+00:05:12,000 --> 00:05:16,000
+tem trs partes. A primeira parte especifica o nome do
+
+80
+00:05:16,000 --> 00:05:20,000
+mtodo no teste, a segunda parte  o cenrio do nosso teste e a
+
+81
+00:05:20,000 --> 00:05:24,000
+terceira parte  o comportamento esperado. Agora dentro
+
+82
+00:05:24,000 --> 00:05:28,000
+de cada mtodo de teste,
+
+83
+00:05:28,000 --> 00:05:32,000
+temos trs partes, Organizar, Agir
+
+84
+00:05:32,000 --> 00:05:36,000
+e Afirmar. Essa conveno  chamada
+
+85
+00:05:36,000 --> 00:05:40,000
+de triplo A ou Organize, Aja e Afirme.
+
+86
+00:05:40,000 --> 00:05:44,000
+A parte Arrange  onde ns inicializamos nossos objetos.
+
+87
+00:05:44,000 --> 00:05:48,000
+Ns preparamos o objeto que queremos testar,
+
+88
+00:05:48,000 --> 00:05:52,000
+neste caso queremos criar uma instncia da
+
+89
+00:05:52,000 --> 00:05:56,000
+classe de reserva, ento, criamos um objeto
+
+90
+00:05:56,000 --> 00:06:00,000
+de reserva, novo, reserva, agora aqui a
+
+91
+00:06:00,000 --> 00:06:04,000
+classe de reserva no  reconhecida, ento
+
+92
+00:06:04,000 --> 00:06:08,000
+voc precisa pressione o controle e o perodo.
+
+93
+00:06:08,000 --> 00:06:12,000
+E neste menu de contexto, selecione adicionar referncia
+
+94
+00:06:12,000 --> 00:06:16,000
+para testar o ninja. Ok, ento ns temos o objeto
+
+95
+00:06:16,000 --> 00:06:20,000
+de reserva, a parte Act  onde ns agimos neste objeto,
+
+96
+00:06:20,000 --> 00:06:24,000
+e isso basicamente significa que vamos chamar um mtodo, esse 
+
+97
+00:06:24,000 --> 00:06:28,000
+o mtodo que vamos testar. Neste caso,
+
+98
+00:06:28,000 --> 00:06:32,000
+reserva. CanBeCancelled
+
+99
+00:06:32,000 --> 00:06:36,000
+por. Agora, eu quero te dar um argumento,
+
+100
+00:06:36,000 --> 00:06:40,000
+neste caso queremos dar a ele um usurio, que  um usurio administrador.
+
+101
+00:06:40,000 --> 00:06:44,000
+Ento, aqui eu crio um objeto
+
+102
+00:06:44,000 --> 00:06:48,000
+de usurio e defino IsAdmin como true.
+
+103
+00:06:48,000 --> 00:06:52,000
+Ento esta  a parte do ato. Agora queremos obter o resultado
+
+104
+00:06:52,000 --> 00:06:56,000
+e verificar se est correto. Ento, eu vou armazenar
+
+105
+00:06:56,000 --> 00:07:00,000
+o resultado em uma varivel chamada resultado,
+
+106
+00:07:00,000 --> 00:07:04,000
+e na parte Assert, voc verifica se
+
+107
+00:07:04,000 --> 00:07:08,000
+o resultado est correto. Nesse caso, o resultado deve ser verdadeiro.
+
+108
+00:07:08,000 --> 00:07:12,000
+Ento, aqui vou usar uma das classes
+
+109
+00:07:12,000 --> 00:07:16,000
+auxiliares no MSTest Framework. Isso  chamado Assert,
+
+110
+00:07:16,000 --> 00:07:20,000
+esta classe tem um monte de mtodos estticos que
+
+111
+00:07:20,000 --> 00:07:24,000
+usamos para fazer uma afirmao. Por exemplo, se voc quiser
+
+112
+00:07:24,000 --> 00:07:28,000
+comparar dois objetos, podemos usar o AreEqual, outros mtodos aqui
+
+113
+00:07:28,000 --> 00:07:32,000
+como o IsFalse, a instncia do tipo, no  o
+
+114
+00:07:32,000 --> 00:07:36,000
+InstanceofType e assim por diante. Ento, aqui, voc quer afirmar
+
+115
+00:07:36,000 --> 00:07:40,000
+que esse resultado  verdadeiro. Ento ns chamamos assert. IsTrue e passar resultado.
+
+116
+00:07:40,000 --> 00:07:44,000
+Ento,  assim que escrevemos um teste de
+
+117
+00:07:44,000 --> 00:07:48,000
+unidade. Agora, para executar esse teste, vamos para
+
+118
+00:07:48,000 --> 00:07:52,000
+o incio, no menu de teste, v para
+
+119
+00:07:52,000 --> 00:07:56,000
+Executar e selecione Todos os testes. Isto  o que eu no gosto sobre o Visual
+
+120
+00:07:56,000 --> 00:08:00,000
+Studio, porque aqui no temos
+
+121
+00:08:00,000 --> 00:08:04,000
+a capacidade de executar apenas um mtodo de teste especfico,
+
+122
+00:08:04,000 --> 00:08:08,000
+como este mtodo de teste que escrevemos nesta palestra. Ns s podemos executar todos os
+
+123
+00:08:08,000 --> 00:08:12,000
+testes neste projeto. E  por isso que gosto do ReSharper,
+
+124
+00:08:12,000 --> 00:08:16,000
+porque com o ReSharper posso executar apenas este
+
+125
+00:08:16,000 --> 00:08:20,000
+teste, ou posso executar todos os testes nesta classe, por isso  mais flexvel. Eu quero te mostrar isso mais
+
+126
+00:08:20,000 --> 00:08:24,000
+tarde na seo. Ento, vamos no topo, no menu
+
+127
+00:08:24,000 --> 00:08:28,000
+de teste, Run, All Tests.
+
+128
+00:08:28,000 --> 00:08:32,000
+E observe o atalho. Lembre-se disso para que voc possa executar rapidamente todos os seus testes.
+
+129
+00:08:32,000 --> 00:08:36,000
+Isto deve abrir
+
+130
+00:08:36,000 --> 00:08:40,000
+esta janela do Text Explorer, se voc
+
+131
+00:08:40,000 --> 00:08:44,000
+no v isso, voc pode encontr-lo no
+
+132
+00:08:44,000 --> 00:08:48,000
+topo, em testes, Windows, Test Explorer. OK? Assim, podemos ver, temos um teste de aprovao, temos
+
+133
+00:08:48,000 --> 00:08:52,000
+uma marca verde,
+
+134
+00:08:52,000 --> 00:08:56,000
+podemos ver o nome do nosso mtodo de teste
+
+135
+00:08:56,000 --> 00:09:00,000
+e o tempo que levou para executar este teste. Em um aplicativo do mundo real, voc ter centenas ou
+
+136
+00:09:00,000 --> 00:09:04,000
+milhares de testes de unidade. Ento, quando voc executar
+
+137
+00:09:04,000 --> 00:09:08,000
+seus testes, esta janela
+
+138
+00:09:08,000 --> 00:09:12,000
+ser preenchida com todos os testes em seu aplicativo. Agora deixe-me dar um exemplo de um teste com falha. Ento, vou voltar para a classe de reserva e criar um
+
+139
+00:09:12,000 --> 00:09:16,000
+bug no nosso cdigo.
+
+140
+00:09:16,000 --> 00:09:20,000
+Ento aqui vou retornar falso.
+
+141
+00:09:20,000 --> 00:09:24,000
+Digamos que o desenvolvedor que escreveu esse cdigo tenha cometido esse erro.
+
+142
+00:09:24,000 --> 00:09:28,000
+Agora, como eu lhe disse antes, com testes de
+
+143
+00:09:28,000 --> 00:09:32,000
+unidade, podemos pegar bugs antes de implantar nosso aplicativo. Ento, quando criamos uma classe de teste unitrio,
+
+144
+00:09:32,000 --> 00:09:36,000
+e verificamos o comportamento
+
+145
+00:09:36,000 --> 00:09:40,000
+esperado de um mtodo, neste caso voc est
+
+146
+00:09:40,000 --> 00:09:44,000
+verificando se este mtodo est retornando true, com
+
+147
+00:09:44,000 --> 00:09:48,000
+este teste unitrio, podemos detectar bugs anteriormente e
+
+148
+00:09:48,000 --> 00:09:52,000
+o ciclo de vida do desenvolvimento de software. Ento, de volta  janela do nosso test-explorer, eu vou
+
+149
+00:09:52,000 --> 00:09:56,000
+correr, chame o teste novamente.
+
+150
+00:09:56,000 --> 00:10:00,000
+Desta vez, nosso teste falhou. Assim, podemos ver o benefcio dos testes
+
+151
+00:10:00,000 --> 00:10:04,000
+de unidade, em ao. Ora aqui est um
+
+152
+00:10:04,000 --> 00:10:08,000
+exerccio para voc. Como eu disse antes, esse mtodo
+
+153
+00:10:08,000 --> 00:10:12,000
+tem trs caminhos de execuo, ou
+
+154
+00:10:12,000 --> 00:10:16,000
+trs cenrios, quero que voc use o que aprendeu nesta palestra
+
+155
+00:10:16,000 --> 00:10:20,000
+e escreva os outros dois testes de unidade para esse mtodo. Nesta prxima palestra, voc ver
+
+156
+00:10:20,000 --> 00:10:24,000
+a minha soluo.
+
+157
+00:10:24,000 --> 00:10:27,000
+&nbsp;
+

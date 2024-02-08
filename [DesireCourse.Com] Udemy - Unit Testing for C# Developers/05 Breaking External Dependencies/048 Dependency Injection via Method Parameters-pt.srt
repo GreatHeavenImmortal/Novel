@@ -1,0 +1,308 @@
+1
+00:00:00,000 --> 00:00:04,000
+Portanto, existem trs maneiras de usar a
+
+2
+00:00:04,000 --> 00:00:08,000
+injeo de dependncia. Podemos injetar dependncias por meio de parmetros
+
+3
+00:00:08,000 --> 00:00:12,000
+de mtodo, por propriedades e por construtores. Nesta palestra, vou mostrar
+
+4
+00:00:12,000 --> 00:00:16,000
+como injetar dependncias por meio de parmetros de mtodo.
+
+5
+00:00:16,000 --> 00:00:20,000
+Ento, aqui em nosso mtodo de ttulo de vdeo
+
+6
+00:00:20,000 --> 00:00:24,000
+lido, em vez de trabalhar com esta implementao concreta
+
+7
+00:00:24,000 --> 00:00:28,000
+FileReader, eu vou passar um objeto IFileReader como um
+
+8
+00:00:28,000 --> 00:00:32,000
+parmetro para este mtodo. Chame este FileReader e
+
+9
+00:00:32,000 --> 00:00:36,000
+ento podemos nos livrar deste novo operador.
+
+10
+00:00:36,000 --> 00:00:40,000
+Ento, usamos esse argumento fileReader. Com essa simples mudana,
+
+11
+00:00:40,000 --> 00:00:44,000
+nossa classe de servio de vdeo se torna
+
+12
+00:00:44,000 --> 00:00:48,000
+fracamente acoplada e testvel. Como em nosso cdigo de produo, podemos
+
+13
+00:00:48,000 --> 00:00:52,000
+passar um objeto real fileReader para este projeto, enquanto em nosso teste, podemos passar
+
+14
+00:00:52,000 --> 00:00:56,000
+um objeto fileReader falso. Deixe-me te mostrar. Ento, de volta
+
+15
+00:00:56,000 --> 00:01:00,000
+ao nosso explorador de solues, na pasta de
+
+16
+00:01:00,000 --> 00:01:04,000
+simulao, adicionarei temporariamente uma classe chamada Programa.
+
+17
+00:01:04,000 --> 00:01:08,000
+Aqui vou adicionar um mtodo public static void
+
+18
+00:01:08,000 --> 00:01:12,000
+Main, ento este servio de vdeo que temos
+
+19
+00:01:12,000 --> 00:01:16,000
+aqui, muito provavelmente, vamos para isso em algum
+
+20
+00:01:16,000 --> 00:01:20,000
+lugar em nosso aplicativo, e eu quero simular
+
+21
+00:01:20,000 --> 00:01:24,000
+isso em nossa classe de programa. Ento, vou
+
+22
+00:01:24,000 --> 00:01:28,000
+criar um objeto VideoService, VideoService
+
+23
+00:01:28,000 --> 00:01:32,000
+e chamar o mtodo ReadVideoTitle.
+
+24
+00:01:32,000 --> 00:01:36,000
+Agora, precisamos passar uma instncia da
+
+25
+00:01:36,000 --> 00:01:40,000
+classe que implementa a interface IFileReader.
+
+26
+00:01:40,000 --> 00:01:44,000
+Assim, podemos passar um FileReader novo
+
+27
+00:01:44,000 --> 00:01:48,000
+FileReader novo e, com isso, recebemos
+
+28
+00:01:48,000 --> 00:01:52,000
+um ttulo. Agora, isso  segurana
+
+29
+00:01:52,000 --> 00:01:56,000
+para demonstrao, em aplicativos do mundo real, em vez
+
+30
+00:01:56,000 --> 00:02:00,000
+de atualizarmos manualmente esse objeto aqui, usamos uma estrutura
+
+31
+00:02:00,000 --> 00:02:04,000
+de injeo de dependncia. Portanto, uma estrutura de
+
+32
+00:02:04,000 --> 00:02:08,000
+injeo de dependncia  responsvel por atualizar esses objetos
+
+33
+00:02:08,000 --> 00:02:12,000
+e transmiti-los aos nossos mtodos. Vamos analisar os frameworks de injeo
+
+34
+00:02:12,000 --> 00:02:16,000
+de dependncia em apenas alguns minutos. Ento,  assim que passamos um
+
+35
+00:02:16,000 --> 00:02:20,000
+objeto real para esse mtodo, ReadVideoTitle. Agora vamos em frente e escrever
+
+36
+00:02:20,000 --> 00:02:24,000
+um teste de unidade para este mtodo, e l eu vou mostrar
+
+37
+00:02:24,000 --> 00:02:28,000
+a voc como passar um objeto falso. Ento, de volta ao nosso projeto de teste
+
+38
+00:02:28,000 --> 00:02:32,000
+de unidade, vou adicionar um novo teste de unidade e, a propsito,  uma boa
+
+39
+00:02:32,000 --> 00:02:36,000
+prtica que voc esteja testando um projeto de teste de unidade da mesma estrutura que
+
+40
+00:02:36,000 --> 00:02:40,000
+voc tem no projeto em seu teste. Ento, aqui temos essas pequenas pastas,
+
+41
+00:02:40,000 --> 00:02:44,000
+como fundamentos e caminhadas, mas esqueci de criar essas pastas neste
+
+42
+00:02:44,000 --> 00:02:48,000
+projeto de teste de unidade. Ento, a partir de agora, adicionarei
+
+43
+00:02:48,000 --> 00:02:52,000
+todos os testes de unidade para as classes definidas no espao de nome
+
+44
+00:02:52,000 --> 00:02:56,000
+de simulao dentro do filtro de simulao. Ento, vamos
+
+45
+00:02:56,000 --> 00:03:00,000
+adicionar um novo diretrio
+
+46
+00:03:00,000 --> 00:03:04,000
+com o Mocking e
+
+47
+00:03:04,000 --> 00:03:08,000
+aqui eu vou adicionar
+
+48
+00:03:08,000 --> 00:03:12,000
+uma nova classe chamada VideoService Tests.
+
+49
+00:03:12,000 --> 00:03:16,000
+Primeiro vou aplicar um atributo de fixture de teste,
+
+50
+00:03:16,000 --> 00:03:20,000
+e criar um teste public void, o mtodo no
+
+51
+00:03:20,000 --> 00:03:24,000
+teste  chamado ReadVideoTitle, vamos ver a implementao desse
+
+52
+00:03:24,000 --> 00:03:28,000
+mtodo, digamos que eu queira testar esse caminho de
+
+53
+00:03:28,000 --> 00:03:32,000
+execuo, se o vdeo for nulo esperamos uma mensagem
+
+54
+00:03:32,000 --> 00:03:36,000
+de erro. Ento esse falso FileReader
+
+55
+00:03:36,000 --> 00:03:40,000
+que implementamos simplesmente retorna uma string vazia.
+
+56
+00:03:40,000 --> 00:03:44,000
+Esta cadeia no pode ser desserializada como um objeto de vdeo.
+
+57
+00:03:44,000 --> 00:03:48,000
+OK? Ento, de volta  nossa classe
+
+58
+00:03:48,000 --> 00:03:52,000
+de teste, o cenrio  EmptyFile. Portanto, no h nada em nosso
+
+59
+00:03:52,000 --> 00:03:56,000
+arquivo que esteja retornando uma string vazia em nosso falso objeto FileReader.
+
+60
+00:03:56,000 --> 00:04:00,000
+E esperamos que esse mtodo retorne uma
+
+61
+00:04:00,000 --> 00:04:04,000
+mensagem de erro. Primeiro, vamos criar
+
+62
+00:04:04,000 --> 00:04:08,000
+uma instncia deste servio, novo VideoService.
+
+63
+00:04:08,000 --> 00:04:12,000
+Agora vamos chamar o servio. ReadVideoTitle. Mas desta vez vamos passar o
+
+64
+00:04:12,000 --> 00:04:16,000
+nosso objeto FakeFileReader. Ento, novo
+
+65
+00:04:16,000 --> 00:04:20,000
+Fake FileReader. Agora, obtemos o
+
+66
+00:04:20,000 --> 00:04:24,000
+resultado e, finalmente,
+
+67
+00:04:24,000 --> 00:04:28,000
+afirmamos que o resultado . Contenha o erro
+
+68
+00:04:28,000 --> 00:04:32,000
+da palavra. Agora, para tornar esse
+
+69
+00:04:32,000 --> 00:04:36,000
+teste mais confivel, tambm
+
+70
+00:04:36,000 --> 00:04:40,000
+alterarei essa propriedade do IgnoreCase, portanto, ignoraremos a
+
+71
+00:04:40,000 --> 00:04:44,000
+diferenciao entre maisculas e minsculas das strings neste teste. Vamos correr isso.
+
+72
+00:04:44,000 --> 00:04:48,000
+Ok, aqui est nosso teste, e passou com sucesso, lindo.
+
+73
+00:04:48,000 --> 00:04:52,000
+Ento, vamos recapitular rapidamente, de volta ao nosso servio
+
+74
+00:04:52,000 --> 00:04:56,000
+de vdeo, nesta palestra voc aprendeu a passar ou
+
+75
+00:04:56,000 --> 00:05:00,000
+injetar uma dependncia como um parmetro de mtodo. Na prxima palestra, mostrarei como injetar a
+
+76
+00:05:00,000 --> 00:05:04,000
+dependncia usando uma propriedade.
+
+77
+00:05:04,000 --> 00:05:08,000
+&nbsp;
+

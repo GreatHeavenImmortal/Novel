@@ -1,0 +1,270 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, back in our test class, we're going to
+
+2
+00:00:04,000 --> 00:00:08,000
+implement our first test method. BookingStartsAndFinishes
+
+3
+00:00:08,000 --> 00:00:12,000
+BeforeAnExistingBooking. So, first
+
+4
+00:00:12,000 --> 00:00:16,000
+we need to create a mock object for our repository. So,
+
+5
+00:00:16,000 --> 00:00:20,000
+mock, we set this to a new Mock,
+
+6
+00:00:20,000 --> 00:00:24,000
+of IBookingRepository.
+
+7
+00:00:24,000 --> 00:00:28,000
+now here, we need to program this mock by calling
+
+8
+00:00:28,000 --> 00:00:32,000
+the Setup method. So if we call repository.
+
+9
+00:00:32,000 --> 00:00:36,000
+GetActiveBookings and pass 1
+
+10
+00:00:36,000 --> 00:00:40,000
+as the ID of the excluding booking, we want this to return
+
+11
+00:00:40,000 --> 00:00:44,000
+a List like this.
+
+12
+00:00:44,000 --> 00:00:48,000
+A List of Booking, we can initialize this list
+
+13
+00:00:48,000 --> 00:00:52,000
+right here, and look here we have a compilation error,
+
+14
+00:00:52,000 --> 00:00:56,000
+because this method should return an IQueryable object
+
+15
+00:00:56,000 --> 00:01:00,000
+but here we are programming this mock to return a new
+
+16
+00:01:00,000 --> 00:01:04,000
+list. So we need to explicitly convert this list
+
+17
+00:01:04,000 --> 00:01:08,000
+on an iQueryable object, and it's very easy, we simply call
+
+18
+00:01:08,000 --> 00:01:12,000
+.AsQueryable on this
+
+19
+00:01:12,000 --> 00:01:16,000
+list object. Okay? So
+
+20
+00:01:16,000 --> 00:01:20,000
+the compilation error is gone, now in this list, I want to add an existing
+
+21
+00:01:20,000 --> 00:01:24,000
+booking. So let's create an existing Booking.
+
+22
+00:01:24,000 --> 00:01:28,000
+We set the ArrivalDate, let's
+
+23
+00:01:28,000 --> 00:01:32,000
+pick a date, new DateTime, let's say 2017.
+
+24
+00:01:32,000 --> 00:01:36,000
+January 15. Now,
+
+25
+00:01:36,000 --> 00:01:40,000
+let's imagine this code, is for a hotel reservation.
+
+26
+00:01:40,000 --> 00:01:44,000
+As you know, in most hotels, the arrival or check in time,
+
+27
+00:01:44,000 --> 00:01:48,000
+is at 2 pm. And Departure, or check out time, is at about
+
+28
+00:01:48,000 --> 00:01:52,000
+10 am. So here, I'm going to set the arrival to
+
+29
+00:01:52,000 --> 00:01:56,000
+hour 14, minute 0, and second 0.
+
+30
+00:01:56,000 --> 00:02:00,000
+Now, let's set the departure date
+
+31
+00:02:00,000 --> 00:02:04,000
+we set this to 5 days after, so new date
+
+32
+00:02:04,000 --> 00:02:08,000
+time, 2017, January 20th,
+
+33
+00:02:08,000 --> 00:02:12,000
+at 10 am. Also, we should set
+
+34
+00:02:12,000 --> 00:02:16,000
+the Reference property, let's set this
+
+35
+00:02:16,000 --> 00:02:20,000
+to a simple string like a. And finally,
+
+36
+00:02:20,000 --> 00:02:24,000
+Id property. Now I would rather put Id first,
+
+37
+00:02:24,000 --> 00:02:28,000
+as it's more conventional, so here we
+
+38
+00:02:28,000 --> 00:02:32,000
+have a list of existing bookings, and this is our arrange part.
+
+39
+00:02:32,000 --> 00:02:36,000
+Now, we need to act. So, we call
+
+40
+00:02:36,000 --> 00:02:40,000
+BookingHelper.Over
+
+41
+00:02:40,000 --> 00:02:44,000
+lappingBookingsExist, we need to give it a booking object, and
+
+42
+00:02:44,000 --> 00:02:48,000
+this Mock repository. So let's create another
+
+43
+00:02:48,000 --> 00:02:52,000
+Booking object, I'm going to set the Id of this to
+
+44
+00:02:52,000 --> 00:02:56,000
+1. Because this is the same value we passed.
+
+45
+00:02:56,000 --> 00:03:00,000
+here, to GetActiveBookings, so this Booking is excluded,
+
+46
+00:03:00,000 --> 00:03:04,000
+now we need to set the arrival and departure dates
+
+47
+00:03:04,000 --> 00:03:08,000
+so, to save time, I'm going to copy these two lines
+
+48
+00:03:08,000 --> 00:03:12,000
+here, and then modify them. We have this compilation issue, because
+
+49
+00:03:12,000 --> 00:03:16,000
+we have not passed out mock repository as the
+
+50
+00:03:16,000 --> 00:03:20,000
+second argument to this method. So this pass repository
+
+51
+00:03:20,000 --> 00:03:24,000
+.Object. Oops, I just realized I that I made a mistake
+
+52
+00:03:24,000 --> 00:03:28,000
+earlier, so I call this object Mock, it's better to call it
+
+53
+00:03:28,000 --> 00:03:32,000
+repository, okay, and here we pass
+
+54
+00:03:32,000 --> 00:03:36,000
+repository.Object. Okay? Now,
+
+55
+00:03:36,000 --> 00:03:40,000
+we need to modify these dates. So the scenario we're testing is
+
+56
+00:03:40,000 --> 00:03:44,000
+where this new booking starts and finishes before an existing
+
+57
+00:03:44,000 --> 00:03:48,000
+booking. So, I'm going to set this to
+
+58
+00:03:48,000 --> 00:03:52,000
+10th of January, and the departure date to
+
+59
+00:03:52,000 --> 00:03:56,000
+14th. Next, we need to get the results.
+
+60
+00:03:56,000 --> 00:04:00,000
+result, and
+
+61
+00:04:00,000 --> 00:04:04,000
+Assert, That result
+
+62
+00:04:04,000 --> 00:04:08,000
+Is Empty. So this means, this is an empty string.
+
+63
+00:04:08,000 --> 00:04:12,000
+Let's run this test,
+
+64
+00:04:12,000 --> 00:04:16,000
+okay, here's our test, and it successfully passed, beautiful.
+
+65
+00:04:16,000 --> 00:04:20,000
+However, as you can see, this test method
+
+66
+00:04:20,000 --> 00:04:24,000
+is very bulky, it's very fat, and we have all these magic values here.
+
+67
+00:04:24,000 --> 00:04:28,000
+So in the next lecture, we're going to refactor this code and make it cleaner.
+
+
+

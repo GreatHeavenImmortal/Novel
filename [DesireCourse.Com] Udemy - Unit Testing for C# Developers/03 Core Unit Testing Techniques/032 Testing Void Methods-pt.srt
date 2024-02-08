@@ -1,0 +1,280 @@
+1
+00:00:00,000 --> 00:00:04,000
+H pouco tempo, quando eu estava planejando este curso,
+
+2
+00:00:04,000 --> 00:00:08,000
+enviei uma pesquisa para meus alunos e pedi que
+
+3
+00:00:08,000 --> 00:00:12,000
+me fizessem perguntas sobre os testes unitrios, as reas
+
+4
+00:00:12,000 --> 00:00:16,000
+que eles acham desafiadoras. Uma das perguntas que surgiram algumas
+
+5
+00:00:16,000 --> 00:00:20,000
+vezes foi como testar mtodos vazios. At agora todos os exemplos
+
+6
+00:00:20,000 --> 00:00:24,000
+que vimos, foram em torno de mtodos que retornaram algum valor.
+
+7
+00:00:24,000 --> 00:00:28,000
+Ento, nesta palestra, vamos examinar os mtodos vazios. Agora s para refrescar
+
+8
+00:00:28,000 --> 00:00:32,000
+sua memria, anteriormente eu falei sobre dois tipos
+
+9
+00:00:32,000 --> 00:00:36,000
+de funes na programao. Temos funes de consulta que retornam
+
+10
+00:00:36,000 --> 00:00:40,000
+algumas funes de valor e comando que devem executar uma ao.
+
+11
+00:00:40,000 --> 00:00:44,000
+Uma funo vazia, por definio,  uma
+
+12
+00:00:44,000 --> 00:00:48,000
+funo de comando. Essas funes de comando geralmente alteram
+
+13
+00:00:48,000 --> 00:00:52,000
+algum tipo de estado, o que significa que elas alteram o estado de
+
+14
+00:00:52,000 --> 00:00:56,000
+um objeto na memria, podem alterar o valor de uma ou mais propriedades
+
+15
+00:00:56,000 --> 00:01:00,000
+e, alm disso, podem persistir um estado, podem pontuar esse objeto em um
+
+16
+00:01:00,000 --> 00:01:04,000
+banco de dados , eles podem chamar um servio web, eles podem chamar
+
+17
+00:01:04,000 --> 00:01:08,000
+uma mensagem que (? ). Agora, para esta seo,
+
+18
+00:01:08,000 --> 00:01:12,000
+no vamos lidar com esses recursos. Ento, vamos dar uma olhada em um
+
+19
+00:01:12,000 --> 00:01:16,000
+exemplo de um mtodo vazio que altera o estado de um objeto na memria.
+
+20
+00:01:16,000 --> 00:01:20,000
+Ento aqui temos essa classe ErrorLogger, olhe
+
+21
+00:01:20,000 --> 00:01:24,000
+esse mtodo, Log.  necessria uma mensagem
+
+22
+00:01:24,000 --> 00:01:28,000
+de erro que faa alguma validao bsica para
+
+23
+00:01:28,000 --> 00:01:32,000
+certificar-se de que o erro seja IsNullOrWhiteSpace, caso
+
+24
+00:01:32,000 --> 00:01:36,000
+contrrio, ele lanar uma ArgumentNullException. Agora, vamos olhar para escrever
+
+25
+00:01:36,000 --> 00:01:40,000
+testes para mtodos que lanam excees mais adiante nesta seo, ento
+
+26
+00:01:40,000 --> 00:01:44,000
+no se preocupe com a primeira parte, ento ele define a
+
+27
+00:01:44,000 --> 00:01:48,000
+ltima propriedade de erro, aqui  suposto para gravar este erro
+
+28
+00:01:48,000 --> 00:01:52,000
+em um log, na verdade, h um problema neste comentrio.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ento, vamos ignorar isso por enquanto e, finalmente,
+
+30
+00:01:56,000 --> 00:02:00,000
+isso gera um evento. Mais uma vez, vamos ver como testar mtodos
+
+31
+00:02:00,000 --> 00:02:04,000
+que geram um evento mais adiante nesta seo. Mas por enquanto s queremos nos
+
+32
+00:02:04,000 --> 00:02:08,000
+concentrar em testar essa parte. Portanto, quando chamamos o
+
+33
+00:02:08,000 --> 00:02:12,000
+mtodo log, devemos verificar se a ltima propriedade
+
+34
+00:02:12,000 --> 00:02:16,000
+de seta est configurada corretamente. Esse  o
+
+35
+00:02:16,000 --> 00:02:20,000
+resultado desse mtodo. Portanto, no est retornando um valor, est mudando
+
+36
+00:02:20,000 --> 00:02:24,000
+o estado de um objeto na memria. Ento, de volta
+
+37
+00:02:24,000 --> 00:02:28,000
+ao nosso projeto de teste
+
+38
+00:02:28,000 --> 00:02:32,000
+de unidade, outra classe de
+
+39
+00:02:32,000 --> 00:02:36,000
+teste de unidade, ErrorLogger, testes.
+
+40
+00:02:36,000 --> 00:02:40,000
+Primeiro, aplicamos o atributo TestFixture.
+
+41
+00:02:40,000 --> 00:02:44,000
+Agora, um mtodo de
+
+42
+00:02:44,000 --> 00:02:48,000
+teste public void Log
+
+43
+00:02:48,000 --> 00:02:52,000
+When Called deve definir
+
+44
+00:02:52,000 --> 00:02:56,000
+o ltimo ErrorProperty. Claro que existem outros casos de teste, mas
+
+45
+00:02:56,000 --> 00:03:00,000
+no vamos nos preocupar com eles ainda. Ento, vamos
+
+46
+00:03:00,000 --> 00:03:04,000
+criar uma instncia do logger
+
+47
+00:03:04,000 --> 00:03:08,000
+de erros, um novo ErrorLogger,
+
+48
+00:03:08,000 --> 00:03:12,000
+agora chamamos logger. Log, atravs da mensagem de
+
+49
+00:03:12,000 --> 00:03:16,000
+erro novamente usamos valores simples. Uma string
+
+50
+00:03:16,000 --> 00:03:20,000
+simples como um. Esse mtodo  invlido, ento no vamos
+
+51
+00:03:20,000 --> 00:03:24,000
+obter um resultado aqui. No faz sentido, certo? Em vez disso, queremos
+
+52
+00:03:24,000 --> 00:03:28,000
+afirmar que a ltima propriedade de seta foi definida de acordo.
+
+53
+00:03:28,000 --> 00:03:32,000
+Ento Assert That,
+
+54
+00:03:32,000 --> 00:03:36,000
+log logger. LastError, 
+
+55
+00:03:36,000 --> 00:03:40,000
+igual a um. Vamos
+
+56
+00:03:40,000 --> 00:03:44,000
+rodar esse teste.
+
+57
+00:03:44,000 --> 00:03:48,000
+Ok, isso passou, lindo, agora como eu lhe disse antes, quero ter certeza de que
+
+58
+00:03:48,000 --> 00:03:52,000
+este  um teste digno de confiana. Ento, eu vou voltar
+
+59
+00:03:52,000 --> 00:03:56,000
+no cdigo de produo, esta  a linha
+
+60
+00:03:56,000 --> 00:04:00,000
+que  responsvel por fazer o nosso teste passar.
+
+61
+00:04:00,000 --> 00:04:04,000
+Ento, se eu comentar isso, e nosso teste ainda passar, isso significa
+
+62
+00:04:04,000 --> 00:04:08,000
+que o teste est testando a coisa errada, no  uma confiana
+
+63
+00:04:08,000 --> 00:04:12,000
+para o teste e, se falhar, sabemos que  um bom teste.
+
+64
+00:04:12,000 --> 00:04:16,000
+Ento, salve, volte aqui, vou
+
+65
+00:04:16,000 --> 00:04:20,000
+executar este teste novamente, desta
+
+66
+00:04:20,000 --> 00:04:24,000
+vez, ele falhou. Ns espervamos A, mas
+
+67
+00:04:24,000 --> 00:04:28,000
+ficamos com Null. Porque o valor padro dessa propriedade  nulo.
+
+68
+00:04:28,000 --> 00:04:32,000
+Ento, voltando  nossa classe ErrorLogger, vamos
+
+69
+00:04:32,000 --> 00:04:36,000
+trazer isso de volta. Na prxima palestra, mostrarei
+
+70
+00:04:36,000 --> 00:04:40,000
+como testar mtodos que lanam uma exceo.
+

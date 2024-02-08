@@ -1,0 +1,573 @@
+1
+00:00:00,000 --> 00:00:04,000
+Okay, first thing we need to do to unit test this
+
+2
+00:00:04,000 --> 00:00:08,000
+class is to refactor this code and take out the parts
+
+3
+00:00:08,000 --> 00:00:12,000
+that touch external resources. So here we have three
+
+4
+00:00:12,000 --> 00:00:16,000
+points where we work with external resources. Here's one
+
+5
+00:00:16,000 --> 00:00:20,000
+point where we query our database, here's another point
+
+6
+00:00:20,000 --> 00:00:24,000
+where we touch the file system, and here's
+
+7
+00:00:24,000 --> 00:00:28,000
+the last point where we send an email. So,
+
+8
+00:00:28,000 --> 00:00:32,000
+let's start the first one, UnitOfWork. In the last section,
+
+9
+00:00:32,000 --> 00:00:36,000
+where we deal with the database, I showed you how to extract the query
+
+10
+00:00:36,000 --> 00:00:40,000
+logic, and encapsulate it inside a repository.
+
+11
+00:00:40,000 --> 00:00:44,000
+So as I told you before, we use the repository pattern to
+
+12
+00:00:44,000 --> 00:00:48,000
+encapsulate querys, in this case we don't have a complex query,
+
+13
+00:00:48,000 --> 00:00:52,000
+we're simply getting all the housekeepers from the database.
+
+14
+00:00:52,000 --> 00:00:56,000
+So there's really no need to extract a new class called
+
+15
+00:00:56,000 --> 00:01:00,000
+HousekeeperRepository. I would simply extract
+
+16
+00:01:00,000 --> 00:01:04,000
+an interface from this unit of work. So we don't directly work
+
+17
+00:01:04,000 --> 00:01:08,000
+with a concrete unit of work implementation that touches the database.
+
+18
+00:01:08,000 --> 00:01:12,000
+So, let's go to this unit of work class,
+
+19
+00:01:12,000 --> 00:01:16,000
+it's defined here now,
+
+20
+00:01:16,000 --> 00:01:20,000
+alt and enter,
+
+21
+00:01:20,000 --> 00:01:24,000
+refactor, and extract interface.
+
+22
+00:01:24,000 --> 00:01:28,000
+So, IUnitOfWork, and we add this query method here,
+
+23
+00:01:28,000 --> 00:01:32,000
+next, here is our interface, beautiful,
+
+24
+00:01:32,000 --> 00:01:36,000
+now back to our housekeeper helper, look this method is defined as
+
+25
+00:01:36,000 --> 00:01:40,000
+static. So as you learned in the last section, the only way to
+
+26
+00:01:40,000 --> 00:01:44,000
+inject a dependency here is using a parameter in this
+
+27
+00:01:44,000 --> 00:01:48,000
+method, but you already saw the solution in the last section, so in this section
+
+28
+00:01:48,000 --> 00:01:52,000
+you want to use constructor injection. So, I'm going to remove
+
+29
+00:01:52,000 --> 00:01:56,000
+the static modifier, and make this method an instance
+
+30
+00:01:56,000 --> 00:02:00,000
+method. Chances are this is going to break some parts of the code,
+
+31
+00:02:00,000 --> 00:02:04,000
+and we're going to have compilation issues, but let's assume we're not going to have
+
+32
+00:02:04,000 --> 00:02:08,000
+a lot of breaking changes. So, now we have a compilation
+
+33
+00:02:08,000 --> 00:02:12,000
+error because this method is defined in a static class.
+
+34
+00:02:12,000 --> 00:02:16,000
+So we should also remove the static modifier here.
+
+35
+00:02:16,000 --> 00:02:20,000
+Okay now, we can add a constructor
+
+36
+00:02:20,000 --> 00:02:24,000
+and inject an IUnitOfWorkObject.
+
+37
+00:02:24,000 --> 00:02:28,000
+So UnitOfWork
+
+38
+00:02:28,000 --> 00:02:32,000
+now here we can use Rider or ReSharper to quickly create
+
+39
+00:02:32,000 --> 00:02:36,000
+and initialize a private field, so we press alt and enter
+
+40
+00:02:36,000 --> 00:02:40,000
+and the first option is introduce the read-only field,
+
+41
+00:02:40,000 --> 00:02:44,000
+underline unit of work. So you can see
+
+42
+00:02:44,000 --> 00:02:48,000
+Rider created this private field and initialized it using
+
+43
+00:02:48,000 --> 00:02:52,000
+this argument here. With this we no longer need
+
+44
+00:02:52,000 --> 00:02:56,000
+this private static read only field. So delete
+
+45
+00:02:56,000 --> 00:03:00,000
+and now we have a compilation error here because
+
+46
+00:03:00,000 --> 00:03:04,000
+UnitOfWork does not exist so, let's change this to underline
+
+47
+00:03:04,000 --> 00:03:08,000
+UnitOfWork. Okay, beautiful.
+
+48
+00:03:08,000 --> 00:03:12,000
+So we refactor the first point where we touch an external
+
+49
+00:03:12,000 --> 00:03:16,000
+resource. Now the second point is where
+
+50
+00:03:16,000 --> 00:03:20,000
+we save the statement in the file system. So,
+
+51
+00:03:20,000 --> 00:03:24,000
+back in the solution explorer, I'm going to create a new
+
+52
+00:03:24,000 --> 00:03:28,000
+class, let's call this Statement
+
+53
+00:03:28,000 --> 00:03:32,000
+Generator. Okay.
+
+54
+00:03:32,000 --> 00:03:36,000
+Now, back in our HousekeeperHelper class,
+
+55
+00:03:36,000 --> 00:03:40,000
+let's go to the implementation of SaveStatement method,
+
+56
+00:03:40,000 --> 00:03:44,000
+it's here, so I'm going to make this
+
+57
+00:03:44,000 --> 00:03:48,000
+public, now, we can select this code,
+
+58
+00:03:48,000 --> 00:03:52,000
+cut it, and back to our new class statement
+
+59
+00:03:52,000 --> 00:03:56,000
+generator, paste it here. Let's import
+
+60
+00:03:56,000 --> 00:04:00,000
+the misting (?) statements, beautiful, and finally
+
+61
+00:04:00,000 --> 00:04:04,000
+we need to extract an interface from this class. So,
+
+62
+00:04:04,000 --> 00:04:08,000
+the cursor is on the class name, alt and enter,
+
+63
+00:04:08,000 --> 00:04:12,000
+refactor and extract interface.
+
+64
+00:04:12,000 --> 00:04:16,000
+Okay, note that here, we don't have any members
+
+65
+00:04:16,000 --> 00:04:20,000
+to select. So, I forgot to remove this static
+
+66
+00:04:20,000 --> 00:04:24,000
+modifier, because we cannot put static members
+
+67
+00:04:24,000 --> 00:04:28,000
+in an interface, that's why you should avoid using static
+
+68
+00:04:28,000 --> 00:04:32,000
+because you cannot extract from an interface and Mock that interface in your
+
+69
+00:04:32,000 --> 00:04:36,000
+unit tests. So, let's remove this. One more time.
+
+70
+00:04:36,000 --> 00:04:40,000
+Extract interface.
+
+71
+00:04:40,000 --> 00:04:44,000
+Okay, now we have this SaveStatement
+
+72
+00:04:44,000 --> 00:04:48,000
+method, let's select it. Next,
+
+73
+00:04:48,000 --> 00:04:52,000
+beautiful, here's our new interface, and finally we need to
+
+74
+00:04:52,000 --> 00:04:56,000
+inject this inside our housekeeper helper class.
+
+75
+00:04:56,000 --> 00:05:00,000
+So, let's go to the constructor.
+
+76
+00:05:00,000 --> 00:05:04,000
+here is the constructor, let's inject
+
+77
+00:05:04,000 --> 00:05:08,000
+IStatementGenerator.
+
+78
+00:05:08,000 --> 00:05:12,000
+And once again we can use
+
+79
+00:05:12,000 --> 00:05:16,000
+Rider or ReSharper to quickly create and initialize
+
+80
+00:05:16,000 --> 00:05:20,000
+a private field. So alt and enter, introduce
+
+81
+00:05:20,000 --> 00:05:24,000
+read-only field. Now
+
+82
+00:05:24,000 --> 00:05:28,000
+finally, let's fix this compilation issue. So,
+
+83
+00:05:28,000 --> 00:05:32,000
+we call statementGenerator.
+
+84
+00:05:32,000 --> 00:05:36,000
+SaveStatement. And finally, the last point, that's where
+
+85
+00:05:36,000 --> 00:05:40,000
+to send an email. Right here.
+
+86
+00:05:40,000 --> 00:05:44,000
+So once again, we need to create a new class,
+
+87
+00:05:44,000 --> 00:05:48,000
+and use this private step method inside that class. So,
+
+88
+00:05:48,000 --> 00:05:52,000
+back in the solution explorer, let's add a new class
+
+89
+00:05:52,000 --> 00:05:56,000
+call this EmailSender.
+
+90
+00:05:56,000 --> 00:06:00,000
+Now, back here,
+
+91
+00:06:00,000 --> 00:06:04,000
+let's go to the implementation of this method, it's right here,
+
+92
+00:06:04,000 --> 00:06:08,000
+so I'm going to select this, cut
+
+93
+00:06:08,000 --> 00:06:12,000
+and back in the email sender, paste it here.
+
+94
+00:06:12,000 --> 00:06:16,000
+Now, let's import all the missing references,
+
+95
+00:06:16,000 --> 00:06:20,000
+done, now, you need to make this method
+
+96
+00:06:20,000 --> 00:06:24,000
+public, and remove the static modifier.
+
+97
+00:06:24,000 --> 00:06:28,000
+And with this we are ready to extract an interface from this class.
+
+98
+00:06:28,000 --> 00:06:32,000
+So, Refactor,
+
+99
+00:06:32,000 --> 00:06:36,000
+Extract Interface. Let's select this member,
+
+100
+00:06:36,000 --> 00:06:40,000
+next, done, and,
+
+101
+00:06:40,000 --> 00:06:44,000
+finally back in our housekeeperHelper class,
+
+102
+00:06:44,000 --> 00:06:48,000
+we need to inject this inside the constructor. So,
+
+103
+00:06:48,000 --> 00:06:52,000
+our constructor has two parameters, and if I put the third one, it's not going to
+
+104
+00:06:52,000 --> 00:06:56,000
+fit on the screen. So always pay great attention to formatting your
+
+105
+00:06:56,000 --> 00:07:00,000
+code, in this case I would rather put each parameter
+
+106
+00:07:00,000 --> 00:07:04,000
+on a single line, this way we can clearly see what
+
+107
+00:07:04,000 --> 00:07:08,000
+parameters we have here. So IEmailSender,
+
+108
+00:07:08,000 --> 00:07:12,000
+emailSender, and now let's initialize
+
+109
+00:07:12,000 --> 00:07:16,000
+this private field, done, and the last thing.
+
+110
+00:07:16,000 --> 00:07:20,000
+We need to fix this compilation issue.
+
+111
+00:07:20,000 --> 00:07:24,000
+And use this object emailSender.
+
+112
+00:07:24,000 --> 00:07:28,000
+Actually, I noticed there is one more point where
+
+113
+00:07:28,000 --> 00:07:32,000
+we work on an external resource. Look at this line.
+
+114
+00:07:32,000 --> 00:07:36,000
+ExtraMessageBox.Show. I'm not
+
+115
+00:07:36,000 --> 00:07:40,000
+entirely sure what this class is, but looks like it's some kind of helper
+
+116
+00:07:40,000 --> 00:07:44,000
+that displays a message box, so most likely
+
+117
+00:07:44,000 --> 00:07:48,000
+this source code is used in a WPF or a Windows
+
+118
+00:07:48,000 --> 00:07:52,000
+format application. So, when running our unit tests, we don't want to
+
+119
+00:07:52,000 --> 00:07:56,000
+display a message box, that's also considered an external resource
+
+120
+00:07:56,000 --> 00:08:00,000
+we only want to test the logic, we don't want to run the application and see
+
+121
+00:08:00,000 --> 00:08:04,000
+a message box. So, we need to work with an interface
+
+122
+00:08:04,000 --> 00:08:08,000
+here. Now, let's look at the declaration of this extra message
+
+123
+00:08:08,000 --> 00:08:12,000
+box. I've created that here, so all we need
+
+124
+00:08:12,000 --> 00:08:16,000
+to do is to extract an interface, we don't need to wrap this inside
+
+125
+00:08:16,000 --> 00:08:20,000
+another class like, extra message box helper, there's
+
+126
+00:08:20,000 --> 00:08:24,000
+no need to create an extra class. So, if you have control over
+
+127
+00:08:24,000 --> 00:08:28,000
+an existing class, simply extract an interface from that class
+
+128
+00:08:28,000 --> 00:08:32,000
+if you're using a third party code that doesn't have an interface,
+
+129
+00:08:32,000 --> 00:08:36,000
+then you will have to encapsulate that code inside a class in your
+
+130
+00:08:36,000 --> 00:08:40,000
+application that you can control. Okay, so,
+
+131
+00:08:40,000 --> 00:08:44,000
+first we need to remove this static modifier,
+
+132
+00:08:44,000 --> 00:08:48,000
+and then extract an interface
+
+133
+00:08:48,000 --> 00:08:52,000
+called IXtraMessage
+
+134
+00:08:52,000 --> 00:08:56,000
+Box. Let's add this method here. Now,
+
+135
+00:08:56,000 --> 00:09:00,000
+we need to inject this inside
+
+136
+00:09:00,000 --> 00:09:04,000
+the constructor. SoI
+
+137
+00:09:04,000 --> 00:09:08,000
+XtraMessageBox. Let's just call this
+
+138
+00:09:08,000 --> 00:09:12,000
+messageBox. And create
+
+139
+00:09:12,000 --> 00:09:16,000
+and initialize this private field. And finally,
+
+140
+00:09:16,000 --> 00:09:20,000
+we can replace this with message
+
+141
+00:09:20,000 --> 00:09:24,000
+Box.Show. So with these refactoring, this code
+
+142
+00:09:24,000 --> 00:09:28,000
+is now loosely coupled and testable, so in the next lecture,
+
+143
+00:09:28,000 --> 00:09:32,000
+we're going to write our first unit test for this method.
+
+

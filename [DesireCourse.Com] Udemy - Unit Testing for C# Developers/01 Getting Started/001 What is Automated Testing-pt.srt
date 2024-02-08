@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, o que  teste automatizado?
+
+2
+00:00:04,000 --> 00:00:08,033
+ um substituto para testes manuais? Eu realmente preciso disso? Como devo
+
+3
+00:00:08,033 --> 00:00:12,000
+fazer isso? Devo escrever meus testes primeiro, que
+
+4
+00:00:12,000 --> 00:00:16,000
+chamamos de desenvolvimento orientado a testes ou TDD, ou devo escrever o
+
+5
+00:00:16,000 --> 00:00:20,000
+cdigo do aplicativo primeiro? Mosh, no sei o que testar! Estas so perguntas
+
+6
+00:00:20,000 --> 00:00:24,000
+frequentes sobre o Teste Automatizado e, neste curso, vou
+
+7
+00:00:24,000 --> 00:00:28,000
+responder a todas essas perguntas uma a uma!
+
+8
+00:00:28,000 --> 00:00:32,000
+Ento, vamos comear com a primeira pergunta: o que  o teste automatizado?
+
+9
+00:00:32,000 --> 00:00:36,000
+O teste automatizado  a prtica de escrever cdigo
+
+10
+00:00:36,000 --> 00:00:40,000
+para testar nosso cdigo e, em seguida, executar esses
+
+11
+00:00:40,000 --> 00:00:44,000
+testes de maneira automatizada. Assim, com testes automatizados, nosso cdigo-fonte
+
+12
+00:00:44,000 --> 00:00:48,000
+consiste em cdigo de aplicativo, que tambm chamamos de cdigo de
+
+13
+00:00:48,000 --> 00:00:52,000
+produo e cdigo de teste. Ento aqui est um exemplo, imagine que voc
+
+14
+00:00:52,000 --> 00:00:56,000
+tem essa funo em algum lugar no seu cdigo.  uma funo bsica
+
+15
+00:00:56,000 --> 00:01:00,000
+de clculo que recebe uma entrada e, dependendo de
+
+16
+00:01:00,000 --> 00:01:04,000
+algumas condies, retorna valores diferentes. Se voc quiser testar essa funo
+
+17
+00:01:04,000 --> 00:01:08,000
+manualmente, voc tem que iniciar o seu aplicativo no navegador, talvez voc
+
+18
+00:01:08,000 --> 00:01:12,000
+precise fazer o login, ou talvez voc tenha que fazer alguns cliques
+
+19
+00:01:12,000 --> 00:01:16,000
+aqui e ali para chegar a uma pgina onde esta funo  usada.
+
+20
+00:01:16,000 --> 00:01:20,000
+Ento, voc ter que preencher um formulrio, envi-lo e ver o
+
+21
+00:01:20,000 --> 00:01:24,000
+resultado dessa funo na tela. E ento voc tem que repetir
+
+22
+00:01:24,000 --> 00:01:28,000
+todos esses passos cada vez usando valores diferentes em seu formulrio.
+
+23
+00:01:28,000 --> 00:01:32,000
+Como voc pode ver, isso  muito demorado. Esse fluxo de trabalho para
+
+24
+00:01:32,000 --> 00:01:36,000
+testar essa funo pode levar vrios minutos a cada vez.
+
+25
+00:01:36,000 --> 00:01:40,000
+Agora, para piorar, esta no  a nica
+
+26
+00:01:40,000 --> 00:01:44,000
+funo em sua aplicao. Em um aplicativo real, voc tem
+
+27
+00:01:44,000 --> 00:01:48,000
+dezenas ou centenas de funes como essa.  medida que seu aplicativo
+
+28
+00:01:48,000 --> 00:01:52,000
+cresce, em tamanho e complexidade, o tempo necessrio para testar
+
+29
+00:01:52,000 --> 00:01:56,000
+manualmente todos os diferentes bits e peas aumenta exponencialmente.
+
+30
+00:01:56,000 --> 00:02:00,000
+Ento,  por isso que usamos testes automatizados. Com testes automatizados, voc
+
+31
+00:02:00,000 --> 00:02:04,000
+escreve cdigo e chama diretamente essa funo com
+
+32
+00:02:04,000 --> 00:02:08,000
+entradas diferentes e verifica se essa funo retorna
+
+33
+00:02:08,000 --> 00:02:12,000
+a sada correta. Agora, voc pode executar novamente esses testes
+
+34
+00:02:12,000 --> 00:02:16,000
+toda vez que alterar seu cdigo, sempre que voc enviar seu cdigo para um
+
+35
+00:02:16,000 --> 00:02:20,000
+repositrio e antes de implantar seu aplicativo. Com esta abordagem, voc
+
+36
+00:02:20,000 --> 00:02:24,000
+pode testar todos os caminhos de execuo nesta funo
+
+37
+00:02:24,000 --> 00:02:28,000
+em menos de um segundo! Voc pode escrever vrias centenas ou
+
+38
+00:02:28,000 --> 00:02:32,000
+milhares de testes automatizados para vrias partes de seu aplicativo e execut-los
+
+39
+00:02:32,000 --> 00:02:36,000
+todos em apenas alguns segundos. Mas h mais benefcios para
+
+40
+00:02:36,000 --> 00:02:40,000
+o teste automatizado, e esse  o tpico da prxima palestra.
+

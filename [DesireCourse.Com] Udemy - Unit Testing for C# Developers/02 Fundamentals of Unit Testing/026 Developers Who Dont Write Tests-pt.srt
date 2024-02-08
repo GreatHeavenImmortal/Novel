@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:04,000
+Quando se trata de testes automatizados, existem
+
+2
+00:00:04,000 --> 00:00:08,000
+duas escolas de pensamento. De um lado do espectro, temos
+
+3
+00:00:08,000 --> 00:00:12,000
+este desenvolvedor super inteligente que pensa, ele  um programador incrvel, ele escreve
+
+4
+00:00:12,000 --> 00:00:16,000
+cdigo livre de bugs, e ele no precisa escrever testes para seu cdigo.
+
+5
+00:00:16,000 --> 00:00:20,000
+Na verdade, ele acha que escrever testes automatizados  um desperdcio de tempo
+
+6
+00:00:20,000 --> 00:00:24,000
+porque eles atrasam voc ... Ele argumenta que eles atrasam sua entrega, e
+
+7
+00:00:24,000 --> 00:00:28,000
+toda vez que voc muda o cdigo do seu aplicativo, voc tem que
+
+8
+00:00:28,000 --> 00:00:32,000
+lidar com um monte de testes quebrados, e tudo isso  caro.
+
+9
+00:00:32,000 --> 00:00:36,000
+Ah, e a propsito, esta  uma histria verdadeira! Eu no inventei isso! Na verdade, ouvi
+
+10
+00:00:36,000 --> 00:00:40,000
+isso de um dos meus colegas de trabalho anteriores!
+
+11
+00:00:40,000 --> 00:00:44,000
+Do outro lado do espectro, temos este desenvolvedor altamente terico que pensa que voc
+
+12
+00:00:44,000 --> 00:00:48,000
+no  um desenvolvedor se voc no escreve testes ... Se voc for para
+
+13
+00:00:48,000 --> 00:00:52,000
+uma entrevista de emprego na empresa deles, eles vo te dar um teste de
+
+14
+00:00:52,000 --> 00:00:56,000
+unidade. desafio para ver se voc  bom em escrever testes ou no.
+
+15
+00:00:56,000 --> 00:01:00,000
+Eles tm testes automatizados para tudo e no realizam
+
+16
+00:01:00,000 --> 00:01:04,000
+nenhum teste manual na empresa. Ento quem est certo?
+
+17
+00:01:04,000 --> 00:01:08,000
+Nenhum deles! Eu quero que voc ignore ambos os pontos
+
+18
+00:01:08,000 --> 00:01:12,000
+de vista extremos e tome o meio termo. Em todas as
+
+19
+00:01:12,000 --> 00:01:16,000
+aplicaes,  absolutamente essencial ter um
+
+20
+00:01:16,000 --> 00:01:20,000
+nvel de teste automatizado. Sim,  verdade que escrever testes automatizados leva tempo!
+
+21
+00:01:20,000 --> 00:01:24,000
+Esses testes no so gerados automaticamente! Voc precisa
+
+22
+00:01:24,000 --> 00:01:28,000
+escrev-los  mo! E voc precisa mant-los em boa forma
+
+23
+00:01:28,000 --> 00:01:32,000
+e mant-los como o cdigo do aplicativo. No entanto, se voc
+
+24
+00:01:32,000 --> 00:01:36,000
+no gastar esse tempo escrevendo esses testes, provavelmente gastar
+
+25
+00:01:36,000 --> 00:01:40,000
+mais tempo corrigindo os bugs aps implantar seu aplicativo.
+
+26
+00:01:40,000 --> 00:01:44,000
+De fato, vrios estudos mostraram que quanto mais
+
+27
+00:01:44,000 --> 00:01:48,000
+tarde pegamos bugs, mais caro  consert-los.
+
+28
+00:01:48,000 --> 00:01:52,000
+Ento, quando voc tem um conjunto de testes automatizados, voc pode detectar
+
+29
+00:01:52,000 --> 00:01:56,000
+esses erros mais cedo no ciclo de vida de desenvolvimento de software,
+
+30
+00:01:56,000 --> 00:02:00,000
+especificamente quando voc est escrevendo o cdigo. O tio Bob, ou Robert C
+
+31
+00:02:00,000 --> 00:02:04,000
+Martin, tem uma metfora e compara o teste de unidade com
+
+32
+00:02:04,000 --> 00:02:08,000
+a contabilidade em dupla entrada. Cada transao  inserida duas
+
+33
+00:02:08,000 --> 00:02:12,000
+vezes; uma vez nos livros de crdito e uma vez
+
+34
+00:02:12,000 --> 00:02:16,000
+nos livros de dbito. As duas entradas participam
+
+35
+00:02:16,000 --> 00:02:20,000
+de clculos muito diferentes, mas acabam resultando em
+
+36
+00:02:20,000 --> 00:02:24,000
+um resultado final de zero.  claro que o esforo agora
+
+37
+00:02:24,000 --> 00:02:28,000
+ duplo, mas os contadores acreditam que essa prtica vale o esforo
+
+38
+00:02:28,000 --> 00:02:32,000
+porque reduz a chance de erros. O tio Bob argumenta que
+
+39
+00:02:32,000 --> 00:02:36,000
+escrever testes  exatamente como um livro de entrada dupla!
+
+40
+00:02:36,000 --> 00:02:40,000
+Para cada parte da lgica que temos em nosso cdigo
+
+41
+00:02:40,000 --> 00:02:44,000
+de aplicativo, em algum lugar, temos um teste que verifica
+
+42
+00:02:44,000 --> 00:02:48,000
+se a lgica est implementada corretamente. Algumas pessoas reclamam que no
+
+43
+00:02:48,000 --> 00:02:52,000
+tm tempo para escrever testes! Aqui est uma pergunta para voc
+
+44
+00:02:52,000 --> 00:02:56,000
+... Imagine que voc  um piloto. Voc voaria com seus passageiros
+
+45
+00:02:56,000 --> 00:03:00,000
+se estivesse atrasado? Claro que no! Se voc fosse um cirurgio,
+
+46
+00:03:00,000 --> 00:03:04,000
+voc iria apressar a cirurgia apenas para ter certeza de terminar a operao de
+
+47
+00:03:04,000 --> 00:03:08,000
+acordo com o cronograma? Claro que no! Assim, se um piloto
+
+48
+00:03:08,000 --> 00:03:12,000
+pode atrasar um voo, voc pode atrasar sua programao de entrega
+
+49
+00:03:12,000 --> 00:03:16,000
+e se concentrar em fornecer software de qualidade com menos defeitos.
+
+50
+00:03:16,000 --> 00:03:20,000
+Seu chefe ou cliente pode pensar que est perdendo dinheiro se voc
+
+51
+00:03:20,000 --> 00:03:24,000
+no liberar esse novo recurso brilhante a tempo, mas quando voc apressa
+
+52
+00:03:24,000 --> 00:03:28,000
+a entrega e no escreve seus testes, voc acaba escrevendo cdigos ruins
+
+53
+00:03:28,000 --> 00:03:32,000
+com muitos bugs e ento voc tem que gastar mais tempo e
+
+54
+00:03:32,000 --> 00:03:36,000
+dinheiro consertando esses erros. Ento, voc precisa explicar isso ao seu chefe
+
+55
+00:03:36,000 --> 00:03:40,000
+ou cliente que est correndo para a entrega! Ento, a realidade 
+
+56
+00:03:40,000 --> 00:03:44,000
+que construir software  caro. Voc escolhe pagar esse
+
+57
+00:03:44,000 --> 00:03:48,000
+custo antecipadamente, escrevendo testes, ou pagando um custo
+
+58
+00:03:48,000 --> 00:03:52,000
+muito maior depois de liberar o software.
+

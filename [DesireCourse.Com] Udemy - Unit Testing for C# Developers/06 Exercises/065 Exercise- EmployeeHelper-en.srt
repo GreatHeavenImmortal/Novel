@@ -1,0 +1,158 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, here's an exercise for you.
+
+2
+00:00:04,000 --> 00:00:08,000
+So, in the Mocking folder, look at EmployeeController.
+
+3
+00:00:08,000 --> 00:00:12,000
+This is an example of code that you
+
+4
+00:00:12,000 --> 00:00:16,000
+see in a lot of ASP.NET MVC applications. Now this is
+
+5
+00:00:16,000 --> 00:00:20,000
+not a fully working example, it's purely simulation, because here we don't have
+
+6
+00:00:20,000 --> 00:00:24,000
+an ASP.NET MVC project. We have a simple class library.
+
+7
+00:00:24,000 --> 00:00:28,000
+But that aside, let's see what's happening here. So
+
+8
+00:00:28,000 --> 00:00:32,000
+in this class, we have this private field of type
+
+9
+00:00:32,000 --> 00:00:36,000
+EmployeeContext. This is part of entity framework.
+
+10
+00:00:36,000 --> 00:00:40,000
+So if you look down here, this EmployeeContext
+
+11
+00:00:40,000 --> 00:00:44,000
+looks like a db context in entity framework, so it has
+
+12
+00:00:44,000 --> 00:00:48,000
+a property of type, DbSet of Employee.
+
+13
+00:00:48,000 --> 00:00:52,000
+Here we should actually derive this from DB context, I forgot to do that, but
+
+14
+00:00:52,000 --> 00:00:56,000
+it doesn't really matter, because we don't want to run this code. So,
+
+15
+00:00:56,000 --> 00:01:00,000
+we have this EmployeeContext and we have initialized
+
+16
+00:01:00,000 --> 00:01:04,000
+this in the constructor. We have this method, delete
+
+17
+00:01:04,000 --> 00:01:08,000
+Employee, takes an integer, that's the ID of the employee,
+
+18
+00:01:08,000 --> 00:01:12,000
+now here over these three lines, we try to delete this
+
+19
+00:01:12,000 --> 00:01:16,000
+employee from the database. So first, we try
+
+20
+00:01:16,000 --> 00:01:20,000
+to find that employee, then remove it from the context
+
+21
+00:01:20,000 --> 00:01:24,000
+and at this point, that employee is marked for deletion.
+
+22
+00:01:24,000 --> 00:01:28,000
+But changes are not persisted to the database, yet.
+
+23
+00:01:28,000 --> 00:01:32,000
+When we call DB.save changes,
+
+24
+00:01:32,000 --> 00:01:36,000
+entity framework generates the right query, and sends it to the database.
+
+25
+00:01:36,000 --> 00:01:40,000
+And at this point, the employee record (?) gets deleted.
+
+26
+00:01:40,000 --> 00:01:44,000
+And finally, we direct the user to the list of employees.
+
+27
+00:01:44,000 --> 00:01:48,000
+So, if you want to unit test this method, you need to write,
+
+28
+00:01:48,000 --> 00:01:52,000
+two tests, one is to ensure that this method
+
+29
+00:01:52,000 --> 00:01:56,000
+returns the right result. And this is what we call state
+
+30
+00:01:56,000 --> 00:02:00,000
+based testing. Another test is to ensure
+
+31
+00:02:00,000 --> 00:02:04,000
+that this method deletes the given employee from the
+
+32
+00:02:04,000 --> 00:02:08,000
+database. So first of all, you need to extract these few lines into a
+
+33
+00:02:08,000 --> 00:02:12,000
+separate class, because these lines touch an external resource in this
+
+34
+00:02:12,000 --> 00:02:16,000
+case, a database, so you want to extract this into a separate class
+
+35
+00:02:16,000 --> 00:02:20,000
+like EmployeeStorage. Then, extract the interface,
+
+36
+00:02:20,000 --> 00:02:24,000
+injected in the constructor here, and finally,
+
+37
+00:02:24,000 --> 00:02:28,000
+Assert that this method calls the right method
+
+38
+00:02:28,000 --> 00:02:32,000
+in that storage object. So, go ahead and
+
+39
+00:02:32,000 --> 00:02:36,000
+do this exercise, in the next lecture, we'll look at my solution.
+
+
+

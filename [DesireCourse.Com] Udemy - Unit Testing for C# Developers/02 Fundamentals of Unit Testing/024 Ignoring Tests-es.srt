@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:04,000
+En el mundo real, cuando modifique su cdigo,
+
+2
+00:00:04,000 --> 00:00:08,000
+es posible que pueda romper una o ms pruebas.
+
+3
+00:00:08,000 --> 00:00:12,000
+Ahora, cuando realice las pruebas nuevas en la unidad, puede
+
+4
+00:00:12,000 --> 00:00:16,000
+sentirse frustrado, puede pensar que estas pruebas lo obstaculizan, y
+
+5
+00:00:16,000 --> 00:00:20,000
+lo estn desacelerando, por lo que puede verse tentado a
+
+6
+00:00:20,000 --> 00:00:24,000
+eliminar esas pruebas o a comentarlas. Pero este es un enfoque muy malo, porque
+
+7
+00:00:24,000 --> 00:00:28,000
+haba una razn para escribir esas pruebas. Por lo tanto, podemos implementar y
+
+8
+00:00:28,000 --> 00:00:32,000
+refactorizar su cdigo con ms confianza. Entonces, en esta conferencia, quiero
+
+9
+00:00:32,000 --> 00:00:36,000
+mostrarte una tcnica para deshabilitar temporalmente una prueba para que
+
+10
+00:00:36,000 --> 00:00:40,000
+puedas enfocarte en algn trabajo en otro lugar y luego
+
+11
+00:00:40,000 --> 00:00:44,000
+arreglar esa prueba en algn lugar en el futuro en
+
+12
+00:00:44,000 --> 00:00:48,000
+NUnit tenemos este til atributo llamado Ignorar. Este atributo toma un argumento, y
+
+13
+00:00:48,000 --> 00:00:52,000
+esta es la razn por la que queremos ignorar esta prueba.
+
+14
+00:00:52,000 --> 00:00:56,000
+Esto es muy til, porque podemos ver este mensaje
+
+15
+00:00:56,000 --> 00:01:00,000
+al ejecutar nuestras pruebas. Nos recordar por qu desactivamos estas pruebas.
+
+16
+00:01:00,000 --> 00:01:04,000
+Entonces, agreguemos un mensaje aqu,
+
+17
+00:01:04,000 --> 00:01:08,000
+porque quera hacerlo. Ahora, voy a ejecutar todas
+
+18
+00:01:08,000 --> 00:01:12,000
+las pruebas en este proyecto, mire la prueba para el
+
+19
+00:01:12,000 --> 00:01:16,000
+mtodo de la aplicacin. Puedes ver esta advertencia
+
+20
+00:01:16,000 --> 00:01:20,000
+amarilla, ignorarla, porque yo quera. Por lo tanto, este es
+
+21
+00:01:20,000 --> 00:01:24,000
+el mejor enfoque y eliminar una prueba o comentarla.
+
+22
+00:01:24,000 --> 00:01:28,000
+Porque cuando comenta una prueba, se olvida de eliminar ese comentario ms adelante.
+
+23
+00:01:28,000 --> 00:01:32,000
+Pero el atributo Ignorar y este mensaje de advertencia te lo recordarn.
+

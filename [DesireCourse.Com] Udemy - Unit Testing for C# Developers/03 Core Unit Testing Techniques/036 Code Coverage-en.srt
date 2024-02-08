@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,000
+One of the questions that I got when I was designing
+
+2
+00:00:04,000 --> 00:00:08,000
+this course was, how do we know if we have enough tests
+
+3
+00:00:08,000 --> 00:00:12,000
+for a method or a class? That's when
+
+4
+00:00:12,000 --> 00:00:16,000
+a code coverage tool comes into the picture. A code coverage tool,
+
+5
+00:00:16,000 --> 00:00:20,000
+scales your code and tells you what parts of your code
+
+6
+00:00:20,000 --> 00:00:24,000
+are not tested. In terms of the code coverage products out there,
+
+7
+00:00:24,000 --> 00:00:28,000
+you have two options, you can either use Visual Studio
+
+8
+00:00:28,000 --> 00:00:32,000
+Enterprise Edition, or you can use ReSharper
+
+9
+00:00:32,000 --> 00:00:36,000
+Ultimate. ReSharper Ultimate comes with this product
+
+10
+00:00:36,000 --> 00:00:40,000
+called Dot Cover, which is basically a unit test runner
+
+11
+00:00:40,000 --> 00:00:44,000
+as well as a code coverage tool. Now currently, I don't have Dot Cover, because
+
+12
+00:00:44,000 --> 00:00:48,000
+I'm not using ReSharper Ultimate, I'm using Jet Brains, Rider
+
+13
+00:00:48,000 --> 00:00:52,000
+IDE. Now at the time of recording this video, Rider doesn't have
+
+14
+00:00:52,000 --> 00:00:56,000
+code coverage. But let me show you a screenshot of
+
+15
+00:00:56,000 --> 00:01:00,000
+code coverage in action. So if you go to jetbrains.com
+
+16
+00:01:00,000 --> 00:01:04,000
+/dotcover, scroll down, okay
+
+17
+00:01:04,000 --> 00:01:08,000
+this is how code coverage works. So you can see we have two methods
+
+18
+00:01:08,000 --> 00:01:12,000
+here, you get square and circle. This circle method
+
+19
+00:01:12,000 --> 00:01:16,000
+doesn't have any tests, and that's why we have these red lines
+
+20
+00:01:16,000 --> 00:01:20,000
+on the left side. In contrast, all lines
+
+21
+00:01:20,000 --> 00:01:24,000
+against (?) square method are tested and that's why they're green. Now these are
+
+22
+00:01:24,000 --> 00:01:28,000
+simple methods, sometimes you might have a complex method with multiple
+
+23
+00:01:28,000 --> 00:01:32,000
+execution paths. And you can see exactly what execution paths
+
+24
+00:01:32,000 --> 00:01:36,000
+are tested and what paths were not tested. However,
+
+25
+00:01:36,000 --> 00:01:40,000
+the fact that all the execution paths in the method are tested,
+
+26
+00:01:40,000 --> 00:01:44,000
+doesn't mean you have written enough tests for a (?) method. That means
+
+27
+00:01:44,000 --> 00:01:48,000
+you have simply tested all the execution paths based on the current
+
+28
+00:01:48,000 --> 00:01:52,000
+implementation. But as I told you before, it is possible that (?)
+
+29
+00:01:52,000 --> 00:01:56,000
+implementation has a problem. That's why I said when writing tests, you should
+
+30
+00:01:56,000 --> 00:02:00,000
+always think of your methods as black boxes. Don't rely
+
+31
+00:02:00,000 --> 00:02:04,000
+yet on the implementation. Use that as a guide line to get you
+
+32
+00:02:04,000 --> 00:02:08,000
+started. But then you need to brainstorm all the execution paths,
+
+33
+00:02:08,000 --> 00:02:12,000
+based on different inputs you can give to that function. So if you're
+
+34
+00:02:12,000 --> 00:02:16,000
+in an enterprise environment, I recommend you to either get Visual Studio
+
+35
+00:02:16,000 --> 00:02:20,000
+Enterprise Edition, or use ReSharper Ultimate. There is also
+
+36
+00:02:20,000 --> 00:02:24,000
+a third product, and that is NCover which has been around for a long time,
+
+37
+00:02:24,000 --> 00:02:28,000
+it's fairly expensive, I personally prefer ReSharper
+
+38
+00:02:28,000 --> 00:02:30,000
+Dot Cover.
+

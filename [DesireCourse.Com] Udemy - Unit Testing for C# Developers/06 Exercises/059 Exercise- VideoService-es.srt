@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, ahora es el momento de hacer un ejercicio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Entonces, en nuestro proyecto, abra la carpeta Mocking y
+
+3
+00:00:08,000 --> 00:00:12,000
+mire la clase VideoService. Lo que quiero que hagas es escribir
+
+4
+00:00:12,000 --> 00:00:16,000
+las pruebas unitarias requeridas para este mtodo. Obtener
+
+5
+00:00:16,000 --> 00:00:20,000
+UnprocessedVideosAsCsv. Veamos qu
+
+6
+00:00:20,000 --> 00:00:24,000
+est pasando aqu. Primero, estamos creando una
+
+7
+00:00:24,000 --> 00:00:28,000
+lista vaca, luego usamos este objeto VideoContext, que es
+
+8
+00:00:28,000 --> 00:00:32,000
+parte del marco de edicin. Usamos esto para leer datos de una base de datos.
+
+9
+00:00:32,000 --> 00:00:36,000
+As que aqu tenemos una cantera, estamos obteniendo la lista de
+
+10
+00:00:36,000 --> 00:00:40,000
+videos que no estn completamente procesados. Entonces, cada video tiene esta propiedad,
+
+11
+00:00:40,000 --> 00:00:44,000
+IsProcessed, es booleano, simplemente estamos grabando los videos que no se procesan.
+
+12
+00:00:44,000 --> 00:00:48,000
+Luego, iteramos sobre ellos, y para cada video
+
+13
+00:00:48,000 --> 00:00:52,000
+obtenemos su identificacin y la agregamos a nuestra lista.
+
+14
+00:00:52,000 --> 00:00:56,000
+Y finalmente, unimos todas estas identificaciones, usando una coma y
+
+15
+00:00:56,000 --> 00:01:00,000
+las devolvemos como una cadena. Como puede ver, este mtodo es
+
+16
+00:01:00,000 --> 00:01:04,000
+muy similar a lo que ve en muchas aplicaciones del mundo real.
+
+17
+00:01:04,000 --> 00:01:08,000
+As que adelante, y haz este ejercicio, y en
+
+18
+00:01:08,000 --> 00:01:11,000
+la prxima conferencia podrs ver mi solucin.
+

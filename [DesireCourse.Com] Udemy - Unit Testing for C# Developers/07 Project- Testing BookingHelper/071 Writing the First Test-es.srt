@@ -1,0 +1,268 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, de vuelta en nuestra clase de prueba, vamos a implementar
+
+2
+00:00:04,000 --> 00:00:08,000
+nuestro primer mtodo de prueba. BookingStartsAndFinishes
+
+3
+00:00:08,000 --> 00:00:12,000
+BeforeAnExistingBooking. Entonces, primero necesitamos crear un
+
+4
+00:00:12,000 --> 00:00:16,000
+objeto simulado para nuestro repositorio. As que,
+
+5
+00:00:16,000 --> 00:00:20,000
+simulacro, configuramos esto en
+
+6
+00:00:20,000 --> 00:00:24,000
+un nuevo simulacro, de IBookingRepository.
+
+7
+00:00:24,000 --> 00:00:28,000
+ahora aqu, tenemos que programar este simulacro llamando
+
+8
+00:00:28,000 --> 00:00:32,000
+al mtodo de instalacin. Entonces si llamamos repositorio.
+
+9
+00:00:32,000 --> 00:00:36,000
+GetActiveBookings y pase 1 como el
+
+10
+00:00:36,000 --> 00:00:40,000
+ID de la reserva excluyente, queremos
+
+11
+00:00:40,000 --> 00:00:44,000
+que esto devuelva una lista como esta.
+
+12
+00:00:44,000 --> 00:00:48,000
+Una Lista de reservas, podemos inicializar esta lista
+
+13
+00:00:48,000 --> 00:00:52,000
+aqu, y mira aqu tenemos un error de
+
+14
+00:00:52,000 --> 00:00:56,000
+compilacin, porque este mtodo debera devolver un objeto
+
+15
+00:00:56,000 --> 00:01:00,000
+IQueryable pero aqu estamos programando este simulacro para
+
+16
+00:01:00,000 --> 00:01:04,000
+devolver una nueva lista. Entonces, necesitamos convertir explcitamente esta
+
+17
+00:01:04,000 --> 00:01:08,000
+lista en un objeto iQueryable, y es muy fcil, simplemente llamamos. AsQueryable en este
+
+18
+00:01:08,000 --> 00:01:12,000
+objeto de lista. Bueno? As que el error de compilacin se ha
+
+19
+00:01:12,000 --> 00:01:16,000
+ido, ahora en
+
+20
+00:01:16,000 --> 00:01:20,000
+esta lista, quiero agregar una reserva existente. As que creemos una reserva existente.
+
+21
+00:01:20,000 --> 00:01:24,000
+Configuramos ArrivalDate, vamos a
+
+22
+00:01:24,000 --> 00:01:28,000
+elegir una fecha, un nuevo DateTime, digamos 2017.
+
+23
+00:01:28,000 --> 00:01:32,000
+15 de enero. Ahora, imaginemos este cdigo, es para una
+
+24
+00:01:32,000 --> 00:01:36,000
+reserva de hotel.
+
+25
+00:01:36,000 --> 00:01:40,000
+Como usted sabe, en la mayora de los hoteles, la
+
+26
+00:01:40,000 --> 00:01:44,000
+llegada o el check-in, es a las 2 p. M. Y el horario de salida, o de salida, es aproximadamente
+
+27
+00:01:44,000 --> 00:01:48,000
+a las 10 a. M. As que aqu, voy a establecer la llegada a la
+
+28
+00:01:48,000 --> 00:01:52,000
+hora 14, al minuto 0 y al segundo 0.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ahora establezcamos la fecha de salida en la
+
+30
+00:01:56,000 --> 00:02:00,000
+que configuramos esto a 5 das despus, por
+
+31
+00:02:00,000 --> 00:02:04,000
+lo que la nueva fecha ser 2017, el
+
+32
+00:02:04,000 --> 00:02:08,000
+20 de enero a las 10 a. M. Adems, debemos establecer la propiedad de
+
+33
+00:02:08,000 --> 00:02:12,000
+referencia, establezcamos esto
+
+34
+00:02:12,000 --> 00:02:16,000
+en una cadena simple como a. Y finalmente, propiedad
+
+35
+00:02:16,000 --> 00:02:20,000
+Id. Ahora preferira poner Id primero, ya
+
+36
+00:02:20,000 --> 00:02:24,000
+que es ms convencional, as que
+
+37
+00:02:24,000 --> 00:02:28,000
+aqu tenemos una lista de reservas existentes, y esta es nuestra parte de arreglos.
+
+38
+00:02:28,000 --> 00:02:32,000
+Ahora, tenemos que actuar. Entonces, llamamos a
+
+39
+00:02:32,000 --> 00:02:36,000
+BookingHelper. Sobre lappingBookingsExist, necesitamos
+
+40
+00:02:36,000 --> 00:02:40,000
+darle un objeto
+
+41
+00:02:40,000 --> 00:02:44,000
+de reserva, y este repositorio de Mock. As que creemos otro objeto Booking,
+
+42
+00:02:44,000 --> 00:02:48,000
+voy a configurar
+
+43
+00:02:48,000 --> 00:02:52,000
+el Id de esto en 1. Porque este es el mismo valor que aprobamos.
+
+44
+00:02:52,000 --> 00:02:56,000
+aqu, para GetActiveBookings, por lo
+
+45
+00:02:56,000 --> 00:03:00,000
+que esta reservacin est excluida, ahora tenemos que establecer las
+
+46
+00:03:00,000 --> 00:03:04,000
+fechas de llegada y salida, as que, para ahorrar tiempo,
+
+47
+00:03:04,000 --> 00:03:08,000
+voy a copiar estas dos lneas aqu, y luego las modificar. Tenemos este problema de compilacin, porque no
+
+48
+00:03:08,000 --> 00:03:12,000
+hemos pasado repositorio falso
+
+49
+00:03:12,000 --> 00:03:16,000
+como el segundo argumento de este mtodo. As que este repositorio de pase. Objeto. Vaya, me acabo de dar cuenta de que comet un
+
+50
+00:03:16,000 --> 00:03:20,000
+error antes, as que llamo
+
+51
+00:03:20,000 --> 00:03:24,000
+a este objeto Simulacro, es
+
+52
+00:03:24,000 --> 00:03:28,000
+mejor llamarlo repositorio, est bien, y aqu pasamos el repositorio. Objeto. Bueno? Ahora, necesitamos
+
+53
+00:03:28,000 --> 00:03:32,000
+modificar estas fechas. Entonces, el escenario que estamos probando es dnde comienza y finaliza
+
+54
+00:03:32,000 --> 00:03:36,000
+esta nueva reserva
+
+55
+00:03:36,000 --> 00:03:40,000
+antes de una reserva existente. Por lo tanto, voy a
+
+56
+00:03:40,000 --> 00:03:44,000
+configurar esto para el 10 de enero y la fecha
+
+57
+00:03:44,000 --> 00:03:48,000
+de salida para el 14to. Luego, necesitamos obtener los resultados.
+
+58
+00:03:48,000 --> 00:03:52,000
+resultado, y afirmar,
+
+59
+00:03:52,000 --> 00:03:56,000
+ese
+
+60
+00:03:56,000 --> 00:04:00,000
+resultado est vaco. Entonces esto significa que esta es una cadena vaca.
+
+61
+00:04:00,000 --> 00:04:04,000
+Hagamos esta prueba, est bien, aqu est nuestra prueba,
+
+62
+00:04:04,000 --> 00:04:08,000
+y pas con xito, hermosa.
+
+63
+00:04:08,000 --> 00:04:12,000
+Sin embargo, como puedes ver, este mtodo de prueba es muy
+
+64
+00:04:12,000 --> 00:04:16,000
+voluminoso, es muy gordo y tenemos todos estos valores mgicos aqu.
+
+65
+00:04:16,000 --> 00:04:20,000
+Entonces en la prxima conferencia, vamos a refactorizar este cdigo y hacerlo ms limpio.
+
+66
+00:04:20,000 --> 00:04:24,000
+&nbsp;
+
+67
+00:04:24,000 --> 00:04:28,000
+&nbsp;
+

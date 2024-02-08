@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:04,000
+Anteriormente nesta seo, eu lhe disse que bons testes
+
+2
+00:00:04,000 --> 00:00:08,000
+unitrios no deveriam ser muito especficos ou muito gerais.
+
+3
+00:00:08,000 --> 00:00:12,000
+Nesta palestra, mostrarei exemplos de testes
+
+4
+00:00:12,000 --> 00:00:16,000
+especficos e gerais. Ento, aqui na
+
+5
+00:00:16,000 --> 00:00:20,000
+pasta fundamentals, temos essa classe HtmlFormatter.
+
+6
+00:00:20,000 --> 00:00:24,000
+Portanto, um mtodo simples, o FormatAsBold usa uma
+
+7
+00:00:24,000 --> 00:00:28,000
+string e simplesmente o envolve com um elemento forte.
+
+8
+00:00:28,000 --> 00:00:32,000
+Voc quer escrever um teste para este mtodo. Ento, em nosso
+
+9
+00:00:32,000 --> 00:00:36,000
+projeto de teste de unidade, vamos
+
+10
+00:00:36,000 --> 00:00:40,000
+adicionar uma nova classe, HtmlFormatterTests.
+
+11
+00:00:40,000 --> 00:00:44,000
+Vamos adicionar o atributo Fixture
+
+12
+00:00:44,000 --> 00:00:48,000
+de teste aqui. Corrija o mtodo de teste.
+
+13
+00:00:48,000 --> 00:00:52,000
+vazio pblico.
+
+14
+00:00:52,000 --> 00:00:56,000
+FormatAsBoldWhenCalled
+
+15
+00:00:56,000 --> 00:01:00,000
+ShouldEnclosetheString
+
+16
+00:01:00,000 --> 00:01:04,000
+WithStrongElement.
+
+17
+00:01:04,000 --> 00:01:08,000
+Ento, vamos criar uma nova instncia dessa classe.
+
+18
+00:01:08,000 --> 00:01:12,000
+O Formatter  um novo HtmlFormatter,
+
+19
+00:01:12,000 --> 00:01:16,000
+por isso chamamos o FormatAsBold, d
+
+20
+00:01:16,000 --> 00:01:20,000
+uma mensagem, como o ABC.
+
+21
+00:01:20,000 --> 00:01:24,000
+Uma string simples, no precisamos complicar, obtemos
+
+22
+00:01:24,000 --> 00:01:28,000
+o resultado, agora precisamos fazer uma afirmao.
+
+23
+00:01:28,000 --> 00:01:32,000
+Vou mostrar maneiras diferentes de escrever asseres aqui, algumas dessas asseres so mais
+
+24
+00:01:32,000 --> 00:01:36,000
+especficas, outras so mais gerais e, em seguida, darei orientaes sobre o que
+
+25
+00:01:36,000 --> 00:01:40,000
+ uma soluo melhor nesse caso. Ento, aqui est
+
+26
+00:01:40,000 --> 00:01:44,000
+um exemplo de uma afirmao especfica.
+
+27
+00:01:44,000 --> 00:01:48,000
+Afirmar esse resultado,  igual
+
+28
+00:01:48,000 --> 00:01:52,000
+a termos esse elemento forte,
+
+29
+00:01:52,000 --> 00:01:56,000
+temos abc e depois /
+
+30
+00:01:56,000 --> 00:02:00,000
+forte. Essa assero 
+
+31
+00:02:00,000 --> 00:02:04,000
+especfica, porque estamos verificando a string
+
+32
+00:02:04,000 --> 00:02:08,000
+exata que devemos obter desse mtodo.
+
+33
+00:02:08,000 --> 00:02:12,000
+Neste caso em particular, esta  uma boa soluo, porque o que
+
+34
+00:02:12,000 --> 00:02:16,000
+sai deste mtodo  importante, queremos ter certeza de que a mensagem
+
+35
+00:02:16,000 --> 00:02:20,000
+est corretamente formatada como negrito. Mas s vezes seu mtodo pode
+
+36
+00:02:20,000 --> 00:02:24,000
+retornar uma mensagem de erro. Voc no quer escrever asseres especficas,
+
+37
+00:02:24,000 --> 00:02:28,000
+porque  possvel que voc modifique essa mensagem de erro no futuro.
+
+38
+00:02:28,000 --> 00:02:32,000
+Voc pode adicionar um perodo, voc pode adicionar um ponto de exclamao, voc
+
+39
+00:02:32,000 --> 00:02:36,000
+pode adicionar ou remover algumas palavras, se voc  teste  especfico e
+
+40
+00:02:36,000 --> 00:02:40,000
+est procurando a mesma mensagem de erro, toda vez que voc alterar essa
+
+41
+00:02:40,000 --> 00:02:44,000
+mensagem de erro que o teste vai quebrar.  por isso que eu disse que
+
+42
+00:02:44,000 --> 00:02:48,000
+seus testes no devem ser muito especficos. Em contraste, eles no devem ser muito
+
+43
+00:02:48,000 --> 00:02:52,000
+genricos, porque, se forem muito genricos, podem passar o tempo todo, mesmo que o
+
+44
+00:02:52,000 --> 00:02:56,000
+cdigo de produo tenha um problema. Ento deixe-me mostrar-lhe uma
+
+45
+00:02:56,000 --> 00:03:00,000
+maneira mais geral de escrever uma afirmao aqui.
+
+46
+00:03:00,000 --> 00:03:04,000
+Mais geral, desta vez queremos afirmar
+
+47
+00:03:04,000 --> 00:03:08,000
+que esse resultado comea com um
+
+48
+00:03:08,000 --> 00:03:12,000
+elemento forte. Ento, em vez de
+
+49
+00:03:12,000 --> 00:03:16,000
+usar a classe Is, vamos usar o Does.
+
+50
+00:03:16,000 --> 00:03:20,000
+Novamente aqui temos alguns mtodos auxiliares
+
+51
+00:03:20,000 --> 00:03:24,000
+estticos, ento o StartWith Strong.
+
+52
+00:03:24,000 --> 00:03:28,000
+Ento, imagine, esta  a nica afirmao que tenho
+
+53
+00:03:28,000 --> 00:03:32,000
+neste mtodo de teste. Tudo o que este mtodo
+
+54
+00:03:32,000 --> 00:03:36,000
+procura  a presena de forte no incio da string
+
+55
+00:03:36,000 --> 00:03:40,000
+que obtemos deste mtodo.  possvel que
+
+56
+00:03:40,000 --> 00:03:44,000
+tenhamos um erro aqui, ento ao
+
+57
+00:03:44,000 --> 00:03:48,000
+invs de retornar essa string, retornamos
+
+58
+00:03:48,000 --> 00:03:52,000
+apenas isso. Esse teste passar facilmente.
+
+59
+00:03:52,000 --> 00:03:56,000
+Porque  muito geral, certo? Agora, podemos tornar
+
+60
+00:03:56,000 --> 00:04:00,000
+isso um pouco mais especfico, para que
+
+61
+00:04:00,000 --> 00:04:04,000
+possamos duplicar essa afirmao e tambm verificar
+
+62
+00:04:04,000 --> 00:04:08,000
+se essa sequncia termina com / strong.
+
+63
+00:04:08,000 --> 00:04:12,000
+Agora, se voc voltar
+
+64
+00:04:12,000 --> 00:04:16,000
+forte, esse teste falhar.
+
+65
+00:04:16,000 --> 00:04:20,000
+Ento, devemos nos certificar de adicionar forte no final tambm.
+
+66
+00:04:20,000 --> 00:04:24,000
+Mas ainda temos um bug aqui, porque no
+
+67
+00:04:24,000 --> 00:04:28,000
+inclumos este contedo aqui. Ento, de volta
+
+68
+00:04:28,000 --> 00:04:32,000
+ao nosso mtodo de teste, podemos
+
+69
+00:04:32,000 --> 00:04:36,000
+adicionar outra afirmao de que este
+
+70
+00:04:36,000 --> 00:04:40,000
+resultado contm um bc. Ento aqui est o takeaway,
+
+71
+00:04:40,000 --> 00:04:44,000
+ao testar strings,  melhor se suas asseres so um pouco
+
+72
+00:04:44,000 --> 00:04:48,000
+mais gerais, porque se elas so muito especficas, seus testes podem
+
+73
+00:04:48,000 --> 00:04:52,000
+quebrar facilmente, no entanto, neste caso em particular, eu vou para
+
+74
+00:04:52,000 --> 00:04:56,000
+o primeiro. soluo, por isso quero ter certeza de que isso
+
+75
+00:04:56,000 --> 00:05:00,000
+ exatamente o que obtemos desse mtodo, caso contrrio, podemos acabar
+
+76
+00:05:00,000 --> 00:05:04,000
+com um documento HTML incorreto. Mas se esse mtodo estivesse
+
+77
+00:05:04,000 --> 00:05:08,000
+retornando algum tipo de mensagem de erro, eu poderia usar
+
+78
+00:05:08,000 --> 00:05:12,000
+esses mtodos para iniciar com e Contain para procurar palavras
+
+79
+00:05:12,000 --> 00:05:16,000
+especficas nessa mensagem de erro. Uma ltima coisa, quando
+
+80
+00:05:16,000 --> 00:05:20,000
+voc est escrevendo Assertions contra strings, por padro, estas
+
+81
+00:05:20,000 --> 00:05:24,000
+Assertions diferenciam maisculas e minsculas, se voc quiser desabilitar
+
+82
+00:05:24,000 --> 00:05:28,000
+isso, voc pode usar a propriedade ignore case.
+
+83
+00:05:28,000 --> 00:05:32,000
+Ento, aqui, depois de chamar o mtodo
+
+84
+00:05:32,000 --> 00:05:36,000
+igual a, podemos encadear essa propriedade IgnoreCase.
+
+85
+00:05:36,000 --> 00:05:40,000
+Tambm podemos usar a mesma tcnica ao escrever Asseres mais gerais.
+
+86
+00:05:40,000 --> 00:05:44,000
+Portanto, podemos dizer que os resultados devem comear com fora
+
+87
+00:05:44,000 --> 00:05:48,000
+e no nos importamos com a diferenciao de maisculas e minsculas.
+

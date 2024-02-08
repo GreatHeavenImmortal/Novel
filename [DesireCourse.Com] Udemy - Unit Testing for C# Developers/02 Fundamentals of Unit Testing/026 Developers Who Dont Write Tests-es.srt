@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:04,000
+Cuando se trata de pruebas automatizadas, hay
+
+2
+00:00:04,000 --> 00:00:08,000
+dos escuelas de pensamiento. En un lado del espectro, tenemos
+
+3
+00:00:08,000 --> 00:00:12,000
+este desarrollador sper inteligente que piensa que es un codificador increble, escribe
+
+4
+00:00:12,000 --> 00:00:16,000
+cdigo libre de errores y no necesita escribir pruebas para su cdigo.
+
+5
+00:00:16,000 --> 00:00:20,000
+De hecho, l piensa que escribir pruebas automatizadas es una prdida de
+
+6
+00:00:20,000 --> 00:00:24,000
+tiempo porque te ralentizan ... Argumenta que retrasan tu entrega, y cada
+
+7
+00:00:24,000 --> 00:00:28,000
+vez que cambias el cdigo de tu aplicacin, tienes que lidiar con
+
+8
+00:00:28,000 --> 00:00:32,000
+un montn de pruebas rotas, y todo esto es costoso
+
+9
+00:00:32,000 --> 00:00:36,000
+Ah, y por cierto, esta es una historia real! No invent esto! De hecho, escuch
+
+10
+00:00:36,000 --> 00:00:40,000
+esto de uno de mis compaeros de trabajo anteriores!
+
+11
+00:00:40,000 --> 00:00:44,000
+En el otro lado del espectro, tenemos a este desarrollador muy testarudo que
+
+12
+00:00:44,000 --> 00:00:48,000
+piensa que no eres un desarrollador si no escribes pruebas ... Si vas
+
+13
+00:00:48,000 --> 00:00:52,000
+a una entrevista de trabajo en su compaa, te van a dar una
+
+14
+00:00:52,000 --> 00:00:56,000
+prueba unitaria desafiar para ver si eres bueno en escribir pruebas o no.
+
+15
+00:00:56,000 --> 00:01:00,000
+Han automatizado pruebas para todo y no tienen ninguna
+
+16
+00:01:00,000 --> 00:01:04,000
+prueba manual en su empresa. Entonces, quin tiene razn?
+
+17
+00:01:04,000 --> 00:01:08,000
+Ninguno de ellos! Quiero que ignores estos dos puntos de vista
+
+18
+00:01:08,000 --> 00:01:12,000
+extremos y que tomes el trmino medio. En cada aplicacin,
+
+19
+00:01:12,000 --> 00:01:16,000
+es absolutamente esencial tener un nivel
+
+20
+00:01:16,000 --> 00:01:20,000
+de prueba automatizada. S, es cierto que escribir pruebas automticas toma tiempo.
+
+21
+00:01:20,000 --> 00:01:24,000
+Estas pruebas no se generan automticamente Tienes que
+
+22
+00:01:24,000 --> 00:01:28,000
+escribirlos a mano! Y necesita mantenerlos en buen estado y
+
+23
+00:01:28,000 --> 00:01:32,000
+mantenerlos como el cdigo de su aplicacin. Sin embargo, si no gasta
+
+24
+00:01:32,000 --> 00:01:36,000
+este tiempo escribiendo estas pruebas, es probable que dedique ms
+
+25
+00:01:36,000 --> 00:01:40,000
+tiempo a corregir los errores despus de implementar su aplicacin.
+
+26
+00:01:40,000 --> 00:01:44,000
+De hecho, mltiples estudios han demostrado que cuanto
+
+27
+00:01:44,000 --> 00:01:48,000
+ms tarde atrapemos errores, ms costoso es repararlos.
+
+28
+00:01:48,000 --> 00:01:52,000
+Entonces, cuando tiene un conjunto de pruebas automatizadas, puede detectar estos errores
+
+29
+00:01:52,000 --> 00:01:56,000
+ms temprano en el ciclo de vida del desarrollo de software, especficamente
+
+30
+00:01:56,000 --> 00:02:00,000
+cuando est escribiendo el cdigo. El to Bob, o Robert
+
+31
+00:02:00,000 --> 00:02:04,000
+C Martin, tiene una metfora y compara las pruebas unitarias
+
+32
+00:02:04,000 --> 00:02:08,000
+con la contabilidad de doble entrada. Cada transaccin se ingresa dos
+
+33
+00:02:08,000 --> 00:02:12,000
+veces; una vez en los libros de crdito, y una
+
+34
+00:02:12,000 --> 00:02:16,000
+vez en los libros de dbito. Las dos entradas participan
+
+35
+00:02:16,000 --> 00:02:20,000
+en clculos muy diferentes pero finalmente dan como resultado
+
+36
+00:02:20,000 --> 00:02:24,000
+un resultado final de cero. Por supuesto, el esfuerzo ahora es
+
+37
+00:02:24,000 --> 00:02:28,000
+doble, pero los contadores creen que esta prctica vale la pena porque
+
+38
+00:02:28,000 --> 00:02:32,000
+reduce la posibilidad de errores. El to Bob argumenta que
+
+39
+00:02:32,000 --> 00:02:36,000
+escribir pruebas es exactamente como una contabilidad de doble entrada!
+
+40
+00:02:36,000 --> 00:02:40,000
+Por cada pieza de lgica que tenemos en nuestro cdigo
+
+41
+00:02:40,000 --> 00:02:44,000
+de aplicacin, en algn lugar tenemos una prueba que verifica
+
+42
+00:02:44,000 --> 00:02:48,000
+que la lgica se implemente correctamente. Algunas personas se quejan de que
+
+43
+00:02:48,000 --> 00:02:52,000
+no tienen tiempo para escribir pruebas! Aqu hay una pregunta para ti
+
+44
+00:02:52,000 --> 00:02:56,000
+... Imagina que eres piloto. Volaras a tus pasajeros
+
+45
+00:02:56,000 --> 00:03:00,000
+si ests retrasado? Por supuesto no! Si fueras un cirujano,
+
+46
+00:03:00,000 --> 00:03:04,000
+te apresuraras en la ciruga solo para asegurarte de terminar la operacin de
+
+47
+00:03:04,000 --> 00:03:08,000
+acuerdo con el cronograma? Por supuesto no! Entonces, si un
+
+48
+00:03:08,000 --> 00:03:12,000
+piloto puede retrasar un vuelo, puede retrasar su cronograma de
+
+49
+00:03:12,000 --> 00:03:16,000
+entregas y concentrarse en entregar software de calidad con menos defectos.
+
+50
+00:03:16,000 --> 00:03:20,000
+Su jefe o cliente puede pensar que estn perdiendo dinero si
+
+51
+00:03:20,000 --> 00:03:24,000
+no lanza esta nueva caracterstica brillante a tiempo, pero cuando se
+
+52
+00:03:24,000 --> 00:03:28,000
+apresura a la entrega, y no escribe sus pruebas, termina escribiendo
+
+53
+00:03:28,000 --> 00:03:32,000
+cdigo incorrecto con muchos errores y luego tienes que gastar ms
+
+54
+00:03:32,000 --> 00:03:36,000
+tiempo y dinero arreglando esos errores. Por lo tanto, debe explicar esto a su jefe o
+
+55
+00:03:36,000 --> 00:03:40,000
+cliente que lo est enviando rpidamente a la entrega. Entonces, la realidad es
+
+56
+00:03:40,000 --> 00:03:44,000
+que construir software es costoso. O bien elige pagar
+
+57
+00:03:44,000 --> 00:03:48,000
+ese costo por adelantado escribiendo pruebas, o pagar
+
+58
+00:03:48,000 --> 00:03:52,000
+un costo mucho mayor despus de lanzar su software.
+

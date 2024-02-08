@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, qu es una prueba automatizada?
+
+2
+00:00:04,000 --> 00:00:08,033
+Es un reemplazo para las pruebas manuales? Realmente lo necesito? Cmo
+
+3
+00:00:08,033 --> 00:00:12,000
+debera hacerlo? Debo escribir mis pruebas primero, lo
+
+4
+00:00:12,000 --> 00:00:16,000
+que llamamos desarrollo basado en pruebas o TDD, o debera escribir primero el
+
+5
+00:00:16,000 --> 00:00:20,000
+cdigo de la aplicacin? Mosh, no s qu probar! Estas son preguntas
+
+6
+00:00:20,000 --> 00:00:24,000
+frecuentes sobre Pruebas Automatizadas, y en este curso, voy
+
+7
+00:00:24,000 --> 00:00:28,000
+a responder todas estas preguntas una por una!
+
+8
+00:00:28,000 --> 00:00:32,000
+Comencemos con la primera pregunta: qu es una prueba automatizada?
+
+9
+00:00:32,000 --> 00:00:36,000
+ Las pruebas automticas son la prctica de escribir
+
+10
+00:00:36,000 --> 00:00:40,000
+cdigo para probar nuestro cdigo, y luego ejecutar esas
+
+11
+00:00:40,000 --> 00:00:44,000
+pruebas de manera automatizada. Entonces, con las pruebas automatizadas, nuestro
+
+12
+00:00:44,000 --> 00:00:48,000
+cdigo fuente consiste en un cdigo de aplicacin, que tambin llamamos cdigo
+
+13
+00:00:48,000 --> 00:00:52,000
+de produccin Y cdigo de prueba. As que aqu hay un ejemplo, imagine que
+
+14
+00:00:52,000 --> 00:00:56,000
+tiene esta funcin en algn lugar de su cdigo. Es una funcin de
+
+15
+00:00:56,000 --> 00:01:00,000
+clculo bsico que toma una entrada y, dependiendo de
+
+16
+00:01:00,000 --> 00:01:04,000
+algunas condiciones, devuelve valores diferentes. Si desea probar esta funcin de
+
+17
+00:01:04,000 --> 00:01:08,000
+forma manual, debe iniciar su aplicacin en el navegador, tal vez tenga
+
+18
+00:01:08,000 --> 00:01:12,000
+que iniciar sesin, o tal vez tenga que hacer unos pocos clics
+
+19
+00:01:12,000 --> 00:01:16,000
+aqu y all para acceder a una pgina donde se usa esta funcin.
+
+20
+00:01:16,000 --> 00:01:20,000
+Luego, deber completar un formulario, enviarlo y ver el resultado de
+
+21
+00:01:20,000 --> 00:01:24,000
+esta funcin en la pantalla. Y luego debe repetir todos
+
+22
+00:01:24,000 --> 00:01:28,000
+estos pasos cada vez usando diferentes valores en su formulario.
+
+23
+00:01:28,000 --> 00:01:32,000
+Como puede ver, esto consume mucho tiempo. Este flujo de trabajo para
+
+24
+00:01:32,000 --> 00:01:36,000
+probar esta funcin puede tomar varios minutos cada vez.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ahora, para empeorar las cosas, esta no es la
+
+26
+00:01:40,000 --> 00:01:44,000
+nica funcin en su aplicacin. En una aplicacin real tienes decenas
+
+27
+00:01:44,000 --> 00:01:48,000
+o cientos de funciones como esta. A medida que su aplicacin
+
+28
+00:01:48,000 --> 00:01:52,000
+crece, en tamao y complejidad, el tiempo requerido para probar
+
+29
+00:01:52,000 --> 00:01:56,000
+manualmente todos los diferentes bits y piezas aumenta exponencialmente.
+
+30
+00:01:56,000 --> 00:02:00,000
+Entonces, es por eso que utilizamos pruebas automatizadas. Con las pruebas automatizadas,
+
+31
+00:02:00,000 --> 00:02:04,000
+escribe cdigo y llama directamente a esta funcin
+
+32
+00:02:04,000 --> 00:02:08,000
+con diferentes entradas y verifica que esta funcin
+
+33
+00:02:08,000 --> 00:02:12,000
+devuelve el resultado correcto. Ahora, puedes volver a ejecutar estas pruebas
+
+34
+00:02:12,000 --> 00:02:16,000
+cada vez que cambies tu cdigo, cada vez que comprometas tu cdigo a un
+
+35
+00:02:16,000 --> 00:02:20,000
+repositorio y antes de implementar tu aplicacin. Con este enfoque,  puedes
+
+36
+00:02:20,000 --> 00:02:24,000
+probar todas las rutas de ejecucin en esta funcin en
+
+37
+00:02:24,000 --> 00:02:28,000
+menos de un segundo! Puede escribir varios cientos o miles
+
+38
+00:02:28,000 --> 00:02:32,000
+de pruebas automatizadas para varias partes de su aplicacin y ejecutarlas
+
+39
+00:02:32,000 --> 00:02:36,000
+todas en solo unos segundos. Pero hay ms beneficios para las
+
+40
+00:02:36,000 --> 00:02:40,000
+pruebas automatizadas, y ese es el tema de la prxima conferencia.
+

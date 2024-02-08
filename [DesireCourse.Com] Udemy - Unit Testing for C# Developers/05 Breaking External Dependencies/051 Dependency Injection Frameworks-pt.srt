@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, na ltima palestra, mostrei a voc esta tcnica
+
+2
+00:00:04,000 --> 00:00:08,000
+para injetar um FileReader real ou falso para este
+
+3
+00:00:08,000 --> 00:00:12,000
+objeto de servio de vdeo. Essa abordagem funciona,
+
+4
+00:00:12,000 --> 00:00:16,000
+mas no  ideal em aplicativos corporativos.
+
+5
+00:00:16,000 --> 00:00:20,000
+Como em um aplicativo do mundo real, essa classe pode ter
+
+6
+00:00:20,000 --> 00:00:24,000
+mais algumas dependncias; voc no deseja repetir essa expresso algumas vezes
+
+7
+00:00:24,000 --> 00:00:28,000
+e tambm tornar esses parmetros opcionais. Parece um pouco feio.
+
+8
+00:00:28,000 --> 00:00:32,000
+ por isso que nos referimos a essa abordagem como injeo
+
+9
+00:00:32,000 --> 00:00:36,000
+de dependncia do pobre homem. Em uma empresa real, como o
+
+10
+00:00:36,000 --> 00:00:40,000
+aplicativo, voc no quer fazer isso. Voc quer manter seu
+
+11
+00:00:40,000 --> 00:00:44,000
+cdigo o mais simples possvel.  por isso que usamos uma estrutura de injeo de dependncia.
+
+12
+00:00:44,000 --> 00:00:48,000
+Quando voc usa uma estrutura de injeo de dependncia
+
+13
+00:00:48,000 --> 00:00:52,000
+adequada em seu aplicativo, pode simplificar esse construtor para
+
+14
+00:00:56,000 --> 00:01:00,000
+algo como isto, assim.  muito mais simples. Portanto, uma estrutura
+
+15
+00:01:00,000 --> 00:01:04,000
+de injeo de dependncia cuidar da criao e inicializao de
+
+16
+00:01:04,000 --> 00:01:08,000
+objetos em tempo de execuo. Existem vrios frameworks de injeo
+
+17
+00:01:08,000 --> 00:01:12,000
+de dependncia por a. Ns temos o nome jack (? ), temos
+
+18
+00:01:12,000 --> 00:01:16,000
+mapa de estrutura, primavera. net, autofac, unidade e assim por diante.
+
+19
+00:01:16,000 --> 00:01:20,000
+Quase todas essas estruturas seguem os mesmos princpios.
+
+20
+00:01:20,000 --> 00:01:24,000
+Em uma estrutura de injeo de dependncia, voc tem um
+
+21
+00:01:24,000 --> 00:01:28,000
+continer, esse continer  um registro de todas as suas
+
+22
+00:01:28,000 --> 00:01:32,000
+interfaces e suas implementaes. Quando seu aplicativo for iniciado,
+
+23
+00:01:32,000 --> 00:01:36,000
+sua estrutura de injeo de dependncia cuidar automaticamente da criao
+
+24
+00:01:36,000 --> 00:01:40,000
+de grficos de objeto com base nas interfaces e tipos
+
+25
+00:01:40,000 --> 00:01:44,000
+registrados no continer. Por exemplo, em um ASP. Aplicao de
+
+26
+00:01:44,000 --> 00:01:48,000
+dependncia NET, quando voc recebe um pedido
+
+27
+00:01:48,000 --> 00:01:52,000
+no servidor, ASP. Tempo de execuo do NET. Deve criar uma instncia
+
+28
+00:01:52,000 --> 00:01:56,000
+de uma classe de controlador. Seu controlador pode ter uma ou mais dependncias.
+
+29
+00:01:56,000 --> 00:02:00,000
+Vamos dizer IFileReader. Nesse ponto, a estrutura
+
+30
+00:02:00,000 --> 00:02:04,000
+de injeo de dependncia entra em ao, analisa
+
+31
+00:02:04,000 --> 00:02:08,000
+os parmetros do contrutor ou do controlador, examina
+
+32
+00:02:08,000 --> 00:02:12,000
+esse continer ou registro e localiza as implementaes
+
+33
+00:02:12,000 --> 00:02:16,000
+concretas para essas interfaces referenciadas, instancia-as e as
+
+34
+00:02:16,000 --> 00:02:20,000
+transmite para seu controlador. Se esses objetos tambm tiverem dependncias,
+
+35
+00:02:20,000 --> 00:02:24,000
+sua estrutura de injeo de dependncia (?) ) ir cuidar de criar e
+
+36
+00:02:24,000 --> 00:02:28,000
+inicializar um grfico de objetos para voc. Usar uma estrutura de injeo de
+
+37
+00:02:28,000 --> 00:02:32,000
+dependncia est alm do escopo deste curso e isso  algo
+
+38
+00:02:32,000 --> 00:02:36,000
+que voc precisa pesquisar por conta prpria, porque a implementao varia
+
+39
+00:02:36,000 --> 00:02:40,000
+de uma estrutura para outra e tambm depende do tipo de
+
+40
+00:02:40,000 --> 00:02:44,000
+aplicativo que voc est construindo. Por exemplo, o conjunto de cdigos para usar
+
+41
+00:02:44,000 --> 00:02:48,000
+uma estrutura de injeo de dependncia em um ASP. Aplicao NET  diferente
+
+42
+00:02:48,000 --> 00:02:52,000
+do que digamos um aplicativo Xamarin ou WPF.
+
+43
+00:02:52,000 --> 00:02:56,000
+ ainda diferente entre diferentes verses do ASP. LQUIDO. MPC. Ento, se voc quiser minha recomendao, eu
+
+44
+00:02:56,000 --> 00:03:00,000
+diria que v com Ninject ou Aurofac.
+
+45
+00:03:00,000 --> 00:03:04,000
+Esses so os dois frameworks populares de injeo de dependncia que existem por a.
+
+46
+00:03:04,000 --> 00:03:08,000
+No final, voc pode fazer parte de uma equipe e, mais tarde, sua equipe
+
+47
+00:03:08,000 --> 00:03:12,000
+pode adorar uma estrutura diferente de injeo de dependncia, isso  perfeitamente aceitvel. No fique preso
+
+48
+00:03:12,000 --> 00:03:16,000
+nas ferramentas. Portanto, escolha uma dessas estruturas de
+
+49
+00:03:16,000 --> 00:03:20,000
+injeo de dependncia para ler sua
+
+50
+00:03:20,000 --> 00:03:24,000
+documentao sobre o que voc precisa fazer para us-las em seus aplicativos.
+
+51
+00:03:24,000 --> 00:03:26,000
+&nbsp;
+

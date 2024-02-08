@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:04,000
+In this section, I'm going to give you another
+
+2
+00:00:04,000 --> 00:00:08,000
+challenging exercise. So open up the Mocking folder,
+
+3
+00:00:08,000 --> 00:00:12,000
+and look at this file. HouseKeeperHelper.
+
+4
+00:00:12,000 --> 00:00:16,000
+In this class we have a public
+
+5
+00:00:16,000 --> 00:00:20,000
+static method called SendStatementEmails.
+
+6
+00:00:20,000 --> 00:00:24,000
+The job of this method is to get a bunch of house keepers of the
+
+7
+00:00:24,000 --> 00:00:28,000
+database. For each housekeeper it's going to generate a
+
+8
+00:00:28,000 --> 00:00:32,000
+statement file and save it on the disc, and then it will eventually
+
+9
+00:00:32,000 --> 00:00:36,000
+email that statement file to the housekeeper. So this is the
+
+10
+00:00:36,000 --> 00:00:40,000
+big picture. Now if you look at the implementation of this class you can see
+
+11
+00:00:40,000 --> 00:00:44,000
+these two methods, EmailFile and SaveStatement, they are both
+
+12
+00:00:44,000 --> 00:00:48,000
+private methods. As I told you before, look
+
+13
+00:00:48,000 --> 00:00:52,000
+it's the same statement and you can see it's a private statement. So as I told you
+
+14
+00:00:52,000 --> 00:00:56,000
+before, you should not test these private methods, they are
+
+15
+00:00:56,000 --> 00:01:00,000
+implementation details. And here we have EmailFile again
+
+16
+00:01:00,000 --> 00:01:04,000
+private static void. And the rest of the code in this file
+
+17
+00:01:04,000 --> 00:01:08,000
+are just simple stubs I've generated to make this code
+
+18
+00:01:08,000 --> 00:01:12,000
+compile. Because one of my students sent me the source code
+
+19
+00:01:12,000 --> 00:01:16,000
+and I didn't have the entire code, so I had to reverse engineer it,
+
+20
+00:01:16,000 --> 00:01:20,000
+and generate some classes to make the code compile. So don't worry about
+
+21
+00:01:20,000 --> 00:01:24,000
+any of this stuff here. Your job is to write
+
+22
+00:01:24,000 --> 00:01:28,000
+all the required unit tests for this method, Send
+
+23
+00:01:28,000 --> 00:01:32,000
+StatementEmails. Now before you get started I want to give you a couple of
+
+24
+00:01:32,000 --> 00:01:36,000
+things (?). These two methods, SaveStatement
+
+25
+00:01:36,000 --> 00:01:40,000
+and EmailFile, they both touch external
+
+26
+00:01:40,000 --> 00:01:44,000
+resources, so don't get stuck looking at the implementation of these
+
+27
+00:01:44,000 --> 00:01:48,000
+methods. You need to extract these methods, put them in separate classes,
+
+28
+00:01:48,000 --> 00:01:52,000
+and then use dependency injection to inject those dependencies
+
+29
+00:01:52,000 --> 00:01:56,000
+inside this housekeeper helper class.
+
+30
+00:01:56,000 --> 00:02:00,000
+So, I want you to pause the video, and use what you have learned in this course
+
+31
+00:02:00,000 --> 00:02:04,000
+to write all the required unit tests for this class. Next, we're going to look
+
+32
+00:02:04,000 --> 00:02:07,000
+at my solution.
+

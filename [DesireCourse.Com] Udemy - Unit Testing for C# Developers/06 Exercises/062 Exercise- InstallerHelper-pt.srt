@@ -1,0 +1,88 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, hora de outro exerccio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Ento, de volta  pasta Mocking, veja essa classe.
+
+3
+00:00:08,000 --> 00:00:12,000
+InstallerHelper. Este  o cdigo que um
+
+4
+00:00:12,000 --> 00:00:16,000
+dos meus alunos me enviou. Ento, se voc  aquela pessoa que me
+
+5
+00:00:16,000 --> 00:00:20,000
+enviou este cdigo, muito obrigado por compartilhar seu cdigo, vamos usar isso como um exemplo de
+
+6
+00:00:20,000 --> 00:00:24,000
+um cdigo que toca um recurso externo. Ento, aqui temos esse
+
+7
+00:00:24,000 --> 00:00:28,000
+mtodo, o DownloadInstaller.  necessrio um nome de
+
+8
+00:00:28,000 --> 00:00:32,000
+cliente e nome de instalador e usa a classe WebClient
+
+9
+00:00:32,000 --> 00:00:36,000
+para baixar o arquivo da Internet. O primeiro argumento para
+
+10
+00:00:36,000 --> 00:00:40,000
+esse mtodo  o local ou a URL
+
+11
+00:00:40,000 --> 00:00:44,000
+desse arquivo. Ento aqui estamos usando string. formato para construir um
+
+12
+00:00:44,000 --> 00:00:48,000
+URL como este. exemplo. com. O primeiro
+
+13
+00:00:48,000 --> 00:00:52,000
+argumento depois disso  customerName e o segundo  installerName.
+
+14
+00:00:52,000 --> 00:00:56,000
+E este  o segundo argumento para este mtodo
+
+15
+00:00:56,000 --> 00:01:00,000
+de arquivo de download. E esse argumento especifica o local no sistema
+
+16
+00:01:00,000 --> 00:01:04,000
+de arquivos em que precisamos armazenar esse arquivo. Como voc pode ver,
+
+17
+00:01:04,000 --> 00:01:08,000
+a chamada para baixar o arquivo est dentro
+
+18
+00:01:08,000 --> 00:01:12,000
+de um bloco try cash, ento se tudo
+
+19
+00:01:12,000 --> 00:01:16,000
+correr bem, voc retornar true, caso contrrio, retornaremos false.
+
+20
+00:01:16,000 --> 00:01:20,000
+Ento, agora, quero que voc use o que aprendeu nesta seo e escreva um
+
+21
+00:01:20,000 --> 00:01:24,000
+teste de unidade necessrio para essa classe. Em seguida, vamos
+
+22
+00:01:24,000 --> 00:01:26,000
+ver minha soluo.
+

@@ -1,0 +1,368 @@
+1
+00:00:00,000 --> 00:00:04,000
+Nesta palestra, vamos examinar os mtodos de teste que retornam
+
+2
+00:00:04,000 --> 00:00:08,000
+uma matriz ou uma coleo. Ento, voltando  nossa
+
+3
+00:00:08,000 --> 00:00:12,000
+aula de matemtica, temos outro mtodo aqui, que
+
+4
+00:00:12,000 --> 00:00:16,000
+leva o limite, e retorna os nmeros mpares
+
+5
+00:00:16,000 --> 00:00:20,000
+a partir de 0, at esse limite.
+
+6
+00:00:20,000 --> 00:00:24,000
+Ento est retornando um IEnumberable desta verso. Ao testar mtodos que retornam
+
+7
+00:00:24,000 --> 00:00:28,000
+uma matriz ou uma coleo, novamente voc precisa fazer
+
+8
+00:00:28,000 --> 00:00:32,000
+sua prpria avaliao sobre o quo geral ou especfico
+
+9
+00:00:32,000 --> 00:00:36,000
+os seus testes devem ser. Deixe-me mostrar alguns exemplos.
+
+10
+00:00:36,000 --> 00:00:40,000
+Ento, de volta  nossa aula de testes de matemtica.
+
+11
+00:00:40,000 --> 00:00:44,000
+Vou definir um novo mtodo
+
+12
+00:00:48,000 --> 00:00:52,000
+de teste aqui, public void
+
+13
+00:00:52,000 --> 00:00:56,000
+GetOdd Numbers. Agora, quais cenrios ns temos aqui? Novamente, no queremos
+
+14
+00:00:56,000 --> 00:01:00,000
+olhar para a implementao, queremos pensar nesse mtodo
+
+15
+00:01:00,000 --> 00:01:04,000
+como uma caixa preta. Ento tem um argumento, limite, esse limite
+
+16
+00:01:04,000 --> 00:01:08,000
+pode ser um nmero negativo, pode ser 0, pode ser um nmero positivo.
+
+17
+00:01:08,000 --> 00:01:12,000
+Ento, esses so os trs casos de teste que eu escreveria para esse mtodo. Agora, nesta palestra, no quero
+
+18
+00:01:12,000 --> 00:01:16,000
+implementar todos esses casos de teste, porque nosso foco est
+
+19
+00:01:16,000 --> 00:01:20,000
+em testar matrizes e colees. Vou mostrar-lhe um caso de teste
+
+20
+00:01:20,000 --> 00:01:24,000
+e depois implementar os outros casos de teste por conta prpria.
+
+21
+00:01:24,000 --> 00:01:28,000
+Portanto, o cenrio 
+
+22
+00:01:28,000 --> 00:01:32,000
+Limite IsGreaterThanZero. Deve
+
+23
+00:01:32,000 --> 00:01:36,000
+retornar OddNumbers
+
+24
+00:01:36,000 --> 00:01:40,000
+UpToLimit. Ento, voc tem um objeto de
+
+25
+00:01:40,000 --> 00:01:44,000
+matemtica para simplesmente chamar de matemtica. GetOddNumbers.
+
+26
+00:01:44,000 --> 00:01:48,000
+E como limite, vou passar 5.
+
+27
+00:01:48,000 --> 00:01:52,000
+Voc vai perguntar por que eu no usei 1 aqui. Porque se usarmos um,
+
+28
+00:01:52,000 --> 00:01:56,000
+obtemos um array com apenas um item.
+
+29
+00:01:56,000 --> 00:02:00,000
+Ao lidar com arrays, gostaria que meu array tivesse trs itens.
+
+30
+00:02:00,000 --> 00:02:04,000
+Ento  mais vida real. Ento, 5,
+
+31
+00:02:04,000 --> 00:02:08,000
+obtemos o resultado agora.
+
+32
+00:02:08,000 --> 00:02:12,000
+Vejamos algumas maneiras diferentes de escrever nossas asseres.
+
+33
+00:02:12,000 --> 00:02:16,000
+Aqui est a maneira mais geral de escrever uma afirmao.
+
+34
+00:02:16,000 --> 00:02:20,000
+Afirme que o resultado
+
+35
+00:02:20,000 --> 00:02:24,000
+no est vazio.
+
+36
+00:02:24,000 --> 00:02:28,000
+Muito geral, eu posso ter qualquer nmero nesta matriz e ele passar.
+
+37
+00:02:28,000 --> 00:02:32,000
+s vezes voc no ouve falar sobre valores especficos em uma matriz
+
+38
+00:02:32,000 --> 00:02:36,000
+ou coleo, voc s quer ter certeza de que h algo na
+
+39
+00:02:36,000 --> 00:02:40,000
+matriz ou coleo retornada de seus mtodos. Nesse caso, esta afirmao est perfeitamente bem.
+
+40
+00:02:40,000 --> 00:02:44,000
+Mas neste caso,  um pouco geral demais,
+
+41
+00:02:44,000 --> 00:02:48,000
+uma forma mais especfica  testar o nmero
+
+42
+00:02:48,000 --> 00:02:52,000
+de itens nessa matriz. Ento, afirme
+
+43
+00:02:52,000 --> 00:02:56,000
+esse resultado. Count is EqualTo3
+
+44
+00:02:56,000 --> 00:03:00,000
+Um pouco mais especfico, mas podemos ter
+
+45
+00:03:00,000 --> 00:03:04,000
+qualquer nmero neste array, voc pode ter
+
+46
+00:03:04,000 --> 00:03:08,000
+1, 1, 1. No nos d muita confiana.
+
+47
+00:03:08,000 --> 00:03:12,000
+Novamente, outra maneira geral de escrever uma
+
+48
+00:03:12,000 --> 00:03:16,000
+afirmao  assim. Afirme que
+
+49
+00:03:16,000 --> 00:03:20,000
+o resultado contm 1.
+
+50
+00:03:20,000 --> 00:03:24,000
+Vou duplicar isso, ele
+
+51
+00:03:24,000 --> 00:03:28,000
+tambm contm 3 e 5.
+
+52
+00:03:28,000 --> 00:03:32,000
+Ento eu s quero esclarecer alguma coisa, estou mostrando a voc
+
+53
+00:03:32,000 --> 00:03:36,000
+Asseres diferentes aqui, mas isso no significa que quando voc est
+
+54
+00:03:36,000 --> 00:03:40,000
+testando este mtodo, voc deve escrever todas estas asseres, voc deve
+
+55
+00:03:40,000 --> 00:03:44,000
+usar uma afirmao como essa, para ter certeza o resultado no
+
+56
+00:03:44,000 --> 00:03:48,000
+ vazio, ou voc deve verificar a contagem, ou se voc
+
+57
+00:03:48,000 --> 00:03:52,000
+quer ser mais especfico, voc quer verificar a existncia de certos
+
+58
+00:03:52,000 --> 00:03:56,000
+objetos na matriz, mas voc no se importa com a ordem.
+
+59
+00:03:56,000 --> 00:04:00,000
+porque se voc se importa com o pedido, seu teste  muito especfico.
+
+60
+00:04:00,000 --> 00:04:04,000
+Agora, s vezes, talvez seja isso o que voc deseja, porque sua matriz deve retornar
+
+61
+00:04:04,000 --> 00:04:08,000
+itens que so classificados antes do tempo. Mas neste caso, as
+
+62
+00:04:08,000 --> 00:04:12,000
+chances so de que no nos importamos com a
+
+63
+00:04:12,000 --> 00:04:16,000
+ordem desses itens na matriz. Ento, podemos escrever trs afirmaes apenas para ter
+
+64
+00:04:16,000 --> 00:04:20,000
+certeza de que temos 1, 3 e 5. Mas existe uma maneira mais
+
+65
+00:04:20,000 --> 00:04:24,000
+curta e mais limpa de escrever as mesmas trs afirmaes.
+
+66
+00:04:24,000 --> 00:04:28,000
+Voc pode escrever Assert,
+
+67
+00:04:28,000 --> 00:04:32,000
+That, result Is Equivalent
+
+68
+00:04:32,000 --> 00:04:36,000
+to, e aqui ns
+
+69
+00:04:36,000 --> 00:04:40,000
+criamos um array com trs nmeros.
+
+70
+00:04:40,000 --> 00:04:44,000
+1, 3, 5. Ento, isso equivale a garantir
+
+71
+00:04:44,000 --> 00:04:48,000
+que tenhamos todos esses itens na matriz de resultados, no
+
+72
+00:04:48,000 --> 00:04:52,000
+se preocupe com a ordem, apenas verifica a existncia de
+
+73
+00:04:52,000 --> 00:04:56,000
+cada um desses itens. Ento, essa linha
+
+74
+00:04:56,000 --> 00:05:00,000
+ equivalente a escrever essas trs linhas.
+
+75
+00:05:00,000 --> 00:05:04,000
+Portanto, esta  a minha maneira preferida de testar
+
+76
+00:05:04,000 --> 00:05:08,000
+o mtodo Obter OddNumbers. Vamos executar este
+
+77
+00:05:08,000 --> 00:05:12,000
+teste e garantir que ele seja aprovado.
+
+78
+00:05:12,000 --> 00:05:16,000
+OK. Est passando, linda. Agora, antes de
+
+79
+00:05:16,000 --> 00:05:20,000
+terminarmos esta palestra, vou mostrar algumas afirmaes mais teis.
+
+80
+00:05:20,000 --> 00:05:24,000
+Afirme, esse
+
+81
+00:05:24,000 --> 00:05:28,000
+resultado Ordered.
+
+82
+00:05:28,000 --> 00:05:32,000
+Portanto, se o seu mtodo deve classificar os itens, voc pode
+
+83
+00:05:32,000 --> 00:05:36,000
+garantir que eles sejam ordenados. Voc tem outra
+
+84
+00:05:36,000 --> 00:05:40,000
+Assero til, asseverar que o resultado
+
+85
+00:05:40,000 --> 00:05:44,000
+ nico. Ento, com isso, voc
+
+86
+00:05:44,000 --> 00:05:48,000
+garante que no haja itens duplicados em sua matriz.
+
+87
+00:05:48,000 --> 00:05:52,000
+Para este mtodo em particular, ns realmente no precisamos dessas asseres.
+
+88
+00:05:52,000 --> 00:05:56,000
+Mas eu quero que voc esteja ciente deles, talvez voc precise deles em seus aplicativos.
+
+89
+00:05:56,000 --> 00:06:00,000
+Ento  isso que eu quero que voc tire. Quando voc est testando mtodos
+
+90
+00:06:00,000 --> 00:06:04,000
+que retornam uma matriz ou uma coleo, verifique se os
+
+91
+00:06:04,000 --> 00:06:08,000
+mtodos de teste no so muito genricos ou especficos demais.
+
+92
+00:06:08,000 --> 00:06:11,000
+Encontre um equilbrio certo.
+

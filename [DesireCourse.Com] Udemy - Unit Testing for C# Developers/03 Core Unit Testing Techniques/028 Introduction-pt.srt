@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:04,000
+Nesta seo, vamos explorar alguns cenrios de
+
+2
+00:00:04,000 --> 00:00:08,000
+teste de unidade. Ento, voc vai aprender como testar mtodos que
+
+3
+00:00:08,000 --> 00:00:12,000
+retornam um valor, com vista para (? ) nas cordas e
+
+4
+00:00:12,000 --> 00:00:16,000
+sees de teste (? Mais especificamente, voc tambm aprender
+
+5
+00:00:16,000 --> 00:00:20,000
+como testar mtodos vazios, mtodos que lanam uma exceo ou
+
+6
+00:00:20,000 --> 00:00:24,000
+criar um evento e, finalmente, teremos uma discusso sobre como
+
+7
+00:00:24,000 --> 00:00:28,000
+testar mtodos privados e protegidos. Estes so tpicos muito
+
+8
+00:00:28,000 --> 00:00:32,000
+importantes em testes unitrios, ento vamos comear!
+

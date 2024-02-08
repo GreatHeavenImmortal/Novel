@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, nesta seo, voc aprendeu sobre alguns cenrios de teste
+
+2
+00:00:04,000 --> 00:00:08,000
+de unidade que voc v em muitos aplicativos do mundo real.
+
+3
+00:00:08,000 --> 00:00:12,000
+Mais especificamente, voc aprendeu a testar mtodos que retornam uma
+
+4
+00:00:12,000 --> 00:00:16,000
+string ou uma coleo, aprendeu a testar mtodos nulos, mtodos
+
+5
+00:00:16,000 --> 00:00:20,000
+que lanam uma exceo ou cria um evento, e aprende
+
+6
+00:00:20,000 --> 00:00:24,000
+que voc no deve testar mtodos privados ou protegidos, porque
+
+7
+00:00:24,000 --> 00:00:28,000
+de seus detalhes de implementao. Voc deve testar somente a
+
+8
+00:00:28,000 --> 00:00:32,000
+API pblica ou a interface pblica de uma classe, que
+
+9
+00:00:32,000 --> 00:00:36,000
+inclui apenas os membros pblicos. A prxima seo
+
+10
+00:00:36,000 --> 00:00:40,000
+ sobre exerccios. Ento voc ter a oportunidade de aplicar
+
+11
+00:00:40,000 --> 00:00:44,000
+o que aprendeu no curso at agora. Ento, eu vou te
+
+12
+00:00:44,000 --> 00:00:46,000
+ver na prxima seo.
+

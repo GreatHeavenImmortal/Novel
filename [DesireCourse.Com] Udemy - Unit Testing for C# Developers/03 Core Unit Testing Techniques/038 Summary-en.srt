@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, in this section, you learned about a
+
+2
+00:00:04,000 --> 00:00:08,000
+few unit testing scenarios that you see in a lot of real-world applications.
+
+3
+00:00:08,000 --> 00:00:12,000
+More specifically, you learned how to test methods that return
+
+4
+00:00:12,000 --> 00:00:16,000
+a string or a collection, you learned how to test
+
+5
+00:00:16,000 --> 00:00:20,000
+void methods, methods that throw an exception, or raise an
+
+6
+00:00:20,000 --> 00:00:24,000
+event, and you learn that you should not test private or
+
+7
+00:00:24,000 --> 00:00:28,000
+protected methods, because of their implementation detail. You should
+
+8
+00:00:28,000 --> 00:00:32,000
+only test the public API, or public interface of a
+
+9
+00:00:32,000 --> 00:00:36,000
+class, which includes only the public members. The next
+
+10
+00:00:36,000 --> 00:00:40,000
+section is all about exercises. So you will have an opportunity
+
+11
+00:00:40,000 --> 00:00:44,000
+to apply what you have learned in the course so far. So, I will see you in the next
+
+12
+00:00:44,000 --> 00:00:46,000
+section.
+

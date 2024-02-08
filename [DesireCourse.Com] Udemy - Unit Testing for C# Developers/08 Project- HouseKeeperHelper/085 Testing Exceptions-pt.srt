@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, ns escrevemos alguns testes de unidade para vrios
+
+2
+00:00:04,000 --> 00:00:08,000
+caminhos de execuo neste mtodo. O ltimo teste unitrio
+
+3
+00:00:08,000 --> 00:00:12,000
+que precisamos escrever  para o cenrio em que
+
+4
+00:00:12,000 --> 00:00:16,000
+algo d errado, ao enviar o email, ento devemos
+
+5
+00:00:16,000 --> 00:00:20,000
+exibir messageBox para o usurio. Teste muito simples.
+
+6
+00:00:20,000 --> 00:00:24,000
+Ento, de volta  nossa aula de teste. Para economizar
+
+7
+00:00:24,000 --> 00:00:28,000
+tempo, vou duplicar esse
+
+8
+00:00:28,000 --> 00:00:32,000
+ltimo teste, ento o
+
+9
+00:00:32,000 --> 00:00:36,000
+cenrio  EmailSendingFails.
+
+10
+00:00:36,000 --> 00:00:40,000
+Ento, devemos exibir uma caixa
+
+11
+00:00:40,000 --> 00:00:44,000
+de mensagem. Agora, na parte de organizao,
+
+12
+00:00:44,000 --> 00:00:48,000
+queremos programar nosso objeto de simulao para lanar uma exceo.
+
+13
+00:00:48,000 --> 00:00:52,000
+Ento, emailSender. Configurao.
+
+14
+00:00:52,000 --> 00:00:56,000
+Ento, quando chamamos esse mtodo, devemos
+
+15
+00:00:56,000 --> 00:01:00,000
+lanar uma exceo. Agora, neste teste, no
+
+16
+00:01:00,000 --> 00:01:04,000
+nos importamos com esses valores reais passados com o
+
+17
+00:01:04,000 --> 00:01:08,000
+mtodo EmailFile, porque anteriormente ns escrevemos um teste para
+
+18
+00:01:08,000 --> 00:01:12,000
+garantir que, em circunstncias normais, esse mtodo fosse chamado
+
+19
+00:01:12,000 --> 00:01:16,000
+com os argumentos corretos. Ento, aqui podemos simplificar
+
+20
+00:01:16,000 --> 00:01:20,000
+esse teste e usar It IsAnyString e
+
+21
+00:01:20,000 --> 00:01:24,000
+vamos colocar isso em uma nova linha.
+
+22
+00:01:24,000 --> 00:01:28,000
+E repita trs vezes.
+
+23
+00:01:28,000 --> 00:01:32,000
+OK? Ento esta  a configurao,
+
+24
+00:01:32,000 --> 00:01:36,000
+aqui, queremos lanar uma exceo. Exceo.
+
+25
+00:01:36,000 --> 00:01:40,000
+OK? Ento esta  a parte
+
+26
+00:01:40,000 --> 00:01:44,000
+do arranjo, ento agimos e, finalmente, devemos verificar se uma
+
+27
+00:01:44,000 --> 00:01:48,000
+caixa de mensagem  exibida. Ento, temos um objeto
+
+28
+00:01:48,000 --> 00:01:52,000
+falso antes dessa messageBox. Verifique se mb
+
+29
+00:01:52,000 --> 00:01:56,000
+vai para mb. Mostre agora qual argumento
+
+30
+00:01:56,000 --> 00:02:00,000
+devemos passar aqui? Vamos dar uma olhada
+
+31
+00:02:00,000 --> 00:02:04,000
+em nossa implementao. Ento devemos ter a mensagem real aqui.
+
+32
+00:02:04,000 --> 00:02:08,000
+Assim como o ttulo da caixa de
+
+33
+00:02:08,000 --> 00:02:12,000
+mensagem e, finalmente, messageBoxButtons. EST BEM.
+
+34
+00:02:12,000 --> 00:02:16,000
+Novamente, no queremos testar essa string exata aqui, porque 
+
+35
+00:02:16,000 --> 00:02:20,000
+muito provvel que ela altere a mensagem de erro ou
+
+36
+00:02:20,000 --> 00:02:24,000
+o ttulo da messageBox no futuro. Ento, enquanto esse mtodo
+
+37
+00:02:24,000 --> 00:02:28,000
+for chamado, seremos felizes. Ento, de volta  nossa aula de teste.
+
+38
+00:02:28,000 --> 00:02:32,000
+Mais uma vez usamos o ItIs. Qualquer
+
+39
+00:02:32,000 --> 00:02:36,000
+string. Mais uma vez. IsAny cadeia de caracteres. Mais uma vez. IsAny
+
+40
+00:02:36,000 --> 00:02:40,000
+string e o ltimo argumento
+
+41
+00:02:40,000 --> 00:02:44,000
+ messageBoxButtons. EST BEM. Portanto, essa  uma
+
+42
+00:02:44,000 --> 00:02:48,000
+enumerao para especificar os nmeros em uma caixa de mensagem.
+
+43
+00:02:48,000 --> 00:02:52,000
+Ento, esta  a nossa parte de verificao,
+
+44
+00:02:52,000 --> 00:02:56,000
+novamente, podemos extrair isso em um mtodo chamado
+
+45
+00:02:56,000 --> 00:03:00,000
+Verify messageBox display. E isso torna esse teste mais legvel. Vamos executar
+
+46
+00:03:00,000 --> 00:03:04,000
+o teste primeiro. Tudo bem,
+
+47
+00:03:04,000 --> 00:03:08,000
+passou. Apenas para verificar que
+
+48
+00:03:08,000 --> 00:03:12,000
+estamos testando a coisa certa, vamos vir aqui
+
+49
+00:03:12,000 --> 00:03:16,000
+e comentar essas duas linhas. De volta ao nosso teste,
+
+50
+00:03:16,000 --> 00:03:20,000
+vamos execut-lo mais uma vez. Ele falhou, ento,
+
+51
+00:03:20,000 --> 00:03:24,000
+verifica se temos um teste confivel.
+
+52
+00:03:24,000 --> 00:03:28,000
+Ento, vamos trazer o cdigo de volta. E isso
+
+53
+00:03:28,000 --> 00:03:32,000
+conclui esta seo. Espero que tenham gostado deste
+
+54
+00:03:32,000 --> 00:03:34,000
+desafio e obrigado por assistir.
+

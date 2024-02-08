@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:04,000
+Agora, veja estes trs testes que escrevemos
+
+2
+00:00:04,000 --> 00:00:08,000
+para o mtodo max. Eles parecem quase idnticos,
+
+3
+00:00:08,000 --> 00:00:12,000
+a nica diferena est nos valores que estamos
+
+4
+00:00:12,000 --> 00:00:16,000
+usando em cada teste. Ento, nesta palestra, vou mostrar uma
+
+5
+00:00:16,000 --> 00:00:20,000
+maneira mais clara de reescrever esses testes. Na NUnit, temos esse
+
+6
+00:00:20,000 --> 00:00:24,000
+conceito chamado testes parametrizados. Ento, ao invs desses
+
+7
+00:00:24,000 --> 00:00:28,000
+mtodos de reteste aqui. Podemos ter um mtodo
+
+8
+00:00:28,000 --> 00:00:32,000
+de teste que aceita parmetros. E ento podemos fornecer
+
+9
+00:00:32,000 --> 00:00:36,000
+argumentos diferentes nesse teste. Ento, eu vou mudar
+
+10
+00:00:36,000 --> 00:00:40,000
+o nome do primeiro mtodo de teste para algo
+
+11
+00:00:40,000 --> 00:00:44,000
+mais genrico, ento, max quando chamado, ele deve retornar
+
+12
+00:00:44,000 --> 00:00:48,000
+um argumento maior. Bem? Agora aqui
+
+13
+00:00:48,000 --> 00:00:52,000
+vou adicionar trs parmetros. Inteiro Um
+
+14
+00:00:52,000 --> 00:00:56,000
+Integer E e
+
+15
+00:00:56,000 --> 00:01:00,000
+Inteiro resultado esperado.
+
+16
+00:01:00,000 --> 00:01:04,000
+Ento, em vez de codificar esses valores aqui, quero pass-los como
+
+17
+00:01:04,000 --> 00:01:08,000
+argumentos para esse mtodo. OK? Ento, vou
+
+18
+00:01:08,000 --> 00:01:12,000
+substituir 2 e 1, com A e
+
+19
+00:01:12,000 --> 00:01:16,000
+B, e esse  o resultado esperado, certo?
+
+20
+00:01:16,000 --> 00:01:20,000
+Portanto, agora temos um mtodo de
+
+21
+00:01:20,000 --> 00:01:24,000
+teste parametrizado genrico. No NUnit, temos outro atributo til
+
+22
+00:01:24,000 --> 00:01:28,000
+chamado caso de teste, e com isso podemos fornecer diferentes argumentos
+
+23
+00:01:28,000 --> 00:01:32,000
+com este mtodo de teste. Ento, aqui temos trs
+
+24
+00:01:32,000 --> 00:01:36,000
+casos de teste, o primeiro  A 
+
+25
+00:01:36,000 --> 00:01:40,000
+maior, ento 2 e 1, e o resultado
+
+26
+00:01:40,000 --> 00:01:44,000
+esperado  2. Vou duplicar isso para o
+
+27
+00:01:44,000 --> 00:01:48,000
+segundo caso de teste, queremos que o segundo argumento seja maior.
+
+28
+00:01:48,000 --> 00:01:52,000
+Ento, 1 e 2, e o resultado esperado  2.
+
+29
+00:01:52,000 --> 00:01:56,000
+E, o ltimo caso de teste, em que ambos
+
+30
+00:01:56,000 --> 00:02:00,000
+os argumentos so iguais. Ento, 1 em 1, e
+
+31
+00:02:00,000 --> 00:02:04,000
+o resultado esperado  1. Com isso, no precisamos
+
+32
+00:02:04,000 --> 00:02:08,000
+mais escrever esses testes adicionais. Eles so redundantes.
+
+33
+00:02:08,000 --> 00:02:12,000
+Isto no  mais limpo? Ento, agora vamos
+
+34
+00:02:12,000 --> 00:02:16,000
+rodar esse teste. Comando e T, e Comando e
+
+35
+00:02:16,000 --> 00:02:20,000
+R, Podemos ver que o teste que escrevemos para o mtodo Max
+
+36
+00:02:20,000 --> 00:02:24,000
+agora tem trs casos de teste. E todos eles esto
+
+37
+00:02:24,000 --> 00:02:28,000
+passando, se um deles falhar, voc pode simplesmente clicar
+
+38
+00:02:28,000 --> 00:02:32,000
+e ver os detalhes do teste com falha aqui.
+
+39
+00:02:32,000 --> 00:02:36,000
+E, a propsito, essa  uma daquelas reas onde o
+
+40
+00:02:36,000 --> 00:02:40,000
+NUnit  diferente do MS Test, no MS Test, infelizmente
+
+41
+00:02:40,000 --> 00:02:44,000
+no temos uma soluo simples para a parametrizao de testes.
+
+42
+00:02:44,000 --> 00:02:48,000
+Voc tem que criar uma planilha do Excel ou um arquivo CSS,
+
+43
+00:02:48,000 --> 00:02:52,000
+coloc-lo em seu projeto de teste e fazer referncia a isso aqui,
+
+44
+00:02:52,000 --> 00:02:56,000
+e o caminho para esse arquivo (? ) especifica a planilha,
+
+45
+00:02:56,000 --> 00:03:00,000
+ muito complexa. E me surpreende que depois de todos esses
+
+46
+00:03:00,000 --> 00:03:04,000
+anos, o MS Test ainda no tenha esse recurso. A NUnit apoia isso
+
+47
+00:03:04,000 --> 00:03:08,000
+h muito tempo. Mas, como voc provavelmente sabe, este 
+
+48
+00:03:08,000 --> 00:03:12,000
+o caso da Microsoft, a Microsoft est frequentemente 5 anos atrs do jogo.
+
+49
+00:03:12,000 --> 00:03:16,000
+Assim, quaisquer que sejam os outros frameworks e outras bibliotecas de terceiros, a
+
+50
+00:03:16,000 --> 00:03:20,000
+Microsoft adotar isso aps 5 anos.  por isso que o NUnit
+
+51
+00:03:20,000 --> 00:03:24,000
+ o meu framework de testes preferido no momento da gravao deste vdeo.
+

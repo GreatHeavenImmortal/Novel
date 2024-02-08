@@ -1,0 +1,282 @@
+1
+00:00:00,000 --> 00:00:04,000
+A little while ago, when I was designing
+
+2
+00:00:04,000 --> 00:00:08,000
+this course, I sent out a survey to my students, and told them
+
+3
+00:00:08,000 --> 00:00:12,000
+to ask me any questions about unit testing, the areas that they find
+
+4
+00:00:12,000 --> 00:00:16,000
+challenging. One of the questions that came up a few times was
+
+5
+00:00:16,000 --> 00:00:20,000
+how to test void methods. So far all the examples
+
+6
+00:00:20,000 --> 00:00:24,000
+we have seen, were around methods that returned some value.
+
+7
+00:00:24,000 --> 00:00:28,000
+So in this lecture, we're going to look at void methods. Now just to refresh
+
+8
+00:00:28,000 --> 00:00:32,000
+your memory, earlier I told you about two types of functions
+
+9
+00:00:32,000 --> 00:00:36,000
+in programming. We have query functions that return some value
+
+10
+00:00:36,000 --> 00:00:40,000
+and command functions which are supposed to perform an action.
+
+11
+00:00:40,000 --> 00:00:44,000
+A void function by definition is a command
+
+12
+00:00:44,000 --> 00:00:48,000
+function. These command functions often change some kind of
+
+13
+00:00:48,000 --> 00:00:52,000
+state, that means they change the state of an object in memory, they may
+
+14
+00:00:52,000 --> 00:00:56,000
+change the value of one or more properties, and
+
+15
+00:00:56,000 --> 00:01:00,000
+additionally, they may persist a state, they may score this object
+
+16
+00:01:00,000 --> 00:01:04,000
+in a database, they may call a web service, they may call a message
+
+17
+00:01:04,000 --> 00:01:08,000
+que (?). Now, for this section, we're not going to deal with those
+
+18
+00:01:08,000 --> 00:01:12,000
+resources. So let's take a look at an example of a void method that
+
+19
+00:01:12,000 --> 00:01:16,000
+changes the state of an object in memory.
+
+20
+00:01:16,000 --> 00:01:20,000
+So here we have this ErrorLogger class,
+
+21
+00:01:20,000 --> 00:01:24,000
+look at this method, Log. It takes an error message
+
+22
+00:01:24,000 --> 00:01:28,000
+it does some basic validation to make sure
+
+23
+00:01:28,000 --> 00:01:32,000
+that the error IsNullOrWhiteSpace, otherwise it's going to throw
+
+24
+00:01:32,000 --> 00:01:36,000
+an ArgumentNullException. Now, we're going to look at writing tests
+
+25
+00:01:36,000 --> 00:01:40,000
+for methods that throw exceptions later in this section, so don't worry
+
+26
+00:01:40,000 --> 00:01:44,000
+about the first part, then it sets
+
+27
+00:01:44,000 --> 00:01:48,000
+the last error property, here it's supposed
+
+28
+00:01:48,000 --> 00:01:52,000
+to write this error to a log, actually there is a problem in this comment.
+
+29
+00:01:52,000 --> 00:01:56,000
+So let's ignore that for now, and finally, it raises
+
+30
+00:01:56,000 --> 00:02:00,000
+an event. Again, we're going to look at how to test methods that
+
+31
+00:02:00,000 --> 00:02:04,000
+raise an event later in this section. But for now we just want to
+
+32
+00:02:04,000 --> 00:02:08,000
+focus on testing this part. So when we call
+
+33
+00:02:08,000 --> 00:02:12,000
+the log method, we should verify that the last
+
+34
+00:02:12,000 --> 00:02:16,000
+arrow property is set properly. This is the outcome
+
+35
+00:02:16,000 --> 00:02:20,000
+of this method. So it's not returning a value, it's changing
+
+36
+00:02:20,000 --> 00:02:24,000
+the state of an object in memory. So,
+
+37
+00:02:24,000 --> 00:02:28,000
+back to our unit testing project, another
+
+38
+00:02:28,000 --> 00:02:32,000
+unit testing class, ErrorLogger,
+
+39
+00:02:32,000 --> 00:02:36,000
+Tests.
+
+40
+00:02:36,000 --> 00:02:40,000
+First we apply the TestFixture attribute.
+
+41
+00:02:40,000 --> 00:02:44,000
+Now, a test method
+
+42
+00:02:44,000 --> 00:02:48,000
+public void Log When
+
+43
+00:02:48,000 --> 00:02:52,000
+Called should set the last
+
+44
+00:02:52,000 --> 00:02:56,000
+ErrorProperty. Of course there are other
+
+45
+00:02:56,000 --> 00:03:00,000
+test cases but we are not going to worry about them yet. So let's
+
+46
+00:03:00,000 --> 00:03:04,000
+create an instance of error logger, a new
+
+47
+00:03:04,000 --> 00:03:08,000
+ErrorLogger, now
+
+48
+00:03:08,000 --> 00:03:12,000
+we call logger.Log, through the error message
+
+49
+00:03:12,000 --> 00:03:16,000
+again we use simple values. A simple string
+
+50
+00:03:16,000 --> 00:03:20,000
+like a. This method is void so we're not going to get a
+
+51
+00:03:20,000 --> 00:03:24,000
+result here. Doesn't make sense, right? Instead we
+
+52
+00:03:24,000 --> 00:03:28,000
+wanna assert that the last arrow property set accordingly.
+
+53
+00:03:28,000 --> 00:03:32,000
+So Assert That, log
+
+54
+00:03:32,000 --> 00:03:36,000
+logger.LastError, Is
+
+55
+00:03:36,000 --> 00:03:40,000
+EqualTo a. Let's run this
+
+56
+00:03:40,000 --> 00:03:44,000
+test.
+
+57
+00:03:44,000 --> 00:03:48,000
+Okay, it passed, beautiful, now as I told you before, I want to make
+
+58
+00:03:48,000 --> 00:03:52,000
+sure that this is a trust worthy test. So, I'm
+
+59
+00:03:52,000 --> 00:03:56,000
+going to go back in production code, this is the line
+
+60
+00:03:56,000 --> 00:04:00,000
+that is responsible for making our test pass.
+
+61
+00:04:00,000 --> 00:04:04,000
+So if I comment this out, and our test still
+
+62
+00:04:04,000 --> 00:04:08,000
+passes, that means that test is testing the wrong thing, it's not a
+
+63
+00:04:08,000 --> 00:04:12,000
+trust for the test, and if it fails, we know that's a good test.
+
+64
+00:04:12,000 --> 00:04:16,000
+So, save, back here, I'm going
+
+65
+00:04:16,000 --> 00:04:20,000
+to run this test again,
+
+66
+00:04:20,000 --> 00:04:24,000
+this time, it failed. We expected A, but we got
+
+67
+00:04:24,000 --> 00:04:28,000
+Null. Because the default value of that property is null.
+
+68
+00:04:28,000 --> 00:04:32,000
+So, back to our ErrorLogger class,
+
+69
+00:04:32,000 --> 00:04:36,000
+let's bring this back in. In the next lecture,
+
+70
+00:04:36,000 --> 00:04:40,000
+I'll show you how to test methods that throw an exception.
+
+
+

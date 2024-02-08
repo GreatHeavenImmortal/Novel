@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:04,000
+In this section, we're going to explore
+
+2
+00:00:04,000 --> 00:00:08,000
+a few unit testing scenarios. So, you're going to learn how to test
+
+3
+00:00:08,000 --> 00:00:12,000
+methods that return a value, overlooking (?) at testing strings and
+
+4
+00:00:12,000 --> 00:00:16,000
+sections (?) more specifically, you're also going to learn how to test void
+
+5
+00:00:16,000 --> 00:00:20,000
+methods, methods that throw an exception, or raise an event,
+
+6
+00:00:20,000 --> 00:00:24,000
+and finally, we'll have a discussion about testing private
+
+7
+00:00:24,000 --> 00:00:28,000
+and protected methods. These are all very important topics
+
+8
+00:00:28,000 --> 00:00:32,000
+in unit testing, so let's get started!
+

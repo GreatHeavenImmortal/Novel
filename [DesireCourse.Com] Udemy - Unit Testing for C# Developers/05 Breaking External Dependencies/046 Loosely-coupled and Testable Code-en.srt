@@ -1,0 +1,214 @@
+1
+00:00:00,000 --> 00:00:04,000
+Most legacy applications are built
+
+2
+00:00:04,000 --> 00:00:08,000
+without unit testing in mind. So in order to unit test
+
+3
+00:00:08,000 --> 00:00:12,000
+them, you need to refactor them towards a testable and
+
+4
+00:00:12,000 --> 00:00:16,000
+loosely coupled design. In a loosely coupled design you can
+
+5
+00:00:16,000 --> 00:00:20,000
+replace one object with another at run time. So when unit testing
+
+6
+00:00:20,000 --> 00:00:24,000
+a class that uses an object that talks to an external resource
+
+7
+00:00:24,000 --> 00:00:28,000
+you can replace that object with a fake object, which we call
+
+8
+00:00:28,000 --> 00:00:32,000
+a test double. Now there are three steps that you need to follow
+
+9
+00:00:32,000 --> 00:00:36,000
+to achieve a testable and loosely coupled design. First,
+
+10
+00:00:36,000 --> 00:00:40,000
+you extract the code that uses an external resource into a
+
+11
+00:00:40,000 --> 00:00:44,000
+separate class. So you put the code that talks to an external
+
+12
+00:00:44,000 --> 00:00:48,000
+resource into a separate class, and isolate it from the rest of your code.
+
+13
+00:00:48,000 --> 00:00:52,000
+Next, you extract an interface from that class.
+
+14
+00:00:52,000 --> 00:00:56,000
+Why an interface? Because an interface is like a contract.
+
+15
+00:00:56,000 --> 00:01:00,000
+It simply declares a bunch of methods and properties
+
+16
+00:01:00,000 --> 00:01:04,000
+but none of these have an implementation, none of these methods have code.
+
+17
+00:01:04,000 --> 00:01:08,000
+An interface simply tells C# compiler
+
+18
+00:01:08,000 --> 00:01:12,000
+that somewhere in the code there are probably one or more classes that
+
+19
+00:01:12,000 --> 00:01:16,000
+implement this contract. So these classes implement
+
+20
+00:01:16,000 --> 00:01:20,000
+the members declared in the interface. You can have two different
+
+21
+00:01:20,000 --> 00:01:24,000
+classes that implement that interface. One is the real implementation that
+
+22
+00:01:24,000 --> 00:01:28,000
+uses an external resource, the other is the fake one which we call
+
+23
+00:01:28,000 --> 00:01:32,000
+the test double. Finally, you modify the class under
+
+24
+00:01:32,000 --> 00:01:36,000
+test, you talk to this interface instead of one of its concrete
+
+25
+00:01:36,000 --> 00:01:40,000
+implementations. So instead of being dependent on a specific
+
+26
+00:01:40,000 --> 00:01:44,000
+implementation, it will be dependent only on the
+
+27
+00:01:44,000 --> 00:01:48,000
+interface or the contract. You can pass any object that implements
+
+28
+00:01:48,000 --> 00:01:52,000
+that interface, and this way the class becomes loosely
+
+29
+00:01:52,000 --> 00:01:56,000
+coupled and testable. In practical terms, this means
+
+30
+00:01:56,000 --> 00:02:00,000
+you should delete the lines where you create an instance of
+
+31
+00:02:00,000 --> 00:02:04,000
+bad implementation using the new operator. Because when
+
+32
+00:02:04,000 --> 00:02:08,000
+you use the new operator inside a class, you're making that class
+
+33
+00:02:08,000 --> 00:02:12,000
+tightly coupled or tightly dependent on a given implementation
+
+34
+00:02:12,000 --> 00:02:16,000
+So we cannot replace that implementation in your test
+
+35
+00:02:16,000 --> 00:02:20,000
+with a fake object, okay? So instead of newing up
+
+36
+00:02:20,000 --> 00:02:24,000
+a specific implementation, your program begins an
+
+37
+00:02:24,000 --> 00:02:28,000
+interface or contract, and then pass on the implementation of that
+
+38
+00:02:28,000 --> 00:02:32,000
+interface from the outside. Here's one way to do this. So,
+
+39
+00:02:32,000 --> 00:02:36,000
+you can pass that as a parameter to a method. You can also pass a
+
+40
+00:02:36,000 --> 00:02:40,000
+dependency by a constructor, or a property. We'll look at
+
+41
+00:02:40,000 --> 00:02:44,000
+examples of each of these approaches shortly. So, when you
+
+42
+00:02:44,000 --> 00:02:48,000
+program against interfaces, you can provide different implementations
+
+43
+00:02:48,000 --> 00:02:52,000
+at different times. In your production code, you'll provide
+
+44
+00:02:52,000 --> 00:02:56,000
+the real implementation that talks to an external resource
+
+45
+00:02:56,000 --> 00:03:00,000
+in your tests, you provide a fake implementation, and this is what we call
+
+46
+00:03:00,000 --> 00:03:04,000
+dependency injection. Instead of newing up
+
+47
+00:03:04,000 --> 00:03:08,000
+dependencies, we inject them from the outside. I get a lot of emails from my
+
+48
+00:03:08,000 --> 00:03:12,000
+students asking me, Mosh, what is dependency injection? It's so
+
+49
+00:03:12,000 --> 00:03:16,000
+complicated. It's not. Dependency injection is a
+
+50
+00:03:16,000 --> 00:03:20,000
+25-dollar term for a 5-cent concept. It simply means
+
+51
+00:03:20,000 --> 00:03:24,000
+to inject or supply the dependencies of a class from the
+
+52
+00:03:24,000 --> 00:03:28,000
+outside, and this makes your classes loosely coupled and
+
+53
+00:03:28,000 --> 00:03:32,000
+testable. So next we'll look at these three steps in action.
+
+
+

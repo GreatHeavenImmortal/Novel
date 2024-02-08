@@ -1,0 +1,292 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, de volta  nossa pasta
+
+2
+00:00:04,000 --> 00:00:08,000
+Mocking, veja esta classe de produto.
+
+3
+00:00:08,000 --> 00:00:12,000
+Esta classe de produto tem uma propriedade chamada
+
+4
+00:00:12,000 --> 00:00:16,000
+ListPrice e um mtodo chamado GetPrice que leva
+
+5
+00:00:16,000 --> 00:00:20,000
+um argumento de cliente. Ento aqui ns verificamos se o
+
+6
+00:00:20,000 --> 00:00:24,000
+cliente IsGold nos d 30% de desconto. Caso contrrio,
+
+7
+00:00:24,000 --> 00:00:28,000
+retornamos o ListPrice. E aqui est a definio da classe do cliente.
+
+8
+00:00:28,000 --> 00:00:32,000
+Exemplo muito simples, mas podemos us-lo para ver o que acontece
+
+9
+00:00:32,000 --> 00:00:36,000
+quando voc abusar de brincadeiras. Ento, vamos em frente e escrever
+
+10
+00:00:36,000 --> 00:00:40,000
+um teste de unidade para este mtodo para o cenrio onde o
+
+11
+00:00:40,000 --> 00:00:44,000
+cliente  um cliente de ouro. Ento, de volta
+
+12
+00:00:44,000 --> 00:00:48,000
+ao nosso explorador de solues, na
+
+13
+00:00:48,000 --> 00:00:52,000
+pasta Mocking, vamos adicionar uma nova
+
+14
+00:00:52,000 --> 00:00:56,000
+classe, testes de produto. Adicionamos o
+
+15
+00:00:56,000 --> 00:01:00,000
+atributo TestFixture e escrevemos
+
+16
+00:01:00,000 --> 00:01:04,000
+o teste de modo
+
+17
+00:01:04,000 --> 00:01:08,000
+que, GetPrice, para GoldCustomer,
+
+18
+00:01:08,000 --> 00:01:12,000
+aplique o Discount30Percent. Agora vamos criar um
+
+19
+00:01:12,000 --> 00:01:16,000
+objeto de produto. Novo Produto e
+
+20
+00:01:16,000 --> 00:01:20,000
+defina seu preo de lista como
+
+21
+00:01:20,000 --> 00:01:24,000
+100 dlares. OK? Agora, vamos
+
+22
+00:01:24,000 --> 00:01:28,000
+agir, ento, produto GetPrice, damos
+
+23
+00:01:28,000 --> 00:01:32,000
+a ele um objeto de
+
+24
+00:01:32,000 --> 00:01:36,000
+cliente e definimos IsGold como true.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ento, obtenha o resultado e,
+
+26
+00:01:40,000 --> 00:01:44,000
+finalmente, Assert That, result, 
+
+27
+00:01:44,000 --> 00:01:48,000
+igual a 70 dlares.
+
+28
+00:01:48,000 --> 00:01:52,000
+Vamos rodar esse teste.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ok, passou bonito. Agora, de volta 
+
+30
+00:01:56,000 --> 00:02:00,000
+nossa turma de produtos, mostrarei o que acontece
+
+31
+00:02:00,000 --> 00:02:04,000
+quando voc abusar de brincadeiras. Ento as pessoas que abusam
+
+32
+00:02:04,000 --> 00:02:08,000
+de brincadeiras extraem (? ) eles na interface de todas as classes. Ento, aqui, vamos
+
+33
+00:02:08,000 --> 00:02:12,000
+Extrair uma interface da classe de cliente, refatorar
+
+34
+00:02:12,000 --> 00:02:16,000
+uma interface de extrao. Ns chamamos isso de
+
+35
+00:02:16,000 --> 00:02:20,000
+iCustomer com uma propriedade, ok? E, em seguida, no
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo GetPrice, em vez do Cliente, voc passa
+
+37
+00:02:24,000 --> 00:02:28,000
+um objeto ICustomer. Agora, de volta ao nosso teste
+
+38
+00:02:28,000 --> 00:02:32,000
+de unidade, o teste de unidade atual est funcionando, porque esse objeto
+
+39
+00:02:32,000 --> 00:02:36,000
+de cliente estamos passando,  claro, ele implementa a interface ICustomer, ento
+
+40
+00:02:36,000 --> 00:02:40,000
+este teste est perfeitamente bem. No entanto, as pessoas que usam
+
+41
+00:02:40,000 --> 00:02:44,000
+mocks em todos os lugares, no escrevem um teste de unidade como este.
+
+42
+00:02:44,000 --> 00:02:48,000
+Em vez disso, eles escrevem um teste de unidade como este. Ento, vou duplicar isso
+
+43
+00:02:48,000 --> 00:02:52,000
+e mudar o nome do segundo mtodo de
+
+44
+00:02:52,000 --> 00:02:56,000
+teste, vamos adicionar dois no final, para podermos
+
+45
+00:02:56,000 --> 00:03:00,000
+compar-los lado a lado. Ento, aqui precisamos
+
+46
+00:03:00,000 --> 00:03:04,000
+criar um objeto simulado, ento
+
+47
+00:03:04,000 --> 00:03:08,000
+var customer  um novo
+
+48
+00:03:08,000 --> 00:03:12,000
+Mock of ICustomer. E ento precisamos programar
+
+49
+00:03:12,000 --> 00:03:16,000
+essa simulao, ento, cliente. Configurao.
+
+50
+00:03:16,000 --> 00:03:20,000
+C vai para c. IsGold
+
+51
+00:03:20,000 --> 00:03:24,000
+Retorna verdadeiro.
+
+52
+00:03:24,000 --> 00:03:28,000
+OK. E ento, em vez de
+
+53
+00:03:28,000 --> 00:03:32,000
+passar um novo objeto de cliente, passamos pelo cliente. Objeto. Compare esses dois testes lado
+
+54
+00:03:32,000 --> 00:03:36,000
+a lado. Qual deles  mais simples? Qual deles  mais limpo?
+
+55
+00:03:36,000 --> 00:03:40,000
+Qual deles  mais fcil de entender? Claro que o primeiro.
+
+56
+00:03:40,000 --> 00:03:44,000
+E aqui, voc est lidando com um exemplo muito simples. Ento, nosso teste unitrio tem duas linhas
+
+57
+00:03:44,000 --> 00:03:48,000
+extras de cdigo como essa configurao de
+
+58
+00:03:48,000 --> 00:03:52,000
+um objeto simulado, imagine em um cenrio da vida real onde voc est lidando
+
+59
+00:03:52,000 --> 00:03:56,000
+com um cdigo mais complexo, voc vai ter alguns objetos simulados, se voc estiver
+
+60
+00:03:56,000 --> 00:04:00,000
+vai zombar de tudo, e seus testes comeam a ficar realmente confusos.
+
+61
+00:04:00,000 --> 00:04:04,000
+Voc ter um teste que leva o script inteiro de cima para baixo.
+
+62
+00:04:04,000 --> 00:04:08,000
+Seus testes devem estar idealmente dentro de 3-5 linhas de cdigo.
+
+63
+00:04:08,000 --> 00:04:12,000
+Este  um teste unitrio ideal. Mas  claro que, em situaes da vida real, nem
+
+64
+00:04:12,000 --> 00:04:16,000
+sempre  possvel escrever testes
+
+65
+00:04:16,000 --> 00:04:20,000
+de unidade to curtos, mas se voc seguir as melhores
+
+66
+00:04:20,000 --> 00:04:24,000
+prticas que eu lhe ensinei neste curso, voc poder obter
+
+67
+00:04:24,000 --> 00:04:28,000
+testes pequenos, fceis de manter e confiveis. . Ento, 3-5 linhas  ideal, at mesmo 5-10 linhas esto
+
+68
+00:04:28,000 --> 00:04:32,000
+bem, contanto que voc no
+
+69
+00:04:32,000 --> 00:04:36,000
+esteja fazendo esse tipo de zombaria, isso  muito, muito
+
+70
+00:04:36,000 --> 00:04:40,000
+ruim e eu costumava fazer isso antes, e eu percebi
+
+71
+00:04:40,000 --> 00:04:44,000
+o maneira difcil que esta  uma receita para o desastre. Ento, mais uma vez, use mocks, mas removendo recursos externos
+
+72
+00:04:44,000 --> 00:04:48,000
+de seus testes de unidade.
+
+73
+00:04:48,000 --> 00:04:52,000
+&nbsp;
+

@@ -1,0 +1,320 @@
+1
+00:00:00,000 --> 00:00:04,000
+En la ltima conferencia, hemos cambiado el nombre de esta clase
+
+2
+00:00:04,000 --> 00:00:08,000
+a ReservationTests pero, al parecer, la funcin de refactorizacin renombrada en
+
+3
+00:00:08,000 --> 00:00:12,000
+Visual Studio no funcion correctamente, porque el nombre del archivo sigue
+
+4
+00:00:12,000 --> 00:00:16,000
+siendo de prueba unitaria. Por lo tanto,
+
+5
+00:00:16,000 --> 00:00:20,000
+cambiar el nombre a ReservationTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+cs. Con esta convencin, puede
+
+7
+00:00:24,000 --> 00:00:28,000
+encontrar fcilmente todas las pruebas para una clase determinada.
+
+8
+00:00:28,000 --> 00:00:32,000
+De acuerdo, hermosa, ahora vamos a
+
+9
+00:00:32,000 --> 00:00:36,000
+escribir la segunda prueba de unidad.
+
+10
+00:00:36,000 --> 00:00:40,000
+Por lo tanto, voy a escribir un mtodo pblico
+
+11
+00:00:40,000 --> 00:00:44,000
+vaco y, por cierto, todos sus mtodos de prueba
+
+12
+00:00:44,000 --> 00:00:48,000
+deben ser pblicos vacos. Entonces, aqu vamos a usar
+
+13
+00:00:48,000 --> 00:00:52,000
+nuestra convencin para llamar a este mtodo, la primera
+
+14
+00:00:52,000 --> 00:00:56,000
+parte es el mtodo en la prueba, es CanBeCancelledBy.
+
+15
+00:00:56,000 --> 00:01:00,000
+La segunda parte es el escenario, as que digamos que
+
+16
+00:01:00,000 --> 00:01:04,000
+queremos probar el escenario donde el mismo usuario que realiz
+
+17
+00:01:04,000 --> 00:01:08,000
+la reserva desea cancelar esta reserva. Entonces,
+
+18
+00:01:08,000 --> 00:01:12,000
+SameUserCancellingThe Reservation.
+
+19
+00:01:12,000 --> 00:01:16,000
+Ahora la tercera parte es
+
+20
+00:01:16,000 --> 00:01:20,000
+el comportamiento esperado, qu esperamos que regrese este mtodo?
+
+21
+00:01:20,000 --> 00:01:24,000
+Debera volverse
+
+22
+00:01:24,000 --> 00:01:28,000
+cierto, est bien?
+
+23
+00:01:28,000 --> 00:01:32,000
+Ahora, dentro de este mtodo, debemos tener tres partes
+
+24
+00:01:32,000 --> 00:01:36,000
+para organizar, actuar y afirmar. En la ltima conferencia agregu comentarios
+
+25
+00:01:36,000 --> 00:01:40,000
+para separar las partes de organizar, actuar y afirmar, pero en un
+
+26
+00:01:40,000 --> 00:01:44,000
+escenario del mundo real no necesariamente tenemos que hacer esto, si su
+
+27
+00:01:44,000 --> 00:01:48,000
+mtodo de prueba es corto y limpio. Entonces, en la parte de arreglos, voy
+
+28
+00:01:48,000 --> 00:01:52,000
+a crear un nuevo objeto de reserva. Entonces, la reserva
+
+29
+00:01:52,000 --> 00:01:56,000
+es una nueva reserva, en los
+
+30
+00:01:56,000 --> 00:02:00,000
+actos, voy a llamar a la
+
+31
+00:02:00,000 --> 00:02:04,000
+reserva, que CanBeCancelledBy ahora aqu quiero
+
+32
+00:02:04,000 --> 00:02:08,000
+simular un escenario donde el mismo
+
+33
+00:02:08,000 --> 00:02:12,000
+usuario est cancelando esta reserva, as
+
+34
+00:02:12,000 --> 00:02:16,000
+que voy a crear un objeto
+
+35
+00:02:16,000 --> 00:02:20,000
+de usuario aqu y, antes que
+
+36
+00:02:20,000 --> 00:02:24,000
+nada, configure la propiedad MadeBy para
+
+37
+00:02:24,000 --> 00:02:28,000
+este usuario. Entonces este usuario cre esta reservacin antes.
+
+38
+00:02:28,000 --> 00:02:32,000
+Ahora, quiero pasar el mismo objeto de
+
+39
+00:02:32,000 --> 00:02:36,000
+usuario como argumento a este mtodo, usuario,
+
+40
+00:02:36,000 --> 00:02:40,000
+ahora obtenemos el resultado y lo almacenamos.
+
+41
+00:02:40,000 --> 00:02:44,000
+Y finalmente haz una afirmacin. Entonces, afirmamos.
+
+42
+00:02:44,000 --> 00:02:48,000
+Ese resultado es verdad.
+
+43
+00:02:48,000 --> 00:02:52,000
+Entonces ahora con estos espacios verticales que he agregado en
+
+44
+00:02:52,000 --> 00:02:56,000
+el cdigo, podemos ver las partes Arrange, the Act y Assert.
+
+45
+00:02:56,000 --> 00:03:00,000
+De vuelta en nuestra prueba, ventana de exportacin, ejecutemos todas
+
+46
+00:03:00,000 --> 00:03:04,000
+las pruebas, por lo que tenemos una prueba de falla,
+
+47
+00:03:04,000 --> 00:03:08,000
+y esto es porque en la ltima conferencia cre un
+
+48
+00:03:08,000 --> 00:03:12,000
+error en nuestro cdigo, as que permtanme cambiar esto aqu
+
+49
+00:03:12,000 --> 00:03:16,000
+volvemos cierto, ahora de nuevo a nuestra clase de prueba,
+
+50
+00:03:16,000 --> 00:03:20,000
+este nuevo mtodo que he creado aqu no es recogido
+
+51
+00:03:20,000 --> 00:03:24,000
+por un explorador de prueba. No vemos eso aqu.
+
+52
+00:03:24,000 --> 00:03:28,000
+Por qu? Porque olvidamos decorarlo con
+
+53
+00:03:28,000 --> 00:03:32,000
+el atributo TestMethod. Es por eso que
+
+54
+00:03:32,000 --> 00:03:36,000
+debe decorar cada mtodo de prueba con
+
+55
+00:03:36,000 --> 00:03:40,000
+este atributo, para que pueda ser recogido
+
+56
+00:03:40,000 --> 00:03:44,000
+por el corredor de prueba, ahora guardar,
+
+57
+00:03:44,000 --> 00:03:48,000
+de nuevo en el Explorador de prueba,
+
+58
+00:03:48,000 --> 00:03:52,000
+ejecutar todo, ahora tenemos dos exmenes aprobados,
+
+59
+00:03:52,000 --> 00:03:56,000
+hermoso, ahora, escribamos el ltima prueba, as
+
+60
+00:03:56,000 --> 00:04:00,000
+que voy a comenzar con el mtodo
+
+61
+00:04:00,000 --> 00:04:04,000
+de prueba, luego el vaco pblico, CanBeCancelledBy
+
+62
+00:04:04,000 --> 00:04:08,000
+el tercer escenario es un usuario que
+
+63
+00:04:08,000 --> 00:04:12,000
+intenta cancelar la reserva de otra persona. Por lo
+
+64
+00:04:12,000 --> 00:04:16,000
+tanto, otro usuario CancellingReservation.
+
+65
+00:04:16,000 --> 00:04:20,000
+Cul es el comportamiento esperado? Este mtodo debera
+
+66
+00:04:20,000 --> 00:04:24,000
+devolver falso, as que devuelve falso.
+
+67
+00:04:28,000 --> 00:04:32,000
+Una vez ms, en la parte de arreglos,
+
+68
+00:04:32,000 --> 00:04:36,000
+voy a crear un objeto de reserva, una
+
+69
+00:04:36,000 --> 00:04:40,000
+nueva reserva y una parte de acto que
+
+70
+00:04:40,000 --> 00:04:44,000
+llamamos CanBeCancelledBy, ahora aqu queremos tratar con dos
+
+71
+00:04:44,000 --> 00:04:48,000
+objetos de usuario diferentes. As que aqu puedo
+
+72
+00:04:48,000 --> 00:04:52,000
+pasar el objeto del usuario y, al
+
+73
+00:04:52,000 --> 00:04:56,000
+inicializar la reserva, puedo configurar MadeBy en
+
+74
+00:04:56,000 --> 00:05:00,000
+un objeto Usuario diferente. Y finalmente, tenemos
+
+75
+00:05:00,000 --> 00:05:04,000
+que almacenar el resultado aqu, y
+
+76
+00:05:04,000 --> 00:05:08,000
+afirmar que el resultado es falso.
+
+77
+00:05:08,000 --> 00:05:12,000
+Entonces IsFalse, resultado. Ahora, ejecutemos
+
+78
+00:05:12,000 --> 00:05:16,000
+todas las pruebas.
+
+79
+00:05:16,000 --> 00:05:20,000
+Entonces tenemos tres exmenes
+
+80
+00:05:20,000 --> 00:05:22,600
+aprobados, hermoso.
+

@@ -1,0 +1,484 @@
+1
+00:00:00,000 --> 00:00:04,000
+De acuerdo, ahora en nuestro proyecto
+
+2
+00:00:04,000 --> 00:00:08,000
+de pruebas unitarias, en la carpeta
+
+3
+00:00:08,000 --> 00:00:12,000
+Mocking, agreguemos una nueva clase de
+
+4
+00:00:12,000 --> 00:00:16,000
+prueba llamada InstallerHelper Tests.
+
+5
+00:00:16,000 --> 00:00:20,000
+Decoramos esto con accesorio de prueba.
+
+6
+00:00:20,000 --> 00:00:24,000
+Y tambin crea un mtodo de configuracin, mtodo
+
+7
+00:00:24,000 --> 00:00:28,000
+de vaco pblico, configuracin y decora esto con
+
+8
+00:00:28,000 --> 00:00:32,000
+el atributo de configuracin. Ahora aqu tenemos que
+
+9
+00:00:32,000 --> 00:00:36,000
+burlar la interfaz IFileDownloader. Entonces, crear
+
+10
+00:00:36,000 --> 00:00:40,000
+un campo privado llamado _file
+
+11
+00:00:40,000 --> 00:00:44,000
+Downloader y lo inicializar a
+
+12
+00:00:44,000 --> 00:00:48,000
+una nueva instancia de Mock
+
+13
+00:00:48,000 --> 00:00:52,000
+of IFile Downloader. Ahora aqu podemos presionar alt
+
+14
+00:00:52,000 --> 00:00:56,000
+y enter para crear un campo privado con este nombre.
+
+15
+00:00:56,000 --> 00:01:00,000
+Entonces, aqu est nuestro campo privado, del tipo simulacro
+
+16
+00:01:00,000 --> 00:01:04,000
+de IFileDownloader, de acuerdo? Ahora de manera similar,
+
+17
+00:01:04,000 --> 00:01:08,000
+necesitamos un ayudante de instalador. Por lo tanto,
+
+18
+00:01:08,000 --> 00:01:12,000
+Installer Helper es un nuevo InstallerHelper
+
+19
+00:01:12,000 --> 00:01:16,000
+que toma un objeto FileDownloader para
+
+20
+00:01:16,000 --> 00:01:20,000
+que pasemos fileDownloader. objeto.
+
+21
+00:01:20,000 --> 00:01:24,000
+Y luego, use el IDE para crear este
+
+22
+00:01:24,000 --> 00:01:28,000
+campo privado. Hermosa. Entonces, nuestra configuracin est
+
+23
+00:01:28,000 --> 00:01:32,000
+lista ahora, vamos a crear nuestro primer mtodo de prueba.
+
+24
+00:01:32,000 --> 00:01:36,000
+As que pruebe el vaco pblico,
+
+25
+00:01:36,000 --> 00:01:40,000
+el mtodo se llama DownloadInstaller.
+
+26
+00:01:40,000 --> 00:01:44,000
+El primer escenario es donde falla la
+
+27
+00:01:44,000 --> 00:01:48,000
+descarga, por lo tanto, DownloadFails, este mtodo
+
+28
+00:01:48,000 --> 00:01:52,000
+debe devolver False. Ahora en la parte de
+
+29
+00:01:52,000 --> 00:01:56,000
+arreglos necesitamos programar nuestro simulacro. Entonces, fileDownloader, usamos el
+
+30
+00:01:56,000 --> 00:02:00,000
+mtodo de instalacin, ahora pasamos una expresin lambda,
+
+31
+00:02:00,000 --> 00:02:04,000
+fileDownloader va cuando llamamos al mtodo DownloadFile, y
+
+32
+00:02:04,000 --> 00:02:08,000
+le damos dos argumentos, en este caso voy
+
+33
+00:02:08,000 --> 00:02:12,000
+a pasar cadena vaca y le dir por
+
+34
+00:02:12,000 --> 00:02:16,000
+qu en un segundo. Entonces este mtodo, debera
+
+35
+00:02:16,000 --> 00:02:20,000
+arrojar una excepcin. As que arroja una
+
+36
+00:02:20,000 --> 00:02:24,000
+excepcin web porque ese es el tipo de exencin
+
+37
+00:02:24,000 --> 00:02:28,000
+que tenemos en nuestro bloque catch aqu, est bien.
+
+38
+00:02:28,000 --> 00:02:32,000
+As que aqu est la parte de arreglos,
+
+39
+00:02:32,000 --> 00:02:36,000
+ahora tenemos que actuar, as que installerHelper.
+
+40
+00:02:36,000 --> 00:02:40,000
+DescargarInstaller. Aqu tenemos que pasar dos argumentos.
+
+41
+00:02:40,000 --> 00:02:44,000
+El primero es el cliente y el segundo es el nombre del instalador.
+
+42
+00:02:44,000 --> 00:02:48,000
+As que puedo pasar aa y b como valores
+
+43
+00:02:48,000 --> 00:02:52,000
+simples, pero alguien que mira este cdigo, no sabe
+
+44
+00:02:52,000 --> 00:02:56,000
+exactamente cules son estos valores. Entonces, en este caso voy a romper
+
+45
+00:02:56,000 --> 00:03:00,000
+las reglas que te dije antes, y usar un nombre descriptivo, por lo
+
+46
+00:03:00,000 --> 00:03:04,000
+tanto, cliente e instalador. Esto hace que nuestra prueba sea ms real (? )
+
+47
+00:03:04,000 --> 00:03:08,000
+Ahora obtenemos el resultado,
+
+48
+00:03:08,000 --> 00:03:12,000
+y afirmamos que el
+
+49
+00:03:12,000 --> 00:03:16,000
+resultado es falso. Hagamos la
+
+50
+00:03:16,000 --> 00:03:20,000
+prueba y veamos qu pasa.
+
+51
+00:03:20,000 --> 00:03:24,000
+Nuestra prueba fall. Esperbamos que fuera falso, pero
+
+52
+00:03:24,000 --> 00:03:28,000
+nos hicimos realidad. Cmo ocurri eso? Bueno, algo interesante
+
+53
+00:03:28,000 --> 00:03:32,000
+acerca de estos objetos simulados que debes saber es que
+
+54
+00:03:32,000 --> 00:03:36,000
+cuando los programes usando el mtodo de configuracin, este comportamiento
+
+55
+00:03:36,000 --> 00:03:40,000
+lo defines en este caso, lanzando una excepcin web solo
+
+56
+00:03:40,000 --> 00:03:44,000
+ocurre cuando llamamos a este mtodo de archivo de descarga
+
+57
+00:03:44,000 --> 00:03:48,000
+exactamente los mismos argumentos . En otras palabras, si
+
+58
+00:03:48,000 --> 00:03:52,000
+pasa cualquier otro argumento, este comportamiento no suceder.
+
+59
+00:03:52,000 --> 00:03:56,000
+Entonces ese mtodo no har nada. En este caso, en
+
+60
+00:03:56,000 --> 00:04:00,000
+nuestra clase de ayuda de instalacin, este es
+
+61
+00:04:00,000 --> 00:04:04,000
+el argumento que estamos aprobando para un FileDownloader.
+
+62
+00:04:04,000 --> 00:04:08,000
+Entonces, para arreglar nuestra prueba, necesitamos reemplazar
+
+63
+00:04:08,000 --> 00:04:12,000
+esta cadena vaca con una url como
+
+64
+00:04:12,000 --> 00:04:16,000
+esta, http ejemplo. com /
+
+65
+00:04:16,000 --> 00:04:20,000
+cliente / instalador. Y para el segundo
+
+66
+00:04:20,000 --> 00:04:24,000
+argumento, en lugar de una cadena vaca,
+
+67
+00:04:24,000 --> 00:04:28,000
+deberamos usar null. Porque si miras al
+
+68
+00:04:28,000 --> 00:04:32,000
+instalador helper, el segundo argumento es setupDestination
+
+69
+00:04:32,000 --> 00:04:36,000
+File, y este campo no se inicializa
+
+70
+00:04:36,000 --> 00:04:40,000
+en ninguna parte. Entonces, por defecto, es nulo. Ahora, de
+
+71
+00:04:40,000 --> 00:04:44,000
+vuelta a nuestra prueba. Con estos argumentos, si
+
+72
+00:04:44,000 --> 00:04:48,000
+ejecuta esta prueba, debera pasar. Vamos a verificar eso.
+
+73
+00:04:48,000 --> 00:04:52,000
+De acuerdo, hermosa, pas.
+
+74
+00:04:52,000 --> 00:04:56,000
+Sin embargo, no me gusta la forma en
+
+75
+00:04:56,000 --> 00:05:00,000
+que escribimos esta prueba. Se est poniendo un poco ruidoso,
+
+76
+00:05:00,000 --> 00:05:04,000
+es largo (? ) cuerda. Y este es un ejemplo simplificado. A veces, en
+
+77
+00:05:04,000 --> 00:05:08,000
+sus aplicaciones, es posible que ni siquiera tenga acceso a ese argumento que se
+
+78
+00:05:08,000 --> 00:05:12,000
+enva a un mtodo determinado, como DownloadFile. En ese caso,
+
+79
+00:05:12,000 --> 00:05:16,000
+desea programar este simulacro de forma
+
+80
+00:05:16,000 --> 00:05:20,000
+ms genrica. Entonces, en lugar de este
+
+81
+00:05:20,000 --> 00:05:24,000
+primer argumento, podemos pasarlo, esta es una de las clases
+
+82
+00:05:24,000 --> 00:05:28,000
+definidas en el simulacro. Tiene un mtodo llamado
+
+83
+00:05:28,000 --> 00:05:32,000
+IsAny que es genrico, luego pasamos una cadena.
+
+84
+00:05:32,000 --> 00:05:36,000
+Del mismo modo, voy a usar esto para el segundo argumento,
+
+85
+00:05:36,000 --> 00:05:40,000
+por lo que es cualquier cadena. Me gusta esto.
+
+86
+00:05:40,000 --> 00:05:44,000
+Ahora, nuestro simulacro es ms genrico.
+
+87
+00:05:44,000 --> 00:05:48,000
+Entonces, cuando llamemos a DownloadFile, con cualquier
+
+88
+00:05:48,000 --> 00:05:52,000
+argumento, lanzar esta excepcin web, est bien?
+
+89
+00:05:52,000 --> 00:05:56,000
+Ahora, finalmente, vamos a cambiar el formato de este cdigo para que sea un poco ms legible.
+
+90
+00:05:56,000 --> 00:06:00,000
+Me gusta esto. Hagamos la
+
+91
+00:06:00,000 --> 00:06:04,000
+prueba una vez ms.
+
+92
+00:06:04,000 --> 00:06:08,000
+Est pasando. Hermosa. Ahora, la segunda prueba.
+
+93
+00:06:08,000 --> 00:06:12,000
+Por lo tanto, para ahorrar tiempo,
+
+94
+00:06:12,000 --> 00:06:16,000
+voy a duplicar este mtodo, cambiar
+
+95
+00:06:16,000 --> 00:06:20,000
+el escenario de la descarga no
+
+96
+00:06:20,000 --> 00:06:24,000
+se completa la descarga y esperamos
+
+97
+00:06:24,000 --> 00:06:28,000
+ser cierto. As que aqu no necesitamos programar
+
+98
+00:06:28,000 --> 00:06:32,000
+nuestro simulacro, porque de manera predeterminada cuando llamamos a este mtodo
+
+99
+00:06:32,000 --> 00:06:36,000
+de archivo de descarga, no hace nada, no lanza una excepcin,
+
+100
+00:06:36,000 --> 00:06:40,000
+y tampoco esperamos un valor aqu. Entonces, borremos eso.
+
+101
+00:06:40,000 --> 00:06:44,000
+Y finalmente, confirmemos que el resultado es verdadero.
+
+102
+00:06:44,000 --> 00:06:48,000
+Vamos a ejecutar la prueba.
+
+103
+00:06:48,000 --> 00:06:52,000
+Hermosa. Ahora aqu hay una pregunta para ti.
+
+104
+00:06:52,000 --> 00:06:56,000
+Puede preguntar, Mosh, aqu estamos escribiendo una prueba para esta
+
+105
+00:06:56,000 --> 00:07:00,000
+excepcin web y afirmamos que el resultado debe ser falso.
+
+106
+00:07:00,000 --> 00:07:04,000
+Qu sucede si este mtodo de archivo de descarga arroja un tipo diferente
+
+107
+00:07:04,000 --> 00:07:08,000
+de excepcin en tiempo de ejecucin? Deberamos escribir otra prueba
+
+108
+00:07:08,000 --> 00:07:12,000
+y programar nuestro simulacro para arrojar un tipo
+
+109
+00:07:12,000 --> 00:07:16,000
+diferente de excepcin? No, no tenemos
+
+110
+00:07:16,000 --> 00:07:20,000
+que hacer eso. Porque todo el propsito de este mtodo.
+
+111
+00:07:20,000 --> 00:07:24,000
+es devolver verdadero si la descarga se completa, y
+
+112
+00:07:24,000 --> 00:07:28,000
+falso, si falla la descarga. As que la excepcin web es especficamente el tipo
+
+113
+00:07:28,000 --> 00:07:32,000
+de excepcin que puede ocurrir al descargar un archivo. Si obtiene un tipo diferente
+
+114
+00:07:32,000 --> 00:07:36,000
+de excepcin, digamos excepcin de referencia nula o excepcin
+
+115
+00:07:36,000 --> 00:07:40,000
+de argumento fuera de rango, o excepcin de divisin
+
+116
+00:07:40,000 --> 00:07:44,000
+por cero, no queremos ocultar esa excepcin al devolver falsa.
+
+117
+00:07:44,000 --> 00:07:48,000
+Entonces queremos que esa excepcin se propague, quizs haya un registrador de excepciones
+
+118
+00:07:48,000 --> 00:07:52,000
+en algn lugar programado globalmente, de modo que eso va a obtener esa
+
+119
+00:07:52,000 --> 00:07:56,000
+excepcin y registrarla en algn lugar. Solo queremos devolver falso
+
+120
+00:07:56,000 --> 00:08:00,000
+si obtenemos una excepcin web, y por esa misma
+
+121
+00:08:00,000 --> 00:08:04,000
+razn no necesitamos escribir otra prueba para este mtodo.
+

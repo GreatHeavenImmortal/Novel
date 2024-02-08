@@ -1,0 +1,349 @@
+1
+00:00:00,000 --> 00:00:04,000
+Earlier in this section, I told you
+
+2
+00:00:04,000 --> 00:00:08,000
+that good unit tests, should not be too specific or too general.
+
+3
+00:00:08,000 --> 00:00:12,000
+In this lecture, I'm going to show you examples of specific
+
+4
+00:00:12,000 --> 00:00:16,000
+and general tests. So here in the fundamentals folder,
+
+5
+00:00:16,000 --> 00:00:20,000
+we have this class HtmlFormatter.
+
+6
+00:00:20,000 --> 00:00:24,000
+So a simple method, FormatAsBold
+
+7
+00:00:24,000 --> 00:00:28,000
+takes a string and simply wraps it with a strong element.
+
+8
+00:00:28,000 --> 00:00:32,000
+You want to write a test for this method. So,
+
+9
+00:00:32,000 --> 00:00:36,000
+in our unit testing project, I'm going to add a new class,
+
+10
+00:00:36,000 --> 00:00:40,000
+HtmlFormatterTests.
+
+11
+00:00:40,000 --> 00:00:44,000
+Let's add Test
+
+12
+00:00:44,000 --> 00:00:48,000
+Fixture attribute here. Correct the test method.
+
+13
+00:00:48,000 --> 00:00:52,000
+public void.
+
+14
+00:00:52,000 --> 00:00:56,000
+FormatAsBoldWhenCalled
+
+15
+00:00:56,000 --> 00:01:00,000
+ShouldEnclosetheString
+
+16
+00:01:00,000 --> 00:01:04,000
+WithStrongElement.
+
+17
+00:01:04,000 --> 00:01:08,000
+So, let's create a new instance of this class.
+
+18
+00:01:08,000 --> 00:01:12,000
+Formatter is a new HtmlFormatter,
+
+19
+00:01:12,000 --> 00:01:16,000
+so we call
+
+20
+00:01:16,000 --> 00:01:20,000
+FormatAsBold, give it a message, like ABC.
+
+21
+00:01:20,000 --> 00:01:24,000
+A simple string, we don't have to make it complicated, we get
+
+22
+00:01:24,000 --> 00:01:28,000
+the result, now we need to make an Assertion.
+
+23
+00:01:28,000 --> 00:01:32,000
+I'm going to show you different ways to write assertions here, some of these Assertions
+
+24
+00:01:32,000 --> 00:01:36,000
+are more specific, some are more general, and then I will give you guidelines
+
+25
+00:01:36,000 --> 00:01:40,000
+about what is a better solution in this case. So,
+
+26
+00:01:40,000 --> 00:01:44,000
+here is an example of a Specific Assertion.
+
+27
+00:01:44,000 --> 00:01:48,000
+Assert That
+
+28
+00:01:48,000 --> 00:01:52,000
+result, Is Equal to
+
+29
+00:01:52,000 --> 00:01:56,000
+we have this strong element, we have abc
+
+30
+00:01:56,000 --> 00:02:00,000
+and then /strong. This Assertion
+
+31
+00:02:00,000 --> 00:02:04,000
+is specific, because we are verifying the exact
+
+32
+00:02:04,000 --> 00:02:08,000
+string that we should get from this method.
+
+33
+00:02:08,000 --> 00:02:12,000
+In this particular case, this is a good solution, because what
+
+34
+00:02:12,000 --> 00:02:16,000
+comes out of this method is important, we want to make sure that message is
+
+35
+00:02:16,000 --> 00:02:20,000
+properly formatted as bold. But sometimes your method might return
+
+36
+00:02:20,000 --> 00:02:24,000
+an error message. You don't want to write specific assertions
+
+37
+00:02:24,000 --> 00:02:28,000
+there, because it is possible that you might modify that error message in the future.
+
+38
+00:02:28,000 --> 00:02:32,000
+You may add a period, you may add an exclamation mark, you may add
+
+39
+00:02:32,000 --> 00:02:36,000
+or remove a few words, if you're test is specific and is
+
+40
+00:02:36,000 --> 00:02:40,000
+looking for the exact same error message, every time you change that error message
+
+41
+00:02:40,000 --> 00:02:44,000
+that test is going to break. That's why I said your tests should
+
+42
+00:02:44,000 --> 00:02:48,000
+not be too specific. In contrast, they should not be too
+
+43
+00:02:48,000 --> 00:02:52,000
+general, because if they are too general, they may pass all the time
+
+44
+00:02:52,000 --> 00:02:56,000
+even if your production code has an issue. So let me show you a more general
+
+45
+00:02:56,000 --> 00:03:00,000
+way of writing an Assertion here.
+
+46
+00:03:00,000 --> 00:03:04,000
+More general, this time
+
+47
+00:03:04,000 --> 00:03:08,000
+we want to Assert That this result starts
+
+48
+00:03:08,000 --> 00:03:12,000
+with strong element. So, instead of using the
+
+49
+00:03:12,000 --> 00:03:16,000
+Is class, we're going to use Does.
+
+50
+00:03:16,000 --> 00:03:20,000
+Again here we have a few static helper methods,
+
+51
+00:03:20,000 --> 00:03:24,000
+so Does StartWith strong.
+
+52
+00:03:24,000 --> 00:03:28,000
+So imagine, this is the only
+
+53
+00:03:28,000 --> 00:03:32,000
+Assertion I have in this test method. All this
+
+54
+00:03:32,000 --> 00:03:36,000
+method is looking for is the presence of strong at the beginning
+
+55
+00:03:36,000 --> 00:03:40,000
+of the string that we get from this method. It is possible
+
+56
+00:03:40,000 --> 00:03:44,000
+that we have a bug here, so instead of returning
+
+57
+00:03:44,000 --> 00:03:48,000
+this string, we return
+
+58
+00:03:48,000 --> 00:03:52,000
+just this. That test will easily pass.
+
+59
+00:03:52,000 --> 00:03:56,000
+Because it's too general, right? Now,
+
+60
+00:03:56,000 --> 00:04:00,000
+we can make this a little bit more specific, so we can
+
+61
+00:04:00,000 --> 00:04:04,000
+duplicate this Assertion and also check that this
+
+62
+00:04:04,000 --> 00:04:08,000
+string ends with /strong.
+
+63
+00:04:08,000 --> 00:04:12,000
+Now, if you return
+
+64
+00:04:12,000 --> 00:04:16,000
+strong, that test is gonna fail.
+
+65
+00:04:16,000 --> 00:04:20,000
+So, we should make sure to add strong at the end as well.
+
+66
+00:04:20,000 --> 00:04:24,000
+But we still have a bug here, because we have not included
+
+67
+00:04:24,000 --> 00:04:28,000
+this content here. So back to our test method,
+
+68
+00:04:28,000 --> 00:04:32,000
+we can add another Assertion that
+
+69
+00:04:32,000 --> 00:04:36,000
+this result Does Contain a
+
+70
+00:04:36,000 --> 00:04:40,000
+bc. So here's the takeaway, when
+
+71
+00:04:40,000 --> 00:04:44,000
+testing strings, its better if your Assertions are a little bit
+
+72
+00:04:44,000 --> 00:04:48,000
+more general, because if they are too specific, your tests can break easily,
+
+73
+00:04:48,000 --> 00:04:52,000
+However, in this particular case, I'm going to go
+
+74
+00:04:52,000 --> 00:04:56,000
+for the first solution, so I want to make sure
+
+75
+00:04:56,000 --> 00:05:00,000
+that this is exactly what we get from this method, otherwise,
+
+76
+00:05:00,000 --> 00:05:04,000
+we may end up with a bad HTML document. But if this
+
+77
+00:05:04,000 --> 00:05:08,000
+method was returning some kind of error message, I could use these methods
+
+78
+00:05:08,000 --> 00:05:12,000
+to start with end with, and Contain, to look for
+
+79
+00:05:12,000 --> 00:05:16,000
+specific words in that error message. One last
+
+80
+00:05:16,000 --> 00:05:20,000
+thing, when you are writing Assertions against strings, by default
+
+81
+00:05:20,000 --> 00:05:24,000
+these Assertions are case sensitive, if you want to
+
+82
+00:05:24,000 --> 00:05:28,000
+disable that, you can use the ignore case property.
+
+83
+00:05:28,000 --> 00:05:32,000
+So here, after calling the equal to method, we can chain
+
+84
+00:05:32,000 --> 00:05:36,000
+this property IgnoreCase.
+
+85
+00:05:36,000 --> 00:05:40,000
+We can also use the same technique when writing more general Assertions.
+
+86
+00:05:40,000 --> 00:05:44,000
+So we can say results should start with strong
+
+87
+00:05:44,000 --> 00:05:48,000
+and we don't care about the case sensitivity.
+
+

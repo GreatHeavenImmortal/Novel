@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en la ltima conferencia, le mostr esta tcnica
+
+2
+00:00:04,000 --> 00:00:08,000
+para inyectar un FileReader real o falso para este
+
+3
+00:00:08,000 --> 00:00:12,000
+objeto de servicio de video. Este enfoque funciona,
+
+4
+00:00:12,000 --> 00:00:16,000
+pero no es ideal en aplicaciones empresariales.
+
+5
+00:00:16,000 --> 00:00:20,000
+Debido a que en una aplicacin del mundo real esta clase puede tener
+
+6
+00:00:20,000 --> 00:00:24,000
+un par de dependencias ms, no desea repetir esta expresin varias veces y
+
+7
+00:00:24,000 --> 00:00:28,000
+tambin hacer que estos parmetros sean opcionales. Se ve un poco feo.
+
+8
+00:00:28,000 --> 00:00:32,000
+Es por eso que nos referimos a este enfoque como la
+
+9
+00:00:32,000 --> 00:00:36,000
+inyeccin de dependencia de Pobre. En una aplicacin como una empresa
+
+10
+00:00:36,000 --> 00:00:40,000
+real, no quieres hacer esto. Desea mantener su cdigo
+
+11
+00:00:40,000 --> 00:00:44,000
+lo ms simple posible. Es por eso que usamos un marco de inyeccin de dependencia.
+
+12
+00:00:44,000 --> 00:00:48,000
+Cuando utiliza un marco adecuado de inyeccin de dependencias
+
+13
+00:00:48,000 --> 00:00:52,000
+en su aplicacin, puede simplificar este constructor a algo
+
+14
+00:00:56,000 --> 00:01:00,000
+como esto, como este. Es mucho ms simple. Entonces, un marco
+
+15
+00:01:00,000 --> 00:01:04,000
+de inyeccin de dependencia se ocupar de crear e inicializar
+
+16
+00:01:04,000 --> 00:01:08,000
+objetos en tiempo de ejecucin. Existen varios frameworks de
+
+17
+00:01:08,000 --> 00:01:12,000
+inyeccin de dependencia. Tenemos el nombre Jack (? ), tenemos un
+
+18
+00:01:12,000 --> 00:01:16,000
+mapa de estructura, primavera. net, autofac, unity, etc.
+
+19
+00:01:16,000 --> 00:01:20,000
+Casi todos estos marcos siguen los mismos principios.
+
+20
+00:01:20,000 --> 00:01:24,000
+En un marco de inyeccin de dependencia, tiene un
+
+21
+00:01:24,000 --> 00:01:28,000
+contenedor, este contenedor es un registro de todas sus
+
+22
+00:01:28,000 --> 00:01:32,000
+interfaces y sus implementaciones. Cuando se inicia la aplicacin,
+
+23
+00:01:32,000 --> 00:01:36,000
+el marco de inyeccin de dependencias se encargar automticamente de crear
+
+24
+00:01:36,000 --> 00:01:40,000
+grficos de objetos en funcin de las interfaces y los tipos
+
+25
+00:01:40,000 --> 00:01:44,000
+registrados en el contenedor. Por ejemplo, en una ASP. Aplicacin de
+
+26
+00:01:44,000 --> 00:01:48,000
+dependencia NET, cuando recibe una solicitud en
+
+27
+00:01:48,000 --> 00:01:52,000
+el servidor, ASP. NET tiempo de ejecucin. Debera crear una instancia
+
+28
+00:01:52,000 --> 00:01:56,000
+de una clase de controlador. Su controlador puede tener una o ms dependencias.
+
+29
+00:01:56,000 --> 00:02:00,000
+Digamos IFileReader. En este punto, se
+
+30
+00:02:00,000 --> 00:02:04,000
+inicia el framework de inyeccin de dependencias, que
+
+31
+00:02:04,000 --> 00:02:08,000
+mira los parmetros del contructor o controlador, luego
+
+32
+00:02:08,000 --> 00:02:12,000
+mira este contenedor o registro, y encuentra las
+
+33
+00:02:12,000 --> 00:02:16,000
+implementaciones concretas para estas interfaces referenciadas, las ejemplifica
+
+34
+00:02:16,000 --> 00:02:20,000
+y las pasa a su controlador. Si esos objetos tambin tienen dependencias,
+
+35
+00:02:20,000 --> 00:02:24,000
+su marco de inyeccin de dependencia (? ) se encargar de crear e
+
+36
+00:02:24,000 --> 00:02:28,000
+inicializar un grfico de objetos para usted. El uso de un marco de
+
+37
+00:02:28,000 --> 00:02:32,000
+inyeccin de dependencia va ms all del alcance de este curso y
+
+38
+00:02:32,000 --> 00:02:36,000
+es algo que debe investigar por su cuenta, ya que la implementacin
+
+39
+00:02:36,000 --> 00:02:40,000
+vara de un marco a otro, y tambin depende del tipo de
+
+40
+00:02:40,000 --> 00:02:44,000
+aplicacin que est creando. Por ejemplo, el conjunto de cdigos para usar
+
+41
+00:02:44,000 --> 00:02:48,000
+un marco de inyeccin de dependencias en un ASP. La aplicacin NET es
+
+42
+00:02:48,000 --> 00:02:52,000
+diferente de, digamos, una aplicacin Xamarin o WPF.
+
+43
+00:02:52,000 --> 00:02:56,000
+Incluso es diferente entre las diferentes versiones de ASP. RED. MPC. Entonces, si quieres mi recomendacin, dira
+
+44
+00:02:56,000 --> 00:03:00,000
+que debes ir con Ninject o
+
+45
+00:03:00,000 --> 00:03:04,000
+Aurofac. Estos son los dos frameworks populares de inyeccin de dependencia que existen.
+
+46
+00:03:04,000 --> 00:03:08,000
+Al final puede ser parte de un equipo, y su equipo ms tarde
+
+47
+00:03:08,000 --> 00:03:12,000
+puede amar un marco de inyeccin de dependencia diferente, eso est perfectamente bien. No te cuelgues de
+
+48
+00:03:12,000 --> 00:03:16,000
+las herramientas. Por lo tanto, elija uno de
+
+49
+00:03:16,000 --> 00:03:20,000
+estos marcos de inyeccin de dependencia
+
+50
+00:03:20,000 --> 00:03:24,000
+y lea su documentacin sobre lo que debe hacer para usarlos en sus aplicaciones.
+
+51
+00:03:24,000 --> 00:03:26,000
+&nbsp;
+

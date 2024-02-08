@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now its time for an exercise.
+
+2
+00:00:04,000 --> 00:00:08,000
+So, in the fundamentals folder, open up
+
+3
+00:00:08,000 --> 00:00:12,000
+this file. FizzBuzz.
+
+4
+00:00:12,000 --> 00:00:16,000
+In case you have never seen FizzBuzz before, it's basically one of the
+
+5
+00:00:16,000 --> 00:00:20,000
+questions that sometimes comes in programming interviews.
+
+6
+00:00:20,000 --> 00:00:24,000
+So the interviewer may ask you to write a function that takes a
+
+7
+00:00:24,000 --> 00:00:28,000
+number and returns a string. If this number
+
+8
+00:00:28,000 --> 00:00:32,000
+is divisible by 3 and 5, the function should return
+
+9
+00:00:32,000 --> 00:00:36,000
+FizzBuzz. If the number is only divisible
+
+10
+00:00:36,000 --> 00:00:40,000
+by 3, it should return Fizz, if it's only divisible
+
+11
+00:00:40,000 --> 00:00:44,000
+by 5, it should return Buzz, otherwise it should return
+
+12
+00:00:44,000 --> 00:00:48,000
+the same number. Now there are various ways to implement
+
+13
+00:00:48,000 --> 00:00:52,000
+this function, this is just one way. What I want you to do now
+
+14
+00:00:52,000 --> 00:00:56,000
+is to write a bunch of unit tests for this function to make sure
+
+15
+00:00:56,000 --> 00:01:00,000
+this function is implemented properly. Once again,
+
+16
+00:01:00,000 --> 00:01:04,000
+do not rely on these execution paths, but use them as
+
+17
+00:01:04,000 --> 00:01:08,000
+a starting point. So think of this function, GetOutput,
+
+18
+00:01:08,000 --> 00:01:12,000
+as a black box. You know the FizzBuzz algorithm make sure
+
+19
+00:01:12,000 --> 00:01:16,000
+this function implements that algorithm properly.
+
+20
+00:01:16,000 --> 00:01:19,000
+In the next lecture, you're going to see my solution.
+

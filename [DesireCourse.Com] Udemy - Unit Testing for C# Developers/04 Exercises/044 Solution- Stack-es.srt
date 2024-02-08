@@ -1,0 +1,900 @@
+1
+00:00:00,000 --> 00:00:04,000
+Muy bien, aqu en nuestro proyecto de
+
+2
+00:00:04,000 --> 00:00:08,000
+pruebas unitarias, voy a agregar una nueva
+
+3
+00:00:08,000 --> 00:00:12,000
+clase llamada Stack Tests. Y como siempre, aplique
+
+4
+00:00:12,000 --> 00:00:16,000
+el atributo TestFixture, bien, estamos listos para escribir
+
+5
+00:00:16,000 --> 00:00:20,000
+nuestra primera prueba, ahora aqu estamos lidiando con
+
+6
+00:00:20,000 --> 00:00:24,000
+una situacin interesante. Si nos fijamos en la
+
+7
+00:00:24,000 --> 00:00:28,000
+implementacin de la pila, puede ver que tenemos el feed de
+
+8
+00:00:28,000 --> 00:00:32,000
+solo lectura privado de la lista de tipos, por lo que
+
+9
+00:00:32,000 --> 00:00:36,000
+este es el detalle interno o de implementacin de la pila,
+
+10
+00:00:36,000 --> 00:00:40,000
+y esta pila de miembros pblicos representa la API pblica o
+
+11
+00:00:40,000 --> 00:00:44,000
+la contrato pblico, para la interfaz pblica de esta clase.
+
+12
+00:00:44,000 --> 00:00:48,000
+En nuestras pruebas, solo debemos usar estos miembros pblicos. Entonces no estamos as que no vamos
+
+13
+00:00:48,000 --> 00:00:52,000
+a trabajar con este objeto de lista. Debido a que hay posibilidades en
+
+14
+00:00:52,000 --> 00:00:56,000
+el futuro, puede decidir utilizar una matriz en lugar de una lista.
+
+15
+00:00:56,000 --> 00:01:00,000
+O algn otro tipo de estructura de datos. Entonces, volvamos a nuestra
+
+16
+00:01:00,000 --> 00:01:04,000
+clase de prueba. As que primero voy a escribir un
+
+17
+00:01:04,000 --> 00:01:08,000
+par de pruebas para el mtodo push. Entonces, Push, ahora qu
+
+18
+00:01:08,000 --> 00:01:12,000
+es lo que probamos aqu? Nuestro mtodo Push
+
+19
+00:01:12,000 --> 00:01:16,000
+toma un objeto. Aqu tenemos que
+
+20
+00:01:16,000 --> 00:01:20,000
+probar 2 escenarios. Uno es donde el objeto es nulo,
+
+21
+00:01:20,000 --> 00:01:24,000
+en ese caso el mtodo push debera lanzar una excepcin argumentativa y nula.
+
+22
+00:01:24,000 --> 00:01:28,000
+El otro escenario que debemos probar es donde le damos un
+
+23
+00:01:28,000 --> 00:01:32,000
+objeto vlido y nos aseguramos de que el mtodo push tenga
+
+24
+00:01:32,000 --> 00:01:36,000
+este objeto para una pila. Entonces, el
+
+25
+00:01:36,000 --> 00:01:40,000
+primer escenario es ArgumentIsNull,
+
+26
+00:01:40,000 --> 00:01:44,000
+debera lanzar ArgumentNull Exception.
+
+27
+00:01:44,000 --> 00:01:48,000
+Entonces, voy a crear una pila, una nueva Pila,
+
+28
+00:01:48,000 --> 00:01:52,000
+tenga en cuenta que tenemos otra clase de pila
+
+29
+00:01:52,000 --> 00:01:56,000
+definida en el sistema. espacio de nombre de coleccin, pero aqu deberamos
+
+30
+00:01:56,000 --> 00:02:00,000
+usar la pila que se define en testninja. fundamentos.
+
+31
+00:02:00,000 --> 00:02:04,000
+Entonces pila de cuerda.
+
+32
+00:02:04,000 --> 00:02:08,000
+Ahora, voy a Afirmar que aqu
+
+33
+00:02:08,000 --> 00:02:12,000
+voy a pasar una expresin lambda,
+
+34
+00:02:12,000 --> 00:02:16,000
+cuando llamemos a stack. Empujar con
+
+35
+00:02:16,000 --> 00:02:20,000
+argumento nulo este mtodo
+
+36
+00:02:20,000 --> 00:02:24,000
+debe lanzar ArgumentNullException. Vamos a verificar esto
+
+37
+00:02:24,000 --> 00:02:28,000
+Bien, aqu est nuestra nueva prueba, y pas
+
+38
+00:02:28,000 --> 00:02:32,000
+con xito. Hermosa. Ahora la
+
+39
+00:02:32,000 --> 00:02:36,000
+segunda prueba. Presione
+
+40
+00:02:36,000 --> 00:02:40,000
+Argumento vlido,
+
+41
+00:02:40,000 --> 00:02:44,000
+debera AddTheObject ToTheStack.
+
+42
+00:02:44,000 --> 00:02:48,000
+As que primero voy a crear este
+
+43
+00:02:48,000 --> 00:02:52,000
+objeto de pila, nueva pila de cadenas,
+
+44
+00:02:52,000 --> 00:02:56,000
+ahora llamamos al mtodo push, le damos
+
+45
+00:02:56,000 --> 00:03:00,000
+un argumento vlido, como a como una
+
+46
+00:03:00,000 --> 00:03:04,000
+cadena, y finalmente afirmamos esa pila. Count es igual a uno.
+
+47
+00:03:04,000 --> 00:03:08,000
+Entonces, una vez ms, no tenemos acceso a este campo
+
+48
+00:03:08,000 --> 00:03:12,000
+privado en esta clase, por lo que no vamos a
+
+49
+00:03:12,000 --> 00:03:16,000
+seguir esta lista para verificar que contenga este objeto. Debe usar la API pblica o los miembros pblicos de
+
+50
+00:03:16,000 --> 00:03:20,000
+la pila para asegurarse de
+
+51
+00:03:20,000 --> 00:03:24,000
+que se comporta correctamente; en este caso, la forma ms
+
+52
+00:03:24,000 --> 00:03:28,000
+sencilla de verificar esto es usar la propiedad Count. Ahora es posible que la propiedad Count
+
+53
+00:03:28,000 --> 00:03:32,000
+no se implemente correctamente.
+
+54
+00:03:32,000 --> 00:03:36,000
+Por ejemplo, mire actualmente, esto se implementa como una
+
+55
+00:03:36,000 --> 00:03:40,000
+propiedad de cuerpo de expresin, por lo que Count
+
+56
+00:03:40,000 --> 00:03:44,000
+va simplemente a devolver la lista de Count. Pero, y si esta propiedad se implementara
+
+57
+00:03:44,000 --> 00:03:48,000
+de esta manera,
+
+58
+00:03:48,000 --> 00:03:52,000
+entonces nuestra prueba pasara, pero en realidad
+
+59
+00:03:52,000 --> 00:03:56,000
+tenemos un error en la implementacin, stack? Contar. Entonces, voy a escribir una prueba
+
+60
+00:03:56,000 --> 00:04:00,000
+separada para
+
+61
+00:04:00,000 --> 00:04:04,000
+esta propiedad, porque tiene algo de lgica. Entonces, Mtodo de prueba, Count Quiero
+
+62
+00:04:04,000 --> 00:04:08,000
+probar que cuando
+
+63
+00:04:08,000 --> 00:04:12,000
+esta pila est vaca, Count es 0. Luego, cuando agrega un objeto a la
+
+64
+00:04:12,000 --> 00:04:16,000
+pila, Count es 1. De esta forma puedo asegurarme de
+
+65
+00:04:16,000 --> 00:04:20,000
+que la propiedad count se implemente correctamente. Entonces, aqu EmptyStack es
+
+66
+00:04:20,000 --> 00:04:24,000
+el escenario, debera ReturnZero.
+
+67
+00:04:24,000 --> 00:04:28,000
+Entonces, creemos un objeto
+
+68
+00:04:28,000 --> 00:04:32,000
+Stack, un nuevo conjunto
+
+69
+00:04:32,000 --> 00:04:36,000
+de cadenas, no agregamos
+
+70
+00:04:36,000 --> 00:04:40,000
+nada aqu, simplemente Assert that stack. Count es igual
+
+71
+00:04:40,000 --> 00:04:44,000
+a 0. Vamos a
+
+72
+00:04:44,000 --> 00:04:48,000
+ejecutar esta Prueba.
+
+73
+00:04:48,000 --> 00:04:52,000
+De acuerdo, nuestra prueba fall. Esperbamos 0, sin embargo
+
+74
+00:04:52,000 --> 00:04:56,000
+obtuvimos 1.
+
+75
+00:04:56,000 --> 00:05:00,000
+Porque aqu reemplac la lista. cuenta con
+
+76
+00:05:00,000 --> 00:05:04,000
+1. As que invirtmoslo de vuelta.
+
+77
+00:05:04,000 --> 00:05:08,000
+Devolvemos la lista. contar, ahora de regreso en nuestra clase de
+
+78
+00:05:08,000 --> 00:05:12,000
+prueba voy a ejecutar esta prueba una vez ms.
+
+79
+00:05:12,000 --> 00:05:16,000
+Bien, entonces nuestra propiedad
+
+80
+00:05:16,000 --> 00:05:20,000
+de conteo est funcionando, excelente. Y tenemos dos pruebas para
+
+81
+00:05:20,000 --> 00:05:24,000
+el mtodo Push. Ahora vamos a escribir algunas
+
+82
+00:05:24,000 --> 00:05:28,000
+pruebas para el mtodo Pop. Entonces, el mtodo
+
+83
+00:05:28,000 --> 00:05:32,000
+de prueba Pop,
+
+84
+00:05:32,000 --> 00:05:36,000
+cules son los escenarios que debemos probar? Una es cuando tenemos que llamar a este mtodo
+
+85
+00:05:36,000 --> 00:05:40,000
+en una pila vaca. En ese caso, deberamos obtener una
+
+86
+00:05:40,000 --> 00:05:44,000
+excepcin de operacin no vlida. As que
+
+87
+00:05:44,000 --> 00:05:48,000
+Pop EmptyStack
+
+88
+00:05:48,000 --> 00:05:52,000
+debera ThrowInvalidOperation Exception. Ese es un escenario.
+
+89
+00:05:52,000 --> 00:05:56,000
+Ahora el segundo escenario.
+
+90
+00:05:56,000 --> 00:06:00,000
+Entonces Pop, en este caso, queremos probar
+
+91
+00:06:00,000 --> 00:06:04,000
+este mtodo cuando nuestra pila tiene algunos
+
+92
+00:06:04,000 --> 00:06:08,000
+objetos, as que apilar WithAFewObjects, cul es
+
+93
+00:06:08,000 --> 00:06:12,000
+el comportamiento esperado de este mtodo? Debera devolver el objeto en la parte superior de la pila y eliminarlo
+
+94
+00:06:12,000 --> 00:06:16,000
+de la pila al mismo tiempo.
+
+95
+00:06:16,000 --> 00:06:20,000
+Entonces aqu tenemos que escribir dos pruebas por separado.
+
+96
+00:06:20,000 --> 00:06:24,000
+Uno para garantizar que este mtodo devuelva el objeto
+
+97
+00:06:24,000 --> 00:06:28,000
+en la parte superior y el otro para garantizar
+
+98
+00:06:28,000 --> 00:06:32,000
+que este mtodo elimine ese objeto de la pila. Entonces, devuelve
+
+99
+00:06:32,000 --> 00:06:36,000
+ObjectOnTheTop.
+
+100
+00:06:36,000 --> 00:06:40,000
+y voy a duplicar
+
+101
+00:06:40,000 --> 00:06:44,000
+esto aqu, el segundo
+
+102
+00:06:44,000 --> 00:06:48,000
+comportamiento esperado es RemoveThisObjectFromTopOf
+
+103
+00:06:48,000 --> 00:06:52,000
+the stack. Bueno? As que implementemos este mtodo de prueba uno
+
+104
+00:06:52,000 --> 00:06:56,000
+por uno. Voy a crear una
+
+105
+00:06:56,000 --> 00:07:00,000
+pila vaca nueva Pila de cadenas. Y un
+
+106
+00:07:00,000 --> 00:07:04,000
+Assert That,
+
+107
+00:07:04,000 --> 00:07:08,000
+cuando llamamos stack. Pop obtenemos una
+
+108
+00:07:08,000 --> 00:07:12,000
+InvalidOperationException. So ThrowsInvalid
+
+109
+00:07:12,000 --> 00:07:16,000
+OperationException. Vamos a ejecutar esta prueba, hermosa,
+
+110
+00:07:16,000 --> 00:07:20,000
+ahora antes te dije acerca de
+
+111
+00:07:20,000 --> 00:07:24,000
+escribir pruebas dignas de confianza, as que aqu, a pesar de que
+
+112
+00:07:24,000 --> 00:07:28,000
+esta prueba est pasando, quiero asegurarme de que est probando lo correcto,
+
+113
+00:07:28,000 --> 00:07:32,000
+quiero asegurarme de que esta sea una prueba. puede confiar en el futuro.
+
+114
+00:07:32,000 --> 00:07:36,000
+Entonces, voy a volver a la clase
+
+115
+00:07:36,000 --> 00:07:40,000
+de pila, aqu est nuestro mtodo Pop. Esta es la lnea que es responsable de hacer
+
+116
+00:07:40,000 --> 00:07:44,000
+que pase la prueba. Entonces, si lo
+
+117
+00:07:44,000 --> 00:07:48,000
+comento y vuelvo
+
+118
+00:07:48,000 --> 00:07:52,000
+aqu, ejecute esta prueba, debera fallar. Entonces, corramos.
+
+119
+00:07:52,000 --> 00:07:56,000
+Est bien, esta
+
+120
+00:07:56,000 --> 00:08:00,000
+vez fall, porque esperbamos una
+
+121
+00:08:00,000 --> 00:08:04,000
+InvalidOperationException, sin embargo obtuvimos ArgumentOutOfRangeException. Entonces, esto verifica que mi prueba estaba
+
+122
+00:08:04,000 --> 00:08:08,000
+probando lo correcto. Pero por qu
+
+123
+00:08:08,000 --> 00:08:12,000
+obtuvimos ArgumentOutOf RangeException? Echemos un vistazo rpido.
+
+124
+00:08:12,000 --> 00:08:16,000
+La razn fue para una pila vaca,
+
+125
+00:08:16,000 --> 00:08:20,000
+Count es 0, por lo que tratamos de acceder a un elemento e indexar
+
+126
+00:08:20,000 --> 00:08:24,000
+menos uno en esta lista, y es por eso que obtuvimos la excepcin ArgumentOutOfRange.
+
+127
+00:08:24,000 --> 00:08:28,000
+Entonces, voy a traer estas dos lneas de
+
+128
+00:08:28,000 --> 00:08:32,000
+vuelta, ahora pasemos a la siguiente prueba.
+
+129
+00:08:32,000 --> 00:08:36,000
+Qu pasa si ests lidiando con
+
+130
+00:08:36,000 --> 00:08:40,000
+una pila que tiene algunos objetos? Desea asegurarse de que este mtodo Pop devuelva el objeto en
+
+131
+00:08:40,000 --> 00:08:44,000
+la parte superior de la pila. Entonces, en la parte
+
+132
+00:08:44,000 --> 00:08:48,000
+de arreglos, voy a
+
+133
+00:08:48,000 --> 00:08:52,000
+crear una pila con tres objetos. Pila, pila nueva,
+
+134
+00:08:52,000 --> 00:08:56,000
+de cuerda. Voy a
+
+135
+00:08:56,000 --> 00:09:00,000
+presionar tres
+
+136
+00:09:00,000 --> 00:09:04,000
+objetos aqu, 1, 2 y 3. Esta es nuestra parte
+
+137
+00:09:04,000 --> 00:09:08,000
+de Arrange. Como puede ver, la parte Organizar no siempre
+
+138
+00:09:08,000 --> 00:09:12,000
+es una lnea de cdigo, puede hacer varias lneas. Entonces, traes este objeto
+
+139
+00:09:12,000 --> 00:09:16,000
+al estado correcto y
+
+140
+00:09:16,000 --> 00:09:20,000
+est listo para probar este escenario particular. Bueno? Ahora, t
+
+141
+00:09:20,000 --> 00:09:24,000
+Acta. As que
+
+142
+00:09:24,000 --> 00:09:28,000
+llamamos stack al Pop. Obtienes el resultado, y
+
+143
+00:09:28,000 --> 00:09:32,000
+finalmente tenemos que Afirmar.
+
+144
+00:09:32,000 --> 00:09:36,000
+Queremos Afirmar. Ese resultado es igual
+
+145
+00:09:36,000 --> 00:09:40,000
+a c.
+
+146
+00:09:40,000 --> 00:09:41,700
+es igual a c.
+
+147
+00:09:41,700 --> 00:09:44,000
+Vamos a ejecutar esta prueba. De acuerdo, la prueba est
+
+148
+00:09:44,000 --> 00:09:48,000
+pasando, una vez ms, quiero
+
+149
+00:09:48,000 --> 00:09:52,000
+asegurarme de que no haya errores en esta prueba. Entonces, de vuelta en nuestra clase Stack, esta
+
+150
+00:09:52,000 --> 00:09:56,000
+es la lnea que
+
+151
+00:09:56,000 --> 00:10:00,000
+es responsable de hacer que pase la prueba. As que voy a cambiar
+
+152
+00:10:00,000 --> 00:10:04,000
+esto temporalmente y
+
+153
+00:10:04,000 --> 00:10:08,000
+devolver la lista de 0. Voy a devolver el primer elemento de la lista.
+
+154
+00:10:08,000 --> 00:10:12,000
+Entonces, esto debera romper mi prueba, verdad? De vuelta a nuestra
+
+155
+00:10:12,000 --> 00:10:16,000
+prueba, corramos esto una
+
+156
+00:10:16,000 --> 00:10:20,000
+vez ms, est bien, esta vez fall
+
+157
+00:10:20,000 --> 00:10:24,000
+porque esperbamos c, pero obtuvimos una. Entonces, cuando escriba sus pruebas despus
+
+158
+00:10:24,000 --> 00:10:28,000
+de su cdigo
+
+159
+00:10:28,000 --> 00:10:32,000
+de produccin, use esta tcnica para (? ) tus pruebas en la forma correcta (? ) Ahora, de vuelta en la clase de pila, volvamos
+
+160
+00:10:32,000 --> 00:10:36,000
+a esto.
+
+161
+00:10:36,000 --> 00:10:40,000
+Y la ltima prueba para el mtodo Pop,
+
+162
+00:10:40,000 --> 00:10:44,000
+queremos asegurarnos de que este mtodo realmente elimine
+
+163
+00:10:44,000 --> 00:10:48,000
+este objeto en la parte superior de la pila. As que voy a copiar este cdigo, en
+
+164
+00:10:48,000 --> 00:10:52,000
+esta nueva prueba voy
+
+165
+00:10:52,000 --> 00:10:56,000
+a cambiar la Afirmacin, por lo que aqu
+
+166
+00:10:56,000 --> 00:11:00,000
+realmente no nos importa el resultado, simplemente Pop
+
+167
+00:11:00,000 --> 00:11:04,000
+un objeto y luego Assert esa pila. Count Is EqualTo
+
+168
+00:11:04,000 --> 00:11:08,000
+2.
+
+169
+00:11:08,000 --> 00:11:12,000
+Ahora, ejecutemos esta prueba.
+
+170
+00:11:12,000 --> 00:11:16,000
+De acuerdo, la prueba pas, hermosa, y por cierto
+
+171
+00:11:16,000 --> 00:11:20,000
+estas dos pruebas fallidas ya no se reproducen, estos
+
+172
+00:11:20,000 --> 00:11:24,000
+son los resultados de la ejecucin de la prueba anterior. Entonces, si ejecuto las pruebas dentro de las
+
+173
+00:11:24,000 --> 00:11:28,000
+pruebas de pila nuevamente. Todos ellos van a pasar.
+
+174
+00:11:28,000 --> 00:11:32,000
+Ah tienes. Ahora, finalmente, tenemos que
+
+175
+00:11:32,000 --> 00:11:36,000
+probar el mtodo Peek. Entonces, Peek, cules son
+
+176
+00:11:36,000 --> 00:11:40,000
+los escenarios aqu? El primer escenario es cuando llamamos
+
+177
+00:11:40,000 --> 00:11:44,000
+a este mtodo en una pila vaca. No tiene sentido.
+
+178
+00:11:44,000 --> 00:11:48,000
+No hay nada que mirar. Entonces, este mtodo debera
+
+179
+00:11:48,000 --> 00:11:52,000
+arrojar una InvalidOperationException. Entonces,
+
+180
+00:11:52,000 --> 00:11:56,000
+pila
+
+181
+00:11:56,000 --> 00:12:00,000
+vaca, Excepcin ThrowInvalidOperation.
+
+182
+00:12:00,000 --> 00:12:04,000
+Bien, prxima prueba. Peek, Stack,
+
+183
+00:12:04,000 --> 00:12:08,000
+WithObjects. Aqu queremos asegurarnos de
+
+184
+00:12:08,000 --> 00:12:12,000
+que este mtodo devuelva
+
+185
+00:12:12,000 --> 00:12:16,000
+el objeto en la parte superior de la pila. Entonces ReturnObjectOnTopOf
+
+186
+00:12:16,000 --> 00:12:20,000
+TheStack. Adems, quiero escribir una prueba ms
+
+187
+00:12:20,000 --> 00:12:24,000
+aqu para asegurarme de que, a
+
+188
+00:12:24,000 --> 00:12:28,000
+diferencia del mtodo Pop, este mtodo no elimine ese objeto del paso. Entonces, otra
+
+189
+00:12:28,000 --> 00:12:32,000
+prueba,
+
+190
+00:12:32,000 --> 00:12:36,000
+Peek, StackWithObjects.
+
+191
+00:12:36,000 --> 00:12:40,000
+DoesNotRemoveTheObject
+
+192
+00:12:40,000 --> 00:12:44,000
+OnTopOfTheStack. Bueno?
+
+193
+00:12:44,000 --> 00:12:48,000
+Ahora, implemntelos uno por uno. Por lo tanto,
+
+194
+00:12:48,000 --> 00:12:52,000
+si creo una
+
+195
+00:12:52,000 --> 00:12:56,000
+pila vaca, una pila de cadenas, y
+
+196
+00:12:56,000 --> 00:13:00,000
+lo afirmo cuando llamamos a la pila. Peek, obtienes una excepcin,
+
+197
+00:13:00,000 --> 00:13:04,000
+por lo
+
+198
+00:13:04,000 --> 00:13:08,000
+que arroja la excepcin InvalidOperation. Vamos a ejecutar esta prueba.
+
+199
+00:13:08,000 --> 00:13:12,000
+Est pasando, hermosa. Pasemos a la
+
+200
+00:13:12,000 --> 00:13:16,000
+siguiente prueba, ahora
+
+201
+00:13:16,000 --> 00:13:20,000
+necesitamos una pila con algunos objetos. As que voy a tomar prestado
+
+202
+00:13:20,000 --> 00:13:24,000
+un cdigo de
+
+203
+00:13:24,000 --> 00:13:28,000
+esta otra prueba aqu, y en
+
+204
+00:13:28,000 --> 00:13:32,000
+la parte de Actuacin debemos llamar
+
+205
+00:13:32,000 --> 00:13:36,000
+al mtodo Peek, obtener el resultado,
+
+206
+00:13:36,000 --> 00:13:40,000
+y finalmente afirmar que el resultado
+
+207
+00:13:40,000 --> 00:13:44,000
+es Igual a c Vamos a ejecutar la prueba.
+
+208
+00:13:44,000 --> 00:13:48,000
+Est pasando, excelente y
+
+209
+00:13:48,000 --> 00:13:52,000
+la ltima prueba. Voy a copiar todo este cdigo desde aqu.
+
+210
+00:13:52,000 --> 00:13:56,000
+en esta otra prueba,
+
+211
+00:13:56,000 --> 00:14:00,000
+aqu no nos importa el resultado, solo queremos
+
+212
+00:14:00,000 --> 00:14:04,000
+verificar que la cuenta no haya cambiado. Entonces afirmamos eso. Count sigue siendo tres, es
+
+213
+00:14:04,000 --> 00:14:08,000
+igual a 3. Vamos a ejecutar esta prueba.
+
+214
+00:14:08,000 --> 00:14:12,000
+Hermosa. As que tenemos un total de 9 pruebas para la clase
+
+215
+00:14:12,000 --> 00:14:16,000
+de pila y todas estn pasando.
+
+216
+00:14:16,000 --> 00:14:20,000
+Y, por cierto, esta
+
+217
+00:14:20,000 --> 00:14:24,000
+es una forma de probar la clase de pila. Lo ms probable es que la forma en que haya
+
+218
+00:14:24,000 --> 00:14:28,000
+escrito su prueba sea diferente, y realmente no importa siempre
+
+219
+00:14:28,000 --> 00:14:32,000
+que haya probado varios escenarios
+
+220
+00:14:32,000 --> 00:14:36,000
+y verifique que la clase de pila se comporta como espera. As que no te cuelgues si el nombre de tus mtodos o
+
+221
+00:14:36,000 --> 00:14:40,000
+cmo has implementado cada mtodo de prueba es diferente al mo. Incluso si trat de probar esta clase maana, es probable que mi
+
+222
+00:14:40,000 --> 00:14:44,000
+cdigo se vea diferente de lo
+
+223
+00:14:44,000 --> 00:14:48,000
+que se ve en esta conferencia.
+
+224
+00:14:48,000 --> 00:14:52,000
+&nbsp;
+
+225
+00:14:52,000 --> 00:14:55,000
+&nbsp;
+

@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, ahora sabes sobre los diferentes tipos
+
+2
+00:00:04,000 --> 00:00:08,000
+de pruebas automatizadas. Pruebas unitarias, pruebas de integracin y
+
+3
+00:00:08,000 --> 00:00:12,000
+pruebas de extremo a extremo. Pero, qu tipo de pruebas debe
+
+4
+00:00:12,000 --> 00:00:16,000
+escribir en su aplicacin? Bueno, todos ellos. Esto es lo que
+
+5
+00:00:16,000 --> 00:00:20,000
+llamamos la pirmide de prueba. Esta pirmide argumenta que la mayora de
+
+6
+00:00:20,000 --> 00:00:24,000
+sus pruebas deben estar en la categora de pruebas unitarias, porque estas pruebas son
+
+7
+00:00:24,000 --> 00:00:28,000
+fciles de escribir y se ejecutan rpidamente. Pero dado que no le dan
+
+8
+00:00:28,000 --> 00:00:32,000
+mucha confianza sobre el estado de su aplicacin, debe tener una serie
+
+9
+00:00:32,000 --> 00:00:36,000
+de pruebas de integracin que prueben la integracin de su cdigo de
+
+10
+00:00:36,000 --> 00:00:40,000
+aplicacin con sus dependencias externas. Estas pruebas proporcionan muchas ventajas
+
+11
+00:00:40,000 --> 00:00:44,000
+de las pruebas de extremo a extremo, pero sin
+
+12
+00:00:44,000 --> 00:00:48,000
+las complejidades de tratar con la interfaz de usuario.
+
+13
+00:00:48,000 --> 00:00:52,000
+Y, por ltimo, debe escribir muy pocas pruebas de extremo a extremo para
+
+14
+00:00:52,000 --> 00:00:56,000
+las funciones clave de la aplicacin, pero no debe probar los casos extremos
+
+15
+00:00:56,000 --> 00:01:00,000
+con estas pruebas de extremo a extremo. Solo prueba la ruta feliz, y
+
+16
+00:01:00,000 --> 00:01:04,000
+deja los casos extremos en pruebas unitarias. Ahora esta pirmide, es
+
+17
+00:01:04,000 --> 00:01:08,000
+solo una gua. No es una regla difcil y
+
+18
+00:01:08,000 --> 00:01:12,000
+rpida que debe seguir en cada aplicacin. La relacin real entre la integracin de
+
+19
+00:01:12,000 --> 00:01:16,000
+su unidad y las pruebas de extremo a extremo, realmente depende de su proyecto.
+
+20
+00:01:16,000 --> 00:01:20,000
+Las pruebas unitarias son excelentes para probar rpidamente la lgica
+
+21
+00:01:20,000 --> 00:01:24,000
+de sentencias y bucles condicionales. Si tiene mtodos con lgica
+
+22
+00:01:24,000 --> 00:01:28,000
+compleja y clculo, debe probarlos con las pruebas de su unidad.
+
+23
+00:01:28,000 --> 00:01:32,000
+Anteriormente en la seccin, le mostr un ejemplo de
+
+24
+00:01:32,000 --> 00:01:36,000
+una funcin de clculo. Las pruebas unitarias son ideales para probar
+
+25
+00:01:36,000 --> 00:01:40,000
+estas funciones, ya que puede probar rpidamente todas las rutas de ejecucin de estas
+
+26
+00:01:40,000 --> 00:01:44,000
+funciones en menos de un segundo. Probar manualmente estas funciones a travs
+
+27
+00:01:44,000 --> 00:01:48,000
+de la interfaz de usuario lleva una cantidad significativa de tiempo
+
+28
+00:01:48,000 --> 00:01:52,000
+y es propenso a errores. Sin embargo, no todas las aplicaciones
+
+29
+00:01:52,000 --> 00:01:56,000
+tienen una lgica compleja y funciones como nuestra funcin de clculo.
+
+30
+00:01:56,000 --> 00:02:00,000
+Es posible que tenga una aplicacin que simplemente lea algunos datos o los
+
+31
+00:02:00,000 --> 00:02:04,000
+escriba en una base de datos. En ese caso, es posible que necesite ms
+
+32
+00:02:04,000 --> 00:02:08,000
+pruebas de integracin que las pruebas unitarias. Entonces, en resumen, esta pirmide de
+
+33
+00:02:08,000 --> 00:02:12,000
+prueba te da tres recomendaciones. Primero, es favorecer las
+
+34
+00:02:12,000 --> 00:02:16,000
+pruebas unitarias sobre la IU o las pruebas
+
+35
+00:02:16,000 --> 00:02:20,000
+de extremo a extremo. Porque estas pruebas unitarias son las ms rpidas de ejecutar
+
+36
+00:02:20,000 --> 00:02:24,000
+y las ms econmicas de escribir, y son muy precisas. Entonces podemos identificar exactamente
+
+37
+00:02:24,000 --> 00:02:28,000
+dnde algo falla. Te dan
+
+38
+00:02:28,000 --> 00:02:32,000
+una respuesta rpida. El segundo es cubrir las brechas
+
+39
+00:02:32,000 --> 00:02:36,000
+de prueba unitaria, con pruebas de integracin. Y, por ltimo, use las
+
+40
+00:02:36,000 --> 00:02:40,000
+pruebas de extremo a extremo con moderacin, solo para las
+
+41
+00:02:40,000 --> 00:02:44,000
+funciones clave de su aplicacin. El equilibrio correcto es diferente para
+
+42
+00:02:44,000 --> 00:02:48,000
+cada proyecto y cada equipo. Al final del da, debe usar su propio
+
+43
+00:02:48,000 --> 00:02:52,000
+juicio para determinar qu tipo de pruebas necesita escribir para diferentes partes de sus aplicaciones.
+

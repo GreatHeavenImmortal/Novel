@@ -1,0 +1,588 @@
+1
+00:00:00,000 --> 00:00:04,000
+Una de las preguntas que recibo mucho
+
+2
+00:00:04,000 --> 00:00:08,000
+es Mosh, cmo debera probar mis mtodos
+
+3
+00:00:08,000 --> 00:00:12,000
+privados o protegidos? La respuesta es, no los pruebes, no deberas.
+
+4
+00:00:12,000 --> 00:00:16,000
+Debido a que estos mtodos son implementacin detallada.
+
+5
+00:00:16,000 --> 00:00:20,000
+Qu quiero decir con eso? Piensa en un reproductor de DVD. Un reproductor de
+
+6
+00:00:20,000 --> 00:00:24,000
+DVD tiene algunos botones en el exterior, pero una placa
+
+7
+00:00:24,000 --> 00:00:28,000
+lgica compleja en el interior. Lo que ves en el exterior
+
+8
+00:00:28,000 --> 00:00:32,000
+es lo que llamamos una API pblica, o la interfaz pblica
+
+9
+00:00:32,000 --> 00:00:36,000
+de un reproductor de DVD. Lo que est dentro de esta caja negra que
+
+10
+00:00:36,000 --> 00:00:40,000
+no vemos, es lo que llamamos detalles de implementacin. Una implementacin puede cambiar
+
+11
+00:00:40,000 --> 00:00:44,000
+de una versin a otra. Pero los botones en
+
+12
+00:00:44,000 --> 00:00:48,000
+el exterior permanecen igual. En la programacin orientada a
+
+13
+00:00:48,000 --> 00:00:52,000
+objetos, queremos disear nuestras clases como un reproductor de DVD, por
+
+14
+00:00:52,000 --> 00:00:56,000
+lo que queremos tener muy pocos miembros pblicos, y estos miembros
+
+15
+00:00:56,000 --> 00:01:00,000
+representan la API pblica, o la interfaz pblica de nuestras clases.
+
+16
+00:01:00,000 --> 00:01:04,000
+Los miembros privados y protegidos representan los
+
+17
+00:01:04,000 --> 00:01:08,000
+detalles de la implementacin. Pero pueden cambiar fcilmente a medida
+
+18
+00:01:08,000 --> 00:01:12,000
+que refactoriza y reestructura su cdigo. Existen herramientas que
+
+19
+00:01:12,000 --> 00:01:16,000
+le permiten escribir pruebas contra miembros privados.
+
+20
+00:01:16,000 --> 00:01:20,000
+O puede hacer pblico un miembro privado y probarlo, pero
+
+21
+00:01:20,000 --> 00:01:24,000
+no debe hacer esto, porque cuando escribe pruebas que usan
+
+22
+00:01:24,000 --> 00:01:28,000
+miembros privados, sus pruebas se combinan con un detalle de implementacin.
+
+23
+00:01:28,000 --> 00:01:32,000
+Y a medida que cambie esta implementacin, estas pruebas se van a romper. Se interponen en el camino
+
+24
+00:01:32,000 --> 00:01:36,000
+y te hacen perder velocidad. Djame mostrarte este concepto en accin.
+
+25
+00:01:36,000 --> 00:01:40,000
+Entonces, de vuelta en nuestra clase de registrador de errores,
+
+26
+00:01:40,000 --> 00:01:44,000
+enterramos el mtodo de registro, borramos este evento ErrorLogged.
+
+27
+00:01:44,000 --> 00:01:48,000
+Ahora para esta demostracin, quiero extraer esta lnea y ponerla en
+
+28
+00:01:48,000 --> 00:01:52,000
+un mtodo de vaco virtual protegido. Entonces, probablemente veas
+
+29
+00:01:52,000 --> 00:01:56,000
+esta convencin antes. El vaco
+
+30
+00:01:56,000 --> 00:02:00,000
+virtual protegido OnErrorLine.
+
+31
+00:02:00,000 --> 00:02:04,000
+Entonces, este mtodo puede tomar un parmetro, como guid, que
+
+32
+00:02:04,000 --> 00:02:08,000
+sera el ID del error, y este es el responsable
+
+33
+00:02:08,000 --> 00:02:12,000
+de generar el evento. Entonces, voy a
+
+34
+00:02:12,000 --> 00:02:16,000
+cortar esta lnea y ponerla aqu.
+
+35
+00:02:16,000 --> 00:02:20,000
+Y reemplace este nuevo guid con el
+
+36
+00:02:20,000 --> 00:02:24,000
+ID de error. Ahora aqu, voy a
+
+37
+00:02:24,000 --> 00:02:28,000
+llamar a OnErrorLogged, y guiarlo a este nuevo guid.
+
+38
+00:02:28,000 --> 00:02:32,000
+As que esta es una convencin de que probablemente haya visto las aplicaciones por ah.
+
+39
+00:02:32,000 --> 00:02:36,000
+Este mtodo que tenemos aqu, este es el detalle de implementacin.
+
+40
+00:02:36,000 --> 00:02:40,000
+Puede cambiar de una versin a otra. Entonces, no deberamos escribir pruebas
+
+41
+00:02:40,000 --> 00:02:44,000
+en contra de este mtodo, sino que deberamos escribir pruebas
+
+42
+00:02:44,000 --> 00:02:48,000
+de nuestro mtodo de registro. As que djame mostrarte lo que
+
+43
+00:02:48,000 --> 00:02:52,000
+sucede cuando escribes pruebas para este mtodo. Antes de continuar, regresemos
+
+44
+00:02:52,000 --> 00:02:56,000
+a nuestra prueba de registrador de errores, aqu
+
+45
+00:02:56,000 --> 00:03:00,000
+tenemos algunas pruebas, y todas ellas estn probando
+
+46
+00:03:00,000 --> 00:03:04,000
+el mtodo de registro. Hagamos esta prueba
+
+47
+00:03:04,000 --> 00:03:08,000
+y asegrese de que todos estn pasando.
+
+48
+00:03:08,000 --> 00:03:12,000
+As que podemos ver que todas estas pruebas estn pasando, hermosa, ahora, djame
+
+49
+00:03:12,000 --> 00:03:16,000
+mostrarte lo que no debes hacer. Voy a escribir
+
+50
+00:03:16,000 --> 00:03:20,000
+una prueba para este nuevo
+
+51
+00:03:20,000 --> 00:03:24,000
+mtodo protegido, as que prueba,
+
+52
+00:03:24,000 --> 00:03:28,000
+nulo pblico, OnErrorLogged, WhenCalled, debera
+
+53
+00:03:28,000 --> 00:03:32,000
+elevar el evento. Ahora voy a volver a
+
+54
+00:03:32,000 --> 00:03:36,000
+nuestra clase de registrador de errores y hacer trampa
+
+55
+00:03:36,000 --> 00:03:40,000
+cambiando este modificador de acceso de protegido a pblico,
+
+56
+00:03:40,000 --> 00:03:44,000
+esto es malo desde el principio, porque se trata
+
+57
+00:03:44,000 --> 00:03:48,000
+de detalles de implementacin. No debe filtrar estos al exterior. Esto es como disear
+
+58
+00:03:48,000 --> 00:03:52,000
+un reproductor de DVD que expone los chips internos al exterior.
+
+59
+00:03:52,000 --> 00:03:56,000
+As que, de vuelta a nuestro mtodo de prueba,
+
+60
+00:03:56,000 --> 00:04:00,000
+voy a crear un nuevo registrador de errores, ErrorLogger,
+
+61
+00:04:00,000 --> 00:04:04,000
+llamar a OnError Logged, darle un nuevo guid, y
+
+62
+00:04:04,000 --> 00:04:08,000
+hacer alguna afirmacin, y como te dije en la
+
+63
+00:04:08,000 --> 00:04:12,000
+ltima conferencia para probar y el mtodo que plantea
+
+64
+00:04:12,000 --> 00:04:16,000
+un evento, primero necesitas suscribirte a ese evento y
+
+65
+00:04:16,000 --> 00:04:20,000
+luego hacer una afirmacin, como aqu.
+
+66
+00:04:20,000 --> 00:04:24,000
+Pero para ahorrar tiempo, no quiero repetir esto, as que solo quiero escribir
+
+67
+00:04:24,000 --> 00:04:28,000
+una afirmacin simple que siempre pase. Afirma que
+
+68
+00:04:28,000 --> 00:04:32,000
+es cierto. Realmente no importa. Ahora,
+
+69
+00:04:32,000 --> 00:04:36,000
+voy a ejecutar esta
+
+70
+00:04:36,000 --> 00:04:40,000
+prueba, obviamente, pasa, de acuerdo?
+
+71
+00:04:40,000 --> 00:04:44,000
+Ahora, veamos qu pasa cuando refactorizamos nuestro cdigo
+
+72
+00:04:44,000 --> 00:04:48,000
+y cambiamos nuestra implementacin. As que de vuelta a nuestro
+
+73
+00:04:48,000 --> 00:04:52,000
+registrador de errores, digamos que maana decidimos cambiar la firma de este mtodo,
+
+74
+00:04:52,000 --> 00:04:56,000
+y en lugar de pasar el ID de error aqu, almacenar el ID
+
+75
+00:04:56,000 --> 00:05:00,000
+de error, en un campo privado. Por ejemplo, podemos introducir
+
+76
+00:05:00,000 --> 00:05:04,000
+un campo aqu, privado, guid, escritura de
+
+77
+00:05:04,000 --> 00:05:08,000
+error de subrayado. Entonces, en nuestro mtodo
+
+78
+00:05:08,000 --> 00:05:12,000
+de registro, antes de llamar a OnErrorLogged,
+
+79
+00:05:12,000 --> 00:05:16,000
+en lugar de pasar esto como un
+
+80
+00:05:16,000 --> 00:05:20,000
+argumento, vamos a establecer errorId con un
+
+81
+00:05:20,000 --> 00:05:24,000
+nuevo guid, y aqu vamos a eliminar
+
+82
+00:05:24,000 --> 00:05:28,000
+este parmetro, y simplemente leer un campo privado.
+
+83
+00:05:28,000 --> 00:05:32,000
+Entonces, hemos cambiado nuestra implementacin, hemos refabricado nuestro cdigo, lo
+
+84
+00:05:32,000 --> 00:05:36,000
+hemos reestructurado, verdad? Ahora adivina que? Nuestra prueba se
+
+85
+00:05:36,000 --> 00:05:40,000
+rompi, echemos un vistazo. Tenemos que cambiar
+
+86
+00:05:40,000 --> 00:05:44,000
+esta prueba y eliminar este argumento.
+
+87
+00:05:44,000 --> 00:05:48,000
+Ahora esta es una aplicacin simplificada, y solo tenemos una prueba para
+
+88
+00:05:48,000 --> 00:05:52,000
+este mtodo, pero en una aplicacin del mundo real puede tener diez
+
+89
+00:05:52,000 --> 00:05:56,000
+o veinte pruebas para un mtodo dado. Ahora que refactoriza el cdigo, cuando
+
+90
+00:05:56,000 --> 00:06:00,000
+cambie la implementacin, todas esas pruebas se van a romper, al menos este
+
+91
+00:06:00,000 --> 00:06:04,000
+proyecto de prueba no va a cumplir. Tienes que pasar por cada mtodo de
+
+92
+00:06:04,000 --> 00:06:08,000
+prueba y hacer los cambios necesarios, solo para asegurarte de que el proyecto de
+
+93
+00:06:08,000 --> 00:06:12,000
+prueba cumpla y luego debes ejecutar la prueba para ver si pasan, de acuerdo?
+
+94
+00:06:12,000 --> 00:06:16,000
+Por lo tanto, voy a eliminar esto,
+
+95
+00:06:16,000 --> 00:06:20,000
+ahora de nuevo en ErrorLogger, digamos que
+
+96
+00:06:20,000 --> 00:06:24,000
+maana decido refactorizar este cdigo y descartar
+
+97
+00:06:24,000 --> 00:06:28,000
+por completo este mtodo. As que voy a decidir subir el
+
+98
+00:06:28,000 --> 00:06:32,000
+evento directamente dentro del mtodo de registro. As que corta
+
+99
+00:06:32,000 --> 00:06:36,000
+esto de aqu, y plantea el
+
+100
+00:06:36,000 --> 00:06:40,000
+evento de esta manera. Ahora, voy a eliminar este mtodo.
+
+101
+00:06:40,000 --> 00:06:44,000
+Entonces cambi la implementacin. Ahora adivina que?
+
+102
+00:06:44,000 --> 00:06:48,000
+Nuestra prueba se rompi de nuevo. Mira, estamos probando un
+
+103
+00:06:48,000 --> 00:06:52,000
+mtodo que ya no existe, por lo que este
+
+104
+00:06:52,000 --> 00:06:56,000
+es el problema de probar miembros privados o protegidos.
+
+105
+00:06:56,000 --> 00:07:00,000
+Se trata de detalles de implementacin, y pueden cambiar
+
+106
+00:07:00,000 --> 00:07:04,000
+fcilmente, y usted (? ) escribir pruebas para estos mtodos, nuestras pruebas
+
+107
+00:07:04,000 --> 00:07:08,000
+se vuelven muy frgiles y se rompen con frecuencia. Ahora djame mostrarte algo.
+
+108
+00:07:08,000 --> 00:07:12,000
+Voy a eliminar esta prueba, por lo que
+
+109
+00:07:12,000 --> 00:07:16,000
+en la ltima conferencia. Escribimos esta prueba para el mtodo de registro
+
+110
+00:07:16,000 --> 00:07:20,000
+para asegurarnos de que plantea el evento correcto. Esta es la manera
+
+111
+00:07:20,000 --> 00:07:24,000
+correcta de probar esta clase, solo probamos la
+
+112
+00:07:24,000 --> 00:07:28,000
+API pblica o la pblica. Ahora echemos un vistazo a la implementacin actual.
+
+113
+00:07:28,000 --> 00:07:32,000
+Por lo tanto, actualmente ests planteando el
+
+114
+00:07:32,000 --> 00:07:36,000
+evento de esta manera. Si maana decido extraer
+
+115
+00:07:36,000 --> 00:07:40,000
+esta lnea y ponerla dentro del mtodo virtual
+
+116
+00:07:40,000 --> 00:07:44,000
+protegido, mi prueba an pasar. Hagmoslo una vez ms.
+
+117
+00:07:44,000 --> 00:07:48,000
+Entonces, el vaco
+
+118
+00:07:48,000 --> 00:07:52,000
+virtual protegido OnErrorLogged.
+
+119
+00:07:52,000 --> 00:07:56,000
+As que voy a cortar esta lnea desde aqu, y ponerlo
+
+120
+00:07:56,000 --> 00:08:00,000
+aqu, cambi la implementacin, pero mantuve la API pblica, o la
+
+121
+00:08:00,000 --> 00:08:04,000
+interfaz pblica de la misma. Ahora, si vamos a nuestras
+
+122
+00:08:04,000 --> 00:08:08,000
+pruebas, nos aseguraremos de llamar a este mtodo OnErrorLogged.
+
+123
+00:08:08,000 --> 00:08:12,000
+Ahora volvamos a nuestras pruebas, ahora que mi
+
+124
+00:08:12,000 --> 00:08:16,000
+prueba est rota, corramos todos y veamos.
+
+125
+00:08:16,000 --> 00:08:20,000
+Mira, todos estn pasando. Hermosa.
+
+126
+00:08:20,000 --> 00:08:24,000
+Ahora volviendo a nuestro registrador de errores, digamos que
+
+127
+00:08:24,000 --> 00:08:28,000
+maana decidimos cambiar esta implementacin, as que en lugar
+
+128
+00:08:28,000 --> 00:08:32,000
+de usar este campo privado, podemos preferir pasar un
+
+129
+00:08:32,000 --> 00:08:36,000
+argumento a este mtodo. As que pasamos guid ,. NewGuid. Por supuesto, agregamos un
+
+130
+00:08:36,000 --> 00:08:40,000
+ID de error Guid
+
+131
+00:08:40,000 --> 00:08:44,000
+de parmetro y lo usamos aqu. Nuevamente, cambiamos la implementacin pero ninguna de nuestras
+
+132
+00:08:44,000 --> 00:08:48,000
+pruebas se ha roto,
+
+133
+00:08:48,000 --> 00:08:52,000
+porque estamos probando la API pblica, la interfaz
+
+134
+00:08:52,000 --> 00:08:56,000
+pblica, que debe ser pequea y liviana. Ahora, qu pasa si en sus aplicaciones tiene un pblico que llama
+
+135
+00:08:56,000 --> 00:09:00,000
+a un mtodo privado y ese
+
+136
+00:09:00,000 --> 00:09:04,000
+mtodo privado tambin llama a otro mtodo privado, tal vez tiene una
+
+137
+00:09:04,000 --> 00:09:08,000
+cadena de mtodos privados, y cada mtodo privado tiene de cinco a
+
+138
+00:09:08,000 --> 00:09:12,000
+diez lneas de lgica, en ese caso si Si desea escribir todas
+
+139
+00:09:12,000 --> 00:09:16,000
+las pruebas para el mtodo pblico, sus pruebas se volvern tan complicadas.
+
+140
+00:09:16,000 --> 00:09:20,000
+Tal vez tienes tantos caminos de ejecucin. Si ese es el caso, podra ser un sntoma de un
+
+141
+00:09:20,000 --> 00:09:24,000
+hechizo de diseo en su aplicacin.
+
+142
+00:09:24,000 --> 00:09:28,000
+Entonces, es probable que esos mtodos privados gordos
+
+143
+00:09:28,000 --> 00:09:32,000
+no sean realmente mtodos privados en esa clase. Tal vez pertenecen a una clase separada, y
+
+144
+00:09:32,000 --> 00:09:36,000
+all pueden ser mtodos
+
+145
+00:09:36,000 --> 00:09:40,000
+pblicos que pueden reutilizarse en otros casos. En ese caso, mueves esos mtodos privados a una nueva clase, hazlos
+
+146
+00:09:40,000 --> 00:09:44,000
+pblicos y prueba la clase correctamente.
+
+147
+00:09:44,000 --> 00:09:48,000
+&nbsp;
+

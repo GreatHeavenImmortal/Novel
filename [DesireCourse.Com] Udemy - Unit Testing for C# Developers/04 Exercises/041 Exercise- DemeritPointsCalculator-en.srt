@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now let's take a look at another exercise.
+
+2
+00:00:04,000 --> 00:00:08,000
+So once again in the Fundamentals folder, open up this
+
+3
+00:00:08,000 --> 00:00:12,000
+class. DemeritPointsCalculator.
+
+4
+00:00:12,000 --> 00:00:16,000
+So here we have one method. Calculate
+
+5
+00:00:16,000 --> 00:00:20,000
+DemeritPoints. We give it the speed of a car
+
+6
+00:00:20,000 --> 00:00:24,000
+will tell us how many DemeritPoints that driver should get for speeding.
+
+7
+00:00:24,000 --> 00:00:28,000
+So this is the algorithm I've implemented here.
+
+8
+00:00:28,000 --> 00:00:32,000
+For every five kilometers over the speed limit,
+
+9
+00:00:32,000 --> 00:00:36,000
+which is 65, we're going to give that
+
+10
+00:00:36,000 --> 00:00:40,000
+driver one point. So if the driver is 15 kilometers
+
+11
+00:00:40,000 --> 00:00:44,000
+over the speed limit, they should get three
+
+12
+00:00:44,000 --> 00:00:48,000
+DemeritPoints. So go ahead, and write unit tests for this function,
+
+13
+00:00:48,000 --> 00:00:52,000
+to make sure it's implemented properly. Next we're going to look at
+
+14
+00:00:52,000 --> 00:00:54,000
+my solution.
+

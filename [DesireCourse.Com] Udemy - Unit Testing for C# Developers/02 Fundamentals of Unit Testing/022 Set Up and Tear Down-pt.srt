@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:04,000
+Agora veja a implementao destes mtodos
+
+2
+00:00:04,000 --> 00:00:08,000
+de testes aqui. Cada mtodo de teste parece ser
+
+3
+00:00:08,000 --> 00:00:12,000
+o nico teste no mundo. No estamos chamando um
+
+4
+00:00:12,000 --> 00:00:16,000
+teste em outro teste. E cada teste est usando uma
+
+5
+00:00:16,000 --> 00:00:20,000
+nova instncia da aula de matemtica. Isso  extremamente importante.
+
+6
+00:00:20,000 --> 00:00:24,000
+Em cada teste, voc quer comear com um
+
+7
+00:00:24,000 --> 00:00:28,000
+estado novo e limpo. Portanto, voc no deve
+
+8
+00:00:28,000 --> 00:00:32,000
+criar um campo particular aqui, como o private math_math.
+
+9
+00:00:32,000 --> 00:00:36,000
+E ento reutilize em diferentes testes. Porque  possvel que
+
+10
+00:00:36,000 --> 00:00:40,000
+um teste possa deixar algum estado, neste objeto matemtico,
+
+11
+00:00:40,000 --> 00:00:44,000
+e esse estado ir vazar para outro teste e
+
+12
+00:00:44,000 --> 00:00:48,000
+impactar o resultado desse teste. Portanto, cada teste deve
+
+13
+00:00:48,000 --> 00:00:52,000
+ser executado usando um estado limpo e fresco.
+
+14
+00:00:52,000 --> 00:00:56,000
+No entanto, no gosto do fato de que,
+
+15
+00:00:56,000 --> 00:01:00,000
+no incio de cada mtodo de teste, estamos
+
+16
+00:01:00,000 --> 00:01:04,000
+inicializando esse objeto matemtico. Parece um pouco redundante, mas neste caso no  grande
+
+17
+00:01:04,000 --> 00:01:08,000
+coisa, porque  apenas uma nica linha de cdigo. Mas, no mundo real, quando
+
+18
+00:01:08,000 --> 00:01:12,000
+voc est trabalhando com aplicativos mais complexos,  possvel que
+
+19
+00:01:12,000 --> 00:01:16,000
+voc tenha organizado parte de algumas linhas de cdigo, feito
+
+20
+00:01:16,000 --> 00:01:20,000
+duas, trs, quatro linhas de cdigo. Voc no quer repetir todas essas quatro
+
+21
+00:01:20,000 --> 00:01:24,000
+linhas em todos os mtodos de teste. Ento deixe-me mostrar-lhe uma maneira mais
+
+22
+00:01:24,000 --> 00:01:28,000
+limpa, para reescrever esses testes. No NUnit,
+
+23
+00:01:28,000 --> 00:01:32,000
+temos dois atributos especiais.
+
+24
+00:01:32,000 --> 00:01:36,000
+SetUp e TearDown.
+
+25
+00:01:36,000 --> 00:01:40,000
+Voc pode criar um mtodo aqui e decor-lo com um atributo
+
+26
+00:01:40,000 --> 00:01:44,000
+SetUp e, em seguida, o executor do teste NUnit chamar esse
+
+27
+00:01:44,000 --> 00:01:48,000
+mtodo antes de executar cada teste. E esta  uma tima oportunidade
+
+28
+00:01:48,000 --> 00:01:52,000
+para inicializarmos nosso objeto de matemtica. Da mesma forma, se
+
+29
+00:01:52,000 --> 00:01:56,000
+criarmos um mtodo e o decorarmos com o
+
+30
+00:01:56,000 --> 00:02:00,000
+atributo TearDown, o executor do teste NUnit chamar
+
+31
+00:02:00,000 --> 00:02:04,000
+esse mtodo aps cada teste. Agora neste curso no usaremos um atributo
+
+32
+00:02:04,000 --> 00:02:08,000
+TearDown, porque ele  usado com frequncia com testes de integrao, porque nos seus
+
+33
+00:02:08,000 --> 00:02:12,000
+testes de integrao, voc pode criar alguns dados em seu banco de dados e,
+
+34
+00:02:12,000 --> 00:02:16,000
+em seguida, fazer limpeza aps cada teste.  a que usamos
+
+35
+00:02:16,000 --> 00:02:20,000
+o atributo TearDown, portanto, nesta palestra, mostrarei como
+
+36
+00:02:20,000 --> 00:02:24,000
+usar o atributo SetUp para reescrever esses testes
+
+37
+00:02:24,000 --> 00:02:28,000
+e torn-los mais limpos. Vou criar um mtodo
+
+38
+00:02:28,000 --> 00:02:32,000
+public void, podemos cham-lo de qualquer coisa, o
+
+39
+00:02:32,000 --> 00:02:36,000
+nome no importa, mas por conveno usamos o
+
+40
+00:02:36,000 --> 00:02:40,000
+SetUp, agora, aplicamos o atributo SetUp, e aqui
+
+41
+00:02:40,000 --> 00:02:44,000
+podemos inicializar nosso objeto de matemtica para uma
+
+42
+00:02:44,000 --> 00:02:48,000
+nova instncia da aula de matemtica.
+
+43
+00:02:48,000 --> 00:02:52,000
+Portanto, mesmo que eu tenha definido um campo privado
+
+44
+00:02:52,000 --> 00:02:56,000
+aqui, usaremos isso em teste diferente, mas estou reinicializando
+
+45
+00:02:56,000 --> 00:03:00,000
+isso para uma nova instncia antes de cada teste.
+
+46
+00:03:00,000 --> 00:03:04,000
+Agora, neste, voc pode remover a primeira
+
+47
+00:03:04,000 --> 00:03:08,000
+linha de cada teste. E,  claro,
+
+48
+00:03:08,000 --> 00:03:12,000
+precisamos referenciar nosso campo privado
+
+49
+00:03:12,000 --> 00:03:16,000
+aqui, similarmente, em nosso segundo
+
+50
+00:03:16,000 --> 00:03:20,000
+teste, nosso terceiro teste e
+
+51
+00:03:20,000 --> 00:03:24,000
+o ltimo teste. E voc pode ver
+
+52
+00:03:24,000 --> 00:03:28,000
+cada teste,  apenas duas linhas de cdigo.
+
+53
+00:03:28,000 --> 00:03:32,000
+Portanto, use o mtodo de configurao para
+
+54
+00:03:32,000 --> 00:03:36,000
+inicializar o objeto que voc vai testar.
+

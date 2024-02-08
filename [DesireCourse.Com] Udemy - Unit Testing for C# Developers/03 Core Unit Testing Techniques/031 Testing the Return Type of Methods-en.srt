@@ -1,0 +1,239 @@
+1
+00:00:00,000 --> 00:00:04,000
+Sometimes you need to verify
+
+2
+00:00:04,000 --> 00:00:08,000
+a method on the test that is returning the right type. So let's
+
+3
+00:00:08,000 --> 00:00:12,000
+take a look at this CustomerController class in the fundamentals
+
+4
+00:00:12,000 --> 00:00:16,000
+folder. This is the simplified example of a controller
+
+5
+00:00:16,000 --> 00:00:20,000
+in ASP.NET MVC applications. If you don't have experience
+
+6
+00:00:20,000 --> 00:00:24,000
+with ASP.NET MVC it doesn't matter. So let's see what is
+
+7
+00:00:24,000 --> 00:00:28,000
+happening here. You have this class called ActionResult,
+
+8
+00:00:28,000 --> 00:00:32,000
+and this class has two derivatives, you have NotFound
+
+9
+00:00:32,000 --> 00:00:36,000
+which is derived from ActionResult, and also
+
+10
+00:00:36,000 --> 00:00:40,000
+Ok. So, in our controller class, you have
+
+11
+00:00:40,000 --> 00:00:44,000
+this method, GetCustomer, gets an ID. If ID is 0
+
+12
+00:00:44,000 --> 00:00:48,000
+it returns a new instance of the NotFound class.
+
+13
+00:00:48,000 --> 00:00:52,000
+Otherwise, it returns a new instance of the Okay class.
+
+14
+00:00:52,000 --> 00:00:56,000
+So because both these classes derive from action result,
+
+15
+00:00:56,000 --> 00:01:00,000
+the return type of this method is ActionResult. So,
+
+16
+00:01:00,000 --> 00:01:04,000
+how many tests do we need here, we need two tests, because we
+
+17
+00:01:04,000 --> 00:01:08,000
+have two execution paths, if ID is 0,
+
+18
+00:01:08,000 --> 00:01:12,000
+we want to make sure that the object that this method returns is
+
+19
+00:01:12,000 --> 00:01:16,000
+a NotFound object, otherwise, it's an
+
+20
+00:01:16,000 --> 00:01:20,000
+Ok object, so, back in our unit testing
+
+21
+00:01:20,000 --> 00:01:24,000
+project, I'm going to add a new test class,
+
+22
+00:01:24,000 --> 00:01:28,000
+called CustomerControllerTest.
+
+23
+00:01:28,000 --> 00:01:32,000
+Apply
+
+24
+00:01:32,000 --> 00:01:36,000
+to TestFixture attribute with
+
+25
+00:01:36,000 --> 00:01:40,000
+a Test method. So,
+
+26
+00:01:40,000 --> 00:01:44,000
+the method is GetCustomer, one scenario is
+
+27
+00:01:44,000 --> 00:01:48,000
+IdIsZero,
+
+28
+00:01:48,000 --> 00:01:52,000
+should return ReturnNotFound.
+
+29
+00:01:52,000 --> 00:01:56,000
+And of course the other scenario is
+
+30
+00:01:56,000 --> 00:02:00,000
+public void GetCustomer
+
+31
+00:02:00,000 --> 00:02:04,000
+IdIsNotZero, it should ReturnOk.
+
+32
+00:02:04,000 --> 00:02:08,000
+Now, in this lecture,
+
+33
+00:02:08,000 --> 00:02:12,000
+I'm just going to implement one of these test methods, and I leave the other two
+
+34
+00:02:12,000 --> 00:02:16,000
+as an exercise. So we create controller object
+
+35
+00:02:16,000 --> 00:02:20,000
+a new CustomerController,
+
+36
+00:02:20,000 --> 00:02:24,000
+and call GetCustomer,
+
+37
+00:02:24,000 --> 00:02:28,000
+and pass 0 as the argument.
+
+38
+00:02:28,000 --> 00:02:32,000
+We get the result, now we want to Assert that this result
+
+39
+00:02:32,000 --> 00:02:36,000
+is a NotFound object. In NUnit
+
+40
+00:02:36,000 --> 00:02:40,000
+there are two ways to write such Assertions. One way is like this:
+
+41
+00:02:40,000 --> 00:02:44,000
+Assert That result
+
+42
+00:02:44,000 --> 00:02:48,000
+Is TypeOf, and this is a generate
+
+43
+00:02:48,000 --> 00:02:52,000
+method, so we supply the generate argument, in this case, Not
+
+44
+00:02:52,000 --> 00:02:56,000
+Found. This is the Assertion that you would use
+
+45
+00:02:56,000 --> 00:03:00,000
+most of the time. We have another way
+
+46
+00:03:00,000 --> 00:03:04,000
+to write this Assertion, so let me duplicate this line,
+
+47
+00:03:04,000 --> 00:03:08,000
+instead of the type of method, we use, Instance
+
+48
+00:03:08,000 --> 00:03:12,000
+Of. So, what is the difference? This
+
+49
+00:03:12,000 --> 00:03:16,000
+InstanceOf method, means the result
+
+50
+00:03:16,000 --> 00:03:20,000
+and NotFound object, are one of it's derivatives, whereas
+
+51
+00:03:20,000 --> 00:03:24,000
+TypeOf, ensures that the result is exactly
+
+52
+00:03:24,000 --> 00:03:28,000
+NotFound object. So, this
+
+53
+00:03:28,000 --> 00:03:32,000
+means the result should be a NotFound object, and
+
+54
+00:03:32,000 --> 00:03:36,000
+this Assertion means the result should be a NotFound object.
+
+55
+00:03:36,000 --> 00:03:40,000
+or one of its derivatives.
+
+56
+00:03:40,000 --> 00:03:44,000
+In this particular implementation, I'm going to use
+
+57
+00:03:44,000 --> 00:03:48,000
+the first Assertion, because I want to make sure the result is exactly a Not
+
+58
+00:03:48,000 --> 00:03:52,000
+Found object. But be aware of this other
+
+59
+00:03:52,000 --> 00:03:56,000
+way to write this Assertion, maybe you will need these in some particular scenario
+
+60
+00:03:56,000 --> 00:04:00,000
+in your application. So I'm going to comment this out because we don't need it.

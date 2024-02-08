@@ -1,0 +1,408 @@
+1
+00:00:00,000 --> 00:00:04,000
+So in this lecture, I'm going to show you how to
+
+2
+00:00:04,000 --> 00:00:08,000
+create fake or mock objects using the Moq
+
+3
+00:00:08,000 --> 00:00:12,000
+library. So back in our solution, right click the
+
+4
+00:00:12,000 --> 00:00:16,000
+unit testing project. And go to Manage NuGet Packages.
+
+5
+00:00:16,000 --> 00:00:20,000
+Here, you should search for Moq
+
+6
+00:00:20,000 --> 00:00:24,000
+so you can see the current version, it's version is 4.
+
+7
+00:00:24,000 --> 00:00:28,000
+7. So we need to add this to our unit testing project.
+
+8
+00:00:28,000 --> 00:00:32,000
+Okay,
+
+9
+00:00:32,000 --> 00:00:36,000
+alright, now to show you that we no longer
+
+10
+00:00:36,000 --> 00:00:40,000
+need this FakeFileReader class, I'm going to delete it from
+
+11
+00:00:40,000 --> 00:00:44,000
+our project, so here it is, delete.
+
+12
+00:00:44,000 --> 00:00:48,000
+So, back in our video service
+
+13
+00:00:48,000 --> 00:00:52,000
+tests, instead of newing up a Fake FileReader,
+
+14
+00:00:52,000 --> 00:00:56,000
+we're going to use the Moq library to create a dynamic mock.
+
+15
+00:00:56,000 --> 00:01:00,000
+It's very very easy, so, I'm going to create
+
+16
+00:01:00,000 --> 00:01:04,000
+a fileReader and set this to a new
+
+17
+00:01:04,000 --> 00:01:08,000
+Mock look, this is defined in the mock name space
+
+18
+00:01:08,000 --> 00:01:12,000
+and this is a generic class. So, we specify the generic argument
+
+19
+00:01:12,000 --> 00:01:16,000
+in this case IFileReader. So we're
+
+20
+00:01:16,000 --> 00:01:20,000
+telling the Moq library we want an object that implements,
+
+21
+00:01:20,000 --> 00:01:24,000
+this IFileReader interface, okay?
+
+22
+00:01:24,000 --> 00:01:28,000
+So, this fileReader object here  is not the actual
+
+23
+00:01:28,000 --> 00:01:32,000
+object, it's a mock object, because we set this to a new,
+
+24
+00:01:32,000 --> 00:01:36,000
+mock of IFileReader, to make this more
+
+25
+00:01:36,000 --> 00:01:40,000
+clear, you may prefer to rename this to mock
+
+26
+00:01:40,000 --> 00:01:44,000
+FileReader. But I personally find this a little
+
+27
+00:01:44,000 --> 00:01:48,000
+bit noisy. So I would rather use file
+
+28
+00:01:48,000 --> 00:01:52,000
+Reader, okay? Now we need to program this mock,
+
+29
+00:01:52,000 --> 00:01:56,000
+because by default, it doesn't have any behavior it's like an object
+
+30
+00:01:56,000 --> 00:02:00,000
+that implements the iFileReader interface but doesn't do anything
+
+31
+00:02:00,000 --> 00:02:04,000
+that doesn't have any code, now let's go back to our video service class,
+
+32
+00:02:04,000 --> 00:02:08,000
+look, on this line, we're calling
+
+33
+00:02:08,000 --> 00:02:12,000
+the read method a fileReader, and we're passing it,
+
+34
+00:02:12,000 --> 00:02:16,000
+video.txt as an argument. So, they (?)
+
+35
+00:02:16,000 --> 00:02:20,000
+need to program our mock, so when we call the read method and give it
+
+36
+00:02:20,000 --> 00:02:24,000
+video.txt as a string, it's going to return a string.
+
+37
+00:02:24,000 --> 00:02:28,000
+Okay? So back in our unit test,
+
+38
+00:02:28,000 --> 00:02:32,000
+the way we do this is via the setup method. So we call
+
+39
+00:02:32,000 --> 00:02:36,000
+fileReader.Setup.
+
+40
+00:02:36,000 --> 00:02:40,000
+And here we're going to pass a lambda expression like this.
+
+41
+00:02:40,000 --> 00:02:44,000
+fr as in short for FileReader, goes to
+
+42
+00:02:44,000 --> 00:02:48,000
+fr.Read and
+
+43
+00:02:48,000 --> 00:02:52,000
+we specify the argument, video.txt, so with
+
+44
+00:02:52,000 --> 00:02:56,000
+this we are telling this mock fileReader that when we call
+
+45
+00:02:56,000 --> 00:03:00,000
+the read method with this argument it should Return
+
+46
+00:03:00,000 --> 00:03:04,000
+some string. In this unit test, because the scenario we're
+
+47
+00:03:04,000 --> 00:03:08,000
+testing is for an empty file, I'm going to return
+
+48
+00:03:08,000 --> 00:03:12,000
+an empty string. Now here we have other options,
+
+49
+00:03:12,000 --> 00:03:16,000
+we can Throw an exception, and you can specify the type of the exception right here.
+
+50
+00:03:16,000 --> 00:03:20,000
+If you want to find out the complete list
+
+51
+00:03:20,000 --> 00:03:24,000
+of features available in these mock objects. Search for
+
+52
+00:03:24,000 --> 00:03:28,000
+mock documentation. So here
+
+53
+00:03:28,000 --> 00:03:32,000
+in the first link Quickstart moq4 wiki on Github.
+
+54
+00:03:32,000 --> 00:03:36,000
+On this page you have various examples
+
+55
+00:03:36,000 --> 00:03:40,000
+of using this mock object that are perfectly documented so you don't need
+
+56
+00:03:40,000 --> 00:03:44,000
+a course to learn how to use Moq, okay?
+
+57
+00:03:44,000 --> 00:03:48,000
+So back here, our mock object is going to return
+
+58
+00:03:48,000 --> 00:03:52,000
+an empty string when we call the read method with this argument.
+
+59
+00:03:52,000 --> 00:03:56,000
+Now as I told you this fileReader is not that object that implements
+
+60
+00:03:56,000 --> 00:04:00,000
+IFileReader, it's a mock object, but
+
+61
+00:04:00,000 --> 00:04:04,000
+here when initializing this video service, we need to get that object.
+
+62
+00:04:04,000 --> 00:04:08,000
+That's very easy. We simply pass
+
+63
+00:04:08,000 --> 00:04:12,000
+fileReader.Object.
+
+64
+00:04:12,000 --> 00:04:16,000
+So this is the actual object that implements IFileReader.
+
+65
+00:04:16,000 --> 00:04:20,000
+Okay? Now when you use mocks
+
+66
+00:04:20,000 --> 00:04:24,000
+our test methods get a little bit noisy, as you can see here. That's
+
+67
+00:04:24,000 --> 00:04:28,000
+why I said you should reserve mocks only for dealing with external
+
+68
+00:04:28,000 --> 00:04:32,000
+dependencies. If you want to mock everything, if you want to mock every
+
+69
+00:04:32,000 --> 00:04:36,000
+dependency of this video service, you're going to end up with the
+
+70
+00:04:36,000 --> 00:04:40,000
+fact test method with a lot of set up code like this. Okay?
+
+71
+00:04:40,000 --> 00:04:44,000
+So use mocks only for external dependencies. Now, let's
+
+72
+00:04:44,000 --> 00:04:48,000
+run this test. Okay,
+
+73
+00:04:48,000 --> 00:04:52,000
+it just passed, beautiful. Now one last thing before we finish
+
+74
+00:04:52,000 --> 00:04:56,000
+this lecture. When I use mocks, I prefer to move some of the
+
+75
+00:04:56,000 --> 00:05:00,000
+arrange part in the SetUp method. Let me show you what I mean.
+
+76
+00:05:00,000 --> 00:05:04,000
+So, let's create a new method here, public
+
+77
+00:05:04,000 --> 00:05:08,000
+void SetUp, and decorate this
+
+78
+00:05:08,000 --> 00:05:12,000
+with a SetUp attribute. Now,
+
+79
+00:05:12,000 --> 00:05:16,000
+we're going to use this service in every test method
+
+80
+00:05:16,000 --> 00:05:20,000
+in this class, right? So we should promote this to a private field
+
+81
+00:05:20,000 --> 00:05:24,000
+in this class. So alt and enter, Refactor
+
+82
+00:05:24,000 --> 00:05:28,000
+Introduce Field. If you are not using
+
+83
+00:05:28,000 --> 00:05:32,000
+ReSharper or Rider, you should have this in Visual Studio as well.
+
+84
+00:05:32,000 --> 00:05:36,000
+So here we're going to create a private field called
+
+85
+00:05:36,000 --> 00:05:40,000
+_videoService. Okay?
+
+86
+00:05:40,000 --> 00:05:44,000
+Also, we're going to use this mock object in other test
+
+87
+00:05:44,000 --> 00:05:48,000
+methods in this class. Because in this test method we are testing
+
+88
+00:05:48,000 --> 00:05:52,000
+this scenario empty file, but in another test method we're going to test
+
+89
+00:05:52,000 --> 00:05:56,000
+a different scenario. So we don't want to create this mock object in every test
+
+90
+00:05:56,000 --> 00:06:00,000
+method, right? So once again, I'm going to promote this variable,
+
+91
+00:06:00,000 --> 00:06:04,000
+to a private field in this class. So alt and enter,
+
+92
+00:06:04,000 --> 00:06:08,000
+Refactor, Introduce field.
+
+93
+00:06:08,000 --> 00:06:12,000
+Okay? Now, I'm going to keep the set up here, because this
+
+94
+00:06:12,000 --> 00:06:16,000
+is very specific to this test, but I'm going to move the initialization
+
+95
+00:06:16,000 --> 00:06:20,000
+of fileReader and videoService into our setup
+
+96
+00:06:20,000 --> 00:06:24,000
+method. So, let's put these together
+
+97
+00:06:24,000 --> 00:06:28,000
+so first we create our mock object, and then we create
+
+98
+00:06:28,000 --> 00:06:32,000
+our videoService based on that mock object. Now we can move
+
+99
+00:06:32,000 --> 00:06:36,000
+these two lines inside the set up method here.
+
+100
+00:06:36,000 --> 00:06:40,000
+And this makes our test very
+
+101
+00:06:40,000 --> 00:06:44,000
+clean and focused. So this is the scenario we're
+
+102
+00:06:44,000 --> 00:06:47,000
+specifically testing for.
+

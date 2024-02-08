@@ -1,0 +1,88 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, ahora es el segundo caso de prueba. Entonces, para ahorrar tiempo,
+
+2
+00:00:04,000 --> 00:00:08,000
+voy a duplicar este mtodo de prueba.
+
+3
+00:00:08,000 --> 00:00:12,000
+Y cambie el
+
+4
+00:00:12,000 --> 00:00:16,000
+nombre del mtodo
+
+5
+00:00:16,000 --> 00:00:20,000
+de prueba a
+
+6
+00:00:20,000 --> 00:00:24,000
+BookingStartsBeforeAndFinishes InTheMiddleOf AnExistingBooking. En este caso,
+
+7
+00:00:24,000 --> 00:00:28,000
+tenemos superposicin, por lo tanto,
+
+8
+00:00:28,000 --> 00:00:32,000
+este mtodo debe ReturnExisting BookingsReference.
+
+9
+00:00:32,000 --> 00:00:36,000
+De acuerdo, ahora, modifiquemos la
+
+10
+00:00:36,000 --> 00:00:40,000
+lgica aqu. Para que podamos comenzar esta nueva
+
+11
+00:00:40,000 --> 00:00:44,000
+reserva antes de la reserva existente, no necesitamos este argumento aqu.
+
+12
+00:00:44,000 --> 00:00:48,000
+y para simular el medio del
+
+13
+00:00:48,000 --> 00:00:52,000
+escenario, podemos llamar al mtodo after,
+
+14
+00:00:52,000 --> 00:00:56,000
+entonces After ExistingBookings. Fecha de llegada. Ahora, debemos Afirmar
+
+15
+00:00:56,000 --> 00:01:00,000
+que el Resultado es Igual a a, pero alguien
+
+16
+00:01:00,000 --> 00:01:04,000
+que lea este cdigo puede preguntarse, "Qu es un,
+
+17
+00:01:04,000 --> 00:01:08,000
+de dnde vino eso? "As que una mejor forma de
+
+18
+00:01:08,000 --> 00:01:12,000
+escribir esta Afirmacin es as. Queremos asegurarnos de que este resultado sea
+
+19
+00:01:12,000 --> 00:01:16,000
+igual al de Reserva existente. Referencia. Sea lo que sea.
+
+20
+00:01:16,000 --> 00:01:20,000
+Vamos a ejecutar esta prueba.
+
+21
+00:01:20,000 --> 00:01:24,000
+De acuerdo, nuestra prueba pas, hermosa. En la prxima conferencia,
+
+22
+00:01:24,000 --> 00:01:27,000
+veremos otro caso de prueba.
+

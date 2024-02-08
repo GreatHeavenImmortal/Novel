@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Recently, a student of mine
+
+2
+00:00:04,000 --> 00:00:08,000
+asked me: "Mosh, why on earth should we write code
+
+3
+00:00:08,000 --> 00:00:12,000
+to test our code, when we can just run the application and see the result?".
+
+4
+00:00:12,000 --> 00:00:16,000
+Well, in the last lecture, you learned that with automated tests
+
+5
+00:00:16,000 --> 00:00:20,000
+you can test our application code on a frequent basis
+
+6
+00:00:20,000 --> 00:00:24,000
+and in less time. But this is not the only benefit of automated
+
+7
+00:00:24,000 --> 00:00:28,000
+testing. The most important benefit is that you can
+
+8
+00:00:28,000 --> 00:00:32,000
+catch the bugs BEFORE deploying our application. And
+
+9
+00:00:32,000 --> 00:00:36,000
+this is extremely important because it allows you to deploy your application
+
+10
+00:00:36,000 --> 00:00:40,000
+with more confidence. Have you been in a situation where you
+
+11
+00:00:40,000 --> 00:00:44,000
+finished all the work, deployed your application, left the office
+
+12
+00:00:44,000 --> 00:00:48,000
+thinking everything is working, and then got a call from your boss or
+
+13
+00:00:48,000 --> 00:00:52,000
+an end-user, telling you that one of the major functions of the application
+
+14
+00:00:52,000 --> 00:00:56,000
+is not working? Then you had to go back to the office and you thought
+
+15
+00:00:56,000 --> 00:01:00,000
+that was a quick fix, but you ended up staying there
+
+16
+00:01:00,000 --> 00:01:04,000
+till midnight! That's why you should write tests: to reduce
+
+17
+00:01:04,000 --> 00:01:08,000
+the number of defects or bugs that will go in the production… Now, note
+
+18
+00:01:08,000 --> 00:01:12,000
+that I'm not saying that with automated tests you're going to release bug free
+
+19
+00:01:12,000 --> 00:01:16,000
+software. That's not true! But you can certainly reduce the number of
+
+20
+00:01:16,000 --> 00:01:20,000
+bugs and improve the quality of your software. 
+ 
+
+21
+00:01:20,000 --> 00:01:24,000
+Another benefit of automated tests is that they allow you to
+
+22
+00:01:24,000 --> 00:01:28,000
+refactor your code with confidence. Refactoring means
+
+23
+00:01:28,000 --> 00:01:32,000
+changing the structure of your code, without changing its behaviour.
+
+24
+00:01:32,000 --> 00:01:36,000
+If you extract a few lines of a method into a separate
+
+25
+00:01:36,000 --> 00:01:40,000
+private method, that's refactoring. If you rename a method, that's
+
+26
+00:01:40,000 --> 00:01:44,000
+refactoring too. You're changing the structure of your code to make it
+
+27
+00:01:44,000 --> 00:01:48,000
+cleaner and more maintainable, but you're not changing the functionality.
+
+28
+00:01:48,000 --> 00:01:52,000
+When you don't have automated tests, every time you refactor
+
+29
+00:01:52,000 --> 00:01:56,000
+your code you have to manually test every part of the application
+
+30
+00:01:56,000 --> 00:02:00,000
+that could be affected by your refactoring. And this is very painful
+
+31
+00:02:00,000 --> 00:02:04,000
+because first of all, it's time consuming, and second, as your
+
+32
+00:02:04,000 --> 00:02:08,000
+application grows, you may forget about the parts that need to be tested!
+
+33
+00:02:08,000 --> 00:02:12,000
+With automated tests, every time you refactor your code,
+
+34
+00:02:12,000 --> 00:02:16,000
+you run your tests and make sure you didn't break anything that
+
+35
+00:02:16,000 --> 00:02:20,000
+used to previously work. And finally, another benefit of writing
+
+36
+00:02:20,000 --> 00:02:24,000
+tests is that it helps you focus more on the quality
+
+37
+00:02:24,000 --> 00:02:28,000
+of the methods that you're writing. You make sure that every method works
+
+38
+00:02:28,000 --> 00:02:32,000
+with different inputs under varying circumstances.
+
+39
+00:02:32,000 --> 00:02:36,000
+Next, I'm gonna talk about different types of tests.

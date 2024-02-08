@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:04,000
+When you get started with automated testing
+
+2
+00:00:04,000 --> 00:00:08,000
+a word that you hear often is test-driven development or TDD.
+
+3
+00:00:08,000 --> 00:00:12,000
+Test-driven development, or TDD, also called
+
+4
+00:00:12,000 --> 00:00:16,000
+test first, is an approach to build software. With
+
+5
+00:00:16,000 --> 00:00:20,000
+TDD, you write your test before writing the application
+
+6
+00:00:20,000 --> 00:00:24,000
+or production code. The first time I heard this I asked
+
+7
+00:00:24,000 --> 00:00:28,000
+how on earth is that even possible, how can we test a code
+
+8
+00:00:28,000 --> 00:00:32,000
+you haven't written, chances are you have the same question. So, let's see
+
+9
+00:00:32,000 --> 00:00:36,000
+how TDD works. You start by writing a
+
+10
+00:00:36,000 --> 00:00:40,000
+failing test. This test should fail because you don't have
+
+11
+00:00:40,000 --> 00:00:44,000
+any application code that would make it pass, right?
+
+12
+00:00:44,000 --> 00:00:48,000
+Then you will write the simplest application code that will make this test
+
+13
+00:00:48,000 --> 00:00:52,000
+pass. The absolute simplest, you don't want to over engineer here,
+
+14
+00:00:52,000 --> 00:00:56,000
+you don't want to design a class diagram with a zillion classes and
+
+15
+00:00:56,000 --> 00:01:00,000
+methods. Use the simplest implementation that would make the test
+
+16
+00:01:00,000 --> 00:01:04,000
+pass. Then, refactor your code if necessary.
+
+17
+00:01:04,000 --> 00:01:08,000
+These three steps are the foundation of TDD.
+
+18
+00:01:08,000 --> 00:01:12,000
+You repeat these three steps over and over
+
+19
+00:01:12,000 --> 00:01:16,000
+until you build a complete feature. Now what is
+
+20
+00:01:16,000 --> 00:01:20,000
+so special about TDD? Well, first, is that
+
+21
+00:01:20,000 --> 00:01:24,000
+source code will be testable right from the get go. You don't have to
+
+22
+00:01:24,000 --> 00:01:28,000
+make any changes to your code to make it testable. Second,
+
+23
+00:01:28,000 --> 00:01:32,000
+is that every line of your production code is fully covered
+
+24
+00:01:32,000 --> 00:01:36,000
+by tests. Which means you can refactor and deploy
+
+25
+00:01:36,000 --> 00:01:40,000
+with confidence, and third, is that it often results
+
+26
+00:01:40,000 --> 00:01:44,000
+in a simpler implementation. When you start
+
+27
+00:01:44,000 --> 00:01:48,000
+with a big class diagram. Chances are you are over engineering
+
+28
+00:01:48,000 --> 00:01:52,000
+and making the solution more complex. If you write enough code
+
+29
+00:01:52,000 --> 00:01:56,000
+to make all the tests pass, and that solution works, there is no reason
+
+30
+00:01:56,000 --> 00:02:00,000
+to write more code. The fact that all your tests passed, means
+
+31
+00:02:00,000 --> 00:02:04,000
+you have fulfilled all the business requirements. So,
+
+32
+00:02:04,000 --> 00:02:08,000
+unless there is a new requirement, you don't need to write new code. And if there is
+
+33
+00:02:08,000 --> 00:02:12,000
+a new requirement, you start with failing test. So this is TDD.
+
+34
+00:02:12,000 --> 00:02:16,000
+In TDD, we write our tests first, and that's why
+
+35
+00:02:16,000 --> 00:02:20,000
+we call this approach test driven development. So our development
+
+36
+00:02:20,000 --> 00:02:24,000
+is driven by our tests. In contrast to TDD, or
+
+37
+00:02:24,000 --> 00:02:28,000
+test first, we have code first, which is what you have been doing so far.
+
+38
+00:02:28,000 --> 00:02:32,000
+You start with your application code, and then you write tests.
+
+39
+00:02:32,000 --> 00:02:36,000
+Which approach is better? It depends who you ask.
+
+40
+00:02:36,000 --> 00:02:40,000
+In theory, TDD is more promising because
+
+41
+00:02:40,000 --> 00:02:44,000
+of the benefits I told you. But in practice, sometimes it can get
+
+42
+00:02:44,000 --> 00:02:48,000
+really complex and it may slow you down. If that's the case, it's
+
+43
+00:02:48,000 --> 00:02:52,000
+better to switch to the code first approach, and write your tests after.
+
+44
+00:02:52,000 --> 00:02:56,000
+In this course, our focus will be on the code first approach,
+
+45
+00:02:56,000 --> 00:03:00,000
+so we can master the fundamentals of testing.
+
+46
+00:03:00,000 --> 00:03:04,000
+Once you master the fundamentals, then you will be ready to start
+
+47
+00:03:04,000 --> 00:03:08,000
+your test first journey. TDD really requires a separate
+
+48
+00:03:08,000 --> 00:03:12,000
+course, and I'm not going to talk about it throughout this course. But if you're interested,
+
+49
+00:03:12,000 --> 00:03:16,000
+potentially in the future, I can create a course on test driven
+
+50
+00:03:16,000 --> 00:03:19,366
+development.
+

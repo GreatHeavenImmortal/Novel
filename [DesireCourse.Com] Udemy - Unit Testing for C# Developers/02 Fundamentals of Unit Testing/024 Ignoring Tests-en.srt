@@ -1,0 +1,94 @@
+1
+00:00:00,000 --> 00:00:04,000
+In the real world, as you modify
+
+2
+00:00:04,000 --> 00:00:08,000
+your code, it is possible that you may break one or more tests.
+
+3
+00:00:08,000 --> 00:00:12,000
+Now, when your new to unit testing, you may get frustrated, you may
+
+4
+00:00:12,000 --> 00:00:16,000
+think these tests are getting in the way, and they're slowing you down,
+
+5
+00:00:16,000 --> 00:00:20,000
+so you may get tempted to delete those tests, or comment them
+
+6
+00:00:20,000 --> 00:00:24,000
+out. But this is a very bad approach, because there was a reason to write
+
+7
+00:00:24,000 --> 00:00:28,000
+those tests. So, we can deploy and refactor your code with more
+
+8
+00:00:28,000 --> 00:00:32,000
+confidence. So, in this lecture, I want to show you a technique
+
+9
+00:00:32,000 --> 00:00:36,000
+for temporarily disabling a test so you can focus on
+
+10
+00:00:36,000 --> 00:00:40,000
+some work somewhere else and then get to fix that test somewhere in the future
+
+11
+00:00:40,000 --> 00:00:44,000
+in NUnit we have this useful attribute called
+
+12
+00:00:44,000 --> 00:00:48,000
+Ignore. This attribute takes
+
+13
+00:00:48,000 --> 00:00:52,000
+an argument, and this is the reason we want to ignore this test.
+
+14
+00:00:52,000 --> 00:00:56,000
+This is very useful, because we can see this message when running our
+
+15
+00:00:56,000 --> 00:01:00,000
+tests. It will remind us why we disabled these tests.
+
+16
+00:01:00,000 --> 00:01:04,000
+So, let's add a message here, because
+
+17
+00:01:04,000 --> 00:01:08,000
+I wanted to. Now, I'm going to run all the tests
+
+18
+00:01:08,000 --> 00:01:12,000
+in this project,
+
+19
+00:01:12,000 --> 00:01:16,000
+look at the test for the app method. You can see this yellow
+
+20
+00:01:16,000 --> 00:01:20,000
+warning, ignore it, because I wanted it to. So, this is
+
+21
+00:01:20,000 --> 00:01:24,000
+the better approach, and deleting a test or commenting it out.
+
+22
+00:01:24,000 --> 00:01:28,000
+Because when you comment out a test, you forget to remove that comment later.
+
+23
+00:01:28,000 --> 00:01:32,000
+But the Ignore attribute and this warning message will remind you.
+
+
+

@@ -1,0 +1,50 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, one more exercise.
+
+2
+00:00:04,000 --> 00:00:08,000
+This time, I want you to look at the stack class.
+
+3
+00:00:08,000 --> 00:00:12,000
+So here we have a basic implementation
+
+4
+00:00:12,000 --> 00:00:16,000
+of a stack, we have a few public members, we have this
+
+5
+00:00:16,000 --> 00:00:20,000
+count, which is an expression body property,
+
+6
+00:00:20,000 --> 00:00:24,000
+which returns the number of objects in the stack
+
+7
+00:00:24,000 --> 00:00:28,000
+we have the push method, which adds an object on top of the stack,
+
+8
+00:00:28,000 --> 00:00:32,000
+we have the Pop method, which removes the object on top of
+
+9
+00:00:32,000 --> 00:00:36,000
+the stack, and also returns it, and finally the Peek method,
+
+10
+00:00:36,000 --> 00:00:40,000
+that returns the object on top of the stack without
+
+11
+00:00:40,000 --> 00:00:44,000
+removing it. So, go ahead, and write a bunch of unit
+
+12
+00:00:44,000 --> 00:00:48,000
+tests for this class and next we're going to look at my solution.
+
+
+

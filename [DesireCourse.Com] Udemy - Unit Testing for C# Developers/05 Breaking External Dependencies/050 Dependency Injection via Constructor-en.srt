@@ -1,0 +1,262 @@
+1
+00:00:00,000 --> 00:00:04,000
+So in the last lecture, you learned how
+
+2
+00:00:04,000 --> 00:00:08,000
+to inject dependencies using properties. This approach
+
+3
+00:00:08,000 --> 00:00:12,000
+works in a lot of scenarios, but some dependency injection frameworks
+
+4
+00:00:12,000 --> 00:00:16,000
+can't inject dependencies via properties. So an
+
+5
+00:00:16,000 --> 00:00:20,000
+alternative way is to inject dependencies via constructor
+
+6
+00:00:20,000 --> 00:00:24,000
+parameters. So here in our constructor, I'm going to add
+
+7
+00:00:24,000 --> 00:00:28,000
+a parameter IFileReader
+
+8
+00:00:28,000 --> 00:00:32,000
+and then I'm going to change this public property to a
+
+9
+00:00:32,000 --> 00:00:36,000
+private field, because we're going to inject a dependency at the time of creating
+
+10
+00:00:36,000 --> 00:00:40,000
+a video service object. So, I'm going to delete
+
+11
+00:00:40,000 --> 00:00:44,000
+the getter and the setter. Change
+
+12
+00:00:44,000 --> 00:00:48,000
+the public to private, and finally to follow the naming convention
+
+13
+00:00:48,000 --> 00:00:52,000
+.net we name FileReader to
+
+14
+00:00:52,000 --> 00:00:56,000
+underline lower case f FileReader
+
+15
+00:00:56,000 --> 00:01:00,000
+and one last change, here we are always initializing
+
+16
+00:01:00,000 --> 00:01:04,000
+this file reader to a new FileReader which is the new
+
+17
+00:01:04,000 --> 00:01:08,000
+implementation. We want to have flexibility here. So,
+
+18
+00:01:08,000 --> 00:01:12,000
+we should replace this with the argument that we get in the constructor.
+
+19
+00:01:12,000 --> 00:01:16,000
+fileReader. So we call this approach
+
+20
+00:01:16,000 --> 00:01:20,000
+constructor injection. However, there are a couple of other problems
+
+21
+00:01:20,000 --> 00:01:24,000
+with this approach, and I'm going to show you work arounds. One problem is that
+
+22
+00:01:24,000 --> 00:01:28,000
+because we have changed the signature of this constructor, chances
+
+23
+00:01:28,000 --> 00:01:32,000
+are, we have broken some code somewhere else. So if you look at
+
+24
+00:01:32,000 --> 00:01:36,000
+the program class, you can see this slide is broken, because
+
+25
+00:01:36,000 --> 00:01:40,000
+now we have to pass an argument to this constructor. So,
+
+26
+00:01:40,000 --> 00:01:44,000
+one way is to pass a new FileReader object. But I'm going to show you
+
+27
+00:01:44,000 --> 00:01:48,000
+a better way. So, let's delete this.
+
+28
+00:01:48,000 --> 00:01:52,000
+Back in our video service, increase
+
+29
+00:01:52,000 --> 00:01:56,000
+a separate constructor that doesn't take
+
+30
+00:01:56,000 --> 00:02:00,000
+any parameters. So, a default constructor.
+
+31
+00:02:00,000 --> 00:02:04,000
+In this constructor, you can set a file reader to a new
+
+32
+00:02:04,000 --> 00:02:08,000
+FileReader object. So in our production code, we're going to use
+
+33
+00:02:08,000 --> 00:02:12,000
+this constructor, but in our test code, we're going to use this constructor
+
+34
+00:02:12,000 --> 00:02:16,000
+so we can pass a fake FileReader. With this approach,
+
+35
+00:02:16,000 --> 00:02:20,000
+we can see our code is no longer broken. Now we can
+
+36
+00:02:20,000 --> 00:02:24,000
+make this even a little bit better. So, we can
+
+37
+00:02:24,000 --> 00:02:28,000
+combine these two constructors into one constructor. So, I'm
+
+38
+00:02:28,000 --> 00:02:32,000
+going to delete the default constructor,
+
+39
+00:02:32,000 --> 00:02:36,000
+and make this parameter optional. So we set this to null,
+
+40
+00:02:36,000 --> 00:02:40,000
+and that means wherever we create a video service object
+
+41
+00:02:40,000 --> 00:02:44,000
+we don't necessarily have to pass the file reader object as an argument.
+
+42
+00:02:44,000 --> 00:02:48,000
+So if you look at the program class, you can see the code is still working,
+
+43
+00:02:48,000 --> 00:02:52,000
+we don't have a compilation error, now back in the video service,
+
+44
+00:02:52,000 --> 00:02:56,000
+I'm going to change this line to something like
+
+45
+00:02:56,000 --> 00:03:00,000
+this. So fileReader, ??
+
+46
+00:03:00,000 --> 00:03:04,000
+new FileReader. What does this mean?
+
+47
+00:03:04,000 --> 00:03:08,000
+That means the fileReader is not
+
+48
+00:03:08,000 --> 00:03:12,000
+null, you're going to use that to set this private fried,
+
+49
+00:03:12,000 --> 00:03:16,000
+otherwise, if it's null, you're going to new up, real
+
+50
+00:03:16,000 --> 00:03:20,000
+FileReader object here. So in our production code,
+
+51
+00:03:20,000 --> 00:03:24,000
+in this case here, we're creating a new video service
+
+52
+00:03:24,000 --> 00:03:28,000
+without any arguments to the constructor. In this case our argument
+
+53
+00:03:28,000 --> 00:03:32,000
+is null. So, with this implementation,
+
+54
+00:03:32,000 --> 00:03:36,000
+you're going to set fileReader.new. FileReader object.
+
+55
+00:03:36,000 --> 00:03:40,000
+In our unit test, we're going to pass a fake
+
+56
+00:03:40,000 --> 00:03:44,000
+fileReader object. I'm going to use that to set this fileReader field.
+
+57
+00:03:44,000 --> 00:03:48,000
+Okay? So back to our unit test,
+
+58
+00:03:48,000 --> 00:03:52,000
+we no longer have these properties, so delete,
+
+59
+00:03:52,000 --> 00:03:56,000
+instead when creating a video service object we pass
+
+60
+00:03:56,000 --> 00:04:00,000
+a new FakeFileReader. Let's run the
+
+61
+00:04:00,000 --> 00:04:04,000
+test one more time, okay
+
+62
+00:04:04,000 --> 00:04:08,000
+so still passing, excellent. So this approach is what we call
+
+63
+00:04:08,000 --> 00:04:12,000
+constructor injection. And as far as I know, most dependency injections
+
+64
+00:04:12,000 --> 00:04:16,000
+out there do support constructor injection. In the next
+
+65
+00:04:16,000 --> 00:04:20,000
+lecture, we're going to have a quick overview of dependency injection framework.
+
+
+

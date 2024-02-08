@@ -1,0 +1,294 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, back in our Mocking folder,
+
+2
+00:00:04,000 --> 00:00:08,000
+look at this product class.
+
+3
+00:00:08,000 --> 00:00:12,000
+This product class has a property called ListPrice
+
+4
+00:00:12,000 --> 00:00:16,000
+and a method called GetPrice that takes a customer
+
+5
+00:00:16,000 --> 00:00:20,000
+argument. So here we check if customer IsGold, we give
+
+6
+00:00:20,000 --> 00:00:24,000
+them 30% discount. Otherwise, we return the
+
+7
+00:00:24,000 --> 00:00:28,000
+ListPrice. And here is the definition of the customer class.
+
+8
+00:00:28,000 --> 00:00:32,000
+Very simple example, but we can use it to see what happens
+
+9
+00:00:32,000 --> 00:00:36,000
+when you abuse mocks. So, let's go ahead
+
+10
+00:00:36,000 --> 00:00:40,000
+and write a unit test for this method for the scenario where
+
+11
+00:00:40,000 --> 00:00:44,000
+customer is a gold customer. So,
+
+12
+00:00:44,000 --> 00:00:48,000
+back in our solution explorer, in the Mocking folder, let's
+
+13
+00:00:48,000 --> 00:00:52,000
+add a new Class, Product
+
+14
+00:00:52,000 --> 00:00:56,000
+Tests. We add the
+
+15
+00:00:56,000 --> 00:01:00,000
+TestFixture attribute, and write the Test
+
+16
+00:01:00,000 --> 00:01:04,000
+so, GetPrice,
+
+17
+00:01:04,000 --> 00:01:08,000
+for GoldCustomer, should Apply30Percent
+
+18
+00:01:08,000 --> 00:01:12,000
+Discount. Now, let's create
+
+19
+00:01:12,000 --> 00:01:16,000
+a product object. New Product,
+
+20
+00:01:16,000 --> 00:01:20,000
+and set it's ListPrice to 100
+
+21
+00:01:20,000 --> 00:01:24,000
+dollars. Okay? Now, let's
+
+22
+00:01:24,000 --> 00:01:28,000
+act, so product GetPrice, we give it a customer
+
+23
+00:01:28,000 --> 00:01:32,000
+object, and set
+
+24
+00:01:32,000 --> 00:01:36,000
+IsGold to true.
+
+25
+00:01:36,000 --> 00:01:40,000
+Then, get the result, and finally,
+
+26
+00:01:40,000 --> 00:01:44,000
+Assert That, result,
+
+27
+00:01:44,000 --> 00:01:48,000
+is equal to, 70 dollars.
+
+28
+00:01:48,000 --> 00:01:52,000
+Let's run this test.
+
+29
+00:01:52,000 --> 00:01:56,000
+Okay, it passed, beautiful. Now, back in our
+
+30
+00:01:56,000 --> 00:02:00,000
+product class, let me show you what happens when you abuse
+
+31
+00:02:00,000 --> 00:02:04,000
+mocks. So people who abuse mocks extract
+
+32
+00:02:04,000 --> 00:02:08,000
+(?) them at interface from every class. So here, let's
+
+33
+00:02:08,000 --> 00:02:12,000
+Extract an interface from the customer class, refactor
+
+34
+00:02:12,000 --> 00:02:16,000
+an extract interface. We call it iCustomer
+
+35
+00:02:16,000 --> 00:02:20,000
+with one property, okay? And then,
+
+36
+00:02:20,000 --> 00:02:24,000
+in GetPrice method, instead of Customer you pass
+
+37
+00:02:24,000 --> 00:02:28,000
+an ICustomer object. Now, back to our unit test,
+
+38
+00:02:28,000 --> 00:02:32,000
+the current unit test is working, because this customer
+
+39
+00:02:32,000 --> 00:02:36,000
+object we're passing of course it implements the ICustomer interface,
+
+40
+00:02:36,000 --> 00:02:40,000
+so this test is perfectly fine. However, people who use
+
+41
+00:02:40,000 --> 00:02:44,000
+mocks everywhere, don't write a unit test like this.
+
+42
+00:02:44,000 --> 00:02:48,000
+Instead, they write a unit test like this. So I'm going to duplicate
+
+43
+00:02:48,000 --> 00:02:52,000
+this, and change
+
+44
+00:02:52,000 --> 00:02:56,000
+the name of the second test method, let's add two at the end,
+
+45
+00:02:56,000 --> 00:03:00,000
+so we can compare them side by side. So,
+
+46
+00:03:00,000 --> 00:03:04,000
+here we need to create a mock object,
+
+47
+00:03:04,000 --> 00:03:08,000
+so var customer is a new Mock
+
+48
+00:03:08,000 --> 00:03:12,000
+of ICustomer. And then we need to
+
+49
+00:03:12,000 --> 00:03:16,000
+program this mock, so customer.Set
+
+50
+00:03:16,000 --> 00:03:20,000
+up. C goes to c.IsGold
+
+51
+00:03:20,000 --> 00:03:24,000
+Returns true.
+
+52
+00:03:24,000 --> 00:03:28,000
+Okay. And then,
+
+53
+00:03:28,000 --> 00:03:32,000
+instead of passing a new customer object we pass customer
+
+54
+00:03:32,000 --> 00:03:36,000
+.Object. Compare these two tests side by
+
+55
+00:03:36,000 --> 00:03:40,000
+side. Which one is simpler? Which one is cleaner?
+
+56
+00:03:40,000 --> 00:03:44,000
+Which one is easier to understand? Of course the first one.
+
+57
+00:03:44,000 --> 00:03:48,000
+And here, you are dealing with a very simple example. So, our unit test
+
+58
+00:03:48,000 --> 00:03:52,000
+has two extra lines of code as this setup of a mock object,
+
+59
+00:03:52,000 --> 00:03:56,000
+imagine in a real life scenario where you are dealing
+
+60
+00:03:56,000 --> 00:04:00,000
+with a more complex code, you're going to have a few mock objects,
+
+61
+00:04:00,000 --> 00:04:04,000
+if you're going to mock everything, and your tests start to get really boggled.
+
+62
+00:04:04,000 --> 00:04:08,000
+You'll have a test that takes the entire script from top to bottom.
+
+63
+00:04:08,000 --> 00:04:12,000
+Your tests should be ideally within 3-5 lines of code.
+
+64
+00:04:12,000 --> 00:04:16,000
+This is an ideal unit test. But of course, I don't in real
+
+65
+00:04:16,000 --> 00:04:20,000
+life scenarios, it's not always possible to write such short
+
+66
+00:04:20,000 --> 00:04:24,000
+unit tests, but if you follow the best practices that I've taught
+
+67
+00:04:24,000 --> 00:04:28,000
+you in this course, you can achieve small, maintainable
+
+68
+00:04:28,000 --> 00:04:32,000
+and reliable tests. So, 3-5 lines is
+
+69
+00:04:32,000 --> 00:04:36,000
+ideal, even 5-10 lines is okay, as long as you're not
+
+70
+00:04:36,000 --> 00:04:40,000
+doing this kind of mocking, this is really, really bad and
+
+71
+00:04:40,000 --> 00:04:44,000
+I used to do this before, and I've realized the hard way that
+
+72
+00:04:44,000 --> 00:04:48,000
+this is a recipe for disaster. So one more time,
+
+73
+00:04:48,000 --> 00:04:52,000
+use mocks, but removing external resources from your unit tests.
+
+
+

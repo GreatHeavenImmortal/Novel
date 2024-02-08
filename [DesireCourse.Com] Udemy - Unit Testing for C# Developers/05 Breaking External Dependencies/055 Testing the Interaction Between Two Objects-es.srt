@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, una vez ms, en la
+
+2
+00:00:04,000 --> 00:00:08,000
+carpeta Mocking, echemos un vistazo a
+
+3
+00:00:08,000 --> 00:00:12,000
+este servicio de pedido. Este es el servicio de orden que viste en la ltima conferencia.
+
+4
+00:00:12,000 --> 00:00:16,000
+As que vamos a escribir la prueba para este
+
+5
+00:00:16,000 --> 00:00:20,000
+mtodo, agreguemos Assert. almacenamiento. Se llama a la
+
+6
+00:00:20,000 --> 00:00:24,000
+tienda con el mismo objeto que pasamos a este mtodo PlaceOrder, de acuerdo?
+
+7
+00:00:24,000 --> 00:00:28,000
+Por lo tanto, en nuestro proyecto
+
+8
+00:00:28,000 --> 00:00:32,000
+de pruebas unitarias, dentro de la
+
+9
+00:00:32,000 --> 00:00:36,000
+carpeta Mocking, agreguemos una nueva clase, OrderServiceTests.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, primero aplicamos el atributo Test
+
+11
+00:00:40,000 --> 00:00:44,000
+Fixture y luego creamos un mtodo
+
+12
+00:00:44,000 --> 00:00:48,000
+de prueba. Entonces
+
+13
+00:00:48,000 --> 00:00:52,000
+public void,
+
+14
+00:00:52,000 --> 00:00:56,000
+PlaceOrder_WhenCalled debera StoreTheOrder.
+
+15
+00:00:56,000 --> 00:01:00,000
+Ahora volvamos a nuestro servicio de pedido, mire el
+
+16
+00:01:00,000 --> 00:01:04,000
+constructor de esta clase. Estamos inyectando este
+
+17
+00:01:04,000 --> 00:01:08,000
+objeto IStorage aqu. Entonces, en nuestra prueba, necesitamos crear
+
+18
+00:01:08,000 --> 00:01:12,000
+un objeto simulado para esta interfaz. Entonces, creemos
+
+19
+00:01:12,000 --> 00:01:16,000
+una nueva interfaz
+
+20
+00:01:16,000 --> 00:01:20,000
+Mock of IStorage.
+
+21
+00:01:20,000 --> 00:01:24,000
+Ahora, creamos un servicio de
+
+22
+00:01:24,000 --> 00:01:28,000
+pedido tan nuevo OrderService y
+
+23
+00:01:28,000 --> 00:01:32,000
+pasamos el almacenamiento. objeto como argumento
+
+24
+00:01:32,000 --> 00:01:36,000
+Esta es la parte de arreglos. Ahora, tenemos que actuar.
+
+25
+00:01:36,000 --> 00:01:40,000
+Servicio. Realizar pedido.
+
+26
+00:01:40,000 --> 00:01:44,000
+Le damos un objeto de pedido, muy simple, ahora
+
+27
+00:01:44,000 --> 00:01:48,000
+finalmente necesitamos afirmar ese almacenamiento. se llama
+
+28
+00:01:48,000 --> 00:01:52,000
+tienda Para hacer eso llamamos almacenamiento. hasta ahora has visto el mtodo de configuracin, verdad?
+
+29
+00:01:52,000 --> 00:01:56,000
+As es como programamos un objeto simulado. Tambin tenemos un mtodo
+
+30
+00:01:56,000 --> 00:02:00,000
+de verificacin. Y con esto podemos verificar que cualquier mtodo
+
+31
+00:02:00,000 --> 00:02:04,000
+dado sea invocado con los argumentos correctos no. Entonces, de nuevo,
+
+32
+00:02:04,000 --> 00:02:08,000
+aqu pasamos una
+
+33
+00:02:08,000 --> 00:02:12,000
+expresin Lambda, el almacenamiento va al almacenamiento. Tienda, y como argumento necesitamos pasar el
+
+34
+00:02:12,000 --> 00:02:16,000
+mismo objeto de
+
+35
+00:02:16,000 --> 00:02:20,000
+orden que se pasa al mtodo PlaceOrder. As que voy a extraer esto en una
+
+36
+00:02:20,000 --> 00:02:24,000
+variable local, para que
+
+37
+00:02:24,000 --> 00:02:28,000
+var order pase un objeto aqu, y tambin,
+
+38
+00:02:28,000 --> 00:02:32,000
+verifique que el mismo objeto se pase al
+
+39
+00:02:32,000 --> 00:02:36,000
+mtodo de almacenamiento de la tienda. Entonces, agregamos orden
+
+40
+00:02:36,000 --> 00:02:40,000
+aqu. Ahora, ejecutemos esta prueba.
+
+41
+00:02:40,000 --> 00:02:44,000
+De acuerdo, esta es nuestra nueva prueba.
+
+42
+00:02:44,000 --> 00:02:48,000
+Est pasando, hermoso, asegurmonos de que estamos aprobando lo correcto,
+
+43
+00:02:48,000 --> 00:02:52,000
+as que voy a volver a pedir el servicio, si
+
+44
+00:02:52,000 --> 00:02:56,000
+comentamos esta lnea, esa prueba va a fallar, entonces, podemos
+
+45
+00:02:56,000 --> 00:03:00,000
+comentar esto o podemos devolver algo antes que tenga el mismo efecto.
+
+46
+00:03:00,000 --> 00:03:04,000
+Entonces, aqu, ejecutemos la prueba una vez ms.
+
+47
+00:03:04,000 --> 00:03:08,000
+De acuerdo, nuestra prueba fall. Mira el mensaje de error. Esperado en la ubicacin en el simulacro al menos una vez,
+
+48
+00:03:12,000 --> 00:03:16,000
+pero nunca se realiz.
+
+49
+00:03:16,000 --> 00:03:20,000
+Entonces esto verifica que estamos probando lo correcto.
+
+50
+00:03:20,000 --> 00:03:24,000
+Ahora volvamos a nuestro servicio de pedido, volvamos esto.
+
+51
+00:03:24,000 --> 00:03:28,000
+De acuerdo, entonces, para recapitular, para probar
+
+52
+00:03:28,000 --> 00:03:32,000
+la interaccin entre dos objetos, puedes usar
+
+53
+00:03:32,000 --> 00:03:36,000
+el mtodo de verificacin de objetos simulados.
+
+54
+00:03:36,000 --> 00:03:40,000
+&nbsp;
+

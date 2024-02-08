@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:04,000
+En la prxima conferencia, vas a escribir
+
+2
+00:00:04,000 --> 00:00:08,000
+tu primera prueba unitaria. As que descargue el archivo zip que
+
+3
+00:00:08,000 --> 00:00:12,000
+adjunt a esta conferencia. Esta es una solucin de Visual Studio que incluye algn
+
+4
+00:00:12,000 --> 00:00:15,000
+cdigo que va a probar a lo largo de este curso.
+

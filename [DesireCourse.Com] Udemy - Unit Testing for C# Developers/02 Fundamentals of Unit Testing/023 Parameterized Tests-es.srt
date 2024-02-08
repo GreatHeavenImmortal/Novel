@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ahora, mira estas tres pruebas que hemos escrito
+
+2
+00:00:04,000 --> 00:00:08,000
+para el mtodo max. Se ven casi idnticos,
+
+3
+00:00:08,000 --> 00:00:12,000
+la nica diferencia est en los valores que
+
+4
+00:00:12,000 --> 00:00:16,000
+usamos en cada prueba. Entonces en esta conferencia voy a mostrarles una
+
+5
+00:00:16,000 --> 00:00:20,000
+manera ms limpia de reescribir estas pruebas. En NUnit tenemos este
+
+6
+00:00:20,000 --> 00:00:24,000
+concepto llamado pruebas parametrizadas. Entonces, en lugar de
+
+7
+00:00:24,000 --> 00:00:28,000
+estos mtodos de reevaluacin aqu. Podemos tener un mtodo
+
+8
+00:00:28,000 --> 00:00:32,000
+de prueba que tome parmetros. Y luego podemos suministrar
+
+9
+00:00:32,000 --> 00:00:36,000
+diferentes argumentos en esa prueba. Por lo tanto, voy a
+
+10
+00:00:36,000 --> 00:00:40,000
+cambiar el nombre del primer mtodo de prueba a algo
+
+11
+00:00:40,000 --> 00:00:44,000
+ms genrico, por lo que, cuando se llame max, debera
+
+12
+00:00:44,000 --> 00:00:48,000
+devolver un argumento mayor. Bien? Ahora aqu voy
+
+13
+00:00:48,000 --> 00:00:52,000
+a agregar tres parmetros. Entero A
+
+14
+00:00:52,000 --> 00:00:56,000
+Entero E, y
+
+15
+00:00:56,000 --> 00:01:00,000
+resultado entero esperado.
+
+16
+00:01:00,000 --> 00:01:04,000
+Entonces, en lugar de codificar estos valores aqu, quiero pasarlos como
+
+17
+00:01:04,000 --> 00:01:08,000
+argumentos a este mtodo. Bueno? Entonces, voy a
+
+18
+00:01:08,000 --> 00:01:12,000
+reemplazar 2 y 1, con A y B,
+
+19
+00:01:12,000 --> 00:01:16,000
+y este es el resultado esperado, de acuerdo?
+
+20
+00:01:16,000 --> 00:01:20,000
+Entonces ahora tenemos un mtodo de prueba
+
+21
+00:01:20,000 --> 00:01:24,000
+genrico y parametrizado. En NUnit tenemos otro atributo til
+
+22
+00:01:24,000 --> 00:01:28,000
+llamado caso de prueba, y con esto podemos suministrar diferentes argumentos
+
+23
+00:01:28,000 --> 00:01:32,000
+con este mtodo de prueba. Entonces, aqu tenemos tres
+
+24
+00:01:32,000 --> 00:01:36,000
+casos de prueba, el primero es A es
+
+25
+00:01:36,000 --> 00:01:40,000
+mayor, entonces 2 y 1, y el resultado
+
+26
+00:01:40,000 --> 00:01:44,000
+esperado es 2. Voy a duplicar esto para el
+
+27
+00:01:44,000 --> 00:01:48,000
+segundo caso de prueba, queremos que el segundo argumento sea mayor.
+
+28
+00:01:48,000 --> 00:01:52,000
+Entonces, 1 y 2, y el resultado esperado es 2.
+
+29
+00:01:52,000 --> 00:01:56,000
+Y, el ltimo caso de prueba, donde,
+
+30
+00:01:56,000 --> 00:02:00,000
+ambos argumentos son iguales. Entonces, 1 en 1, y
+
+31
+00:02:00,000 --> 00:02:04,000
+el resultado esperado es 1. Con esto, ya no
+
+32
+00:02:04,000 --> 00:02:08,000
+necesitamos escribir estas pruebas adicionales. Ellos son redundantes.
+
+33
+00:02:08,000 --> 00:02:12,000
+No es esto ms limpio? Entonces, ahora
+
+34
+00:02:12,000 --> 00:02:16,000
+ejecutemos esta prueba. Comando y T, y Comando y
+
+35
+00:02:16,000 --> 00:02:20,000
+R, podemos ver que la prueba que hemos escrito para el mtodo
+
+36
+00:02:20,000 --> 00:02:24,000
+Max ahora tiene tres casos de prueba. Y todos estn pasando,
+
+37
+00:02:24,000 --> 00:02:28,000
+si uno de ellos falla, simplemente puede hacer clic
+
+38
+00:02:28,000 --> 00:02:32,000
+y ver los detalles de la prueba fallida aqu.
+
+39
+00:02:32,000 --> 00:02:36,000
+Y, por cierto, esta es una de esas reas donde
+
+40
+00:02:36,000 --> 00:02:40,000
+NUnit es diferente de MS Test, en MS Test, lamentablemente
+
+41
+00:02:40,000 --> 00:02:44,000
+no tenemos una solucin simple para parametrizar las pruebas.
+
+42
+00:02:44,000 --> 00:02:48,000
+Tienes que crear una hoja de clculo de Excel o un archivo CSS,
+
+43
+00:02:48,000 --> 00:02:52,000
+ponerlo en tu proyecto de prueba, y luego hacer referencia a eso aqu,
+
+44
+00:02:52,000 --> 00:02:56,000
+y la ruta a ese archivo (? ) especifique la hoja
+
+45
+00:02:56,000 --> 00:03:00,000
+de trabajo, es demasiado compleja. Y me sorprende que despus de todos estos
+
+46
+00:03:00,000 --> 00:03:04,000
+aos, MS Test todava no tenga esta caracterstica. NUnit ha estado apoyando
+
+47
+00:03:04,000 --> 00:03:08,000
+esto durante mucho tiempo. Pero como probablemente sepa, este es
+
+48
+00:03:08,000 --> 00:03:12,000
+el caso de Microsoft; a menudo, Microsoft est a 5 aos del juego.
+
+49
+00:03:12,000 --> 00:03:16,000
+Entonces, cualesquiera que sean los otros marcos y otras bibliotecas de terceros, Microsoft
+
+50
+00:03:16,000 --> 00:03:20,000
+lo adoptar despus de 5 aos. Es por eso que NUnit es
+
+51
+00:03:20,000 --> 00:03:24,000
+mi marco de prueba preferido al momento de grabar este video.
+

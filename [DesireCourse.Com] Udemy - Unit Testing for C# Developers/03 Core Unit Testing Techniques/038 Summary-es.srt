@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en esta seccin, aprendi sobre algunos escenarios de pruebas
+
+2
+00:00:04,000 --> 00:00:08,000
+unitarias que puede ver en muchas aplicaciones del mundo real.
+
+3
+00:00:08,000 --> 00:00:12,000
+Ms especficamente, aprendi a probar mtodos que devuelven una cadena
+
+4
+00:00:12,000 --> 00:00:16,000
+o una coleccin, aprendi cmo probar mtodos vacos, mtodos que
+
+5
+00:00:16,000 --> 00:00:20,000
+lanzan una excepcin o plantear un evento, y aprende que
+
+6
+00:00:20,000 --> 00:00:24,000
+no debe probar mtodos privados o protegidos, porque de su
+
+7
+00:00:24,000 --> 00:00:28,000
+detalle de implementacin. Solo debe probar la API
+
+8
+00:00:28,000 --> 00:00:32,000
+pblica o la interfaz pblica de una clase, que incluye
+
+9
+00:00:32,000 --> 00:00:36,000
+solo a los miembros pblicos. La siguiente seccin
+
+10
+00:00:36,000 --> 00:00:40,000
+trata sobre ejercicios. Entonces, tendrs la oportunidad de aplicar lo que
+
+11
+00:00:40,000 --> 00:00:44,000
+has aprendido en el curso hasta ahora. Entonces, te ver en
+
+12
+00:00:44,000 --> 00:00:46,000
+la prxima seccin.
+

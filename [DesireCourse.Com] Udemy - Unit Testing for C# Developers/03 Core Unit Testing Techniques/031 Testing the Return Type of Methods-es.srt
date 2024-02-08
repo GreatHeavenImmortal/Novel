@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+Algunas veces necesita verificar un mtodo en la prueba
+
+2
+00:00:04,000 --> 00:00:08,000
+que devuelve el tipo correcto. As que echemos un
+
+3
+00:00:08,000 --> 00:00:12,000
+vistazo a esta clase CustomerController en la carpeta
+
+4
+00:00:12,000 --> 00:00:16,000
+de los fundamentos. Este es el ejemplo simplificado de
+
+5
+00:00:16,000 --> 00:00:20,000
+un controlador en ASP. Aplicaciones NET MVC. Si no tienes
+
+6
+00:00:20,000 --> 00:00:24,000
+experiencia con ASP. NET MVC no importa. Entonces, veamos
+
+7
+00:00:24,000 --> 00:00:28,000
+qu est pasando aqu. Tienes esta clase llamada
+
+8
+00:00:28,000 --> 00:00:32,000
+ActionResult, y esta clase tiene dos derivados,
+
+9
+00:00:32,000 --> 00:00:36,000
+tienes NotFound que se deriva de ActionResult,
+
+10
+00:00:36,000 --> 00:00:40,000
+y tambin Ok. Entonces, en nuestra clase de controlador,
+
+11
+00:00:40,000 --> 00:00:44,000
+tiene este mtodo, GetCustomer, obtiene una identificacin. Si ID es 0,
+
+12
+00:00:44,000 --> 00:00:48,000
+devuelve una nueva instancia de la clase NotFound.
+
+13
+00:00:48,000 --> 00:00:52,000
+De lo contrario, devuelve una nueva instancia de la clase Okay.
+
+14
+00:00:52,000 --> 00:00:56,000
+Entonces, como ambas clases se derivan del resultado de accin, el tipo de
+
+15
+00:00:56,000 --> 00:01:00,000
+devolucin de este mtodo es ActionResult. Entonces, cuntas pruebas necesitamos
+
+16
+00:01:00,000 --> 00:01:04,000
+aqu, necesitamos dos pruebas, porque tenemos dos rutas
+
+17
+00:01:04,000 --> 00:01:08,000
+de ejecucin, si ID es 0, queremos asegurarnos
+
+18
+00:01:08,000 --> 00:01:12,000
+de que el objeto que este mtodo devuelve
+
+19
+00:01:12,000 --> 00:01:16,000
+es un objeto NotFound, de lo contrario, es
+
+20
+00:01:16,000 --> 00:01:20,000
+un objeto Ok Entonces, de regreso en nuestro
+
+21
+00:01:20,000 --> 00:01:24,000
+proyecto de pruebas unitarias, voy a agregar una
+
+22
+00:01:24,000 --> 00:01:28,000
+nueva clase de prueba, llamada CustomerControllerTest.
+
+23
+00:01:28,000 --> 00:01:32,000
+Aplicar al atributo TestFixture
+
+24
+00:01:32,000 --> 00:01:36,000
+con un mtodo de
+
+25
+00:01:36,000 --> 00:01:40,000
+prueba. Entonces, el
+
+26
+00:01:40,000 --> 00:01:44,000
+mtodo es GetCustomer,
+
+27
+00:01:44,000 --> 00:01:48,000
+un escenario es
+
+28
+00:01:48,000 --> 00:01:52,000
+IdIsZero, debera devolver ReturnNotFound.
+
+29
+00:01:52,000 --> 00:01:56,000
+Y, por supuesto, el
+
+30
+00:01:56,000 --> 00:02:00,000
+otro escenario es public
+
+31
+00:02:00,000 --> 00:02:04,000
+void GetCustomer IdIsNotZero, debera ReturnOk.
+
+32
+00:02:04,000 --> 00:02:08,000
+Ahora, en esta conferencia, voy a implementar uno
+
+33
+00:02:08,000 --> 00:02:12,000
+de estos mtodos de prueba, y dejo los
+
+34
+00:02:12,000 --> 00:02:16,000
+otros dos como ejercicio. As que
+
+35
+00:02:16,000 --> 00:02:20,000
+creamos el objeto controlador un
+
+36
+00:02:20,000 --> 00:02:24,000
+nuevo CustomerController, llamamos a GetCustomer
+
+37
+00:02:24,000 --> 00:02:28,000
+y pasamos 0 como argumento.
+
+38
+00:02:28,000 --> 00:02:32,000
+Obtenemos el resultado, ahora queremos Afirmar que este resultado
+
+39
+00:02:32,000 --> 00:02:36,000
+es un objeto NotFound. En NUnit hay dos
+
+40
+00:02:36,000 --> 00:02:40,000
+formas de escribir tales Afirmaciones. Una forma es la
+
+41
+00:02:40,000 --> 00:02:44,000
+siguiente: Afirmar que el resultado es TypeOf, y
+
+42
+00:02:44,000 --> 00:02:48,000
+este es un mtodo de generacin, por lo
+
+43
+00:02:48,000 --> 00:02:52,000
+que proporcionamos el argumento generate, en este caso,
+
+44
+00:02:52,000 --> 00:02:56,000
+No encontrado. Esta es la Afirmacin que utilizaras
+
+45
+00:02:56,000 --> 00:03:00,000
+la mayor parte del tiempo. Tenemos otra forma de
+
+46
+00:03:00,000 --> 00:03:04,000
+escribir esta Afirmacin, as que permtanme duplicar esta
+
+47
+00:03:04,000 --> 00:03:08,000
+lnea, en lugar del tipo de mtodo que
+
+48
+00:03:08,000 --> 00:03:12,000
+usamos, Instancia de. Entonces cul es la diferencia? Este mtodo
+
+49
+00:03:12,000 --> 00:03:16,000
+InstanceOf significa que el resultado y el
+
+50
+00:03:16,000 --> 00:03:20,000
+objeto NotFound son uno de sus derivados,
+
+51
+00:03:20,000 --> 00:03:24,000
+mientras que TypeOf asegura que el resultado
+
+52
+00:03:24,000 --> 00:03:28,000
+es exactamente el objeto NotFound. Entonces, esto significa que el
+
+53
+00:03:28,000 --> 00:03:32,000
+resultado debe ser un objeto NotFound, y esta Afirmacin
+
+54
+00:03:32,000 --> 00:03:36,000
+significa que el resultado debe ser un objeto NotFound.
+
+55
+00:03:36,000 --> 00:03:40,000
+o uno de sus derivados.
+
+56
+00:03:40,000 --> 00:03:44,000
+En esta implementacin particular, voy a usar la primera
+
+57
+00:03:44,000 --> 00:03:48,000
+Afirmacin, porque quiero asegurarme de que el resultado sea
+
+58
+00:03:48,000 --> 00:03:52,000
+exactamente un objeto No Encontrado. Pero tenga en cuenta esta otra
+
+59
+00:03:52,000 --> 00:03:56,000
+forma de escribir esta Afirmacin, tal vez necesitar estas en algn
+
+60
+00:03:56,000 --> 00:04:00,000
+escenario particular en su aplicacin. As que voy a comentar esto porque no lo necesitamos.
+

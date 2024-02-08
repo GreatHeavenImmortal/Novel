@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:04,000
+Cuando comienza con las pruebas automticas, una palabra que escucha
+
+2
+00:00:04,000 --> 00:00:08,000
+a menudo es desarrollo basado en pruebas o TDD.
+
+3
+00:00:08,000 --> 00:00:12,000
+El desarrollo basado en pruebas, o TDD, tambin llamado prueba primero,
+
+4
+00:00:12,000 --> 00:00:16,000
+es un enfoque para crear software. Con TDD, usted escribe
+
+5
+00:00:16,000 --> 00:00:20,000
+su prueba antes de escribir la aplicacin o
+
+6
+00:00:20,000 --> 00:00:24,000
+el cdigo de produccin. La primera vez que escuch esto pregunt cmo
+
+7
+00:00:24,000 --> 00:00:28,000
+es que eso es posible, cmo podemos probar un cdigo que no has escrito ?,
+
+8
+00:00:28,000 --> 00:00:32,000
+es probable que tengas la misma pregunta. Entonces, veamos
+
+9
+00:00:32,000 --> 00:00:36,000
+cmo funciona TDD. Comienza escribiendo
+
+10
+00:00:36,000 --> 00:00:40,000
+una prueba fallida. Esta prueba debera fallar porque
+
+11
+00:00:40,000 --> 00:00:44,000
+no tienes ningn cdigo de aplicacin que lo haga pasar, verdad?
+
+12
+00:00:44,000 --> 00:00:48,000
+Luego, escribir el cdigo de aplicacin ms simple que
+
+13
+00:00:48,000 --> 00:00:52,000
+har que pase esta prueba. Lo ms simple, no quiere
+
+14
+00:00:52,000 --> 00:00:56,000
+sobreanalizar aqu, no quiere disear un diagrama de clases con
+
+15
+00:00:56,000 --> 00:01:00,000
+un trilln de clases y mtodos. Use la implementacin ms simple
+
+16
+00:01:00,000 --> 00:01:04,000
+que hara pasar la prueba. Luego, refactorice su cdigo si es necesario.
+
+17
+00:01:04,000 --> 00:01:08,000
+Estos tres pasos son la base de TDD.
+
+18
+00:01:08,000 --> 00:01:12,000
+Repites estos tres pasos una y otra vez hasta
+
+19
+00:01:12,000 --> 00:01:16,000
+que construyes una caracterstica completa. Ahora, qu tiene de
+
+20
+00:01:16,000 --> 00:01:20,000
+especial el TDD? Bueno, primero, es que el cdigo
+
+21
+00:01:20,000 --> 00:01:24,000
+fuente se podr probar desde el principio. No tiene que hacer ningn cambio
+
+22
+00:01:24,000 --> 00:01:28,000
+en su cdigo para que sea comprobable. Segundo, es que cada
+
+23
+00:01:28,000 --> 00:01:32,000
+lnea de su cdigo de produccin est completamente
+
+24
+00:01:32,000 --> 00:01:36,000
+cubierta por pruebas. Lo que significa que puede refactorizar
+
+25
+00:01:36,000 --> 00:01:40,000
+e implementar con confianza, y tercero, es que a menudo resulta
+
+26
+00:01:40,000 --> 00:01:44,000
+en una implementacin ms simple. Cuando comienzas con un
+
+27
+00:01:44,000 --> 00:01:48,000
+diagrama de clase grande. Es probable que supere la ingeniera y
+
+28
+00:01:48,000 --> 00:01:52,000
+haga que la solucin sea ms compleja. Si escribe suficiente cdigo para
+
+29
+00:01:52,000 --> 00:01:56,000
+hacer pasar todas las pruebas, y esa solucin funciona, no
+
+30
+00:01:56,000 --> 00:02:00,000
+hay razn para escribir ms cdigo. El hecho de que todas sus pruebas hayan pasado
+
+31
+00:02:00,000 --> 00:02:04,000
+significa que ha cumplido con todos los requisitos comerciales. Entonces, a menos que haya un nuevo
+
+32
+00:02:04,000 --> 00:02:08,000
+requisito, no necesita escribir un cdigo nuevo. Y si hay un nuevo requisito,
+
+33
+00:02:08,000 --> 00:02:12,000
+comienza con una prueba fallida. Entonces este es TDD.
+
+34
+00:02:12,000 --> 00:02:16,000
+En TDD, escribimos nuestras pruebas primero, y es por eso que llamamos a
+
+35
+00:02:16,000 --> 00:02:20,000
+este enfoque el desarrollo impulsado por pruebas. Entonces nuestro desarrollo es
+
+36
+00:02:20,000 --> 00:02:24,000
+impulsado por nuestras pruebas. A diferencia de TDD, o prueba primero,
+
+37
+00:02:24,000 --> 00:02:28,000
+primero tenemos el cdigo, que es lo que has estado haciendo hasta ahora.
+
+38
+00:02:28,000 --> 00:02:32,000
+Empiezas con el cdigo de tu aplicacin y luego escribes pruebas.
+
+39
+00:02:32,000 --> 00:02:36,000
+Qu enfoque es mejor? Depende de a quin le preguntes.
+
+40
+00:02:36,000 --> 00:02:40,000
+En teora, TDD es ms prometedor debido a los
+
+41
+00:02:40,000 --> 00:02:44,000
+beneficios que te dije. Pero en la prctica, a veces
+
+42
+00:02:44,000 --> 00:02:48,000
+puede ser realmente complejo y puede ralentizarte. Si ese es el caso, es
+
+43
+00:02:48,000 --> 00:02:52,000
+mejor cambiar al primer acercamiento del cdigo, y luego escribir sus pruebas.
+
+44
+00:02:52,000 --> 00:02:56,000
+En este curso, nuestro enfoque se centrar en el primer enfoque
+
+45
+00:02:56,000 --> 00:03:00,000
+del cdigo, para que podamos dominar los fundamentos de las pruebas.
+
+46
+00:03:00,000 --> 00:03:04,000
+Una vez que domine los fundamentos, entonces estar listo para comenzar
+
+47
+00:03:04,000 --> 00:03:08,000
+su primer viaje de prueba. TDD realmente requiere un curso separado, y no voy a
+
+48
+00:03:08,000 --> 00:03:12,000
+hablar de ello a lo largo de este curso. Pero si est interesado,
+
+49
+00:03:12,000 --> 00:03:16,000
+posiblemente en el futuro, puedo crear un
+
+50
+00:03:16,000 --> 00:03:19,366
+curso sobre desarrollo impulsado por pruebas.
+

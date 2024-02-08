@@ -1,0 +1,181 @@
+1
+00:00:00,000 --> 00:00:04,000
+One of the common questions I get is
+
+2
+00:00:04,000 --> 00:00:08,000
+"Mosh, I don’t know what to test!" So, in this lecture I'm going to give you a
+
+3
+00:00:08,000 --> 00:00:12,000
+simple recipe that will guide you when writing tests.
+
+4
+00:00:12,000 --> 00:00:16,000
+A lot of times when you don't know what to test, that's probably because you're
+
+5
+00:00:16,000 --> 00:00:20,000
+dealing with poorly written code. When your methods have more than 10
+
+6
+00:00:20,000 --> 00:00:24,000
+lines of code, of course you don't know what to test and how! Even I wouldn't have
+
+7
+00:00:24,000 --> 00:00:28,000
+a clue! That's why I say that unit testing and clean coding
+
+8
+00:00:28,000 --> 00:00:32,000
+go hand in hand. If your code is clean and properly
+
+9
+00:00:32,000 --> 00:00:36,000
+ structured, it's easier to test. Now, assuming that your code is
+
+10
+00:00:36,000 --> 00:00:40,000
+clean, as a rule of thumb, you should test the outcome
+
+11
+00:00:40,000 --> 00:00:44,000
+of a function. In programming, we have two types of functions.
+
+12
+00:00:44,000 --> 00:00:48,000
+queries and commands. Query functions
+
+13
+00:00:48,000 --> 00:00:52,000
+return some value. They don't necessarily have to query a database!
+
+14
+00:00:52,000 --> 00:00:56,000
+This just means their role is to return some value.
+
+15
+00:00:56,000 --> 00:01:00,000
+So, for testing a query function, you should write a test and verify
+
+16
+00:01:00,000 --> 00:01:04,000
+that your function is returning the right value.
+
+17
+00:01:04,000 --> 00:01:08,000
+Now, you might have multiple execution paths in that function. In that case,
+
+18
+00:01:08,000 --> 00:01:12,000
+you should test all the execution paths and make sure
+
+19
+00:01:12,000 --> 00:01:16,000
+that each execution path results in the right value.
+
+20
+00:01:16,000 --> 00:01:20,000
+A command method performs an action.
+
+21
+00:01:20,000 --> 00:01:24,000
+This often involves changing the state of an object in memory,
+
+22
+00:01:24,000 --> 00:01:28,000
+and/or writing to a database, or calling a
+
+23
+00:01:28,000 --> 00:01:32,000
+web service or sending a message to a message queue and so on.
+
+24
+00:01:32,000 --> 00:01:36,000
+These are all commands, they're making a change in the system.
+
+25
+00:01:36,000 --> 00:01:40,000
+Such functions may return a value as well. For example,
+
+26
+00:01:40,000 --> 00:01:44,000
+the method that creates a new order and writes it to a database
+
+27
+00:01:44,000 --> 00:01:48,000
+may return an order object that may includes a unique ID.
+
+28
+00:01:48,000 --> 00:01:52,000
+To test this method, similar to query methods,
+
+29
+00:01:52,000 --> 00:01:56,000
+you should test the outcome of this method. If the outcome is to change the
+
+30
+00:01:56,000 --> 00:02:00,000
+state of an object in memory, you should test that the given object is now
+
+31
+00:02:00,000 --> 00:02:04,000
+in the right state. If the outcome is to talk about an external
+
+32
+00:02:04,000 --> 00:02:08,000
+resource like a database or web service, you should verify that
+
+33
+00:02:08,000 --> 00:02:12,000
+the class on the test is making the right call to these external
+
+34
+00:02:12,000 --> 00:02:16,000
+dependencies. We'll look at dealing with external dependencies
+
+35
+00:02:16,000 --> 00:02:20,000
+in the next section. So, have a basic recipe about what to test
+
+36
+00:02:20,000 --> 00:02:24,000
+and how. Now, let's take a look at what not to test:
+
+37
+00:02:24,000 --> 00:02:28,000
+You should never test language features. For example,
+
+38
+00:02:28,000 --> 00:02:32,000
+if you have a simple C# class that is mainly a property bag,
+
+39
+00:02:32,000 --> 00:02:36,000
+you should not test these properties. You should not set them and then read their
+
+40
+00:02:36,000 --> 00:02:40,000
+value to make sure the properties are working. Because this way, you're
+
+41
+00:02:40,000 --> 00:02:44,000
+you're testing C# language features! The same is true
+
+42
+00:02:44,000 --> 00:02:48,000
+when you're dealing with third-party code. So, if you're using a third-
+
+43
+00:02:48,000 --> 00:02:52,000
+party library, like any framework, you should not write tests around
+
+44
+00:02:52,000 --> 00:02:56,000
+their methods. You should assume they're properly tested.
+
+45
+00:02:56,000 --> 00:03:00,000
+and you should only test your code.
+
+

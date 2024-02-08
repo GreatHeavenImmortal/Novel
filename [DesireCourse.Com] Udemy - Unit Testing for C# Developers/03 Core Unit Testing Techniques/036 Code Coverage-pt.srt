@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,000
+Uma das perguntas que fiz quando desenvolvi este curso
+
+2
+00:00:04,000 --> 00:00:08,000
+foi: como sabemos se temos testes suficientes para um
+
+3
+00:00:08,000 --> 00:00:12,000
+mtodo ou uma aula?  quando uma ferramenta de cobertura
+
+4
+00:00:12,000 --> 00:00:16,000
+de cdigo entra em cena. Uma ferramenta de cobertura de
+
+5
+00:00:16,000 --> 00:00:20,000
+cdigo, dimensiona seu cdigo e informa quais partes do seu
+
+6
+00:00:20,000 --> 00:00:24,000
+cdigo no so testadas. Em termos dos produtos
+
+7
+00:00:24,000 --> 00:00:28,000
+de cobertura de cdigo existentes, voc tem duas
+
+8
+00:00:28,000 --> 00:00:32,000
+opes: pode usar o Visual Studio Enterprise Edition
+
+9
+00:00:32,000 --> 00:00:36,000
+ou usar o ReSharper Ultimate. ReSharper Ultimate vem com este produto
+
+10
+00:00:36,000 --> 00:00:40,000
+chamado Dot Cover, que  basicamente um corredor de teste de unidade, bem
+
+11
+00:00:40,000 --> 00:00:44,000
+como uma ferramenta de cobertura de cdigo. Atualmente, no tenho Dot Cover,
+
+12
+00:00:44,000 --> 00:00:48,000
+porque no estou usando o ReSharper Ultimate, estou usando o
+
+13
+00:00:48,000 --> 00:00:52,000
+Jet Brains, Rider IDE. Agora, no momento da gravao deste vdeo,
+
+14
+00:00:52,000 --> 00:00:56,000
+o Rider no tem cobertura de cdigo. Mas deixe-me mostrar uma captura de tela da
+
+15
+00:00:56,000 --> 00:01:00,000
+cobertura de cdigo em ao. Ento, se voc for a jetbrains. com / dotcover,
+
+16
+00:01:00,000 --> 00:01:04,000
+role para baixo, ok,  assim que funciona
+
+17
+00:01:04,000 --> 00:01:08,000
+a cobertura de cdigo. Ento voc pode ver que temos dois mtodos
+
+18
+00:01:08,000 --> 00:01:12,000
+aqui, voc obtm o quadrado e o crculo. Esse mtodo de crculo no
+
+19
+00:01:12,000 --> 00:01:16,000
+tem nenhum teste, e  por isso que temos essas
+
+20
+00:01:16,000 --> 00:01:20,000
+linhas vermelhas no lado esquerdo. Em contraste, todas as
+
+21
+00:01:20,000 --> 00:01:24,000
+linhas contra (? ) mtodo quadrado so testados e  por isso que eles so verdes. Agora, estes so
+
+22
+00:01:24,000 --> 00:01:28,000
+mtodos simples, s vezes voc pode ter um mtodo complexo
+
+23
+00:01:28,000 --> 00:01:32,000
+com vrios caminhos de execuo. E voc pode ver exatamente quais caminhos de
+
+24
+00:01:32,000 --> 00:01:36,000
+execuo so testados e quais caminhos no foram testados. No entanto, o fato de que todos
+
+25
+00:01:36,000 --> 00:01:40,000
+os caminhos de execuo no mtodo so testados, no significa que voc tenha escrito
+
+26
+00:01:40,000 --> 00:01:44,000
+testes suficientes para um (? ) mtodo. Isso significa que
+
+27
+00:01:44,000 --> 00:01:48,000
+voc simplesmente testou todos os caminhos de execuo com base
+
+28
+00:01:48,000 --> 00:01:52,000
+na implementao atual. Mas como eu disse antes,  possvel que (? ) a
+
+29
+00:01:52,000 --> 00:01:56,000
+implementao tem um problema.  por isso que eu disse ao escrever testes,
+
+30
+00:01:56,000 --> 00:02:00,000
+voc deve sempre pensar em seus mtodos como caixas-pretas. No confie
+
+31
+00:02:00,000 --> 00:02:04,000
+ainda na implementao. Use isso como uma linha
+
+32
+00:02:04,000 --> 00:02:08,000
+de guia para voc comear. Mas ento voc precisa debater todos os caminhos de execuo, com
+
+33
+00:02:08,000 --> 00:02:12,000
+base em diferentes entradas que voc pode dar a essa funo. Portanto, se voc estiver em um
+
+34
+00:02:12,000 --> 00:02:16,000
+ambiente corporativo, recomendo que voc adquira o Visual Studio Enterprise Edition
+
+35
+00:02:16,000 --> 00:02:20,000
+ou use o ReSharper Ultimate. H tambm um terceiro
+
+36
+00:02:20,000 --> 00:02:24,000
+produto, e esse  o NCover, que existe
+
+37
+00:02:24,000 --> 00:02:28,000
+h muito tempo,  bastante caro, eu pessoalmente
+
+38
+00:02:28,000 --> 00:02:30,000
+prefiro o ReSharper Dot Cover.
+

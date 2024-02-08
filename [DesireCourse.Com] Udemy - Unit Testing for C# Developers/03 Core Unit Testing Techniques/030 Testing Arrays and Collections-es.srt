@@ -1,0 +1,368 @@
+1
+00:00:00,000 --> 00:00:04,000
+En esta conferencia, vamos a ver los mtodos de prueba que
+
+2
+00:00:04,000 --> 00:00:08,000
+devuelven una matriz o una coleccin. Entonces, volviendo a nuestra
+
+3
+00:00:08,000 --> 00:00:12,000
+clase de matemtica, tenemos otro mtodo aqu,
+
+4
+00:00:12,000 --> 00:00:16,000
+que toma el lmite y devuelve los
+
+5
+00:00:16,000 --> 00:00:20,000
+nmeros impares comenzando desde 0 hasta ese lmite.
+
+6
+00:00:20,000 --> 00:00:24,000
+As que est devolviendo un IEnumberable de esta versin. Al probar los mtodos que
+
+7
+00:00:24,000 --> 00:00:28,000
+devuelven una matriz o una coleccin, nuevamente debe hacer su
+
+8
+00:00:28,000 --> 00:00:32,000
+propia evaluacin sobre qu tan generales o qu tan especficas
+
+9
+00:00:32,000 --> 00:00:36,000
+deben ser sus pruebas. Djame mostrarte algunos ejemplos.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, volvamos a nuestra clase de exmenes de matemtica.
+
+11
+00:00:40,000 --> 00:00:44,000
+Voy a definir un nuevo mtodo
+
+12
+00:00:48,000 --> 00:00:52,000
+de prueba aqu, pblico vaco GetOdd
+
+13
+00:00:52,000 --> 00:00:56,000
+Numbers. Ahora, qu escenarios tenemos aqu? Nuevamente, no queremos
+
+14
+00:00:56,000 --> 00:01:00,000
+ver la implementacin, queremos pensar en este mtodo
+
+15
+00:01:00,000 --> 00:01:04,000
+como una caja negra. Entonces tiene un argumento, lmite, este lmite
+
+16
+00:01:04,000 --> 00:01:08,000
+puede ser un nmero negativo, puede ser 0, puede ser un nmero positivo.
+
+17
+00:01:08,000 --> 00:01:12,000
+Entonces estos son los tres casos de prueba que escribira para este mtodo. Ahora, en esta conferencia, no
+
+18
+00:01:12,000 --> 00:01:16,000
+quiero implementar todos estos casos de prueba, porque nuestro foco
+
+19
+00:01:16,000 --> 00:01:20,000
+est en probar arreglos y colecciones. Le mostrar un caso de prueba
+
+20
+00:01:20,000 --> 00:01:24,000
+y luego podr implementar los otros casos de prueba por su cuenta.
+
+21
+00:01:24,000 --> 00:01:28,000
+Entonces, el escenario es
+
+22
+00:01:28,000 --> 00:01:32,000
+Lmite IsGreaterThanZero. Debera
+
+23
+00:01:32,000 --> 00:01:36,000
+devolver OddNumbers
+
+24
+00:01:36,000 --> 00:01:40,000
+UpToLimit. Entonces, tienes un objeto matemtico para
+
+25
+00:01:40,000 --> 00:01:44,000
+simplemente llamar a las matemticas. GetOddNumbers.
+
+26
+00:01:44,000 --> 00:01:48,000
+Y como lmite, voy a aprobar 5.
+
+27
+00:01:48,000 --> 00:01:52,000
+Me preguntar por qu no us 1 aqu. Porque si usamos uno,
+
+28
+00:01:52,000 --> 00:01:56,000
+obtenemos una matriz con un solo elemento.
+
+29
+00:01:56,000 --> 00:02:00,000
+Cuando se trata de matrices, me gustara que mi matriz tuviera tres elementos.
+
+30
+00:02:00,000 --> 00:02:04,000
+Entonces es ms vida real. Entonces, 5,
+
+31
+00:02:04,000 --> 00:02:08,000
+obtenemos el resultado, ahora.
+
+32
+00:02:08,000 --> 00:02:12,000
+Veamos algunas formas diferentes de escribir nuestras Afirmaciones.
+
+33
+00:02:12,000 --> 00:02:16,000
+Esta es la forma ms general de escribir una Afirmacin.
+
+34
+00:02:16,000 --> 00:02:20,000
+Afirma que el resultado
+
+35
+00:02:20,000 --> 00:02:24,000
+no est vaco.
+
+36
+00:02:24,000 --> 00:02:28,000
+Muy general, puedo tener cualquier nmero en este conjunto y pasar.
+
+37
+00:02:28,000 --> 00:02:32,000
+A veces no escuchas acerca de los valores especficos en una matriz
+
+38
+00:02:32,000 --> 00:02:36,000
+o una coleccin, solo quieres asegurarte de que hay algo en la
+
+39
+00:02:36,000 --> 00:02:40,000
+matriz o coleccin que devuelve tu mtodo. En ese caso, esta Afirmacin est perfectamente bien.
+
+40
+00:02:40,000 --> 00:02:44,000
+Pero en este caso, es un poco demasiado general,
+
+41
+00:02:44,000 --> 00:02:48,000
+una forma ms especfica es probar la cantidad de
+
+42
+00:02:48,000 --> 00:02:52,000
+elementos en este conjunto. Entonces, afirma
+
+43
+00:02:52,000 --> 00:02:56,000
+ese resultado. Count Is EqualTo3
+
+44
+00:02:56,000 --> 00:03:00,000
+Un poco ms especfico, pero podemos tener
+
+45
+00:03:00,000 --> 00:03:04,000
+cualquier nmero en este conjunto, puede tener
+
+46
+00:03:04,000 --> 00:03:08,000
+1, 1, 1. No nos da mucha confianza.
+
+47
+00:03:08,000 --> 00:03:12,000
+De nuevo, otra forma general de escribir
+
+48
+00:03:12,000 --> 00:03:16,000
+una Afirmacin es as. Assert That
+
+49
+00:03:16,000 --> 00:03:20,000
+result Does Contain 1.
+
+50
+00:03:20,000 --> 00:03:24,000
+Voy a duplicar esto,
+
+51
+00:03:24,000 --> 00:03:28,000
+tambin contiene 3 y 5.
+
+52
+00:03:28,000 --> 00:03:32,000
+As que solo quiero aclarar algo, te estoy mostrando diferentes
+
+53
+00:03:32,000 --> 00:03:36,000
+Afirmaciones aqu, pero eso no significa que cuando ests probando
+
+54
+00:03:36,000 --> 00:03:40,000
+este mtodo, debes escribir todas estas Afirmaciones, debes usar una
+
+55
+00:03:40,000 --> 00:03:44,000
+Afirmacin como esta, para asegurarte el resultado no est vaco,
+
+56
+00:03:44,000 --> 00:03:48,000
+o debe verificar el conteo, o si desea ser ms
+
+57
+00:03:48,000 --> 00:03:52,000
+especfico, desea verificar la existencia de ciertos objetos en el
+
+58
+00:03:52,000 --> 00:03:56,000
+conjunto, pero no le importa el orden.
+
+59
+00:03:56,000 --> 00:04:00,000
+porque si te importa el pedido, tu prueba es muy especfica.
+
+60
+00:04:00,000 --> 00:04:04,000
+Ahora, a veces, tal vez eso es lo que quieres porque se supone que tu matriz devuelve
+
+61
+00:04:04,000 --> 00:04:08,000
+los elementos que se ordenan antes de tiempo. Pero en este caso, lo
+
+62
+00:04:08,000 --> 00:04:12,000
+ms probable es que no nos importe el orden de
+
+63
+00:04:12,000 --> 00:04:16,000
+estos elementos en la matriz. Entonces podemos escribir tres Afirmaciones para
+
+64
+00:04:16,000 --> 00:04:20,000
+asegurarnos de tener 1, 3 y 5. Pero hay una manera ms
+
+65
+00:04:20,000 --> 00:04:24,000
+corta y ms clara de escribir las mismas tres Afirmaciones.
+
+66
+00:04:24,000 --> 00:04:28,000
+Puedes escribir Assert, That,
+
+67
+00:04:28,000 --> 00:04:32,000
+result Is Equivalent to,
+
+68
+00:04:32,000 --> 00:04:36,000
+y aqu creamos una
+
+69
+00:04:36,000 --> 00:04:40,000
+matriz con tres nmeros.
+
+70
+00:04:40,000 --> 00:04:44,000
+1, 3, 5. As que esto es equivalente a
+
+71
+00:04:44,000 --> 00:04:48,000
+asegurarse de que tenemos todos estos elementos en la matriz de
+
+72
+00:04:48,000 --> 00:04:52,000
+resultados, no le importa el orden, solo verifica la existencia de
+
+73
+00:04:52,000 --> 00:04:56,000
+cada uno de estos elementos. Entonces esta lnea
+
+74
+00:04:56,000 --> 00:05:00,000
+es equivalente a escribir estas tres lneas.
+
+75
+00:05:00,000 --> 00:05:04,000
+As que esta es mi forma preferida de probar
+
+76
+00:05:04,000 --> 00:05:08,000
+el mtodo Get OddNumbers. Vamos a ejecutar
+
+77
+00:05:08,000 --> 00:05:12,000
+esta prueba y asegurarnos de que pase.
+
+78
+00:05:12,000 --> 00:05:16,000
+Bueno. Est pasando, hermosa. Ahora, antes de terminar
+
+79
+00:05:16,000 --> 00:05:20,000
+esta conferencia, te mostrar un par de Afirmaciones ms tiles.
+
+80
+00:05:20,000 --> 00:05:24,000
+Afirma, ese
+
+81
+00:05:24,000 --> 00:05:28,000
+resultado est ordenado.
+
+82
+00:05:28,000 --> 00:05:32,000
+Entonces, si se supone que su mtodo clasifique los artculos, puede
+
+83
+00:05:32,000 --> 00:05:36,000
+asegurarse de que estn ordenados. Tienes otra
+
+84
+00:05:36,000 --> 00:05:40,000
+Afirmacin til, Afirma que el
+
+85
+00:05:40,000 --> 00:05:44,000
+resultado es nico. As que con esto, asegrese
+
+86
+00:05:44,000 --> 00:05:48,000
+de que no haya elementos duplicados en su matriz.
+
+87
+00:05:48,000 --> 00:05:52,000
+Para este mtodo particular, realmente no necesitamos estas Afirmaciones.
+
+88
+00:05:52,000 --> 00:05:56,000
+Pero quiero que los conozca, tal vez los necesitar en sus aplicaciones.
+
+89
+00:05:56,000 --> 00:06:00,000
+As que esto es lo que quiero que te lleves. Cuando prueba mtodos que devuelven
+
+90
+00:06:00,000 --> 00:06:04,000
+una matriz o una coleccin, asegrese de que los mtodos
+
+91
+00:06:04,000 --> 00:06:08,000
+de prueba no sean demasiado generales o demasiado especficos.
+
+92
+00:06:08,000 --> 00:06:11,000
+Encuentra un equilibrio correcto.
+

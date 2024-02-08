@@ -1,0 +1,284 @@
+1
+00:00:00,000 --> 00:00:04,000
+Now let's move onto the next method.
+
+2
+00:00:04,000 --> 00:00:08,000
+So here we have this method called max, which
+
+3
+00:00:08,000 --> 00:00:12,000
+returns the maximum of two numbers. How many execution
+
+4
+00:00:12,000 --> 00:00:16,000
+paths do we have here? We have two execution paths. And that is
+
+5
+00:00:16,000 --> 00:00:20,000
+dependent upon this condition. So if
+
+6
+00:00:20,000 --> 00:00:24,000
+A is greater, we're going to return A, otherwise we're going to return B.
+
+7
+00:00:24,000 --> 00:00:28,000
+So there are two execution paths in this method. And the
+
+8
+00:00:28,000 --> 00:00:32,000
+number of tests is often equal to or greater than
+
+9
+00:00:32,000 --> 00:00:36,000
+the number of execution paths. So, back in our test
+
+10
+00:00:36,000 --> 00:00:40,000
+class, I'm going to create
+
+11
+00:00:40,000 --> 00:00:44,000
+another test method, test, public,
+
+12
+00:00:44,000 --> 00:00:48,000
+void, you're testing the max method. Now when anyone
+
+13
+00:00:48,000 --> 00:00:52,000
+(?) write tests for a method, I would rather create all the test
+
+14
+00:00:52,000 --> 00:00:56,000
+methods first before implementing them. I just want to brainstorm
+
+15
+00:00:56,000 --> 00:01:00,000
+all the different scenarios that need to be tested. This way
+
+16
+00:01:00,000 --> 00:01:04,000
+I make sure that I won't miss a scenario when I get busy writing the
+
+17
+00:01:04,000 --> 00:01:08,000
+tests. So, the first scenario I want to test here is when
+
+18
+00:01:08,000 --> 00:01:12,000
+the first argument is greater. So, first argument
+
+19
+00:01:12,000 --> 00:01:16,000
+is greater, it should return
+
+20
+00:01:16,000 --> 00:01:20,000
+the first argument.
+
+21
+00:01:20,000 --> 00:01:24,000
+Now, I'm going to duplicate this,
+
+22
+00:01:24,000 --> 00:01:28,000
+the second scenario is where?
+
+23
+00:01:28,000 --> 00:01:32,000
+The second argument is greater. So, second argument is greater
+
+24
+00:01:32,000 --> 00:01:36,000
+and it should return
+
+25
+00:01:36,000 --> 00:01:40,000
+the second argument.
+
+26
+00:01:40,000 --> 00:01:44,000
+Now here we have a third scenario. Can you tell what
+
+27
+00:01:44,000 --> 00:01:48,000
+scenario I'm talking about here? That is the scenario where the two
+
+28
+00:01:48,000 --> 00:01:52,000
+arguments are equal. Now, this is something that I want you to pay great
+
+29
+00:01:52,000 --> 00:01:56,000
+attention to here. So far, in order to write
+
+30
+00:01:56,000 --> 00:02:00,000
+tests, I started by looking at the implementation of method
+
+31
+00:02:00,000 --> 00:02:04,000
+that I wrote tests based on this implementation.
+
+32
+00:02:04,000 --> 00:02:08,000
+This is a good approach to get started, but it's not enough,
+
+33
+00:02:08,000 --> 00:02:12,000
+it's not something that you should rely on. Because with this approach, when you
+
+34
+00:02:12,000 --> 00:02:16,000
+write your tests based on implementation, it is possible
+
+35
+00:02:16,000 --> 00:02:20,000
+that that implementation might have problems. Maybe your implementation
+
+36
+00:02:20,000 --> 00:02:24,000
+is missing something. So you don't want to rely on that implementation.
+
+37
+00:02:24,000 --> 00:02:28,000
+The best way to write test for method, is to think of it as a
+
+38
+00:02:28,000 --> 00:02:32,000
+black box. Let's imagine we don't know what is inside the max
+
+39
+00:02:32,000 --> 00:02:36,000
+method. Max method is just one method that takes two
+
+40
+00:02:36,000 --> 00:02:40,000
+arguments. A ending. What are different possibilities here?
+
+41
+00:02:40,000 --> 00:02:44,000
+One possibility is A is greater, another possibility
+
+42
+00:02:44,000 --> 00:02:48,000
+is B is greater, and the last possibility is their equal.
+
+43
+00:02:48,000 --> 00:02:52,000
+So, I'm going to go back to our test class, duplicate
+
+44
+00:02:52,000 --> 00:02:56,000
+the last test, and change the name of the test method.
+
+45
+00:02:56,000 --> 00:03:00,000
+So, this scenario
+
+46
+00:03:00,000 --> 00:03:04,000
+condition is arguments are equal
+
+47
+00:03:04,000 --> 00:03:08,000
+it should return the same argument.
+
+48
+00:03:08,000 --> 00:03:12,000
+Okay? Now, let's start
+
+49
+00:03:12,000 --> 00:03:16,000
+implementation. So first we should create
+
+50
+00:03:16,000 --> 00:03:20,000
+an instance of the Math class. Math.
+
+51
+00:03:20,000 --> 00:03:24,000
+Now enact, call the Math method,
+
+52
+00:03:24,000 --> 00:03:28,000
+here the first argument should be greater. So, I'm going to pass 2
+
+53
+00:03:28,000 --> 00:03:32,000
+and 1. Get the result,
+
+54
+00:03:32,000 --> 00:03:36,000
+and Assert. That
+
+55
+00:03:36,000 --> 00:03:40,000
+result, is equal to
+
+56
+00:03:40,000 --> 00:03:44,000
+2. Let's run this test.
+
+57
+00:03:44,000 --> 00:03:48,000
+It's passing, beautiful.
+
+58
+00:03:48,000 --> 00:03:52,000
+Now, the second test. To save time, I'm just going to copy
+
+59
+00:03:52,000 --> 00:03:56,000
+these few lines, but in the real world you shouldn't copy paste code, it's
+
+60
+00:03:56,000 --> 00:04:00,000
+better to write it from scratch, because sometimes when you copy paste code, you
+
+61
+00:04:00,000 --> 00:04:04,000
+make mistakes. So, here I'm going to change these arguments
+
+62
+00:04:04,000 --> 00:04:08,000
+to 1 and 2. So the second argument is greater, and the
+
+63
+00:04:08,000 --> 00:04:12,000
+Assertion should still be the same. And one last time,
+
+64
+00:04:12,000 --> 00:04:16,000
+Going to paste these few lines.
+
+65
+00:04:16,000 --> 00:04:20,000
+And as the arguments I'm going to pass one and one
+
+66
+00:04:20,000 --> 00:04:24,000
+and Assert that result is equal to one. Now,
+
+67
+00:04:24,000 --> 00:04:28,000
+I'm going to run all the tests in this class.
+
+68
+00:04:28,000 --> 00:04:32,000
+So I put my curser on the class name, right here,
+
+69
+00:04:32,000 --> 00:04:36,000
+and press command and T, and command and R.
+
+70
+00:04:36,000 --> 00:04:40,000
+So you can see, all the tests in this class
+
+71
+00:04:40,000 --> 00:04:43,000
+are passing. Beautiful.
+

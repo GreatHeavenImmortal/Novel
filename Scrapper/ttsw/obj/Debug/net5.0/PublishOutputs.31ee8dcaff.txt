@@ -1,0 +1,7 @@
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/tts_wuxia.dll
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/tts_wuxia.deps.json
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/tts_wuxia.runtimeconfig.json
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/tts_wuxia.pdb
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/Fizzler.dll
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/Fizzler.Systems.HtmlAgilityPack.dll
+/Users/olivier/tts_wuxia/c#/bin/Debug/net5.0/publish/HtmlAgilityPack.dll

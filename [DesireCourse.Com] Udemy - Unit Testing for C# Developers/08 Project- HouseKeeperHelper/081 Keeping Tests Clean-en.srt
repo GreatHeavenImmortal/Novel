@@ -1,0 +1,344 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, this test is so bulky,
+
+2
+00:00:04,000 --> 00:00:08,000
+we need to refactor it and make it cleaner and more maintainable.
+
+3
+00:00:08,000 --> 00:00:12,000
+Look at these few lines, initialization
+
+4
+00:00:12,000 --> 00:00:16,000
+of the unit of work, creating these mock objects,
+
+5
+00:00:16,000 --> 00:00:20,000
+and initializing the service. These
+
+6
+00:00:20,000 --> 00:00:24,000
+are the lines that we need in every test, and we don't want to repeat
+
+7
+00:00:24,000 --> 00:00:28,000
+them over and over, so let's move all these lines
+
+8
+00:00:28,000 --> 00:00:32,000
+inside the SetUp method. So,
+
+9
+00:00:32,000 --> 00:00:36,000
+let's create the SetUp method, public
+
+10
+00:00:36,000 --> 00:00:40,000
+void SetUp.
+
+11
+00:00:40,000 --> 00:00:44,000
+Now, move all
+
+12
+00:00:44,000 --> 00:00:48,000
+these few lines right here.
+
+13
+00:00:48,000 --> 00:00:52,000
+So, with this we end up with a test method that is
+
+14
+00:00:52,000 --> 00:00:56,000
+only two lines of code. Now finally, we need to fix
+
+15
+00:00:56,000 --> 00:01:00,000
+these compilation issues. So here's our service, we need to
+
+16
+00:01:00,000 --> 00:01:04,000
+promote this to a private field, so we can reuse it in different methods.
+
+17
+00:01:04,000 --> 00:01:08,000
+So, alt and enter, refactor,
+
+18
+00:01:08,000 --> 00:01:12,000
+Introduce Field.
+
+19
+00:01:12,000 --> 00:01:16,000
+Now, I want to make the name shorter, instead of houseKeeperService,
+
+20
+00:01:16,000 --> 00:01:20,000
+I just want to use, service, because it's obvious we're testing
+
+21
+00:01:20,000 --> 00:01:24,000
+the houseKeeperService class here.
+
+22
+00:01:24,000 --> 00:01:28,000
+Okay? Now, we fixed this issue.
+
+23
+00:01:28,000 --> 00:01:32,000
+Done. The second one is our statement generator.
+
+24
+00:01:32,000 --> 00:01:36,000
+Once again, we need to promote this to a private field.
+
+25
+00:01:36,000 --> 00:01:40,000
+So alt and enter, refactor, Introduce Field.
+
+26
+00:01:40,000 --> 00:01:44,000
+I'm going to keep this name as is, statementGenerator
+
+27
+00:01:44,000 --> 00:01:48,000
+okay? And,
+
+28
+00:01:48,000 --> 00:01:52,000
+finally let's fix this issue, beautiful.
+
+29
+00:01:52,000 --> 00:01:56,000
+Now in the future videos, as we write more unit tests, we're going to need more
+
+30
+00:01:56,000 --> 00:02:00,000
+these objects as well. So,
+
+31
+00:02:00,000 --> 00:02:04,000
+let's quickly promote this to private fields.
+
+32
+00:02:04,000 --> 00:02:08,000
+Time, Introduce Field, and
+
+33
+00:02:08,000 --> 00:02:12,000
+the last time. Okay,
+
+34
+00:02:12,000 --> 00:02:16,000
+also, I don't like that we have repeated this DateTime
+
+35
+00:02:16,000 --> 00:02:20,000
+in two places, this is making the test a little bit noisy
+
+36
+00:02:20,000 --> 00:02:24,000
+and also I don't want the reader of this code
+
+37
+00:02:24,000 --> 00:02:28,000
+to assume that this particular date is a special
+
+38
+00:02:28,000 --> 00:02:32,000
+date In the domain of this application. This is just a simple
+
+39
+00:02:32,000 --> 00:02:36,000
+value. The actual date doesn't matter. So I'm going to extract
+
+40
+00:02:36,000 --> 00:02:40,000
+this into a private field as well. One more time
+
+41
+00:02:40,000 --> 00:02:44,000
+alt and enter, refactor, introduce
+
+42
+00:02:44,000 --> 00:02:48,000
+field, now Rider is asking to replace
+
+43
+00:02:48,000 --> 00:02:52,000
+both occurrences, or only this one. We want to replace both
+
+44
+00:02:52,000 --> 00:02:56,000
+occurrences. So, it's going to create a
+
+45
+00:02:56,000 --> 00:03:00,000
+private field, called statementDate.
+
+46
+00:03:00,000 --> 00:03:04,000
+So this is where statementDate is initialized
+
+47
+00:03:04,000 --> 00:03:08,000
+we don't want to repeat this in every test, so we're going to delete this line,
+
+48
+00:03:08,000 --> 00:03:12,000
+we can either put it inside the SetUp method
+
+49
+00:03:12,000 --> 00:03:16,000
+but this method is already a little bit too busy, so I would
+
+50
+00:03:16,000 --> 00:03:20,000
+rather to initialize it directly here. Because Date
+
+51
+00:03:20,000 --> 00:03:24,000
+Time objects are immutable, so it's not possible that
+
+52
+00:03:24,000 --> 00:03:28,000
+somewhere in this class we're going to modify this DateTime object once we
+
+53
+00:03:28,000 --> 00:03:32,000
+create it, it's not mutable or changeable, so we set
+
+54
+00:03:32,000 --> 00:03:36,000
+this directly to a new DateTime.
+
+55
+00:03:36,000 --> 00:03:40,000
+Now, back to our test method, look, its even cleaner.
+
+56
+00:03:40,000 --> 00:03:44,000
+Also, it's better to
+
+57
+00:03:44,000 --> 00:03:48,000
+replace these magic values, with a reference to a private
+
+58
+00:03:48,000 --> 00:03:52,000
+field. Because the reader of this code has to scroll up and down
+
+59
+00:03:52,000 --> 00:03:56,000
+to figure out what is one, what is b,
+
+60
+00:03:56,000 --> 00:04:00,000
+this is where we have defined this housekeeper object,
+
+61
+00:04:00,000 --> 00:04:04,000
+I would rather to extract this into a private field so we can reference
+
+62
+00:04:04,000 --> 00:04:08,000
+it in multiple tests. So, let's select this line
+
+63
+00:04:08,000 --> 00:04:12,000
+and extract this into a private field.
+
+64
+00:04:12,000 --> 00:04:16,000
+We're going to call this Housekeeper.
+
+65
+00:04:16,000 --> 00:04:20,000
+Okay? So,
+
+66
+00:04:20,000 --> 00:04:24,000
+we want to keep this inside the test method
+
+67
+00:04:24,000 --> 00:04:28,000
+because I want to make sure before each test, we're going to use a
+
+68
+00:04:28,000 --> 00:04:32,000
+new fresh housekeeper object, in other words I don't want one
+
+69
+00:04:32,000 --> 00:04:36,000
+test impacting the state of this class, I want to
+
+70
+00:04:36,000 --> 00:04:40,000
+make sure that every test starts on a clean state.
+
+71
+00:04:40,000 --> 00:04:44,000
+However, I don't like the organization of this code,
+
+72
+00:04:44,000 --> 00:04:48,000
+because here we're creating this unitOfWork, and then we move on and create
+
+73
+00:04:48,000 --> 00:04:52,000
+a housekeeper object, and finally. we come back to the unitOfWork again.
+
+74
+00:04:52,000 --> 00:04:56,000
+It's better to create the houseKeeper object first, let's put this here,
+
+75
+00:04:56,000 --> 00:05:00,000
+now we create a unitOfWork, and then
+
+76
+00:05:00,000 --> 00:05:04,000
+program it, so there is no distraction in our code. Okay?
+
+77
+00:05:04,000 --> 00:05:08,000
+Now, finally, I'm going to replace one
+
+78
+00:05:08,000 --> 00:05:12,000
+with houseKeeper.Oid
+
+79
+00:05:12,000 --> 00:05:16,000
+and b with houseKeeper.
+
+80
+00:05:16,000 --> 00:05:20,000
+to full name. Now we can see this line
+
+81
+00:05:20,000 --> 00:05:24,000
+is going beyond the screen, so I want to reformat it like this.
+
+82
+00:05:24,000 --> 00:05:28,000
+That's better. If we're going any further,
+
+83
+00:05:28,000 --> 00:05:32,000
+let's run the test one more time to make sure we have not broken anything.
+
+84
+00:05:32,000 --> 00:05:36,000
+Okay, here's our test
+
+85
+00:05:36,000 --> 00:05:40,000
+it passed, beautiful, next we'll create another interaction
+
+86
+00:05:40,000 --> 00:05:42,533
+test.
+

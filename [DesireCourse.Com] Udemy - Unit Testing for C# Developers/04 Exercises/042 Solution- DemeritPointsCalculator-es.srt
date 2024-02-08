@@ -1,0 +1,584 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en el proyecto de pruebas unitarias, voy a
+
+2
+00:00:04,000 --> 00:00:08,000
+agregar una nueva clase. Y
+
+3
+00:00:08,000 --> 00:00:12,000
+llmalo DemeritPoints CalculatorTests.
+
+4
+00:00:12,000 --> 00:00:16,000
+Primero voy a aplicar el atributo TestFixture
+
+5
+00:00:16,000 --> 00:00:20,000
+aqu, y ahora voy a generar todas
+
+6
+00:00:20,000 --> 00:00:24,000
+las paradas de prueba. Entonces, mtodo,
+
+7
+00:00:24,000 --> 00:00:28,000
+CalculateDemeritPoints, Cul es el
+
+8
+00:00:28,000 --> 00:00:32,000
+primer escenario? Bueno, esta funcin obtiene
+
+9
+00:00:32,000 --> 00:00:36,000
+un nmero entero que determina la velocidad del automvil.
+
+10
+00:00:36,000 --> 00:00:40,000
+Qu pasa si le damos un nmero negativo? No tiene sentido.
+
+11
+00:00:40,000 --> 00:00:44,000
+Por lo tanto, espero que este mtodo arroje
+
+12
+00:00:44,000 --> 00:00:48,000
+un argumento fuera de rango de excepcin, por
+
+13
+00:00:48,000 --> 00:00:52,000
+lo que la velocidad es Negativa, debera arrojar
+
+14
+00:00:52,000 --> 00:00:56,000
+un Argumento fuera de rango, excepcin.
+
+15
+00:00:56,000 --> 00:01:00,000
+Otro mtodo de prueba.
+
+16
+00:01:00,000 --> 00:01:04,000
+CalculateDemeritPoints Qu pasa si la
+
+17
+00:01:04,000 --> 00:01:08,000
+velocidad es cero? El carro esta parado.
+
+18
+00:01:08,000 --> 00:01:12,000
+Deberas obtener 0 verdad? Entonces SpeedIsZero
+
+19
+00:01:12,000 --> 00:01:16,000
+deberamos Devolver Zero.
+
+20
+00:01:16,000 --> 00:01:20,000
+Otro escenario es que la velocidad es mayor que cero, pero
+
+21
+00:01:20,000 --> 00:01:24,000
+menor que el lmite de velocidad. Nuevamente, debe obtener cero, porque en
+
+22
+00:01:24,000 --> 00:01:28,000
+la medida en que el conductor maneje por debajo del lmite de
+
+23
+00:01:28,000 --> 00:01:32,000
+velocidad, no obtendrn ningn punto de demrito. Entonces, CalculateDemeritPoints,
+
+24
+00:01:32,000 --> 00:01:36,000
+SpeedIsLessThanSpeed Limit, de nuevo,
+
+25
+00:01:36,000 --> 00:01:40,000
+devuelve 0 Ahora, qu
+
+26
+00:01:40,000 --> 00:01:44,000
+sucede si el controlador
+
+27
+00:01:44,000 --> 00:01:48,000
+est conduciendo exactamente al
+
+28
+00:01:48,000 --> 00:01:52,000
+lmite de velocidad? Nuevamente, deberas volver
+
+29
+00:01:52,000 --> 00:01:56,000
+a cero, verdad? Entonces veo un patrn,
+
+30
+00:01:56,000 --> 00:02:00,000
+ests escribiendo tres pruebas y todas estas pruebas estn
+
+31
+00:02:00,000 --> 00:02:04,000
+probando que la funcin devuelve 0, preferira combinar estos
+
+32
+00:02:04,000 --> 00:02:08,000
+escenarios en una prueba con mltiples casos de prueba.
+
+33
+00:02:08,000 --> 00:02:12,000
+Por lo tanto, podemos cambiar
+
+34
+00:02:12,000 --> 00:02:16,000
+el nombre de este mtodo
+
+35
+00:02:16,000 --> 00:02:20,000
+a algo ms genrico, SpeedIsLessThan OrEqualToSpeedLimit.
+
+36
+00:02:20,000 --> 00:02:24,000
+Ahora aqu tenemos que agregar un parmetro.
+
+37
+00:02:24,000 --> 00:02:28,000
+esa es la velocidad, y definimos mltiples casos de prueba.
+
+38
+00:02:28,000 --> 00:02:32,000
+Entonces, TestCase, cuando la velocidad es 0, deberamos obtener
+
+39
+00:02:32,000 --> 00:02:36,000
+0 puntos, cuando la velocidad es menor que el
+
+40
+00:02:36,000 --> 00:02:40,000
+lmite de velocidad como 64, de nuevo, debera obtener
+
+41
+00:02:40,000 --> 00:02:44,000
+0, y este es exactamente el lmite de velocidad
+
+42
+00:02:44,000 --> 00:02:48,000
+en el que deberamos obtener cero, entonces podemos borrar.
+
+43
+00:02:48,000 --> 00:02:52,000
+Este mtodo de prueba. Ahora, qu pasa si
+
+44
+00:02:52,000 --> 00:02:56,000
+el conductor supera este lmite de velocidad, pero menos
+
+45
+00:02:56,000 --> 00:03:00,000
+de 5 kilmetros por hora? Por ejemplo, qu sucede si conduce
+
+46
+00:03:00,000 --> 00:03:04,000
+a 66 kilmetros por hora? Una vez ms, no
+
+47
+00:03:04,000 --> 00:03:08,000
+deberan obtener ningn punto. Obtendran un punto por cada 5
+
+48
+00:03:08,000 --> 00:03:12,000
+kilmetros del lmite de velocidad. As que voy a agregar
+
+49
+00:03:12,000 --> 00:03:16,000
+otro caso de prueba aqu, establezca la velocidad en 66.
+
+50
+00:03:16,000 --> 00:03:20,000
+Y de nuevo deberamos obtener 0. Pero el nombre de esta funcin ya
+
+51
+00:03:20,000 --> 00:03:24,000
+no representa todos estos casos de prueba. As que quiero hacerlo
+
+52
+00:03:24,000 --> 00:03:28,000
+an ms genrico. Entonces,
+
+53
+00:03:28,000 --> 00:03:32,000
+cambiemos el escenario
+
+54
+00:03:32,000 --> 00:03:36,000
+a WhenCalled ReturnDemeritPoints.
+
+55
+00:03:36,000 --> 00:03:40,000
+Ahora tenemos un nombre ms genrico para nuestras pruebas, agreguemos
+
+56
+00:03:40,000 --> 00:03:44,000
+algunos casos de prueba ms. Entonces, el otro caso de prueba est cinco
+
+57
+00:03:44,000 --> 00:03:48,000
+kilmetros por encima del lmite de velocidad. Entonces, si la velocidad
+
+58
+00:03:48,000 --> 00:03:52,000
+es 70, entonces deberamos obtener 1 punto, y
+
+59
+00:03:52,000 --> 00:03:56,000
+para tranquilidad, quiero asegurarme de que la velocidad
+
+60
+00:03:56,000 --> 00:04:00,000
+sea 75, luego debera obtener 2 puntos.
+
+61
+00:04:00,000 --> 00:04:04,000
+Si nuestra funcin calcula correctamente DemeritPoints, para estos dos casos
+
+62
+00:04:04,000 --> 00:04:08,000
+de prueba, es probable que funcione si la velocidad es
+
+63
+00:04:08,000 --> 00:04:12,000
+80, 85, 90, y as sucesivamente. Pero qu pasa si
+
+64
+00:04:12,000 --> 00:04:16,000
+la velocidad es ridculamente grande, como 500 kilmetros por
+
+65
+00:04:16,000 --> 00:04:20,000
+hora o 50,000 kilmetros por hora, no tiene sentido.
+
+66
+00:04:20,000 --> 00:04:24,000
+En este caso, espero que esta funcin arroje un argumento
+
+67
+00:04:24,000 --> 00:04:28,000
+fuera de rango de excepcin. As que, similar a
+
+68
+00:04:28,000 --> 00:04:32,000
+la primera prueba, voy a duplicar esto, hagamos
+
+69
+00:04:32,000 --> 00:04:36,000
+una suposicin aqu. Puede suponer que la
+
+70
+00:04:36,000 --> 00:04:40,000
+mayora de los automviles no superan los 300
+
+71
+00:04:40,000 --> 00:04:44,000
+kilmetros por hora, por lo que si SpeedIsOver
+
+72
+00:04:44,000 --> 00:04:48,000
+300 vuelve a arrojar un argumento fuera de rango.
+
+73
+00:04:48,000 --> 00:04:52,000
+Entonces, ahora que tenemos varios casos de prueba
+
+74
+00:04:52,000 --> 00:04:56,000
+para esta funcin, sigamos adelante e implementemos estas pruebas.
+
+75
+00:04:56,000 --> 00:05:00,000
+Primero, voy a crear un objeto
+
+76
+00:05:00,000 --> 00:05:04,000
+de calculadora, entonces calculadora, DemeritPointsCalculator.
+
+77
+00:05:04,000 --> 00:05:08,000
+Ahora actuamos (? ) calculadora ,. Calcula y dale un nmero negativo.
+
+78
+00:05:08,000 --> 00:05:12,000
+De nuevo, desea utilizar nmeros simples, por lo que menos 1,
+
+79
+00:05:12,000 --> 00:05:16,000
+es mejor que menos 10, porque de lo contrario, crea confusin.
+
+80
+00:05:16,000 --> 00:05:20,000
+Qu es esto menos 10, es un nmero especial en este dominio? No, solo nos importa un
+
+81
+00:05:20,000 --> 00:05:24,000
+nmero negativo aqu. Ahora, en este caso, debido a
+
+82
+00:05:24,000 --> 00:05:28,000
+que este mtodo arrojar una excepcin,
+
+83
+00:05:28,000 --> 00:05:32,000
+debemos envolverlo con una expresin lambda y ejecutarlo como parte de hacer nuestra Afirmacin.
+
+84
+00:05:32,000 --> 00:05:36,000
+Entonces, afirme que agregamos
+
+85
+00:05:36,000 --> 00:05:40,000
+una expresin lambda, y
+
+86
+00:05:40,000 --> 00:05:44,000
+aqu llamamos a este mtodo. Bueno?
+
+87
+00:05:44,000 --> 00:05:48,000
+Ahora, afirmamos que este
+
+88
+00:05:48,000 --> 00:05:52,000
+mtodo arroja, mire aqu que no tenemos
+
+89
+00:05:52,000 --> 00:05:56,000
+argumentos fuera de rango de excepcin, por
+
+90
+00:05:56,000 --> 00:06:00,000
+lo que debemos usar la propiedad Excepcin. Y configure su tipo,
+
+91
+00:06:00,000 --> 00:06:04,000
+TypeOf ArgumentOutOfRangeException.
+
+92
+00:06:04,000 --> 00:06:08,000
+Vamos a ejecutar esta prueba, Comando
+
+93
+00:06:08,000 --> 00:06:12,000
+y T y Comando y R
+
+94
+00:06:12,000 --> 00:06:16,000
+Bien, la prueba pas, hermosa.
+
+95
+00:06:16,000 --> 00:06:20,000
+Ahora este segundo caso de prueba es muy similar al primero.
+
+96
+00:06:20,000 --> 00:06:24,000
+Entonces, en lugar de tener dos mtodos
+
+97
+00:06:24,000 --> 00:06:28,000
+separados, puede parametrizar este mtodo de prueba
+
+98
+00:06:28,000 --> 00:06:32,000
+y agregar mltiples casos de prueba. As que voy a definir un parmetro llamado velocidad, y aqu vamos
+
+99
+00:06:32,000 --> 00:06:36,000
+a tener dos casos de prueba.
+
+100
+00:06:36,000 --> 00:06:40,000
+Entonces TestCase, 1 es menos 1,
+
+101
+00:06:40,000 --> 00:06:44,000
+y el otro es 301.
+
+102
+00:06:44,000 --> 00:06:48,000
+Ahora, para mantener nuestro cdigo limpio, debemos
+
+103
+00:06:48,000 --> 00:06:52,000
+cambiar este escenario a algo ms genrico,
+
+104
+00:06:52,000 --> 00:06:56,000
+la velocidad est fuera de rango. Bueno? Y finalmente reemplazamos menos 1
+
+105
+00:06:56,000 --> 00:07:00,000
+con velocidad.
+
+106
+00:07:00,000 --> 00:07:04,000
+Entonces ya no necesitamos este mtodo.
+
+107
+00:07:04,000 --> 00:07:08,000
+Hagamos la prueba nuevamente.
+
+108
+00:07:08,000 --> 00:07:12,000
+De acuerdo, nuestra prueba fall. Entonces, aqu est nuestro mtodo de prueba que puede
+
+109
+00:07:12,000 --> 00:07:16,000
+ver, tenemos dos casos
+
+110
+00:07:16,000 --> 00:07:20,000
+de prueba, el primero que fue por menos uno
+
+111
+00:07:20,000 --> 00:07:24,000
+tuvo xito, pero el segundo que fue pero (? ) 301 fall.
+
+112
+00:07:24,000 --> 00:07:28,000
+Mire los detalles, por
+
+113
+00:07:28,000 --> 00:07:32,000
+lo que esperamos una excepcin de argumento fuera de
+
+114
+00:07:32,000 --> 00:07:36,000
+rango, pero no obtenemos ninguna excepcin de este mtodo. Entonces esto me dice que hay algo mal en
+
+115
+00:07:36,000 --> 00:07:40,000
+la implementacin de este mtodo. Volvamos.
+
+116
+00:07:40,000 --> 00:07:44,000
+Mira, en ninguna
+
+117
+00:07:44,000 --> 00:07:48,000
+parte aqu, estamos buscando el lmite superior. As que voy a cambiar esto a si
+
+118
+00:07:48,000 --> 00:07:52,000
+la velocidad es menor
+
+119
+00:07:52,000 --> 00:07:56,000
+que 0, o mayor que 300, vamos a
+
+120
+00:07:56,000 --> 00:08:00,000
+lanzar un argumento fuera de rango de excepcin. Ahora, para hacer que el cdigo sea
+
+121
+00:08:00,000 --> 00:08:04,000
+ms legible, preferira reemplazar
+
+122
+00:08:04,000 --> 00:08:08,000
+este nmero mgico codificado con una constante. As que aqu podemos
+
+123
+00:08:08,000 --> 00:08:12,000
+definir la
+
+124
+00:08:12,000 --> 00:08:16,000
+constante privada, MaxSpeed entero,
+
+125
+00:08:16,000 --> 00:08:20,000
+y reemplazar 300 con MaxSpeed. Ahora, de vuelta a nuestro mtodo de prueba, corramos
+
+126
+00:08:20,000 --> 00:08:24,000
+esto una vez ms,
+
+127
+00:08:24,000 --> 00:08:28,000
+est bien, esta vez puede ver que la mayora
+
+128
+00:08:28,000 --> 00:08:32,000
+de los casos de prueba pasaron con xito. Hermosa.
+
+129
+00:08:32,000 --> 00:08:36,000
+Ahora, todos estos casos
+
+130
+00:08:36,000 --> 00:08:40,000
+de prueba, as que una vez ms voy
+
+131
+00:08:40,000 --> 00:08:44,000
+a crear un objeto de calculadora, un nuevo
+
+132
+00:08:44,000 --> 00:08:48,000
+DemeritPointsCalculator, llamar a la funcin Calcular para calcular
+
+133
+00:08:48,000 --> 00:08:52,000
+el mtodo, darle la velocidad obtener el resultado,
+
+134
+00:08:52,000 --> 00:08:56,000
+que es en este caso puntos. Y afirmar que los
+
+135
+00:08:56,000 --> 00:09:00,000
+puntos son
+
+136
+00:09:00,000 --> 00:09:04,000
+iguales a qu? Bueno, tenemos que agregar otro parmetro aqu.
+
+137
+00:09:04,000 --> 00:09:08,000
+Ese es el resultado esperado. Resultado esperado
+
+138
+00:09:08,000 --> 00:09:12,000
+tan entero.
+
+139
+00:09:12,000 --> 00:09:16,000
+Estos nmeros que estamos suministrando utilizando nuestro atributo de
+
+140
+00:09:16,000 --> 00:09:20,000
+caso de prueba, estos nmeros representan el resultado esperado. Voy a usar el
+
+141
+00:09:20,000 --> 00:09:24,000
+argumento aqu,
+
+142
+00:09:24,000 --> 00:09:28,000
+expectedResult, Now, vamos a
+
+143
+00:09:28,000 --> 00:09:32,000
+ejecutar todas estas pruebas,
+
+144
+00:09:32,000 --> 00:09:36,000
+todas ellas son pasajeras, hermosas. Entonces tenemos un total de ocho pruebas
+
+145
+00:09:36,000 --> 00:09:40,000
+unitarias, para esta clase.
+
+146
+00:09:40,000 --> 00:09:43,000
+&nbsp;
+

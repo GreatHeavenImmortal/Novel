@@ -1,0 +1,460 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, ahora estamos listos para escribir pruebas de
+
+2
+00:00:04,000 --> 00:00:08,000
+interaccin para este mtodo. Pero antes de comenzar,
+
+3
+00:00:08,000 --> 00:00:12,000
+solo quiero resaltar algo. Anteriormente en el curso, habl
+
+4
+00:00:12,000 --> 00:00:16,000
+sobre los servicios de aplicaciones. Te dije que los servicios de
+
+5
+00:00:16,000 --> 00:00:20,000
+aplicaciones son responsables de la orquestacin. Hacen trabajos
+
+6
+00:00:20,000 --> 00:00:24,000
+de alto nivel. Y aqu esta clase es un
+
+7
+00:00:24,000 --> 00:00:28,000
+ejemplo perfecto de un servicio de aplicacin. Porque este mtodo est
+
+8
+00:00:28,000 --> 00:00:32,000
+orquestando algunas cosas diferentes. Est obteniendo registros de ama de
+
+9
+00:00:32,000 --> 00:00:36,000
+llaves de la base de datos, y para cada ama de
+
+10
+00:00:36,000 --> 00:00:40,000
+llaves est generando una declaracin, y tambin enviando esa declaracin por
+
+11
+00:00:40,000 --> 00:00:44,000
+correo electrnico al ama de llaves. Entonces, esto es todo acerca de la orquestacin.
+
+12
+00:00:44,000 --> 00:00:48,000
+As que preferira cambiar el nombre
+
+13
+00:00:48,000 --> 00:00:52,000
+de esta clase de HouseKeeperHelper a HouseKeeperService.
+
+14
+00:00:52,000 --> 00:00:56,000
+As que est claro que este es un servicio de aplicacin. As que cambiemos
+
+15
+00:00:56,000 --> 00:01:00,000
+el nombre de este HouseKeeperService.
+
+16
+00:01:00,000 --> 00:01:04,000
+Entonces, como parte de este viaje de prueba de
+
+17
+00:01:04,000 --> 00:01:08,000
+unidades, comenzamos con una clase de ayuda con un
+
+18
+00:01:08,000 --> 00:01:12,000
+montn de mtodos estticos. Nos alejamos de ese
+
+19
+00:01:12,000 --> 00:01:16,000
+diseo, ahora tenemos un servicio de aplicacin adecuado, HouseKeeperService.
+
+20
+00:01:16,000 --> 00:01:20,000
+Y tambin tenemos una mejor separacin de preocupaciones.
+
+21
+00:01:20,000 --> 00:01:24,000
+As que antes, todo este cdigo para enviar correos
+
+22
+00:01:24,000 --> 00:01:28,000
+electrnicos o generar declaraciones se implement como mtodos privados
+
+23
+00:01:28,000 --> 00:01:32,000
+estticos en esta clase. Esto viola el principio
+
+24
+00:01:32,000 --> 00:01:36,000
+de responsabilidad individual. Porque enviar correos electrnicos
+
+25
+00:01:36,000 --> 00:01:40,000
+es una preocupacin completamente diferente. No debe implementarse como un mtodo
+
+26
+00:01:40,000 --> 00:01:44,000
+privado esttico en esta clase. Lo mismo es cierto
+
+27
+00:01:44,000 --> 00:01:48,000
+para generar declaraciones. Entonces con este diseo,
+
+28
+00:01:48,000 --> 00:01:52,000
+ponemos el cdigo donde pertenece. Tenemos la separacin adecuada
+
+29
+00:01:52,000 --> 00:01:56,000
+de las preocupaciones. Y tambin nuestra clase
+
+30
+00:01:56,000 --> 00:02:00,000
+es dbilmente acoplable y comprobable. Porque estamos programando contra interfaces.
+
+31
+00:02:00,000 --> 00:02:04,000
+Entonces, creemos nuestra primera prueba de interaccin.
+
+32
+00:02:04,000 --> 00:02:08,000
+De vuelta en nuestro proyecto
+
+33
+00:02:08,000 --> 00:02:12,000
+de pruebas unitarias, dentro de
+
+34
+00:02:12,000 --> 00:02:16,000
+la carpeta Mocking, agreguemos una
+
+35
+00:02:16,000 --> 00:02:20,000
+nueva clase, HouseKeeper ServiceTests.
+
+36
+00:02:20,000 --> 00:02:24,000
+Agregamos el atributo TestFixture y
+
+37
+00:02:24,000 --> 00:02:28,000
+creamos nuestra primera prueba unitaria.
+
+38
+00:02:28,000 --> 00:02:32,000
+vaco pblico, el mtodo bajo prueba es enviar.
+
+39
+00:02:32,000 --> 00:02:36,000
+StatementEmails. Entonces, qu
+
+40
+00:02:36,000 --> 00:02:40,000
+escenario queremos probar? Queremos asegurarnos de que cuando
+
+41
+00:02:40,000 --> 00:02:44,000
+llamemos a este mtodo genere declaraciones para nuestras amas de casa.
+
+42
+00:02:44,000 --> 00:02:48,000
+Entonces, WhenCalledShouldGenerate
+
+43
+00:02:48,000 --> 00:02:52,000
+Statements. Ahora, veamos rpidamente
+
+44
+00:02:52,000 --> 00:02:56,000
+la implementacin de este mtodo.
+
+45
+00:02:56,000 --> 00:03:00,000
+Aqu, necesitamos sacar a las amas de casa de la base de datos.
+
+46
+00:03:00,000 --> 00:03:04,000
+Entonces, tenemos que burlarnos de esta unidad de Trabajo y
+
+47
+00:03:04,000 --> 00:03:08,000
+devolver una lista de amas de casa en la memoria.
+
+48
+00:03:08,000 --> 00:03:12,000
+Entonces, var unitOfWork lo estableceremos en
+
+49
+00:03:12,000 --> 00:03:16,000
+un nuevo Mock, de IUnitOfWork y
+
+50
+00:03:16,000 --> 00:03:20,000
+aqu lo llamamos UnitOfWork. Configurar cuando llamamos
+
+51
+00:03:20,000 --> 00:03:24,000
+a la unidad de trabajo.
+
+52
+00:03:24,000 --> 00:03:28,000
+Consulta de Housekeeper deberamos devolver
+
+53
+00:03:28,000 --> 00:03:32,000
+una nueva lista de objetos
+
+54
+00:03:32,000 --> 00:03:36,000
+de hogar, vamos a importar
+
+55
+00:03:36,000 --> 00:03:40,000
+la clase de lista. Y lo inicializamos aqu, ahora tenemos
+
+56
+00:03:40,000 --> 00:03:44,000
+un problema de compilacin, porque este mtodo de consulta defini una unidad
+
+57
+00:03:44,000 --> 00:03:48,000
+de trabajo que devuelve un objeto IQueryable. Entonces, despus de
+
+58
+00:03:48,000 --> 00:03:52,000
+la inicializacin de la lista, debemos
+
+59
+00:03:52,000 --> 00:03:56,000
+llamarla como consultable. Y el error de compilacin se ha ido.
+
+60
+00:03:56,000 --> 00:04:00,000
+Ahora aqu creamos un nuevo objeto Housekeeper.
+
+61
+00:04:00,000 --> 00:04:04,000
+Vamos a establecer sus propiedades, por lo que tenemos cuatro
+
+62
+00:04:04,000 --> 00:04:08,000
+propiedades diferentes aqu, y tres de ellas son cadenas.
+
+63
+00:04:08,000 --> 00:04:12,000
+Entonces, configuremos el correo electrnico en a,
+
+64
+00:04:12,000 --> 00:04:16,000
+FullName, en b, Oid es un identificador
+
+65
+00:04:16,000 --> 00:04:20,000
+que establecemos en 1, y finalmente StatementEmailBody
+
+66
+00:04:20,000 --> 00:04:24,000
+en c. Valores simples Entonces esta
+
+67
+00:04:24,000 --> 00:04:28,000
+es nuestra UnitOfWork. Ahora tenemos que crear
+
+68
+00:04:28,000 --> 00:04:32,000
+nuestra InstanceOfOurService. Entonces, el servicio es un
+
+69
+00:04:32,000 --> 00:04:36,000
+nuevo HouseKeeperService, la primera dependencia es nuestra
+
+70
+00:04:36,000 --> 00:04:40,000
+unitOfWork, por lo que pasamos unitofWork con object.
+
+71
+00:04:40,000 --> 00:04:44,000
+Pero tenemos tres dependencias ms, as que creemos rpidamente
+
+72
+00:04:44,000 --> 00:04:48,000
+algunos objetos ms simulados. El segundo es
+
+73
+00:04:48,000 --> 00:04:52,000
+statementGenerator lo configuramos para un
+
+74
+00:04:52,000 --> 00:04:56,000
+nuevo Mock ofIStatementGenerator; el tercero
+
+75
+00:04:56,000 --> 00:05:00,000
+es emailSender, por lo que
+
+76
+00:05:00,000 --> 00:05:04,000
+el remitente del correo electrnico
+
+77
+00:05:04,000 --> 00:05:08,000
+lo establece en un nuevo
+
+78
+00:05:08,000 --> 00:05:12,000
+Mock, de I EmailSender. Y el ltimo
+
+79
+00:05:12,000 --> 00:05:16,000
+es nuestro messageBox. Entonces, el cuadro de mensaje
+
+80
+00:05:16,000 --> 00:05:20,000
+tambin es un nuevo simulacro. de IMessageBox.
+
+81
+00:05:20,000 --> 00:05:24,000
+XtraMessageBox, ms preciso. Entonces ahora con
+
+82
+00:05:24,000 --> 00:05:28,000
+estas dependencias, podemos crear nuestro servicio.
+
+83
+00:05:28,000 --> 00:05:32,000
+Entonces, pasemos statementGenerator. objeto
+
+84
+00:05:32,000 --> 00:05:36,000
+emailSender. objeto y
+
+85
+00:05:36,000 --> 00:05:40,000
+finalmente, messageBox. Objeto.
+
+86
+00:05:40,000 --> 00:05:44,000
+Podemos ver que nuestro cdigo va ms all de la pantalla, as
+
+87
+00:05:44,000 --> 00:05:48,000
+que pongamos cada argumento en una lnea separada y hagamos que este
+
+88
+00:05:48,000 --> 00:05:52,000
+cdigo sea ms legible. Entonces aqu tenemos un servicio. Ahora, tenemos
+
+89
+00:05:52,000 --> 00:05:56,000
+que actuar. Entonces, servicio ,. SendStatementEmails. Necesitamos pasar un DateTime,
+
+90
+00:05:56,000 --> 00:06:00,000
+solo enviemos una fecha arbitraria.
+
+91
+00:06:00,000 --> 00:06:04,000
+Y finalmente, necesitamos verificar
+
+92
+00:06:04,000 --> 00:06:08,000
+que se haya llamado
+
+93
+00:06:08,000 --> 00:06:12,000
+al mtodo correcto en statementGenerator. Por lo tanto,
+
+94
+00:06:12,000 --> 00:06:16,000
+declaracin generador. Verificar sg
+
+95
+00:06:16,000 --> 00:06:20,000
+va a sg. SaveStatement.
+
+96
+00:06:20,000 --> 00:06:24,000
+Ahora, qu argumento deberamos aprobar aqu? El primer argumento es ID
+
+97
+00:06:24,000 --> 00:06:28,000
+de nuestro HouseKeeper, voy a
+
+98
+00:06:28,000 --> 00:06:32,000
+pasar 1, el segundo argumento es el nombre de HouseKeeper,
+
+99
+00:06:32,000 --> 00:06:36,000
+usamos b aqu, as que tambin deberamos pasar b aqu.
+
+100
+00:06:36,000 --> 00:06:40,000
+Y el tercer argumento es la fecha de la declaracin. Y esa es la misma fecha
+
+101
+00:06:40,000 --> 00:06:44,000
+que usamos aqu.
+
+102
+00:06:44,000 --> 00:06:48,000
+As que, vamos a pasar eso aqu tambin,
+
+103
+00:06:48,000 --> 00:06:52,000
+y nos falta 1 parntesis de cierre, lo obtuve. De acuerdo, esta es nuestra primera prueba unitaria,
+
+104
+00:06:52,000 --> 00:06:56,000
+es muy gorda, es
+
+105
+00:06:56,000 --> 00:07:00,000
+voluminosa y ruidosa, vamos a refactorizar esto ms
+
+106
+00:07:00,000 --> 00:07:04,000
+tarde, pero primero asegurmonos de que pase. Entonces, est bien, tenemos un error de
+
+107
+00:07:04,000 --> 00:07:08,000
+compilacin aqu, en
+
+108
+00:07:08,000 --> 00:07:12,000
+la clase EmailSender, parece que nos falta
+
+109
+00:07:12,000 --> 00:07:16,000
+la referencia a la clase de archivo. Entonces, importemos el espacio de nombre.
+
+110
+00:07:16,000 --> 00:07:20,000
+Hecho. De vuelta en nuestra
+
+111
+00:07:20,000 --> 00:07:24,000
+clase de prueba unitaria,
+
+112
+00:07:24,000 --> 00:07:28,000
+ejecutemos esta prueba, est bien, aqu est
+
+113
+00:07:28,000 --> 00:07:32,000
+nuestra prueba, y pas con xito. Hermosa. En la prxima conferencia, vamos a refactorizar este cdigo y
+
+114
+00:07:32,000 --> 00:07:36,000
+hacerlo ms limpio.
+
+115
+00:07:36,000 --> 00:07:40,000
+&nbsp;
+

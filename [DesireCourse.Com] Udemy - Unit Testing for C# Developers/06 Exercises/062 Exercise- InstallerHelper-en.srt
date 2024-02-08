@@ -1,0 +1,88 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, time for another exercise.
+
+2
+00:00:04,000 --> 00:00:08,000
+So, back in the Mocking folder, look at this class.
+
+3
+00:00:08,000 --> 00:00:12,000
+InstallerHelper. This is the
+
+4
+00:00:12,000 --> 00:00:16,000
+code that one of my students sent me. So if you are that person who sent me this
+
+5
+00:00:16,000 --> 00:00:20,000
+code, thank you very much for sharing your code, we're going to use this as an example of a
+
+6
+00:00:20,000 --> 00:00:24,000
+code that touches an external resource. So here we have this method,
+
+7
+00:00:24,000 --> 00:00:28,000
+DownloadInstaller. It takes a customer name, and
+
+8
+00:00:28,000 --> 00:00:32,000
+InstallerName, and uses the WebClient class,
+
+9
+00:00:32,000 --> 00:00:36,000
+to download the file from the internet. The first
+
+10
+00:00:36,000 --> 00:00:40,000
+argument to this method is the location, or the URL of this
+
+11
+00:00:40,000 --> 00:00:44,000
+file. So here we're using string.format to construct a URL
+
+12
+00:00:44,000 --> 00:00:48,000
+like this. example.com. The first argument after that
+
+13
+00:00:48,000 --> 00:00:52,000
+is customerName, and the second is installerName.
+
+14
+00:00:52,000 --> 00:00:56,000
+And this is the second argument to this download file
+
+15
+00:00:56,000 --> 00:01:00,000
+method. And this argument specifies the location on the
+
+16
+00:01:00,000 --> 00:01:04,000
+file system where we need to store this file. As you can see,
+
+17
+00:01:04,000 --> 00:01:08,000
+the call to download file is wrapped inside
+
+18
+00:01:08,000 --> 00:01:12,000
+a try cash block, so if everything goes well, you're going to
+
+19
+00:01:12,000 --> 00:01:16,000
+return true, otherwise we're going to return false.
+
+20
+00:01:16,000 --> 00:01:20,000
+So, now, I want you to use what you have learned in this section, and write
+
+21
+00:01:20,000 --> 00:01:24,000
+a required unit test for this class. Next, we're going to look at my
+
+22
+00:01:24,000 --> 00:01:26,000
+solution.
+

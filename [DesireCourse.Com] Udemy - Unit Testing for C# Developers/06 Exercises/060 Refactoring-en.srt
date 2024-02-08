@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now let's see how we can write unit tests
+
+2
+00:00:04,000 --> 00:00:08,000
+for this method. So, as we can see
+
+3
+00:00:08,000 --> 00:00:12,000
+over these few lines, we are going in the database
+
+4
+00:00:12,000 --> 00:00:16,000
+and getting the videos that are not processed. So this is where
+
+5
+00:00:16,000 --> 00:00:20,000
+we're touching an external resource. So as you learned earlier,
+
+6
+00:00:20,000 --> 00:00:24,000
+we need to extract these few lines, put them in a separate class and
+
+7
+00:00:24,000 --> 00:00:28,000
+isolate that class from the rest of the code here. So,
+
+8
+00:00:28,000 --> 00:00:32,000
+back in our project, in the Mocking folder, I'm going to add
+
+9
+00:00:32,000 --> 00:00:36,000
+a New class, so,
+
+10
+00:00:36,000 --> 00:00:40,000
+what should we call that class? Because we are writing a query
+
+11
+00:00:40,000 --> 00:00:44,000
+here, a pattern that we use often for encapsulating queries
+
+12
+00:00:44,000 --> 00:00:48,000
+in our application is the repository pattern. I've explained that
+
+13
+00:00:48,000 --> 00:00:52,000
+in my editing framework course, so we're not going to go over that again. For now,
+
+14
+00:00:52,000 --> 00:00:56,000
+we're just going to create a new class called VideoRepository.
+
+15
+00:00:56,000 --> 00:01:00,000
+So this is a repository of all the videos
+
+16
+00:01:00,000 --> 00:01:04,000
+in our application. So here we can add a new method, public
+
+17
+00:01:04,000 --> 00:01:08,000
+IEnumberable. Why
+
+18
+00:01:08,000 --> 00:01:12,000
+IEnumerable, because we simply want to enumerate this list. We just
+
+19
+00:01:12,000 --> 00:01:16,000
+want to iterate over it. So back in video service, look,
+
+20
+00:01:16,000 --> 00:01:20,000
+after we get the videos, all we need to do is to iterate
+
+21
+00:01:20,000 --> 00:01:24,000
+over this list using this for each statement, okay? So,
+
+22
+00:01:24,000 --> 00:01:28,000
+we simply return an IENumerable
+
+23
+00:01:28,000 --> 00:01:32,000
+of video. Let's import a name space.
+
+24
+00:01:32,000 --> 00:01:36,000
+GetUnprocessed
+
+25
+00:01:36,000 --> 00:01:40,000
+Videos.
+
+26
+00:01:40,000 --> 00:01:44,000
+Now, back to our video service,
+
+27
+00:01:44,000 --> 00:01:48,000
+lets select these few lines. Cut, and
+
+28
+00:01:48,000 --> 00:01:52,000
+paste it inside our repository. Note
+
+29
+00:01:52,000 --> 00:01:56,000
+that here we need a reference to this db context, video context.
+
+30
+00:01:56,000 --> 00:02:00,000
+Okay? So, back in our video service,
+
+31
+00:02:00,000 --> 00:02:04,000
+this is where we're creating that video context. Again, this is a class
+
+32
+00:02:04,000 --> 00:02:08,000
+that touches an external resource, so, this context object
+
+33
+00:02:08,000 --> 00:02:12,000
+should not be here. So basically, I'm going to copy this line
+
+34
+00:02:12,000 --> 00:02:16,000
+and paste it here.
+
+35
+00:02:16,000 --> 00:02:20,000
+So here we have, our using block,
+
+36
+00:02:20,000 --> 00:02:24,000
+and let's put this query inside this block. Now,
+
+37
+00:02:24,000 --> 00:02:28,000
+we need to import system.link on the top.
+
+38
+00:02:28,000 --> 00:02:32,000
+Okay, and finally we can return
+
+39
+00:02:32,000 --> 00:02:36,000
+videos. So you can see this video repository
+
+40
+00:02:36,000 --> 00:02:40,000
+is encapsulating the code, that touches an
+
+41
+00:02:40,000 --> 00:02:44,000
+external resource. Now, back to our Video
+
+42
+00:02:44,000 --> 00:02:48,000
+Service. We no longer need this using block.
+
+43
+00:02:48,000 --> 00:02:52,000
+Okay? So, delete. Delete.
+
+44
+00:02:52,000 --> 00:02:56,000
+And Delete. Our code is far simpler.
+
+45
+00:02:56,000 --> 00:03:00,000
+So this is one of the benefits of unit testing. When you open up
+
+46
+00:03:00,000 --> 00:03:04,000
+your classes for testability, you get better separation of concerns,
+
+47
+00:03:04,000 --> 00:03:08,000
+and your methods end up being shorter, because you move the responsibility
+
+48
+00:03:08,000 --> 00:03:12,000
+where it really belongs. Now here, we need to get
+
+49
+00:03:12,000 --> 00:03:16,000
+these videos from our video repository. So the next step of
+
+50
+00:03:16,000 --> 00:03:20,000
+refactoring is like this, that a new VideoRepository
+
+51
+00:03:20,000 --> 00:03:24,000
+we call GetUnprocessedVideos, and get
+
+52
+00:03:24,000 --> 00:03:28,000
+the result and store it in this variable. Okay?
+
+53
+00:03:28,000 --> 00:03:32,000
+However, as I told you before, when we new up
+
+54
+00:03:32,000 --> 00:03:36,000
+the video repository here, our VideoService becomes tightly
+
+55
+00:03:36,000 --> 00:03:40,000
+coupled to this implementation, we want to replace this implementation
+
+56
+00:03:40,000 --> 00:03:44,000
+with an interface, with a contract, then we can use any
+
+57
+00:03:44,000 --> 00:03:48,000
+classes that implements that interface. So the next step
+
+58
+00:03:48,000 --> 00:03:52,000
+is to extract an interface from our video repository.
+
+59
+00:03:52,000 --> 00:03:56,000
+Back here, as I showed you before,
+
+60
+00:03:56,000 --> 00:04:00,000
+we can extract an interface from a class very easily,
+
+61
+00:04:00,000 --> 00:04:04,000
+so here we press alt and enter, refactor,
+
+62
+00:04:04,000 --> 00:04:08,000
+extract interface. Now,
+
+63
+00:04:08,000 --> 00:04:12,000
+I'm going to select this method to add in the interface, next,
+
+64
+00:04:12,000 --> 00:04:16,000
+done. So here's our new interface.
+
+65
+00:04:16,000 --> 00:04:20,000
+Okay? Now, back to our VideoService.
+
+66
+00:04:20,000 --> 00:04:24,000
+We need to inject that interface into this VideoService.
+
+67
+00:04:24,000 --> 00:04:28,000
+We can inject it as a parameter to this method. We can inject it
+
+68
+00:04:28,000 --> 00:04:32,000
+by a property or, we can inject it
+
+69
+00:04:32,000 --> 00:04:36,000
+in the constructor here. As I explained before, construction
+
+70
+00:04:36,000 --> 00:04:40,000
+injection is more common, so I'm going to follow the same pattern here.
+
+71
+00:04:40,000 --> 00:04:44,000
+So, let's add a new parameter,
+
+72
+00:04:44,000 --> 00:04:48,000
+IVideoRepository. And we call this
+
+73
+00:04:48,000 --> 00:04:52,000
+repository, I'm going to follow poor man's (?) dependency
+
+74
+00:04:52,000 --> 00:04:56,000
+injection. So, you set this to null,
+
+75
+00:04:56,000 --> 00:05:00,000
+and initialize the video repository field here.
+
+76
+00:05:00,000 --> 00:05:04,000
+So first we need to create private IVideo Repository
+
+77
+00:05:04,000 --> 00:05:08,000
+call that repository, and then
+
+78
+00:05:08,000 --> 00:05:12,000
+set repository like this. So if
+
+79
+00:05:12,000 --> 00:05:16,000
+we have this object here in the argument, we're going to use that otherwise we're going to new up
+
+80
+00:05:16,000 --> 00:05:20,000
+a VideoRepository. Again, if you use
+
+81
+00:05:20,000 --> 00:05:24,000
+a dependency injection framework, you don't have to deal with this poor man's
+
+82
+00:05:24,000 --> 00:05:28,000
+dependency injection approach. Okay? But for this challenge
+
+83
+00:05:28,000 --> 00:05:32,000
+it doesn't really matter. But finally,
+
+84
+00:05:32,000 --> 00:05:36,000
+instead of newing up this VideoRepository, we're going to access
+
+85
+00:05:36,000 --> 00:05:40,000
+the repository field. So now, our VideoService
+
+86
+00:05:40,000 --> 00:05:44,000
+class is loosely coupled testable, next, I'm, going to show you how
+
+87
+00:05:44,000 --> 00:05:47,000
+to write unit tests for this class.
+

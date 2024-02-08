@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, what is automated testing?
+
+2
+00:00:04,000 --> 00:00:08,033
+Is it a replacement for manual testing? Do I really need it? How
+
+3
+00:00:08,033 --> 00:00:12,000
+should I do it? Should I write my tests first, which we call
+
+4
+00:00:12,000 --> 00:00:16,000
+test-driven development or TDD, or should I write the application code
+
+5
+00:00:16,000 --> 00:00:20,000
+first? Mosh, I don't know what to test! These are
+
+6
+00:00:20,000 --> 00:00:24,000
+frequently asked questions about Automated Testing, and in this
+
+7
+00:00:24,000 --> 00:00:28,000
+course, I'm gonna answer all these questions one by one!
+
+8
+00:00:28,000 --> 00:00:32,000
+So let's start with the first question: What is automated testing?
+
+9
+00:00:32,000 --> 00:00:36,000
+ Automated testing is the practice of writing code to
+
+10
+00:00:36,000 --> 00:00:40,000
+test our code, and then run those tests in an automated
+
+11
+00:00:40,000 --> 00:00:44,000
+fashion. So, with automated testing, our source code
+
+12
+00:00:44,000 --> 00:00:48,000
+consists of application code, which we also call production code
+
+13
+00:00:48,000 --> 00:00:52,000
+AND test code. So here is an example, imagine
+
+14
+00:00:52,000 --> 00:00:56,000
+you have this function somewhere in your code. It's a basic
+
+15
+00:00:56,000 --> 00:01:00,000
+calculate function that takes an input and depending on some
+
+16
+00:01:00,000 --> 00:01:04,000
+conditions, it returns different values. If you want
+
+17
+00:01:04,000 --> 00:01:08,000
+to test this function manually, you have to launch your application in the browser,
+
+18
+00:01:08,000 --> 00:01:12,000
+perhaps you have to login, or maybe you have to do a few clicks
+
+19
+00:01:12,000 --> 00:01:16,000
+here and there to get to a page to where this function is used.
+
+20
+00:01:16,000 --> 00:01:20,000
+Then, you will have to fill out a form, submit it, and
+
+21
+00:01:20,000 --> 00:01:24,000
+see the result of this function on the screen. And then you have to repeat
+
+22
+00:01:24,000 --> 00:01:28,000
+all these steps each time using different values in your form.
+
+23
+00:01:28,000 --> 00:01:32,000
+As you can see, this is very time consuming. This
+
+24
+00:01:32,000 --> 00:01:36,000
+work flow to test this function may take several minutes every time.
+
+25
+00:01:36,000 --> 00:01:40,000
+Now to make matters worse, this is not the only function
+
+26
+00:01:40,000 --> 00:01:44,000
+in your application. In a real application you have tens
+
+27
+00:01:44,000 --> 00:01:48,000
+or hundreds of functions like this. As your application grows,
+
+28
+00:01:48,000 --> 00:01:52,000
+in size and complexity, the time required to manually test
+
+29
+00:01:52,000 --> 00:01:56,000
+all the different bits and pieces increases exponentially.
+
+30
+00:01:56,000 --> 00:02:00,000
+So, that's why we use automated testing. With
+
+31
+00:02:00,000 --> 00:02:04,000
+automated testing, you write code and directly call this function
+
+32
+00:02:04,000 --> 00:02:08,000
+with different inputs and verify that this function returns
+
+33
+00:02:08,000 --> 00:02:12,000
+the right output. Now,  you can re-run these tests
+
+34
+00:02:12,000 --> 00:02:16,000
+every time you change your code, every time you commit your code to a repository
+
+35
+00:02:16,000 --> 00:02:20,000
+and before deploying your application. With this approach,
+
+36
+00:02:20,000 --> 00:02:24,000
+ you can test all the execution paths in this function in less than
+
+37
+00:02:24,000 --> 00:02:28,000
+a second! You can write several hundred or thousands of automated tests
+
+38
+00:02:28,000 --> 00:02:32,000
+for various parts of your application, and run them all in
+
+39
+00:02:32,000 --> 00:02:36,000
+just a few seconds. But there are more benefits to automated testing,
+
+40
+00:02:36,000 --> 00:02:40,000
+and that's the topic for the next lecture.

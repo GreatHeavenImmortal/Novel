@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, in the last lecture, I showed you
+
+2
+00:00:04,000 --> 00:00:08,000
+this technique to inject a real or a fake
+
+3
+00:00:08,000 --> 00:00:12,000
+FileReader for this video service object. This approach works
+
+4
+00:00:12,000 --> 00:00:16,000
+but it's not ideal in enterprise applications.
+
+5
+00:00:16,000 --> 00:00:20,000
+Because in a real world application this class might have a couple more
+
+6
+00:00:20,000 --> 00:00:24,000
+dependencies you don't want to repeat this expression a few times
+
+7
+00:00:24,000 --> 00:00:28,000
+and also make these parameters optional. It looks a little bit ugly.
+
+8
+00:00:28,000 --> 00:00:32,000
+That's why we refer to this approach as
+
+9
+00:00:32,000 --> 00:00:36,000
+Poor man's dependency injection. In a real enterprise
+
+10
+00:00:36,000 --> 00:00:40,000
+like application, you don't want to do this. You want to keep your code as simple as
+
+11
+00:00:40,000 --> 00:00:44,000
+possible. That's why we use a dependency injection framework.
+
+12
+00:00:44,000 --> 00:00:48,000
+When you use a proper dependency injection framework in your application,
+
+13
+00:00:48,000 --> 00:00:52,000
+you can simplify this constructor to something like this,
+
+15
+00:00:56,000 --> 00:01:00,000
+like this. It's far simpler. So a dependency
+
+16
+00:01:00,000 --> 00:01:04,000
+injection framework will take care of creating and
+
+17
+00:01:04,000 --> 00:01:08,000
+initializing objects at run time. There are various dependency injection
+
+18
+00:01:08,000 --> 00:01:12,000
+frameworks out there. We have name jack (?), we have structure map,
+
+19
+00:01:12,000 --> 00:01:16,000
+spring.net, autofac, unity, and so on.
+
+20
+00:01:16,000 --> 00:01:20,000
+Almost all these frameworks follow the same principles.
+
+21
+00:01:20,000 --> 00:01:24,000
+In a dependency injection framework, you have a container,
+
+22
+00:01:24,000 --> 00:01:28,000
+this container is a registry of all your interfaces
+
+23
+00:01:28,000 --> 00:01:32,000
+and their implementations. When your application starts, your
+
+24
+00:01:32,000 --> 00:01:36,000
+dependency injection framework will automatically take care of creating
+
+25
+00:01:36,000 --> 00:01:40,000
+object graphs based on the interfaces and types
+
+26
+00:01:40,000 --> 00:01:44,000
+registered in the container. For example, in an ASP.NET
+
+27
+00:01:44,000 --> 00:01:48,000
+dependency application, when you receive a request on the server,
+
+28
+00:01:48,000 --> 00:01:52,000
+ASP.NET runtime. Should create an instance of a controller
+
+29
+00:01:52,000 --> 00:01:56,000
+class. Your controller may have one or more dependencies.
+
+30
+00:01:56,000 --> 00:02:00,000
+Let's say IFileReader. At this point
+
+31
+00:02:00,000 --> 00:02:04,000
+dependency injection framework kicks in, it looks at the parameters of the contructor
+
+32
+00:02:04,000 --> 00:02:08,000
+or controller, then it looks at this container or
+
+33
+00:02:08,000 --> 00:02:12,000
+registry, and finds the concrete implementations for these
+
+34
+00:02:12,000 --> 00:02:16,000
+referenced interfaces, instantiates them, and passes them
+
+35
+00:02:16,000 --> 00:02:20,000
+to your controller. If those objects also have dependencies,
+
+36
+00:02:20,000 --> 00:02:24,000
+your dependency injection framework (?) will take care of creating
+
+37
+00:02:24,000 --> 00:02:28,000
+and initializing an object graph for you. Using a
+
+38
+00:02:28,000 --> 00:02:32,000
+dependency injection framework is beyond the scope of this course and that's something that
+
+39
+00:02:32,000 --> 00:02:36,000
+you need to research on your own, because the implementation varies from one
+
+40
+00:02:36,000 --> 00:02:40,000
+framework to another, and also it's dependent on the kind of
+
+41
+00:02:40,000 --> 00:02:44,000
+application you're building. For example, the set of code for using
+
+42
+00:02:44,000 --> 00:02:48,000
+a dependency injection framework in an ASP.NET application
+
+43
+00:02:48,000 --> 00:02:52,000
+is different from than let's say a Xamarin or WPF application.
+
+44
+00:02:52,000 --> 00:02:56,000
+It's even different amongst different versions of ASP.NET.
+
+45
+00:02:56,000 --> 00:03:00,000
+.MPC. So, if you want my recommendation,
+
+46
+00:03:00,000 --> 00:03:04,000
+I would say go with either Ninject, or Aurofac
+
+47
+00:03:04,000 --> 00:03:08,000
+These are the two popular dependency injection frameworks out there.
+
+48
+00:03:08,000 --> 00:03:12,000
+By the end you might be part of a team, and your team later may love a different
+
+49
+00:03:12,000 --> 00:03:16,000
+dependency injection framework, that's perfectly fine. Don't get hung up on the
+
+50
+00:03:16,000 --> 00:03:20,000
+tooling. So, pick one of these dependency injection frameworks
+
+51
+00:03:20,000 --> 00:03:24,000
+read their documentation about what you need to do to use them in your
+
+52
+00:03:24,000 --> 00:03:26,000
+applications.
+

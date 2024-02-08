@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:04,000
+Mucha gente nueva en pruebas unitarias asume que para
+
+2
+00:00:04,000 --> 00:00:08,000
+probar una clase en conjunto, deben probarla en forma
+
+3
+00:00:08,000 --> 00:00:12,000
+aislada sin dependencias, ya sea que esas dependencias toquen
+
+4
+00:00:12,000 --> 00:00:16,000
+recursos externos o no. He seguido ese camino y
+
+5
+00:00:16,000 --> 00:00:20,000
+he aprendido por las malas, que este enfoque es una
+
+6
+00:00:20,000 --> 00:00:24,000
+receta para el desastre. Cuando te burlas de todas las dependencias
+
+7
+00:00:24,000 --> 00:00:28,000
+de una clase, terminas con varios problemas. Primero, ve una explosin
+
+8
+00:00:28,000 --> 00:00:32,000
+de interfaces en su aplicacin, y estas interfaces
+
+9
+00:00:32,000 --> 00:00:36,000
+no sirven para nada. Para cada clase tienes una interfaz,
+
+10
+00:00:36,000 --> 00:00:40,000
+no importa lo que haga esa clase. En segundo lugar, los constructores de
+
+11
+00:00:40,000 --> 00:00:44,000
+su clase explotan con demasiados parmetros. Si tienes constructores como este, a
+
+12
+00:00:44,000 --> 00:00:48,000
+menudo es un sntoma de que te ests burlando de las dependencias
+
+13
+00:00:48,000 --> 00:00:52,000
+que no deberan ser objeto de burla. El tercer problema es que sus
+
+14
+00:00:52,000 --> 00:00:56,000
+pruebas comienzan a ponerse gordas y voluminosas. Sus partes configuradas o arregladas se
+
+15
+00:00:56,000 --> 00:01:00,000
+vuelven complejas porque tratan con tantos objetos simulados que deben inyectarse en
+
+16
+00:01:00,000 --> 00:01:04,000
+el objeto que est probando. Adems, estas pruebas a
+
+17
+00:01:04,000 --> 00:01:08,000
+menudo son muy frgiles porque estn estrechamente
+
+18
+00:01:08,000 --> 00:01:12,000
+acopladas (? ) diseo. A medida que cambia
+
+19
+00:01:12,000 --> 00:01:16,000
+su implementacin, estas pruebas se rompen con frecuencia porque no prueban el
+
+20
+00:01:16,000 --> 00:01:20,000
+comportamiento externo que prueban la implementacin. Saben demasiado sobre tus objetos y
+
+21
+00:01:20,000 --> 00:01:24,000
+cmo interactan, as que esto es lo que tienes que hacer, usa
+
+22
+00:01:24,000 --> 00:01:28,000
+los simulacros lo menos posible. Reservarlos solo para tratar
+
+23
+00:01:28,000 --> 00:01:32,000
+con recursos externos. Solo hay una excepcin que
+
+24
+00:01:32,000 --> 00:01:36,000
+puede usar simulaciones para otros casos, pero por ahora solo
+
+25
+00:01:36,000 --> 00:01:40,000
+asuma que los simulacros deben reservarse para eliminar recursos externos
+
+26
+00:01:40,000 --> 00:01:44,000
+de su prueba de unidad. Porque de lo contrario tus pruebas
+
+27
+00:01:44,000 --> 00:01:48,000
+sern lentas o fallarn. Por ejemplo. Si su aplicacin habla
+
+28
+00:01:48,000 --> 00:01:52,000
+con un servicio web, no desea que ese servicio web est en funcionamiento
+
+29
+00:01:52,000 --> 00:01:56,000
+cuando realice las pruebas de su unidad. Si ese servicio web no est disponible, fallarn
+
+30
+00:01:56,000 --> 00:02:00,000
+las pruebas que dependen de ese servicio web. E incluso si est
+
+31
+00:02:00,000 --> 00:02:04,000
+disponible, tus pruebas sern lentas. Las pruebas unitarias deben ser rpidas.
+
+32
+00:02:04,000 --> 00:02:08,000
+Escribimos muchos de ellos Cientos o miles de ellos, y
+
+33
+00:02:08,000 --> 00:02:12,000
+debemos ejecutarlos todo el tiempo, especialmente a medida que escribimos cdigo
+
+34
+00:02:12,000 --> 00:02:16,000
+y refactorizamos nuestro cdigo. Es por eso que usamos burlas. Para eliminar estos
+
+35
+00:02:16,000 --> 00:02:20,000
+recursos externos de nuestras pruebas de unidad para que puedan
+
+36
+00:02:20,000 --> 00:02:24,000
+ejecutarse de manera rpida y confiable. Anteriormente te cont sobre una
+
+37
+00:02:24,000 --> 00:02:28,000
+excepcin para usar burlas cuando no ests tratando con recursos externos.
+
+38
+00:02:28,000 --> 00:02:32,000
+Es entonces cuando ests probando clases con clculos complejos
+
+39
+00:02:32,000 --> 00:02:36,000
+y rutas de ejecucin. Imagina que la clase A usa la clase B.
+
+40
+00:02:36,000 --> 00:02:40,000
+Ninguna de estas clases utiliza recursos externos, tal vez si desea probar
+
+41
+00:02:40,000 --> 00:02:44,000
+la unidad A y B en conjunto, terminar con numerosas rutas de
+
+42
+00:02:44,000 --> 00:02:48,000
+ejecucin y casos de prueba. En ese caso, est
+
+43
+00:02:48,000 --> 00:02:52,000
+bien probar la unidad A y B de
+
+44
+00:02:52,000 --> 00:02:56,000
+forma independiente y aislada. Cuando prueba la unidad A, puede suministrar
+
+45
+00:02:56,000 --> 00:03:00,000
+una prueba doble para B para reducir la cantidad de casos de prueba.
+
+46
+00:03:00,000 --> 00:03:04,000
+De esta forma, tendr que lidiar con menos rutas de ejecucin
+
+47
+00:03:04,000 --> 00:03:08,000
+y sus pruebas sern ms simples. A continuacin, voy a mostrar un ejemplo de abuso de burlas.
+

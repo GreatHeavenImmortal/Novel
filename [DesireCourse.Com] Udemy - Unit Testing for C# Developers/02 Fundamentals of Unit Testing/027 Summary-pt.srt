@@ -1,0 +1,76 @@
+1
+00:00:01,420 --> 00:00:05,760
+Esta ao voc aprende os fundamentos do teste unitrio.
+
+2
+00:00:05,760 --> 00:00:11,760
+Voc aprende sobre as caractersticas dos bons testes unitrios que eles devem ser pequenos, tm uma nica
+
+3
+00:00:11,840 --> 00:00:13,340
+responsabilidade e nenhuma lgica.
+
+4
+00:00:13,340 --> 00:00:19,860
+Eles no devem ser muito genricos ou especficos demais e devem estar isolados, o que significa que cada teste deve
+
+5
+00:00:19,860 --> 00:00:25,170
+ser executado usando um estado limpo e fresco como se fosse o nico teste no mundo.
+
+6
+00:00:25,650 --> 00:00:31,050
+Voc aprende sobre testes de gua e o que no testar especificamente aprende que deve testar
+
+7
+00:00:31,200 --> 00:00:38,520
+o resultado de uma funo independentemente de como ela  implementada e de que voc no deve testar recursos de linguagem
+
+8
+00:00:38,700 --> 00:00:40,120
+ou cdigo de terceiros.
+
+9
+00:00:40,540 --> 00:00:45,380
+Tambm aprendemos algumas tcnicas bsicas para escrever testes limpos e de fcil manuteno.
+
+10
+00:00:45,570 --> 00:00:51,420
+Aprendemos como usar o mtodo de configurao para fazer toda a inicializao antes ou mtodos de
+
+11
+00:00:51,420 --> 00:00:53,740
+teste e como escrever testes de parametrizao.
+
+12
+00:00:53,790 --> 00:01:00,900
+E, finalmente, voc aprendeu sobre duas maneiras de escrever testes confiveis e confiveis que voc usa o desenvolvimento orientado a
+
+13
+00:01:00,900 --> 00:01:06,990
+testes, que est alm do escopo deste curso ou faz uma pequena alterao no cdigo de produo
+
+14
+00:01:06,990 --> 00:01:08,890
+que deve fazer o teste falhar.
+
+15
+00:01:09,300 --> 00:01:16,740
+Se o teste continuar, isso significa que o teste no  um teste confivel no qual voc pode confiar na prxima
+
+16
+00:01:16,740 --> 00:01:17,150
+seo.
+
+17
+00:01:17,150 --> 00:01:23,010
+Estivemos examinando as principais tcnicas de teste de unidade que voc aprender a testar mtodos que
+
+18
+00:01:23,130 --> 00:01:29,020
+retornam uma string ou uma coleo ou lanam uma exceo gerada em um evento e outros cenrios.
+
+19
+00:01:29,040 --> 00:01:30,410
+Ento, vemos na prxima seo.
+

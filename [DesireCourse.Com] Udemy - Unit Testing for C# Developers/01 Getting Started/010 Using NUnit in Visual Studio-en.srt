@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:04,000
+So far we have seen MS Test
+
+2
+00:00:04,000 --> 00:00:08,000
+in action. In this lecture, I'm going to show you how to use NUnit,
+
+3
+00:00:08,000 --> 00:00:12,000
+which is my preferred testing framework. So NUnit is
+
+4
+00:00:12,000 --> 00:00:16,000
+not part of visual studio, and if you want to use it you need to install
+
+5
+00:00:16,000 --> 00:00:20,000
+a couple of new git packages. So open up package
+
+6
+00:00:20,000 --> 00:00:24,000
+manager console, make sure to select
+
+7
+00:00:24,000 --> 00:00:28,000
+testninja.unit tests, in the project dropdown lists,
+
+8
+00:00:28,000 --> 00:00:32,000
+now we need to install a couple of packages.
+
+9
+00:00:32,000 --> 00:00:36,000
+So, install-package, the first one
+
+10
+00:00:36,000 --> 00:00:40,000
+is NUnit, and make sure to set the version to the same
+
+11
+00:00:40,000 --> 00:00:44,000
+version that I'm going to use in this video, so you will have the same experience.
+
+12
+00:00:44,000 --> 00:00:48,000
+So -Version 3.8
+
+13
+00:00:48,000 --> 00:00:52,000
+.1.
+
+14
+00:00:52,000 --> 00:00:56,000
+Beautiful. Now the second package.
+
+15
+00:00:56,000 --> 00:01:00,000
+Install-Package. NUnit,
+
+16
+00:01:00,000 --> 00:01:04,000
+3TestAdapter. We
+
+17
+00:01:04,000 --> 00:01:08,000
+need this package to run NUnit tests, inside Visual Studio,
+
+18
+00:01:08,000 --> 00:01:12,000
+because by default, the test runner that is built into Visual
+
+19
+00:01:12,000 --> 00:01:16,000
+Studio, only recognizes MS Tests.
+
+20
+00:01:16,000 --> 00:01:20,000
+So, set the version here as well, this one is 3.8
+
+21
+00:01:20,000 --> 00:01:24,000
+.0. So it's not exactly the same version as
+
+22
+00:01:24,000 --> 00:01:28,000
+NUnit, because these two packages are developed independently.
+
+23
+00:01:28,000 --> 00:01:32,000
+But these two versions are compatible.
+
+24
+00:01:32,000 --> 00:01:36,000
+Okay, beautiful, now, with NUnit we have,
+
+25
+00:01:36,000 --> 00:01:40,000
+different attributes, so instead of test class,
+
+26
+00:01:40,000 --> 00:01:44,000
+we use Test Fixture,
+
+27
+00:01:44,000 --> 00:01:48,000
+now we need to import this type, so press control,
+
+28
+00:01:48,000 --> 00:01:52,000
+and period, and select the first item. Using NUnit
+
+29
+00:01:52,000 --> 00:01:56,000
+.framework. Okay?
+
+30
+00:01:56,000 --> 00:02:00,000
+And instead of test method we have Test.
+
+32
+00:02:04,000 --> 00:02:08,000
+Like this, and finally,
+
+33
+00:02:08,000 --> 00:02:12,000
+we need to modify how we make assertions. So here we have
+
+34
+00:02:12,000 --> 00:02:16,000
+a compilation error, because visual studio doesn't know
+
+35
+00:02:16,000 --> 00:02:20,000
+whether you're referring to the Assert class in NUnit framework, or
+
+36
+00:02:20,000 --> 00:02:24,000
+MSTest. So, I'm going to go on the top,
+
+37
+00:02:24,000 --> 00:02:28,000
+and remove this using statement for
+
+38
+00:02:28,000 --> 00:02:32,000
+importing Microsoft Unit Testing framework. So delete,
+
+39
+00:02:32,000 --> 00:02:36,000
+The compilation is gone, so you can see
+
+40
+00:02:36,000 --> 00:02:40,000
+this Assert class has the same API as the Assert class in
+
+41
+00:02:40,000 --> 00:02:44,000
+MSTest, but here we have a different way of writing Assertions,
+
+42
+00:02:44,000 --> 00:02:48,000
+which is more readable, so,
+
+43
+00:02:48,000 --> 00:02:52,000
+another way to write the same Assertion is like this, Assert
+
+44
+00:02:52,000 --> 00:02:56,000
+that result, is
+
+45
+00:02:56,000 --> 00:03:00,000
+True. It reads like plain English.
+
+46
+00:03:00,000 --> 00:03:04,000
+Also, another way is to write Assert,
+
+47
+00:03:04,000 --> 00:03:08,000
+that, result equals true.
+
+48
+00:03:08,000 --> 00:03:12,000
+So we can add a boolean expression here. Which
+
+49
+00:03:12,000 --> 00:03:16,000
+approach to choose is purely your personal preference, there is no technical differences
+
+50
+00:03:16,000 --> 00:03:20,000
+between these three ways of making assertions.
+
+51
+00:03:20,000 --> 00:03:24,000
+So in this lecture, I'm going to use the second form. Delete,
+
+52
+00:03:24,000 --> 00:03:28,000
+and delete. Alright now, let's run this test, so
+
+53
+00:03:28,000 --> 00:03:32,000
+once again, on the top, test, run, all
+
+54
+00:03:32,000 --> 00:03:36,000
+tests.
+
+55
+00:03:36,000 --> 00:03:40,000
+So, all tests are passing, beautiful,
+
+56
+00:03:40,000 --> 00:03:44,000
+So this is how you use NUnit inside Visual Studio.
+
+57
+00:03:44,000 --> 00:03:48,000
+Now if you use ReSharper, you don't need to install any
+
+58
+00:03:48,000 --> 00:03:52,000
+Unit Test adapter, because the test runner that comes with ReSharper
+
+59
+00:03:52,000 --> 00:03:56,000
+automatically takes NUnit tests, the same is true
+
+60
+00:03:56,000 --> 00:03:59,766
+if you use the writer ID.
+

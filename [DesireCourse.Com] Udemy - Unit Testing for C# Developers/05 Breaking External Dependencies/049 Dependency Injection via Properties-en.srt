@@ -1,0 +1,162 @@
+1
+00:00:00,000 --> 00:00:04,000
+So in the last lecture, you learned about
+
+2
+00:00:04,000 --> 00:00:08,000
+injection dependencies via method parameters. While this appraoch
+
+3
+00:00:08,000 --> 00:00:12,000
+works, sometimes, you may run into a couple of issues.
+
+4
+00:00:12,000 --> 00:00:16,000
+One issue is that you're changing the signature of this method.
+
+5
+00:00:16,000 --> 00:00:20,000
+Imagine we have used this ReadVideoTitle method
+
+6
+00:00:20,000 --> 00:00:24,000
+in ten places in your code, and then all of a sudden you introduce
+
+7
+00:00:24,000 --> 00:00:28,000
+this parameter. Then you have to go and modify those ten places in your code.
+
+8
+00:00:28,000 --> 00:00:32,000
+If you have used this method in one or two places that is not an issue
+
+9
+00:00:32,000 --> 00:00:36,000
+at all. The other issue you may run into is that some
+
+10
+00:00:36,000 --> 00:00:40,000
+dependency injection frameworks can not inject dependencies
+
+11
+00:00:40,000 --> 00:00:44,000
+via method parameters. There are quite a few dependency injection frameworks
+
+12
+00:00:44,000 --> 00:00:48,000
+out there, every team loves a different framework. So depending on
+
+13
+00:00:48,000 --> 00:00:52,000
+the dependency injection framework you use in your team, this approach
+
+14
+00:00:52,000 --> 00:00:56,000
+may or may not work for you. So I'm going to show you a second way
+
+15
+00:00:56,000 --> 00:01:00,000
+to inject dependency. Instead of injecting the dependency as
+
+16
+00:01:00,000 --> 00:01:04,000
+a method parameter, we can inject it using a property.
+
+17
+00:01:04,000 --> 00:01:08,000
+So I'm going to declare a property of type IFile
+
+18
+00:01:08,000 --> 00:01:12,000
+Reader and call it FileReader.
+
+19
+00:01:12,000 --> 00:01:16,000
+Now I'm going to remove this parameter, and run our
+
+20
+00:01:16,000 --> 00:01:20,000
+implementation I'm going to use a new property, FileReader.
+
+21
+00:01:20,000 --> 00:01:24,000
+Now when you run this code, you're going to get a null reference exception.
+
+22
+00:01:24,000 --> 00:01:28,000
+Because we have not set this FileReader property.
+
+23
+00:01:28,000 --> 00:01:32,000
+So I'm going to create the constructor.
+
+24
+00:01:32,000 --> 00:01:36,000
+Now here I'm going to initialize FileReader
+
+25
+00:01:36,000 --> 00:01:40,000
+to a new FileReader. With this approach
+
+26
+00:01:40,000 --> 00:01:44,000
+you will ensure that in your production code you're going to use this real
+
+27
+00:01:44,000 --> 00:01:48,000
+FileReader object, and then when testing this class,
+
+28
+00:01:48,000 --> 00:01:52,000
+just before calling the ReadVideoTitle method,
+
+29
+00:01:52,000 --> 00:01:56,000
+you can replace this real FileReader with a fake FileReader.
+
+30
+00:01:56,000 --> 00:02:00,000
+Let me show you how to do this. So first I'm going to go to the program
+
+31
+00:02:00,000 --> 00:02:04,000
+class, as we change the signature of this method, so I'm going to delete
+
+32
+00:02:04,000 --> 00:02:08,000
+this argument. Similarly, let's go
+
+33
+00:02:08,000 --> 00:02:12,000
+to the video service tests, and remove this argument.
+
+34
+00:02:12,000 --> 00:02:16,000
+Now, before acting, we should
+
+35
+00:02:16,000 --> 00:02:20,000
+replace the real FileReader with a fake one. So, as part of
+
+36
+00:02:20,000 --> 00:02:24,000
+the arrange part. We set service.
+
+37
+00:02:24,000 --> 00:02:28,000
+FileReader. The new FakeFileReader.
+
+38
+00:02:28,000 --> 00:02:32,000
+object. Now, let's run this test.
+
+39
+00:02:32,000 --> 00:02:36,000
+Okay, still passing beautiful.
+
+40
+00:02:36,000 --> 00:02:40,000
+In the next lecture I'm going to show you another way to inject dependencies.
+
+
+

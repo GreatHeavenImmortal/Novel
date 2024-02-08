@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+En las pruebas automatizadas, tenemos 3 tipos de
+
+2
+00:00:04,000 --> 00:00:08,000
+pruebas: pruebas unitarias, pruebas de integracin y pruebas
+
+3
+00:00:08,000 --> 00:00:12,000
+de extremo a extremo. Una prueba de unidad es lo
+
+4
+00:00:12,000 --> 00:00:16,000
+que te mostr anteriormente en esta seccin. Prueba una unidad de
+
+5
+00:00:16,000 --> 00:00:20,000
+la aplicacin sin sus dependencias externas, como archivos,
+
+6
+00:00:20,000 --> 00:00:24,000
+bases de datos, colas de mensajes, servicios web, etc.
+
+7
+00:00:24,000 --> 00:00:28,000
+Ahora, tenga en cuenta esta palabra clave aqu: dependencias externas.
+
+8
+00:00:28,000 --> 00:00:32,000
+Esto es realmente importante, como descubrirs en breve. Por lo tanto,
+
+9
+00:00:32,000 --> 00:00:36,000
+estas pruebas unitarias ejercen su cdigo sin
+
+10
+00:00:36,000 --> 00:00:40,000
+dependencias externas, son baratas de escribir y
+
+11
+00:00:40,000 --> 00:00:44,000
+se ejecutan rpidamente. Por lo tanto, puede ejecutar cientos de
+
+12
+00:00:44,000 --> 00:00:48,000
+ellos en solo unos segundos, y de esta manera puede verificar que cada bloque
+
+13
+00:00:48,000 --> 00:00:52,000
+en nuestra aplicacin est funcionando como se esperaba. Sin embargo, dado que
+
+14
+00:00:52,000 --> 00:00:56,000
+no est probando estas clases o componentes con sus
+
+15
+00:00:56,000 --> 00:01:00,000
+dependencias externas, no puede obtener mucha confianza en la
+
+16
+00:01:00,000 --> 00:01:04,000
+confiabilidad de su aplicacin. Entonces, ah es cuando las pruebas
+
+17
+00:01:04,000 --> 00:01:08,000
+de integracin vienen al rescate. Una prueba de integracin, prueba
+
+18
+00:01:08,000 --> 00:01:12,000
+una clase o un componente con sus dependencias externas.
+
+19
+00:01:12,000 --> 00:01:16,000
+Por lo tanto, prueba la integracin de su
+
+20
+00:01:16,000 --> 00:01:20,000
+cdigo de aplicacin con estas dependencias concretas, como
+
+21
+00:01:20,000 --> 00:01:24,000
+archivos, bases de datos, etc. Una vez ms, ntese que estoy
+
+22
+00:01:24,000 --> 00:01:28,000
+enfatizando la palabra "externo" aqu. Estas pruebas tardan ms en ejecutarse
+
+23
+00:01:28,000 --> 00:01:32,000
+porque a menudo implican leer o escribir en una base de datos,
+
+24
+00:01:32,000 --> 00:01:36,000
+pero nos dan ms confianza en el estado de nuestra aplicacin.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ahora, tradicionalmente, una prueba de integracin se define
+
+26
+00:01:40,000 --> 00:01:44,000
+como una prueba que toma algunas unidades o
+
+27
+00:01:44,000 --> 00:01:48,000
+clases y prueba su comportamiento como un todo.
+
+28
+00:01:48,000 --> 00:01:52,000
+Entonces, segn esta definicin, si prueba 2 clases juntas, algunas personas creen
+
+29
+00:01:52,000 --> 00:01:56,000
+que est escribiendo una prueba de integracin y no una prueba de
+
+30
+00:01:56,000 --> 00:02:00,000
+unidad, incluso si ninguna de estas clases habla con un recurso externo
+
+31
+00:02:00,000 --> 00:02:04,000
+como una base de datos. Lo ms probable es que haya escuchado esta definicin antes.
+
+32
+00:02:04,000 --> 00:02:08,000
+Ahora te dir qu. Esta definicin es una gran
+
+33
+00:02:08,000 --> 00:02:12,000
+receta para escribir pruebas frgiles que se acoplan a los
+
+34
+00:02:12,000 --> 00:02:16,000
+detalles de su implementacin. Entonces, a medida que cambias
+
+35
+00:02:16,000 --> 00:02:20,000
+la implementacin de tus clases, estas pruebas se rompern y
+
+36
+00:02:20,000 --> 00:02:24,000
+terminars desperdiciando mucho tiempo arreglndolos. No solo no le darn ningn
+
+37
+00:02:24,000 --> 00:02:28,000
+valor, sino que en realidad lo retrasarn! Voy a mostrarte un
+
+38
+00:02:28,000 --> 00:02:32,000
+ejemplo de esto ms adelante en el curso cuando
+
+39
+00:02:32,000 --> 00:02:36,000
+hablo de falsificaciones y burlas. Si has hecho pruebas unitarias antes y has
+
+40
+00:02:36,000 --> 00:02:40,000
+fallado, es probable que hayas seguido esta definicin! Entonces, una vez ms,
+
+41
+00:02:40,000 --> 00:02:44,000
+una prueba unitaria prueba una clase o mltiples
+
+42
+00:02:44,000 --> 00:02:48,000
+clases sin sus dependencias externas. Ellos prueban una
+
+43
+00:02:48,000 --> 00:02:52,000
+unidad de trabajo. Una prueba de integracin prueba
+
+44
+00:02:52,000 --> 00:02:56,000
+una clase o mltiples clases con sus dependencias externas.
+
+45
+00:02:56,000 --> 00:03:00,000
+Tambin tiene otro tipo de prueba denominada prueba de extremo a extremo
+
+46
+00:03:00,000 --> 00:03:04,000
+que dirige una aplicacin a travs de su interfaz de usuario.
+
+47
+00:03:04,000 --> 00:03:08,000
+Existen herramientas especficas creadas para crear pruebas de extremo a extremo.
+
+48
+00:03:08,000 --> 00:03:12,000
+Una herramienta popular de la que posiblemente haya odo hablar es
+
+49
+00:03:12,000 --> 00:03:16,000
+Selenium, que nos permite registrar la interaccin de un usuario con
+
+50
+00:03:16,000 --> 00:03:20,000
+nuestra aplicacin y luego reproducirla y verificar si la aplicacin est
+
+51
+00:03:20,000 --> 00:03:24,000
+devolviendo el resultado correcto o no. Estas pruebas le dan la
+
+52
+00:03:24,000 --> 00:03:28,000
+mayor cantidad de confianza sobre el estado de su aplicacin,
+
+53
+00:03:28,000 --> 00:03:32,000
+pero tienen 2 grandes problemas. El primer problema es que son muy lentos.
+
+54
+00:03:32,000 --> 00:03:36,000
+Porque requieren iniciar la aplicacin y probarla a
+
+55
+00:03:36,000 --> 00:03:40,000
+travs de la IU. Entonces, cada prueba va a iniciar
+
+56
+00:03:40,000 --> 00:03:44,000
+la aplicacin, potencialmente iniciar sesin, navegar a una pgina interna, enviar un formulario
+
+57
+00:03:44,000 --> 00:03:48,000
+e inspeccionar el resultado. Muy lento. El segundo problema
+
+58
+00:03:48,000 --> 00:03:52,000
+es que son muy frgiles, porque una pequea mejora
+
+59
+00:03:52,000 --> 00:03:56,000
+en la aplicacin o un pequeo cambio en la
+
+60
+00:03:56,000 --> 00:04:00,000
+interfaz del usuario puede romper fcilmente estas pruebas.
+

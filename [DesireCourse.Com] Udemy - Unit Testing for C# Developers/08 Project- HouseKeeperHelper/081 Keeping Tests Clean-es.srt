@@ -1,0 +1,344 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, esta prueba es muy voluminosa, tenemos que
+
+2
+00:00:04,000 --> 00:00:08,000
+refactorizarla, hacerla ms limpia y ms fcil de mantener.
+
+3
+00:00:08,000 --> 00:00:12,000
+Mire estas pocas lneas, la inicializacin de la unidad
+
+4
+00:00:12,000 --> 00:00:16,000
+de trabajo, la creacin de estos objetos simulados y
+
+5
+00:00:16,000 --> 00:00:20,000
+la inicializacin del servicio. Estas son las lneas que
+
+6
+00:00:20,000 --> 00:00:24,000
+necesitamos en cada prueba, y no queremos repetirlas una y
+
+7
+00:00:24,000 --> 00:00:28,000
+otra vez, as que vamos a mover todas estas lneas
+
+8
+00:00:28,000 --> 00:00:32,000
+dentro del mtodo SetUp. Entonces, creemos
+
+9
+00:00:32,000 --> 00:00:36,000
+el mtodo SetUp,
+
+10
+00:00:36,000 --> 00:00:40,000
+public void SetUp.
+
+11
+00:00:40,000 --> 00:00:44,000
+Ahora, mueve todas
+
+12
+00:00:44,000 --> 00:00:48,000
+estas lneas aqu.
+
+13
+00:00:48,000 --> 00:00:52,000
+Entonces, con esto terminamos con un mtodo de prueba que es
+
+14
+00:00:52,000 --> 00:00:56,000
+solo dos lneas de cdigo. Ahora, finalmente, tenemos que
+
+15
+00:00:56,000 --> 00:01:00,000
+solucionar estos problemas de compilacin. As que aqu est nuestro servicio, necesitamos
+
+16
+00:01:00,000 --> 00:01:04,000
+promover esto en un campo privado, para que podamos reutilizarlo en diferentes mtodos.
+
+17
+00:01:04,000 --> 00:01:08,000
+Entonces, alt y enter,
+
+18
+00:01:08,000 --> 00:01:12,000
+refactor, Introducir campo.
+
+19
+00:01:12,000 --> 00:01:16,000
+Ahora, quiero hacer el nombre ms corto, en
+
+20
+00:01:16,000 --> 00:01:20,000
+lugar de houseKeeperService, solo quiero usar, service, porque
+
+21
+00:01:20,000 --> 00:01:24,000
+es obvio que estamos probando la clase houseKeeperService aqu.
+
+22
+00:01:24,000 --> 00:01:28,000
+Bueno? Ahora, arreglamos este problema.
+
+23
+00:01:28,000 --> 00:01:32,000
+Hecho. El segundo es nuestro generador de declaraciones.
+
+24
+00:01:32,000 --> 00:01:36,000
+Una vez ms, necesitamos promover esto en un campo privado.
+
+25
+00:01:36,000 --> 00:01:40,000
+As que alt y enter, refactor, Introducir campo.
+
+26
+00:01:40,000 --> 00:01:44,000
+Voy a mantener este nombre tal como
+
+27
+00:01:44,000 --> 00:01:48,000
+est, statementGenerator de acuerdo? Y, finalmente,
+
+28
+00:01:48,000 --> 00:01:52,000
+arreglemos este problema, hermoso.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ahora en los videos futuros, a medida que escribamos ms pruebas unitarias, vamos
+
+30
+00:01:56,000 --> 00:02:00,000
+a necesitar ms estos objetos tambin. Entonces, promovamos
+
+31
+00:02:00,000 --> 00:02:04,000
+esto rpidamente en campos privados.
+
+32
+00:02:04,000 --> 00:02:08,000
+Hora, Introducir campo y la
+
+33
+00:02:08,000 --> 00:02:12,000
+ltima vez. De acuerdo, tampoco me gusta
+
+34
+00:02:12,000 --> 00:02:16,000
+que hayamos repetido este DateTime en dos lugares, esto
+
+35
+00:02:16,000 --> 00:02:20,000
+hace que la prueba sea un poco ruidosa y
+
+36
+00:02:20,000 --> 00:02:24,000
+tampoco quiero que el lector de este cdigo suponga
+
+37
+00:02:24,000 --> 00:02:28,000
+que esta fecha en particular es una fecha especial.
+
+38
+00:02:28,000 --> 00:02:32,000
+En el dominio de esta aplicacin. Esto es solo un
+
+39
+00:02:32,000 --> 00:02:36,000
+valor simple. La fecha real no importa. As que voy a
+
+40
+00:02:36,000 --> 00:02:40,000
+extraer esto en un campo privado tambin. Una vez ms
+
+41
+00:02:40,000 --> 00:02:44,000
+alt y enter, refactor, introducir campo,
+
+42
+00:02:44,000 --> 00:02:48,000
+ahora Rider est pidiendo reemplazar ambas
+
+43
+00:02:48,000 --> 00:02:52,000
+ocurrencias, o solo esta. Queremos reemplazar
+
+44
+00:02:52,000 --> 00:02:56,000
+ambas ocurrencias. Por lo tanto,
+
+45
+00:02:56,000 --> 00:03:00,000
+crear un campo privado, llamado statementDate.
+
+46
+00:03:00,000 --> 00:03:04,000
+As que aqu es donde se inicializa statementDate, no
+
+47
+00:03:04,000 --> 00:03:08,000
+queremos repetir esto en cada prueba, as que vamos
+
+48
+00:03:08,000 --> 00:03:12,000
+a eliminar esta lnea, podemos ponerla dentro del mtodo
+
+49
+00:03:12,000 --> 00:03:16,000
+SetUp pero este mtodo ya est demasiado ocupado, por
+
+50
+00:03:16,000 --> 00:03:20,000
+lo que Prefiero inicializarlo directamente aqu. Debido a que los objetos
+
+51
+00:03:20,000 --> 00:03:24,000
+Date Time son inmutables, por lo que no es posible
+
+52
+00:03:24,000 --> 00:03:28,000
+que en algn lugar de esta clase modifiquemos este objeto
+
+53
+00:03:28,000 --> 00:03:32,000
+DateTime una vez que lo hayamos creado, no es mutable
+
+54
+00:03:32,000 --> 00:03:36,000
+ni modificable, por lo que lo configuramos directamente en un nuevo DateTime.
+
+55
+00:03:36,000 --> 00:03:40,000
+Ahora, de vuelta a nuestro mtodo de prueba, mira, es incluso ms limpio.
+
+56
+00:03:40,000 --> 00:03:44,000
+Adems, es mejor reemplazar estos valores
+
+57
+00:03:44,000 --> 00:03:48,000
+mgicos, con una referencia a un
+
+58
+00:03:48,000 --> 00:03:52,000
+campo privado. Como el lector de este cdigo
+
+59
+00:03:52,000 --> 00:03:56,000
+tiene que desplazarse hacia arriba y hacia abajo para descubrir qu es
+
+60
+00:03:56,000 --> 00:04:00,000
+uno, qu es b, aqu es donde hemos definido este objeto de
+
+61
+00:04:00,000 --> 00:04:04,000
+ama de llaves, prefiero extraerlo a un campo privado para que podamos
+
+62
+00:04:04,000 --> 00:04:08,000
+referenciarlo en mltiples pruebas. Entonces, seleccionemos esta lnea
+
+63
+00:04:08,000 --> 00:04:12,000
+y extraigamos esto en un campo privado.
+
+64
+00:04:12,000 --> 00:04:16,000
+Vamos a llamar a este ama de llaves.
+
+65
+00:04:16,000 --> 00:04:20,000
+Bueno? Por lo tanto, queremos mantener
+
+66
+00:04:20,000 --> 00:04:24,000
+esto dentro del mtodo de prueba porque quiero asegurarme de
+
+67
+00:04:24,000 --> 00:04:28,000
+que antes de cada prueba, vamos a usar un nuevo
+
+68
+00:04:28,000 --> 00:04:32,000
+objeto de ama de llaves nueva, en otras palabras, no
+
+69
+00:04:32,000 --> 00:04:36,000
+quiero que una prueba afecte el estado de esta clase,
+
+70
+00:04:36,000 --> 00:04:40,000
+Quiero asegurarme de que cada prueba comience en un estado limpio.
+
+71
+00:04:40,000 --> 00:04:44,000
+Sin embargo, no me gusta la organizacin de este cdigo,
+
+72
+00:04:44,000 --> 00:04:48,000
+porque aqu estamos creando esta unitOfWork, y luego avanzamos y
+
+73
+00:04:48,000 --> 00:04:52,000
+creamos un objeto housekeeper, y finalmente. volvemos a la unidad de trabajo nuevamente.
+
+74
+00:04:52,000 --> 00:04:56,000
+Es mejor crear el objeto houseKeeper primero, pongamos esto aqu, ahora
+
+75
+00:04:56,000 --> 00:05:00,000
+creamos un unitOfWork, y luego lo programamos, para que no haya
+
+76
+00:05:00,000 --> 00:05:04,000
+ninguna distraccin en nuestro cdigo. Bueno?
+
+77
+00:05:04,000 --> 00:05:08,000
+Ahora, finalmente, voy a reemplazar
+
+78
+00:05:08,000 --> 00:05:12,000
+uno con houseKeeper. Oid
+
+79
+00:05:12,000 --> 00:05:16,000
+yb con houseKeeper.
+
+80
+00:05:16,000 --> 00:05:20,000
+al nombre completo. Ahora podemos ver que esta lnea
+
+81
+00:05:20,000 --> 00:05:24,000
+va ms all de la pantalla, as que quiero reformatearla de esta manera.
+
+82
+00:05:24,000 --> 00:05:28,000
+Eso es mejor. Si vamos ms lejos, realicemos la
+
+83
+00:05:28,000 --> 00:05:32,000
+prueba una vez ms para asegurarnos de no haber roto nada.
+
+84
+00:05:32,000 --> 00:05:36,000
+De acuerdo, aqu est nuestra prueba
+
+85
+00:05:36,000 --> 00:05:40,000
+aprobada, hermoso, a continuacin crearemos otra
+
+86
+00:05:40,000 --> 00:05:42,533
+prueba de interaccin.
+

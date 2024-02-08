@@ -1,0 +1,154 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, you know about the benefits of writing
+
+2
+00:00:04,000 --> 00:00:08,000
+tests, but we don't live in an ideal world, and every
+
+3
+00:00:08,000 --> 00:00:12,000
+project has certain constraints. There are a few scenarios
+
+4
+00:00:12,000 --> 00:00:16,000
+where I suggest you to think about automated testing a bit more realistically.
+
+5
+00:00:16,000 --> 00:00:20,000
+One scenario is where you're dealing with
+
+6
+00:00:20,000 --> 00:00:24,000
+a legacy application that is written without unit testing in mind.
+
+7
+00:00:24,000 --> 00:00:28,000
+Applications built this way are not inherently testable.
+
+8
+00:00:28,000 --> 00:00:32,000
+If you want to make them testable, you have to spend a lot of time, and your
+
+9
+00:00:32,000 --> 00:00:36,000
+costs will potentially be more than the benefits you will get. So what
+
+10
+00:00:36,000 --> 00:00:40,000
+should you do? Should you test or not. That's where you need to do your
+
+11
+00:00:40,000 --> 00:00:44,000
+assessment. You may decide to refactor a small or
+
+12
+00:00:44,000 --> 00:00:48,000
+a critical part of your application and make that part testable.
+
+13
+00:00:48,000 --> 00:00:52,000
+This way, we can make sure the critical parts of the application
+
+14
+00:00:52,000 --> 00:00:56,000
+continue to work as you implement new business requirements.
+
+15
+00:00:56,000 --> 00:01:00,000
+But if you want to aim for testing every part of the application.
+
+16
+00:01:00,000 --> 00:01:04,000
+Chances are your cost will outweigh the benefits.
+
+17
+00:01:04,000 --> 00:01:08,000
+Another scenario, is where you're working at a start-
+
+18
+00:01:08,000 --> 00:01:12,000
+up company and you have limited time to quickly turn a concept
+
+19
+00:01:12,000 --> 00:01:16,000
+into working software in production. In that case, again,
+
+20
+00:01:16,000 --> 00:01:20,000
+you may not have enough time to write tests for every piece of the application.
+
+21
+00:01:20,000 --> 00:01:24,000
+But at least you can write tests for the key parts
+
+22
+00:01:24,000 --> 00:01:28,000
+plus, as I told you earlier in this section, if you have
+
+23
+00:01:28,000 --> 00:01:32,000
+calculate functions you can unit test those. And this will in fact
+
+24
+00:01:32,000 --> 00:01:36,000
+help you go faster, and spend less time on manually testing those
+
+25
+00:01:36,000 --> 00:01:40,000
+functions. So you need to be realistic, and use your own
+
+26
+00:01:40,000 --> 00:01:44,000
+judgement as to what parts of the application need to be tested.
+
+27
+00:01:44,000 --> 00:01:48,000
+And the last scenario is where you are the only
+
+28
+00:01:48,000 --> 00:01:52,000
+developer on the team, who practices writing clean, and testable
+
+29
+00:01:52,000 --> 00:01:56,000
+code. If the other developers on your team write messy code, like
+
+30
+00:01:56,000 --> 00:02:00,000
+functions with a hundred lines of code or longer, you really can't
+
+31
+00:02:00,000 --> 00:02:04,000
+implement unit testing at your organization, it just doesn't work. Its like
+
+32
+00:02:04,000 --> 00:02:08,000
+swimming against a river. The first thing you need to do is to educate
+
+33
+00:02:08,000 --> 00:02:12,000
+your team and help them write cleaner and more testable code.
+
+34
+00:02:12,000 --> 00:02:16,000
+In case you haven't watched my clean code course, I recommend
+
+35
+00:02:16,000 --> 00:02:20,000
+you to take that course and get everyone on your team to watch that course
+
+36
+00:02:20,000 --> 00:02:24,000
+too. That's your first step before writing testable
+
+37
+00:02:24,000 --> 00:02:28,000
+code. If your code is not clean, writing tests for it
+
+38
+00:02:28,000 --> 00:02:32,000
+is hard or impossible.
+
+
+

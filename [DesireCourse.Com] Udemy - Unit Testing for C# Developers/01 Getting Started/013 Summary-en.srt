@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, in this section, you learned about
+
+2
+00:00:04,000 --> 00:00:08,000
+automated testing and it's benefits. More specifically you learned
+
+3
+00:00:08,000 --> 00:00:12,000
+that it helps you refactor your code with confidence and
+
+4
+00:00:12,000 --> 00:00:16,000
+release software of better quality and with less bugs.
+
+5
+00:00:16,000 --> 00:00:20,000
+You learned about three types of tests, unit, integration,
+
+6
+00:00:20,000 --> 00:00:24,000
+and end-to-end tests. And you also saw a glimpse of unit
+
+7
+00:00:24,000 --> 00:00:28,000
+testing in action. You learned how to write a basic unit test in
+
+8
+00:00:28,000 --> 00:00:32,000
+Visual Studio, and finally, you learned how to run and debug your
+
+9
+00:00:32,000 --> 00:00:36,000
+unit tests. In the next section, we are going to look at the core techniques
+
+10
+00:00:36,000 --> 00:00:40,000
+for writing unit tests. So, I will see you in the next section!

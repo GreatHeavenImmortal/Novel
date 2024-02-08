@@ -1,0 +1,260 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, na ltima palestra, voc aprendeu a
+
+2
+00:00:04,000 --> 00:00:08,000
+injetar dependncias usando propriedades. Essa abordagem funciona em vrios
+
+3
+00:00:08,000 --> 00:00:12,000
+cenrios, mas algumas estruturas de injeo de dependncia no podem
+
+4
+00:00:12,000 --> 00:00:16,000
+injetar dependncias por meio de propriedades. Portanto, uma maneira
+
+5
+00:00:16,000 --> 00:00:20,000
+alternativa  injetar dependncias por meio
+
+6
+00:00:20,000 --> 00:00:24,000
+de parmetros de construtor. Ento aqui no nosso construtor,
+
+7
+00:00:24,000 --> 00:00:28,000
+eu vou adicionar um parmetro IFileReader e ento eu vou
+
+8
+00:00:28,000 --> 00:00:32,000
+mudar essa propriedade pblica para um campo privado, porque ns
+
+9
+00:00:32,000 --> 00:00:36,000
+vamos injetar uma dependncia no momento de criar um objeto
+
+10
+00:00:36,000 --> 00:00:40,000
+de servio de vdeo. Ento, vou deletar o
+
+11
+00:00:40,000 --> 00:00:44,000
+getter e o setter. Altere o pblico para
+
+12
+00:00:44,000 --> 00:00:48,000
+privado e, finalmente, siga a conveno de nomenclatura. net ns nomeamos FileReader para sublinhar
+
+13
+00:00:48,000 --> 00:00:52,000
+um FileReader minsculo e uma ltima
+
+14
+00:00:52,000 --> 00:00:56,000
+alterao, aqui estamos sempre inicializando este
+
+15
+00:00:56,000 --> 00:01:00,000
+leitor de arquivos para um novo
+
+16
+00:01:00,000 --> 00:01:04,000
+FileReader que  a nova implementao. Queremos ter flexibilidade aqui. Ento, devemos substituir isso pelo argumento de que
+
+17
+00:01:04,000 --> 00:01:08,000
+entramos no construtor.
+
+18
+00:01:08,000 --> 00:01:12,000
+fileReader. Ento, chamamos isso de injeo de
+
+19
+00:01:12,000 --> 00:01:16,000
+construtor de abordagem. No entanto, existem alguns outros problemas com essa
+
+20
+00:01:16,000 --> 00:01:20,000
+abordagem, e vou mostrar a voc o trabalho. Um problema  que porque ns
+
+21
+00:01:20,000 --> 00:01:24,000
+mudamos a assinatura deste construtor, as
+
+22
+00:01:24,000 --> 00:01:28,000
+chances so que ns quebramos algum cdigo em algum outro lugar. Ento, se voc olhar para a classe de programa, voc pode
+
+23
+00:01:28,000 --> 00:01:32,000
+ver que este slide est
+
+24
+00:01:32,000 --> 00:01:36,000
+quebrado, porque agora temos que passar um argumento para este construtor. Ento, uma maneira  passar um
+
+25
+00:01:36,000 --> 00:01:40,000
+novo objeto FileReader. Mas vou lhe mostrar
+
+26
+00:01:40,000 --> 00:01:44,000
+um jeito melhor. Ento, vamos deletar isso.
+
+27
+00:01:44,000 --> 00:01:48,000
+De volta ao
+
+28
+00:01:48,000 --> 00:01:52,000
+nosso servio de vdeo, aumente um
+
+29
+00:01:52,000 --> 00:01:56,000
+construtor separado que no aceita nenhum parmetro. Ento, um construtor padro.
+
+30
+00:01:56,000 --> 00:02:00,000
+Neste construtor, voc pode definir
+
+31
+00:02:00,000 --> 00:02:04,000
+um leitor de arquivos para um novo objeto FileReader. Ento, em nosso cdigo de produo, vamos usar esse construtor, mas
+
+32
+00:02:04,000 --> 00:02:08,000
+em nosso cdigo de teste,
+
+33
+00:02:08,000 --> 00:02:12,000
+vamos usar esse construtor para que possamos passar um FileReader falso. Com essa abordagem, podemos ver que nosso cdigo
+
+34
+00:02:12,000 --> 00:02:16,000
+no est mais quebrado. Agora podemos fazer isso
+
+35
+00:02:16,000 --> 00:02:20,000
+um pouco melhor. Ento, podemos combinar esses
+
+36
+00:02:20,000 --> 00:02:24,000
+dois construtores em um construtor. Ento, vou excluir
+
+37
+00:02:24,000 --> 00:02:28,000
+o construtor padro
+
+38
+00:02:28,000 --> 00:02:32,000
+e tornar esse parmetro opcional. Por isso, definimos isso como nulo, e isso significa que, sempre que criarmos
+
+39
+00:02:32,000 --> 00:02:36,000
+um objeto de servio de vdeo,
+
+40
+00:02:36,000 --> 00:02:40,000
+no teremos necessariamente que passar o objeto leitor de arquivos como um argumento.
+
+41
+00:02:40,000 --> 00:02:44,000
+Ento, se voc olhar para a classe de programa, voc
+
+42
+00:02:44,000 --> 00:02:48,000
+pode ver que o cdigo ainda est funcionando, no temos
+
+43
+00:02:48,000 --> 00:02:52,000
+um erro de compilao, agora de volta ao servio de
+
+44
+00:02:52,000 --> 00:02:56,000
+vdeo, eu vou mudar essa linha para algo como isto. Ento fileReader,? novo FileReader. O que isto significa?
+
+45
+00:02:56,000 --> 00:03:00,000
+Isso significa que o fileReader
+
+46
+00:03:00,000 --> 00:03:04,000
+no  nulo, voc vai
+
+47
+00:03:04,000 --> 00:03:08,000
+usar isso para definir este private frito, caso contrrio, se for
+
+48
+00:03:08,000 --> 00:03:12,000
+null, voc est indo para o novo objeto FileReader real aqui. Portanto, em nosso cdigo de produo, neste caso,
+
+49
+00:03:12,000 --> 00:03:16,000
+estamos criando um novo servio de vdeo sem
+
+50
+00:03:16,000 --> 00:03:20,000
+nenhum argumento para o construtor. Nesse caso,
+
+51
+00:03:20,000 --> 00:03:24,000
+nosso argumento  nulo. Ento, com essa implementao, voc vai
+
+52
+00:03:24,000 --> 00:03:28,000
+definir o fileReader. Novo. Objeto FileReader.
+
+53
+00:03:28,000 --> 00:03:32,000
+Em nosso teste de unidade, vamos passar
+
+54
+00:03:32,000 --> 00:03:36,000
+um objeto falso fileReader. Eu vou usar isso para definir este campo fileReader.
+
+55
+00:03:36,000 --> 00:03:40,000
+OK? Ento, de volta ao nosso teste de unidade, ns no
+
+56
+00:03:40,000 --> 00:03:44,000
+temos mais essas propriedades, ento
+
+57
+00:03:44,000 --> 00:03:48,000
+delete, ao invs de criar
+
+58
+00:03:48,000 --> 00:03:52,000
+um objeto de servio de vdeo, passamos um novo FakeFileReader. Vamos fazer o teste
+
+59
+00:03:52,000 --> 00:03:56,000
+mais uma vez, ok,
+
+60
+00:03:56,000 --> 00:04:00,000
+continuando assim, excelente. Ento, essa abordagem 
+
+61
+00:04:00,000 --> 00:04:04,000
+o que chamamos de injeo de construtor. E, at onde eu sei, a maioria das injees de dependncia
+
+62
+00:04:04,000 --> 00:04:08,000
+suporta a injeo de construtor. Na prxima palestra, teremos uma viso geral
+
+63
+00:04:08,000 --> 00:04:12,000
+rpida da estrutura de injeo de dependncia.
+
+64
+00:04:12,000 --> 00:04:16,000
+&nbsp;
+
+65
+00:04:16,000 --> 00:04:20,000
+&nbsp;
+

@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, djame darte una visin general de cmo he
+
+2
+00:00:04,000 --> 00:00:08,000
+estructurado este curso muy rpido. En la siguiente seccin, aprender los
+
+3
+00:00:08,000 --> 00:00:12,000
+fundamentos de las pruebas unitarias. En esta seccin, analizaremos
+
+4
+00:00:12,000 --> 00:00:16,000
+las caractersticas de las pruebas de unidades confiables
+
+5
+00:00:16,000 --> 00:00:20,000
+y confiables, analizaremos las pruebas de nombres y
+
+6
+00:00:20,000 --> 00:00:24,000
+de organizacin, escribiremos algunas pruebas bsicas de unidades
+
+7
+00:00:24,000 --> 00:00:28,000
+y crearemos pruebas parametrizadas. Una vez que domines los fundamentos, estaremos examinando
+
+8
+00:00:28,000 --> 00:00:32,000
+las tcnicas de prueba de la unidad central. En esta seccin, en cada
+
+9
+00:00:32,000 --> 00:00:36,000
+conferencia, voy a mostrar un ejemplo de una funcin para probar.
+
+10
+00:00:36,000 --> 00:00:40,000
+Cada funcin te muestra un escenario que ves en muchas aplicaciones del mundo real.
+
+11
+00:00:40,000 --> 00:00:44,000
+La siguiente seccin trata sobre ejercicios.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces, en esa seccin, le dar tres ejercicios de prueba unitarios,
+
+13
+00:00:48,000 --> 00:00:52,000
+y tendr la oportunidad de poner en prctica lo que aprendi
+
+14
+00:00:52,000 --> 00:00:56,000
+en las dos primeras secciones. Para cada ejercicio, puede ver mi solucin tambin.
+
+15
+00:00:56,000 --> 00:01:00,000
+Ahora hasta este punto, todas nuestras pruebas unitarias
+
+16
+00:01:00,000 --> 00:01:04,000
+son para clases simples que no tienen dependencias externas.
+
+17
+00:01:04,000 --> 00:01:08,000
+Pero en el mundo real nuestro cdigo a menudo habla con una base
+
+18
+00:01:08,000 --> 00:01:12,000
+de datos, un servicio web, etc. Entonces, la seccin cinco trata de
+
+19
+00:01:12,000 --> 00:01:16,000
+lidiar con estas dependencias externas. En esta seccin, aprender
+
+20
+00:01:16,000 --> 00:01:20,000
+conceptos como inyeccin de dependencia y burla.
+
+21
+00:01:20,000 --> 00:01:24,000
+La siguiente seccin, una vez ms, se trata de ejercicios. Por lo tanto, veremos
+
+22
+00:01:24,000 --> 00:01:28,000
+tres ejemplos de cdigo que toca un recurso externo.
+
+23
+00:01:28,000 --> 00:01:32,000
+Y finalmente, las ltimas dos secciones incluyen
+
+24
+00:01:32,000 --> 00:01:36,000
+ms desafos y ejercicios. Le mostrar un fragmento de cdigo
+
+25
+00:01:36,000 --> 00:01:40,000
+fuente, tomado de un proyecto real, y su trabajo es escribir todas las
+
+26
+00:01:40,000 --> 00:01:44,000
+pruebas de unidad necesarias para ese cdigo. Y, por supuesto, vamos
+
+27
+00:01:44,000 --> 00:01:46,000
+a ver mi solucin tambin.
+

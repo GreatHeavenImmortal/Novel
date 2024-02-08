@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, escribimos bastantes pruebas unitarias para varias rutas de
+
+2
+00:00:04,000 --> 00:00:08,000
+ejecucin en este mtodo. La ltima prueba unitaria
+
+3
+00:00:08,000 --> 00:00:12,000
+que debemos escribir es para el escenario donde algo
+
+4
+00:00:12,000 --> 00:00:16,000
+sale mal, cuando enviamos el correo electrnico, entonces debemos
+
+5
+00:00:16,000 --> 00:00:20,000
+mostrar messageBox al usuario. Prueba muy simple.
+
+6
+00:00:20,000 --> 00:00:24,000
+Entonces, de vuelta en nuestra clase de prueba. Para ahorrar
+
+7
+00:00:24,000 --> 00:00:28,000
+tiempo, voy a duplicar esta
+
+8
+00:00:28,000 --> 00:00:32,000
+ltima prueba, por lo que
+
+9
+00:00:32,000 --> 00:00:36,000
+el escenario es EmailSendingFails.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, debemos mostrar un cuadro
+
+11
+00:00:40,000 --> 00:00:44,000
+de mensaje. Ahora en la parte de
+
+12
+00:00:44,000 --> 00:00:48,000
+arreglos, queremos programar nuestro objeto simulado para lanzar una excepcin.
+
+13
+00:00:48,000 --> 00:00:52,000
+Entonces, emailSender. Preparar.
+
+14
+00:00:52,000 --> 00:00:56,000
+Entonces, cuando llamemos a este mtodo, deberamos
+
+15
+00:00:56,000 --> 00:01:00,000
+lanzar una excepcin. Ahora, en esta prueba,
+
+16
+00:01:00,000 --> 00:01:04,000
+no nos importan estos valores reales pasados con el
+
+17
+00:01:04,000 --> 00:01:08,000
+mtodo EmailFile, porque anteriormente escribimos una prueba para garantizar
+
+18
+00:01:08,000 --> 00:01:12,000
+que, en circunstancias normales, se llame a este mtodo
+
+19
+00:01:12,000 --> 00:01:16,000
+con los argumentos correctos. As que aqu
+
+20
+00:01:16,000 --> 00:01:20,000
+podemos simplificar esta prueba, y usarla IsAnyString
+
+21
+00:01:20,000 --> 00:01:24,000
+y poner esto en una nueva lnea.
+
+22
+00:01:24,000 --> 00:01:28,000
+Y reptalo tres veces.
+
+23
+00:01:28,000 --> 00:01:32,000
+Bueno? Esta es la configuracin,
+
+24
+00:01:32,000 --> 00:01:36,000
+aqu, queremos lanzar una excepcin. Excepcin.
+
+25
+00:01:36,000 --> 00:01:40,000
+Bueno? As que esta es la
+
+26
+00:01:40,000 --> 00:01:44,000
+parte de arreglos, luego actuamos y finalmente debemos verificar que
+
+27
+00:01:44,000 --> 00:01:48,000
+se muestre un cuadro de mensaje. Entonces, tenemos un objeto
+
+28
+00:01:48,000 --> 00:01:52,000
+simulado antes de ese messageBox. Verifica que mb
+
+29
+00:01:52,000 --> 00:01:56,000
+va a mb. Muestre ahora qu argumento
+
+30
+00:01:56,000 --> 00:02:00,000
+deberamos pasar aqu? Echemos un vistazo
+
+31
+00:02:00,000 --> 00:02:04,000
+a nuestra implementacin. Entonces deberamos tener el mensaje real aqu.
+
+32
+00:02:04,000 --> 00:02:08,000
+Adems del ttulo para el cuadro de
+
+33
+00:02:08,000 --> 00:02:12,000
+mensaje, y finalmente messageBoxButtons. DE ACUERDO.
+
+34
+00:02:12,000 --> 00:02:16,000
+De nuevo, no queremos probar esta cadena exacta aqu, porque es
+
+35
+00:02:16,000 --> 00:02:20,000
+muy probable que cambie el mensaje de error o el ttulo
+
+36
+00:02:20,000 --> 00:02:24,000
+del messageBox en el futuro. Por lo tanto, siempre que se
+
+37
+00:02:24,000 --> 00:02:28,000
+llame a este mtodo, seremos felices. Entonces, de vuelta en nuestra clase de prueba.
+
+38
+00:02:28,000 --> 00:02:32,000
+Una vez ms, usamos ItIs. Cualquier
+
+39
+00:02:32,000 --> 00:02:36,000
+cadena. Una vez ms, It. IsAny cadena. Una vez ms. IsAny
+
+40
+00:02:36,000 --> 00:02:40,000
+string y el ltimo argumento
+
+41
+00:02:40,000 --> 00:02:44,000
+es messageBoxButtons. DE ACUERDO. Entonces esta es una
+
+42
+00:02:44,000 --> 00:02:48,000
+enumeracin para especificar los nmeros en un cuadro de mensaje.
+
+43
+00:02:48,000 --> 00:02:52,000
+Entonces, esta es nuestra parte de verificacin, de
+
+44
+00:02:52,000 --> 00:02:56,000
+nuevo, podemos extraer esto en un mtodo llamado
+
+45
+00:02:56,000 --> 00:03:00,000
+Verify messageBox display. Y eso hace que esta prueba sea ms legible. Hagamos la
+
+46
+00:03:00,000 --> 00:03:04,000
+prueba primero. De acuerdo,
+
+47
+00:03:04,000 --> 00:03:08,000
+pas. Solo para verificar que
+
+48
+00:03:08,000 --> 00:03:12,000
+estamos probando lo correcto, vengamos y comentemos
+
+49
+00:03:12,000 --> 00:03:16,000
+estas dos lneas. De vuelta en nuestra
+
+50
+00:03:16,000 --> 00:03:20,000
+prueba, corramos una vez ms. Fall, entonces, eso
+
+51
+00:03:20,000 --> 00:03:24,000
+verifica que tenemos una prueba confiable.
+
+52
+00:03:24,000 --> 00:03:28,000
+Entonces, traigamos el cdigo nuevamente. Y esto
+
+53
+00:03:28,000 --> 00:03:32,000
+concluye esta seccin. Espero que hayan disfrutado este
+
+54
+00:03:32,000 --> 00:03:34,000
+desafo y gracias por mirar.
+

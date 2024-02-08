@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+s vezes, voc precisa verificar um mtodo no teste que
+
+2
+00:00:04,000 --> 00:00:08,000
+est retornando o tipo correto. Ento, vamos dar
+
+3
+00:00:08,000 --> 00:00:12,000
+uma olhada nesta classe CustomerController na
+
+4
+00:00:12,000 --> 00:00:16,000
+pasta fundamentals. Este  o exemplo simplificado de
+
+5
+00:00:16,000 --> 00:00:20,000
+um controlador no ASP. Aplicaes NET MVC. Se voc no tem
+
+6
+00:00:20,000 --> 00:00:24,000
+experincia com o ASP. NET MVC isso no importa. Ento vamos ver
+
+7
+00:00:24,000 --> 00:00:28,000
+o que est acontecendo aqui. Voc tem essa classe
+
+8
+00:00:28,000 --> 00:00:32,000
+chamada ActionResult, e essa classe tem duas derivadas,
+
+9
+00:00:32,000 --> 00:00:36,000
+voc tem NotFound que  derivado de ActionResult
+
+10
+00:00:36,000 --> 00:00:40,000
+e tambm Ok. Ento, na nossa classe controladora, voc
+
+11
+00:00:40,000 --> 00:00:44,000
+tem esse mtodo, GetCustomer, obtendo um ID. Se ID for 0,
+
+12
+00:00:44,000 --> 00:00:48,000
+ele retornar uma nova instncia da classe NotFound.
+
+13
+00:00:48,000 --> 00:00:52,000
+Caso contrrio, retorna uma nova instncia da classe Okay.
+
+14
+00:00:52,000 --> 00:00:56,000
+Portanto, como essas duas classes derivam do resultado da ao, o tipo
+
+15
+00:00:56,000 --> 00:01:00,000
+de retorno desse mtodo  ActionResult. Ento, quantos testes precisamos
+
+16
+00:01:00,000 --> 00:01:04,000
+aqui, precisamos de dois testes, porque temos dois
+
+17
+00:01:04,000 --> 00:01:08,000
+caminhos de execuo, se ID  0, queremos
+
+18
+00:01:08,000 --> 00:01:12,000
+ter certeza de que o objeto que este
+
+19
+00:01:12,000 --> 00:01:16,000
+mtodo retorna  um objeto NotFound, caso contrrio,
+
+20
+00:01:16,000 --> 00:01:20,000
+ um objeto Ok Ento, de volta ao
+
+21
+00:01:20,000 --> 00:01:24,000
+nosso projeto de teste de unidade, vou adicionar
+
+22
+00:01:24,000 --> 00:01:28,000
+uma nova classe de teste, chamada CustomerControllerTest.
+
+23
+00:01:28,000 --> 00:01:32,000
+Aplique ao atributo TestFixture
+
+24
+00:01:32,000 --> 00:01:36,000
+com um mtodo de
+
+25
+00:01:36,000 --> 00:01:40,000
+teste. Portanto, o
+
+26
+00:01:40,000 --> 00:01:44,000
+mtodo  GetCustomer,
+
+27
+00:01:44,000 --> 00:01:48,000
+um cenrio 
+
+28
+00:01:48,000 --> 00:01:52,000
+IdIsZero, deve retornar ReturnNotFound.
+
+29
+00:01:52,000 --> 00:01:56,000
+E, claro, o outro
+
+30
+00:01:56,000 --> 00:02:00,000
+cenrio  public void
+
+31
+00:02:00,000 --> 00:02:04,000
+GetCustomer IdIsNotZero, deve ReturnOk.
+
+32
+00:02:04,000 --> 00:02:08,000
+Agora, nesta palestra, vou implementar apenas um desses
+
+33
+00:02:08,000 --> 00:02:12,000
+mtodos de teste e deixo os outros dois
+
+34
+00:02:12,000 --> 00:02:16,000
+como um exerccio. Assim, criamos
+
+35
+00:02:16,000 --> 00:02:20,000
+o objeto controller um novo
+
+36
+00:02:20,000 --> 00:02:24,000
+CustomerController e chamamos GetCustomer e
+
+37
+00:02:24,000 --> 00:02:28,000
+passamos 0 como argumento.
+
+38
+00:02:28,000 --> 00:02:32,000
+Obtemos o resultado, agora queremos afirmar que esse resultado
+
+39
+00:02:32,000 --> 00:02:36,000
+ um objeto NotFound. No NUnit existem duas
+
+40
+00:02:36,000 --> 00:02:40,000
+maneiras de escrever tais asseres. Uma maneira 
+
+41
+00:02:40,000 --> 00:02:44,000
+a seguinte: Assert Esse resultado 
+
+42
+00:02:44,000 --> 00:02:48,000
+TypeOf, e este  um mtodo
+
+43
+00:02:48,000 --> 00:02:52,000
+generate, portanto, fornecemos o argumento generate,
+
+44
+00:02:52,000 --> 00:02:56,000
+neste caso, Not Found. Esta  a afirmao que voc
+
+45
+00:02:56,000 --> 00:03:00,000
+usaria na maior parte do tempo. Temos outra maneira de
+
+46
+00:03:00,000 --> 00:03:04,000
+escrever essa afirmao, ento deixe-me duplicar essa
+
+47
+00:03:04,000 --> 00:03:08,000
+linha, em vez do tipo de mtodo,
+
+48
+00:03:08,000 --> 00:03:12,000
+usamos Instance Of. Ento qual  a diferena? Este mtodo
+
+49
+00:03:12,000 --> 00:03:16,000
+InstanceOf, significa o resultado e o objeto
+
+50
+00:03:16,000 --> 00:03:20,000
+NotFound, so um de seus derivados, enquanto
+
+51
+00:03:20,000 --> 00:03:24,000
+que TypeOf, garante que o resultado seja
+
+52
+00:03:24,000 --> 00:03:28,000
+exatamente o objeto NotFound. Ento, isso significa que o
+
+53
+00:03:28,000 --> 00:03:32,000
+resultado deve ser um objeto NotFound e esta declarao
+
+54
+00:03:32,000 --> 00:03:36,000
+significa que o resultado deve ser um objeto NotFound.
+
+55
+00:03:36,000 --> 00:03:40,000
+ou um dos seus derivados.
+
+56
+00:03:40,000 --> 00:03:44,000
+Nesta implementao especfica, usarei a primeira Assero, porque
+
+57
+00:03:44,000 --> 00:03:48,000
+quero ter certeza de que o resultado seja
+
+58
+00:03:48,000 --> 00:03:52,000
+exatamente um objeto Not Found. Mas esteja ciente dessa outra
+
+59
+00:03:52,000 --> 00:03:56,000
+maneira de escrever essa afirmao, talvez voc precise delas em
+
+60
+00:03:56,000 --> 00:04:00,000
+algum cenrio especfico em sua aplicao. Ento, vou comentar isso porque no precisamos disso.
+

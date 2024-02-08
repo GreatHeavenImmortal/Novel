@@ -1,0 +1,76 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "tts_wuxia/1.0.0": {
+        "dependencies": {
+          "Fizzler.Systems.HtmlAgilityPack": "1.2.1",
+          "HtmlAgilityPack": "1.11.29"
+        },
+        "runtime": {
+          "tts_wuxia.dll": {}
+        }
+      },
+      "Fizzler/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+        "dependencies": {
+          "Fizzler": "1.2.0",
+          "HtmlAgilityPack": "1.11.29"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.29": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.29.0",
+            "fileVersion": "1.11.29.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "tts_wuxia/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Fizzler/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CPxuWF8EPvM0rwAtMTR5G+7EuLoGNXsEfqyx06upN9JyVALZ73KgbGn3SLFwGosifiUAXrvNHtXlUwGGytdECg==",
+      "path": "fizzler/1.2.0",
+      "hashPath": "fizzler.1.2.0.nupkg.sha512"
+    },
+    "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JVWdUgFd8KdsIoertmc9jgVc3eNpZmrXgk3rW91s0ymizAT3S/QresLY+bf+V8XO/kMy4mTV34h517g03fUqqw==",
+      "path": "fizzler.systems.htmlagilitypack/1.2.1",
+      "hashPath": "fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.29": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aCMPdyDUPU7z4fwMJ+4pbsUd669BWhIbC2rCo0upxBpYyblJHXNUjg5pxnk2iyqBg1C8gWF2fSxA1XERxcVZow==",
+      "path": "htmlagilitypack/1.11.29",
+      "hashPath": "htmlagilitypack.1.11.29.nupkg.sha512"
+    }
+  }
+}

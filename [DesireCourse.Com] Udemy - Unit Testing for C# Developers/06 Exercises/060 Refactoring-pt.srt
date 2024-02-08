@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, agora vamos ver como podemos escrever testes
+
+2
+00:00:04,000 --> 00:00:08,000
+de unidade para este mtodo. Ento, como podemos ver essas
+
+3
+00:00:08,000 --> 00:00:12,000
+poucas linhas, estamos indo no banco de dados e obtendo
+
+4
+00:00:12,000 --> 00:00:16,000
+os vdeos que no so processados. Ento  a que
+
+5
+00:00:16,000 --> 00:00:20,000
+estamos tocando um recurso externo. Ento, como voc aprendeu anteriormente, precisamos
+
+6
+00:00:20,000 --> 00:00:24,000
+extrair essas poucas linhas, coloc-las em uma classe separada e isolar essa
+
+7
+00:00:24,000 --> 00:00:28,000
+classe do resto do cdigo aqui. Ento, de volta
+
+8
+00:00:28,000 --> 00:00:32,000
+ao nosso projeto, na pasta Mocking, vou
+
+9
+00:00:32,000 --> 00:00:36,000
+adicionar uma nova classe, ento, como devemos
+
+10
+00:00:36,000 --> 00:00:40,000
+chamar essa classe? Como estamos escrevendo uma consulta aqui,
+
+11
+00:00:40,000 --> 00:00:44,000
+um padro que usamos freqentemente para encapsular consultas em nosso aplicativo
+
+12
+00:00:44,000 --> 00:00:48,000
+ o padro do repositrio. Eu expliquei isso no meu curso de estrutura de
+
+13
+00:00:48,000 --> 00:00:52,000
+edio, ento no vamos passar por cima disso novamente. Por enquanto, vamos
+
+14
+00:00:52,000 --> 00:00:56,000
+apenas criar uma nova classe chamada VideoRepository.
+
+15
+00:00:56,000 --> 00:01:00,000
+Portanto, este  um repositrio de todos os
+
+16
+00:01:00,000 --> 00:01:04,000
+vdeos em nosso aplicativo. Ento, aqui podemos adicionar
+
+17
+00:01:04,000 --> 00:01:08,000
+um novo mtodo, IEnumberable pblico. Por que IEnumerable, porque
+
+18
+00:01:08,000 --> 00:01:12,000
+simplesmente queremos enumerar essa lista. Ns s queremos
+
+19
+00:01:12,000 --> 00:01:16,000
+iterar sobre isso. Ento, de volta ao servio de vdeo, olhe,
+
+20
+00:01:16,000 --> 00:01:20,000
+depois de recebermos os vdeos, tudo o que precisamos fazer  fazer uma iterao sobre essa
+
+21
+00:01:20,000 --> 00:01:24,000
+lista usando isso para cada declarao, ok? Ento, simplesmente
+
+22
+00:01:24,000 --> 00:01:28,000
+retornamos um IENumerable de
+
+23
+00:01:28,000 --> 00:01:32,000
+vdeo. Vamos importar um espao de nome.
+
+24
+00:01:32,000 --> 00:01:36,000
+Vdeos
+
+25
+00:01:36,000 --> 00:01:40,000
+GetUnprocessed.
+
+26
+00:01:40,000 --> 00:01:44,000
+Agora, voltando ao nosso servio de vdeo, vamos
+
+27
+00:01:44,000 --> 00:01:48,000
+selecionar essas poucas linhas. Recorte e cole dentro
+
+28
+00:01:48,000 --> 00:01:52,000
+do nosso repositrio. Note que aqui precisamos de
+
+29
+00:01:52,000 --> 00:01:56,000
+uma referncia a esse contexto de db, contexto de vdeo.
+
+30
+00:01:56,000 --> 00:02:00,000
+OK? Ento, de volta ao nosso servio de vdeo,
+
+31
+00:02:00,000 --> 00:02:04,000
+ onde estamos criando o contexto do vdeo. Novamente, essa  uma classe
+
+32
+00:02:04,000 --> 00:02:08,000
+que toca em um recurso externo, portanto, esse objeto de
+
+33
+00:02:08,000 --> 00:02:12,000
+contexto no deve estar aqui. Ento, basicamente, vou
+
+34
+00:02:12,000 --> 00:02:16,000
+copiar essa linha e col-la aqui.
+
+35
+00:02:16,000 --> 00:02:20,000
+Ento, aqui temos o nosso bloco de uso, e vamos colocar
+
+36
+00:02:20,000 --> 00:02:24,000
+essa consulta dentro desse bloco. Agora, precisamos
+
+37
+00:02:24,000 --> 00:02:28,000
+importar o sistema. link no topo.
+
+38
+00:02:28,000 --> 00:02:32,000
+Ok, e finalmente podemos
+
+39
+00:02:32,000 --> 00:02:36,000
+retornar vdeos. Ento voc pode ver que
+
+40
+00:02:36,000 --> 00:02:40,000
+este repositrio de vdeo est encapsulando o cdigo, que toca
+
+41
+00:02:40,000 --> 00:02:44,000
+em um recurso externo. Agora, voltemos ao nosso
+
+42
+00:02:44,000 --> 00:02:48,000
+servio de vdeo. Ns no precisamos mais disso usando o bloco.
+
+43
+00:02:48,000 --> 00:02:52,000
+OK? Ento, delete. Excluir.
+
+44
+00:02:52,000 --> 00:02:56,000
+E excluir. Nosso cdigo  muito mais simples.
+
+45
+00:02:56,000 --> 00:03:00,000
+Ento este  um dos benefcios do teste unitrio. Quando voc abre suas aulas
+
+46
+00:03:00,000 --> 00:03:04,000
+para testabilidade, voc obtm melhor separao de interesses, e
+
+47
+00:03:04,000 --> 00:03:08,000
+seus mtodos acabam sendo mais curtos, porque voc move
+
+48
+00:03:08,000 --> 00:03:12,000
+a responsabilidade onde realmente pertence. Agora, aqui, precisamos obter esses vdeos
+
+49
+00:03:12,000 --> 00:03:16,000
+do nosso repositrio de vdeos. Ento, a prxima etapa
+
+50
+00:03:16,000 --> 00:03:20,000
+da refatorao  assim: um novo VideoRepository que
+
+51
+00:03:20,000 --> 00:03:24,000
+chamamos de GetUnprocessedVideos, e obtenha o resultado e
+
+52
+00:03:24,000 --> 00:03:28,000
+armazene-o nessa varivel. OK?
+
+53
+00:03:28,000 --> 00:03:32,000
+No entanto, como eu disse antes, quando atualizamos o
+
+54
+00:03:32,000 --> 00:03:36,000
+repositrio de vdeo aqui, nosso VideoService se torna fortemente
+
+55
+00:03:36,000 --> 00:03:40,000
+acoplado a essa implementao, queremos substituir essa implementao por
+
+56
+00:03:40,000 --> 00:03:44,000
+uma interface, com um contrato, ento podemos usar qualquer
+
+57
+00:03:44,000 --> 00:03:48,000
+classe que implemente essa interface . Ento, o prximo passo
+
+58
+00:03:48,000 --> 00:03:52,000
+ extrair uma interface do nosso repositrio de vdeos.
+
+59
+00:03:52,000 --> 00:03:56,000
+Voltar aqui, como eu mostrei antes, podemos
+
+60
+00:03:56,000 --> 00:04:00,000
+extrair uma interface de uma classe com
+
+61
+00:04:00,000 --> 00:04:04,000
+muita facilidade, ento aqui pressionamos alt e
+
+62
+00:04:04,000 --> 00:04:08,000
+enter, refactor, extrair interface. Agora, vou selecionar
+
+63
+00:04:08,000 --> 00:04:12,000
+esse mtodo para adicionar na interface,
+
+64
+00:04:12,000 --> 00:04:16,000
+em seguida, pronto. Ento aqui est nossa nova interface.
+
+65
+00:04:16,000 --> 00:04:20,000
+OK? Agora, voltemos ao nosso VideoService.
+
+66
+00:04:20,000 --> 00:04:24,000
+Precisamos injetar essa interface neste VideoService.
+
+67
+00:04:24,000 --> 00:04:28,000
+Podemos injetar isso como um parmetro para esse mtodo. Podemos injet-lo por
+
+68
+00:04:28,000 --> 00:04:32,000
+uma propriedade ou, podemos injet-lo no
+
+69
+00:04:32,000 --> 00:04:36,000
+construtor aqui. Como expliquei antes, a injeo de
+
+70
+00:04:36,000 --> 00:04:40,000
+construo  mais comum, ento vou seguir o mesmo padro aqui.
+
+71
+00:04:40,000 --> 00:04:44,000
+Ento, vamos adicionar um novo
+
+72
+00:04:44,000 --> 00:04:48,000
+parmetro, IVideoRepository. E ns chamamos este repositrio, eu
+
+73
+00:04:48,000 --> 00:04:52,000
+vou seguir o pobre homem (? ) Injeo
+
+74
+00:04:52,000 --> 00:04:56,000
+de dependncia. Ento, voc define isso como
+
+75
+00:04:56,000 --> 00:05:00,000
+null e inicializa o campo de repositrio de vdeo aqui.
+
+76
+00:05:00,000 --> 00:05:04,000
+Ento, primeiro precisamos criar um repositrio privado IVideo
+
+77
+00:05:04,000 --> 00:05:08,000
+Repository que seja repositrio e, em seguida, definir
+
+78
+00:05:08,000 --> 00:05:12,000
+o repositrio como este. Ento, se temos esse
+
+79
+00:05:12,000 --> 00:05:16,000
+objeto aqui no argumento, vamos usar isso, seno
+
+80
+00:05:16,000 --> 00:05:20,000
+vamos criar um novo VideoRepository. Novamente, se voc usar uma estrutura
+
+81
+00:05:20,000 --> 00:05:24,000
+de injeo de dependncia, no precisar lidar com a abordagem de injeo de
+
+82
+00:05:24,000 --> 00:05:28,000
+dependncia desse homem pobre. OK? Mas para este
+
+83
+00:05:28,000 --> 00:05:32,000
+desafio, isso realmente no importa. Mas finalmente, em vez
+
+84
+00:05:32,000 --> 00:05:36,000
+de atualizar este VideoRepository, vamos acessar o
+
+85
+00:05:36,000 --> 00:05:40,000
+campo do repositrio. Ento, agora, nossa classe VideoService 
+
+86
+00:05:40,000 --> 00:05:44,000
+testvel de modo pouco acoplado. Em seguida, vou mostrar a voc
+
+87
+00:05:44,000 --> 00:05:47,000
+como escrever testes de unidade para essa classe.
+

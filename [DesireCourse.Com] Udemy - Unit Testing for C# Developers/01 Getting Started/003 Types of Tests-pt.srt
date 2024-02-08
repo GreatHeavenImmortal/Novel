@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+Em testes automatizados, temos 3 tipos de testes:
+
+2
+00:00:04,000 --> 00:00:08,000
+testes de unidade, testes de integrao e testes
+
+3
+00:00:08,000 --> 00:00:12,000
+de ponta a ponta. Um teste de unidade  o
+
+4
+00:00:12,000 --> 00:00:16,000
+que eu mostrei anteriormente nesta seo. Voc testa uma unidade do
+
+5
+00:00:16,000 --> 00:00:20,000
+aplicativo sem suas dependncias externas, como arquivos, bancos de dados,
+
+6
+00:00:20,000 --> 00:00:24,000
+filas de mensagens, servios da Web e assim por diante.
+
+7
+00:00:24,000 --> 00:00:28,000
+Agora, observe esta palavra-chave aqui: dependncias externas.
+
+8
+00:00:28,000 --> 00:00:32,000
+Isso  realmente importante, como voc descobrir em breve. Ento, esses testes
+
+9
+00:00:32,000 --> 00:00:36,000
+de unidade exercitam seu cdigo sem nenhuma
+
+10
+00:00:36,000 --> 00:00:40,000
+dependncia externa, eles so baratos para escrever
+
+11
+00:00:40,000 --> 00:00:44,000
+e executam rapidamente. Assim, voc pode executar centenas deles em
+
+12
+00:00:44,000 --> 00:00:48,000
+apenas alguns segundos, e assim voc pode verificar se cada bloco de construo em
+
+13
+00:00:48,000 --> 00:00:52,000
+nosso aplicativo est funcionando conforme o esperado. No entanto, como voc
+
+14
+00:00:52,000 --> 00:00:56,000
+no est testando essas classes ou componentes com suas
+
+15
+00:00:56,000 --> 00:01:00,000
+dependncias externas, no  possvel obter muita confiana na
+
+16
+00:01:00,000 --> 00:01:04,000
+confiabilidade de seu aplicativo. Ento,  quando os
+
+17
+00:01:04,000 --> 00:01:08,000
+testes de integrao so salvos. Um teste de integrao, testa
+
+18
+00:01:08,000 --> 00:01:12,000
+uma classe ou um componente com suas dependncias externas.
+
+19
+00:01:12,000 --> 00:01:16,000
+Ento, ele testa a integrao do cdigo do aplicativo
+
+20
+00:01:16,000 --> 00:01:20,000
+com essas dependncias concretas, como arquivos, bancos de dados
+
+21
+00:01:20,000 --> 00:01:24,000
+e assim por diante. Mais uma vez, note que estou
+
+22
+00:01:24,000 --> 00:01:28,000
+enfatizando a palavra "externo" aqui. Esses testes demoram mais para serem
+
+23
+00:01:28,000 --> 00:01:32,000
+executados porque geralmente envolvem leitura ou gravao em um banco de
+
+24
+00:01:32,000 --> 00:01:36,000
+dados, mas nos do mais confiana na integridade de nosso aplicativo.
+
+25
+00:01:36,000 --> 00:01:40,000
+Agora, tradicionalmente, um teste de integrao  definido
+
+26
+00:01:40,000 --> 00:01:44,000
+como um teste que leva algumas unidades ou
+
+27
+00:01:44,000 --> 00:01:48,000
+classes e testa seu comportamento como um todo.
+
+28
+00:01:48,000 --> 00:01:52,000
+Portanto, com base nessa definio, se voc testar duas classes juntas, algumas
+
+29
+00:01:52,000 --> 00:01:56,000
+pessoas acreditaro que voc est escrevendo um teste de integrao e no
+
+30
+00:01:56,000 --> 00:02:00,000
+um teste de unidade, mesmo que nenhuma dessas classes converse com um
+
+31
+00:02:00,000 --> 00:02:04,000
+recurso externo como um banco de dados. Provavelmente voc j ouviu essa definio antes.
+
+32
+00:02:04,000 --> 00:02:08,000
+Agora eu vou te dizer o que. Essa definio  uma
+
+33
+00:02:08,000 --> 00:02:12,000
+tima receita para escrever testes frgeis que so acoplados
+
+34
+00:02:12,000 --> 00:02:16,000
+aos seus detalhes de implementao. Ento,  medida que voc muda
+
+35
+00:02:16,000 --> 00:02:20,000
+a implementao de suas classes, esses testes vo quebrar e voc
+
+36
+00:02:20,000 --> 00:02:24,000
+acabar perdendo muito tempo consertando-os. Eles no apenas no lhe daro
+
+37
+00:02:24,000 --> 00:02:28,000
+valores, mas na verdade eles atrasam voc! Eu vou te mostrar
+
+38
+00:02:28,000 --> 00:02:32,000
+um exemplo disso mais tarde no curso quando eu
+
+39
+00:02:32,000 --> 00:02:36,000
+falar sobre falsificaes e brincadeiras. Se voc j fez testes unitrios antes e
+
+40
+00:02:36,000 --> 00:02:40,000
+falhou,  provvel que voc tenha seguido essa definio! Ento, mais uma vez,
+
+41
+00:02:40,000 --> 00:02:44,000
+um teste de unidade testa uma classe ou vrias
+
+42
+00:02:44,000 --> 00:02:48,000
+classes sem suas dependncias externas. Eles testam uma
+
+43
+00:02:48,000 --> 00:02:52,000
+unidade de trabalho. Um teste de integrao testa
+
+44
+00:02:52,000 --> 00:02:56,000
+uma classe ou vrias classes com suas dependncias externas.
+
+45
+00:02:56,000 --> 00:03:00,000
+Voc tambm tem outro tipo de teste chamado teste de ponta a
+
+46
+00:03:00,000 --> 00:03:04,000
+ponta que direciona um aplicativo por meio de sua interface de usurio.
+
+47
+00:03:04,000 --> 00:03:08,000
+Existem ferramentas especficas criadas para criar testes de ponta a ponta.
+
+48
+00:03:08,000 --> 00:03:12,000
+Uma ferramenta popular da qual voc pode ter ouvido falar 
+
+49
+00:03:12,000 --> 00:03:16,000
+o Selenium, que nos permite gravar a interao de um usurio
+
+50
+00:03:16,000 --> 00:03:20,000
+com nosso aplicativo e depois reproduzi-lo e verificar se o aplicativo
+
+51
+00:03:20,000 --> 00:03:24,000
+est retornando o resultado correto ou no. Esses testes oferecem a voc
+
+52
+00:03:24,000 --> 00:03:28,000
+a maior confiana sobre a integridade do seu aplicativo, mas
+
+53
+00:03:28,000 --> 00:03:32,000
+eles tm dois grandes problemas. O primeiro problema  que eles so muito lentos.
+
+54
+00:03:32,000 --> 00:03:36,000
+Porque eles exigem o lanamento do aplicativo e test-lo
+
+55
+00:03:36,000 --> 00:03:40,000
+atravs da interface do usurio. Assim, cada teste lanar o aplicativo,
+
+56
+00:03:40,000 --> 00:03:44,000
+possivelmente far login, navegar para uma pgina interna, enviar um formulrio
+
+57
+00:03:44,000 --> 00:03:48,000
+e inspecionar o resultado. Muito devagar. O segundo problema
+
+58
+00:03:48,000 --> 00:03:52,000
+ que eles so muito frgeis, porque um
+
+59
+00:03:52,000 --> 00:03:56,000
+pequeno aprimoramento no aplicativo ou uma pequena alterao
+
+60
+00:03:56,000 --> 00:04:00,000
+na interface do usurio pode facilmente interromper esses testes.
+

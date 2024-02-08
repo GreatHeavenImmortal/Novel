@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:04,000
+De acuerdo, ahora veamos cmo podemos escribir pruebas
+
+2
+00:00:04,000 --> 00:00:08,000
+unitarias para este mtodo. Entonces, como podemos ver en estas
+
+3
+00:00:08,000 --> 00:00:12,000
+pocas lneas, vamos a la base de datos y obtenemos los
+
+4
+00:00:12,000 --> 00:00:16,000
+videos que no se procesan. Entonces aqu es donde
+
+5
+00:00:16,000 --> 00:00:20,000
+estamos tocando un recurso externo. Como aprendi antes, necesitamos extraer estas
+
+6
+00:00:20,000 --> 00:00:24,000
+pocas lneas, ponerlas en una clase separada y aislar esa clase
+
+7
+00:00:24,000 --> 00:00:28,000
+del resto del cdigo aqu. Entonces, de vuelta en
+
+8
+00:00:28,000 --> 00:00:32,000
+nuestro proyecto, en la carpeta Mocking, voy a
+
+9
+00:00:32,000 --> 00:00:36,000
+agregar una nueva clase, entonces, cmo deberamos llamar
+
+10
+00:00:36,000 --> 00:00:40,000
+a esa clase? Debido a que estamos escribiendo una
+
+11
+00:00:40,000 --> 00:00:44,000
+consulta aqu, un patrn que usamos a menudo para encapsular consultas en
+
+12
+00:00:44,000 --> 00:00:48,000
+nuestra aplicacin es el patrn de repositorio. Ya lo he explicado en mi curso sobre el marco
+
+13
+00:00:48,000 --> 00:00:52,000
+de edicin, as que no vamos a volver a hacerlo. Por ahora, vamos
+
+14
+00:00:52,000 --> 00:00:56,000
+a crear una nueva clase llamada VideoRepository.
+
+15
+00:00:56,000 --> 00:01:00,000
+Entonces este es un repositorio de todos los
+
+16
+00:01:00,000 --> 00:01:04,000
+videos en nuestra aplicacin. Entonces aqu podemos agregar
+
+17
+00:01:04,000 --> 00:01:08,000
+un nuevo mtodo, pblico IEnumberable. Por qu IEnumerable, porque
+
+18
+00:01:08,000 --> 00:01:12,000
+simplemente queremos enumerar esta lista. Solo queremos
+
+19
+00:01:12,000 --> 00:01:16,000
+iterar sobre eso. Entonces, de vuelta en el servicio de video,
+
+20
+00:01:16,000 --> 00:01:20,000
+mira, despus de que tengamos los videos, todo lo que tenemos que hacer es iterar sobre
+
+21
+00:01:20,000 --> 00:01:24,000
+esta lista usando esto para cada declaracin, de acuerdo? Entonces, simplemente
+
+22
+00:01:24,000 --> 00:01:28,000
+devolvemos un IENumerable de
+
+23
+00:01:28,000 --> 00:01:32,000
+video. Vamos a importar un espacio de nombre.
+
+24
+00:01:32,000 --> 00:01:36,000
+Obtener videos
+
+25
+00:01:36,000 --> 00:01:40,000
+procesados.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ahora, de vuelta a nuestro servicio de video,
+
+27
+00:01:44,000 --> 00:01:48,000
+seleccione estas pocas lneas. Cortar y pegarlo dentro
+
+28
+00:01:48,000 --> 00:01:52,000
+de nuestro repositorio. Tenga en cuenta que aqu
+
+29
+00:01:52,000 --> 00:01:56,000
+necesitamos una referencia a este contexto db, contexto de video.
+
+30
+00:01:56,000 --> 00:02:00,000
+Bueno? Entonces, de vuelta en nuestro servicio de video,
+
+31
+00:02:00,000 --> 00:02:04,000
+aqu es donde estamos creando ese contexto de video. De nuevo, esta es una clase
+
+32
+00:02:04,000 --> 00:02:08,000
+que toca un recurso externo, por lo tanto, este objeto de
+
+33
+00:02:08,000 --> 00:02:12,000
+contexto no debera estar aqu. Entonces, bsicamente, voy
+
+34
+00:02:12,000 --> 00:02:16,000
+a copiar esta lnea y pegarla aqu.
+
+35
+00:02:16,000 --> 00:02:20,000
+As que aqu tenemos, nuestro bloque de uso, y vamos a poner
+
+36
+00:02:20,000 --> 00:02:24,000
+esta consulta dentro de este bloque. Ahora, tenemos que
+
+37
+00:02:24,000 --> 00:02:28,000
+importar el sistema. enlace en la parte superior.
+
+38
+00:02:28,000 --> 00:02:32,000
+De acuerdo, y finalmente podemos
+
+39
+00:02:32,000 --> 00:02:36,000
+devolver videos. Entonces puede ver que
+
+40
+00:02:36,000 --> 00:02:40,000
+este repositorio de video est encapsulando el cdigo,
+
+41
+00:02:40,000 --> 00:02:44,000
+que toca un recurso externo. Ahora, de vuelta a
+
+42
+00:02:44,000 --> 00:02:48,000
+nuestro servicio de video. Ya no necesitamos este bloque de uso.
+
+43
+00:02:48,000 --> 00:02:52,000
+Bueno? Entonces, eliminar. Borrar.
+
+44
+00:02:52,000 --> 00:02:56,000
+Y eliminar Nuestro cdigo es mucho ms simple.
+
+45
+00:02:56,000 --> 00:03:00,000
+Este es uno de los beneficios de las pruebas unitarias. Cuando abres tus clases
+
+46
+00:03:00,000 --> 00:03:04,000
+para probarlas, obtienes una mejor separacin de preocupaciones, y
+
+47
+00:03:04,000 --> 00:03:08,000
+tus mtodos terminan siendo ms cortos, porque mueves la
+
+48
+00:03:08,000 --> 00:03:12,000
+responsabilidad a donde realmente pertenece. Ahora aqu, necesitamos obtener estos videos
+
+49
+00:03:12,000 --> 00:03:16,000
+de nuestro repositorio de videos. As que el siguiente
+
+50
+00:03:16,000 --> 00:03:20,000
+paso de refactorizacin es como este, que un nuevo
+
+51
+00:03:20,000 --> 00:03:24,000
+VideoRepository lo llamemos GetUnprocessedVideos, y obtenga el resultado y
+
+52
+00:03:24,000 --> 00:03:28,000
+lo almacene en esta variable. Bueno?
+
+53
+00:03:28,000 --> 00:03:32,000
+Sin embargo, como te dije antes, cuando actualizamos el
+
+54
+00:03:32,000 --> 00:03:36,000
+repositorio de videos aqu, nuestro VideoService se acopla estrechamente
+
+55
+00:03:36,000 --> 00:03:40,000
+a esta implementacin, queremos reemplazar esta implementacin con una
+
+56
+00:03:40,000 --> 00:03:44,000
+interfaz, con un contrato, luego podemos usar cualquier clase
+
+57
+00:03:44,000 --> 00:03:48,000
+que implemente esa interfaz . Entonces, el siguiente paso
+
+58
+00:03:48,000 --> 00:03:52,000
+es extraer una interfaz de nuestro repositorio de videos.
+
+59
+00:03:52,000 --> 00:03:56,000
+De vuelta aqu, como te mostr antes, podemos
+
+60
+00:03:56,000 --> 00:04:00,000
+extraer una interfaz de una clase muy fcilmente,
+
+61
+00:04:00,000 --> 00:04:04,000
+as que aqu presionamos alt e ingresamos, refactorizamos,
+
+62
+00:04:04,000 --> 00:04:08,000
+extraemos la interfaz. Ahora, voy a
+
+63
+00:04:08,000 --> 00:04:12,000
+seleccionar este mtodo para agregar en
+
+64
+00:04:12,000 --> 00:04:16,000
+la interfaz, luego, listo. As que aqu est nuestra nueva interfaz.
+
+65
+00:04:16,000 --> 00:04:20,000
+Bueno? Ahora, de vuelta a nuestro VideoService.
+
+66
+00:04:20,000 --> 00:04:24,000
+Necesitamos inyectar esa interfaz en este VideoService.
+
+67
+00:04:24,000 --> 00:04:28,000
+Podemos inyectarlo como un parmetro para este mtodo. Podemos inyectarlo por
+
+68
+00:04:28,000 --> 00:04:32,000
+una propiedad o, podemos inyectarlo en
+
+69
+00:04:32,000 --> 00:04:36,000
+el constructor aqu. Como expliqu antes, la inyeccin de
+
+70
+00:04:36,000 --> 00:04:40,000
+construccin es ms comn, as que voy a seguir el mismo patrn aqu.
+
+71
+00:04:40,000 --> 00:04:44,000
+Entonces, agreguemos un nuevo
+
+72
+00:04:44,000 --> 00:04:48,000
+parmetro, IVideoRepository. Y llamamos a este repositorio, voy
+
+73
+00:04:48,000 --> 00:04:52,000
+a seguir a los pobres (? ) inyeccin
+
+74
+00:04:52,000 --> 00:04:56,000
+de dependencia. Por lo tanto, establece esto
+
+75
+00:04:56,000 --> 00:05:00,000
+en nulo e inicializa el campo de depsito de video aqu.
+
+76
+00:05:00,000 --> 00:05:04,000
+Entonces, primero debemos crear un repositorio privado
+
+77
+00:05:04,000 --> 00:05:08,000
+de IVideo Repository, y luego establecer un
+
+78
+00:05:08,000 --> 00:05:12,000
+repositorio como este. Entonces, si tenemos este objeto
+
+79
+00:05:12,000 --> 00:05:16,000
+aqu en el argumento, vamos a usar eso; de lo
+
+80
+00:05:16,000 --> 00:05:20,000
+contrario, vamos a actualizar un VideoRepository. Nuevamente, si usa un marco de
+
+81
+00:05:20,000 --> 00:05:24,000
+inyeccin de dependencia, no tiene que lidiar con el enfoque de inyeccin de
+
+82
+00:05:24,000 --> 00:05:28,000
+dependencia de este pobre. Bueno? Pero para este
+
+83
+00:05:28,000 --> 00:05:32,000
+desafo, realmente no importa. Pero finalmente, en lugar
+
+84
+00:05:32,000 --> 00:05:36,000
+de renovar este VideoRepository, vamos a acceder al
+
+85
+00:05:36,000 --> 00:05:40,000
+campo de repositorio. As que ahora, nuestra clase de
+
+86
+00:05:40,000 --> 00:05:44,000
+VideoService se puede probar de forma flexible, a continuacin, voy a
+
+87
+00:05:44,000 --> 00:05:47,000
+mostrarte cmo escribir pruebas unitarias para esta clase.
+

@@ -1,0 +1,220 @@
+1
+00:00:00,000 --> 00:00:04,000
+Como eu disse antes, quando quero testar um mtodo,
+
+2
+00:00:04,000 --> 00:00:08,000
+primeiro fao um brainstorming de todas as diferentes possibilidades
+
+3
+00:00:08,000 --> 00:00:12,000
+e casos de teste. Ento, vou recolher esse mtodo
+
+4
+00:00:12,000 --> 00:00:16,000
+para no nos perdermos nos detalhes da implementao e consider-lo
+
+5
+00:00:16,000 --> 00:00:20,000
+como uma caixa preta. Quais so os vrios casos de
+
+6
+00:00:20,000 --> 00:00:24,000
+teste que precisamos escrever para esse mtodo? Bem, imagine que tenhamos
+
+7
+00:00:24,000 --> 00:00:28,000
+uma reserva existente.  possvel que a nossa
+
+8
+00:00:28,000 --> 00:00:32,000
+nova reserva comece e termine antes desta reserva existente.
+
+9
+00:00:32,000 --> 00:00:36,000
+Neste caso, no temos uma sobreposio. O outro cenrio  a
+
+10
+00:00:36,000 --> 00:00:40,000
+nossa nova reserva termina no meio de uma reserva existente.
+
+11
+00:00:40,000 --> 00:00:44,000
+Nesse caso, temos uma sobreposio, portanto, nossos mtodos devem retornar a
+
+12
+00:00:44,000 --> 00:00:48,000
+referncia de uma reserva existente. Tambm  possvel que
+
+13
+00:00:48,000 --> 00:00:52,000
+esta nova reserva termine aps uma reserva existente.
+
+14
+00:00:52,000 --> 00:00:56,000
+Mais uma vez, temos sobreposio, ou, a nossa nova reserva pode comear
+
+15
+00:00:56,000 --> 00:01:00,000
+no meio de uma reserva existente e terminar depois, ou pode terminar
+
+16
+00:01:00,000 --> 00:01:04,000
+aps o meio de uma reserva existente. E finalmente, a ltima
+
+17
+00:01:04,000 --> 00:01:08,000
+possibilidade  onde esta nova reserva comea e termina
+
+18
+00:01:08,000 --> 00:01:12,000
+depois de uma reserva existente. Nesse caso, no temos uma sobreposio e
+
+19
+00:01:12,000 --> 00:01:16,000
+nossos mtodos devem retornar uma string vazia. Agora, supondo que tenhamos uma
+
+20
+00:01:16,000 --> 00:01:20,000
+sobreposio, temos mais dois cenrios, um  que a reserva
+
+21
+00:01:20,000 --> 00:01:24,000
+existente  cancelada, neste caso, este mtodo retornar uma string
+
+22
+00:01:24,000 --> 00:01:28,000
+vazia porque no temos uma sobreposio. Ou,  possvel que
+
+23
+00:01:28,000 --> 00:01:32,000
+esta nova reserva seja cancelada. Novamente, esse mtodo assumir
+
+24
+00:01:32,000 --> 00:01:36,000
+que no h sobreposio. Ento, esses so todos os casos de
+
+25
+00:01:36,000 --> 00:01:40,000
+teste que precisamos escrever para esse mtodo. Ento, de volta
+
+26
+00:01:40,000 --> 00:01:44,000
+ nossa soluo em nosso projeto de
+
+27
+00:01:44,000 --> 00:01:48,000
+teste de unidade, dentro da pasta Mocking,
+
+28
+00:01:48,000 --> 00:01:52,000
+vamos adicionar uma nova classe chamada BookingHelperTests.
+
+29
+00:01:52,000 --> 00:01:56,000
+E aqui ns aplicamos o atributo do
+
+30
+00:01:56,000 --> 00:02:00,000
+equipamento de teste. E escreva nosso primeiro
+
+31
+00:02:00,000 --> 00:02:04,000
+teste de unidade. Teste para que
+
+32
+00:02:04,000 --> 00:02:08,000
+o mtodo que estamos testando seja
+
+33
+00:02:08,000 --> 00:02:12,000
+Overlapping BookingsExist. O primeiro
+
+34
+00:02:12,000 --> 00:02:16,000
+cenrio  onde nossa
+
+35
+00:02:16,000 --> 00:02:20,000
+nova reserva comea e
+
+36
+00:02:20,000 --> 00:02:24,000
+termina antes de uma
+
+37
+00:02:24,000 --> 00:02:28,000
+reserva existente, portanto, Booking StartsAndFinishesBefore AnExistingBooking.
+
+38
+00:02:28,000 --> 00:02:32,000
+E esperamos que esse mtodo retorne uma string vazia.
+
+39
+00:02:32,000 --> 00:02:36,000
+Porque no h sobreposio. Ento, retorne
+
+40
+00:02:36,000 --> 00:02:40,000
+EmptyString. Agora, podemos ver que o nome
+
+41
+00:02:40,000 --> 00:02:44,000
+desse mtodo  um pouco longo demais, e isso no  necessariamente
+
+42
+00:02:44,000 --> 00:02:48,000
+uma coisa ruim, porque o nome do nosso mtodo  muito descritivo,
+
+43
+00:02:48,000 --> 00:02:52,000
+est nos dizendo exatamente o que estamos testando, no entanto, embora eu
+
+44
+00:02:52,000 --> 00:02:56,000
+tenha reduzido o tamanho da fonte o nome do mtodo ainda no
+
+45
+00:02:56,000 --> 00:03:00,000
+se encaixa completamente na tela. Ento aqui, para tornar mais fcil
+
+46
+00:03:00,000 --> 00:03:04,000
+para voc ver todos esses mtodos de teste, vou pegar o nome
+
+47
+00:03:04,000 --> 00:03:08,000
+do mtodo aqui e coloc-lo na classe. Ento, reserve
+
+48
+00:03:08,000 --> 00:03:12,000
+o ajudante, sublinhar OverlappingBookings
+
+49
+00:03:12,000 --> 00:03:16,000
+ExistTests. E assim podemos tornar esses
+
+50
+00:03:16,000 --> 00:03:20,000
+mtodos um pouco mais curtos. Isso  melhor.
+
+51
+00:03:20,000 --> 00:03:24,000
+Ento, agora, de volta  nossa classe
+
+52
+00:03:24,000 --> 00:03:28,000
+BookingHelper, vamos expandir isso. Ento, temos essa dependncia concreta
+
+53
+00:03:28,000 --> 00:03:32,000
+e precisamos nos livrar dela. Ento, na prxima aula,
+
+54
+00:03:32,000 --> 00:03:36,000
+vou extrair esse cdigo em uma classe
+
+55
+00:03:36,000 --> 00:03:40,000
+separada e isol-lo de nossa classe BookingHelper.
+

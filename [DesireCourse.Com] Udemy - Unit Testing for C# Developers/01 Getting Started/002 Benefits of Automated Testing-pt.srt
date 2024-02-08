@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,000
+Recentemente, um aluno meu me perguntou: "Mosh, por que diabos devemos
+
+2
+00:00:04,000 --> 00:00:08,000
+escrever cdigo para testar nosso cdigo, quando podemos apenas executar o
+
+3
+00:00:08,000 --> 00:00:12,000
+aplicativo e ver o resultado? ".
+
+4
+00:00:12,000 --> 00:00:16,000
+Bem, na ltima palestra, voc aprendeu que, com testes
+
+5
+00:00:16,000 --> 00:00:20,000
+automatizados, voc pode testar nosso cdigo de aplicativo com
+
+6
+00:00:20,000 --> 00:00:24,000
+freqncia e em menos tempo. Mas esse no  o
+
+7
+00:00:24,000 --> 00:00:28,000
+nico benefcio do teste automatizado. O benefcio mais importante  que voc pode
+
+8
+00:00:28,000 --> 00:00:32,000
+pegar os bugs ANTES de implementar nosso aplicativo. E isso 
+
+9
+00:00:32,000 --> 00:00:36,000
+extremamente importante porque permite implantar seu
+
+10
+00:00:36,000 --> 00:00:40,000
+aplicativo com mais confiana. Voc j esteve em uma situao
+
+11
+00:00:40,000 --> 00:00:44,000
+em que terminou todo o trabalho, implantou seu aplicativo, saiu do escritrio
+
+12
+00:00:44,000 --> 00:00:48,000
+pensando que tudo est funcionando e recebeu uma ligao de seu chefe
+
+13
+00:00:48,000 --> 00:00:52,000
+ou de um usurio final, informando que uma das principais funes do
+
+14
+00:00:52,000 --> 00:00:56,000
+aplicativo no est funcionando? Ento voc teve que voltar para
+
+15
+00:00:56,000 --> 00:01:00,000
+o escritrio e voc pensou que era uma soluo rpida, mas voc
+
+16
+00:01:00,000 --> 00:01:04,000
+acabou ficando l at meia-noite!  por isso que voc deve escrever
+
+17
+00:01:04,000 --> 00:01:08,000
+testes: para reduzir o nmero de defeitos ou erros que ocorrero na produo
+
+18
+00:01:08,000 --> 00:01:12,000
+... Agora, observe que no estou dizendo que com testes automatizados voc lanar
+
+19
+00:01:12,000 --> 00:01:16,000
+um software livre de bugs. Isso no  verdade! Mas voc certamente pode
+
+20
+00:01:16,000 --> 00:01:20,000
+reduzir o nmero de bugs e melhorar a qualidade do seu software.
+
+21
+00:01:20,000 --> 00:01:24,000
+Outro benefcio dos testes automatizados  que eles permitem
+
+22
+00:01:24,000 --> 00:01:28,000
+refatorar seu cdigo com confiana. Refatorar significa mudar a
+
+23
+00:01:28,000 --> 00:01:32,000
+estrutura do seu cdigo, sem alterar seu comportamento.
+
+24
+00:01:32,000 --> 00:01:36,000
+Se voc extrair algumas linhas de um mtodo em um mtodo
+
+25
+00:01:36,000 --> 00:01:40,000
+privado separado, isso  refatorao. Se voc renomear um
+
+26
+00:01:40,000 --> 00:01:44,000
+mtodo, isso tambm  refatorao. Voc est alterando a estrutura do cdigo
+
+27
+00:01:44,000 --> 00:01:48,000
+para torn-lo mais limpo e mais fcil de manter, mas no est alterando a funcionalidade.
+
+28
+00:01:48,000 --> 00:01:52,000
+Quando voc no tem testes automatizados, toda vez que refatora seu
+
+29
+00:01:52,000 --> 00:01:56,000
+cdigo,  necessrio testar manualmente todas as partes do aplicativo que
+
+30
+00:01:56,000 --> 00:02:00,000
+podem ser afetadas por sua refatorao. E isso  muito doloroso porque,
+
+31
+00:02:00,000 --> 00:02:04,000
+antes de tudo,  demorado e, segundo,  medida que seu
+
+32
+00:02:04,000 --> 00:02:08,000
+aplicativo cresce, voc pode esquecer as partes que precisam ser testadas!
+
+33
+00:02:08,000 --> 00:02:12,000
+Com testes automatizados, toda vez que voc refatora seu cdigo,
+
+34
+00:02:12,000 --> 00:02:16,000
+voc executa seus testes e garante que no quebrou nada
+
+35
+00:02:16,000 --> 00:02:20,000
+que costumava funcionar anteriormente. E, finalmente, outro benefcio de escrever
+
+36
+00:02:20,000 --> 00:02:24,000
+testes  que isso ajuda voc a se concentrar mais na qualidade
+
+37
+00:02:24,000 --> 00:02:28,000
+dos mtodos que voc est escrevendo. Voc garante que todos
+
+38
+00:02:28,000 --> 00:02:32,000
+os mtodos funcionem com entradas diferentes em circunstncias variadas.
+
+39
+00:02:32,000 --> 00:02:36,000
+Em seguida, vou falar sobre diferentes tipos de testes.
+

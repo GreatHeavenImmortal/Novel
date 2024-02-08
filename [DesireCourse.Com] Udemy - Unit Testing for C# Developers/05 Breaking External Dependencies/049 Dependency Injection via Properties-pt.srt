@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, na ltima palestra, voc aprendeu sobre dependncias de injeo
+
+2
+00:00:04,000 --> 00:00:08,000
+atravs de parmetros de mtodo. Embora essa abordagem funcione,
+
+3
+00:00:08,000 --> 00:00:12,000
+s vezes, voc pode se deparar com alguns problemas.
+
+4
+00:00:12,000 --> 00:00:16,000
+Um problema  que voc est mudando a assinatura desse mtodo.
+
+5
+00:00:16,000 --> 00:00:20,000
+Imagine que usamos este mtodo ReadVideoTitle em dez
+
+6
+00:00:20,000 --> 00:00:24,000
+lugares no seu cdigo e, de repente, voc
+
+7
+00:00:24,000 --> 00:00:28,000
+introduz este parmetro. Ento voc tem que ir e modificar os dez lugares em seu cdigo.
+
+8
+00:00:28,000 --> 00:00:32,000
+Se voc usou este mtodo em um ou dois
+
+9
+00:00:32,000 --> 00:00:36,000
+lugares, isso no  problema. O outro problema que voc pode
+
+10
+00:00:36,000 --> 00:00:40,000
+encontrar  que algumas estruturas de injeo de dependncia no podem injetar
+
+11
+00:00:40,000 --> 00:00:44,000
+dependncias por meio de parmetros de mtodo. Existem algumas estruturas de injeo de dependncia por
+
+12
+00:00:44,000 --> 00:00:48,000
+a, cada equipe adora um framework diferente. Portanto, dependendo da estrutura de
+
+13
+00:00:48,000 --> 00:00:52,000
+injeo de dependncia usada em sua equipe, essa abordagem pode
+
+14
+00:00:52,000 --> 00:00:56,000
+ou no funcionar para voc. Ento, vou mostrar uma
+
+15
+00:00:56,000 --> 00:01:00,000
+segunda maneira de injetar dependncia. Em vez de injetar a
+
+16
+00:01:00,000 --> 00:01:04,000
+dependncia como um parmetro de mtodo, podemos injet-la usando uma propriedade.
+
+17
+00:01:04,000 --> 00:01:08,000
+Ento, eu vou declarar uma propriedade do
+
+18
+00:01:08,000 --> 00:01:12,000
+tipo IFile Reader e cham-lo de FileReader.
+
+19
+00:01:12,000 --> 00:01:16,000
+Agora, vou remover esse parmetro e executar nossa
+
+20
+00:01:16,000 --> 00:01:20,000
+implementao. Vou usar uma nova propriedade, FileReader.
+
+21
+00:01:20,000 --> 00:01:24,000
+Agora, quando voc executar esse cdigo, receber uma exceo de referncia nula.
+
+22
+00:01:24,000 --> 00:01:28,000
+Porque ns no definimos esta propriedade FileReader.
+
+23
+00:01:28,000 --> 00:01:32,000
+Ento eu vou criar o construtor.
+
+24
+00:01:32,000 --> 00:01:36,000
+Agora eu vou inicializar o FileReader para
+
+25
+00:01:36,000 --> 00:01:40,000
+um novo FileReader. Com essa abordagem, voc
+
+26
+00:01:40,000 --> 00:01:44,000
+garantir que em seu cdigo de produo voc
+
+27
+00:01:44,000 --> 00:01:48,000
+use este objeto FileReader real e, ao testar
+
+28
+00:01:48,000 --> 00:01:52,000
+essa classe, antes de chamar o mtodo ReadVideoTitle,
+
+29
+00:01:52,000 --> 00:01:56,000
+poder substituir este FileReader real por um FileReader falso.
+
+30
+00:01:56,000 --> 00:02:00,000
+Deixe-me mostrar-lhe como fazer isso. Ento, primeiro eu vou para a
+
+31
+00:02:00,000 --> 00:02:04,000
+classe do programa, como ns mudamos a assinatura deste mtodo, ento
+
+32
+00:02:04,000 --> 00:02:08,000
+eu vou deletar esse argumento. Da mesma forma, vamos para
+
+33
+00:02:08,000 --> 00:02:12,000
+os testes de servio de vdeo e remover esse argumento.
+
+34
+00:02:12,000 --> 00:02:16,000
+Agora, antes de agir, devemos substituir o verdadeiro
+
+35
+00:02:16,000 --> 00:02:20,000
+FileReader por um falso. Ento, como parte da
+
+36
+00:02:20,000 --> 00:02:24,000
+parte do arranjo. Ns estabelecemos servio.
+
+37
+00:02:24,000 --> 00:02:28,000
+FileReader. O novo FakeFileReader.
+
+38
+00:02:28,000 --> 00:02:32,000
+objeto. Agora, vamos executar este teste.
+
+39
+00:02:32,000 --> 00:02:36,000
+Ok, ainda passando linda.
+
+40
+00:02:36,000 --> 00:02:40,000
+Na prxima aula, vou mostrar outra maneira de injetar dependncias.
+

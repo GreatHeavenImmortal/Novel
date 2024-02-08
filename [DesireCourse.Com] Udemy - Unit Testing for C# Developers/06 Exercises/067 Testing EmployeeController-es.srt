@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ahora, vamos a probar la interaccin de este
+
+2
+00:00:04,000 --> 00:00:08,000
+controlador con este nuevo objeto de almacenamiento.
+
+3
+00:00:08,000 --> 00:00:12,000
+Entonces, de regreso en nuestro proyecto de
+
+4
+00:00:12,000 --> 00:00:16,000
+pruebas de unidades, dentro de la carpeta
+
+5
+00:00:16,000 --> 00:00:20,000
+Mocking, voy a agregar una nueva clase EmployeeControllerTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+Agreguemos un atributo TestFixture.
+
+7
+00:00:24,000 --> 00:00:28,000
+Y crea una prueba
+
+8
+00:00:28,000 --> 00:00:32,000
+para el mtodo DeleteEmployee.
+
+9
+00:00:32,000 --> 00:00:36,000
+Entonces cuando se llama esto, debe eliminar
+
+10
+00:00:36,000 --> 00:00:40,000
+al empleado de la base de datos.
+
+11
+00:00:40,000 --> 00:00:44,000
+Ahora tenemos que crear un objeto Mock,
+
+12
+00:00:44,000 --> 00:00:48,000
+as que var storage como un nuevo
+
+13
+00:00:48,000 --> 00:00:52,000
+Mock de IEmployeeStorage, con esto podemos crear
+
+14
+00:00:52,000 --> 00:00:56,000
+un objeto controlador, por lo que el
+
+15
+00:00:56,000 --> 00:01:00,000
+controlador, es un nuevo EmployeeController, y como
+
+16
+00:01:00,000 --> 00:01:04,000
+argumento el pase de almacenamiento. objeto.
+
+17
+00:01:04,000 --> 00:01:08,000
+Ahora, tenemos que actuar, entonces controlador. EliminarEmpleado. Usamos el valor
+
+18
+00:01:08,000 --> 00:01:12,000
+simple aqu como 1. En este caso, no nos
+
+19
+00:01:12,000 --> 00:01:16,000
+importa el resultado, solo queremos probar la interaccin de este
+
+20
+00:01:16,000 --> 00:01:20,000
+controlador con un objeto de almacenamiento. Entonces, llamamos almacenamiento. Verificar. Dale una expresin lambda
+
+21
+00:01:20,000 --> 00:01:24,000
+para asegurarte de que
+
+22
+00:01:24,000 --> 00:01:28,000
+se llama al mtodo de almacenamiento DeleteEmployee, DeleteEmployee
+
+23
+00:01:28,000 --> 00:01:32,000
+y el argumento para este mtodo debe ser 1. Vamos a ejecutar
+
+24
+00:01:32,000 --> 00:01:36,000
+esta prueba.
+
+25
+00:01:36,000 --> 00:01:40,000
+As que esta es nuestra prueba, pas con xito.
+
+26
+00:01:40,000 --> 00:01:44,000
+Hermosa. Esta es una prueba para
+
+27
+00:01:44,000 --> 00:01:48,000
+nuestro mtodo DeleteEmployee. Pero este mtodo en realidad requiere
+
+28
+00:01:48,000 --> 00:01:52,000
+otra prueba que no voy a
+
+29
+00:01:52,000 --> 00:01:56,000
+escribir en esta conferencia, solo quiero resaltarlo, puedes hacerlo como ejercicio. Entonces, de vuelta a nuestro controlador, tambin
+
+30
+00:01:56,000 --> 00:02:00,000
+debemos asegurarnos de
+
+31
+00:02:00,000 --> 00:02:04,000
+que este mtodo devuelva el valor correcto
+
+32
+00:02:04,000 --> 00:02:08,000
+o el objeto correcto para el cliente. Entonces, en este caso estamos llamando a un
+
+33
+00:02:08,000 --> 00:02:12,000
+mtodo privado llamado RedirectToAction. Y dentro de este mtodo estamos
+
+34
+00:02:12,000 --> 00:02:16,000
+devolviendo un nuevo objeto RedirectResult. Entonces deberamos escribir otra prueba y
+
+35
+00:02:16,000 --> 00:02:20,000
+asegurarnos de que lo que obtengamos
+
+36
+00:02:20,000 --> 00:02:24,000
+de este mtodo sea un objeto de tipo redirigir el resultado.
+
+37
+00:02:24,000 --> 00:02:28,000
+Bien, tambin, solo para refrescar tu memoria, ten en cuenta
+
+38
+00:02:28,000 --> 00:02:32,000
+que aqu estamos llamando a un mtodo privado, y como
+
+39
+00:02:32,000 --> 00:02:36,000
+te dije antes, no debes probar mtodos privados o protegidos,
+
+40
+00:02:36,000 --> 00:02:40,000
+porque son los nicos responsables de la implementacin. Por lo tanto, no queremos escribir una prueba y afirmar que
+
+41
+00:02:40,000 --> 00:02:44,000
+se llama a este mtodo. Eso es detalle de implementacin que
+
+42
+00:02:44,000 --> 00:02:48,000
+puede cambiar en el futuro. Porque en el futuro, en
+
+43
+00:02:48,000 --> 00:02:52,000
+lugar de llamar a este
+
+44
+00:02:52,000 --> 00:02:56,000
+mtodo privado, puede decidir devolver directamente un nuevo objeto RedirectResult.
+
+45
+00:02:56,000 --> 00:03:00,000
+Bueno? Entonces, volvamos a esto, y una ltima cosa
+
+46
+00:03:00,000 --> 00:03:04,000
+antes de terminar esta
+
+47
+00:03:04,000 --> 00:03:08,000
+conferencia, echemos un vistazo a nuestro objeto EmployeeStorage.
+
+48
+00:03:08,000 --> 00:03:12,000
+As que movemos parte de nuestro cdigo aqu, dentro de
+
+49
+00:03:12,000 --> 00:03:16,000
+este mtodo, pero no tenemos ninguna prueba unitaria para este mtodo. Necesitamos pruebas unitarias
+
+50
+00:03:16,000 --> 00:03:20,000
+aqu? No porque aqu estamos trabajando
+
+51
+00:03:20,000 --> 00:03:24,000
+directamente con un recurso externo. Entonces, la forma correcta de probar este mtodo es usar una prueba
+
+52
+00:03:24,000 --> 00:03:28,000
+de integracin, y eso est ms all del alcance de este curso.
+
+53
+00:03:28,000 --> 00:03:32,000
+Ese es un curso separado que voy a crear en el futuro,
+
+54
+00:03:32,000 --> 00:03:36,000
+con una prueba de integracin, podemos llamar a este mtodo y asegurarnos
+
+55
+00:03:36,000 --> 00:03:40,000
+de que el empleado dado de la base de datos se elimine. No nos importa cmo este mtodo
+
+56
+00:03:40,000 --> 00:03:44,000
+logra ese resultado. Puede usar cualquier marco que
+
+57
+00:03:44,000 --> 00:03:48,000
+pueda usar a-dio simple (? ) neto, puede usar un diferente (? ) estos son todos los
+
+58
+00:03:48,000 --> 00:03:52,000
+detalles de implementacin. Por lo tanto, hemos terminado con
+
+59
+00:03:52,000 --> 00:03:56,000
+este ejercicio, espero que hayan disfrutado, y gracias por su atencin.
+
+60
+00:03:56,000 --> 00:04:00,000
+&nbsp;
+

@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:04,000
+Uma pergunta que me fazem muito  quem deve
+
+2
+00:00:04,000 --> 00:00:08,000
+escrever esses testes automatizados?  o trabalho de
+
+3
+00:00:08,000 --> 00:00:12,000
+um desenvolvedor ou um testador? Bem, isto depende.
+
+4
+00:00:12,000 --> 00:00:16,000
+Escrever unidades e testes de integrao  o trabalho de um desenvolvedor de software.
+
+5
+00:00:16,000 --> 00:00:20,000
+Ento, se voc est criando um novo recurso, modificando um
+
+6
+00:00:20,000 --> 00:00:24,000
+recurso existente ou corrigindo um bug, antes de confirmar seu
+
+7
+00:00:24,000 --> 00:00:28,000
+cdigo no repositrio, voc  responsvel por cobrir seu cdigo
+
+8
+00:00:28,000 --> 00:00:32,000
+com um (? ) de testes unitrios e de integrao. Voc no pode esperar que outra
+
+9
+00:00:32,000 --> 00:00:36,000
+pessoa escreva os testes para o cdigo que voc escreveu.  exatamente como escrever um cdigo que
+
+10
+00:00:36,000 --> 00:00:40,000
+no  compilado e, em seguida, pass-lo ao seu colega de trabalho, solicitando que
+
+11
+00:00:40,000 --> 00:00:44,000
+ele corrija o problema de compilao. Em uma das equipes em que
+
+12
+00:00:44,000 --> 00:00:48,000
+trabalhei antes, eu tinha um membro da equipe que era preguioso em
+
+13
+00:00:48,000 --> 00:00:52,000
+escrever testes para o cdigo dele. Houve momentos em que precisei estender
+
+14
+00:00:52,000 --> 00:00:56,000
+seu cdigo, talvez para fazer uma alterao ou implementar um novo recurso.
+
+15
+00:00:56,000 --> 00:01:00,000
+Eu percebi que o cdigo dele no tinha testes, ento eu tive
+
+16
+00:01:00,000 --> 00:01:04,000
+que escrever todos os testes que ele deveria ter escrito, e ento
+
+17
+00:01:04,000 --> 00:01:08,000
+comear a mudar o cdigo dele. Se voc  esse
+
+18
+00:01:08,000 --> 00:01:12,000
+tipo de desenvolvedor, que vergonha! Isso apenas demonstra sua
+
+19
+00:01:12,000 --> 00:01:16,000
+preguia e falta de profissionalismo. Ningum se importa com a qualidade
+
+20
+00:01:16,000 --> 00:01:20,000
+de um codificador ou com sua inteligncia se voc no puder trabalhar
+
+21
+00:01:20,000 --> 00:01:24,000
+com os outros de maneira profissional. Ento, escrever testes de unidade
+
+22
+00:01:24,000 --> 00:01:28,000
+e integrao  o seu trabalho como desenvolvedor de software.
+
+23
+00:01:28,000 --> 00:01:32,000
+Testes de ponta a ponta so uma histria diferente. s vezes eles so escritos
+
+24
+00:01:32,000 --> 00:01:36,000
+por desenvolvedores, outras vezes so escritos por engenheiros de teste.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ento, um engenheiro de teste no se importa como voc implementou um determinado recurso.
+
+26
+00:01:40,000 --> 00:01:44,000
+Eles no se importam com suas classes, mtodos e parmetros,
+
+27
+00:01:44,000 --> 00:01:48,000
+eles testam o aplicativo em um nvel alto, como um
+
+28
+00:01:48,000 --> 00:01:52,000
+usurio final, ento, eles executam o aplicativo e o testam
+
+29
+00:01:52,000 --> 00:01:56,000
+manualmente, ou podem escrever testes automatizados que simulam um real. do utilizador.
+
+30
+00:01:56,000 --> 00:02:00,000
+De qualquer forma, eles no se importam com a implementao interna.
+

@@ -1,0 +1,332 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, ns escrevemos um teste de unidade
+
+2
+00:00:04,000 --> 00:00:08,000
+aqui, agora, vamos voltar rapidamente para a
+
+3
+00:00:08,000 --> 00:00:12,000
+implementao do nosso servio. Como eu lhe disse antes, ao
+
+4
+00:00:12,000 --> 00:00:16,000
+escrever testes de unidade, devemos sempre olhar para o mtodo de um
+
+5
+00:00:16,000 --> 00:00:20,000
+teste como uma caixa preta. Ento voc no deveria realmente escrever
+
+6
+00:00:20,000 --> 00:00:24,000
+linha por linha deste cdigo, e escrever testes unitrios baseados nesta implementao,
+
+7
+00:00:24,000 --> 00:00:28,000
+porque  possvel que esta implementao tenha um problema, no entanto, neste
+
+8
+00:00:28,000 --> 00:00:32,000
+caso porque eu no estou familiarizado com o domnio deste aplicativo Eu
+
+9
+00:00:32,000 --> 00:00:36,000
+tenho que confiar nessa implementao. Ento vamos ver o
+
+10
+00:00:36,000 --> 00:00:40,000
+que est acontecendo aqui. Quando estamos interagindo com essas
+
+11
+00:00:40,000 --> 00:00:44,000
+governantas,  possvel que algumas delas no tenham um e-mail.
+
+12
+00:00:44,000 --> 00:00:48,000
+Neste caso, voc vai passar para a prxima governanta, e isso significa que voc
+
+13
+00:00:48,000 --> 00:00:52,000
+no deve criar uma declarao para eles. Isso significa que h uma
+
+14
+00:00:52,000 --> 00:00:56,000
+exigncia comercial para isso, porque se a governanta no tiver
+
+15
+00:00:56,000 --> 00:01:00,000
+um e-mail, no queremos desperdiar recursos gerando uma declarao para
+
+16
+00:01:00,000 --> 00:01:04,000
+algum que no est acessvel. Ento, vamos em frente e escreva
+
+17
+00:01:04,000 --> 00:01:08,000
+o teste para este cenrio. De volta  nossa
+
+18
+00:01:08,000 --> 00:01:12,000
+classe de teste, para economizar tempo, selecionarei esse mtodo.
+
+19
+00:01:12,000 --> 00:01:16,000
+Duplique. Ento, o cenrio  onde o
+
+20
+00:01:16,000 --> 00:01:20,000
+email da governanta  nulo. Ento,
+
+21
+00:01:20,000 --> 00:01:24,000
+HouseKeepersEmailIsNull
+
+22
+00:01:24,000 --> 00:01:28,000
+ShouldNotGenerate
+
+23
+00:01:28,000 --> 00:01:32,000
+Statement. Ento, como vamos
+
+24
+00:01:32,000 --> 00:01:36,000
+simular esse cenrio? Bem, ns definimos um
+
+25
+00:01:36,000 --> 00:01:40,000
+objeto de governanta aqui. Ento, antes de agir, podemos
+
+26
+00:01:40,000 --> 00:01:44,000
+definir o email como null. Ento, aqui
+
+27
+00:01:44,000 --> 00:01:48,000
+mesmo. Ento, essa  a parte
+
+28
+00:01:48,000 --> 00:01:52,000
+do organizador, dona de casa. Email
+
+29
+00:01:52,000 --> 00:01:56,000
+null. Agora, como podemos
+
+30
+00:01:56,000 --> 00:02:00,000
+verificar que um determinado mtodo como
+
+31
+00:02:00,000 --> 00:02:04,000
+SaveStatement no  chamado. Este mtodo de verificao que est
+
+32
+00:02:04,000 --> 00:02:08,000
+disponvel com todos os objetos de simulao, tem um segundo argumento opcional.
+
+33
+00:02:08,000 --> 00:02:12,000
+Com este argumento, podemos especificar quantas vezes um
+
+34
+00:02:12,000 --> 00:02:16,000
+determinado mtodo, neste caso, SaveStatement deve ser chamado.
+
+35
+00:02:16,000 --> 00:02:20,000
+Ento, como o segundo argumento do
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo verify, passamos Times, que 
+
+37
+00:02:24,000 --> 00:02:28,000
+uma enumerao, aqui temos membros, como
+
+38
+00:02:28,000 --> 00:02:32,000
+AtLeast AtMost, Between, Exatamente e assim por diante.
+
+39
+00:02:32,000 --> 00:02:36,000
+Ns vamos usar o Never. Ento isso significa que esse
+
+40
+00:02:36,000 --> 00:02:40,000
+mtodo nunca deve ser chamado. Vamos rodar esse teste.
+
+41
+00:02:40,000 --> 00:02:44,000
+Ok, o teste passou, eu quero ter certeza de que
+
+42
+00:02:44,000 --> 00:02:48,000
+estou testando a coisa certa. Ento, vamos voltar ao
+
+43
+00:02:48,000 --> 00:02:52,000
+nosso servio e comentar a linha que faria
+
+44
+00:02:52,000 --> 00:02:56,000
+o teste passar. Ento, aqui est a
+
+45
+00:02:56,000 --> 00:03:00,000
+linha, comente, de volta ao nosso teste, vamos
+
+46
+00:03:00,000 --> 00:03:04,000
+executar isso mais uma vez, deve falhar agora.
+
+47
+00:03:04,000 --> 00:03:08,000
+Ok, falhou, linda.
+
+48
+00:03:08,000 --> 00:03:12,000
+Ento, vamos remover o comentrio, agora ao lidar
+
+49
+00:03:12,000 --> 00:03:16,000
+com strings, devemos verificar tanto o espao nulo
+
+50
+00:03:16,000 --> 00:03:20,000
+quanto o branco. Portanto, o que est faltando nessa implementao
+
+51
+00:03:20,000 --> 00:03:24,000
+ a verificao de um email que  uma string vazia ou de uma
+
+52
+00:03:24,000 --> 00:03:28,000
+string vazia com espao em branco. Mas eu no vou modificar
+
+53
+00:03:28,000 --> 00:03:32,000
+este cdigo ainda, vou escrever o teste, esse teste deve falhar.
+
+54
+00:03:32,000 --> 00:03:36,000
+Ento, ns vamos voltar, consertar o cdigo, e ento
+
+55
+00:03:36,000 --> 00:03:40,000
+nosso teste deve passar. Ento, voltemos  nossa aula de teste.
+
+56
+00:03:40,000 --> 00:03:44,000
+Vamos duplicar este ltimo teste.
+
+57
+00:03:44,000 --> 00:03:48,000
+Agora o
+
+58
+00:03:48,000 --> 00:03:52,000
+cenrio  HouseKeeperEmailIsWhiteSpace.
+
+59
+00:03:52,000 --> 00:03:56,000
+Espao Branco. Ento, vou definir isso para
+
+60
+00:03:56,000 --> 00:04:00,000
+espaos em branco como este. Novamente, nossa assero 
+
+61
+00:04:00,000 --> 00:04:04,000
+a mesma, o mtodo SaveStatement no deve ser chamado.
+
+62
+00:04:04,000 --> 00:04:08,000
+Vamos executar o teste.
+
+63
+00:04:08,000 --> 00:04:12,000
+Obviamente, voc pode ver que este teste falhou, ento vamos
+
+64
+00:04:12,000 --> 00:04:16,000
+voltar ao cdigo de produo e modificar essa declarao If
+
+65
+00:04:16,000 --> 00:04:20,000
+para algo como isto. Ento, se
+
+66
+00:04:20,000 --> 00:04:24,000
+String IsNullOrWhiteSpace, ento passamos
+
+67
+00:04:24,000 --> 00:04:28,000
+a governanta. E-mail aqui
+
+68
+00:04:28,000 --> 00:04:32,000
+De volta ao nosso teste, vamos escrever mais uma vez.
+
+69
+00:04:32,000 --> 00:04:36,000
+Desta vez passou. Ento, temos um pequeno
+
+70
+00:04:36,000 --> 00:04:40,000
+bug no cdigo, e ele pode pegar isso
+
+71
+00:04:40,000 --> 00:04:44,000
+com este teste unitrio. Agora, e se o e-mail for
+
+72
+00:04:44,000 --> 00:04:48,000
+uma string vazia, no o White Space? Bem, com esta nova implementao, no devemos ter problemas.
+
+73
+00:04:48,000 --> 00:04:52,000
+Mas vamos verificar isso. Ento, vou selecionar esse
+
+74
+00:04:52,000 --> 00:04:56,000
+cdigo, duplic-lo e, dessa vez, configurar o email
+
+75
+00:04:56,000 --> 00:05:00,000
+para uma string vazia. E devemos
+
+76
+00:05:00,000 --> 00:05:04,000
+tambm mudar o cenrio
+
+77
+00:05:04,000 --> 00:05:08,000
+para HouseKeeperEmailIs Empty. Vamos fazer o teste, aqui
+
+78
+00:05:08,000 --> 00:05:12,000
+est nosso novo teste, lindo. Ento, se email for
+
+79
+00:05:12,000 --> 00:05:16,000
+null, string vazia ou espao em branco, no
+
+80
+00:05:16,000 --> 00:05:20,000
+geraremos uma instruo, bonito. Agora, de volta ao
+
+81
+00:05:20,000 --> 00:05:24,000
+nosso servio, uma vez que geramos uma declarao,
+
+82
+00:05:24,000 --> 00:05:28,000
+devemos envi-la por e-mail para a governanta, e
+
+83
+00:05:28,000 --> 00:05:32,000
+ para isso que vamos ver na prxima palestra.
+

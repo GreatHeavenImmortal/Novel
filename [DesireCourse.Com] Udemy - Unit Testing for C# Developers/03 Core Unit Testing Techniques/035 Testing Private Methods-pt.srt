@@ -1,0 +1,588 @@
+1
+00:00:00,000 --> 00:00:04,000
+Uma das perguntas que recebo muito
+
+2
+00:00:04,000 --> 00:00:08,000
+ Mosh, como devo testar meus
+
+3
+00:00:08,000 --> 00:00:12,000
+mtodos privados ou protegidos? A resposta : no os teste, voc no deveria.
+
+4
+00:00:12,000 --> 00:00:16,000
+Porque esses mtodos so implementados detalhadamente.
+
+5
+00:00:16,000 --> 00:00:20,000
+O que quero dizer com isso? Pense em um aparelho de DVD. Um leitor de
+
+6
+00:00:20,000 --> 00:00:24,000
+DVD tem alguns botes no lado de fora, mas uma
+
+7
+00:00:24,000 --> 00:00:28,000
+placa lgica complexa no interior. O que voc v no
+
+8
+00:00:28,000 --> 00:00:32,000
+exterior  o que chamamos de API pblica ou a
+
+9
+00:00:32,000 --> 00:00:36,000
+interface pblica de um DVD player. O que est dentro dessa caixa preta que no
+
+10
+00:00:36,000 --> 00:00:40,000
+vemos  o que chamamos de detalhes de implementao. Uma implementao pode mudar
+
+11
+00:00:40,000 --> 00:00:44,000
+de uma verso para outra. Mas os botes do lado
+
+12
+00:00:44,000 --> 00:00:48,000
+de fora continuam os mesmos. Na programao orientada a objeto,
+
+13
+00:00:48,000 --> 00:00:52,000
+queremos projetar nossas classes como um reprodutor de DVD, portanto,
+
+14
+00:00:52,000 --> 00:00:56,000
+queremos ter poucos membros pblicos, e esses membros representam a
+
+15
+00:00:56,000 --> 00:01:00,000
+API pblica ou a interface pblica de nossas classes.
+
+16
+00:01:00,000 --> 00:01:04,000
+Membros privados e protegidos representam os
+
+17
+00:01:04,000 --> 00:01:08,000
+detalhes da implementao. Mas eles podem mudar facilmente  medida
+
+18
+00:01:08,000 --> 00:01:12,000
+que voc refatorar e reestruturar seu cdigo. Existem ferramentas que
+
+19
+00:01:12,000 --> 00:01:16,000
+permitem escrever testes contra membros privados.
+
+20
+00:01:16,000 --> 00:01:20,000
+Ou voc pode tornar um membro privado pblico e test-lo, mas
+
+21
+00:01:20,000 --> 00:01:24,000
+voc no deve fazer isso, porque quando voc escreve testes que
+
+22
+00:01:24,000 --> 00:01:28,000
+usam membros privados, seus testes so acoplados a um detalhe de implementao.
+
+23
+00:01:28,000 --> 00:01:32,000
+E quando voc alterar essa implementao, esses testes sero interrompidos. Eles ficam no caminho
+
+24
+00:01:32,000 --> 00:01:36,000
+e eles te atrapalham. Deixe-me mostrar-lhe este conceito em ao.
+
+25
+00:01:36,000 --> 00:01:40,000
+Ento, de volta  nossa classe logger de
+
+26
+00:01:40,000 --> 00:01:44,000
+erros, enterrei o mtodo log, apague este evento ErrorLogged.
+
+27
+00:01:44,000 --> 00:01:48,000
+Agora, para esta demonstrao, quero extrair essa linha e coloc-la em
+
+28
+00:01:48,000 --> 00:01:52,000
+um mtodo virtual vazio protegido. Ento, voc provavelmente j
+
+29
+00:01:52,000 --> 00:01:56,000
+viu essa conveno antes. Vazio
+
+30
+00:01:56,000 --> 00:02:00,000
+virtual protegido OnErrorLine.
+
+31
+00:02:00,000 --> 00:02:04,000
+Portanto, esse mtodo pode ter um parmetro, como guid,
+
+32
+00:02:04,000 --> 00:02:08,000
+que seria o ID do erro, e isso 
+
+33
+00:02:08,000 --> 00:02:12,000
+responsvel por aumentar o evento. Ento, vou cortar
+
+34
+00:02:12,000 --> 00:02:16,000
+essa linha e coloc-la aqui.
+
+35
+00:02:16,000 --> 00:02:20,000
+E substitua este novo guid pelo
+
+36
+00:02:20,000 --> 00:02:24,000
+ID do erro. Agora, vou chamar
+
+37
+00:02:24,000 --> 00:02:28,000
+OnErrorLogged e gui-lo neste novo guia.
+
+38
+00:02:28,000 --> 00:02:32,000
+Portanto, esta  uma conveno que voc provavelmente j viu os aplicativos l fora.
+
+39
+00:02:32,000 --> 00:02:36,000
+Esse mtodo que temos aqui  um detalhe de implementao.
+
+40
+00:02:36,000 --> 00:02:40,000
+Pode mudar de uma verso para outra. Portanto, no devemos escrever testes
+
+41
+00:02:40,000 --> 00:02:44,000
+contra esse mtodo, em vez disso, devemos escrever testes do
+
+42
+00:02:44,000 --> 00:02:48,000
+nosso mtodo de log. Ento deixe-me mostrar o que acontece
+
+43
+00:02:48,000 --> 00:02:52,000
+quando voc escreve testes para este mtodo. Antes de prosseguirmos, vamos
+
+44
+00:02:52,000 --> 00:02:56,000
+voltar ao nosso teste do logger de erros,
+
+45
+00:02:56,000 --> 00:03:00,000
+aqui temos alguns testes, e todos eles esto
+
+46
+00:03:00,000 --> 00:03:04,000
+testando o mtodo log. Vamos executar este teste
+
+47
+00:03:04,000 --> 00:03:08,000
+e garantir que todos eles estejam passando.
+
+48
+00:03:08,000 --> 00:03:12,000
+Assim, podemos ver que todos esses testes esto passando, lindos, agora, deixe-me mostrar
+
+49
+00:03:12,000 --> 00:03:16,000
+o que voc no deveria fazer. Eu vou
+
+50
+00:03:16,000 --> 00:03:20,000
+escrever um teste para este
+
+51
+00:03:20,000 --> 00:03:24,000
+novo mtodo protegido, ento teste,
+
+52
+00:03:24,000 --> 00:03:28,000
+public void, OnErrorLogged, WhenCalled, ele
+
+53
+00:03:28,000 --> 00:03:32,000
+deve Raise Event. Agora eu vou voltar para
+
+54
+00:03:32,000 --> 00:03:36,000
+a nossa classe logger de erro, e trapacear, alterando
+
+55
+00:03:36,000 --> 00:03:40,000
+este modificador de acesso de protegido para pblico, isso
+
+56
+00:03:40,000 --> 00:03:44,000
+ ruim desde o incio, porque isso  sobre
+
+57
+00:03:44,000 --> 00:03:48,000
+detalhes de implementao. Voc no deve vazar para o exterior. Isso  como projetar
+
+58
+00:03:48,000 --> 00:03:52,000
+um DVD player que expe os chips internos ao exterior.
+
+59
+00:03:52,000 --> 00:03:56,000
+Ento, voltando ao nosso mtodo de teste, eu
+
+60
+00:03:56,000 --> 00:04:00,000
+vou criar um novo logger de erros, ErrorLogger,
+
+61
+00:04:00,000 --> 00:04:04,000
+chamar OnError Logged, dar um novo guid e
+
+62
+00:04:04,000 --> 00:04:08,000
+fazer alguma afirmao, e como eu disse na
+
+63
+00:04:08,000 --> 00:04:12,000
+ltima palestra para testar e mtodo que gera
+
+64
+00:04:12,000 --> 00:04:16,000
+um evento, primeiro voc precisa se inscrever nesse
+
+65
+00:04:16,000 --> 00:04:20,000
+evento e fazer uma afirmao, como aqui.
+
+66
+00:04:20,000 --> 00:04:24,000
+Mas, para economizar tempo, no quero repetir isso, ento s quero escrever
+
+67
+00:04:24,000 --> 00:04:28,000
+uma afirmao simples que sempre passa. Afirme isso
+
+68
+00:04:28,000 --> 00:04:32,000
+verdade. Isso realmente no importa. Agora,
+
+69
+00:04:32,000 --> 00:04:36,000
+eu vou executar este
+
+70
+00:04:36,000 --> 00:04:40,000
+teste, obviamente, passa, ok?
+
+71
+00:04:40,000 --> 00:04:44,000
+Agora, vamos ver o que acontece quando refatoramos nosso
+
+72
+00:04:44,000 --> 00:04:48,000
+cdigo e mudamos nossa implementao. Ento, de volta ao nosso logger
+
+73
+00:04:48,000 --> 00:04:52,000
+de erros, digamos que amanh ns decidimos mudar a assinatura deste mtodo,
+
+74
+00:04:52,000 --> 00:04:56,000
+e ao invs de passar o ID de erro aqui, armazenando o
+
+75
+00:04:56,000 --> 00:05:00,000
+ID do erro, em um campo privado. Por exemplo, podemos introduzir
+
+76
+00:05:00,000 --> 00:05:04,000
+um campo aqui, private, guid, sublinhando a
+
+77
+00:05:04,000 --> 00:05:08,000
+escrita de erros. Portanto, em nosso
+
+78
+00:05:08,000 --> 00:05:12,000
+mtodo log, antes de chamar OnErrorLogged, em
+
+79
+00:05:12,000 --> 00:05:16,000
+vez de passar isso como um argumento,
+
+80
+00:05:16,000 --> 00:05:20,000
+vamos configurar errorId com um novo guid,
+
+81
+00:05:20,000 --> 00:05:24,000
+e aqui vamos remover esse parmetro e
+
+82
+00:05:24,000 --> 00:05:28,000
+simplesmente ler um campo privado.
+
+83
+00:05:28,000 --> 00:05:32,000
+Ento, ns mudamos nossa implementao, refatoramos nosso cdigo,
+
+84
+00:05:32,000 --> 00:05:36,000
+reestruturamos, certo? Agora adivinha o que? Nosso teste quebrou,
+
+85
+00:05:36,000 --> 00:05:40,000
+vamos dar uma olhada. Temos que mudar
+
+86
+00:05:40,000 --> 00:05:44,000
+este teste e remover esse argumento.
+
+87
+00:05:44,000 --> 00:05:48,000
+Agora, esse  um aplicativo simplificado e temos apenas um nico teste para
+
+88
+00:05:48,000 --> 00:05:52,000
+esse mtodo, mas em um aplicativo do mundo real voc pode ter dez
+
+89
+00:05:52,000 --> 00:05:56,000
+ou vinte testes para um determinado mtodo. Agora, ao refatorar o cdigo,  medida
+
+90
+00:05:56,000 --> 00:06:00,000
+que voc altera a implementao, todos esses testes sero interrompidos, pelo menos este projeto
+
+91
+00:06:00,000 --> 00:06:04,000
+de teste no estar em conformidade. Voc tem que passar por cada mtodo de
+
+92
+00:06:04,000 --> 00:06:08,000
+teste e fazer as alteraes necessrias, apenas para ter certeza de que o projeto de teste est
+
+93
+00:06:08,000 --> 00:06:12,000
+em conformidade e, em seguida, voc precisa executar o teste para ver se eles esto aprovados, certo?
+
+94
+00:06:12,000 --> 00:06:16,000
+Ento, vou remover isso, agora de
+
+95
+00:06:16,000 --> 00:06:20,000
+volta em ErrorLogger, digamos que amanh
+
+96
+00:06:20,000 --> 00:06:24,000
+eu decida refatorar esse cdigo e
+
+97
+00:06:24,000 --> 00:06:28,000
+largar totalmente esse mtodo. Ento, vou decidir elevar diretamente o
+
+98
+00:06:28,000 --> 00:06:32,000
+evento dentro do mtodo log. Ento corte
+
+99
+00:06:32,000 --> 00:06:36,000
+isso daqui e eleve
+
+100
+00:06:36,000 --> 00:06:40,000
+o evento assim. Agora, vou excluir esse mtodo.
+
+101
+00:06:40,000 --> 00:06:44,000
+Ento eu mudei a implementao. Agora adivinha o que?
+
+102
+00:06:44,000 --> 00:06:48,000
+Nosso teste foi quebrado novamente. Veja, estamos testando um
+
+103
+00:06:48,000 --> 00:06:52,000
+mtodo que no existe mais, ento esse 
+
+104
+00:06:52,000 --> 00:06:56,000
+o problema de testar membros privados ou protegidos.
+
+105
+00:06:56,000 --> 00:07:00,000
+Eles so sobre detalhes de implementao, e eles podem
+
+106
+00:07:00,000 --> 00:07:04,000
+mudar facilmente, e voc (? ) escrever testes para esses mtodos, nossos testes
+
+107
+00:07:04,000 --> 00:07:08,000
+se tornam muito frgeis e quebram com frequncia. Agora deixe-me mostrar uma coisa.
+
+108
+00:07:08,000 --> 00:07:12,000
+Eu vou deletar esse teste, ento
+
+109
+00:07:12,000 --> 00:07:16,000
+na ltima aula. Escrevemos este teste para o mtodo de log
+
+110
+00:07:16,000 --> 00:07:20,000
+para garantir que ele gera o evento correto. Este  o caminho certo
+
+111
+00:07:20,000 --> 00:07:24,000
+para testar essa classe, estamos testando apenas a API pblica
+
+112
+00:07:24,000 --> 00:07:28,000
+ou a interface pblica. Agora vamos dar uma olhada na implementao atual.
+
+113
+00:07:28,000 --> 00:07:32,000
+Ento, atualmente, voc est aumentando
+
+114
+00:07:32,000 --> 00:07:36,000
+o evento assim. Se amanh eu decidir
+
+115
+00:07:36,000 --> 00:07:40,000
+extrair esta linha e coloc-la dentro do mtodo virtual
+
+116
+00:07:40,000 --> 00:07:44,000
+protegido, meu teste ainda passar. Vamos fazer mais uma vez.
+
+117
+00:07:44,000 --> 00:07:48,000
+Ento, void
+
+118
+00:07:48,000 --> 00:07:52,000
+virtual protegido OnErrorLogged.
+
+119
+00:07:52,000 --> 00:07:56,000
+Ento eu vou cortar essa linha daqui, e colocar aqui,
+
+120
+00:07:56,000 --> 00:08:00,000
+eu mudei a implementao mas mantive a API pblica, ou
+
+121
+00:08:00,000 --> 00:08:04,000
+a interface pblica igual. Agora, se formos aos nossos
+
+122
+00:08:04,000 --> 00:08:08,000
+testes, vamos nos certificar de chamar esse mtodo OnErrorLogged.
+
+123
+00:08:08,000 --> 00:08:12,000
+Agora vamos voltar aos nossos testes, agora que meu
+
+124
+00:08:12,000 --> 00:08:16,000
+teste est quebrado, vamos rodar todos eles e ver.
+
+125
+00:08:16,000 --> 00:08:20,000
+Olha, eles esto todos passando. Bonita.
+
+126
+00:08:20,000 --> 00:08:24,000
+Agora, de volta ao nosso registrador de erros, digamos
+
+127
+00:08:24,000 --> 00:08:28,000
+que amanh decidimos alterar essa implementao, ento, em vez
+
+128
+00:08:28,000 --> 00:08:32,000
+de usar esse campo privado, podemos preferir passar um
+
+129
+00:08:32,000 --> 00:08:36,000
+argumento para esse mtodo. Ento ns passamos pelo caminho. NewGuid.  claro que
+
+130
+00:08:36,000 --> 00:08:40,000
+adicionamos um parmetro
+
+131
+00:08:40,000 --> 00:08:44,000
+Guid error Id e usamos isso aqui. Mais uma vez, mudamos a implementao, mas nenhum
+
+132
+00:08:44,000 --> 00:08:48,000
+dos nossos testes foi
+
+133
+00:08:48,000 --> 00:08:52,000
+quebrado, porque estamos testando a API pblica, a
+
+134
+00:08:52,000 --> 00:08:56,000
+interface pblica, que deve ser pequena e leve. Agora, se nas suas aplicaes voc tem um pblico que chama
+
+135
+00:08:56,000 --> 00:09:00,000
+um mtodo privado e esse mtodo
+
+136
+00:09:00,000 --> 00:09:04,000
+privado tambm chama outro mtodo privado, talvez voc tenha uma cadeia
+
+137
+00:09:04,000 --> 00:09:08,000
+de mtodos privados, e cada mtodo privado tem cinco a dez
+
+138
+00:09:08,000 --> 00:09:12,000
+linhas de lgica, nesse caso se Se voc quiser escrever todos
+
+139
+00:09:12,000 --> 00:09:16,000
+os testes para o mtodo pblico, seus testes ficaro to complicados.
+
+140
+00:09:16,000 --> 00:09:20,000
+Talvez voc tenha muitos caminhos de execuo. Se for esse o caso, isso pode ser um sintoma de uma
+
+141
+00:09:20,000 --> 00:09:24,000
+mgica de design em seu aplicativo.
+
+142
+00:09:24,000 --> 00:09:28,000
+Ento,  provvel que esses mtodos privados gordos
+
+143
+00:09:28,000 --> 00:09:32,000
+no devam ser mtodos privados nessa classe. Talvez eles pertenam a uma classe separada, e
+
+144
+00:09:32,000 --> 00:09:36,000
+l eles podem ser
+
+145
+00:09:36,000 --> 00:09:40,000
+mtodos pblicos que podem ser reutilizados em outros casos. Nesse caso, voc move esses mtodos privados para uma nova classe, torna-os
+
+146
+00:09:40,000 --> 00:09:44,000
+pblicos e, adequadamente, testa essa classe.
+
+147
+00:09:44,000 --> 00:09:48,000
+&nbsp;
+

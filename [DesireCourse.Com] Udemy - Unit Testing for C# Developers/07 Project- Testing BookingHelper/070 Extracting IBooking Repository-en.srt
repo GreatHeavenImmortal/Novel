@@ -1,0 +1,467 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, so back in our solution explorer,
+
+2
+00:00:04,000 --> 00:00:08,000
+inside the Mocking folder, let's add a new class called
+
+3
+00:00:08,000 --> 00:00:12,000
+BookingRepository. So we're going to encapsulate that
+
+4
+00:00:12,000 --> 00:00:16,000
+query inside a repository class. Or you can call this
+
+5
+00:00:16,000 --> 00:00:20,000
+BookingStorage. Whatever you prefer.
+
+6
+00:00:20,000 --> 00:00:24,000
+So, here we should have a method, that returns
+
+7
+00:00:24,000 --> 00:00:28,000
+an IQueryable object.
+
+8
+00:00:28,000 --> 00:00:32,000
+of booking. Why IQueryable?
+
+9
+00:00:32,000 --> 00:00:36,000
+because if you look at the booking helper class,
+
+10
+00:00:36,000 --> 00:00:40,000
+look at this implementation. It's using unitOfWork.Query
+
+11
+00:00:40,000 --> 00:00:44,000
+of Booking, and here's the logic for the query.
+
+12
+00:00:44,000 --> 00:00:48,000
+So this method returns an IQueryableObject, and further
+
+13
+00:00:48,000 --> 00:00:52,000
+below, we are customizing that query even
+
+14
+00:00:52,000 --> 00:00:56,000
+further. Okay? So, back in Booking
+
+15
+00:00:56,000 --> 00:01:00,000
+Repository, we should return an IQueryable of Booking
+
+16
+00:01:00,000 --> 00:01:04,000
+and let's call this method GetActive
+
+17
+00:01:04,000 --> 00:01:08,000
+Bookings. Now, back in the
+
+18
+00:01:08,000 --> 00:01:12,000
+BookingHelper class, let's move these few lines
+
+19
+00:01:12,000 --> 00:01:16,000
+where we touch the database,
+
+20
+00:01:16,000 --> 00:01:20,000
+inside our BookingRepository.
+
+21
+00:01:20,000 --> 00:01:24,000
+And here we return bookings. Now here we have
+
+22
+00:01:24,000 --> 00:01:28,000
+a compilation issue, and we're going to fix that in a second, but I want to tell you
+
+23
+00:01:28,000 --> 00:01:32,000
+another way to refactor this code. Instead of extracting
+
+24
+00:01:32,000 --> 00:01:36,000
+these few lines, we could extract an interface
+
+25
+00:01:36,000 --> 00:01:40,000
+from unit of work class, so instead of instantiating
+
+26
+00:01:40,000 --> 00:01:44,000
+this unit of work inside our BookingHelper here,
+
+27
+00:01:44,000 --> 00:01:48,000
+we could inject a IUnit of work, then,
+
+28
+00:01:48,000 --> 00:01:52,000
+in our unit tests, we could mock the Unit of work interface.
+
+29
+00:01:52,000 --> 00:01:56,000
+So that approach is perfectly fine. However,
+
+30
+00:01:56,000 --> 00:02:00,000
+the reason I extracted these few lines,
+
+31
+00:02:00,000 --> 00:02:04,000
+is because I want to encapsulate this query inside this method.
+
+32
+00:02:04,000 --> 00:02:08,000
+And this is for better separation of concerns. Because it is
+
+33
+00:02:08,000 --> 00:02:12,000
+possible that somewhere else in the application, you want to get the list of
+
+34
+00:02:12,000 --> 00:02:16,000
+active bookings. Perhaps you want to display them somewhere
+
+35
+00:02:16,000 --> 00:02:20,000
+for admins. In that case, we don't want to repeat this logic
+
+36
+00:02:20,000 --> 00:02:24,000
+specifically the part where we check the status of the
+
+37
+00:02:24,000 --> 00:02:28,000
+booking. We don't want to repeat this in multiple places. And that's why
+
+38
+00:02:28,000 --> 00:02:32,000
+we use the repository pattern to encapsulate queries and put them where
+
+39
+00:02:32,000 --> 00:02:36,000
+where they really belong. Now you might ask, how come
+
+40
+00:02:36,000 --> 00:02:40,000
+I didn't extract these additional lines here, because this is
+
+41
+00:02:40,000 --> 00:02:44,000
+the logic specifically for this method.
+
+42
+00:02:44,000 --> 00:02:48,000
+Because once we put active bookings, then we can see
+
+43
+00:02:48,000 --> 00:02:52,000
+if there is an overlap between any of those bookings
+
+44
+00:02:52,000 --> 00:02:56,000
+and the booking object we pass here. Okay?
+
+45
+00:02:56,000 --> 00:03:00,000
+So, back in our booking repository, here
+
+46
+00:03:00,000 --> 00:03:04,000
+we have this compilation issue, because we don't have the ID of this
+
+47
+00:03:04,000 --> 00:03:08,000
+booking. So, I'm going to add a parameter to this method,
+
+48
+00:03:08,000 --> 00:03:12,000
+we only need an ID, not a booking object, so I want to pass,
+
+49
+00:03:12,000 --> 00:03:16,000
+an integer, and call that excluded booking
+
+50
+00:03:16,000 --> 00:03:20,000
+ID. Now, it is possible, that somewhere else in our
+
+51
+00:03:20,000 --> 00:03:24,000
+application, we want to call this method get active bookings
+
+52
+00:03:24,000 --> 00:03:28,000
+without passing a booking ID to exclude. We just
+
+53
+00:03:28,000 --> 00:03:32,000
+want to see all the active bookings in the application. So,
+
+54
+00:03:32,000 --> 00:03:36,000
+I want to make this nullible
+
+55
+00:03:36,000 --> 00:03:40,000
+and set it to null, and this way this will be an optional
+
+56
+00:03:40,000 --> 00:03:44,000
+argument. Now, we need to modify this query
+
+57
+00:03:44,000 --> 00:03:48,000
+like this. So, first we check only for the status
+
+58
+00:03:48,000 --> 00:03:52,000
+of the booking, let's delete the first part, where we check the
+
+59
+00:03:52,000 --> 00:03:56,000
+ID of the booking, now if our parameter
+
+60
+00:03:56,000 --> 00:04:00,000
+has a value, so excludedBookingiD.HasValue
+
+61
+00:04:00,000 --> 00:04:04,000
+will further customize this query.
+
+62
+00:04:04,000 --> 00:04:08,000
+So, we set bookings, which is an IQueryable object,
+
+63
+00:04:08,000 --> 00:04:12,000
+to bookings.Where, and here we write some
+
+64
+00:04:12,000 --> 00:04:16,000
+additional querying logic. So b goes to, and now we
+
+65
+00:04:16,000 --> 00:04:20,000
+paste the part that we cut. And finally,
+
+66
+00:04:20,000 --> 00:04:24,000
+let's modify this. You want to compare, b.Id with
+
+67
+00:04:24,000 --> 00:04:28,000
+excluded booking ID.value.
+
+68
+00:04:28,000 --> 00:04:32,000
+So with this technique, I can construct dynamic queries.
+
+69
+00:04:32,000 --> 00:04:36,000
+And by the way, here I actually cheated, because I shouldn't
+
+70
+00:04:36,000 --> 00:04:40,000
+have modified the logic in this method, without covering
+
+71
+00:04:40,000 --> 00:04:44,000
+it with an integration test. Because it is possible
+
+72
+00:04:44,000 --> 00:04:48,000
+that you make a mistake as part of breaking this logic in
+
+73
+00:04:48,000 --> 00:04:52,000
+to some kind of dynamically constructed logic.
+
+74
+00:04:52,000 --> 00:04:56,000
+However, because our focus is on unit tests in this course,
+
+75
+00:04:56,000 --> 00:05:00,000
+and integration tests is a topic for another course,
+
+76
+00:05:00,000 --> 00:05:04,000
+we cannot write an integration test for this method. But once you learn integration
+
+77
+00:05:04,000 --> 00:05:08,000
+testing, in your applications, before you do any refactoring,
+
+78
+00:05:08,000 --> 00:05:12,000
+it's always best to write enough to write enough to write
+
+79
+00:05:12,000 --> 00:05:16,000
+proper unit and or integration tests for a method, to make sure,
+
+80
+00:05:16,000 --> 00:05:20,000
+as part of your refactoring you're not breaking anything. Okay.
+
+81
+00:05:20,000 --> 00:05:24,000
+So, here we have a repository class that encapsulates
+
+82
+00:05:24,000 --> 00:05:28,000
+the logic for getting active queries. Now we need to
+
+83
+00:05:28,000 --> 00:05:32,000
+extract an interface from this class. So alt and enter.
+
+84
+00:05:32,000 --> 00:05:36,000
+Refactor, and extract interface.
+
+85
+00:05:36,000 --> 00:05:40,000
+Let's add this method here, next,
+
+86
+00:05:40,000 --> 00:05:44,000
+and here's our interface. Beautiful.
+
+87
+00:05:44,000 --> 00:05:48,000
+Now, back in our Booking Helper class, we need to inject
+
+88
+00:05:48,000 --> 00:05:52,000
+an instance of a class that implements IBookingRepository
+
+89
+00:05:52,000 --> 00:05:56,000
+interface. As you learned before, you can inject it as a
+
+90
+00:05:56,000 --> 00:06:00,000
+parameter here, or using a property, or using
+
+91
+00:06:00,000 --> 00:06:04,000
+a constructor for this class. However, you can see that this method is declared
+
+92
+00:06:04,000 --> 00:06:08,000
+as static. So we can't use constructor,
+
+93
+00:06:08,000 --> 00:06:12,000
+or property injection here. So we have two options. One is
+
+94
+00:06:12,000 --> 00:06:16,000
+to inject this dependency using a parameter in this method, or
+
+95
+00:06:16,000 --> 00:06:20,000
+remove the static modifier, and make this method an instance
+
+96
+00:06:20,000 --> 00:06:24,000
+method, and then we can use constructor injection. Most of these approaches
+
+97
+00:06:24,000 --> 00:06:28,000
+heave problems. The problem with the first approach is that the
+
+98
+00:06:28,000 --> 00:06:32,000
+dependency injection framework you use may not support parameter
+
+99
+00:06:32,000 --> 00:06:36,000
+injection. It may only support constructor injection. If that's
+
+100
+00:06:36,000 --> 00:06:40,000
+the case, you really need to modify this method and remove the static modifier.
+
+101
+00:06:40,000 --> 00:06:44,000
+But the problem with this approach is that maybe you have used this method
+
+102
+00:06:44,000 --> 00:06:48,000
+in a few different places in the application, and you have to go and modify all
+
+103
+00:06:48,000 --> 00:06:52,000
+those places. And chances are you may break something along the way.
+
+104
+00:06:52,000 --> 00:06:56,000
+So these are our constraints, for the rest of the section
+
+105
+00:06:56,000 --> 00:07:00,000
+I'm assuming that the dependency injection framework you potentially
+
+106
+00:07:00,000 --> 00:07:04,000
+use in our application does support parameter injection.
+
+107
+00:07:04,000 --> 00:07:08,000
+And it is too costly to modify this method, and make it an instance
+
+108
+00:07:08,000 --> 00:07:12,000
+method. So, with that assumption, I'm going to add
+
+109
+00:07:12,000 --> 00:07:16,000
+IBookingRepository as a parameter here, and call
+
+110
+00:07:16,000 --> 00:07:20,000
+it repository. Then, we can
+
+111
+00:07:20,000 --> 00:07:24,000
+get all the active bookings. So var bookings,
+
+112
+00:07:24,000 --> 00:07:28,000
+set it to repository.GetActiveBookings
+
+113
+00:07:28,000 --> 00:07:32,000
+and we pass booking.Id as an
+
+114
+00:07:32,000 --> 00:07:36,000
+argument here. So now, our
+
+115
+00:07:36,000 --> 00:07:40,000
+method is loosely coupled, and it's ready for testing. In the next lecture,
+
+116
+00:07:40,000 --> 00:07:44,000
+we're going to write our first unit test.
+
+
+
+

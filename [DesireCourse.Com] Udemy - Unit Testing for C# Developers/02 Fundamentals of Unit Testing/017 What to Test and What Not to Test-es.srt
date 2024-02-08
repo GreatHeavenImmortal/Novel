@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:04,000
+Una de las preguntas ms comunes que recibo es
+
+2
+00:00:04,000 --> 00:00:08,000
+"Mosh, no s qu probar! "Entonces, en esta conferencia voy a
+
+3
+00:00:08,000 --> 00:00:12,000
+darte una receta simple que te guiar cuando escribas las pruebas.
+
+4
+00:00:12,000 --> 00:00:16,000
+Muchas veces, cuando no sabes qu probar, es probable que sea porque ests
+
+5
+00:00:16,000 --> 00:00:20,000
+tratando con un cdigo mal escrito. Cuando sus mtodos tienen ms de 10 lneas de cdigo,
+
+6
+00:00:20,000 --> 00:00:24,000
+por supuesto que no sabe qu probar y cmo! Incluso yo no
+
+7
+00:00:24,000 --> 00:00:28,000
+tendra ni idea! Es por eso que digo que las pruebas
+
+8
+00:00:28,000 --> 00:00:32,000
+unitarias y la codificacin limpia van de la mano. Si su cdigo est limpio y
+
+9
+00:00:32,000 --> 00:00:36,000
+estructurado correctamente, es ms fcil de probar. Ahora, suponiendo que su
+
+10
+00:00:36,000 --> 00:00:40,000
+cdigo est limpio, como regla general, debe probar
+
+11
+00:00:40,000 --> 00:00:44,000
+el resultado de una funcin. En la programacin, tenemos dos tipos de funciones.
+
+12
+00:00:44,000 --> 00:00:48,000
+consultas y comandos. Las funciones de consulta
+
+13
+00:00:48,000 --> 00:00:52,000
+devuelven algn valor. No necesariamente tienen que consultar una base de datos!
+
+14
+00:00:52,000 --> 00:00:56,000
+Esto solo significa que su papel es devolver algo de valor.
+
+15
+00:00:56,000 --> 00:01:00,000
+Por lo tanto, para probar una funcin de consulta, debe escribir una
+
+16
+00:01:00,000 --> 00:01:04,000
+prueba y verificar que su funcin est devolviendo el valor correcto.
+
+17
+00:01:04,000 --> 00:01:08,000
+Ahora, puede tener mltiples rutas de ejecucin en esa funcin. En ese caso, debe probar
+
+18
+00:01:08,000 --> 00:01:12,000
+todas las rutas de ejecucin y asegurarse de que cada
+
+19
+00:01:12,000 --> 00:01:16,000
+ruta de ejecucin d como resultado el valor correcto.
+
+20
+00:01:16,000 --> 00:01:20,000
+Un mtodo de comando realiza una accin.
+
+21
+00:01:20,000 --> 00:01:24,000
+Esto a menudo implica cambiar el estado de un objeto en la memoria,
+
+22
+00:01:24,000 --> 00:01:28,000
+y / o escribir en una base de datos, o llamar a un
+
+23
+00:01:28,000 --> 00:01:32,000
+servicio web o enviar un mensaje a una cola de mensajes, y as sucesivamente.
+
+24
+00:01:32,000 --> 00:01:36,000
+Todos estos son comandos, estn haciendo un cambio en el sistema.
+
+25
+00:01:36,000 --> 00:01:40,000
+Tales funciones pueden devolver un valor tambin. Por ejemplo, el mtodo que crea
+
+26
+00:01:40,000 --> 00:01:44,000
+un nuevo pedido y lo escribe en una base de datos puede
+
+27
+00:01:44,000 --> 00:01:48,000
+devolver un objeto de pedido que puede incluir un ID nico.
+
+28
+00:01:48,000 --> 00:01:52,000
+Para probar este mtodo, similar a los mtodos de consulta, debe
+
+29
+00:01:52,000 --> 00:01:56,000
+probar el resultado de este mtodo. Si el resultado es cambiar el
+
+30
+00:01:56,000 --> 00:02:00,000
+estado de un objeto en la memoria, debe probar que el objeto
+
+31
+00:02:00,000 --> 00:02:04,000
+dado ahora est en el estado correcto. Si el resultado es hablar sobre
+
+32
+00:02:04,000 --> 00:02:08,000
+un recurso externo como una base de datos o un servicio web,
+
+33
+00:02:08,000 --> 00:02:12,000
+debe verificar que la clase en la prueba est realizando la llamada
+
+34
+00:02:12,000 --> 00:02:16,000
+correcta a estas dependencias externas. Veremos cmo lidiar con las dependencias
+
+35
+00:02:16,000 --> 00:02:20,000
+externas en la siguiente seccin. Por lo tanto, tenga una receta
+
+36
+00:02:20,000 --> 00:02:24,000
+bsica sobre qu probar y cmo. Ahora, echemos un vistazo a lo que no
+
+37
+00:02:24,000 --> 00:02:28,000
+debemos probar: nunca debe probar las caractersticas del lenguaje. Por ejemplo, si tiene una clase
+
+38
+00:02:28,000 --> 00:02:32,000
+simple de C # que es principalmente una bolsa de propiedades,
+
+39
+00:02:32,000 --> 00:02:36,000
+no debe probar estas propiedades. No debe configurarlos y luego leer su valor
+
+40
+00:02:36,000 --> 00:02:40,000
+para asegurarse de que las propiedades funcionen. Porque de esta manera ests probando
+
+41
+00:02:40,000 --> 00:02:44,000
+las caractersticas del lenguaje C #! Lo mismo es cierto cuando se
+
+42
+00:02:44,000 --> 00:02:48,000
+trata de un cdigo de terceros. Por lo tanto, si est
+
+43
+00:02:48,000 --> 00:02:52,000
+utilizando una biblioteca de terceros, como cualquier marco, no debe
+
+44
+00:02:52,000 --> 00:02:56,000
+escribir pruebas sobre sus mtodos. Debes asumir que estn probados adecuadamente.
+
+45
+00:02:56,000 --> 00:03:00,000
+y solo deberas probar tu cdigo.
+

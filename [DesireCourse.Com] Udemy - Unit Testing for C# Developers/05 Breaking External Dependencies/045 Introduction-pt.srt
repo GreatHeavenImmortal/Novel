@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:04,000
+Na ltima seo, voc aprendeu os fundamentos
+
+2
+00:00:04,000 --> 00:00:08,000
+do teste de unidade. No entanto, nessa seo, nosso
+
+3
+00:00:08,000 --> 00:00:12,000
+foco estava puramente no teste de classes de utilitrios que
+
+4
+00:00:12,000 --> 00:00:16,000
+no tinham dependncias externas, como arquivos, bancos de dados, servidores
+
+5
+00:00:16,000 --> 00:00:20,000
+da Web e assim por diante. Mas no mundo real, nossos
+
+6
+00:00:20,000 --> 00:00:24,000
+aplicativos quase sempre usam um ou mais desses recursos externos.
+
+7
+00:00:24,000 --> 00:00:28,000
+Ento, voc pode estar se perguntando como podemos testar uma classe
+
+8
+00:00:28,000 --> 00:00:32,000
+que depende de um recurso externo. Bem, como eu
+
+9
+00:00:32,000 --> 00:00:36,000
+te disse antes. Seu teste de unidade
+
+10
+00:00:36,000 --> 00:00:40,000
+no deve tocar recursos externos. Um teste que toca em um recurso
+
+11
+00:00:40,000 --> 00:00:44,000
+externo  classificado como um teste de integrao, que  um tpico separado.
+
+12
+00:00:44,000 --> 00:00:48,000
+Mas voc ainda pode testar a lgica em suas
+
+13
+00:00:48,000 --> 00:00:52,000
+classes, excluindo as dependncias externas. E  isso que voc
+
+14
+00:00:52,000 --> 00:00:56,000
+vai aprender nesta seo. Ento aqui est um princpio bsico. Imagine que voc tenha
+
+15
+00:00:56,000 --> 00:01:00,000
+uma classe chamada servio de vdeo. Essa classe usa a classe de arquivo
+
+16
+00:01:00,000 --> 00:01:04,000
+para ler o contedo de um arquivo. Na sua aplicao, este servio de vdeo pode usar
+
+17
+00:01:04,000 --> 00:01:08,000
+a classe de contexto db para editar um (? ) framework para ler um
+
+18
+00:01:08,000 --> 00:01:12,000
+registro do banco de dados, para que ele tenha uma
+
+19
+00:01:12,000 --> 00:01:16,000
+dependncia de um recurso externo. Para testar a unidade de classe de
+
+20
+00:01:16,000 --> 00:01:20,000
+servio de vdeo, voc deve fazer alguma cirurgia em seu cdigo e desacoplar
+
+21
+00:01:20,000 --> 00:01:24,000
+o servio de vdeo da classe de arquivo ou do contexto do banco
+
+22
+00:01:24,000 --> 00:01:28,000
+de dados ou de qualquer dependncia externa. Dessa forma, quando testar essa classe,
+
+23
+00:01:28,000 --> 00:01:32,000
+voc poder substituir a classe de arquivo por outra classe que se
+
+24
+00:01:32,000 --> 00:01:36,000
+parea com a classe de arquivo do lado de fora, mas no
+
+25
+00:01:36,000 --> 00:01:40,000
+fale com o sistema de arquivos. Na verdade, ele no faz nada,  como
+
+26
+00:01:40,000 --> 00:01:44,000
+uma classe com vrios mtodos que no tm implementao. Ns chamamos essa classe
+
+27
+00:01:44,000 --> 00:01:48,000
+de falso, ou um teste duplo, como um
+
+28
+00:01:48,000 --> 00:01:52,000
+dubl em filmes. Nas cenas de ao, um dubl
+
+29
+00:01:52,000 --> 00:01:56,000
+que substitui o heri do filme, certo? Ns temos o mesmo conceito aqui.
+
+30
+00:01:56,000 --> 00:02:00,000
+Quando testamos unidades com dependncias externas, substitumos um objeto de
+
+31
+00:02:00,000 --> 00:02:04,000
+produo por um duplo teste ou por um objeto falso.
+
+32
+00:02:04,000 --> 00:02:08,000
+Ok, mas agora voc pode estar perguntando, como devemos fazer isso,
+
+33
+00:02:08,000 --> 00:02:12,000
+que requer cirurgia para dissociar nossas classes de seus recursos externos.
+
+34
+00:02:12,000 --> 00:02:16,000
+Esse  o assunto da prxima palestra.
+

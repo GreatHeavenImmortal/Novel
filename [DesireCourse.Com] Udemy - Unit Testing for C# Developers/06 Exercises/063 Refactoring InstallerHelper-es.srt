@@ -1,0 +1,288 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, debido a que este cdigo toca
+
+2
+00:00:04,000 --> 00:00:08,000
+un recurso externo, necesitamos hacer algunas refactorizaciones.
+
+3
+00:00:08,000 --> 00:00:12,000
+Y abra esta clase para probarla. Entonces, de vuelta
+
+4
+00:00:12,000 --> 00:00:16,000
+en nuestra solucin en la carpeta
+
+5
+00:00:16,000 --> 00:00:20,000
+Mocking, voy a crear una nueva
+
+6
+00:00:20,000 --> 00:00:24,000
+clase, llamada File Downloader. Desea aislar todo el
+
+7
+00:00:24,000 --> 00:00:28,000
+cdigo, pero descargando el archivo dentro de esta clase.
+
+8
+00:00:28,000 --> 00:00:32,000
+Entonces aqu necesitamos un mtodo simple,
+
+9
+00:00:32,000 --> 00:00:36,000
+public_void, DownloadFile que toma dos parmetros.
+
+10
+00:00:36,000 --> 00:00:40,000
+Una es la url del archivo y la otra es
+
+11
+00:00:40,000 --> 00:00:44,000
+la ruta y el sistema de archivos para almacenarla.
+
+12
+00:00:44,000 --> 00:00:48,000
+Ahora, de vuelta en el instalador helper, estas son las
+
+13
+00:00:48,000 --> 00:00:52,000
+lneas que necesitamos para pasar a esa nueva clase.
+
+14
+00:00:52,000 --> 00:00:56,000
+Pero an no voy a cortar este cdigo aqu. Simplemente voy a copiarlo, y vern
+
+15
+00:00:56,000 --> 00:01:00,000
+por qu en un segundo. As que
+
+16
+00:01:00,000 --> 00:01:04,000
+copia, pgalo aqu. Bien, primero necesitamos nuestro
+
+17
+00:01:04,000 --> 00:01:08,000
+objeto de cliente web. Entonces, volviendo a nuestra
+
+18
+00:01:08,000 --> 00:01:12,000
+clase de ayuda, voy a cortar esta primera lnea
+
+19
+00:01:12,000 --> 00:01:16,000
+y mover el objeto WebClient a nuestra nueva clase.
+
+20
+00:01:16,000 --> 00:01:20,000
+Vamos a importar NameSpace.
+
+21
+00:01:20,000 --> 00:01:24,000
+Hermosa. Entonces, aqu tenemos que hacer
+
+22
+00:01:24,000 --> 00:01:28,000
+un par de cambios simples. No voy a usar este nombre
+
+23
+00:01:28,000 --> 00:01:32,000
+de cliente e installerName aqu. Debido a que estos
+
+24
+00:01:32,000 --> 00:01:36,000
+conceptos no estn dentro del alcance de FileDownloader,
+
+25
+00:01:36,000 --> 00:01:40,000
+pertenecen al instalador helper. Como esta clase sabe acerca de
+
+26
+00:01:40,000 --> 00:01:44,000
+los nombres de clientes, sabe sobre installerNames, esta es una clase de
+
+27
+00:01:44,000 --> 00:01:48,000
+nivel superior en nuestra aplicacin. FileDownloader, por el contrario, es
+
+28
+00:01:48,000 --> 00:01:52,000
+una clase de bajo nivel, es tonto, no sabe nada
+
+29
+00:01:52,000 --> 00:01:56,000
+sobre nuestro dominio comercial, todo lo que sabe es cmo
+
+30
+00:01:56,000 --> 00:02:00,000
+obtener un archivo de esta URL y almacenarlo en esta
+
+31
+00:02:00,000 --> 00:02:04,000
+ubicacin De acuerdo? Entonces, en lugar de usar el
+
+32
+00:02:04,000 --> 00:02:08,000
+formato de cadena para construir la URL. Voy a pasar el argumento de
+
+33
+00:02:08,000 --> 00:02:12,000
+la url, que llegamos aqu, y tambin como un segundo argumento, voy a
+
+34
+00:02:12,000 --> 00:02:16,000
+usar esta ruta (? ) Ahora pongmoslos
+
+35
+00:02:16,000 --> 00:02:20,000
+en una lnea, as que bsicamente todo
+
+36
+00:02:20,000 --> 00:02:24,000
+lo que estamos haciendo aqu es encapsular
+
+37
+00:02:24,000 --> 00:02:28,000
+el cdigo que toca un recurso externo
+
+38
+00:02:28,000 --> 00:02:32,000
+dentro de FileDownloader. Y la razn por la que hacemos
+
+39
+00:02:32,000 --> 00:02:36,000
+esto es extraer una interfaz para que podamos simular esta interfaz en nuestras pruebas unitarias.
+
+40
+00:02:36,000 --> 00:02:40,000
+Te voy a decir algo. Si esta clase de
+
+41
+00:02:40,000 --> 00:02:44,000
+cliente web se dise correctamente, no tuvimos que crear
+
+42
+00:02:44,000 --> 00:02:48,000
+una clase separada como FileDownloader para extraer una interfaz.
+
+43
+00:02:48,000 --> 00:02:52,000
+A veces, cuando trabaja con bibliotecas de terceros,
+
+44
+00:02:52,000 --> 00:02:56,000
+puede observar que algunas de sus clases incluyen interfaces.
+
+45
+00:02:56,000 --> 00:03:00,000
+Por ejemplo, si tuviramos una interfaz como IWebClient,
+
+46
+00:03:00,000 --> 00:03:04,000
+entonces podemos simplemente insertar esa interfaz dentro de
+
+47
+00:03:04,000 --> 00:03:08,000
+installerHelper, y luego no tuvimos que crear una
+
+48
+00:03:08,000 --> 00:03:12,000
+clase extra como esta. Entonces, eliminemos
+
+49
+00:03:12,000 --> 00:03:16,000
+esto, ahora, vamos a extraer
+
+50
+00:03:16,000 --> 00:03:20,000
+una interfaz aqu, refactorizar, extraer
+
+51
+00:03:20,000 --> 00:03:24,000
+interfaz, y seleccionemos este mtodo,
+
+52
+00:03:24,000 --> 00:03:28,000
+a continuacin, hermoso. Entonces tenemos
+
+53
+00:03:28,000 --> 00:03:32,000
+IFileDownloader. A continuacin, vamos a inyectar esto
+
+54
+00:03:32,000 --> 00:03:36,000
+en el constructor, de installerHelper. Entonces, constructor,
+
+55
+00:03:36,000 --> 00:03:40,000
+Inyectar archivo (? )
+
+56
+00:03:40,000 --> 00:03:44,000
+IFileDownloader, llmalo fileDownloader.
+
+57
+00:03:44,000 --> 00:03:48,000
+Y a continuacin, vamos a crear e
+
+58
+00:03:48,000 --> 00:03:52,000
+inicializar el campo privado. Entonces, mira, tenemos esta
+
+59
+00:03:52,000 --> 00:03:56,000
+lectura privada en el campo de tipo IFile
+
+60
+00:03:56,000 --> 00:04:00,000
+Downloader, y esta se inicializa usando el argumento
+
+61
+00:04:00,000 --> 00:04:04,000
+que obtenemos del constructor, inyeccin de dependencia bsica.
+
+62
+00:04:04,000 --> 00:04:08,000
+Ahora, finalmente, en el mtodo DownloadInstaller, en lugar
+
+63
+00:04:08,000 --> 00:04:12,000
+de usar este objeto cliente, vamos a usar
+
+64
+00:04:12,000 --> 00:04:16,000
+fileDownloader, y el resto del cdigo est bien.
+
+65
+00:04:16,000 --> 00:04:20,000
+Entonces este mtodo DownloadInstaller es un mtodo de nivel
+
+66
+00:04:20,000 --> 00:04:24,000
+superior, est delegando la tarea de descargar el archivo
+
+67
+00:04:24,000 --> 00:04:28,000
+para este objeto fileDownloader, pero conoce los nombres de
+
+68
+00:04:28,000 --> 00:04:32,000
+los clientes y installerNames, por lo que usa este
+
+69
+00:04:32,000 --> 00:04:36,000
+concepto para construir una URL. Si todo va bien, va a ser
+
+70
+00:04:36,000 --> 00:04:40,000
+cierto, si algo sale mal, volver falso. Entonces aqu tenemos dos rutas
+
+71
+00:04:40,000 --> 00:04:44,000
+de ejecucin, y necesitamos escribir dos pruebas unitarias para esta clase.
+
+72
+00:04:44,000 --> 00:04:47,000
+Y, eso es lo que te mostrar a continuacin.
+

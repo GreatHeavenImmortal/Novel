@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:04,000
+Anteriormente en esta seccin, te dije que las buenas pruebas
+
+2
+00:00:04,000 --> 00:00:08,000
+unitarias, no deberan ser demasiado especficas o demasiado generales.
+
+3
+00:00:08,000 --> 00:00:12,000
+En esta conferencia, voy a mostrar ejemplos de
+
+4
+00:00:12,000 --> 00:00:16,000
+pruebas especficas y generales. Entonces aqu en la
+
+5
+00:00:16,000 --> 00:00:20,000
+carpeta de los fundamentos, tenemos esta clase HtmlFormatter.
+
+6
+00:00:20,000 --> 00:00:24,000
+Entonces, un mtodo simple, FormatAsBold toma una cadena
+
+7
+00:00:24,000 --> 00:00:28,000
+y simplemente la envuelve con un elemento fuerte.
+
+8
+00:00:28,000 --> 00:00:32,000
+Desea escribir una prueba para este mtodo. Por lo tanto,
+
+9
+00:00:32,000 --> 00:00:36,000
+en nuestro proyecto de pruebas unitarias,
+
+10
+00:00:36,000 --> 00:00:40,000
+voy a agregar una nueva clase, HtmlFormatterTests.
+
+11
+00:00:40,000 --> 00:00:44,000
+Vamos a agregar el atributo
+
+12
+00:00:44,000 --> 00:00:48,000
+Test Fixture aqu. Corrija el mtodo de prueba.
+
+13
+00:00:48,000 --> 00:00:52,000
+vaco pblico.
+
+14
+00:00:52,000 --> 00:00:56,000
+FormatAsBoldWhenCalled
+
+15
+00:00:56,000 --> 00:01:00,000
+ShouldEnclosetheString
+
+16
+00:01:00,000 --> 00:01:04,000
+WithStrongElement.
+
+17
+00:01:04,000 --> 00:01:08,000
+Entonces, creemos una nueva instancia de esta clase.
+
+18
+00:01:08,000 --> 00:01:12,000
+Formatter es una nueva HtmlFormatter, por
+
+19
+00:01:12,000 --> 00:01:16,000
+lo que llamamos a FormatAsBold, le
+
+20
+00:01:16,000 --> 00:01:20,000
+damos un mensaje, como ABC.
+
+21
+00:01:20,000 --> 00:01:24,000
+Una cadena simple, no tenemos que complicarla, obtenemos
+
+22
+00:01:24,000 --> 00:01:28,000
+el resultado, ahora tenemos que hacer una Afirmacin.
+
+23
+00:01:28,000 --> 00:01:32,000
+Le mostrar diferentes formas de escribir afirmaciones aqu, algunas de estas Afirmaciones son
+
+24
+00:01:32,000 --> 00:01:36,000
+ms especficas, algunas son ms generales, y luego le dar pautas sobre cul
+
+25
+00:01:36,000 --> 00:01:40,000
+es la mejor solucin en este caso. Entonces, aqu hay
+
+26
+00:01:40,000 --> 00:01:44,000
+un ejemplo de una Afirmacin Especfica.
+
+27
+00:01:44,000 --> 00:01:48,000
+Afirma que el resultado, es
+
+28
+00:01:48,000 --> 00:01:52,000
+igual a que tenemos este
+
+29
+00:01:52,000 --> 00:01:56,000
+elemento fuerte, tenemos abc y
+
+30
+00:01:56,000 --> 00:02:00,000
+luego / fuerte. Esta Afirmacin es
+
+31
+00:02:00,000 --> 00:02:04,000
+especfica, porque estamos verificando la cadena
+
+32
+00:02:04,000 --> 00:02:08,000
+exacta que deberamos obtener de este mtodo.
+
+33
+00:02:08,000 --> 00:02:12,000
+En este caso particular, esta es una buena solucin, porque lo que
+
+34
+00:02:12,000 --> 00:02:16,000
+surge de este mtodo es importante, queremos asegurarnos de que el mensaje
+
+35
+00:02:16,000 --> 00:02:20,000
+tenga el formato correcto en negrita. Pero a veces su mtodo puede
+
+36
+00:02:20,000 --> 00:02:24,000
+devolver un mensaje de error. No desea escribir aserciones especficas all,
+
+37
+00:02:24,000 --> 00:02:28,000
+porque es posible que pueda modificar ese mensaje de error en el futuro.
+
+38
+00:02:28,000 --> 00:02:32,000
+Puede agregar un perodo, puede agregar un signo de admiracin, puede agregar o
+
+39
+00:02:32,000 --> 00:02:36,000
+eliminar algunas palabras, si la prueba es especfica y est buscando exactamente el
+
+40
+00:02:36,000 --> 00:02:40,000
+mismo mensaje de error, cada vez que cambie ese mensaje de error que
+
+41
+00:02:40,000 --> 00:02:44,000
+se va a realizar la prueba romper. Es por eso que dije que
+
+42
+00:02:44,000 --> 00:02:48,000
+tus pruebas no deberan ser demasiado especficas. Por el contrario, no deben ser demasiado
+
+43
+00:02:48,000 --> 00:02:52,000
+generales, porque si son demasiado generales, pueden pasar todo el tiempo, incluso si su
+
+44
+00:02:52,000 --> 00:02:56,000
+cdigo de produccin tiene un problema. As que djame mostrarte
+
+45
+00:02:56,000 --> 00:03:00,000
+una forma ms general de escribir una Afirmacin aqu.
+
+46
+00:03:00,000 --> 00:03:04,000
+Ms general, esta vez queremos Afirmar
+
+47
+00:03:04,000 --> 00:03:08,000
+que este resultado comienza con un
+
+48
+00:03:08,000 --> 00:03:12,000
+elemento fuerte. Entonces, en lugar de
+
+49
+00:03:12,000 --> 00:03:16,000
+usar la clase Is, vamos a usar Does.
+
+50
+00:03:16,000 --> 00:03:20,000
+De nuevo, aqu tenemos algunos mtodos estticos de
+
+51
+00:03:20,000 --> 00:03:24,000
+ayuda, por lo que StartWith es fuerte.
+
+52
+00:03:24,000 --> 00:03:28,000
+Entonces imagina, esta es la nica Afirmacin que tengo
+
+53
+00:03:28,000 --> 00:03:32,000
+en este mtodo de prueba. Todo lo que este mtodo est
+
+54
+00:03:32,000 --> 00:03:36,000
+buscando es la presencia de fuerte al comienzo de la cadena
+
+55
+00:03:36,000 --> 00:03:40,000
+que obtenemos de este mtodo. Es posible que
+
+56
+00:03:40,000 --> 00:03:44,000
+tengamos un error aqu, as que
+
+57
+00:03:44,000 --> 00:03:48,000
+en lugar de devolver esta cadena,
+
+58
+00:03:48,000 --> 00:03:52,000
+devolvemos esto. Esa prueba pasar fcilmente.
+
+59
+00:03:52,000 --> 00:03:56,000
+Porque es demasiado general, verdad? Ahora, podemos hacer
+
+60
+00:03:56,000 --> 00:04:00,000
+esto un poco ms especfico, as que
+
+61
+00:04:00,000 --> 00:04:04,000
+podemos duplicar esta Afirmacin y tambin verificar
+
+62
+00:04:04,000 --> 00:04:08,000
+que esta cadena termine con / strong.
+
+63
+00:04:08,000 --> 00:04:12,000
+Ahora, si vuelves fuerte,
+
+64
+00:04:12,000 --> 00:04:16,000
+esa prueba fallar.
+
+65
+00:04:16,000 --> 00:04:20,000
+Por lo tanto, debemos asegurarnos de agregar fuerte al final tambin.
+
+66
+00:04:20,000 --> 00:04:24,000
+Pero todava tenemos un error aqu, porque no hemos
+
+67
+00:04:24,000 --> 00:04:28,000
+incluido este contenido aqu. As que de
+
+68
+00:04:28,000 --> 00:04:32,000
+vuelta a nuestro mtodo de prueba, podemos
+
+69
+00:04:32,000 --> 00:04:36,000
+agregar otra Afirmacin de que este resultado
+
+70
+00:04:36,000 --> 00:04:40,000
+Contiene un bc. As que aqu est la conclusin,
+
+71
+00:04:40,000 --> 00:04:44,000
+al probar cadenas, es mejor si tus Afirmaciones son un poco
+
+72
+00:04:44,000 --> 00:04:48,000
+ms generales, porque si son demasiado especficas, tus pruebas pueden romperse
+
+73
+00:04:48,000 --> 00:04:52,000
+fcilmente. Sin embargo, en este caso particular, voy a ir por
+
+74
+00:04:52,000 --> 00:04:56,000
+la primera solucin, as que quiero asegurarme de que esto es
+
+75
+00:04:56,000 --> 00:05:00,000
+exactamente lo que obtenemos de este mtodo; de lo contrario, podramos
+
+76
+00:05:00,000 --> 00:05:04,000
+terminar con un documento HTML incorrecto. Pero si este mtodo devolviera
+
+77
+00:05:04,000 --> 00:05:08,000
+algn tipo de mensaje de error, podra usar estos mtodos
+
+78
+00:05:08,000 --> 00:05:12,000
+para comenzar con end with y Contain, para buscar palabras
+
+79
+00:05:12,000 --> 00:05:16,000
+especficas en ese mensaje de error. Una ltima cosa, cuando
+
+80
+00:05:16,000 --> 00:05:20,000
+est escribiendo Aserciones contra cadenas, por defecto estas
+
+81
+00:05:20,000 --> 00:05:24,000
+Aserciones distinguen entre maysculas y minsculas, si desea
+
+82
+00:05:24,000 --> 00:05:28,000
+deshabilitarlas, puede usar la propiedad Ignorar caso.
+
+83
+00:05:28,000 --> 00:05:32,000
+Entonces aqu, despus de llamar al
+
+84
+00:05:32,000 --> 00:05:36,000
+mtodo igual, podemos encadenar esta propiedad IgnoreCase.
+
+85
+00:05:36,000 --> 00:05:40,000
+Tambin podemos usar la misma tcnica al escribir Aserciones ms generales.
+
+86
+00:05:40,000 --> 00:05:44,000
+Por lo tanto, podemos decir que los resultados deberan comenzar
+
+87
+00:05:44,000 --> 00:05:48,000
+con fuerza y no nos importa la sensibilidad del caso.
+

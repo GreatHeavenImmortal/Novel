@@ -1,0 +1,276 @@
+1
+00:00:00,000 --> 00:00:04,000
+Nesta palestra, vou mostrar como testar mtodos
+
+2
+00:00:04,000 --> 00:00:08,000
+que geram um evento. Ento, aqui no nosso mtodo de
+
+3
+00:00:08,000 --> 00:00:12,000
+log, uma vez que o evento  armazenado em nosso armazenamento, voc
+
+4
+00:00:12,000 --> 00:00:16,000
+aumenta este evento, erro, log. Podemos ver que o
+
+5
+00:00:16,000 --> 00:00:20,000
+log de erros  um evento do tipo
+
+6
+00:00:20,000 --> 00:00:24,000
+manipulador de eventos do guid. Se tudo isso soa estranho para
+
+7
+00:00:24,000 --> 00:00:28,000
+voc, voc vai precisar assistir meu curso de C # MS, porque
+
+8
+00:00:28,000 --> 00:00:32,000
+eu cobri eventos e delegados em detalhes. Ento, basicamente, aqui estamos
+
+9
+00:00:32,000 --> 00:00:36,000
+levantando este evento ErrorLogged, e como um argumento par
+
+10
+00:00:36,000 --> 00:00:40,000
+estamos enviando um novo guid. Talvez este seja
+
+11
+00:00:40,000 --> 00:00:44,000
+o ID gerado pelo nosso armazenamento.
+
+12
+00:00:44,000 --> 00:00:48,000
+Ento, para testar o mtodo de log, ns o chamamos, fornecemos uma
+
+13
+00:00:48,000 --> 00:00:52,000
+mensagem de erro vlida e verificamos que ele gera o evento ErrorLogged
+
+14
+00:00:52,000 --> 00:00:56,000
+com um novo guid, ok? Ento, de
+
+15
+00:00:56,000 --> 00:01:00,000
+volta  nossa classe
+
+16
+00:01:00,000 --> 00:01:04,000
+de teste, outro teste,
+
+17
+00:01:04,000 --> 00:01:08,000
+public void Log ValidError,
+
+18
+00:01:08,000 --> 00:01:12,000
+esse  o cenrio. Voc deve
+
+19
+00:01:12,000 --> 00:01:16,000
+RaiseErrorLogged Event. OK?
+
+20
+00:01:16,000 --> 00:01:20,000
+Ento, vou criar um objeto logger, ErrorLogger,
+
+21
+00:01:20,000 --> 00:01:24,000
+agora como podemos verificar se esse objeto
+
+22
+00:01:24,000 --> 00:01:28,000
+gera um evento. Na verdade
+
+23
+00:01:28,000 --> 00:01:32,000
+ muito simples. Antes de agir, voc
+
+24
+00:01:32,000 --> 00:01:36,000
+vai se inscrever nesse evento. Ento, se o mtodo log levantar
+
+25
+00:01:36,000 --> 00:01:40,000
+o evento, ns seremos notificados. Agora, para assinar este evento,
+
+26
+00:01:40,000 --> 00:01:44,000
+ns escrevemos logger. ErrorLogged. Este 
+
+27
+00:01:44,000 --> 00:01:48,000
+o nosso evento, certo? Ns nos inscrevemos adicionando
+
+28
+00:01:48,000 --> 00:01:52,000
+um novo manipulador que usamos uma expresso lambda
+
+29
+00:01:52,000 --> 00:01:56,000
+aqui, remetente e args. Ento, esses so nossos
+
+30
+00:01:56,000 --> 00:02:00,000
+parmetros, sender  a origem do evento e args
+
+31
+00:02:00,000 --> 00:02:04,000
+ o argumento do evento. Ento, esses parmetros vo
+
+32
+00:02:04,000 --> 00:02:08,000
+para e aqui est o corpo de uma funo.
+
+33
+00:02:08,000 --> 00:02:12,000
+Portanto, essa expresso lambda representa nosso
+
+34
+00:02:12,000 --> 00:02:16,000
+manipulador de eventos. Quando o evento ErrorLogged 
+
+35
+00:02:16,000 --> 00:02:20,000
+gerado, esta funo ser executada. Portanto, no corpo dessa
+
+36
+00:02:20,000 --> 00:02:24,000
+funo, posso obter o argumento do evento, neste
+
+37
+00:02:24,000 --> 00:02:28,000
+caso, o ID do evento. Ento, eu vou definir
+
+38
+00:02:28,000 --> 00:02:32,000
+uma varivel chamada id e inicialmente configur-la para
+
+39
+00:02:32,000 --> 00:02:36,000
+um guid vazio. Agora, quando o
+
+40
+00:02:36,000 --> 00:02:40,000
+evento ErrorLogged  gerado, vou definir
+
+41
+00:02:40,000 --> 00:02:44,000
+ID como args. Qual  o id desse erro.
+
+42
+00:02:44,000 --> 00:02:48,000
+Agora, ns agimos,
+
+43
+00:02:48,000 --> 00:02:52,000
+ento logger. log A apresentao da
+
+44
+00:02:52,000 --> 00:02:56,000
+nossa afirmao  muito simples. Se este evento for gerado,
+
+45
+00:02:56,000 --> 00:03:00,000
+esta funo ser executada e isso significa que o ID
+
+46
+00:03:00,000 --> 00:03:04,000
+no ser mais um guid vazio. Ser o
+
+47
+00:03:04,000 --> 00:03:08,000
+valor que vem com
+
+48
+00:03:08,000 --> 00:03:12,000
+o evento, ento afirmamos,
+
+49
+00:03:12,000 --> 00:03:16,000
+que id no 
+
+50
+00:03:16,000 --> 00:03:20,000
+igual a Guid.
+
+51
+00:03:20,000 --> 00:03:24,000
+Vazio. Vamos rodar esse teste.
+
+52
+00:03:24,000 --> 00:03:28,000
+Ok, passou bonito, mas mais uma vez
+
+53
+00:03:28,000 --> 00:03:32,000
+eu quero ter certeza de que estamos
+
+54
+00:03:32,000 --> 00:03:36,000
+testando a coisa certa. Ento, de volta  nossa classe
+
+55
+00:03:36,000 --> 00:03:40,000
+ErrorLogger, esta  a linha responsvel por fazer o teste passar.
+
+56
+00:03:40,000 --> 00:03:44,000
+Ento, vou comentar e ver se o nosso teste ainda passa ou no.
+
+57
+00:03:44,000 --> 00:03:48,000
+De volta aqui, vamos reexecutar este
+
+58
+00:03:48,000 --> 00:03:52,000
+teste, Ok, ele falhou, ento estamos
+
+59
+00:03:52,000 --> 00:03:56,000
+testando a coisa certa, agora, vamos
+
+60
+00:03:56,000 --> 00:04:00,000
+trazer isso de volta. Ento, vamos recapitular, para testar
+
+61
+00:04:00,000 --> 00:04:04,000
+o mtodo que gera um evento, tudo o que temos
+
+62
+00:04:04,000 --> 00:04:08,000
+a fazer  assinar esse evento no seu mtodo de
+
+63
+00:04:08,000 --> 00:04:12,000
+teste, antes de agir. No seu manipulador de
+
+64
+00:04:12,000 --> 00:04:16,000
+eventos, voc obter algum valor. Neste caso, estamos recebendo
+
+65
+00:04:16,000 --> 00:04:20,000
+um novo guia. Ento, se esse evento
+
+66
+00:04:20,000 --> 00:04:24,000
+for levantado, nosso id no deve mais ser um
+
+67
+00:04:24,000 --> 00:04:28,000
+guia vazio depois de agir. E  por isso que
+
+68
+00:04:28,000 --> 00:04:32,000
+temos uma afirmao simples para garantir que o ID no
+
+69
+00:04:32,000 --> 00:04:34,000
+seja um guia vazio.
+

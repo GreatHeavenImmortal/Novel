@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:04,000
+At agora, vimos o MS
+
+2
+00:00:04,000 --> 00:00:08,000
+Test em ao. Nesta palestra, vou mostrar como usar o NUnit,
+
+3
+00:00:08,000 --> 00:00:12,000
+que  o meu framework de testes preferido. Ento o NUnit no faz
+
+4
+00:00:12,000 --> 00:00:16,000
+parte do visual studio, e se voc quiser us-lo voc
+
+5
+00:00:16,000 --> 00:00:20,000
+precisa instalar alguns novos pacotes git. Ento abra o
+
+6
+00:00:20,000 --> 00:00:24,000
+console do gerenciador de pacotes, certifique-se
+
+7
+00:00:24,000 --> 00:00:28,000
+de selecionar testninja. testes de unidade, nas
+
+8
+00:00:28,000 --> 00:00:32,000
+listas suspensas do projeto, agora precisamos instalar alguns pacotes.
+
+9
+00:00:32,000 --> 00:00:36,000
+Ento, install-package, o primeiro  o NUnit, e certifique-se de
+
+10
+00:00:36,000 --> 00:00:40,000
+configurar a verso para a mesma verso que eu vou
+
+11
+00:00:40,000 --> 00:00:44,000
+usar neste vdeo, ento voc ter a mesma experincia.
+
+12
+00:00:44,000 --> 00:00:48,000
+Ento -Verso 3. 8 1
+
+13
+00:00:48,000 --> 00:00:52,000
+Bonita. Agora o segundo pacote.
+
+14
+00:00:52,000 --> 00:00:56,000
+Pacote de instalao. NUnit,
+
+15
+00:00:56,000 --> 00:01:00,000
+3TestAdapter. Precisamos deste pacote para executar
+
+16
+00:01:00,000 --> 00:01:04,000
+testes NUnit, dentro do Visual
+
+17
+00:01:04,000 --> 00:01:08,000
+Studio, porque, por padro, o executor de testes que est
+
+18
+00:01:08,000 --> 00:01:12,000
+embutido no Visual Studio reconhece apenas os Testes MS.
+
+19
+00:01:12,000 --> 00:01:16,000
+Ento, configure a verso aqui tambm, esta  3. 8 0 Portanto, no  exatamente a mesma verso do NUnit, porque esses dois
+
+20
+00:01:16,000 --> 00:01:20,000
+pacotes so desenvolvidos de forma independente.
+
+21
+00:01:20,000 --> 00:01:24,000
+Mas estas duas verses so compatveis.
+
+22
+00:01:24,000 --> 00:01:28,000
+Ok, lindo, agora, com o NUnit temos
+
+23
+00:01:28,000 --> 00:01:32,000
+atributos diferentes, ento ao invs de testarmos
+
+24
+00:01:32,000 --> 00:01:36,000
+a classe, usamos o Fixture Test, agora
+
+25
+00:01:36,000 --> 00:01:40,000
+precisamos importar esse tipo, ento aperte control,
+
+26
+00:01:40,000 --> 00:01:44,000
+e period, e selecione o primeiro item. Usando o NUnit. estrutura. OK?
+
+27
+00:01:44,000 --> 00:01:48,000
+E em vez do mtodo de teste, temos o teste.
+
+28
+00:01:48,000 --> 00:01:52,000
+Assim, e finalmente, precisamos
+
+29
+00:01:52,000 --> 00:01:56,000
+modificar como fazemos afirmaes. Ento, aqui temos um
+
+30
+00:01:56,000 --> 00:02:00,000
+erro de compilao, porque o visual studio no sabe
+
+31
+00:02:04,000 --> 00:02:08,000
+se voc est se referindo  classe Assert no
+
+32
+00:02:08,000 --> 00:02:12,000
+framework NUnit, ou MSTest. Ento, eu vou no
+
+33
+00:02:12,000 --> 00:02:16,000
+topo, e remover isso usando uma declarao para
+
+34
+00:02:16,000 --> 00:02:20,000
+importar a estrutura do Microsoft Unit Testing. Ento delete, A compilao sumiu, ento voc
+
+35
+00:02:20,000 --> 00:02:24,000
+pode ver que essa
+
+36
+00:02:24,000 --> 00:02:28,000
+classe Assert tem a mesma API que
+
+37
+00:02:28,000 --> 00:02:32,000
+a classe Assert no
+
+38
+00:02:32,000 --> 00:02:36,000
+MSTest, mas aqui temos uma maneira diferente
+
+39
+00:02:36,000 --> 00:02:40,000
+de escrever Assertions, que  mais legvel,
+
+40
+00:02:40,000 --> 00:02:44,000
+ento, outra maneira de escrever o mesmo
+
+41
+00:02:44,000 --> 00:02:48,000
+Afirmao  assim, Asseverar esse resultado,  Verdadeiro. Parece um ingls simples.
+
+42
+00:02:48,000 --> 00:02:52,000
+Alm disso, outra maneira  escrever
+
+43
+00:02:52,000 --> 00:02:56,000
+Assert, que resultado  igual a true.
+
+44
+00:02:56,000 --> 00:03:00,000
+Ento podemos adicionar uma expresso booleana aqui. Qual abordagem de escolha
+
+45
+00:03:00,000 --> 00:03:04,000
+ puramente sua preferncia pessoal, no h diferenas
+
+46
+00:03:04,000 --> 00:03:08,000
+tcnicas entre essas trs formas de fazer afirmaes.
+
+47
+00:03:08,000 --> 00:03:12,000
+Ento, nesta palestra, vou usar o segundo formulrio. Excluir
+
+48
+00:03:12,000 --> 00:03:16,000
+e excluir. Tudo bem agora, vamos executar este teste,
+
+49
+00:03:16,000 --> 00:03:20,000
+ento, mais uma vez, no topo, teste,
+
+50
+00:03:20,000 --> 00:03:24,000
+execute todos os testes.
+
+51
+00:03:24,000 --> 00:03:28,000
+Ento, todos os testes esto passando,
+
+52
+00:03:28,000 --> 00:03:32,000
+lindos, ento  assim que voc usa o NUnit dentro do Visual Studio.
+
+53
+00:03:32,000 --> 00:03:36,000
+Agora, se voc usar o ReSharper, no ser necessrio instalar
+
+54
+00:03:36,000 --> 00:03:40,000
+nenhum adaptador de Teste de Unidade, porque o executor de
+
+55
+00:03:40,000 --> 00:03:44,000
+testes que vem com o ReSharper realiza automaticamente testes NUnit,
+
+56
+00:03:44,000 --> 00:03:48,000
+o mesmo vale se voc usar o ID do gravador.
+
+57
+00:03:48,000 --> 00:03:52,000
+&nbsp;
+
+58
+00:03:52,000 --> 00:03:56,000
+&nbsp;
+
+59
+00:03:56,000 --> 00:03:59,766
+&nbsp;
+

@@ -1,0 +1,484 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, mira estas 3 pruebas que escribimos
+
+2
+00:00:04,000 --> 00:00:08,000
+en la ltima conferencia. Aqu hay un ejemplo.
+
+3
+00:00:08,000 --> 00:00:12,000
+Esta prueba no es tan mala, es bastante corta, pero no
+
+4
+00:00:12,000 --> 00:00:16,000
+estoy 100% satisfecho con esta implementacin. Podemos llevar esto al siguiente nivel y hacerlo
+
+5
+00:00:16,000 --> 00:00:20,000
+ms limpio y ms fcil de mantener. Mira, esta parte de
+
+6
+00:00:20,000 --> 00:00:24,000
+arreglos tiene 3 lneas de cdigo y hemos repetido
+
+7
+00:00:24,000 --> 00:00:28,000
+esto en algunos lugares diferentes. La nica diferencia
+
+8
+00:00:28,000 --> 00:00:32,000
+son los argumentos que pasamos al
+
+9
+00:00:32,000 --> 00:00:36,000
+mtodo de devoluciones. Ahora, en cambio,
+
+10
+00:00:36,000 --> 00:00:40,000
+mire cmo implementamos este escenario.
+
+11
+00:00:40,000 --> 00:00:44,000
+Donde el correo electrnico del ama de llaves es cadena vaca
+
+12
+00:00:44,000 --> 00:00:48,000
+o espacio en blanco. o nulo. Nuestra parte de arreglos
+
+13
+00:00:48,000 --> 00:00:52,000
+es solo una lnea de cdigo. Entonces, lo primero que
+
+14
+00:00:52,000 --> 00:00:56,000
+quiero mejorar aqu es cambiar la implementacin de estos
+
+15
+00:00:56,000 --> 00:01:00,000
+mtodos de prueba, y en lugar de programar el
+
+16
+00:01:00,000 --> 00:01:04,000
+simulacro aqu, quiero programar el simulacro en nuestro mtodo
+
+17
+00:01:04,000 --> 00:01:08,000
+SetUp, y luego aqu simplemente podemos establecer el StatementFileName
+
+18
+00:01:08,000 --> 00:01:12,000
+para digamos null para este caso de prueba.
+
+19
+00:01:12,000 --> 00:01:16,000
+Pero actualmente, esto no funciona porque definimos este campo
+
+20
+00:01:16,000 --> 00:01:20,000
+como de solo lectura. Entonces, primero vamos a
+
+21
+00:01:20,000 --> 00:01:24,000
+mover estas pocas lneas dentro de nuestro mtodo SetUp.
+
+22
+00:01:24,000 --> 00:01:28,000
+Cortar. De acuerdo, aqu est
+
+23
+00:01:28,000 --> 00:01:32,000
+el mtodo SetUp. Entonces aqu es donde estamos inicializando
+
+24
+00:01:32,000 --> 00:01:36,000
+el objeto del generador de declaraciones. Entonces, justo despus de
+
+25
+00:01:36,000 --> 00:01:40,000
+que quiero pegar este cdigo y luego agregar
+
+26
+00:01:40,000 --> 00:01:44,000
+un salto de lnea. Entonces estas dos lneas,
+
+27
+00:01:44,000 --> 00:01:48,000
+altamente relacionadas, son puramente para programar nuestro
+
+28
+00:01:48,000 --> 00:01:52,000
+generador de afirmaciones Mock Now, en lugar
+
+29
+00:01:52,000 --> 00:01:56,000
+de devolver null aqu, voy a devolver statementFileName.
+
+30
+00:01:56,000 --> 00:02:00,000
+Bueno? Y aqu en el mtodo
+
+31
+00:02:00,000 --> 00:02:04,000
+SetUp, quiero establecer los valores iniciales para las rutas felices.
+
+32
+00:02:04,000 --> 00:02:08,000
+Y luego, en los casos de prueba donde estamos probando algo
+
+33
+00:02:08,000 --> 00:02:12,000
+negativo, modificaremos ese camino feliz. As que aqu,
+
+34
+00:02:12,000 --> 00:02:16,000
+establecemos StatementFileName en un valor real como
+
+35
+00:02:16,000 --> 00:02:20,000
+fileName, y luego podemos sobreescribirlo en esas
+
+36
+00:02:20,000 --> 00:02:24,000
+tres pruebas negativas. Puede configurarlo como nulo,
+
+37
+00:02:24,000 --> 00:02:28,000
+cadena vaca o espacio en blanco. Ahora eliminemos
+
+38
+00:02:28,000 --> 00:02:32,000
+este problema de compilacin. Entonces, necesitamos eliminar el
+
+39
+00:02:32,000 --> 00:02:36,000
+modificador de solo lectura aqu. Y con esta nueva
+
+40
+00:02:36,000 --> 00:02:40,000
+implementacin, debemos inicializar este campo dentro del mtodo SetUp,
+
+41
+00:02:40,000 --> 00:02:44,000
+porque queremos asegurarnos de que antes de cada prueba
+
+42
+00:02:44,000 --> 00:02:48,000
+tengamos un estado limpio. Entonces, borremos esta inicializacin
+
+43
+00:02:48,000 --> 00:02:52,000
+aqu, de acuerdo, ahora, volvamos a nuestras
+
+44
+00:02:52,000 --> 00:02:56,000
+pruebas unitarias negativas. Por lo tanto, hacia
+
+45
+00:02:56,000 --> 00:03:00,000
+el final aqu, est bien, aqu hay una,
+
+46
+00:03:00,000 --> 00:03:04,000
+enve un statementEmails donde StatementFileName es una cadena vaca.
+
+47
+00:03:04,000 --> 00:03:08,000
+Entonces podemos simplificar estas tres lneas y
+
+48
+00:03:08,000 --> 00:03:12,000
+en su lugar agregar statementFileName, establzcalo en
+
+49
+00:03:12,000 --> 00:03:16,000
+una cadena vaca. Aqu hay otro.
+
+50
+00:03:16,000 --> 00:03:20,000
+Establecemos statementFileName en el espacio en blanco,
+
+51
+00:03:20,000 --> 00:03:24,000
+mira, la prueba ya es ms limpia.
+
+52
+00:03:24,000 --> 00:03:28,000
+Y aqu est el otro caso de prueba negativa.
+
+53
+00:03:28,000 --> 00:03:32,000
+Vamos a ejecutar estas pruebas, as que voy a poner
+
+54
+00:03:32,000 --> 00:03:36,000
+el cursor sobre el nombre de la clase y ejecutar
+
+55
+00:03:36,000 --> 00:03:40,000
+todas las pruebas, est bien. Estas tres pruebas, todas
+
+56
+00:03:40,000 --> 00:03:44,000
+se rompieron. Por qu? Dejame explicar. Por
+
+57
+00:03:44,000 --> 00:03:48,000
+lo tanto, mira el mtodo SetUp.
+
+58
+00:03:48,000 --> 00:03:52,000
+Aqu establecemos statementFileName, a esta cadena, declaracin
+
+59
+00:03:52,000 --> 00:03:56,000
+fileName, y luego programamos este simulacro para
+
+60
+00:03:56,000 --> 00:04:00,000
+devolver este valor. Entonces, aunque sobreescribamos el
+
+61
+00:04:00,000 --> 00:04:04,000
+valor de este campo en nuestros mtodos de
+
+62
+00:04:04,000 --> 00:04:08,000
+prueba, este simulacro se programa antes de devolver
+
+63
+00:04:08,000 --> 00:04:12,000
+un nombre de archivo. Por lo tanto, no estamos probando
+
+64
+00:04:12,000 --> 00:04:16,000
+el escenario en el que nuestro generador de extracto no puede generar
+
+65
+00:04:16,000 --> 00:04:20,000
+un archivo de extracto. Cmo resolvemos este problema? Es muy fcil.
+
+66
+00:04:20,000 --> 00:04:24,000
+En la ltima conferencia, te dije que este mtodo
+
+67
+00:04:24,000 --> 00:04:28,000
+de Devoluciones tiene dos sobrecargas. Uno que toma un valor extra, como una cadena.
+
+68
+00:04:28,000 --> 00:04:32,000
+Y el otro que toma un funk, un delegado, una expresin lambda.
+
+69
+00:04:32,000 --> 00:04:36,000
+Lo usamos para la evaluacin perezosa.
+
+70
+00:04:36,000 --> 00:04:40,000
+Entonces, si en vez de pasar este
+
+71
+00:04:40,000 --> 00:04:44,000
+campo privado aqu, pasamos. una expresin lambda, la
+
+72
+00:04:44,000 --> 00:04:48,000
+expresin lambda, una funcin sin argumentos, va a
+
+73
+00:04:48,000 --> 00:04:52,000
+este campo privado. Aqu tenemos
+
+74
+00:04:52,000 --> 00:04:56,000
+una evaluacin perezosa. Entonces, con esta tcnica, podremos cambiar
+
+75
+00:04:56,000 --> 00:05:00,000
+el valor de estos campos en nuestros mtodos de prueba, y esta
+
+76
+00:05:00,000 --> 00:05:04,000
+expresin se evaluar ms adelante. Ahora, ejecutemos todas las pruebas,
+
+77
+00:05:04,000 --> 00:05:08,000
+as que coloco el cursor nuevamente en el nombre de
+
+78
+00:05:08,000 --> 00:05:12,000
+la clase y ejecuto las pruebas, se puede ver que
+
+79
+00:05:12,000 --> 00:05:16,000
+todas estn pasando, son hermosas. Ahora, echemos un vistazo
+
+80
+00:05:16,000 --> 00:05:20,000
+final a las pruebas que escribimos en
+
+81
+00:05:20,000 --> 00:05:24,000
+la ltima conferencia. Entonces estas tres pruebas
+
+82
+00:05:24,000 --> 00:05:28,000
+negativas podemos ver su Afirmacin es exactamente la misma.
+
+83
+00:05:28,000 --> 00:05:32,000
+Est verificando que no se llama este mtodo y lo estamos usando
+
+84
+00:05:32,000 --> 00:05:36,000
+IsAny string y Times. Nunca. Y esto
+
+85
+00:05:36,000 --> 00:05:40,000
+se repite en las ltimas tres pruebas.
+
+86
+00:05:40,000 --> 00:05:44,000
+Por lo tanto, al escribir pruebas unitarias, es muy til extraer algunos
+
+87
+00:05:44,000 --> 00:05:48,000
+mtodos de ayuda privada para hacer que sus pruebas sean ms legibles.
+
+88
+00:05:48,000 --> 00:05:52,000
+Por ejemplo, aqu, podemos seleccionar este
+
+89
+00:05:52,000 --> 00:05:56,000
+cdigo, y extraerlo en un mtodo
+
+90
+00:05:56,000 --> 00:06:00,000
+privado, as que alt y enter,
+
+91
+00:06:00,000 --> 00:06:04,000
+refactorizar esto, extraer el mtodo, podemos
+
+92
+00:06:04,000 --> 00:06:08,000
+llamar a este VerifyEmail NotSent. Es muy descriptivo.
+
+93
+00:06:08,000 --> 00:06:12,000
+Luego, mira este mtodo de prueba, solo tres lneas de cdigo.
+
+94
+00:06:12,000 --> 00:06:16,000
+No puede ser ms simple que esto, configuramos el nombre
+
+95
+00:06:16,000 --> 00:06:20,000
+del archivo de declaracin como nulo, actuamos y verificamos que EmailIsNotSent.
+
+96
+00:06:20,000 --> 00:06:24,000
+Ahora, voy a mover esto al final de esta
+
+97
+00:06:24,000 --> 00:06:28,000
+clase, porque lo ponemos. todos los mtodos de ayuda
+
+98
+00:06:28,000 --> 00:06:32,000
+abajo en la parte inferior. Y modifique
+
+99
+00:06:32,000 --> 00:06:36,000
+estas dos apariciones para
+
+100
+00:06:36,000 --> 00:06:40,000
+llamar a VerifyEmailNotSent. Y
+
+101
+00:06:40,000 --> 00:06:44,000
+uno ms aqu.
+
+102
+00:06:44,000 --> 00:06:48,000
+Bueno. Mucho, mucho mejor. Ahora, potencialmente en
+
+103
+00:06:48,000 --> 00:06:52,000
+el otro caso de prueba, donde queremos afirmar que se
+
+104
+00:06:52,000 --> 00:06:56,000
+enva el correo electrnico, nuevamente, de nuevo podemos extraer esto
+
+105
+00:06:56,000 --> 00:07:00,000
+en un mtodo auxiliar llamado VerifyEmailSent. Y de esta manera
+
+106
+00:07:00,000 --> 00:07:04,000
+tendremos simetra en nuestro cdigo. Entonces, hagmoslo tambin.
+
+107
+00:07:04,000 --> 00:07:08,000
+Alt y entrar Refactor Mtodo
+
+108
+00:07:08,000 --> 00:07:12,000
+de extraccin VerifyEmailSent.
+
+109
+00:07:12,000 --> 00:07:16,000
+Mucho mejor. Y tampoco necesitamos estas
+
+110
+00:07:16,000 --> 00:07:20,000
+pocas lneas, porque programamos nuestro simulador de
+
+111
+00:07:20,000 --> 00:07:24,000
+generador de declaraciones para devolver un nombre
+
+112
+00:07:24,000 --> 00:07:28,000
+de archivo vlido dentro del mtodo SetUp,
+
+113
+00:07:28,000 --> 00:07:32,000
+as que borremos estas dos lneas y
+
+114
+00:07:32,000 --> 00:07:36,000
+mueva este mtodo de ayuda al final.
+
+115
+00:07:36,000 --> 00:07:40,000
+Me gusta esto. Entonces, esto es lo
+
+116
+00:07:40,000 --> 00:07:44,000
+que llamas prueba unitaria apropiada. Muy, muy
+
+117
+00:07:44,000 --> 00:07:48,000
+corto, muy limpio. En una de las compaas donde
+
+118
+00:07:48,000 --> 00:07:52,000
+trabaj hace unos aos, tenamos pruebas unitarias que tenan 50 lneas de cdigo,
+
+119
+00:07:52,000 --> 00:07:56,000
+eso no es una prueba de unidad. Ese tipo de prueba unitaria te
+
+120
+00:07:56,000 --> 00:08:00,000
+ralentiza, se rompe fcilmente, y cuando se rompe, te lleva ms
+
+121
+00:08:00,000 --> 00:08:02,000
+tiempo descubrir qu est pasando.
+

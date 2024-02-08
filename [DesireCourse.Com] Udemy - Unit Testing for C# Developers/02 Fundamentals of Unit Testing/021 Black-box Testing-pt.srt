@@ -1,0 +1,284 @@
+1
+00:00:00,000 --> 00:00:04,000
+Agora vamos para o prximo mtodo.
+
+2
+00:00:04,000 --> 00:00:08,000
+Ento, aqui temos esse mtodo chamado max, que retorna
+
+3
+00:00:08,000 --> 00:00:12,000
+o mximo de dois nmeros. Quantos caminhos de execuo
+
+4
+00:00:12,000 --> 00:00:16,000
+temos aqui? Ns temos dois caminhos de execuo. E isso
+
+5
+00:00:16,000 --> 00:00:20,000
+depende dessa condio. Ento, se A for
+
+6
+00:00:20,000 --> 00:00:24,000
+maior, vamos retornar A, caso contrrio, retornaremos B.
+
+7
+00:00:24,000 --> 00:00:28,000
+Portanto, h dois caminhos de execuo nesse mtodo. E o nmero de
+
+8
+00:00:28,000 --> 00:00:32,000
+testes  geralmente igual ou maior que o
+
+9
+00:00:32,000 --> 00:00:36,000
+nmero de caminhos de execuo. Ento, de volta 
+
+10
+00:00:36,000 --> 00:00:40,000
+nossa classe de teste, vou criar outro mtodo
+
+11
+00:00:40,000 --> 00:00:44,000
+de teste, test, public, void, voc est testando
+
+12
+00:00:44,000 --> 00:00:48,000
+o mtodo max. Agora quando
+
+13
+00:00:48,000 --> 00:00:52,000
+algum (? ) escrever testes para um mtodo, prefiro criar
+
+14
+00:00:52,000 --> 00:00:56,000
+todos os mtodos de teste antes de implement-los. Eu s quero debater todos os
+
+15
+00:00:56,000 --> 00:01:00,000
+diferentes cenrios que precisam ser testados. Dessa forma, asseguro-me de
+
+16
+00:01:00,000 --> 00:01:04,000
+que no vou perder um cenrio quando estiver
+
+17
+00:01:04,000 --> 00:01:08,000
+ocupado escrevendo os testes. Ento, o primeiro cenrio que quero testar aqui
+
+18
+00:01:08,000 --> 00:01:12,000
+ quando o primeiro argumento  maior. Ento, o
+
+19
+00:01:12,000 --> 00:01:16,000
+primeiro argumento  maior, ele
+
+20
+00:01:16,000 --> 00:01:20,000
+deve retornar o primeiro argumento.
+
+21
+00:01:20,000 --> 00:01:24,000
+Agora, vou duplicar isso,
+
+22
+00:01:24,000 --> 00:01:28,000
+o segundo cenrio  onde?
+
+23
+00:01:28,000 --> 00:01:32,000
+O segundo argumento  maior. Ento, segundo
+
+24
+00:01:32,000 --> 00:01:36,000
+argumento  maior e
+
+25
+00:01:36,000 --> 00:01:40,000
+deve retornar o segundo argumento.
+
+26
+00:01:40,000 --> 00:01:44,000
+Agora aqui temos um terceiro cenrio. Voc pode dizer de que
+
+27
+00:01:44,000 --> 00:01:48,000
+cenrio eu estou falando aqui? Esse  o cenrio em que
+
+28
+00:01:48,000 --> 00:01:52,000
+os dois argumentos so iguais. Agora, isso  algo que eu
+
+29
+00:01:52,000 --> 00:01:56,000
+quero que voc preste muita ateno aqui. At agora, para escrever
+
+30
+00:01:56,000 --> 00:02:00,000
+testes, comecei examinando a implementao do mtodo
+
+31
+00:02:00,000 --> 00:02:04,000
+que escrevi testes com base nessa implementao.
+
+32
+00:02:04,000 --> 00:02:08,000
+Esta  uma boa abordagem para comear, mas no  suficiente, no
+
+33
+00:02:08,000 --> 00:02:12,000
+ algo que voc deve confiar. Porque com essa abordagem, quando
+
+34
+00:02:12,000 --> 00:02:16,000
+voc escreve seus testes com base na implementao,  possvel
+
+35
+00:02:16,000 --> 00:02:20,000
+que essa implementao possa ter problemas. Talvez sua implementao esteja
+
+36
+00:02:20,000 --> 00:02:24,000
+faltando alguma coisa. Ento voc no quer confiar nessa implementao.
+
+37
+00:02:24,000 --> 00:02:28,000
+A melhor maneira de escrever um teste para o mtodo 
+
+38
+00:02:28,000 --> 00:02:32,000
+pensar nele como uma caixa preta. Vamos imaginar que no sabemos o
+
+39
+00:02:32,000 --> 00:02:36,000
+que est dentro do mtodo max. O mtodo Max  apenas um mtodo
+
+40
+00:02:36,000 --> 00:02:40,000
+que recebe dois argumentos. Um final. Quais so as diferentes possibilidades aqui?
+
+41
+00:02:40,000 --> 00:02:44,000
+Uma possibilidade  A  maior, outra possibilidade  B
+
+42
+00:02:44,000 --> 00:02:48,000
+ maior e a ltima possibilidade  a mesma.
+
+43
+00:02:48,000 --> 00:02:52,000
+Ento, vou voltar para nossa aula de teste, duplicar o
+
+44
+00:02:52,000 --> 00:02:56,000
+ltimo teste e alterar o nome do mtodo de teste.
+
+45
+00:02:56,000 --> 00:03:00,000
+Portanto, essa condio de
+
+46
+00:03:00,000 --> 00:03:04,000
+cenrio  argumentos iguais,
+
+47
+00:03:04,000 --> 00:03:08,000
+devendo retornar o mesmo argumento.
+
+48
+00:03:08,000 --> 00:03:12,000
+OK? Agora vamos
+
+49
+00:03:12,000 --> 00:03:16,000
+comear a implementao. Ento, primeiro devemos criar
+
+50
+00:03:16,000 --> 00:03:20,000
+uma instncia da classe Math. Matemtica.
+
+51
+00:03:20,000 --> 00:03:24,000
+Agora decida, chame o mtodo Math, aqui o primeiro
+
+52
+00:03:24,000 --> 00:03:28,000
+argumento deve ser maior. Ento, eu vou passar
+
+53
+00:03:28,000 --> 00:03:32,000
+2 e 1. Obtenha o
+
+54
+00:03:32,000 --> 00:03:36,000
+resultado e assert. Esse resultado
+
+55
+00:03:36,000 --> 00:03:40,000
+ igual a
+
+56
+00:03:40,000 --> 00:03:44,000
+2. Vamos rodar esse teste.
+
+57
+00:03:44,000 --> 00:03:48,000
+Est passando, linda.
+
+58
+00:03:48,000 --> 00:03:52,000
+Agora, o segundo teste. Para economizar tempo, vou copiar essas
+
+59
+00:03:52,000 --> 00:03:56,000
+poucas linhas, mas no mundo real voc no deve copiar o
+
+60
+00:03:56,000 --> 00:04:00,000
+cdigo,  melhor escrever do zero, porque s vezes quando voc
+
+61
+00:04:00,000 --> 00:04:04,000
+copia o cdigo, voc comete erros. Ento, aqui vou alterar esses
+
+62
+00:04:04,000 --> 00:04:08,000
+argumentos para 1 e 2. Portanto, o segundo argumento  maior e
+
+63
+00:04:08,000 --> 00:04:12,000
+a afirmao ainda deve ser a mesma. E uma ltima
+
+64
+00:04:12,000 --> 00:04:16,000
+vez, indo colar essas poucas linhas.
+
+65
+00:04:16,000 --> 00:04:20,000
+E como os argumentos vou passar um e um e afirmar
+
+66
+00:04:20,000 --> 00:04:24,000
+que resultado  igual a um. Agora, vou executar
+
+67
+00:04:24,000 --> 00:04:28,000
+todos os testes nesta aula.
+
+68
+00:04:28,000 --> 00:04:32,000
+Ento eu coloquei meu cursor no nome da classe, bem
+
+69
+00:04:32,000 --> 00:04:36,000
+aqui, e pressione command e T, e command e R.
+
+70
+00:04:36,000 --> 00:04:40,000
+Ento voc pode ver, todos os testes nesta
+
+71
+00:04:40,000 --> 00:04:43,000
+classe esto passando. Bonita.
+

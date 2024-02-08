@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, mais um exerccio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Desta vez, quero que voc olhe para a classe de pilha.
+
+3
+00:00:08,000 --> 00:00:12,000
+Ento, aqui ns temos uma implementao bsica de uma
+
+4
+00:00:12,000 --> 00:00:16,000
+pilha, ns temos alguns membros pblicos, temos essa contagem,
+
+5
+00:00:16,000 --> 00:00:20,000
+que  uma propriedade de corpo de expresso, que
+
+6
+00:00:20,000 --> 00:00:24,000
+retorna o nmero de objetos na pilha que temos
+
+7
+00:00:24,000 --> 00:00:28,000
+o mtodo push, que adiciona um objeto No topo
+
+8
+00:00:28,000 --> 00:00:32,000
+da pilha, temos o mtodo Pop, que remove o
+
+9
+00:00:32,000 --> 00:00:36,000
+objeto no topo da pilha, e tambm o retorna,
+
+10
+00:00:36,000 --> 00:00:40,000
+e finalmente o mtodo Peek, que retorna o objeto
+
+11
+00:00:40,000 --> 00:00:44,000
+no topo da pilha sem remov-lo. Ento, v em frente e escreva um monte
+
+12
+00:00:44,000 --> 00:00:48,000
+de testes de unidade para esta classe e, em seguida, vamos olhar para a minha soluo.
+

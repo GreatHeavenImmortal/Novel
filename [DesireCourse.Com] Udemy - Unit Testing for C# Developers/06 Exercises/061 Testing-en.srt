@@ -1,0 +1,476 @@
+1
+00:00:00,000 --> 00:00:04,000
+Now we are ready to unit test this method.
+
+2
+00:00:04,000 --> 00:00:08,000
+I've got a question for you. How many tests do we need
+
+3
+00:00:08,000 --> 00:00:12,000
+for this method. I'm going to collapse this implementation, so you think
+
+4
+00:00:12,000 --> 00:00:16,000
+of this method as a black box. So how many tests do we need here?
+
+5
+00:00:16,000 --> 00:00:20,000
+Well, in this service we are getting the list of
+
+6
+00:00:20,000 --> 00:00:24,000
+videos from our repository. What are the possibilities here?
+
+7
+00:00:24,000 --> 00:00:28,000
+one possibility is that our repository returns
+
+8
+00:00:28,000 --> 00:00:32,000
+an empty list. In that case, what should we get
+
+9
+00:00:32,000 --> 00:00:36,000
+from this service, we should get an empty string.
+
+10
+00:00:36,000 --> 00:00:40,000
+Another possibility is that our repository is
+
+11
+00:00:40,000 --> 00:00:44,000
+going to return a list with one or more video objects.
+
+12
+00:00:44,000 --> 00:00:48,000
+So, imagine we have an array, with multiple video
+
+13
+00:00:48,000 --> 00:00:52,000
+objects, 1, 2, 3, and each video object has
+
+14
+00:00:52,000 --> 00:00:56,000
+an ID. So then, this method is going to get the ID
+
+15
+00:00:56,000 --> 00:01:00,000
+of these video objects, and join them using a comma.
+
+16
+00:01:00,000 --> 00:01:04,000
+So here we should get a string like this, 1, 2,
+
+17
+00:01:04,000 --> 00:01:08,000
+3, where these are video ID's, okay? So let's
+
+18
+00:01:08,000 --> 00:01:12,000
+go ahead and write these tests. So, back
+
+19
+00:01:12,000 --> 00:01:16,000
+in our unit testing project. In the Mocking folder we have
+
+20
+00:01:16,000 --> 00:01:20,000
+VideoServiceTests, beautiful.
+
+21
+00:01:20,000 --> 00:01:24,000
+So, let's create a new test method
+
+22
+00:01:24,000 --> 00:01:28,000
+public void.
+
+23
+00:01:28,000 --> 00:01:32,000
+GetUnprocessedVideos, as Csv.
+
+24
+00:01:32,000 --> 00:01:36,000
+What is the first scenario? No
+
+25
+00:01:36,000 --> 00:01:40,000
+UnprocessedVideos. So NoUnprocessedVideos.
+
+26
+00:01:40,000 --> 00:01:44,000
+Now, this scenario is a little bit confusing because we have
+
+27
+00:01:44,000 --> 00:01:48,000
+double negative. It's better to change this to
+
+28
+00:01:48,000 --> 00:01:52,000
+All videos are processed. AllVideos
+
+29
+00:01:52,000 --> 00:01:56,000
+AreProcessed. Then, this method should
+
+30
+00:01:56,000 --> 00:02:00,000
+return an empty string
+
+31
+00:02:00,000 --> 00:02:04,000
+so in the arrange part, we need to create a mock object
+
+32
+00:02:04,000 --> 00:02:08,000
+So, let's go back to our set up method,
+
+33
+00:02:08,000 --> 00:02:12,000
+here we need to create a new mock object, let's call
+
+34
+00:02:12,000 --> 00:02:16,000
+that repository and set this to new
+
+35
+00:02:16,000 --> 00:02:20,000
+Mock of IVideoRepository.
+
+36
+00:02:20,000 --> 00:02:24,000
+Now we don't have this field, so let's create this here.
+
+37
+00:02:24,000 --> 00:02:28,000
+Okay. So here's our new field, Mock
+
+38
+00:02:28,000 --> 00:02:32,000
+up IvideoRepository. Now we're going to pass that as a
+
+39
+00:02:32,000 --> 00:02:36,000
+second argument with a constructor of video service.
+
+40
+00:02:36,000 --> 00:02:40,000
+So_repository.object.
+
+41
+00:02:40,000 --> 00:02:44,000
+Now, back in our test method, in the arrange
+
+42
+00:02:44,000 --> 00:02:48,000
+part, we need to program our mock. So _Repository
+
+43
+00:02:48,000 --> 00:02:52,000
+.Setup, here we pass a lambda expression,
+
+44
+00:02:52,000 --> 00:02:56,000
+repository goes to repository.Get
+
+45
+00:02:56,000 --> 00:03:00,000
+UnprocessedVideosReturns, you're going to
+
+46
+00:03:00,000 --> 00:03:04,000
+return an empty list. So new List of Video
+
+47
+00:03:04,000 --> 00:03:08,000
+like this. And let's import
+
+48
+00:03:08,000 --> 00:03:12,000
+video on the top. Next,
+
+49
+00:03:12,000 --> 00:03:16,000
+we're going to call video service.GetUnprocessedVideos.
+
+50
+00:03:16,000 --> 00:03:20,000
+Get the result, and Assert
+
+51
+00:03:20,000 --> 00:03:24,000
+That result Is Equal to
+
+52
+00:03:24,000 --> 00:03:28,000
+To an empty screen (?). Let's run this test.
+
+53
+00:03:28,000 --> 00:03:32,000
+Beautiful, it's
+
+54
+00:03:32,000 --> 00:03:36,000
+passing. Now, the second test.
+
+55
+00:03:36,000 --> 00:03:40,000
+So, to save time, I'm going to duplicate
+
+56
+00:03:40,000 --> 00:03:44,000
+this test. Now the second scenario is
+
+57
+00:03:44,000 --> 00:03:48,000
+we have a few unprocessed videos. So,
+
+58
+00:03:48,000 --> 00:03:52,000
+AFewUnprocessed
+
+59
+00:03:52,000 --> 00:03:56,000
+Videos. So this method should return a
+
+60
+00:03:56,000 --> 00:04:00,000
+string with the ID of unprocessed videos. So,
+
+61
+00:04:00,000 --> 00:04:04,000
+return a string, with ID of
+
+62
+00:04:04,000 --> 00:04:08,000
+UnprocessedVideos.
+
+63
+00:04:08,000 --> 00:04:12,000
+Okay? So here in the arrange part, I'm going to
+
+64
+00:04:12,000 --> 00:04:16,000
+initialize this list, with a few video objects.
+
+65
+00:04:16,000 --> 00:04:20,000
+So a new Video, let's create a video with ID 1
+
+66
+00:04:20,000 --> 00:04:24,000
+we don't need to set other properties here because they just create
+
+67
+00:04:24,000 --> 00:04:28,000
+extra noise in the code. We don't need these parenthesis either.
+
+68
+00:04:28,000 --> 00:04:32,000
+Now let's duplicate this and change the ID to 2
+
+69
+00:04:32,000 --> 00:04:36,000
+and 3. Finally, we're going to Assert that
+
+70
+00:04:36,000 --> 00:04:40,000
+result is a string like this. 1,2,3,
+
+71
+00:04:40,000 --> 00:04:44,000
+let's run the test.
+
+72
+00:04:44,000 --> 00:04:48,000
+Still passing beautiful, I want to make sure that I didn't make any mistakes
+
+73
+00:04:48,000 --> 00:04:52,000
+here, so I'm going to go back to our video service.
+
+74
+00:04:52,000 --> 00:04:56,000
+and comment out the line that would make these two tests
+
+75
+00:04:56,000 --> 00:05:00,000
+pass. So, this is the line, if I change
+
+76
+00:05:00,000 --> 00:05:04,000
+this to, let's say return 1, then both our tests
+
+77
+00:05:04,000 --> 00:05:08,000
+should fail. So,
+
+78
+00:05:08,000 --> 00:05:12,000
+here I'm going to put this cursor on the class name, and run all
+
+79
+00:05:12,000 --> 00:05:16,000
+the tests in this class.
+
+80
+00:05:16,000 --> 00:05:20,000
+Okay, you can see two of them failed, both of them
+
+81
+00:05:20,000 --> 00:05:24,000
+are ForgetUnprocessedVideos method, beautiful.
+
+82
+00:05:24,000 --> 00:05:28,000
+So, this verifies that we have implemented our tests
+
+83
+00:05:28,000 --> 00:05:32,000
+properly, so let's go back to our video service and
+
+84
+00:05:32,000 --> 00:05:36,000
+bring back the original code. And
+
+85
+00:05:36,000 --> 00:05:40,000
+we don't need this column anymore. Now one final thing before we finish
+
+86
+00:05:40,000 --> 00:05:44,000
+this lecture. Let's go back to our test class.
+
+87
+00:05:44,000 --> 00:05:48,000
+Look at the initialization of this video service.
+
+88
+00:05:48,000 --> 00:05:52,000
+We're passing these two objects as dependencies, and this is not
+
+89
+00:05:52,000 --> 00:05:56,000
+not terribly bad, but in a larger, more enterprise like application,
+
+90
+00:05:56,000 --> 00:06:00,000
+you may end up with a constructor with quite a few parameters.
+
+91
+00:06:00,000 --> 00:06:04,000
+And your setup code is going to be complex. If you have
+
+92
+00:06:04,000 --> 00:06:08,000
+this situation in your code, that can mean that perhaps that class is doing too
+
+93
+00:06:08,000 --> 00:06:12,000
+many things, perhaps it has too many dependencies, maybe some
+
+94
+00:06:12,000 --> 00:06:16,000
+of the methods in that class belong to a different class. So
+
+95
+00:06:16,000 --> 00:06:20,000
+when you move those methods to a different class, some of the dependencies will
+
+96
+00:06:20,000 --> 00:06:24,000
+automatically go away. So that's one thing you may want to look at.
+
+97
+00:06:24,000 --> 00:06:28,000
+Another reason for having a constructor with two many parameters is
+
+98
+00:06:28,000 --> 00:06:32,000
+when you're mocking everything, again, you should reserve mocks
+
+99
+00:06:32,000 --> 00:06:36,000
+mostly dealing with external dependencies. The only exception
+
+100
+00:06:36,000 --> 00:06:40,000
+is if you have complex methods with complex execution
+
+101
+00:06:40,000 --> 00:06:44,000
+paths, then you want to test them in isolation without their dependencies.
+
+102
+00:06:44,000 --> 00:06:48,000
+Because otherwise your test methods may get really complex
+
+103
+00:06:48,000 --> 00:06:52,000
+and bulky. And the last thing you may want to look at is
+
+104
+00:06:52,000 --> 00:06:56,000
+where those dependencies are used. In this case we have used
+
+105
+00:06:56,000 --> 00:07:00,000
+file reader only in this method, ReadVideoTitle,
+
+106
+00:07:00,000 --> 00:07:04,000
+and this repository only in this other method.
+
+107
+00:07:04,000 --> 00:07:08,000
+GetUnprocessedVideos. Right? If a dependency is used
+
+108
+00:07:08,000 --> 00:07:12,000
+only in a single method from a design perspective,
+
+109
+00:07:12,000 --> 00:07:16,000
+it's better to pass the dependency as a parameter
+
+110
+00:07:16,000 --> 00:07:20,000
+to that method. For example,
+
+111
+00:07:20,000 --> 00:07:24,000
+in our video service this FileReader is used only
+
+112
+00:07:24,000 --> 00:07:28,000
+here. No where else in this class. So potentially you can
+
+113
+00:07:28,000 --> 00:07:32,000
+pass this as a parameter here. So IFile
+
+114
+00:07:32,000 --> 00:07:36,000
+Reader. This way you are going to end up with a bulky constructor with
+
+115
+00:07:36,000 --> 00:07:40,000
+too many parameters. But as I explained before, this feature may
+
+116
+00:07:40,000 --> 00:07:44,000
+not be supported with the dependency injection framework you're using,
+
+117
+00:07:44,000 --> 00:07:48,000
+so you're only option might be constructor injection.
+
+118
+00:07:48,000 --> 00:07:52,000
+Okay, let's revert this. We are done with this exercise, next,
+
+119
+00:07:52,000 --> 00:07:55,000
+we're going to look at another exercise.
+

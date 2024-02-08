@@ -1,0 +1,284 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ahora pasemos al siguiente mtodo.
+
+2
+00:00:04,000 --> 00:00:08,000
+Entonces aqu tenemos este mtodo llamado max, que devuelve
+
+3
+00:00:08,000 --> 00:00:12,000
+el mximo de dos nmeros. Cuntas rutas de ejecucin
+
+4
+00:00:12,000 --> 00:00:16,000
+tenemos aqu? Tenemos dos caminos de ejecucin. Y eso
+
+5
+00:00:16,000 --> 00:00:20,000
+depende de esta condicin. Entonces, si A es mayor,
+
+6
+00:00:20,000 --> 00:00:24,000
+vamos a devolver A, de lo contrario vamos a devolver B.
+
+7
+00:00:24,000 --> 00:00:28,000
+Entonces hay dos caminos de ejecucin en este mtodo. Y el nmero de
+
+8
+00:00:28,000 --> 00:00:32,000
+pruebas a menudo es igual o mayor que el
+
+9
+00:00:32,000 --> 00:00:36,000
+nmero de rutas de ejecucin. Entonces, de vuelta en
+
+10
+00:00:36,000 --> 00:00:40,000
+nuestra clase de prueba, voy a crear otro
+
+11
+00:00:40,000 --> 00:00:44,000
+mtodo de prueba, prueba, pblico, vaco, ests probando
+
+12
+00:00:44,000 --> 00:00:48,000
+el mtodo max. Ahora cuando
+
+13
+00:00:48,000 --> 00:00:52,000
+alguien (? ) escribir pruebas para un mtodo, prefiero crear
+
+14
+00:00:52,000 --> 00:00:56,000
+todos los mtodos de prueba antes de implementarlos. Solo quiero hacer una lluvia de ideas
+
+15
+00:00:56,000 --> 00:01:00,000
+sobre los diferentes escenarios que deben probarse. De esta manera, me
+
+16
+00:01:00,000 --> 00:01:04,000
+aseguro de no perderme ningn escenario cuando me
+
+17
+00:01:04,000 --> 00:01:08,000
+ocupo de escribir las pruebas. Entonces, el primer escenario que quiero probar aqu
+
+18
+00:01:08,000 --> 00:01:12,000
+es cuando el primer argumento es mayor. Entonces, el
+
+19
+00:01:12,000 --> 00:01:16,000
+primer argumento es mayor,
+
+20
+00:01:16,000 --> 00:01:20,000
+debera devolver el primer argumento.
+
+21
+00:01:20,000 --> 00:01:24,000
+Ahora, voy a duplicar esto,
+
+22
+00:01:24,000 --> 00:01:28,000
+el segundo escenario es dnde?
+
+23
+00:01:28,000 --> 00:01:32,000
+El segundo argumento es mayor. Entonces, el
+
+24
+00:01:32,000 --> 00:01:36,000
+segundo argumento es mayor y
+
+25
+00:01:36,000 --> 00:01:40,000
+debera devolver el segundo argumento.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ahora aqu tenemos un tercer escenario. Puedes decirme de qu
+
+27
+00:01:44,000 --> 00:01:48,000
+escenario estoy hablando aqu? Ese es el escenario donde
+
+28
+00:01:48,000 --> 00:01:52,000
+los dos argumentos son iguales. Ahora, esto es algo a lo
+
+29
+00:01:52,000 --> 00:01:56,000
+que quiero que presten mucha atencin aqu. Hasta ahora, para escribir
+
+30
+00:01:56,000 --> 00:02:00,000
+pruebas, comenc mirando la implementacin del mtodo
+
+31
+00:02:00,000 --> 00:02:04,000
+que escrib pruebas basadas en esta implementacin.
+
+32
+00:02:04,000 --> 00:02:08,000
+Este es un buen enfoque para comenzar, pero no es suficiente, no es
+
+33
+00:02:08,000 --> 00:02:12,000
+algo en lo que debes confiar. Debido a que con este
+
+34
+00:02:12,000 --> 00:02:16,000
+enfoque, cuando escribe sus pruebas basadas en la implementacin, es
+
+35
+00:02:16,000 --> 00:02:20,000
+posible que esa implementacin tenga problemas. Tal vez su implementacin
+
+36
+00:02:20,000 --> 00:02:24,000
+le falta algo. Entonces no quiere confiar en esa implementacin.
+
+37
+00:02:24,000 --> 00:02:28,000
+La mejor manera de escribir la prueba para el mtodo es pensar
+
+38
+00:02:28,000 --> 00:02:32,000
+en ella como una caja negra. Imaginemos que no sabemos qu
+
+39
+00:02:32,000 --> 00:02:36,000
+hay dentro del mtodo max. El mtodo Max es solo un mtodo
+
+40
+00:02:36,000 --> 00:02:40,000
+que toma dos argumentos. Un final Cules son las diferentes posibilidades aqu?
+
+41
+00:02:40,000 --> 00:02:44,000
+Una posibilidad es A es mayor, otra posibilidad es
+
+42
+00:02:44,000 --> 00:02:48,000
+B mayor, y la ltima posibilidad es su igual.
+
+43
+00:02:48,000 --> 00:02:52,000
+Por lo tanto, voy a volver a nuestra clase de prueba, duplicar
+
+44
+00:02:52,000 --> 00:02:56,000
+la ltima prueba y cambiar el nombre del mtodo de prueba.
+
+45
+00:02:56,000 --> 00:03:00,000
+Entonces, esta condicin de escenario
+
+46
+00:03:00,000 --> 00:03:04,000
+es que los argumentos son
+
+47
+00:03:04,000 --> 00:03:08,000
+iguales, debera devolver el mismo argumento.
+
+48
+00:03:08,000 --> 00:03:12,000
+Bueno? Ahora, comencemos
+
+49
+00:03:12,000 --> 00:03:16,000
+la implementacin. Entonces, primero debemos crear una instancia
+
+50
+00:03:16,000 --> 00:03:20,000
+de la clase de Matemticas. Mates.
+
+51
+00:03:20,000 --> 00:03:24,000
+Ahora promulgue, llame al mtodo matemtico, aqu el primer
+
+52
+00:03:24,000 --> 00:03:28,000
+argumento debera ser mayor. Por lo tanto, voy
+
+53
+00:03:28,000 --> 00:03:32,000
+a pasar 2 y 1. Obtenga el
+
+54
+00:03:32,000 --> 00:03:36,000
+resultado y asiente. Ese resultado,
+
+55
+00:03:36,000 --> 00:03:40,000
+es igual a
+
+56
+00:03:40,000 --> 00:03:44,000
+2. Vamos a ejecutar esta prueba.
+
+57
+00:03:44,000 --> 00:03:48,000
+Est pasando, hermosa.
+
+58
+00:03:48,000 --> 00:03:52,000
+Ahora, la segunda prueba. Para ahorrar tiempo, voy a copiar
+
+59
+00:03:52,000 --> 00:03:56,000
+estas pocas lneas, pero en el mundo real no debe copiar el
+
+60
+00:03:56,000 --> 00:04:00,000
+cdigo de pegado, es mejor escribirlo desde cero, porque a veces, al
+
+61
+00:04:00,000 --> 00:04:04,000
+copiar el cdigo pegado, comete errores. Entonces, aqu voy a cambiar estos
+
+62
+00:04:04,000 --> 00:04:08,000
+argumentos a 1 y 2. Entonces, el segundo argumento es mayor, y
+
+63
+00:04:08,000 --> 00:04:12,000
+la Afirmacin debera seguir siendo la misma. Y una ltima
+
+64
+00:04:12,000 --> 00:04:16,000
+vez, voy a pegar estas pocas lneas.
+
+65
+00:04:16,000 --> 00:04:20,000
+Y como los argumentos que voy a aprobar uno y uno y afirmar
+
+66
+00:04:20,000 --> 00:04:24,000
+que el resultado es igual a uno. Ahora, voy a
+
+67
+00:04:24,000 --> 00:04:28,000
+ejecutar todas las pruebas en esta clase.
+
+68
+00:04:28,000 --> 00:04:32,000
+As que puse mi cursor sobre el nombre de la clase, aqu
+
+69
+00:04:32,000 --> 00:04:36,000
+mismo, y presion el comando y T, y el comando y R.
+
+70
+00:04:36,000 --> 00:04:40,000
+Como puede ver, todas las pruebas de esta
+
+71
+00:04:40,000 --> 00:04:43,000
+clase estn pasando. Hermosa.
+

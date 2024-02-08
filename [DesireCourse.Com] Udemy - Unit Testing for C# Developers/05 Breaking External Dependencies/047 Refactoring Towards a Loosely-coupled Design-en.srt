@@ -1,0 +1,584 @@
+1
+00:00:00,000 --> 00:00:04,000
+So in this lecture, I'm going to show you how to
+
+2
+00:00:04,000 --> 00:00:08,000
+refactor some legacy code, and make it testable and
+
+3
+00:00:08,000 --> 00:00:12,000
+loosely coupled. So in a project, look at this mockup folder.
+
+4
+00:00:12,000 --> 00:00:16,000
+Here we have this class video service,
+
+5
+00:00:16,000 --> 00:00:20,000
+look at this method. Read
+
+6
+00:00:20,000 --> 00:00:24,000
+VideoTitle. So here, you read the content
+
+7
+00:00:24,000 --> 00:00:28,000
+of the file called video.txt, and store it in
+
+8
+00:00:28,000 --> 00:00:32,000
+a variable called str. Right? And then we give it to this json
+
+9
+00:00:32,000 --> 00:00:36,000
+convert to deserialize this string as a json
+
+10
+00:00:36,000 --> 00:00:40,000
+object. If you have never worked with json, json is basically
+
+11
+00:00:40,000 --> 00:00:44,000
+JavaScript object notation. So in JavaScript,
+
+12
+00:00:44,000 --> 00:00:48,000
+we have a special notation for objects using key value pairs.
+
+13
+00:00:48,000 --> 00:00:52,000
+You're going to see that in a second. All that we're doing here is passing
+
+14
+00:00:52,000 --> 00:00:56,000
+a string, and we're expected to get an actual video object.
+
+15
+00:00:56,000 --> 00:01:00,000
+I've defined this video object right here, so,
+
+16
+00:01:00,000 --> 00:01:04,000
+it's a class with three properties. ID, title,
+
+17
+00:01:04,000 --> 00:01:08,000
+and IsProcessed. Okay, so
+
+18
+00:01:08,000 --> 00:01:12,000
+back to our method, as part of converting that
+
+19
+00:01:12,000 --> 00:01:16,000
+string with json object something may fail, maybe that string is not
+
+20
+00:01:16,000 --> 00:01:20,000
+in the right format. In that case, we are not going to get a video object,
+
+21
+00:01:20,000 --> 00:01:24,000
+we're going to get null and will simply return an
+
+22
+00:01:24,000 --> 00:01:28,000
+error message to the client of this class. Otherwise we're going to return
+
+23
+00:01:28,000 --> 00:01:32,000
+the title of the video. So a very simple method,
+
+24
+00:01:32,000 --> 00:01:36,000
+but on the first line, we're touching an external resource, in this case
+
+25
+00:01:36,000 --> 00:01:40,000
+a file system. So we want to do some surgery here, and
+
+26
+00:01:40,000 --> 00:01:44,000
+decouple this code from the file system. As I told you before,
+
+27
+00:01:44,000 --> 00:01:48,000
+the first step is to move all the code that touches an external
+
+28
+00:01:48,000 --> 00:01:52,000
+resource into a separate class and isolate it from
+
+29
+00:01:52,000 --> 00:01:56,000
+the rest of the code. So in this case, I want to move this expression
+
+30
+00:01:56,000 --> 00:02:00,000
+into a separate class. So, back in the project,
+
+31
+00:02:00,000 --> 00:02:04,000
+in the mocking folder, I'm going to add a new class.
+
+32
+00:02:04,000 --> 00:02:08,000
+I'm going to call this class FileReader. It's responsible for reading
+
+33
+00:02:08,000 --> 00:02:12,000
+a pdf file. So FileReader
+
+34
+00:02:12,000 --> 00:02:16,000
+here we need only one method for reading the content of a file,
+
+35
+00:02:16,000 --> 00:02:20,000
+So public, string, Read
+
+36
+00:02:20,000 --> 00:02:24,000
+perhaps it gets the path of the file.
+
+37
+00:02:24,000 --> 00:02:28,000
+Now, back to our
+
+38
+00:02:28,000 --> 00:02:32,000
+video service, I'm going to cut
+
+39
+00:02:32,000 --> 00:02:36,000
+this code from here, and paste it here.
+
+40
+00:02:36,000 --> 00:02:40,000
+Now, let's import the name space for the file class.
+
+41
+00:02:40,000 --> 00:02:44,000
+And also replace video.txt
+
+42
+00:02:44,000 --> 00:02:48,000
+with this path argument. So we can reuse this class
+
+43
+00:02:48,000 --> 00:02:52,000
+in multiple places. And finally return
+
+44
+00:02:52,000 --> 00:02:56,000
+the content. So now, the code that touches an external resource
+
+45
+00:02:56,000 --> 00:03:00,000
+is encapsulated and isolated inside
+
+46
+00:03:00,000 --> 00:03:04,000
+this FileReader, okay, now,
+
+47
+00:03:04,000 --> 00:03:08,000
+back to our video service, here I'm going to new up a FileReader
+
+48
+00:03:08,000 --> 00:03:12,000
+and then call Read and pass
+
+49
+00:03:12,000 --> 00:03:16,000
+video.txt here. So we haven't changed the behavior
+
+50
+00:03:16,000 --> 00:03:20,000
+of our application, the code still being the same thing, but we simply restructured
+
+51
+00:03:20,000 --> 00:03:24,000
+or refactored our code. Now, in this implementation,
+
+52
+00:03:24,000 --> 00:03:28,000
+this video service class is tightly coupled
+
+53
+00:03:28,000 --> 00:03:32,000
+to FileReader, because we are newing up an instance
+
+54
+00:03:32,000 --> 00:03:36,000
+of FileReader here. And that means in our unit tests we can not
+
+55
+00:03:36,000 --> 00:03:40,000
+replace this FileReader with a fake object, or a test
+
+56
+00:03:40,000 --> 00:03:44,000
+double. So what should we do here? We should program a
+
+57
+00:03:44,000 --> 00:03:48,000
+against an interface. So instead of working with a concrete implementation,
+
+58
+00:03:48,000 --> 00:03:52,000
+like this FileReader, we should work with an interface or a contract.
+
+59
+00:03:52,000 --> 00:03:56,000
+Then, at run time, we can pass any object,
+
+60
+00:03:56,000 --> 00:04:00,000
+that implements that interface. Okay? So the second step that
+
+61
+00:04:00,000 --> 00:04:04,000
+you need to do here is to extract an interface from the File
+
+62
+00:04:04,000 --> 00:04:08,000
+Reader class. So back to the file reader.
+
+63
+00:04:08,000 --> 00:04:12,000
+I'm going to declare an interface. Public interface
+
+64
+00:04:12,000 --> 00:04:16,000
+all interfaces in .net should start with i,
+
+65
+00:04:16,000 --> 00:04:20,000
+and then call this FileReader.
+
+66
+00:04:20,000 --> 00:04:24,000
+Now as I told you before, interfaces only have declarations.
+
+67
+00:04:24,000 --> 00:04:28,000
+They don't have any implementation. So in this interface we want to
+
+68
+00:04:28,000 --> 00:04:32,000
+declare a method with this signature, a method called read.
+
+69
+00:04:32,000 --> 00:04:36,000
+That takes a string, and returns a string. So I'm going to copy
+
+70
+00:04:36,000 --> 00:04:40,000
+this and paste it here. And by the way, members
+
+71
+00:04:40,000 --> 00:04:44,000
+define in an interface don't have an access modifier,
+
+72
+00:04:44,000 --> 00:04:48,000
+like public or private. Because an interface defines a
+
+73
+00:04:48,000 --> 00:04:52,000
+contract. So when a class implements an interface, it's going to define
+
+74
+00:04:52,000 --> 00:04:56,000
+all the members declared in an interface, as public
+
+75
+00:04:56,000 --> 00:05:00,000
+members. Okay? So, here's our interface.
+
+76
+00:05:00,000 --> 00:05:04,000
+Now, in order to tell the C Sharp compiler
+
+77
+00:05:04,000 --> 00:05:08,000
+that this FileReader implements this interface we add colon
+
+78
+00:05:08,000 --> 00:05:12,000
+IFileReader. So this is how we extract an interface
+
+79
+00:05:12,000 --> 00:05:16,000
+from a class manually. But let me show you a faster way.
+
+80
+00:05:16,000 --> 00:05:20,000
+So, I'm going to delete this part here, I'm also going to
+
+81
+00:05:20,000 --> 00:05:24,000
+delete the interface declaration. If you're using Visual
+
+82
+00:05:24,000 --> 00:05:28,000
+Studio, you can right click on your type and go to the refactor
+
+83
+00:05:28,000 --> 00:05:32,000
+menu. Here, I'm using Rider so I have to press Alt and enter,
+
+84
+00:05:32,000 --> 00:05:36,000
+and this is refactor menu. When you go here,
+
+85
+00:05:36,000 --> 00:05:40,000
+we should see an action called extract interface.
+
+86
+00:05:40,000 --> 00:05:44,000
+So here, Rider is asking me what is the name of this
+
+87
+00:05:44,000 --> 00:05:48,000
+interface, by default it suggests IFileReader.
+
+88
+00:05:48,000 --> 00:05:52,000
+Because it follows the convention in .net. Next it's asking me
+
+89
+00:05:52,000 --> 00:05:56,000
+where I should place an interface, should this be next to this class, or should this be
+
+90
+00:05:56,000 --> 00:06:00,000
+in another file. For now it's okay to put this next to
+
+91
+00:06:00,000 --> 00:06:04,000
+this class. In more complicated enterprise like applications, you may
+
+92
+00:06:04,000 --> 00:06:08,000
+want to put an interface in a separate file, or even in a different assembly.
+
+93
+00:06:08,000 --> 00:06:12,000
+That's beyond the scope of this course, so for now, don't worry about it.
+
+94
+00:06:12,000 --> 00:06:16,000
+And finally, we need to select the members that should go in the
+
+95
+00:06:16,000 --> 00:06:20,000
+interface. So here, I'm going to select the read method. Next,
+
+96
+00:06:20,000 --> 00:06:24,000
+Look, we have this interface here, and
+
+97
+00:06:24,000 --> 00:06:28,000
+our FileReader class implements this interface. So here's
+
+98
+00:06:28,000 --> 00:06:32,000
+one implementation of this interface where we use the file class
+
+99
+00:06:32,000 --> 00:06:36,000
+to read the content of a file in the file system,
+
+100
+00:06:36,000 --> 00:06:40,000
+now that we have this interface or this contract, we can also create
+
+101
+00:06:40,000 --> 00:06:44,000
+a fake implementation that we use in our unit tests. So,
+
+102
+00:06:44,000 --> 00:06:48,000
+back to our solution explorer, in our unit testing project I'm going to add
+
+103
+00:06:48,000 --> 00:06:52,000
+a new class. New Class.
+
+104
+00:06:52,000 --> 00:06:56,000
+And call this FakeFileReader.
+
+105
+00:06:56,000 --> 00:07:00,000
+Now in unit testing, we actually have two different types of
+
+106
+00:07:00,000 --> 00:07:04,000
+fake objects. You might have heard of stubs and mocks.
+
+107
+00:07:04,000 --> 00:07:08,000
+They have some similarities, but they have the subtle difference
+
+108
+00:07:08,000 --> 00:07:12,000
+they both represent a fake object. Some older unit testing
+
+109
+00:07:12,000 --> 00:07:16,000
+frameworks differentiate between stubs and mocks, but more
+
+110
+00:07:16,000 --> 00:07:20,000
+modern frameworks don't differentiate, and I find this more practical.
+
+111
+00:07:20,000 --> 00:07:24,000
+So here we can call this class fake FileReader,
+
+112
+00:07:24,000 --> 00:07:28,000
+or we can call it mock FileReader, or
+
+113
+00:07:28,000 --> 00:07:32,000
+stub FileReader, all these names are perfectly fine.
+
+114
+00:07:32,000 --> 00:07:36,000
+So I want to call this fake FileReader.
+
+115
+00:07:36,000 --> 00:07:40,000
+Now, I'm going to have this class implement our new interface.
+
+116
+00:07:40,000 --> 00:07:44,000
+IFileReader. And this is defined in testninja
+
+117
+00:07:44,000 --> 00:07:48,000
+.mocking name space. We have this
+
+118
+00:07:48,000 --> 00:07:52,000
+compilation error, because we have not implemented the members
+
+119
+00:07:52,000 --> 00:07:56,000
+declared in this interface, so we press alt and enter,
+
+120
+00:07:56,000 --> 00:08:00,000
+and select implement missing members.
+
+121
+00:08:00,000 --> 00:08:04,000
+So now we have this read method in this class, but instead of using the File
+
+122
+00:08:04,000 --> 00:08:08,000
+class in .net, I'm going to return a hard coded string.
+
+123
+00:08:08,000 --> 00:08:12,000
+Something like this, so I'm not accessing
+
+124
+00:08:12,000 --> 00:08:16,000
+the file system, this is a fake implementation. And we can use this
+
+125
+00:08:16,000 --> 00:08:20,000
+in our unit tests. Also, note that I have defined this class
+
+126
+00:08:20,000 --> 00:08:24,000
+in our unit testing project, so it's not part of our production code.
+
+127
+00:08:24,000 --> 00:08:28,000
+Okay? So let's quickly recap what we have done so far.
+
+128
+00:08:28,000 --> 00:08:32,000
+In video service, we extracted the first line,
+
+129
+00:08:32,000 --> 00:08:36,000
+into a separate class called FileReader.
+
+130
+00:08:36,000 --> 00:08:40,000
+Here's the implementation of our FileReader class,
+
+131
+00:08:40,000 --> 00:08:44,000
+and we also extracted an interface from this class called
+
+132
+00:08:44,000 --> 00:08:48,000
+IFileReader. And finally we created another implementation
+
+133
+00:08:48,000 --> 00:08:52,000
+of this interface called FakeFileReader
+
+134
+00:08:52,000 --> 00:08:56,000
+and this is the one that we're going to use in our unit tests,
+
+135
+00:08:56,000 --> 00:09:00,000
+Now there is still one step left. Back to our video service,
+
+136
+00:09:00,000 --> 00:09:04,000
+our video service class is still
+
+137
+00:09:04,000 --> 00:09:08,000
+tightly coupled to this FileReader class. But as I told you
+
+138
+00:09:08,000 --> 00:09:12,000
+before, here, we should program against an interface, in this
+
+139
+00:09:12,000 --> 00:09:16,000
+case IFileReader. So you shouldn't really new up
+
+140
+00:09:16,000 --> 00:09:20,000
+this FileReader object here. Now there are three ways we can pass
+
+141
+00:09:20,000 --> 00:09:24,000
+an instance of a class that implements IFileReader
+
+142
+00:09:24,000 --> 00:09:28,000
+interface with this video service. One way is to pass it
+
+143
+00:09:28,000 --> 00:09:32,000
+as a parameter to this method, another way is to pass it using a property,
+
+144
+00:09:32,000 --> 00:09:36,000
+and the last way is to pass it by a constructive parameter.
+
+145
+00:09:36,000 --> 00:09:40,000
+For the next three lectures, you're going to see each of these approaches
+
+146
+00:09:40,000 --> 00:09:42,000
+in action.
+

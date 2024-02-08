@@ -1,0 +1,88 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, es hora de otro ejercicio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Entonces, de vuelta en la carpeta Mocking, mira esta clase.
+
+3
+00:00:08,000 --> 00:00:12,000
+InstallerHelper. Este es el cdigo que uno
+
+4
+00:00:12,000 --> 00:00:16,000
+de mis alumnos me envi. Entonces, si usted es la persona que me
+
+5
+00:00:16,000 --> 00:00:20,000
+envi este cdigo, muchas gracias por compartir su cdigo, vamos a usar esto como un ejemplo
+
+6
+00:00:20,000 --> 00:00:24,000
+de un cdigo que toca un recurso externo. Entonces aqu tenemos
+
+7
+00:00:24,000 --> 00:00:28,000
+este mtodo, DownloadInstaller. Se necesita un nombre de
+
+8
+00:00:28,000 --> 00:00:32,000
+cliente e InstallerName, y utiliza la clase WebClient para descargar
+
+9
+00:00:32,000 --> 00:00:36,000
+el archivo de Internet. El primer argumento para
+
+10
+00:00:36,000 --> 00:00:40,000
+este mtodo es la ubicacin o la URL
+
+11
+00:00:40,000 --> 00:00:44,000
+de este archivo. Entonces aqu estamos usando una cuerda. formato para construir una
+
+12
+00:00:44,000 --> 00:00:48,000
+URL como esta. ejemplo. com. El primer argumento
+
+13
+00:00:48,000 --> 00:00:52,000
+despus de eso es customerName, y el segundo es installerName.
+
+14
+00:00:52,000 --> 00:00:56,000
+Y este es el segundo argumento para este mtodo
+
+15
+00:00:56,000 --> 00:01:00,000
+de archivo de descarga. Y este argumento especifica la ubicacin en el
+
+16
+00:01:00,000 --> 00:01:04,000
+sistema de archivos donde necesitamos almacenar este archivo. Como puede ver, la llamada
+
+17
+00:01:04,000 --> 00:01:08,000
+para descargar el archivo est encerrada dentro de un bloque
+
+18
+00:01:08,000 --> 00:01:12,000
+de efectivo de prueba, por lo que si todo va
+
+19
+00:01:12,000 --> 00:01:16,000
+bien, se devolver verdadero, de lo contrario, devolveremos el mensaje falso.
+
+20
+00:01:16,000 --> 00:01:20,000
+Entonces, ahora, quiero que use lo que ha aprendido en esta seccin, y escriba una
+
+21
+00:01:20,000 --> 00:01:24,000
+prueba de unidad requerida para esta clase. A continuacin, vamos a
+
+22
+00:01:24,000 --> 00:01:26,000
+ver mi solucin.
+

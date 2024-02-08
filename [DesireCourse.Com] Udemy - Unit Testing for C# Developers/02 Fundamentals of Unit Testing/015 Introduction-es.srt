@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+En esta seccin, vamos a explorar los fundamentos
+
+2
+00:00:04,000 --> 00:00:08,000
+de las pruebas unitarias. Entonces aprenders sobre las caractersticas
+
+3
+00:00:08,000 --> 00:00:12,000
+de las buenas pruebas unitarias. Qu probar y qu no evaluar, esta
+
+4
+00:00:12,000 --> 00:00:16,000
+es una de las preguntas ms frecuentes que recibo de muchos de mis alumnos.
+
+5
+00:00:16,000 --> 00:00:20,000
+Dicen: "Mosh, no s qu probar! "Entonces en esta seccin, voy a darle
+
+6
+00:00:20,000 --> 00:00:24,000
+algunas pautas que lo ayudarn a comenzar. Tambin aprender a nombrar y
+
+7
+00:00:24,000 --> 00:00:28,000
+organizar sus pruebas, junto con algunas tcnicas bsicas para escribir
+
+8
+00:00:28,000 --> 00:00:32,000
+pruebas limpias y mantenibles. Y finalmente aprenders
+
+9
+00:00:32,000 --> 00:00:36,000
+cmo escribir pruebas confiables que no mientan.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces, cuando pasan, sabes que tu cdigo de produccin est funcionando, y
+
+11
+00:00:40,000 --> 00:00:44,000
+cuando fallan, sabes que hay algo mal en el cdigo de produccin.
+
+12
+00:00:44,000 --> 00:00:47,000
+As que ahora, empecemos!
+

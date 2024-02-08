@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, usted conoce los beneficios de escribir pruebas,
+
+2
+00:00:04,000 --> 00:00:08,000
+pero no vivimos en un mundo ideal, y
+
+3
+00:00:08,000 --> 00:00:12,000
+cada proyecto tiene ciertas limitaciones. Hay algunos escenarios en los que
+
+4
+00:00:12,000 --> 00:00:16,000
+sugiero que piense en las pruebas automticas de una manera ms realista.
+
+5
+00:00:16,000 --> 00:00:20,000
+Un escenario es cuando se trata de una aplicacin heredada
+
+6
+00:00:20,000 --> 00:00:24,000
+que se escribe sin pruebas de unidades en mente.
+
+7
+00:00:24,000 --> 00:00:28,000
+Las aplicaciones construidas de esta manera no son comprobables de forma inherente.
+
+8
+00:00:28,000 --> 00:00:32,000
+Si desea que sean comprobables, debe dedicar mucho tiempo y sus costos sern
+
+9
+00:00:32,000 --> 00:00:36,000
+potencialmente superiores a los beneficios que obtendr. Entonces, qu
+
+10
+00:00:36,000 --> 00:00:40,000
+debera hacer? Deberas probar o no. Ah es donde
+
+11
+00:00:40,000 --> 00:00:44,000
+tienes que hacer tu evaluacin. Puede decidir refactorizar una parte pequea
+
+12
+00:00:44,000 --> 00:00:48,000
+o crtica de su aplicacin y hacer que esa parte sea comprobable.
+
+13
+00:00:48,000 --> 00:00:52,000
+De esta forma, podemos asegurarnos de que las partes crticas de
+
+14
+00:00:52,000 --> 00:00:56,000
+la aplicacin continen funcionando a medida que implementa nuevos requisitos comerciales.
+
+15
+00:00:56,000 --> 00:01:00,000
+Pero si quiere apuntar a probar cada parte de la aplicacin.
+
+16
+00:01:00,000 --> 00:01:04,000
+Es probable que su costo supere los beneficios.
+
+17
+00:01:04,000 --> 00:01:08,000
+Otro escenario, es donde trabaja en una empresa de nueva
+
+18
+00:01:08,000 --> 00:01:12,000
+creacin y tiene poco tiempo para convertir rpidamente un concepto
+
+19
+00:01:12,000 --> 00:01:16,000
+en un software en produccin. En ese caso, nuevamente, es posible que
+
+20
+00:01:16,000 --> 00:01:20,000
+no tenga tiempo suficiente para escribir pruebas para cada parte de la aplicacin.
+
+21
+00:01:20,000 --> 00:01:24,000
+Pero al menos puede escribir pruebas para las partes clave ms,
+
+22
+00:01:24,000 --> 00:01:28,000
+como le dije antes en esta seccin, si tiene funciones de
+
+23
+00:01:28,000 --> 00:01:32,000
+clculo, puede probarlas por separado. Y esto, de hecho,
+
+24
+00:01:32,000 --> 00:01:36,000
+te ayudar a ir ms rpido y pasar menos
+
+25
+00:01:36,000 --> 00:01:40,000
+tiempo probando manualmente esas funciones. Por lo tanto, debe ser realista
+
+26
+00:01:40,000 --> 00:01:44,000
+y usar su propio juicio sobre qu partes de la aplicacin deben probarse.
+
+27
+00:01:44,000 --> 00:01:48,000
+Y el ltimo escenario es donde usted es el
+
+28
+00:01:48,000 --> 00:01:52,000
+nico desarrollador en el equipo, que practica la escritura
+
+29
+00:01:52,000 --> 00:01:56,000
+limpia y el cdigo comprobable. Si los otros desarrolladores en su equipo escriben
+
+30
+00:01:56,000 --> 00:02:00,000
+cdigo desordenado, como funciones con cien lneas de cdigo o ms, realmente no puede implementar pruebas
+
+31
+00:02:00,000 --> 00:02:04,000
+de unidad en su organizacin, simplemente no funciona. Es como nadar
+
+32
+00:02:04,000 --> 00:02:08,000
+contra un ro. Lo primero que debe hacer es educar
+
+33
+00:02:08,000 --> 00:02:12,000
+a su equipo y ayudarlos a escribir un cdigo ms limpio y ms comprobable.
+
+34
+00:02:12,000 --> 00:02:16,000
+En caso de que no haya visto mi curso de cdigo limpio,
+
+35
+00:02:16,000 --> 00:02:20,000
+le recomiendo que tome ese curso y haga que todos en su
+
+36
+00:02:20,000 --> 00:02:24,000
+equipo observen ese curso tambin. Ese es su primer paso
+
+37
+00:02:24,000 --> 00:02:28,000
+antes de escribir cdigo comprobable. Si su cdigo no est
+
+38
+00:02:28,000 --> 00:02:32,000
+limpio, escribir pruebas para ello es difcil o imposible.
+

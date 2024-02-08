@@ -1,0 +1,218 @@
+1
+00:00:00,000 --> 00:00:04,000
+Now look at the implementation
+
+2
+00:00:04,000 --> 00:00:08,000
+of these tests methods here. Each test method looks like
+
+3
+00:00:08,000 --> 00:00:12,000
+its the only test in the world. We're not calling one test
+
+4
+00:00:12,000 --> 00:00:16,000
+in another test. And each test is using a new instance
+
+5
+00:00:16,000 --> 00:00:20,000
+of the math class. This is extremely important.
+
+6
+00:00:20,000 --> 00:00:24,000
+In each test, you want to start with a fresh, clean
+
+7
+00:00:24,000 --> 00:00:28,000
+state. So, you shouldn't create a private
+
+8
+00:00:28,000 --> 00:00:32,000
+field here, like private math_math.
+
+9
+00:00:32,000 --> 00:00:36,000
+And then reuse it across different tests. Because
+
+10
+00:00:36,000 --> 00:00:40,000
+it is possible that one test may leave some state,
+
+11
+00:00:40,000 --> 00:00:44,000
+in this math object, and that state will leak into another test
+
+12
+00:00:44,000 --> 00:00:48,000
+and impact the result of that test. So each test
+
+13
+00:00:48,000 --> 00:00:52,000
+should be executed using a clean fresh state.
+
+14
+00:00:52,000 --> 00:00:56,000
+However, I don't like the fact that at the beginning of every test method
+
+15
+00:00:56,000 --> 00:01:00,000
+that we are initializing this math
+
+16
+00:01:00,000 --> 00:01:04,000
+object. It looks a little bit redundant, but in this case it's not
+
+17
+00:01:04,000 --> 00:01:08,000
+a big deal, because it's only a single line of code. But in the real world
+
+18
+00:01:08,000 --> 00:01:12,000
+when you're working with more complex applications, it is possible
+
+19
+00:01:12,000 --> 00:01:16,000
+that you're arranged part might be a few lines
+
+20
+00:01:16,000 --> 00:01:20,000
+of code, made two, three, four lines of code. You don't want to repeat all those four
+
+21
+00:01:20,000 --> 00:01:24,000
+lines in every test method. So let me show you a cleaner way,
+
+22
+00:01:24,000 --> 00:01:28,000
+to rewrite these tests. In NUnit we have
+
+23
+00:01:28,000 --> 00:01:32,000
+two special attributes.
+
+24
+00:01:32,000 --> 00:01:36,000
+SetUp and TearDown.
+
+25
+00:01:36,000 --> 00:01:40,000
+You can create a method here, and decorate it with a SetUp attribute
+
+26
+00:01:40,000 --> 00:01:44,000
+and then NUnit test runner will call that method before
+
+27
+00:01:44,000 --> 00:01:48,000
+running each test. And this is a great opportunity for us to
+
+28
+00:01:48,000 --> 00:01:52,000
+initialize our math object. Similarly,
+
+29
+00:01:52,000 --> 00:01:56,000
+if we create a method and decorate it with the TearDown attribute,
+
+30
+00:01:56,000 --> 00:02:00,000
+NUnit test runner will call that method after
+
+31
+00:02:00,000 --> 00:02:04,000
+each test. Now in this course we're not going to use a TearDown
+
+32
+00:02:04,000 --> 00:02:08,000
+attribute, because this is often used with integration tests,
+
+33
+00:02:08,000 --> 00:02:12,000
+because in your integration tests, you may create some data in your database,
+
+34
+00:02:12,000 --> 00:02:16,000
+and then you want to do cleanup after each test. That's where
+
+35
+00:02:16,000 --> 00:02:20,000
+we use the TearDown attribute, so in this lecture, let me show you how to
+
+36
+00:02:20,000 --> 00:02:24,000
+use the SetUp attribute to rewrite these tests, and make them
+
+37
+00:02:24,000 --> 00:02:28,000
+cleaner. I'm going to create a public
+
+38
+00:02:28,000 --> 00:02:32,000
+void method, we can call it anything, the name doesn't matter
+
+39
+00:02:32,000 --> 00:02:36,000
+but by convention we use SetUp,
+
+40
+00:02:36,000 --> 00:02:40,000
+now, we apply the SetUp attribute,
+
+41
+00:02:40,000 --> 00:02:44,000
+and here we can initialize our math object
+
+42
+00:02:44,000 --> 00:02:48,000
+to a new instance of the math class.
+
+43
+00:02:48,000 --> 00:02:52,000
+So even though I've defined a private field here,
+
+44
+00:02:52,000 --> 00:02:56,000
+we'll be using this in different test, but I'm reinitializing this
+
+45
+00:02:56,000 --> 00:03:00,000
+to a new instance before each test.
+
+46
+00:03:00,000 --> 00:03:04,000
+Now in this, you can remove the first line of every
+
+47
+00:03:04,000 --> 00:03:08,000
+test. And, of course we need to
+
+48
+00:03:08,000 --> 00:03:12,000
+reference our private field here, similarly,
+
+49
+00:03:12,000 --> 00:03:16,000
+in our second test,
+
+50
+00:03:16,000 --> 00:03:20,000
+our third test, and
+
+51
+00:03:20,000 --> 00:03:24,000
+the last test. And you can see each test,
+
+52
+00:03:24,000 --> 00:03:28,000
+is only two lines of code.
+
+53
+00:03:28,000 --> 00:03:32,000
+So, use the set up method
+
+54
+00:03:32,000 --> 00:03:36,000
+to initialize the object you're going to test.
+
+
+

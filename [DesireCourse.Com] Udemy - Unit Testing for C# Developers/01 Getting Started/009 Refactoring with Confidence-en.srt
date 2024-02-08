@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, I have renamed this test methods
+
+2
+00:00:04,000 --> 00:00:08,000
+to make them more consistent and easier to read.
+
+3
+00:00:08,000 --> 00:00:12,000
+So, we have three scenarios, admin cancelling,
+
+4
+00:00:12,000 --> 00:00:16,000
+same user cancelling, and another user cancelling.
+
+5
+00:00:16,000 --> 00:00:20,000
+One thing you can see about this test is that they act as some kind of
+
+6
+00:00:20,000 --> 00:00:24,000
+documentation about our source code, this is
+
+7
+00:00:24,000 --> 00:00:28,000
+another benefit of writing tests, imagine you join a new
+
+8
+00:00:28,000 --> 00:00:32,000
+team that gives you a new project, and your task is to make some modifications to a class.
+
+9
+00:00:32,000 --> 00:00:36,000
+If that class is properly supported by
+
+10
+00:00:36,000 --> 00:00:40,000
+a bunch of unit tests, you can easily figure out what the responsibility
+
+11
+00:00:40,000 --> 00:00:44,000
+of that class is. Now let me show you another benefit of writing tests.
+
+12
+00:00:44,000 --> 00:00:48,000
+Earlier in this section, I told you that once you have tests
+
+13
+00:00:48,000 --> 00:00:52,000
+you can refactor your code with confidence. So back
+
+14
+00:00:52,000 --> 00:00:56,000
+in our reservation class, I don't like the way this
+
+15
+00:00:56,000 --> 00:01:00,000
+method is implemented, it looks very amateurish, so I'm
+
+16
+00:01:00,000 --> 00:01:04,000
+going to refactor it, and then run all my tests, and see if I've broken
+
+17
+00:01:04,000 --> 00:01:08,000
+anything or not. So the first change I'm going to make here is
+
+18
+00:01:08,000 --> 00:01:12,000
+instead of having two if statements, I'm going to have one
+
+19
+00:01:12,000 --> 00:01:16,000
+if statement and use the logical or
+
+20
+00:01:16,000 --> 00:01:20,000
+operator. So if user is admin, or
+
+21
+00:01:20,000 --> 00:01:24,000
+MadeBy equals user. You're going to return true,
+
+22
+00:01:24,000 --> 00:01:28,000
+otherwise, we're going to return false. Now,
+
+23
+00:01:28,000 --> 00:01:32,000
+back in test explorer, run all the tests,
+
+24
+00:01:32,000 --> 00:01:36,000
+so, my tests are verifying
+
+25
+00:01:36,000 --> 00:01:40,000
+that our application is still working. I have not broken anything.
+
+26
+00:01:40,000 --> 00:01:44,000
+I can take this to the next level. So,
+
+27
+00:01:44,000 --> 00:01:48,000
+instead of having this if statement here, and then return false,
+
+28
+00:01:48,000 --> 00:01:52,000
+I'm simply going to return
+
+29
+00:01:52,000 --> 00:01:56,000
+the result of this expression. Now,
+
+30
+00:01:56,000 --> 00:02:00,000
+we have only one line of code here. Once again,
+
+31
+00:02:00,000 --> 00:02:04,000
+we run all the tests,
+
+32
+00:02:04,000 --> 00:02:08,000
+all the tests are passing,
+
+33
+00:02:08,000 --> 00:02:12,000
+our code is much cleaner and you can see another benefit of writing
+
+34
+00:02:12,000 --> 00:02:14,666
+tests.
+

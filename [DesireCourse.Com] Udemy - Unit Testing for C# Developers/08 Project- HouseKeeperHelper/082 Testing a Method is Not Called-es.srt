@@ -1,0 +1,332 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, hemos escrito una prueba unitaria
+
+2
+00:00:04,000 --> 00:00:08,000
+aqu, ahora, volvamos rpidamente a la
+
+3
+00:00:08,000 --> 00:00:12,000
+implementacin de nuestro servicio. Como te dije antes, al
+
+4
+00:00:12,000 --> 00:00:16,000
+escribir pruebas unitarias, siempre debemos mirar el mtodo de una
+
+5
+00:00:16,000 --> 00:00:20,000
+prueba como una caja negra. Entonces, realmente no debera escribir lnea
+
+6
+00:00:20,000 --> 00:00:24,000
+por lnea de este cdigo, y escribir pruebas de unidad basadas en
+
+7
+00:00:24,000 --> 00:00:28,000
+esta implementacin, porque es posible que esta implementacin tenga un problema, sin
+
+8
+00:00:28,000 --> 00:00:32,000
+embargo, en este caso porque no estoy familiarizado con el dominio de
+
+9
+00:00:32,000 --> 00:00:36,000
+esta aplicacin. Debo confiar en esta implementacin. Entonces, veamos qu
+
+10
+00:00:36,000 --> 00:00:40,000
+est pasando aqu. Cuando estamos iterando sobre estas amas
+
+11
+00:00:40,000 --> 00:00:44,000
+de llaves, es posible que algunas de ellas no tengan un correo electrnico.
+
+12
+00:00:44,000 --> 00:00:48,000
+En este caso, pasars al siguiente ama de llaves, y eso significa que
+
+13
+00:00:48,000 --> 00:00:52,000
+no deberas crear una declaracin para ellos. Eso significa que hay un requisito
+
+14
+00:00:52,000 --> 00:00:56,000
+comercial para esto, porque si el ama de llaves no tiene
+
+15
+00:00:56,000 --> 00:01:00,000
+un correo electrnico, no queremos desperdiciar recursos generando una declaracin para
+
+16
+00:01:00,000 --> 00:01:04,000
+alguien que no es accesible. Entonces, sigamos adelante y escriba
+
+17
+00:01:04,000 --> 00:01:08,000
+la prueba para este escenario. De vuelta en nuestra clase
+
+18
+00:01:08,000 --> 00:01:12,000
+de prueba, para ahorrar tiempo, voy a seleccionar este mtodo.
+
+19
+00:01:12,000 --> 00:01:16,000
+Duplicarlo. Entonces, el escenario es donde el correo
+
+20
+00:01:16,000 --> 00:01:20,000
+electrnico del ama de llaves es nulo. Entonces,
+
+21
+00:01:20,000 --> 00:01:24,000
+HouseKeepersEmailIsNull
+
+22
+00:01:24,000 --> 00:01:28,000
+ShouldNotGenerate
+
+23
+00:01:28,000 --> 00:01:32,000
+Statement. Entonces, cmo
+
+24
+00:01:32,000 --> 00:01:36,000
+simulamos este escenario? Bien, definimos un objeto
+
+25
+00:01:36,000 --> 00:01:40,000
+ama de llaves aqu mismo. Entonces, antes de actuar, podemos configurar
+
+26
+00:01:40,000 --> 00:01:44,000
+el correo electrnico como nulo. Entonces, aqu
+
+27
+00:01:44,000 --> 00:01:48,000
+mismo. Entonces, esta es la
+
+28
+00:01:48,000 --> 00:01:52,000
+parte de arreglos, houseKeeper. Correo electrnico
+
+29
+00:01:52,000 --> 00:01:56,000
+nulo. Ahora, cmo verificamos
+
+30
+00:01:56,000 --> 00:02:00,000
+que un mtodo dado como SaveStatement
+
+31
+00:02:00,000 --> 00:02:04,000
+no se llame? Este mtodo de verificacin que est
+
+32
+00:02:04,000 --> 00:02:08,000
+disponible con todos los objetos simulados, tiene un segundo argumento opcional.
+
+33
+00:02:08,000 --> 00:02:12,000
+Con este argumento podemos especificar cuntas veces se debe
+
+34
+00:02:12,000 --> 00:02:16,000
+llamar a un mtodo dado en este caso, SaveStatement.
+
+35
+00:02:16,000 --> 00:02:20,000
+Entonces, como el segundo argumento del
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo de verificacin, pasamos Times, que
+
+37
+00:02:24,000 --> 00:02:28,000
+es una enumeracin, aqu tenemos miembros,
+
+38
+00:02:28,000 --> 00:02:32,000
+como AtLeast AtMost, Between, Exactly, y as sucesivamente.
+
+39
+00:02:32,000 --> 00:02:36,000
+Vamos a usar Nunca. Entonces eso significa que este
+
+40
+00:02:36,000 --> 00:02:40,000
+mtodo nunca debera ser llamado. Vamos a ejecutar esta prueba.
+
+41
+00:02:40,000 --> 00:02:44,000
+De acuerdo, la prueba pas, quiero asegurarme de que
+
+42
+00:02:44,000 --> 00:02:48,000
+estoy probando lo correcto. Entonces, volvamos a nuestro
+
+43
+00:02:48,000 --> 00:02:52,000
+servicio y comentemos la lnea que hara
+
+44
+00:02:52,000 --> 00:02:56,000
+pasar esa prueba. Entonces, aqu est la
+
+45
+00:02:56,000 --> 00:03:00,000
+lnea, comente, volvamos a nuestra prueba, corramos
+
+46
+00:03:00,000 --> 00:03:04,000
+esto una vez ms, debera fallar ahora.
+
+47
+00:03:04,000 --> 00:03:08,000
+De acuerdo, fall, hermoso.
+
+48
+00:03:08,000 --> 00:03:12,000
+Entonces, eliminemos el comentario, ahora cuando trabajamos
+
+49
+00:03:12,000 --> 00:03:16,000
+con cadenas, debemos verificar tanto el espacio
+
+50
+00:03:16,000 --> 00:03:20,000
+nulo como el blanco. Entonces, lo que falta en esta implementacin
+
+51
+00:03:20,000 --> 00:03:24,000
+es la verificacin de un correo electrnico que es una cadena vaca, o una
+
+52
+00:03:24,000 --> 00:03:28,000
+cadena vaca con espacios en blanco. Pero an no voy a modificar
+
+53
+00:03:28,000 --> 00:03:32,000
+este cdigo, voy a escribir la prueba, esa prueba debera fallar.
+
+54
+00:03:32,000 --> 00:03:36,000
+Luego, volveremos, arreglaremos el cdigo y luego
+
+55
+00:03:36,000 --> 00:03:40,000
+pasar nuestra prueba. Entonces, volvamos a nuestra clase de prueba.
+
+56
+00:03:40,000 --> 00:03:44,000
+Dupliquemos esta ltima prueba.
+
+57
+00:03:44,000 --> 00:03:48,000
+Ahora el
+
+58
+00:03:48,000 --> 00:03:52,000
+escenario es HouseKeeperEmailIsWhiteSpace.
+
+59
+00:03:52,000 --> 00:03:56,000
+WhiteSpace. As que voy a configurar esto
+
+60
+00:03:56,000 --> 00:04:00,000
+en un espacio en blanco como este. Nuevamente, nuestra Afirmacin es
+
+61
+00:04:00,000 --> 00:04:04,000
+la misma, no se debe invocar el mtodo SaveStatement.
+
+62
+00:04:04,000 --> 00:04:08,000
+Vamos a ejecutar la prueba.
+
+63
+00:04:08,000 --> 00:04:12,000
+Obviamente, puede ver que esta prueba fall, as que
+
+64
+00:04:12,000 --> 00:04:16,000
+volvamos al cdigo de produccin y modifiquemos esta declaracin
+
+65
+00:04:16,000 --> 00:04:20,000
+If a algo como esto. Entonces, si
+
+66
+00:04:20,000 --> 00:04:24,000
+String IsNullOrWhiteSpace, entonces pasamos al
+
+67
+00:04:24,000 --> 00:04:28,000
+ama de llaves. Correo electrnico aqu.
+
+68
+00:04:28,000 --> 00:04:32,000
+De vuelta a nuestra prueba, vamos a escribir una vez ms.
+
+69
+00:04:32,000 --> 00:04:36,000
+Esta vez pas. As que tenemos un
+
+70
+00:04:36,000 --> 00:04:40,000
+pequeo error en el cdigo, y podra atraparlo
+
+71
+00:04:40,000 --> 00:04:44,000
+con esta prueba unitaria. Ahora, y si el correo electrnico
+
+72
+00:04:44,000 --> 00:04:48,000
+es una cadena vaca, no White Space? Bueno, con esta nueva implementacin no deberamos tener un problema.
+
+73
+00:04:48,000 --> 00:04:52,000
+Pero vamos a verificar eso. Por lo tanto, voy a
+
+74
+00:04:52,000 --> 00:04:56,000
+seleccionar este cdigo, duplicarlo, y esta vez configurar el correo
+
+75
+00:04:56,000 --> 00:05:00,000
+electrnico en una cadena vaca. Y tambin
+
+76
+00:05:00,000 --> 00:05:04,000
+deberamos cambiar el escenario
+
+77
+00:05:04,000 --> 00:05:08,000
+a HouseKeeperEmailIs Empty. Vamos a ejecutar la prueba, aqu
+
+78
+00:05:08,000 --> 00:05:12,000
+est nuestra nueva prueba, hermosa. Entonces, si el correo electrnico
+
+79
+00:05:12,000 --> 00:05:16,000
+es nulo, cadena vaca o espacios en blanco, no vamos
+
+80
+00:05:16,000 --> 00:05:20,000
+a generar una declaracin, hermoso. Ahora, de vuelta en nuestro
+
+81
+00:05:20,000 --> 00:05:24,000
+servicio, una vez que generamos una declaracin, debemos enviarla
+
+82
+00:05:24,000 --> 00:05:28,000
+por correo electrnico al ama de llaves, y eso
+
+83
+00:05:28,000 --> 00:05:32,000
+es lo que vamos a ver en la prxima conferencia.
+

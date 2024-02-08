@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Nesta seo, vamos explorar os fundamentos do
+
+2
+00:00:04,000 --> 00:00:08,000
+teste de unidade. Ento voc aprender sobre
+
+3
+00:00:08,000 --> 00:00:12,000
+caractersticas de bons testes unitrios. O que testar e o que no testar,
+
+4
+00:00:12,000 --> 00:00:16,000
+essa  uma das perguntas mais comuns que recebo de muitos dos meus alunos, eles
+
+5
+00:00:16,000 --> 00:00:20,000
+dizem: "Mosh, no sei o que testar! "Ento, nesta seo, vou dar algumas
+
+6
+00:00:20,000 --> 00:00:24,000
+orientaes que ajudaro voc a comear. Voc tambm aprender sobre como nomear
+
+7
+00:00:24,000 --> 00:00:28,000
+e organizar seus testes, alm de algumas tcnicas bsicas para escrever testes
+
+8
+00:00:28,000 --> 00:00:32,000
+limpos e de fcil manuteno. E finalmente voc aprender
+
+9
+00:00:32,000 --> 00:00:36,000
+a escrever testes confiveis que no mentem.
+
+10
+00:00:36,000 --> 00:00:40,000
+Assim, quando eles passam, voc sabe que seu cdigo de produo est funcionando e,
+
+11
+00:00:40,000 --> 00:00:44,000
+quando eles falham, voc sabe que h algo errado no cdigo de produo.
+
+12
+00:00:44,000 --> 00:00:47,000
+Ento agora vamos comear!
+

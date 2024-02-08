@@ -1,0 +1,589 @@
+1
+00:00:00,000 --> 00:00:04,000
+One of the questions that I get a lot is
+
+2
+00:00:04,000 --> 00:00:08,000
+Mosh, how should I test my private or protected
+
+3
+00:00:08,000 --> 00:00:12,000
+methods? The answer is, don't test them, you shouldn't.
+
+4
+00:00:12,000 --> 00:00:16,000
+Because these methods are implementation detailed.
+
+5
+00:00:16,000 --> 00:00:20,000
+What do I mean by that? Think of a DVD player. A
+
+6
+00:00:20,000 --> 00:00:24,000
+DVD player has a few buttons on the outside, but
+
+7
+00:00:24,000 --> 00:00:28,000
+a complex logic board on the inside. What you see on the outside
+
+8
+00:00:28,000 --> 00:00:32,000
+is what we call a public API, or the public interface
+
+9
+00:00:32,000 --> 00:00:36,000
+of a DVD player. What is inside this black box that we don't
+
+10
+00:00:36,000 --> 00:00:40,000
+see, is what we call implementation details. An implementation
+
+11
+00:00:40,000 --> 00:00:44,000
+can change from one version to another. But the buttons on the outside
+
+12
+00:00:44,000 --> 00:00:48,000
+they stay the same. In object oriented programming, we want to
+
+13
+00:00:48,000 --> 00:00:52,000
+design our classes like a DVD player, so we want to have
+
+14
+00:00:52,000 --> 00:00:56,000
+very few public members, and these members represent
+
+15
+00:00:56,000 --> 00:01:00,000
+the public API, or the public interface of our classes.
+
+16
+00:01:00,000 --> 00:01:04,000
+Private and protected members represent
+
+17
+00:01:04,000 --> 00:01:08,000
+the implementation detail. But they can change easily as you refactor
+
+18
+00:01:08,000 --> 00:01:12,000
+and restructure your code. There are tools out there
+
+19
+00:01:12,000 --> 00:01:16,000
+that allow you to write tests against private members.
+
+20
+00:01:16,000 --> 00:01:20,000
+Or you can make a private member public and test it, but you shouldn't do
+
+21
+00:01:20,000 --> 00:01:24,000
+this, because when you write tests that use private members,
+
+22
+00:01:24,000 --> 00:01:28,000
+your tests are coupled with an implementation detail.
+
+23
+00:01:28,000 --> 00:01:32,000
+And as you change this implementation, these tests are going to break. They get
+
+24
+00:01:32,000 --> 00:01:36,000
+in the way and they slow you down. Let me show you this concept in action.
+
+25
+00:01:36,000 --> 00:01:40,000
+So, back in our error logger class, buried the
+
+26
+00:01:40,000 --> 00:01:44,000
+log method, erase this ErrorLogged event.
+
+27
+00:01:44,000 --> 00:01:48,000
+Now for this demo, I want to extract this line and put it in a
+
+28
+00:01:48,000 --> 00:01:52,000
+protected virtual void method. So, you probably see
+
+29
+00:01:52,000 --> 00:01:56,000
+this convention before. Protected
+
+30
+00:01:56,000 --> 00:02:00,000
+virtual void OnErrorLine.
+
+31
+00:02:00,000 --> 00:02:04,000
+So this method can take a parameter, like guid,
+
+32
+00:02:04,000 --> 00:02:08,000
+which would be the error ID, and this is responsible
+
+33
+00:02:08,000 --> 00:02:12,000
+for raising the event. So, I'm going to cut this line,
+
+34
+00:02:12,000 --> 00:02:16,000
+and put it here.
+
+35
+00:02:16,000 --> 00:02:20,000
+And replace this new guid with the error
+
+36
+00:02:20,000 --> 00:02:24,000
+ID. Now here, I'm going to call
+
+37
+00:02:24,000 --> 00:02:28,000
+OnErrorLogged, and guide it this new guid.
+
+38
+00:02:28,000 --> 00:02:32,000
+So this is a convention that you have probably see the applications out there.
+
+39
+00:02:32,000 --> 00:02:36,000
+This method we have here, this is implementation detail.
+
+40
+00:02:36,000 --> 00:02:40,000
+It can change from one version to another. So we shouldn't write tests
+
+41
+00:02:40,000 --> 00:02:44,000
+against this method, instead we should write tests
+
+42
+00:02:44,000 --> 00:02:48,000
+of our log method. So let me show you what happens
+
+43
+00:02:48,000 --> 00:02:52,000
+when you write tests for this method. Before going any further
+
+44
+00:02:52,000 --> 00:02:56,000
+let's go back to our error logger test, here we have
+
+45
+00:02:56,000 --> 00:03:00,000
+a few tests, and all of them are testing
+
+46
+00:03:00,000 --> 00:03:04,000
+the log method. Let's run this test and make sure
+
+47
+00:03:04,000 --> 00:03:08,000
+all of them are passing.
+
+48
+00:03:08,000 --> 00:03:12,000
+So we can see all these tests are passing, beautiful,
+
+49
+00:03:12,000 --> 00:03:16,000
+now, let me show you what you shouldn't do. I'm going to write a test
+
+50
+00:03:16,000 --> 00:03:20,000
+for this new protected method, so test,
+
+51
+00:03:20,000 --> 00:03:24,000
+public void, OnErrorLogged,
+
+52
+00:03:24,000 --> 00:03:28,000
+WhenCalled, it should Raise
+
+53
+00:03:28,000 --> 00:03:32,000
+Event. Now I'm going to go back
+
+54
+00:03:32,000 --> 00:03:36,000
+to our error logger class, and cheat by changing this
+
+55
+00:03:36,000 --> 00:03:40,000
+access modifier from protected to public, this is
+
+56
+00:03:40,000 --> 00:03:44,000
+bad right from the get go, because this is about implementation
+
+57
+00:03:44,000 --> 00:03:48,000
+detail. You shouldn't leak these to the outside. This is like designing a
+
+58
+00:03:48,000 --> 00:03:52,000
+DVD player that exposes the internal chips to the outside.
+
+59
+00:03:52,000 --> 00:03:56,000
+So, back to our test method,
+
+60
+00:03:56,000 --> 00:04:00,000
+I'm going to create a new error logger,
+
+61
+00:04:00,000 --> 00:04:04,000
+ErrorLogger, call OnError
+
+62
+00:04:04,000 --> 00:04:08,000
+Logged, give it a new guid,
+
+63
+00:04:08,000 --> 00:04:12,000
+and make some assertion, and as I told you in the last lecture
+
+64
+00:04:12,000 --> 00:04:16,000
+to test and method that raises an event, first you need to subscribe to that event,
+
+65
+00:04:16,000 --> 00:04:20,000
+and then make an assertion, like here.
+
+66
+00:04:20,000 --> 00:04:24,000
+But to save time, I don't want to repeat this, so I just want to write a simple assertion that
+
+67
+00:04:24,000 --> 00:04:28,000
+always passes. Assert that
+
+68
+00:04:28,000 --> 00:04:32,000
+true. It doesn't really matter. Now,
+
+69
+00:04:32,000 --> 00:04:36,000
+I'm going to run this test
+
+70
+00:04:36,000 --> 00:04:40,000
+obviously it passes, okay?
+
+71
+00:04:40,000 --> 00:04:44,000
+Now, let's see what happens when we refactor our code and change
+
+72
+00:04:44,000 --> 00:04:48,000
+our implementation. So back to our error logger,
+
+73
+00:04:48,000 --> 00:04:52,000
+let's say tomorrow we decide to change the signature of this method,
+
+74
+00:04:52,000 --> 00:04:56,000
+and instead of passing the error ID here, storing the error ID,
+
+75
+00:04:56,000 --> 00:05:00,000
+in a private field. For example, we may introduce a field here,
+
+76
+00:05:00,000 --> 00:05:04,000
+private, guid, underline
+
+77
+00:05:04,000 --> 00:05:08,000
+error writing. So in our log method,
+
+78
+00:05:08,000 --> 00:05:12,000
+before calling OnErrorLogged,
+
+79
+00:05:12,000 --> 00:05:16,000
+instead of passing this as an argument, we're going to set
+
+80
+00:05:16,000 --> 00:05:20,000
+errorId with a new guid, and
+
+81
+00:05:20,000 --> 00:05:24,000
+here we're going to remove this parameter,
+
+82
+00:05:24,000 --> 00:05:28,000
+and simply read a private field.
+
+83
+00:05:28,000 --> 00:05:32,000
+So we have changed our implementation, we have refactored our code, we have
+
+84
+00:05:32,000 --> 00:05:36,000
+restructured it, right? Now guess what? Our test
+
+85
+00:05:36,000 --> 00:05:40,000
+broke, let's have a look. We have to
+
+86
+00:05:40,000 --> 00:05:44,000
+change this test and remove this argument.
+
+87
+00:05:44,000 --> 00:05:48,000
+Now this is a simplified application, and we have only a
+
+88
+00:05:48,000 --> 00:05:52,000
+single test for this method, but in a real world application you might have
+
+89
+00:05:52,000 --> 00:05:56,000
+ten or twenty tests for a given method. Now as you refactor the code,
+
+90
+00:05:56,000 --> 00:06:00,000
+as you change the implementation all those tests are going to break, at least
+
+91
+00:06:00,000 --> 00:06:04,000
+this test project is not going to comply. You have to go through each test method
+
+92
+00:06:04,000 --> 00:06:08,000
+and make the necessary changes, just to make sure that the test project
+
+93
+00:06:08,000 --> 00:06:12,000
+complies and then you have to run the test to see if they pass, alright?
+
+94
+00:06:12,000 --> 00:06:16,000
+So, I'm going to remove this, now back in ErrorLogger,
+
+95
+00:06:16,000 --> 00:06:20,000
+let's say tomorrow I decide to
+
+96
+00:06:20,000 --> 00:06:24,000
+refactor this code and totally drop this
+
+97
+00:06:24,000 --> 00:06:28,000
+method. So I'm going to decide to directly raise
+
+98
+00:06:28,000 --> 00:06:32,000
+the event inside the log method. So cut this from
+
+99
+00:06:32,000 --> 00:06:36,000
+here, and raise the event like
+
+100
+00:06:36,000 --> 00:06:40,000
+this. Now, I'm going to delete this method.
+
+101
+00:06:40,000 --> 00:06:44,000
+So I changed the implementation. Now guess what?
+
+102
+00:06:44,000 --> 00:06:48,000
+Our test broke again. Look,
+
+103
+00:06:48,000 --> 00:06:52,000
+We're testing a method that no longer exists, so
+
+104
+00:06:52,000 --> 00:06:56,000
+this is the problem with testing private or protected members.
+
+105
+00:06:56,000 --> 00:07:00,000
+They are about implementation detail, and they can change easily, and you
+
+106
+00:07:00,000 --> 00:07:04,000
+(?) write tests for these methods, our tests become very fragile,
+
+107
+00:07:04,000 --> 00:07:08,000
+and they break often. Now let me show you something.
+
+108
+00:07:08,000 --> 00:07:12,000
+I'm going to delete this test,
+
+109
+00:07:12,000 --> 00:07:16,000
+so in the last lecture. We wrote this test for the log method
+
+110
+00:07:16,000 --> 00:07:20,000
+to make sure it raises the right event. This is
+
+111
+00:07:20,000 --> 00:07:24,000
+the right way to test this class, we're testing only the public API,
+
+112
+00:07:24,000 --> 00:07:28,000
+or the public interface. Now let's take a look at the current implementation.
+
+113
+00:07:28,000 --> 00:07:32,000
+So currently,
+
+114
+00:07:32,000 --> 00:07:36,000
+you are raising the event like this. If tomorrow I
+
+115
+00:07:36,000 --> 00:07:40,000
+decide to extract this line, and put it inside the protected
+
+116
+00:07:40,000 --> 00:07:44,000
+virtual method, my test will still pass. Let's do it one more time.
+
+117
+00:07:44,000 --> 00:07:48,000
+So, protected virtual void
+
+118
+00:07:48,000 --> 00:07:52,000
+OnErrorLogged.
+
+119
+00:07:52,000 --> 00:07:56,000
+So I'm going to cut this line from here, and put it here, I changed the
+
+120
+00:07:56,000 --> 00:08:00,000
+implementation but I kept the public API, or the public
+
+121
+00:08:00,000 --> 00:08:04,000
+interface the same. Now, if we go into our tests,
+
+122
+00:08:04,000 --> 00:08:08,000
+we're going to make sure to call this method OnErrorLogged.
+
+123
+00:08:08,000 --> 00:08:12,000
+Now let's go back to our tests, now
+
+124
+00:08:12,000 --> 00:08:16,000
+that my test is broken, let's run them all and see.
+
+125
+00:08:16,000 --> 00:08:20,000
+Look, they are all passing. Beautiful.
+
+126
+00:08:20,000 --> 00:08:24,000
+Now back to our error logger,
+
+127
+00:08:24,000 --> 00:08:28,000
+let's say tomorrow we decide to change this implementation, so
+
+128
+00:08:28,000 --> 00:08:32,000
+instead of using this private field, we may prefer to pass
+
+129
+00:08:32,000 --> 00:08:36,000
+an argument to this method. So we pass guid,
+
+130
+00:08:36,000 --> 00:08:40,000
+.NewGuid. Of course we add a parameter
+
+131
+00:08:40,000 --> 00:08:44,000
+Guid error Id and
+
+132
+00:08:44,000 --> 00:08:48,000
+use that here. Again, we change the implementation
+
+133
+00:08:48,000 --> 00:08:52,000
+but none of our test is broken, because we are
+
+134
+00:08:52,000 --> 00:08:56,000
+testing the public API, the public interface, which should be small
+
+135
+00:08:56,000 --> 00:09:00,000
+and lightweight. Now what if in your applications
+
+136
+00:09:00,000 --> 00:09:04,000
+you have a public that calls a private method and that
+
+137
+00:09:04,000 --> 00:09:08,000
+private method also calls another private method, perhaps you have a chain
+
+138
+00:09:08,000 --> 00:09:12,000
+of private methods, and each private method has five to ten lines of
+
+139
+00:09:12,000 --> 00:09:16,000
+logic, in that case if you want to write all the tests for
+
+140
+00:09:16,000 --> 00:09:20,000
+the public method, your tests are going to get so complicated.
+
+141
+00:09:20,000 --> 00:09:24,000
+Maybe you have so many execution paths. If that's the case,
+
+142
+00:09:24,000 --> 00:09:28,000
+that could be a symptom of a design spell in your application.
+
+143
+00:09:28,000 --> 00:09:32,000
+So chances are those fat private methods shouldn't really
+
+144
+00:09:32,000 --> 00:09:36,000
+be private methods in that class. Maybe they belong
+
+145
+00:09:36,000 --> 00:09:40,000
+in a separate class, and there they can be public methods that can be reused
+
+146
+00:09:40,000 --> 00:09:44,000
+in other cases. In that case you move those private methods
+
+147
+00:09:44,000 --> 00:09:48,000
+to a new class, make them public, and properly unit test that class.
+
+

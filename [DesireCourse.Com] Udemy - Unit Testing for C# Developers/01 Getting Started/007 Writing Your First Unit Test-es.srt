@@ -1,0 +1,628 @@
+1
+00:00:00,000 --> 00:00:04,000
+De acuerdo, en esta conferencia vas a escribir
+
+2
+00:00:04,000 --> 00:00:08,000
+tu primera prueba unitaria. As que aqu tenemos este proyecto llamado test ninja que
+
+3
+00:00:08,000 --> 00:00:12,000
+voy a utilizar a lo largo de este curso. Te di el enlace a este
+
+4
+00:00:12,000 --> 00:00:16,000
+proyecto en la ltima conferencia, pero si te perdiste eso, puedes
+
+5
+00:00:16,000 --> 00:00:20,000
+verlo adjunto a esta conferencia. As que aqu tenemos esta
+
+6
+00:00:20,000 --> 00:00:24,000
+carpeta, fundamentos, echemos un vistazo a esta clase de reserva,
+
+7
+00:00:24,000 --> 00:00:28,000
+as que imagina que ests creando una aplicacin para reservar
+
+8
+00:00:28,000 --> 00:00:32,000
+una mesa en un restaurante. Una clase de reserva
+
+9
+00:00:32,000 --> 00:00:36,000
+tiene actualmente una propiedad que especifica el usuario
+
+10
+00:00:36,000 --> 00:00:40,000
+que hizo esta reserva. Ahora en una aplicacin del
+
+11
+00:00:40,000 --> 00:00:44,000
+mundo real, esta clase puede tener muchas otras propiedades, pero
+
+12
+00:00:44,000 --> 00:00:48,000
+no queremos distraernos con demasiados detalles. Este es el mtodo que queremos probar,
+
+13
+00:00:48,000 --> 00:00:52,000
+puede ser cancelado por un usuario determinado. Entonces aqu he implementado
+
+14
+00:00:52,000 --> 00:00:56,000
+una regla comercial simple. Si el usuario es
+
+15
+00:00:56,000 --> 00:01:00,000
+administrador, o el usuario que hizo esta reserva, puede
+
+16
+00:01:00,000 --> 00:01:04,000
+cancelar esta reserva, de lo contrario no pueden cancelar
+
+17
+00:01:04,000 --> 00:01:08,000
+esta reserva, de acuerdo? Y si te desplazas hacia abajo,
+
+18
+00:01:08,000 --> 00:01:12,000
+podemos ver nuestra clase de usuario, muy simple, con una sola propiedad.
+
+19
+00:01:12,000 --> 00:01:16,000
+IsAdmin. As que sigamos adelante y escriba
+
+20
+00:01:16,000 --> 00:01:20,000
+la primera prueba unitaria para este mtodo. Aqu, en el
+
+21
+00:01:20,000 --> 00:01:24,000
+explorador de soluciones. Voy a agregar un
+
+22
+00:01:24,000 --> 00:01:28,000
+nuevo proyecto a la solucin. As que
+
+23
+00:01:28,000 --> 00:01:32,000
+agrega, nuevo proyecto. Debajo de la prueba
+
+24
+00:01:32,000 --> 00:01:36,000
+de C # visual instalada, debera ver esta
+
+25
+00:01:36,000 --> 00:01:40,000
+plantilla, Unit Test Project. Si no lo ve aqu, es probable que
+
+26
+00:01:40,000 --> 00:01:44,000
+no haya instalado la propiedad de Visual Studio. As que ve y descarga
+
+27
+00:01:44,000 --> 00:01:48,000
+la ltima versin de Visual Studio, actualmente estoy usando Visual
+
+28
+00:01:48,000 --> 00:01:52,000
+Studio 2017 Community Edition. Entonces aqu seleccionamos Unit
+
+29
+00:01:52,000 --> 00:01:56,000
+Test Project, y le damos un nombre.
+
+30
+00:01:56,000 --> 00:02:00,000
+Entonces el nombre de nuestro proyecto principal es prueba ninja, y voy
+
+31
+00:02:00,000 --> 00:02:04,000
+a llamar a este proyecto testninja. pruebas
+
+32
+00:02:04,000 --> 00:02:08,000
+unitarias Esta es la convencin que seguimos
+
+33
+00:02:08,000 --> 00:02:12,000
+para organizar nuestro proyecto de prueba. Queremos separar las pruebas unitarias y
+
+34
+00:02:12,000 --> 00:02:16,000
+las pruebas de integracin, porque las pruebas unitarias se ejecutan bastante rpido.
+
+35
+00:02:16,000 --> 00:02:20,000
+mientras que las pruebas de integracin toman ms tiempo. Queremos separarlos, para que podamos
+
+36
+00:02:20,000 --> 00:02:24,000
+ejecutar pruebas unitarias con mayor frecuencia y pruebas de
+
+37
+00:02:24,000 --> 00:02:28,000
+integracin antes de comprometer nuestro cdigo a un repositorio.
+
+38
+00:02:28,000 --> 00:02:32,000
+Bueno? Avancemos, entonces Visual
+
+39
+00:02:32,000 --> 00:02:36,000
+Studio crea este nuevo proyecto.
+
+40
+00:02:36,000 --> 00:02:40,000
+Y puede ver aqu tenemos un archivo, unidad de prueba
+
+41
+00:02:40,000 --> 00:02:44,000
+1, es una clase c # simple que tiene el
+
+42
+00:02:44,000 --> 00:02:48,000
+atributo TestClass, y tiene un mtodo llamado TestMethod1 con este
+
+43
+00:02:48,000 --> 00:02:52,000
+atributo, mtodo de prueba. Estos dos atributos que
+
+44
+00:02:52,000 --> 00:02:56,000
+ves aqu, pertenecen a MSTestFramework. Entonces, el corredor de prueba que
+
+45
+00:02:56,000 --> 00:03:00,000
+tenemos en el estudio visual observa todas las clases decoradas, con un
+
+46
+00:03:00,000 --> 00:03:04,000
+atributo de clase de prueba. Luego, observa todos los mtodos
+
+47
+00:03:04,000 --> 00:03:08,000
+de esta clase decorados con un atributo de mtodo de
+
+48
+00:03:08,000 --> 00:03:12,000
+prueba y los ejecutar. Entonces, lo primero que quiero
+
+49
+00:03:12,000 --> 00:03:16,000
+hacer aqu es cambiar el nombre de esta clase.
+
+50
+00:03:16,000 --> 00:03:20,000
+Entonces, presione control R y luego R nuevamente.
+
+51
+00:03:20,000 --> 00:03:24,000
+Ahora puede cambiar el nombre, voy a llamar
+
+52
+00:03:24,000 --> 00:03:28,000
+a esta Prueba de reserva. Como estamos probando la clase
+
+53
+00:03:28,000 --> 00:03:32,000
+de reserva, la convencin que seguimos es el nombre de
+
+54
+00:03:32,000 --> 00:03:36,000
+la clase, ms las pruebas. Entrar.
+
+55
+00:03:36,000 --> 00:03:40,000
+Ahora, de manera similar voy a cambiar el nombre de este mtodo, una
+
+56
+00:03:40,000 --> 00:03:44,000
+vez ms control R y R. El mtodo
+
+57
+00:03:44,000 --> 00:03:48,000
+que quiero probar es
+
+58
+00:03:48,000 --> 00:03:52,000
+CanBeCancelled By. Ahora aqu
+
+59
+00:03:52,000 --> 00:03:56,000
+agregamos un subrayado, especifica un
+
+60
+00:03:56,000 --> 00:04:00,000
+escenario subrayado de nuevo y
+
+61
+00:04:00,000 --> 00:04:04,000
+ExpectedBehavior aqu. Que es esto? Volvamos a nuestra
+
+62
+00:04:04,000 --> 00:04:08,000
+clase de reserva, cuando redactemos pruebas de unidad para este
+
+63
+00:04:08,000 --> 00:04:12,000
+mtodo, queremos probar todos los escenarios. Qu escenarios
+
+64
+00:04:12,000 --> 00:04:16,000
+tenemos aqu? Tenemos tres escenarios. Un escenario es cuando
+
+65
+00:04:16,000 --> 00:04:20,000
+el usuario es un administrador. El otro escenario es cuando
+
+66
+00:04:20,000 --> 00:04:24,000
+el usuario es la misma persona que hizo esta reserva.
+
+67
+00:04:24,000 --> 00:04:28,000
+Y el tercer escenario es cuando alguien ms
+
+68
+00:04:28,000 --> 00:04:32,000
+intenta cancelar esta reserva. Entonces aqu tenemos tres escenarios,
+
+69
+00:04:32,000 --> 00:04:36,000
+o tres caminos de ejecucin. Entonces, hay tres formas
+
+70
+00:04:36,000 --> 00:04:40,000
+de salir de este mtodo. Es por eso que llamamos a
+
+71
+00:04:40,000 --> 00:04:44,000
+esto tres caminos de ejecucin, de acuerdo? Entonces, volviendo a
+
+72
+00:04:44,000 --> 00:04:48,000
+nuestra clase de prueba de unidad,
+
+73
+00:04:48,000 --> 00:04:52,000
+el primer escenario que queremos probar
+
+74
+00:04:52,000 --> 00:04:56,000
+es el usuario IsAdmin. Ahora, cul es el
+
+75
+00:04:56,000 --> 00:05:00,000
+comportamiento esperado si el administrador del usuario este
+
+76
+00:05:00,000 --> 00:05:04,000
+mtodo debe volverse verdadero? As que ReturnsTrue.
+
+77
+00:05:04,000 --> 00:05:08,000
+Esta es la convencin que utilizamos para nombrar y
+
+78
+00:05:08,000 --> 00:05:12,000
+organizar nuestros mtodos de prueba. Cada mtodo de prueba
+
+79
+00:05:12,000 --> 00:05:16,000
+tiene tres partes. La primera parte especifica el nombre del
+
+80
+00:05:16,000 --> 00:05:20,000
+mtodo en la prueba, la segunda parte es el escenario de nuestra prueba, y
+
+81
+00:05:20,000 --> 00:05:24,000
+la tercera parte es el comportamiento esperado. Ahora dentro
+
+82
+00:05:24,000 --> 00:05:28,000
+de cada mtodo de prueba,
+
+83
+00:05:28,000 --> 00:05:32,000
+tenemos tres partes, Organizar, Actuar
+
+84
+00:05:32,000 --> 00:05:36,000
+y Afirmar. Esta convencin se llama
+
+85
+00:05:36,000 --> 00:05:40,000
+triple A, o Arrange, Act y Assert.
+
+86
+00:05:40,000 --> 00:05:44,000
+La parte Arrange es donde inicializamos nuestros objetos.
+
+87
+00:05:44,000 --> 00:05:48,000
+Hemos preparado el objeto que queremos probar, en
+
+88
+00:05:48,000 --> 00:05:52,000
+este caso queremos crear una instancia de la
+
+89
+00:05:52,000 --> 00:05:56,000
+clase de reserva, por lo tanto, creamos un
+
+90
+00:05:56,000 --> 00:06:00,000
+objeto de reserva, nueva, reserva, ahora aqu la
+
+91
+00:06:00,000 --> 00:06:04,000
+clase Reservacin no se reconoce, por lo que
+
+92
+00:06:04,000 --> 00:06:08,000
+necesita presionar control y punto.
+
+93
+00:06:08,000 --> 00:06:12,000
+Y en este men contextual, seleccione agregar
+
+94
+00:06:12,000 --> 00:06:16,000
+referencia para probar ninja. De acuerdo, entonces tenemos el objeto
+
+95
+00:06:16,000 --> 00:06:20,000
+de reserva, la parte de Actuar es donde actuamos sobre este objeto,
+
+96
+00:06:20,000 --> 00:06:24,000
+y eso bsicamente significa que vamos a llamar a un mtodo, ese
+
+97
+00:06:24,000 --> 00:06:28,000
+es el mtodo que vamos a probar. En este
+
+98
+00:06:28,000 --> 00:06:32,000
+caso, reserva. CanBeCancelled
+
+99
+00:06:32,000 --> 00:06:36,000
+By. Ahora, quiero darle una discusin, en
+
+100
+00:06:36,000 --> 00:06:40,000
+este caso queremos darle un usuario, que es un usuario administrador.
+
+101
+00:06:40,000 --> 00:06:44,000
+As que aqu creo un objeto
+
+102
+00:06:44,000 --> 00:06:48,000
+de usuario y establezco IsAdmin en verdadero.
+
+103
+00:06:48,000 --> 00:06:52,000
+Entonces esta es la parte del acto. Ahora queremos obtener el resultado
+
+104
+00:06:52,000 --> 00:06:56,000
+y verificar que sea correcto. Entonces, voy a almacenar
+
+105
+00:06:56,000 --> 00:07:00,000
+el resultado en una variable llamada resultado,
+
+106
+00:07:00,000 --> 00:07:04,000
+y en la parte Assert, verificas que
+
+107
+00:07:04,000 --> 00:07:08,000
+el resultado sea correcto. En este caso, el resultado debe ser verdadero.
+
+108
+00:07:08,000 --> 00:07:12,000
+As que aqu voy a usar una de las clases
+
+109
+00:07:12,000 --> 00:07:16,000
+de ayuda en MSTest Framework. Eso se llama Assert,
+
+110
+00:07:16,000 --> 00:07:20,000
+esta clase tiene un montn de mtodos estticos que
+
+111
+00:07:20,000 --> 00:07:24,000
+usamos para hacer una afirmacin. Por ejemplo, si desea
+
+112
+00:07:24,000 --> 00:07:28,000
+comparar dos objetos, podemos usar AreEqual, otros mtodos
+
+113
+00:07:28,000 --> 00:07:32,000
+aqu como IsFalse, es instancia de tipo, no
+
+114
+00:07:32,000 --> 00:07:36,000
+es InstanceofType y as sucesivamente. Entonces, aqu, quiere afirmar
+
+115
+00:07:36,000 --> 00:07:40,000
+que este resultado es verdadero. Entonces llamamos afirmar ,. Es cierto y pasa el resultado.
+
+116
+00:07:40,000 --> 00:07:44,000
+Entonces, as es como escribimos una prueba unitaria.
+
+117
+00:07:44,000 --> 00:07:48,000
+Ahora, para ejecutar esta prueba, vamos a la
+
+118
+00:07:48,000 --> 00:07:52,000
+parte superior, desde el men de prueba, vaya
+
+119
+00:07:52,000 --> 00:07:56,000
+a Ejecutar y seleccione Todas las pruebas. Esto es lo que no me gusta de Visual Studio,
+
+120
+00:07:56,000 --> 00:08:00,000
+porque aqu no tenemos la
+
+121
+00:08:00,000 --> 00:08:04,000
+capacidad de ejecutar solo un mtodo de prueba en particular,
+
+122
+00:08:04,000 --> 00:08:08,000
+como este mtodo de prueba que escribimos en esta conferencia. Solo podemos ejecutar todas las pruebas
+
+123
+00:08:08,000 --> 00:08:12,000
+en este proyecto. Y es por eso que me gusta ReSharper,
+
+124
+00:08:12,000 --> 00:08:16,000
+porque con ReSharper solo puedo ejecutar esta prueba.
+
+125
+00:08:16,000 --> 00:08:20,000
+O bien, puedo ejecutar todas las pruebas en esta clase, por lo que es ms flexible. Quiero mostrarte eso ms adelante
+
+126
+00:08:20,000 --> 00:08:24,000
+en la seccin. Entonces, vamos en la parte superior, desde el
+
+127
+00:08:24,000 --> 00:08:28,000
+men de prueba, Ejecutar, Todas las pruebas.
+
+128
+00:08:28,000 --> 00:08:32,000
+Y tenga en cuenta el atajo. Recuerde esto para que pueda ejecutar rpidamente todas sus pruebas.
+
+129
+00:08:32,000 --> 00:08:36,000
+Esto debera abrir esta
+
+130
+00:08:36,000 --> 00:08:40,000
+ventana de Text Explorer, si no lo
+
+131
+00:08:40,000 --> 00:08:44,000
+ves, puedes encontrarlo en la parte superior,
+
+132
+00:08:44,000 --> 00:08:48,000
+debajo de las pruebas, Windows, Test Explorer. Bueno? As que podemos ver, tenemos una prueba de aprobacin,
+
+133
+00:08:48,000 --> 00:08:52,000
+tenemos una marca
+
+134
+00:08:52,000 --> 00:08:56,000
+verde, podemos ver el nombre de nuestro mtodo de
+
+135
+00:08:56,000 --> 00:09:00,000
+prueba y el tiempo que tom ejecutar esta prueba. En una aplicacin del mundo real, tendrs cientos o
+
+136
+00:09:00,000 --> 00:09:04,000
+miles de pruebas unitarias. Entonces, cuando ejecute sus
+
+137
+00:09:04,000 --> 00:09:08,000
+pruebas, esta ventana se
+
+138
+00:09:08,000 --> 00:09:12,000
+completar con todas las pruebas en su aplicacin. Ahora djame que te muestre un ejemplo de una prueba fallida. Entonces, voy a volver a la clase de reserva y crear un
+
+139
+00:09:12,000 --> 00:09:16,000
+error en nuestro cdigo.
+
+140
+00:09:16,000 --> 00:09:20,000
+As que aqu, voy a devolver falso.
+
+141
+00:09:20,000 --> 00:09:24,000
+Digamos que el desarrollador que escribi este cdigo cometi este error.
+
+142
+00:09:24,000 --> 00:09:28,000
+Ahora, como te dije antes, con pruebas unitarias,
+
+143
+00:09:28,000 --> 00:09:32,000
+podemos detectar errores antes de implementar nuestra aplicacin. Entonces, cuando creamos una clase de prueba unitaria
+
+144
+00:09:32,000 --> 00:09:36,000
+y verificamos el comportamiento
+
+145
+00:09:36,000 --> 00:09:40,000
+esperado de un mtodo, en este caso usted
+
+146
+00:09:40,000 --> 00:09:44,000
+est verificando que este mtodo es verdadero, con
+
+147
+00:09:44,000 --> 00:09:48,000
+esta prueba de unidad, podemos detectar errores ms
+
+148
+00:09:48,000 --> 00:09:52,000
+temprano, y el ciclo de vida del desarrollo de software. Entonces, de vuelta a nuestra ventana del explorador de prueba, voy a
+
+149
+00:09:52,000 --> 00:09:56,000
+ejecutar, llamar a la prueba nuevamente.
+
+150
+00:09:56,000 --> 00:10:00,000
+Esta vez, nuestra prueba fall. Entonces podemos ver el beneficio de las
+
+151
+00:10:00,000 --> 00:10:04,000
+pruebas unitarias, en accin. Ahora aqu hay un
+
+152
+00:10:04,000 --> 00:10:08,000
+ejercicio para ti. Como te dije antes, este mtodo
+
+153
+00:10:08,000 --> 00:10:12,000
+tiene tres rutas de ejecucin, o
+
+154
+00:10:12,000 --> 00:10:16,000
+tres escenarios, quiero que uses lo que aprendiste en esta conferencia,
+
+155
+00:10:16,000 --> 00:10:20,000
+y escribas las otras dos pruebas unitarias para este mtodo. En esta prxima conferencia, vern
+
+156
+00:10:20,000 --> 00:10:24,000
+mi solucin.
+
+157
+00:10:24,000 --> 00:10:27,000
+&nbsp;
+

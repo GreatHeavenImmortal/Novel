@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, ahora echemos un vistazo a otro ejercicio.
+
+2
+00:00:04,000 --> 00:00:08,000
+As que una vez ms en la carpeta de
+
+3
+00:00:08,000 --> 00:00:12,000
+Fundamentos, abra esta clase. DemeritPointsCalculator.
+
+4
+00:00:12,000 --> 00:00:16,000
+Entonces aqu tenemos un mtodo. Calcular
+
+5
+00:00:16,000 --> 00:00:20,000
+DemeritPoints. Le damos la velocidad de un automvil
+
+6
+00:00:20,000 --> 00:00:24,000
+que nos dir cuntos puntos DemeritPoints que el conductor debera obtener por exceso de velocidad.
+
+7
+00:00:24,000 --> 00:00:28,000
+Este es el algoritmo que he implementado aqu.
+
+8
+00:00:28,000 --> 00:00:32,000
+Por cada cinco kilmetros por encima del lmite
+
+9
+00:00:32,000 --> 00:00:36,000
+de velocidad, que es 65, le daremos un
+
+10
+00:00:36,000 --> 00:00:40,000
+punto a ese conductor. Entonces, si el conductor
+
+11
+00:00:40,000 --> 00:00:44,000
+est 15 kilmetros por encima del lmite de
+
+12
+00:00:44,000 --> 00:00:48,000
+velocidad, deberan obtener tres DemeritPoints. As que adelante, y escriba pruebas unitarias para
+
+13
+00:00:48,000 --> 00:00:52,000
+esta funcin, para asegurarse de que se implemente correctamente. A continuacin,
+
+14
+00:00:52,000 --> 00:00:54,000
+veremos mi solucin.
+

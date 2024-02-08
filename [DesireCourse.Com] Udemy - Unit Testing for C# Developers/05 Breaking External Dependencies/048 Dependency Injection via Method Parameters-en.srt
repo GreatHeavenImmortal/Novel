@@ -1,0 +1,310 @@
+1
+00:00:00,000 --> 00:00:04,000
+So there are three ways to use dependency
+
+2
+00:00:04,000 --> 00:00:08,000
+injection. We can inject dependencies via method parameters,
+
+3
+00:00:08,000 --> 00:00:12,000
+by properties, and by constructors. In this lecture, I'm going
+
+4
+00:00:12,000 --> 00:00:16,000
+to show you how to inject dependencies via method parameters.
+
+5
+00:00:16,000 --> 00:00:20,000
+So here in our read video title method, instead of
+
+6
+00:00:20,000 --> 00:00:24,000
+working with this concrete implementation FileReader, I'm going to
+
+7
+00:00:24,000 --> 00:00:28,000
+pass an IFileReader object
+
+8
+00:00:28,000 --> 00:00:32,000
+as a parameter to this method. Call this FileReader
+
+9
+00:00:32,000 --> 00:00:36,000
+and then we can get rid of this new operator.
+
+10
+00:00:36,000 --> 00:00:40,000
+So we use this fileReader argument. With this
+
+11
+00:00:40,000 --> 00:00:44,000
+simple change, our video service class becomes loosely coupled
+
+12
+00:00:44,000 --> 00:00:48,000
+and testable. Because in our production code, we can pass
+
+13
+00:00:48,000 --> 00:00:52,000
+a real fileReader object to this project, whereas in our test,
+
+14
+00:00:52,000 --> 00:00:56,000
+we can pass a fake fileReader object. Let me show you. So,
+
+15
+00:00:56,000 --> 00:01:00,000
+back in our solution explorer, in the mocking folder,
+
+16
+00:01:00,000 --> 00:01:04,000
+I'm going to temporarily add a class called Program.
+
+17
+00:01:04,000 --> 00:01:08,000
+Here I'm going to add a public
+
+18
+00:01:08,000 --> 00:01:12,000
+static void Main method,
+
+19
+00:01:12,000 --> 00:01:16,000
+so this video service we have here, most likely we're going to this
+
+20
+00:01:16,000 --> 00:01:20,000
+somewhere in our application, and I want to simulate that in our
+
+21
+00:01:20,000 --> 00:01:24,000
+program class. So I'm going to create
+
+22
+00:01:24,000 --> 00:01:28,000
+a VideoService object, VideoService,
+
+23
+00:01:28,000 --> 00:01:32,000
+and call ReadVideoTitle method.
+
+24
+00:01:32,000 --> 00:01:36,000
+Now here we need to pass an instance of class
+
+25
+00:01:36,000 --> 00:01:40,000
+that implements IFileReader interface.
+
+26
+00:01:40,000 --> 00:01:44,000
+So we can pass a real FileReader
+
+27
+00:01:44,000 --> 00:01:48,000
+new FileReader,
+
+28
+00:01:48,000 --> 00:01:52,000
+and with this we get a title. Now this is
+
+29
+00:01:52,000 --> 00:01:56,000
+security for demonstration, in real world applications instead of us
+
+30
+00:01:56,000 --> 00:02:00,000
+manually newing up this object here, we use
+
+31
+00:02:00,000 --> 00:02:04,000
+a dependency injection framework. So a dependency injection framework
+
+32
+00:02:04,000 --> 00:02:08,000
+is responsible for newing up these objects and passing
+
+33
+00:02:08,000 --> 00:02:12,000
+them to our methods. We're going to look at dependency injection frameworks in just a few
+
+34
+00:02:12,000 --> 00:02:16,000
+minutes. So this is how we pass a real object
+
+35
+00:02:16,000 --> 00:02:20,000
+for this method, ReadVideoTitle. Now let's go ahead and write a
+
+36
+00:02:20,000 --> 00:02:24,000
+unit test for this method, and there I'm going to show you how to pass a fake
+
+37
+00:02:24,000 --> 00:02:28,000
+object. So back in our unit testing project,
+
+38
+00:02:28,000 --> 00:02:32,000
+I'm going to add a new unit test, and by the way, it's a good practice
+
+39
+00:02:32,000 --> 00:02:36,000
+that you're unit testing project mimic the same structure
+
+40
+00:02:36,000 --> 00:02:40,000
+you have on the project on your test. So here we have this top little
+
+41
+00:02:40,000 --> 00:02:44,000
+folders, like fundamentals and walking, but I forgot to create these
+
+42
+00:02:44,000 --> 00:02:48,000
+folders in this unit testing project. So from now on, I'm going to
+
+43
+00:02:48,000 --> 00:02:52,000
+add all the unit tests for the classes defined in the mocking
+
+44
+00:02:52,000 --> 00:02:56,000
+name space inside the mocking filter. So,
+
+45
+00:02:56,000 --> 00:03:00,000
+let's add a new directory
+
+46
+00:03:00,000 --> 00:03:04,000
+with Mocking and here I'm going to add
+
+47
+00:03:04,000 --> 00:03:08,000
+a new class called VideoService
+
+48
+00:03:08,000 --> 00:03:12,000
+Tests.
+
+49
+00:03:12,000 --> 00:03:16,000
+First I'm going to apply a test fixture attribute,
+
+50
+00:03:16,000 --> 00:03:20,000
+and create a test public void,
+
+51
+00:03:20,000 --> 00:03:24,000
+method on the test is called ReadVideoTitle,
+
+52
+00:03:24,000 --> 00:03:28,000
+let's look at the implementation of this method,
+
+53
+00:03:28,000 --> 00:03:32,000
+let's say I want to test this execution path, if video is null
+
+54
+00:03:32,000 --> 00:03:36,000
+we expect an error message. So this fake FileReader
+
+55
+00:03:36,000 --> 00:03:40,000
+that we implemented simply returns an empty string.
+
+56
+00:03:40,000 --> 00:03:44,000
+This string can not be deserialized as a video object.
+
+57
+00:03:44,000 --> 00:03:48,000
+Okay? So back in our test class, the scenario
+
+58
+00:03:48,000 --> 00:03:52,000
+is EmptyFile. So, there is nothing
+
+59
+00:03:52,000 --> 00:03:56,000
+in our file that's why we are returning an empty string in our fake FileReader object.
+
+60
+00:03:56,000 --> 00:04:00,000
+And we expect this method to return
+
+61
+00:04:00,000 --> 00:04:04,000
+an error message. First, let's
+
+62
+00:04:04,000 --> 00:04:08,000
+create an instance of this service, new VideoService.
+
+63
+00:04:08,000 --> 00:04:12,000
+Now, we're going to call service
+
+64
+00:04:12,000 --> 00:04:16,000
+.ReadVideoTitle. But this time we're going to
+
+65
+00:04:16,000 --> 00:04:20,000
+pass our FakeFileReader object. So new Fake
+
+66
+00:04:20,000 --> 00:04:24,000
+FileReader. Now we get the result,
+
+67
+00:04:24,000 --> 00:04:28,000
+and finally assert That
+
+68
+00:04:28,000 --> 00:04:32,000
+result Does.Contain
+
+69
+00:04:32,000 --> 00:04:36,000
+the word error. Now to make this test more reliable,
+
+70
+00:04:36,000 --> 00:04:40,000
+I'm also going to change this IgnoreCase property,
+
+71
+00:04:40,000 --> 00:04:44,000
+so we're going to ignore case sensitivity of strings in this
+
+72
+00:04:44,000 --> 00:04:48,000
+test. Let's run this.
+
+73
+00:04:48,000 --> 00:04:52,000
+Okay, here's our test, and it successfully passed, beautiful.
+
+74
+00:04:52,000 --> 00:04:56,000
+So, let's quickly recap, back in our video service,
+
+75
+00:04:56,000 --> 00:05:00,000
+in this lecture you learned how to pass or inject a dependency
+
+76
+00:05:00,000 --> 00:05:04,000
+as a method parameter. In the next lecture,
+
+77
+00:05:04,000 --> 00:05:08,000
+I'm going to show you how to inject the dependency using a property.
+
+
+

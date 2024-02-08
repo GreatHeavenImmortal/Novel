@@ -1,0 +1,452 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, una vez que generamos una declaracin, debemos
+
+2
+00:00:04,000 --> 00:00:08,000
+enviarla por correo electrnico al ama de llaves.
+
+3
+00:00:08,000 --> 00:00:12,000
+Entonces, volviendo a nuestra clase
+
+4
+00:00:12,000 --> 00:00:16,000
+de prueba, voy a seleccionar
+
+5
+00:00:16,000 --> 00:00:20,000
+este mtodo para duplicarlo, el
+
+6
+00:00:20,000 --> 00:00:24,000
+escenario es WhenCalled, debera hacerlo
+
+7
+00:00:24,000 --> 00:00:28,000
+en EmailTheStatement. Y aqu estamos asumiendo
+
+8
+00:00:28,000 --> 00:00:32,000
+un camino feliz, as que no hay errores,
+
+9
+00:00:32,000 --> 00:00:36,000
+entonces, eliminemos la primera lnea. Ahora, esta vez en
+
+10
+00:00:36,000 --> 00:00:40,000
+nuestra parte de arreglos, necesitamos programar esta declaracin GeneratorMock.
+
+11
+00:00:40,000 --> 00:00:44,000
+Entonces, voy a seleccionar esto, cortarlo y moverlo
+
+12
+00:00:44,000 --> 00:00:48,000
+aqu, en lugar de verificar, vamos a usar SetUp.
+
+13
+00:00:48,000 --> 00:00:52,000
+Bueno? Y SetUp no toma
+
+14
+00:00:52,000 --> 00:00:56,000
+el segundo argumento, Times. Nunca, as que
+
+15
+00:00:56,000 --> 00:01:00,000
+borremos esto, en su lugar deberamos llamar. Devuelve, aqu debemos devolver el
+
+16
+00:01:00,000 --> 00:01:04,000
+nombre del archivo de declaracin. Entonces, as.
+
+17
+00:01:04,000 --> 00:01:08,000
+nombre del archivo. Pero como aprendi, es mejor
+
+18
+00:01:08,000 --> 00:01:12,000
+extraer esto y almacenarlo en
+
+19
+00:01:12,000 --> 00:01:16,000
+un campo privado para reducir el ruido en el cdigo. Entonces, alt y enter. Refactor, introduzca el campo,
+
+20
+00:01:16,000 --> 00:01:20,000
+llamemos
+
+21
+00:01:20,000 --> 00:01:24,000
+a esta declaracin NombreDeArchivo.
+
+22
+00:01:24,000 --> 00:01:28,000
+Bueno? Ahora, borremos esta lnea aqu e inicialicemos
+
+23
+00:01:28,000 --> 00:01:32,000
+este campo al declarar.
+
+24
+00:01:32,000 --> 00:01:36,000
+Por lo tanto, cadena
+
+25
+00:01:36,000 --> 00:01:40,000
+de solo lectura privada,
+
+26
+00:01:40,000 --> 00:01:44,000
+establezca esto en fileName. Bueno? Ahora, de vuelta en nuestra prueba, esta es nuestra parte de arreglos,
+
+27
+00:01:44,000 --> 00:01:48,000
+pero no me gusta
+
+28
+00:01:48,000 --> 00:01:52,000
+la forma en que se formatea este cdigo, es muy confuso.
+
+29
+00:01:52,000 --> 00:01:56,000
+Entonces, mira cmo formateo esto. Puse SetUp aqu, luego, puse
+
+30
+00:01:56,000 --> 00:02:00,000
+el cierre (? ) entre parntesis,
+
+31
+00:02:00,000 --> 00:02:04,000
+en esta lnea
+
+32
+00:02:04,000 --> 00:02:08,000
+y una lnea devuelve un SetUp. Tambin podemos eliminar este salto de lnea
+
+33
+00:02:08,000 --> 00:02:12,000
+que es mejor. Ahora finalmente
+
+34
+00:02:12,000 --> 00:02:16,000
+nuestra Afirmacin. Entonces, aqu est nuestro objeto
+
+35
+00:02:16,000 --> 00:02:20,000
+EmailSender, vamos a verificar que
+
+36
+00:02:20,000 --> 00:02:24,000
+va, queremos verificar que el mtodo de correo electrnico se
+
+37
+00:02:24,000 --> 00:02:28,000
+llame con estos argumentos, por lo que la direccin de
+
+38
+00:02:28,000 --> 00:02:32,000
+correo electrnico del ama de llaves es Ama de llaves.
+
+39
+00:02:32,000 --> 00:02:36,000
+Email. Y para el cuerpo del correo electrnico,
+
+40
+00:02:36,000 --> 00:02:40,000
+debemos usar houseKeeper. declaracin
+
+41
+00:02:40,000 --> 00:02:44,000
+EmailBody. Y el tercer argumento aqu, es
+
+42
+00:02:44,000 --> 00:02:48,000
+el nombre del archivo de declaracin.
+
+43
+00:02:48,000 --> 00:02:52,000
+Y tenemos eso como un campo
+
+44
+00:02:52,000 --> 00:02:56,000
+privado, por lo que la declaracin FileName. Ahora esta lnea se est haciendo demasiado larga, as
+
+45
+00:02:56,000 --> 00:03:00,000
+que dividmosla en varias lneas.
+
+46
+00:03:00,000 --> 00:03:04,000
+Entonces cada argumento en una lnea separada.
+
+47
+00:03:04,000 --> 00:03:08,000
+Y finalmente, el ltimo argumento debera
+
+48
+00:03:08,000 --> 00:03:12,000
+ser el tema del correo electrnico. Entonces, si observa el aspecto
+
+49
+00:03:12,000 --> 00:03:16,000
+del servicio, aqu
+
+50
+00:03:16,000 --> 00:03:20,000
+es donde construimos el tema. Podemos poner esta cadena en nuestra prueba, pero no soy muy fantico
+
+51
+00:03:20,000 --> 00:03:24,000
+de eso, porque es posible que
+
+52
+00:03:24,000 --> 00:03:28,000
+algunas veces en el futuro cambiemos el tema del correo electrnico.
+
+53
+00:03:28,000 --> 00:03:32,000
+Entonces, en nuestra prueba de unidad, no quiero verificar esta cadena exacta.
+
+54
+00:03:32,000 --> 00:03:36,000
+De lo contrario, esta prueba ser frgil. Entonces, de vuelta
+
+55
+00:03:36,000 --> 00:03:40,000
+en la
+
+56
+00:03:40,000 --> 00:03:44,000
+prueba, podemos usarlo. IsAnystring Esto es un poco
+
+57
+00:03:44,000 --> 00:03:48,000
+ms flexible.
+
+58
+00:03:48,000 --> 00:03:52,000
+Bueno? Ahora, ejecutemos esta prueba.
+
+59
+00:03:52,000 --> 00:03:56,000
+Pas, quiero asegurarme de que estamos
+
+60
+00:03:56,000 --> 00:04:00,000
+probando lo correcto, as que de nuevo en nuestro servicio, aqu es
+
+61
+00:04:00,000 --> 00:04:04,000
+donde enviamos el correo electrnico, si comenta esta lnea, esa prueba debera fallar.
+
+62
+00:04:04,000 --> 00:04:08,000
+Entonces, de vuelta, hagamos esta prueba una vez ms.
+
+63
+00:04:08,000 --> 00:04:12,000
+Fall,
+
+64
+00:04:12,000 --> 00:04:16,000
+hermosa. As que tenemos una prueba confiable, ahora de vuelta en el servicio,
+
+65
+00:04:16,000 --> 00:04:20,000
+vamos a traer esto de vuelta.
+
+66
+00:04:20,000 --> 00:04:24,000
+Hermosa. Ahora mira esta declaracin
+
+67
+00:04:24,000 --> 00:04:28,000
+condicional, aqu. Si este generador de declaraciones
+
+68
+00:04:28,000 --> 00:04:32,000
+devuelve un nombre de archivo
+
+69
+00:04:32,000 --> 00:04:36,000
+nulo o en blanco, no enviaremos el correo electrnico. Entonces aqu necesitamos 3 pruebas unitarias ms.
+
+70
+00:04:36,000 --> 00:04:40,000
+Si el nombre del
+
+71
+00:04:40,000 --> 00:04:44,000
+archivo es nulo, espacio en blanco o cadena vaca. Y luego queremos verificar que este mtodo no sea llamado.
+
+72
+00:04:44,000 --> 00:04:48,000
+Justo como antes. Entonces, para ahorrar tiempo,
+
+73
+00:04:48,000 --> 00:04:52,000
+voy a duplicar este mtodo.
+
+74
+00:04:52,000 --> 00:04:56,000
+Y cambie
+
+75
+00:04:56,000 --> 00:05:00,000
+el escenario
+
+76
+00:05:00,000 --> 00:05:04,000
+a la
+
+77
+00:05:04,000 --> 00:05:08,000
+declaracin FileNameIsNullAnd ShouldNotEmailTheStatement. Entonces, aqu, en la parte de
+
+78
+00:05:08,000 --> 00:05:12,000
+arreglos, quiere cambiar
+
+79
+00:05:12,000 --> 00:05:16,000
+el valor de retorno, anular. Ahora aqu tenemos un problema de compilacin porque este mtodo
+
+80
+00:05:16,000 --> 00:05:20,000
+de retorno tiene dos sobrecargas.
+
+81
+00:05:20,000 --> 00:05:24,000
+Uno que devuelve una cadena y
+
+82
+00:05:24,000 --> 00:05:28,000
+el otro que devuelve un funk. Cuando pasamos null aqu, el compilador no est seguro
+
+83
+00:05:28,000 --> 00:05:32,000
+de qu sobrecarga nos interesa.
+
+84
+00:05:32,000 --> 00:05:36,000
+Entonces, para evitar eso simplemente podemos pasar un
+
+85
+00:05:36,000 --> 00:05:40,000
+funk aqu, una expresin lambda que devuelve null.
+
+86
+00:05:40,000 --> 00:05:44,000
+Entonces esta es la parte de arreglos, actuamos, ahora cuando
+
+87
+00:05:44,000 --> 00:05:48,000
+verificamos que queremos pasar un segundo argumento para el mtodo
+
+88
+00:05:48,000 --> 00:05:52,000
+de Verificacin, y establecemos el nmero de veces nunca.
+
+89
+00:05:52,000 --> 00:05:56,000
+Ahora aqu, Times. Nunca.
+
+90
+00:05:56,000 --> 00:06:00,000
+Adems, podemos eliminar el ruido
+
+91
+00:06:00,000 --> 00:06:04,000
+en esta prueba porque realmente no nos importan estos argumentos exactos
+
+92
+00:06:04,000 --> 00:06:08,000
+porque de todos modos no vamos a llamar a este mtodo. As que preferira reemplazar estas tres cadenas
+
+93
+00:06:08,000 --> 00:06:12,000
+con It IsAny string.
+
+94
+00:06:12,000 --> 00:06:16,000
+Entonces, rpidamente, Es cualquier
+
+95
+00:06:16,000 --> 00:06:20,000
+cadena, duplquela dos veces,
+
+96
+00:06:20,000 --> 00:06:24,000
+y elimine estos dos argumentos.
+
+97
+00:06:24,000 --> 00:06:28,000
+Ahora la prueba es ms limpia, vamos a
+
+98
+00:06:28,000 --> 00:06:32,000
+ejecutarla, pas, hermosa, ahora finalmente la duplicamos un
+
+99
+00:06:32,000 --> 00:06:36,000
+par de veces ms, y probamos el espacio
+
+100
+00:06:36,000 --> 00:06:40,000
+en blanco y la cuerda vaca. Entonces StatementFileIs EmptyString, aqu en
+
+101
+00:06:40,000 --> 00:06:44,000
+la parte de
+
+102
+00:06:44,000 --> 00:06:48,000
+arreglos queremos devolver una cadena
+
+103
+00:06:48,000 --> 00:06:52,000
+vaca y la Afirmacin es
+
+104
+00:06:52,000 --> 00:06:56,000
+exactamente la misma, ahora una
+
+105
+00:06:56,000 --> 00:07:00,000
+vez ms voy a duplicar
+
+106
+00:07:00,000 --> 00:07:04,000
+esto, y esta vez, debemos
+
+107
+00:07:04,000 --> 00:07:08,000
+cambiar el escenario a Statement FileNameIsWhiteSpace.
+
+108
+00:07:08,000 --> 00:07:12,000
+Entonces, un cambio
+
+109
+00:07:12,000 --> 00:07:16,000
+simple como este. Ahora, ejecutemos todas las pruebas en esta clase.
+
+110
+00:07:16,000 --> 00:07:20,000
+Entonces, coloco el cursor
+
+111
+00:07:20,000 --> 00:07:24,000
+sobre el nombre de la clase, y ejecuto
+
+112
+00:07:24,000 --> 00:07:28,000
+las pruebas, todas las pruebas son pasajeras, hermosas.
+
+113
+00:07:28,000 --> 00:07:31,000
+&nbsp;
+

@@ -1,0 +1,215 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, we wrote quite a few unit tests
+
+2
+00:00:04,000 --> 00:00:08,000
+for various execution paths in this method. The last unit test
+
+3
+00:00:08,000 --> 00:00:12,000
+we need to write is for the scenario where something goes wrong,
+
+4
+00:00:12,000 --> 00:00:16,000
+when sending the email, then we should display
+
+5
+00:00:16,000 --> 00:00:20,000
+messageBox to the user. Very simple test.
+
+6
+00:00:20,000 --> 00:00:24,000
+So, back in our test class. To save time,
+
+7
+00:00:24,000 --> 00:00:28,000
+I'm going to duplicate this last test,
+
+8
+00:00:28,000 --> 00:00:32,000
+so the scenario is
+
+9
+00:00:32,000 --> 00:00:36,000
+EmailSendingFails.
+
+10
+00:00:36,000 --> 00:00:40,000
+Then, we should display a message
+
+11
+00:00:40,000 --> 00:00:44,000
+Box. Now in the arrange part,
+
+12
+00:00:44,000 --> 00:00:48,000
+we want to program our mock object to throw an exception.
+
+13
+00:00:48,000 --> 00:00:52,000
+So, emailSender.Setup.
+
+14
+00:00:52,000 --> 00:00:56,000
+So when we call this method
+
+15
+00:00:56,000 --> 00:01:00,000
+we should throw an exception. Now in this test,
+
+16
+00:01:00,000 --> 00:01:04,000
+we don't care about these actual values passed with the
+
+17
+00:01:04,000 --> 00:01:08,000
+EmailFile method, because earlier we wrote a test to ensure
+
+18
+00:01:08,000 --> 00:01:12,000
+that under normal circumstances, this method is called
+
+19
+00:01:12,000 --> 00:01:16,000
+with the right arguments. So here we can simplify this test, and
+
+20
+00:01:16,000 --> 00:01:20,000
+use It IsAnyString
+
+21
+00:01:20,000 --> 00:01:24,000
+and let's put this on a new line.
+
+22
+00:01:24,000 --> 00:01:28,000
+And repeat it three times.
+
+23
+00:01:28,000 --> 00:01:32,000
+Okay? So this is the setup, here,
+
+24
+00:01:32,000 --> 00:01:36,000
+we want to throw an exception. Exception.
+
+25
+00:01:36,000 --> 00:01:40,000
+Okay? So this is the arrange part, then we
+
+26
+00:01:40,000 --> 00:01:44,000
+act and finally we should verify
+
+27
+00:01:44,000 --> 00:01:48,000
+that a message box is displayed. So, we have a mock object
+
+28
+00:01:48,000 --> 00:01:52,000
+before that messageBox.Verify
+
+29
+00:01:52,000 --> 00:01:56,000
+mb goes to mb.Show
+
+30
+00:01:56,000 --> 00:02:00,000
+now what argument should we pass here? Let's have a look at our
+
+31
+00:02:00,000 --> 00:02:04,000
+implementation. So we should have the actual message here.
+
+32
+00:02:04,000 --> 00:02:08,000
+As well as the title for the message box, and finally
+
+33
+00:02:08,000 --> 00:02:12,000
+messageBoxButtons.OK.
+
+34
+00:02:12,000 --> 00:02:16,000
+Again, we don't want to test for this exact string here, because
+
+35
+00:02:16,000 --> 00:02:20,000
+it's very likely that it would change the error message or the title of
+
+36
+00:02:20,000 --> 00:02:24,000
+the messageBox in the future. So as long as this method is called
+
+37
+00:02:24,000 --> 00:02:28,000
+we're going to be happy. So, back in our test class.
+
+38
+00:02:28,000 --> 00:02:32,000
+Once again we used ItIs.Any
+
+39
+00:02:32,000 --> 00:02:36,000
+string. One more time, It.IsAny string. One more time It.IsAny string
+
+40
+00:02:36,000 --> 00:02:40,000
+and the last argument is
+
+41
+00:02:40,000 --> 00:02:44,000
+messageBoxButtons.OK. So this is an
+
+42
+00:02:44,000 --> 00:02:48,000
+enumeration for specifying the numbers in a message box.
+
+43
+00:02:48,000 --> 00:02:52,000
+So, this is our verify part, again, we can extract this
+
+44
+00:02:52,000 --> 00:02:56,000
+into a method called Verify messageBox
+
+45
+00:02:56,000 --> 00:03:00,000
+display. And that makes this test more readable. Let's
+
+46
+00:03:00,000 --> 00:03:04,000
+run the test first. Okay
+
+47
+00:03:04,000 --> 00:03:08,000
+it passed. Just to double check that we're testing the right
+
+48
+00:03:08,000 --> 00:03:12,000
+thing, let's come here and comment out
+
+49
+00:03:12,000 --> 00:03:16,000
+these two lines. Back in our test, let's run
+
+50
+00:03:16,000 --> 00:03:20,000
+it one more time. It failed,
+
+51
+00:03:20,000 --> 00:03:24,000
+so, that verifies that we have a trustworthy test.
+
+52
+00:03:24,000 --> 00:03:28,000
+So, let's bring the code back in. And
+
+53
+00:03:28,000 --> 00:03:32,000
+this concludes this section. I hope you enjoyed this challenge and
+
+54
+00:03:32,000 --> 00:03:34,000
+thank you for watching.

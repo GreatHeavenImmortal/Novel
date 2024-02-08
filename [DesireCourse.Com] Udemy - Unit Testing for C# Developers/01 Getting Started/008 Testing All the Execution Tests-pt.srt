@@ -1,0 +1,320 @@
+1
+00:00:00,000 --> 00:00:04,000
+Na ltima palestra, renomeamos essa classe para ReservationTests, mas
+
+2
+00:00:04,000 --> 00:00:08,000
+aparentemente o recurso de refatorao renomeado no Visual Studio
+
+3
+00:00:08,000 --> 00:00:12,000
+no funcionou corretamente, porque o nome do arquivo ainda
+
+4
+00:00:12,000 --> 00:00:16,000
+ um teste unitrio. Ento, vou
+
+5
+00:00:16,000 --> 00:00:20,000
+renomear isso para ReservationTests.
+
+6
+00:00:20,000 --> 00:00:24,000
+cs. Com essa conveno, voc pode
+
+7
+00:00:24,000 --> 00:00:28,000
+encontrar facilmente todos os testes para uma determinada classe.
+
+8
+00:00:28,000 --> 00:00:32,000
+Ok, agora vamos escrever
+
+9
+00:00:32,000 --> 00:00:36,000
+o segundo teste unitrio.
+
+10
+00:00:36,000 --> 00:00:40,000
+Ento, eu vou escrever um mtodo de public void
+
+11
+00:00:40,000 --> 00:00:44,000
+e, a propsito, todos os seus mtodos de teste
+
+12
+00:00:44,000 --> 00:00:48,000
+devem ser public void. Ento, aqui vamos usar
+
+13
+00:00:48,000 --> 00:00:52,000
+nossa conveno para chamar esse mtodo, a primeira
+
+14
+00:00:52,000 --> 00:00:56,000
+parte  o mtodo no teste, que  CanBeCancelledBy.
+
+15
+00:00:56,000 --> 00:01:00,000
+A segunda parte  o cenrio, ento, digamos que queremos
+
+16
+00:01:00,000 --> 00:01:04,000
+testar o cenrio em que o mesmo usurio que fez
+
+17
+00:01:04,000 --> 00:01:08,000
+a reserva deseja cancelar essa reserva. Ento,
+
+18
+00:01:08,000 --> 00:01:12,000
+SameUserCancellingThe Reservation.
+
+19
+00:01:12,000 --> 00:01:16,000
+Agora, a terceira parte 
+
+20
+00:01:16,000 --> 00:01:20,000
+o comportamento esperado, o que esperamos que esse mtodo retorne?
+
+21
+00:01:20,000 --> 00:01:24,000
+Deve retornar
+
+22
+00:01:24,000 --> 00:01:28,000
+verdadeiro, ok?
+
+23
+00:01:28,000 --> 00:01:32,000
+Agora, dentro desse mtodo, devemos ter trs partes,
+
+24
+00:01:32,000 --> 00:01:36,000
+organizar, agir e afirmar. Na ltima palestra, adicionei comentrios para
+
+25
+00:01:36,000 --> 00:01:40,000
+separar as partes de organizar, agir e afirmar, mas em um cenrio
+
+26
+00:01:40,000 --> 00:01:44,000
+do mundo real, no precisamos necessariamente fazer isso, se o mtodo de
+
+27
+00:01:44,000 --> 00:01:48,000
+teste for curto e limpo. Ento, na parte de organizao, vou
+
+28
+00:01:48,000 --> 00:01:52,000
+criar um novo objeto de reserva. Ento, reserva
+
+29
+00:01:52,000 --> 00:01:56,000
+ uma nova reserva, nos
+
+30
+00:01:56,000 --> 00:02:00,000
+atos, vou chamar de reserva,
+
+31
+00:02:00,000 --> 00:02:04,000
+que CanBeCancelledAgora aqui eu quero
+
+32
+00:02:04,000 --> 00:02:08,000
+simular um cenrio onde o
+
+33
+00:02:08,000 --> 00:02:12,000
+mesmo usurio est cancelando essa
+
+34
+00:02:12,000 --> 00:02:16,000
+reserva, ento vou criar um
+
+35
+00:02:16,000 --> 00:02:20,000
+objeto de usurio aqui e,
+
+36
+00:02:20,000 --> 00:02:24,000
+primeiro, defina a propriedade MadeBy
+
+37
+00:02:24,000 --> 00:02:28,000
+para esse usurio. Ento, esse usurio criou essa reserva antes.
+
+38
+00:02:28,000 --> 00:02:32,000
+Agora, eu quero passar o mesmo objeto de
+
+39
+00:02:32,000 --> 00:02:36,000
+usurio como um argumento para este mtodo, usurio,
+
+40
+00:02:36,000 --> 00:02:40,000
+agora, obtemos o resultado e o armazenamos.
+
+41
+00:02:40,000 --> 00:02:44,000
+E finalmente faa uma afirmao. Ento, ns afirmamos.
+
+42
+00:02:44,000 --> 00:02:48,000
+Esse resultado  verdadeiro.
+
+43
+00:02:48,000 --> 00:02:52,000
+Ento, agora, com esses espaos verticais que adicionei no
+
+44
+00:02:52,000 --> 00:02:56,000
+cdigo, podemos ver as partes Organizar, Atuar e Afirmar.
+
+45
+00:02:56,000 --> 00:03:00,000
+De volta ao nosso teste, janela de exportao, vamos rodar
+
+46
+00:03:00,000 --> 00:03:04,000
+todos os testes, ento temos um teste com falha, e
+
+47
+00:03:04,000 --> 00:03:08,000
+isso  porque na ltima palestra eu criei um bug
+
+48
+00:03:08,000 --> 00:03:12,000
+no nosso cdigo, ento deixe-me mudar isso aqui ns retornamos
+
+49
+00:03:12,000 --> 00:03:16,000
+true, agora de volta nossa classe de teste, este novo
+
+50
+00:03:16,000 --> 00:03:20,000
+mtodo que eu criei aqui no  escolhido por um
+
+51
+00:03:20,000 --> 00:03:24,000
+explorador de teste. Ns no vemos isso aqui.
+
+52
+00:03:24,000 --> 00:03:28,000
+Por qu? Porque esquecemos de decor-lo
+
+53
+00:03:28,000 --> 00:03:32,000
+com o atributo TestMethod. Ento  por isso
+
+54
+00:03:32,000 --> 00:03:36,000
+que voc deve decorar cada mtodo de
+
+55
+00:03:36,000 --> 00:03:40,000
+teste com este atributo, para que ele
+
+56
+00:03:40,000 --> 00:03:44,000
+possa ser escolhido pelo executor de teste,
+
+57
+00:03:44,000 --> 00:03:48,000
+agora salve, volte no Test Explorer, execute
+
+58
+00:03:48,000 --> 00:03:52,000
+todos, agora temos dois testes aprovados, agora
+
+59
+00:03:52,000 --> 00:03:56,000
+vamos escrever o ltimo teste, ento eu
+
+60
+00:03:56,000 --> 00:04:00,000
+vou comear com o mtodo de teste,
+
+61
+00:04:00,000 --> 00:04:04,000
+ento public void, canBeCancelledBy o terceiro cenrio
+
+62
+00:04:04,000 --> 00:04:08,000
+ um usurio tentando cancelar a reserva
+
+63
+00:04:08,000 --> 00:04:12,000
+de outra pessoa. Ento,
+
+64
+00:04:12,000 --> 00:04:16,000
+outro usurio CancellingReservation.
+
+65
+00:04:16,000 --> 00:04:20,000
+Qual  o comportamento esperado? Este mtodo deve
+
+66
+00:04:20,000 --> 00:04:24,000
+retornar false, ento retorne false.
+
+67
+00:04:28,000 --> 00:04:32,000
+Mais uma vez, na parte de organizao, vou
+
+68
+00:04:32,000 --> 00:04:36,000
+criar um objeto de reserva, uma nova Reserva
+
+69
+00:04:36,000 --> 00:04:40,000
+e uma parte ativa que chamamos de CanBeCancelledBy,
+
+70
+00:04:40,000 --> 00:04:44,000
+agora aqui queremos lidar com dois objetos de
+
+71
+00:04:44,000 --> 00:04:48,000
+usurio diferentes. Ento, aqui eu posso
+
+72
+00:04:48,000 --> 00:04:52,000
+passar o objeto de usurio, e ao inicializar
+
+73
+00:04:52,000 --> 00:04:56,000
+a reserva, posso definir MadeBy para um objeto
+
+74
+00:04:56,000 --> 00:05:00,000
+de usurio diferente. E, finalmente, precisamos
+
+75
+00:05:00,000 --> 00:05:04,000
+armazenar o resultado aqui e afirmar
+
+76
+00:05:04,000 --> 00:05:08,000
+que o resultado  falso.
+
+77
+00:05:08,000 --> 00:05:12,000
+Ento IsFalse, resultado. Agora, vamos
+
+78
+00:05:12,000 --> 00:05:16,000
+executar todos os testes.
+
+79
+00:05:16,000 --> 00:05:20,000
+Ento ns temos trs
+
+80
+00:05:20,000 --> 00:05:22,600
+testes aprovados, lindos.
+

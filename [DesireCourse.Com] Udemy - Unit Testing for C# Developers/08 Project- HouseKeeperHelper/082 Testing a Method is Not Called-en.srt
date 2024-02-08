@@ -1,0 +1,333 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, we have written one unit test here,
+
+2
+00:00:04,000 --> 00:00:08,000
+now, let's quickly go back to the implementation of our
+
+3
+00:00:08,000 --> 00:00:12,000
+service. As I told you before, when writing unit tests,
+
+4
+00:00:12,000 --> 00:00:16,000
+we should always look at the method of a test like a black
+
+5
+00:00:16,000 --> 00:00:20,000
+box. So you shouldn't really write line by line of this code,
+
+6
+00:00:20,000 --> 00:00:24,000
+and write unit tests based on this implementation, because its possible that
+
+7
+00:00:24,000 --> 00:00:28,000
+this implementation has a problem, however, in this case
+
+8
+00:00:28,000 --> 00:00:32,000
+because I'm not familiar with the domain of this application
+
+9
+00:00:32,000 --> 00:00:36,000
+I have to rely on this implementation. So let's see what's happening
+
+10
+00:00:36,000 --> 00:00:40,000
+here. When we are iterating over these housekeepers
+
+11
+00:00:40,000 --> 00:00:44,000
+it's possible that some of them don't have an email.
+
+12
+00:00:44,000 --> 00:00:48,000
+In this case, you're going to move onto the next housekeeper, and
+
+13
+00:00:48,000 --> 00:00:52,000
+that means you shouldn't create a statement for them. That means there
+
+14
+00:00:52,000 --> 00:00:56,000
+is a business requirement for this, because if the housekeeper doesn't have an email,
+
+15
+00:00:56,000 --> 00:01:00,000
+we don't want to waste resources generating a statement for
+
+16
+00:01:00,000 --> 00:01:04,000
+someone that is not reachable. So, let's go ahead
+
+17
+00:01:04,000 --> 00:01:08,000
+and write the test for this scenario. Back in our test class,
+
+18
+00:01:08,000 --> 00:01:12,000
+to save time, I'm going to select this method.
+
+19
+00:01:12,000 --> 00:01:16,000
+Duplicate it. So, the scenario is
+
+20
+00:01:16,000 --> 00:01:20,000
+where housekeeper's email is null. So,
+
+21
+00:01:20,000 --> 00:01:24,000
+HouseKeepersEmailIsNull
+
+22
+00:01:24,000 --> 00:01:28,000
+ShouldNotGenerate
+
+23
+00:01:28,000 --> 00:01:32,000
+Statement. So how do we simulate this
+
+24
+00:01:32,000 --> 00:01:36,000
+scenario? Well, we define a housekeeper object
+
+25
+00:01:36,000 --> 00:01:40,000
+right here. So, before acting
+
+26
+00:01:40,000 --> 00:01:44,000
+we can set the email to null. So,
+
+27
+00:01:44,000 --> 00:01:48,000
+right here. So, this is the arrange part,
+
+28
+00:01:48,000 --> 00:01:52,000
+houseKeeper.Email
+
+29
+00:01:52,000 --> 00:01:56,000
+null. Now, how do we verify
+
+30
+00:01:56,000 --> 00:02:00,000
+that a given method like SaveStatement is not
+
+31
+00:02:00,000 --> 00:02:04,000
+called. This Verify method that is available
+
+32
+00:02:04,000 --> 00:02:08,000
+with all the mock objects, it has an optional second argument.
+
+33
+00:02:08,000 --> 00:02:12,000
+With this argument we can specify how many times
+
+34
+00:02:12,000 --> 00:02:16,000
+a given method in this case, SaveStatement should be called.
+
+35
+00:02:16,000 --> 00:02:20,000
+So, as the second argument
+
+36
+00:02:20,000 --> 00:02:24,000
+of the verify method, we pass Times, which is
+
+37
+00:02:24,000 --> 00:02:28,000
+an enumeration, here we have members, like AtLeast
+
+38
+00:02:28,000 --> 00:02:32,000
+AtMost, Between, Exactly, and so on.
+
+39
+00:02:32,000 --> 00:02:36,000
+We're going to use Never. So that means this method should
+
+40
+00:02:36,000 --> 00:02:40,000
+never be called. Let's run this test.
+
+41
+00:02:40,000 --> 00:02:44,000
+Okay, the test passed,
+
+42
+00:02:44,000 --> 00:02:48,000
+I want to make sure that I'm testing the right thing. So, let's go
+
+43
+00:02:48,000 --> 00:02:52,000
+back to our service, and comment out the line
+
+44
+00:02:52,000 --> 00:02:56,000
+that would make that test pass. So, here's the line,
+
+45
+00:02:56,000 --> 00:03:00,000
+comment out, back to our test,
+
+46
+00:03:00,000 --> 00:03:04,000
+let's run this one more time, it should fail now.
+
+47
+00:03:04,000 --> 00:03:08,000
+Okay, it failed, beautiful.
+
+48
+00:03:08,000 --> 00:03:12,000
+So, let's remove the
+
+49
+00:03:12,000 --> 00:03:16,000
+comment, now when dealing with strings, we should check for
+
+50
+00:03:16,000 --> 00:03:20,000
+both null as well as white space. So what is missing in this
+
+51
+00:03:20,000 --> 00:03:24,000
+implementation is the check for an email that is an empty
+
+52
+00:03:24,000 --> 00:03:28,000
+string, or an empty string with white space. But I'm not going to
+
+53
+00:03:28,000 --> 00:03:32,000
+modify this code yet, I'm going to write the test, that test should fail.
+
+54
+00:03:32,000 --> 00:03:36,000
+Then, we'll come back, fix the code, and then our test
+
+55
+00:03:36,000 --> 00:03:40,000
+should pass. So, back to our test class.
+
+56
+00:03:40,000 --> 00:03:44,000
+Let's duplicate this last test.
+
+57
+00:03:44,000 --> 00:03:48,000
+Now the scenario is
+
+58
+00:03:48,000 --> 00:03:52,000
+HouseKeeperEmailIsWhiteSpace.
+
+59
+00:03:52,000 --> 00:03:56,000
+WhiteSpace. So I'm going to set this to
+
+60
+00:03:56,000 --> 00:04:00,000
+white space like this. Again, our
+
+61
+00:04:00,000 --> 00:04:04,000
+Assertion is the same, the SaveStatement method should not be called.
+
+62
+00:04:04,000 --> 00:04:08,000
+Let's run the test.
+
+63
+00:04:08,000 --> 00:04:12,000
+Obviously you can see this test failed, so
+
+64
+00:04:12,000 --> 00:04:16,000
+let's go back to the production code, and modify this If statement
+
+65
+00:04:16,000 --> 00:04:20,000
+to something like this. So, if String
+
+66
+00:04:20,000 --> 00:04:24,000
+IsNullOrWhiteSpace,
+
+67
+00:04:24,000 --> 00:04:28,000
+then we pass housekeeper.Email here.
+
+68
+00:04:28,000 --> 00:04:32,000
+Back to our test, let's write one more time.
+
+69
+00:04:32,000 --> 00:04:36,000
+This time it passed. So we have
+
+70
+00:04:36,000 --> 00:04:40,000
+a tiny bug in the code, and it could catch that with
+
+71
+00:04:40,000 --> 00:04:44,000
+this unit test. Now, what if email is an empty string
+
+72
+00:04:44,000 --> 00:04:48,000
+not White Space? Well with this new implementation we shouldn't have a problem.
+
+73
+00:04:48,000 --> 00:04:52,000
+But let's verify that. So, I'm going to select this code,
+
+74
+00:04:52,000 --> 00:04:56,000
+duplicate it, and this time set email
+
+75
+00:04:56,000 --> 00:05:00,000
+to an empty string. And we should also
+
+76
+00:05:00,000 --> 00:05:04,000
+change the scenario to HouseKeeperEmailIs
+
+77
+00:05:04,000 --> 00:05:08,000
+Empty. Let's run the test,
+
+78
+00:05:08,000 --> 00:05:12,000
+here's our new test, beautiful. So,
+
+79
+00:05:12,000 --> 00:05:16,000
+if email is null, empty string, or whitespace
+
+80
+00:05:16,000 --> 00:05:20,000
+we are not going to generate a statement, beautiful. Now,
+
+81
+00:05:20,000 --> 00:05:24,000
+back in our service,
+
+82
+00:05:24,000 --> 00:05:28,000
+once we generate a statement, then we should email it
+
+83
+00:05:28,000 --> 00:05:32,000
+to the housekeeper, and that's what we're going to look at in the next lecture.
+
+

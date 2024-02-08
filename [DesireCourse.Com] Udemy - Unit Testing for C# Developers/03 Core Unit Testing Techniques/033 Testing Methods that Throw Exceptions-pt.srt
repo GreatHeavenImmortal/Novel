@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:04,000
+Portanto, nosso mtodo de log deve descartar uma exceo
+
+2
+00:00:04,000 --> 00:00:08,000
+se esse erro for nulo ou espao em branco.
+
+3
+00:00:08,000 --> 00:00:12,000
+Quantos casos de teste precisamos aqui? Ns precisamos de trs.
+
+4
+00:00:12,000 --> 00:00:16,000
+Uma delas  verificar a existncia de null, a outra  procurar
+
+5
+00:00:16,000 --> 00:00:20,000
+por uma string vazia, e a ltima  procurar por uma string
+
+6
+00:00:20,000 --> 00:00:24,000
+que tenha espaos em branco, como este. Ento, vou criar um
+
+7
+00:00:24,000 --> 00:00:28,000
+mtodo de teste parametrizado com trs casos de teste.
+
+8
+00:00:28,000 --> 00:00:32,000
+Vamos deletar isso. De volta
+
+9
+00:00:32,000 --> 00:00:36,000
+ nossa classe de
+
+10
+00:00:36,000 --> 00:00:40,000
+teste, outro mtodo de
+
+11
+00:00:40,000 --> 00:00:44,000
+teste, public void Log,
+
+12
+00:00:44,000 --> 00:00:48,000
+o cenrio  InvalidError. Deve
+
+13
+00:00:48,000 --> 00:00:52,000
+lanar ArgumentNullException.
+
+14
+00:00:52,000 --> 00:00:56,000
+Ento, vou fazer isso parametrizado, erro de
+
+15
+00:00:56,000 --> 00:01:00,000
+string, e adicionar trs casos de teste
+
+16
+00:01:00,000 --> 00:01:04,000
+aqui, ento TestCase, o primeiro  null,
+
+17
+00:01:04,000 --> 00:01:08,000
+o segundo  uma string vazia e
+
+18
+00:01:08,000 --> 00:01:12,000
+o ltimo  um espao em branco.
+
+19
+00:01:12,000 --> 00:01:16,000
+Mais uma vez, criamos um objeto logger e,
+
+20
+00:01:16,000 --> 00:01:20,000
+claro, podemos fazer isso no mtodo de configurao.
+
+21
+00:01:20,000 --> 00:01:24,000
+Mas eu deixo isso para voc como um exerccio. Ento aqui est a parte
+
+22
+00:01:24,000 --> 00:01:28,000
+complicada, se eu chamar logger. erro de
+
+23
+00:01:28,000 --> 00:01:32,000
+log. Esta linha vai lanar uma exceo
+
+24
+00:01:32,000 --> 00:01:36,000
+e nosso mtodo de teste falhar. Portanto, a maneira de
+
+25
+00:01:36,000 --> 00:01:40,000
+escrever asseres, para mtodos que lanam uma exceo,
+
+26
+00:01:40,000 --> 00:01:44,000
+ usando um delegado. Ento, eu vou encerrar essa chamada dentro
+
+27
+00:01:44,000 --> 00:01:48,000
+de um delegado ao escrever a Assero. Deixe-me mostrar o que quero dizer.
+
+28
+00:01:48,000 --> 00:01:52,000
+Ento,
+
+29
+00:01:52,000 --> 00:01:56,000
+assert. Isso aqui adicionarei um
+
+30
+00:01:56,000 --> 00:02:00,000
+delegado ou uma funo inline ou uma expresso lambda.
+
+31
+00:02:00,000 --> 00:02:04,000
+Se voc no est familiarizado com isso, voc precisa assistir meu curso C # Advanced.
+
+32
+00:02:04,000 --> 00:02:08,000
+Eu cobri este tpico em detalhes, ento aqui ns
+
+33
+00:02:08,000 --> 00:02:12,000
+passamos uma expresso lambda, e  aqui que podemos
+
+34
+00:02:12,000 --> 00:02:16,000
+chamar o mtodo log. Ento logger. Erro
+
+35
+00:02:16,000 --> 00:02:20,000
+de log. Agora, como segundo
+
+36
+00:02:20,000 --> 00:02:24,000
+argumento, especificamos o tipo de exceo.
+
+37
+00:02:24,000 --> 00:02:28,000
+Ento, anteriormente voc viu e  classes, tambm
+
+38
+00:02:28,000 --> 00:02:32,000
+temos Throws, voc tem um monte de propriedades
+
+39
+00:02:32,000 --> 00:02:36,000
+auxiliares teis como exceo de argumento, exceo nula
+
+40
+00:02:36,000 --> 00:02:40,000
+de argumento, exceo de operao invlida e assim por diante.
+
+41
+00:02:40,000 --> 00:02:44,000
+Mas neste caso eu vou usar a exceo Argument Null. s vezes voc est trabalhando
+
+42
+00:02:44,000 --> 00:02:48,000
+com diferentes tipos de excees, se esse for o
+
+43
+00:02:48,000 --> 00:02:52,000
+caso, voc pode usar Lana, Exceo, tipo de e
+
+44
+00:02:52,000 --> 00:02:56,000
+aqui voc especifica o tipo. Por exemplo, dividir
+
+45
+00:02:56,000 --> 00:03:00,000
+por exceo zero. OK?
+
+46
+00:03:00,000 --> 00:03:04,000
+Mas neste caso, porque temos essa propriedade auxiliar, ArgumentNullException, eu
+
+47
+00:03:04,000 --> 00:03:08,000
+prefiro a primeira sintaxe que  mais curta e mais limpa.
+
+48
+00:03:08,000 --> 00:03:12,000
+Ento, vamos deletar isso, e rodaremos bem o nosso
+
+49
+00:03:12,000 --> 00:03:16,000
+teste, ento podemos ver que temos esse mtodo de
+
+50
+00:03:16,000 --> 00:03:20,000
+teste com trs casos de teste, eles esto todos
+
+51
+00:03:20,000 --> 00:03:24,000
+passando, mais uma vez para ter certeza de que
+
+52
+00:03:24,000 --> 00:03:28,000
+este  um teste confivel, eu vou voltar no
+
+53
+00:03:28,000 --> 00:03:32,000
+cdigo de produo, e comente a linha que 
+
+54
+00:03:32,000 --> 00:03:36,000
+responsvel por fazer este teste, ento vou comentar essas
+
+55
+00:03:36,000 --> 00:03:40,000
+duas primeiras linhas. Vamos ver se o nosso
+
+56
+00:03:40,000 --> 00:03:44,000
+teste falha agora ou no. Ento, enquanto isso
+
+57
+00:03:44,000 --> 00:03:48,000
+ selecionado, vou escrev-lo novamente, desta
+
+58
+00:03:48,000 --> 00:03:52,000
+vez nosso teste falhou. Ento, este  um teste confivel.
+
+59
+00:03:52,000 --> 00:03:56,000
+De volta aqui, vou remover o comentrio.
+
+60
+00:03:56,000 --> 00:04:00,000
+Bonita. Na prxima palestra, mostrarei
+
+61
+00:04:00,000 --> 00:04:04,000
+como testar mtodos que geram um evento, isso 
+
+62
+00:04:04,000 --> 00:04:08,000
+particularmente til ao criar o aplicativo wpf ou Xamarin.
+

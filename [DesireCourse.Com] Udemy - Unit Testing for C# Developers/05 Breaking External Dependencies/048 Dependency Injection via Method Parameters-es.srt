@@ -1,0 +1,308 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, hay tres formas de usar la
+
+2
+00:00:04,000 --> 00:00:08,000
+inyeccin de dependencia. Podemos inyectar dependencias a travs de
+
+3
+00:00:08,000 --> 00:00:12,000
+parmetros de mtodo, propiedades y constructores. En esta conferencia, voy a
+
+4
+00:00:12,000 --> 00:00:16,000
+mostrarte cmo inyectar dependencias a travs de los parmetros del mtodo.
+
+5
+00:00:16,000 --> 00:00:20,000
+Entonces, aqu, en nuestro mtodo de ttulo de lectura
+
+6
+00:00:20,000 --> 00:00:24,000
+del ttulo, en lugar de trabajar con esta implementacin
+
+7
+00:00:24,000 --> 00:00:28,000
+concreta FileReader, voy a pasar un objeto IFileReader como
+
+8
+00:00:28,000 --> 00:00:32,000
+parmetro a este mtodo. Llame a este FileReader
+
+9
+00:00:32,000 --> 00:00:36,000
+y luego podemos deshacernos de este nuevo operador.
+
+10
+00:00:36,000 --> 00:00:40,000
+Entonces usamos este argumento fileReader. Con este simple cambio,
+
+11
+00:00:40,000 --> 00:00:44,000
+nuestra clase de servicio de video se acopla
+
+12
+00:00:44,000 --> 00:00:48,000
+y prueba de manera flexible. Porque en nuestro cdigo de produccin, podemos
+
+13
+00:00:48,000 --> 00:00:52,000
+pasar un objeto FileReader real a este proyecto, mientras que en nuestra prueba, podemos
+
+14
+00:00:52,000 --> 00:00:56,000
+pasar un objeto fileReader falso. Deja que te ensee. Entonces, de vuelta
+
+15
+00:00:56,000 --> 00:01:00,000
+en nuestro explorador de soluciones, en la carpeta de
+
+16
+00:01:00,000 --> 00:01:04,000
+burlas, voy a agregar temporalmente una clase llamada Programa.
+
+17
+00:01:04,000 --> 00:01:08,000
+Aqu voy a agregar un mtodo principal de vaco esttico
+
+18
+00:01:08,000 --> 00:01:12,000
+pblico, por lo que este servicio de video que tenemos
+
+19
+00:01:12,000 --> 00:01:16,000
+aqu, es muy probable que vayamos a esto en algn
+
+20
+00:01:16,000 --> 00:01:20,000
+lugar de nuestra aplicacin, y quiero simular eso en nuestra
+
+21
+00:01:20,000 --> 00:01:24,000
+clase de programa. As que voy
+
+22
+00:01:24,000 --> 00:01:28,000
+a crear un objeto VideoService, VideoService
+
+23
+00:01:28,000 --> 00:01:32,000
+y llamar al mtodo ReadVideoTitle.
+
+24
+00:01:32,000 --> 00:01:36,000
+Ahora aqu tenemos que pasar una instancia
+
+25
+00:01:36,000 --> 00:01:40,000
+de clase que implemente la interfaz IFileReader.
+
+26
+00:01:40,000 --> 00:01:44,000
+Entonces podemos pasar un FileReader nuevo
+
+27
+00:01:44,000 --> 00:01:48,000
+de FileReader real, y con esto
+
+28
+00:01:48,000 --> 00:01:52,000
+obtenemos un ttulo. Ahora, esto es seguridad para
+
+29
+00:01:52,000 --> 00:01:56,000
+la demostracin, en las aplicaciones del mundo real en lugar
+
+30
+00:01:56,000 --> 00:02:00,000
+de que nosotros rehagamos manualmente este objeto aqu, usamos un
+
+31
+00:02:00,000 --> 00:02:04,000
+marco de inyeccin de dependencia. Entonces, un marco de
+
+32
+00:02:04,000 --> 00:02:08,000
+inyeccin de dependencia es responsable de actualizar estos objetos
+
+33
+00:02:08,000 --> 00:02:12,000
+y pasarlos a nuestros mtodos. Vamos a ver los marcos de
+
+34
+00:02:12,000 --> 00:02:16,000
+inyeccin de dependencia en solo unos minutos. As que as es como pasamos
+
+35
+00:02:16,000 --> 00:02:20,000
+un objeto real para este mtodo, ReadVideoTitle. Ahora adelante y escriba una
+
+36
+00:02:20,000 --> 00:02:24,000
+prueba unitaria para este mtodo, y all le mostrar cmo
+
+37
+00:02:24,000 --> 00:02:28,000
+pasar un objeto falso. Entonces, de regreso en nuestro proyecto de
+
+38
+00:02:28,000 --> 00:02:32,000
+pruebas unitarias, voy a agregar una nueva prueba unitaria, y por cierto, es una
+
+39
+00:02:32,000 --> 00:02:36,000
+buena prctica que su proyecto de prueba unitaria imita la misma estructura que tiene
+
+40
+00:02:36,000 --> 00:02:40,000
+en el proyecto en su prueba. As que aqu tenemos estas pequeas carpetas
+
+41
+00:02:40,000 --> 00:02:44,000
+principales, como los fundamentos y caminar, pero me olvid de crear estas carpetas en
+
+42
+00:02:44,000 --> 00:02:48,000
+este proyecto de prueba de unidad. Entonces a partir de ahora, voy a
+
+43
+00:02:48,000 --> 00:02:52,000
+agregar todas las pruebas unitarias para las clases definidas en el espacio de nombre
+
+44
+00:02:52,000 --> 00:02:56,000
+burln dentro del filtro de burla. Entonces, agreguemos
+
+45
+00:02:56,000 --> 00:03:00,000
+un nuevo directorio con
+
+46
+00:03:00,000 --> 00:03:04,000
+Mocking y aqu voy
+
+47
+00:03:04,000 --> 00:03:08,000
+a agregar una nueva
+
+48
+00:03:08,000 --> 00:03:12,000
+clase llamada VideoService Tests.
+
+49
+00:03:12,000 --> 00:03:16,000
+Primero voy a aplicar un atributo de accesorio de
+
+50
+00:03:16,000 --> 00:03:20,000
+prueba, y crear un vaco pblico de prueba, el
+
+51
+00:03:20,000 --> 00:03:24,000
+mtodo en la prueba se llama ReadVideoTitle, veamos la
+
+52
+00:03:24,000 --> 00:03:28,000
+implementacin de este mtodo, digamos que quiero probar esta
+
+53
+00:03:28,000 --> 00:03:32,000
+ruta de ejecucin, si el video es nulo esperamos
+
+54
+00:03:32,000 --> 00:03:36,000
+un mensaje de error Entonces, este FileReader falso
+
+55
+00:03:36,000 --> 00:03:40,000
+que implementamos simplemente devuelve una cadena vaca.
+
+56
+00:03:40,000 --> 00:03:44,000
+Esta cadena no se puede deserializar como un objeto de video.
+
+57
+00:03:44,000 --> 00:03:48,000
+Bueno? Entonces, de vuelta en nuestra clase
+
+58
+00:03:48,000 --> 00:03:52,000
+de prueba, el escenario es EmptyFile. Por lo tanto, no hay nada en
+
+59
+00:03:52,000 --> 00:03:56,000
+nuestro archivo por eso estamos devolviendo una cadena vaca en nuestro objeto falso FileReader.
+
+60
+00:03:56,000 --> 00:04:00,000
+Y esperamos que este mtodo devuelva un
+
+61
+00:04:00,000 --> 00:04:04,000
+mensaje de error. Primero, creemos una
+
+62
+00:04:04,000 --> 00:04:08,000
+instancia de este servicio, nuevo VideoService.
+
+63
+00:04:08,000 --> 00:04:12,000
+Ahora, vamos a llamar al servicio. ReadVideoTitle. Pero esta vez vamos a pasar
+
+64
+00:04:12,000 --> 00:04:16,000
+nuestro objeto FakeFileReader. Tan nuevo
+
+65
+00:04:16,000 --> 00:04:20,000
+FileReader falso. Ahora obtenemos el
+
+66
+00:04:20,000 --> 00:04:24,000
+resultado, y finalmente
+
+67
+00:04:24,000 --> 00:04:28,000
+afirmamos que el resultado s. Contiene la palabra
+
+68
+00:04:28,000 --> 00:04:32,000
+error Ahora, para hacer que esta prueba
+
+69
+00:04:32,000 --> 00:04:36,000
+sea ms confiable, tambin voy a
+
+70
+00:04:36,000 --> 00:04:40,000
+cambiar esta propiedad IgnoreCase, por lo que vamos a ignorar la sensibilidad
+
+71
+00:04:40,000 --> 00:04:44,000
+a las maysculas y minsculas de las cadenas en esta prueba. Vamos a ejecutar esto.
+
+72
+00:04:44,000 --> 00:04:48,000
+De acuerdo, esta es nuestra prueba, y pas con xito, hermosa.
+
+73
+00:04:48,000 --> 00:04:52,000
+As que, recapitulamos rpidamente, de vuelta en nuestro servicio
+
+74
+00:04:52,000 --> 00:04:56,000
+de video, en esta conferencia aprendiste cmo pasar o
+
+75
+00:04:56,000 --> 00:05:00,000
+insertar una dependencia como un parmetro de mtodo. En la prxima conferencia, voy a mostrar cmo inyectar
+
+76
+00:05:00,000 --> 00:05:04,000
+la dependencia usando una propiedad.
+
+77
+00:05:04,000 --> 00:05:08,000
+&nbsp;
+

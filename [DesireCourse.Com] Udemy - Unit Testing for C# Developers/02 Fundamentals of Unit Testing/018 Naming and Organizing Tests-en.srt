@@ -1,0 +1,158 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, in the last section, you saw a
+
+2
+00:00:04,000 --> 00:00:08,000
+glimpse of how you should name and structure your tests.
+
+3
+00:00:08,000 --> 00:00:12,000
+Let's quickly review the convention you should follow to organize your tests so
+
+4
+00:00:12,000 --> 00:00:16,000
+you can easily locate them. For each project in your solution
+
+5
+00:00:16,000 --> 00:00:20,000
+you'll have a unit testing project. So, if you have a
+
+6
+00:00:20,000 --> 00:00:24,000
+project called TestNinja, you should have a separate project called
+
+7
+00:00:24,000 --> 00:00:28,000
+TestNinja.UnitTests. And as I told you before,
+
+8
+00:00:28,000 --> 00:00:32,000
+you want to separate unit and integration tests, because unit
+
+9
+00:00:32,000 --> 00:00:36,000
+test execute fast, integration tests take longer.
+
+10
+00:00:36,000 --> 00:00:40,000
+So we want to run unit tests frequently as we're writing code,
+
+11
+00:00:40,000 --> 00:00:44,000
+and run integration tests just before committing our code to
+
+12
+00:00:44,000 --> 00:00:48,000
+the repository to make sure everything works. So,
+
+13
+00:00:48,000 --> 00:00:52,000
+each project in the solution, you're going to have a separate unit testing project.
+
+14
+00:00:52,000 --> 00:00:56,000
+In this project, you often have a test class for
+
+15
+00:00:56,000 --> 00:01:00,000
+each class in your production code. So if you have a class called
+
+16
+00:01:00,000 --> 00:01:04,000
+reservation, you should have a class called reservation tests.
+
+17
+00:01:04,000 --> 00:01:08,000
+Note the plural name here. This indicates that this
+
+18
+00:01:08,000 --> 00:01:12,000
+class has multiple tests. Now, for each method in the
+
+19
+00:01:12,000 --> 00:01:16,000
+reservation class, you should have one or more test methods.
+
+20
+00:01:16,000 --> 00:01:20,000
+How many tests do you need? It depends on what you're testing.
+
+21
+00:01:20,000 --> 00:01:24,000
+Often, the number of tests is equal to or
+
+22
+00:01:24,000 --> 00:01:28,000
+greater than the number of execution paths. Now the name of your test
+
+23
+00:01:28,000 --> 00:01:32,000
+methods, should clearly specify the business rule you're testing,
+
+24
+00:01:32,000 --> 00:01:36,000
+here are some core names. Test 1,
+
+25
+00:01:36,000 --> 00:01:40,000
+SaveCustomerTest, GetMovie, look we can tell what business rule
+
+26
+00:01:40,000 --> 00:01:44,000
+is being tested here. That's why we have a convention for naming
+
+27
+00:01:44,000 --> 00:01:48,000
+our tests. The name of the method on our test is
+
+28
+00:01:48,000 --> 00:01:52,000
+scenario testing and expected behavior. With this convention,
+
+29
+00:01:52,000 --> 00:01:56,000
+we can look at the name of a test method, and tell what business rule
+
+30
+00:01:56,000 --> 00:02:00,000
+is being tested. Now, sometimes you're dealing with a large
+
+31
+00:02:00,000 --> 00:02:04,000
+complex method with so many execution paths and edge cases.
+
+32
+00:02:04,000 --> 00:02:08,000
+In that case, it may be better to dedicate a separate
+
+33
+00:02:08,000 --> 00:02:12,000
+test class for that method. Because otherwise the test
+
+34
+00:02:12,000 --> 00:02:16,000
+for this method may collude your test class. Let's say
+
+35
+00:02:16,000 --> 00:02:20,000
+in our example, CanBeCancelled by method requires
+
+36
+00:02:20,000 --> 00:02:24,000
+several tests. You can extract all the tests for this method,
+
+37
+00:02:24,000 --> 00:02:28,000
+into a separate class and call it reservation, underline
+
+38
+00:02:28,000 --> 00:02:32,000
+CanBeCancelledByTests. This way you can
+
+39
+00:02:32,000 --> 00:02:36,000
+easily locate the tests for this method.
+
+
+

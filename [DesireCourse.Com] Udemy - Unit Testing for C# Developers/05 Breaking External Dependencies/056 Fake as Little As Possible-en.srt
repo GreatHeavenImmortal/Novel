@@ -1,0 +1,190 @@
+1
+00:00:00,000 --> 00:00:04,000
+A lot of people new to unit testing
+
+2
+00:00:04,000 --> 00:00:08,000
+assume that in order to unit test a class, they should test it
+
+3
+00:00:08,000 --> 00:00:12,000
+in isolation without any dependencies, whether those dependencies
+
+4
+00:00:12,000 --> 00:00:16,000
+touch external resources or not. I've gone down that path
+
+5
+00:00:16,000 --> 00:00:20,000
+and have learned the hard way, that this approach is a
+
+6
+00:00:20,000 --> 00:00:24,000
+recipe for disaster. When you mock all the dependencies of a class,
+
+7
+00:00:24,000 --> 00:00:28,000
+you end up with several problems. First, you see an
+
+8
+00:00:28,000 --> 00:00:32,000
+explosion of interfaces in your application, and these interfaces
+
+9
+00:00:32,000 --> 00:00:36,000
+serve no purpose. For every class you have an interface, no matter
+
+10
+00:00:36,000 --> 00:00:40,000
+what that class does. Second, your class constructors
+
+11
+00:00:40,000 --> 00:00:44,000
+explode with too many parameters. If you have constructors like this
+
+12
+00:00:44,000 --> 00:00:48,000
+that's often a symptom that you're mocking dependencies that should
+
+13
+00:00:48,000 --> 00:00:52,000
+not be mocked. The third problem is that your tests
+
+14
+00:00:52,000 --> 00:00:56,000
+start to get fat and bulky. Your set up or
+
+15
+00:00:56,000 --> 00:01:00,000
+arranged parts get complex because they deal with so many mock objects
+
+16
+00:01:00,000 --> 00:01:04,000
+that should be injected into the object you're testing. Plus,
+
+17
+00:01:04,000 --> 00:01:08,000
+these tests are often very fragile, because they're tightly coupled
+
+18
+00:01:08,000 --> 00:01:12,000
+(?) design. As you change your implementation, these tests
+
+19
+00:01:12,000 --> 00:01:16,000
+break frequently, because they don't test the external behavior
+
+20
+00:01:16,000 --> 00:01:20,000
+they test the implementation. They know too much about your
+
+21
+00:01:20,000 --> 00:01:24,000
+objects and how they interact, so here's what you need to do,
+
+22
+00:01:24,000 --> 00:01:28,000
+use mocks as little as possible. Reserve them only
+
+23
+00:01:28,000 --> 00:01:32,000
+for dealing with external resources. There is only one exception that you can
+
+24
+00:01:32,000 --> 00:01:36,000
+use mocks for other cases, but for now just assume that
+
+25
+00:01:36,000 --> 00:01:40,000
+mocks should be reserved for removing external resources
+
+26
+00:01:40,000 --> 00:01:44,000
+from your unit test. Because otherwise your tests will get slow
+
+27
+00:01:44,000 --> 00:01:48,000
+or fail. For example. If your application talks to a web
+
+28
+00:01:48,000 --> 00:01:52,000
+service, you don't want that web service to be up and running when you run your
+
+29
+00:01:52,000 --> 00:01:56,000
+unit tests. If that web service is not available, the tests
+
+30
+00:01:56,000 --> 00:02:00,000
+that depend on that web service will fail. And even if it's available,
+
+31
+00:02:00,000 --> 00:02:04,000
+your tests will get slow. Unit tests should be fast.
+
+32
+00:02:04,000 --> 00:02:08,000
+We write a lot of them. Hundreds or thousands of them, and we should
+
+33
+00:02:08,000 --> 00:02:12,000
+run them all the time, especially as we write code and refactor
+
+34
+00:02:12,000 --> 00:02:16,000
+our code. That's why we use mocks. To remove these
+
+35
+00:02:16,000 --> 00:02:20,000
+external resources from our unit tests so they can run quickly
+
+36
+00:02:20,000 --> 00:02:24,000
+and reliably. Earlier I told you about an exception for
+
+37
+00:02:24,000 --> 00:02:28,000
+using mocks when you are not dealing with external resources.
+
+38
+00:02:28,000 --> 00:02:32,000
+That is when you're unit testing classes with complex calculations
+
+39
+00:02:32,000 --> 00:02:36,000
+and execution paths. Imagine class A uses class B.
+
+40
+00:02:36,000 --> 00:02:40,000
+Neither of these classes use any external resources,
+
+41
+00:02:40,000 --> 00:02:44,000
+perhaps if you want to unit test A and B together, you will end up with
+
+42
+00:02:44,000 --> 00:02:48,000
+numerous execution paths and test cases. In that case
+
+43
+00:02:48,000 --> 00:02:52,000
+it's okay to unit test A and B independently
+
+44
+00:02:52,000 --> 00:02:56,000
+and in isolation. When unit testing A, you can supply a
+
+45
+00:02:56,000 --> 00:03:00,000
+test double for B to reduce the number of test cases.
+
+46
+00:03:00,000 --> 00:03:04,000
+This way you deal with fewer execution paths and your tests
+
+47
+00:03:04,000 --> 00:03:08,000
+will be simpler. Next, I'm going to show you an example of abusing mocks.
+
+
+

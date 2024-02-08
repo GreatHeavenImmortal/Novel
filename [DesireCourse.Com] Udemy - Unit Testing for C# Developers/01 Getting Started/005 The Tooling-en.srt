@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,000
+To write unit and integration tests,
+
+2
+00:00:04,000 --> 00:00:08,000
+you need a testing framework. There are several testing frameworks
+
+3
+00:00:08,000 --> 00:00:12,000
+out there but the most popular ones are: NUnit:
+
+4
+00:00:12,000 --> 00:00:16,000
+which is one of the earliest frameworks out there, we've got MSTest,
+
+5
+00:00:16,000 --> 00:00:20,000
+which is Microsoft's testing framework built into
+
+6
+00:00:20,000 --> 00:00:24,000
+Visual Studio, and Xunit, which has gained more
+
+7
+00:00:24,000 --> 00:00:28,000
+popularity over the past couple of years. All these frameworks
+
+8
+00:00:28,000 --> 00:00:32,000
+give you a utility library to write your tests and a test
+
+9
+00:00:32,000 --> 00:00:36,000
+runner which runs your tests and gives you a report of
+
+10
+00:00:36,000 --> 00:00:40,000
+passing and failing tests. Which framework is better? It depends
+
+11
+00:00:40,000 --> 00:00:44,000
+who you ask and what their definition of better is. Different people
+
+12
+00:00:44,000 --> 00:00:48,000
+like different tools. So, here is my suggestion: Don't get hung up on the tooling.
+
+13
+00:00:48,000 --> 00:00:52,000
+In this course, our focus is on the fundamentals
+
+14
+00:00:52,000 --> 00:00:56,000
+of writing quality tests that give you value. That's what
+
+15
+00:00:56,000 --> 00:01:00,000
+matters. You can always use a different framework as you move from one
+
+16
+00:01:00,000 --> 00:01:04,000
+project or team to another. In this course, you're going to start
+
+17
+00:01:04,000 --> 00:01:08,000
+with MSTest because that's built into Visual Studio
+
+18
+00:01:08,000 --> 00:01:12,000
+and doesn't require any additional steps. But shortly after,
+
+19
+00:01:12,000 --> 00:01:16,000
+I'm gonna show you how to install NUnit and run NUnit tests
+
+20
+00:01:16,000 --> 00:01:20,000
+in Visual Studio. You may use either of these frameworks, that's
+
+21
+00:01:20,000 --> 00:01:24,000
+purely your personal decision. But for the majority of this course, I'll be using
+
+22
+00:01:24,000 --> 00:01:28,000
+NUnit because it has a longer history than MSTest and I
+
+23
+00:01:28,000 --> 00:01:32,000
+personally find it a more elegant testing framework.
+
+24
+00:01:32,000 --> 00:01:36,000
+Now, an optional tool that I highly recommend is ReSharper
+
+25
+00:01:36,000 --> 00:01:40,000
+because it has a faster and more powerful test runner than the
+
+26
+00:01:40,000 --> 00:01:44,000
+one built into Visual Studio. Just to let you know,
+
+27
+00:01:44,000 --> 00:01:48,000
+ReSharper is a commercial product, and I'm not their affiliate! You may
+
+28
+00:01:48,000 --> 00:01:52,000
+decide to buy a license or not. That's entirely your choice. What I wanna
+
+29
+00:01:52,000 --> 00:01:56,000
+emphasize is that you do not need ReSharper to write or
+
+30
+00:01:56,000 --> 00:02:00,000
+run tests. But I use ReSharper because it's a
+
+31
+00:02:00,000 --> 00:02:04,000
+huge productivity booster. Another optional tool
+
+32
+00:02:04,000 --> 00:02:08,000
+is Rider… If you like Visual Studio + ReSharper
+
+33
+00:02:08,000 --> 00:02:12,000
+but you think Visual Studio is too slow for you, then I highly recommend
+
+34
+00:02:12,000 --> 00:02:16,000
+you to try Rider. Rider is basically a cross-
+
+35
+00:02:16,000 --> 00:02:20,000
+platform IDE built by JetBrains, the same
+
+36
+00:02:20,000 --> 00:02:24,000
+company that has made ReSharper. So you have a super fast
+
+37
+00:02:24,000 --> 00:02:28,000
+IDE+ ReSharper with the exact same shortcuts you use
+
+38
+00:02:28,000 --> 00:02:32,000
+in Visual Studio. In this course, I'm gonna record the first few videos
+
+39
+00:02:32,000 --> 00:02:36,000
+with Visual Studio because that's the default IDE for
+
+40
+00:02:36,000 --> 00:02:40,000
+the majority of you, but later I'm gonna switch to Rider because that's a lot
+
+41
+00:02:40,000 --> 00:02:44,000
+faster. You can use Visual Studio with or without ReSharper.
+
+42
+00:02:44,000 --> 00:02:48,000
+That's perfectly fine. Your focus should be on the fundamentals of writing
+
+43
+00:02:48,000 --> 00:02:52,000
+good tests, and not the tooling.
+

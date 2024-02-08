@@ -1,0 +1,468 @@
+1
+00:00:00,000 --> 00:00:04,000
+A primeira coisa que quero melhorar neste mtodo
+
+2
+00:00:04,000 --> 00:00:08,000
+ como construmos dados de chegada ou partida.
+
+3
+00:00:08,000 --> 00:00:12,000
+Ento voc pode ver em cada mtodo de teste, voc est repetindo
+
+4
+00:00:12,000 --> 00:00:16,000
+essas duas horas ou dez horas. Isso est criando um rudo extra
+
+5
+00:00:16,000 --> 00:00:20,000
+no cdigo e no adiciona nenhum valor. Ento, eu vou criar 2
+
+6
+00:00:20,000 --> 00:00:24,000
+mtodos auxiliares nesta classe de teste para construir tempos de
+
+7
+00:00:24,000 --> 00:00:28,000
+data de chegada ou partida. Ento, criamos um mtodo
+
+8
+00:00:28,000 --> 00:00:32,000
+auxiliar privado e colocamos todos no final dessa
+
+9
+00:00:32,000 --> 00:00:36,000
+classe, porque no os usamos para poluir nosso
+
+10
+00:00:36,000 --> 00:00:40,000
+cdigo de teste. Portanto, esse mtodo retorna um objeto DateTime.
+
+11
+00:00:40,000 --> 00:00:44,000
+E vamos cham-los de ArriveOn, ento
+
+12
+00:00:44,000 --> 00:00:48,000
+so necessrios um ano, ms e
+
+13
+00:00:48,000 --> 00:00:52,000
+data sem hora, minuto e segundos.
+
+14
+00:00:52,000 --> 00:00:56,000
+Ento, aqui ns simplesmente retornamos um novo DateTime com
+
+15
+00:00:56,000 --> 00:01:00,000
+ano, ms e dia, e definimos a hora para
+
+16
+00:01:00,000 --> 00:01:04,000
+14, minutos para 0 e segundos para 0.
+
+17
+00:01:04,000 --> 00:01:08,000
+Da mesma forma, vamos criar
+
+18
+00:01:08,000 --> 00:01:12,000
+outro mtodo chamado DepartOn e
+
+19
+00:01:12,000 --> 00:01:16,000
+criar um objeto DateTime para
+
+20
+00:01:16,000 --> 00:01:20,000
+essa data, vamos definir o
+
+21
+00:01:20,000 --> 00:01:24,000
+horrio como 10 am. Com estes dois mtodos, podemos nomear o nosso
+
+22
+00:01:24,000 --> 00:01:28,000
+mtodo de teste um pouco mais limpo. Ento olhe o que acontece.
+
+23
+00:01:28,000 --> 00:01:32,000
+Podemos substituir isso por ArriveOn.
+
+24
+00:01:32,000 --> 00:01:36,000
+E livrar-se desses trs nmeros mgicos, olha,
+
+25
+00:01:36,000 --> 00:01:40,000
+j  muito melhor. E da mesma forma,
+
+26
+00:01:40,000 --> 00:01:44,000
+DepartOn e depois nos livramos desses 3 nmeros.
+
+27
+00:01:44,000 --> 00:01:48,000
+mais uma vez, ArriveOn vamos
+
+28
+00:01:48,000 --> 00:01:52,000
+limpar isso e, finalmente, Partir
+
+29
+00:01:52,000 --> 00:01:56,000
+em Okay, agora,  um
+
+30
+00:01:56,000 --> 00:02:00,000
+pouco melhor, mas ainda no
+
+31
+00:02:00,000 --> 00:02:04,000
+terminamos. Seria melhor se
+
+32
+00:02:04,000 --> 00:02:08,000
+pudssemos construir o ArrivalDate e o
+
+33
+00:02:08,000 --> 00:02:12,000
+DepartureDate para essa nova reserva em
+
+34
+00:02:12,000 --> 00:02:16,000
+relao  reserva existente. Ento, ao invs de ter
+
+35
+00:02:16,000 --> 00:02:20,000
+quatro datas diferentes aqui, seria bom se pudssemos ter um
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo auxiliar como o Before, e ento passamos o existente Booking. Data de chegada.
+
+37
+00:02:24,000 --> 00:02:28,000
+Dessa forma, teremos menos nmeros mgicos em nosso
+
+38
+00:02:28,000 --> 00:02:32,000
+teste, e nosso cdigo revela claramente a inteno,
+
+39
+00:02:32,000 --> 00:02:36,000
+que  o cenrio que estamos testando aqui,
+
+40
+00:02:36,000 --> 00:02:40,000
+a reserva comea e termina antes de uma reserva existente. Ento, para chegar at aqui, devemos extrair essa reserva para
+
+41
+00:02:40,000 --> 00:02:44,000
+um campo privado nessa classe.
+
+42
+00:02:44,000 --> 00:02:48,000
+E isso adiciona outro valor, porque para outros mtodos de teste vamos
+
+43
+00:02:48,000 --> 00:02:52,000
+criar aqui, no precisamos repetir a criao desse objeto de reserva.
+
+44
+00:02:52,000 --> 00:02:56,000
+Porque para fazer este teste simples, eu quero usar a mesma
+
+45
+00:02:56,000 --> 00:03:00,000
+reserva, a mesma reserva existente de 15 a 20 de janeiro.
+
+46
+00:03:00,000 --> 00:03:04,000
+E eu s quero modificar a data
+
+47
+00:03:04,000 --> 00:03:08,000
+de chegada e partida da nova reserva. Ento, por que isso  selecionado, aqui podemos refatorar esse
+
+48
+00:03:08,000 --> 00:03:12,000
+cdigo pressionando alt e enter.
+
+49
+00:03:12,000 --> 00:03:16,000
+Vai refatorar e Introduzir Campo.
+
+50
+00:03:16,000 --> 00:03:20,000
+Ento, veja, Rider criou um campo
+
+51
+00:03:20,000 --> 00:03:24,000
+privado chamado sublinhado e o inicializou
+
+52
+00:03:24,000 --> 00:03:28,000
+aqui no nosso mtodo de teste,
+
+53
+00:03:28,000 --> 00:03:32,000
+e simplesmente referenciou-o na lista de reservas existentes.
+
+54
+00:03:32,000 --> 00:03:36,000
+Agora, no queremos manter a inicializao deste campo
+
+55
+00:03:36,000 --> 00:03:40,000
+aqui, porque no queremos repeti-lo em todos os testes. Ento, ns colocamos em nosso mtodo SetUp.
+
+56
+00:03:40,000 --> 00:03:44,000
+Ento, vamos criar um
+
+57
+00:03:44,000 --> 00:03:48,000
+mtodo SetUp, public void SetUp e aqui
+
+58
+00:03:48,000 --> 00:03:52,000
+ns simplesmente inicializamos este objeto de reserva.
+
+59
+00:03:52,000 --> 00:03:56,000
+Agora, com esse mtodo SetUp no lugar, tambm
+
+60
+00:03:56,000 --> 00:04:00,000
+podemos mover essas poucas linhas no mtodo SetUp,
+
+61
+00:04:00,000 --> 00:04:04,000
+porque vamos repetir essas linhas em cada mtodo
+
+62
+00:04:04,000 --> 00:04:08,000
+de teste e isso  muito ruim. Ento, vamos cortar essas poucas linhas e coloc-las
+
+63
+00:04:08,000 --> 00:04:12,000
+dentro do mtodo SetUp.
+
+64
+00:04:12,000 --> 00:04:16,000
+Agora, precisamos promover este objeto de repositrio aqui, que
+
+65
+00:04:16,000 --> 00:04:20,000
+ um objeto local neste mtodo, precisamos promov-lo para
+
+66
+00:04:20,000 --> 00:04:24,000
+um campo privado, para que possamos referenci-lo aqui.
+
+67
+00:04:24,000 --> 00:04:28,000
+Ento, mais uma vez, vou refatorar
+
+68
+00:04:28,000 --> 00:04:32,000
+esse cdigo e introduzir um campo privado. Ento, alt e enter, refatorar,
+
+69
+00:04:32,000 --> 00:04:36,000
+introduzir campo. Ento, agora, olhe
+
+70
+00:04:36,000 --> 00:04:40,000
+que temos outro
+
+71
+00:04:40,000 --> 00:04:44,000
+campo particular aqui, chamado _repositrio.
+
+72
+00:04:44,000 --> 00:04:48,000
+Agora, finalmente, podemos fazer
+
+73
+00:04:48,000 --> 00:04:52,000
+referncia a esse objeto aqui. Veja, nosso mtodo de teste j  bem mais curto, so
+
+74
+00:04:52,000 --> 00:04:56,000
+apenas 5 linhas de cdigo. Agora, finalmente, vamos adicionar
+
+75
+00:04:56,000 --> 00:05:00,000
+este mtodo auxiliar, antes
+
+76
+00:05:00,000 --> 00:05:04,000
+e depois.  muito fcil de implementar. Ento, Private DateTime Antes
+
+77
+00:05:04,000 --> 00:05:08,000
+de obter
+
+78
+00:05:08,000 --> 00:05:12,000
+um objeto DateTime. Isso simplesmente retorna
+
+79
+00:05:12,000 --> 00:05:16,000
+o dateTime. Adicione Days, -1, para que
+
+80
+00:05:16,000 --> 00:05:20,000
+possamos mud-lo um dia antes.
+
+81
+00:05:20,000 --> 00:05:24,000
+OK? Com isso, podemos mudar essa linha
+
+82
+00:05:24,000 --> 00:05:28,000
+para algo assim.
+
+83
+00:05:28,000 --> 00:05:32,000
+Agora precisamos mudar isso
+
+84
+00:05:32,000 --> 00:05:36,000
+para _ reserva. ArrivalDate, assim.
+
+85
+00:05:36,000 --> 00:05:40,000
+Na verdade,  melhor renomear este campo e cham-lo de ExistingBooking.
+
+86
+00:05:40,000 --> 00:05:44,000
+Porque mostra a inteno muito claramente.
+
+87
+00:05:44,000 --> 00:05:48,000
+Ento, vamos apenas nomear esses dois, existingBooking.
+
+88
+00:05:48,000 --> 00:05:52,000
+Agora, da mesma forma, vamos
+
+89
+00:05:52,000 --> 00:05:56,000
+criar outro mtodo chamado After. Ento, vamos selecionar isto, duplicar e
+
+90
+00:05:56,000 --> 00:06:00,000
+chamar depois, e
+
+91
+00:06:00,000 --> 00:06:04,000
+aqui ns simplesmente pegamos esse objeto
+
+92
+00:06:04,000 --> 00:06:08,000
+DateTime, e adicionamos 1 dia a ele.
+
+93
+00:06:08,000 --> 00:06:12,000
+Agora, no vamos usar esse mtodo neste caso
+
+94
+00:06:12,000 --> 00:06:16,000
+de teste, mas vamos us-lo ao escrever testes futuros. Agora h um pequeno problema aqui. Se usarmos nosso mtodo antes aqui, terminaremos com
+
+95
+00:06:16,000 --> 00:06:20,000
+a data de
+
+96
+00:06:20,000 --> 00:06:24,000
+chegada e a data de partida iguais. Por isso, desejo permitir que o consumidor desse
+
+97
+00:06:24,000 --> 00:06:28,000
+mtodo passe o nmero
+
+98
+00:06:28,000 --> 00:06:32,000
+de dias antes de uma determinada data. Ento, vamos adicionar um parmetro
+
+99
+00:06:32,000 --> 00:06:36,000
+chamado dias e
+
+100
+00:06:36,000 --> 00:06:40,000
+aqui substitumos um por dias.
+
+101
+00:06:40,000 --> 00:06:44,000
+Agora, para tornar mais fcil chamar esse mtodo,
+
+102
+00:06:44,000 --> 00:06:48,000
+tambm podemos definir um valor padro para esse
+
+103
+00:06:48,000 --> 00:06:52,000
+parmetro, podemos configur-lo como 1, agora aqui, ao
+
+104
+00:06:52,000 --> 00:06:56,000
+chamar o mtodo before, podemos passar 2 como um argumento. No entanto, algum olhando para este cdigo, eles podem no saber
+
+105
+00:06:56,000 --> 00:07:00,000
+imediatamente o que 2 representa aqui.
+
+106
+00:07:00,000 --> 00:07:04,000
+Ento, podemos usar argumentos de nome
+
+107
+00:07:04,000 --> 00:07:08,000
+em C #, dias: 2. Agora  muito claro, ento 2 dias, antes da data
+
+108
+00:07:08,000 --> 00:07:12,000
+de chegada da reserva existente. Agora, da
+
+109
+00:07:12,000 --> 00:07:16,000
+mesma forma,
+
+110
+00:07:16,000 --> 00:07:20,000
+vou substituir isso por Beforeexisting Booking. data de chegada, mas desta vez eu no vou passar dias,
+
+111
+00:07:20,000 --> 00:07:24,000
+porque por padro dias  1. Portanto, este  o resultado final,
+
+112
+00:07:24,000 --> 00:07:28,000
+nosso mtodo de teste  muito
+
+113
+00:07:28,000 --> 00:07:32,000
+curto, apenas algumas linhas de cdigo, e o cdigo revela claramente uma inteno. Agora, vamos executar este teste e ter
+
+114
+00:07:32,000 --> 00:07:36,000
+certeza de que
+
+115
+00:07:36,000 --> 00:07:40,000
+no vamos quebrar nada durante nossas refatoraes. Ok, o teste est
+
+116
+00:07:40,000 --> 00:07:44,000
+passando bonito. Em seguida, vamos ver o segundo caso de teste.
+
+117
+00:07:44,000 --> 00:07:48,000
+&nbsp;
+

@@ -1,0 +1,380 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, antes de comenzar, quiero mostrarte un atajo para generar
+
+2
+00:00:04,000 --> 00:00:08,000
+un mtodo de prueba rpidamente. Este acceso directo solo funciona
+
+3
+00:00:08,000 --> 00:00:12,000
+si est utilizando ReSharper en Visual Studio o si est
+
+4
+00:00:12,000 --> 00:00:16,000
+utilizando la ID del jinete. Entonces, en Rider puede
+
+5
+00:00:16,000 --> 00:00:20,000
+ir a su cuadro de dilogo de preferencias
+
+6
+00:00:20,000 --> 00:00:24,000
+y buscar plantillas en vivo. Entonces, aqu tenemos este concepto
+
+7
+00:00:24,000 --> 00:00:28,000
+llamado Life Templates, que es como fragmentos de cdigo, en
+
+8
+00:00:28,000 --> 00:00:32,000
+Visual Studio, con esto podemos generar rpidamente algn cdigo.
+
+9
+00:00:32,000 --> 00:00:36,000
+As que aqu voy a agregar una nueva
+
+10
+00:00:36,000 --> 00:00:40,000
+plantilla en vivo, darle una abreviatura, voy a
+
+11
+00:00:40,000 --> 00:00:44,000
+usar tm, como abreviatura de mtodo de prueba.
+
+12
+00:00:44,000 --> 00:00:48,000
+Y para el texto de la plantilla, voy a agregar el mtodo de prueba bsico.
+
+13
+00:00:48,000 --> 00:00:52,000
+Entonces, todos nuestros mtodos de prueba tienen el atributo de prueba.
+
+14
+00:00:52,000 --> 00:00:56,000
+Tenemos un vaco pblico, el nombre del mtodo,
+
+15
+00:00:56,000 --> 00:01:00,000
+el escenario que estamos probando y el comportamiento esperado.
+
+16
+00:01:00,000 --> 00:01:04,000
+De acuerdo, ahora quiero convertir estas
+
+17
+00:01:04,000 --> 00:01:08,000
+partes en parmetros que puedo configurar
+
+18
+00:01:08,000 --> 00:01:12,000
+en tiempo de ejecucin. Por lo tanto, simplemente los rodeamos
+
+19
+00:01:12,000 --> 00:01:16,000
+con $ signos como este y puede ver sus cambios de color,
+
+20
+00:01:16,000 --> 00:01:20,000
+por lo que esto indica que cada uno de estos es un parmetro.
+
+21
+00:01:20,000 --> 00:01:24,000
+Bueno?
+
+22
+00:01:24,000 --> 00:01:28,000
+Ahora aqu tenemos esta advertencia, todava no
+
+23
+00:01:28,000 --> 00:01:32,000
+hay contexto aplicable. Haga clic en Definir, por lo que bsicamente es
+
+24
+00:01:32,000 --> 00:01:36,000
+donde especificamos dnde podemos usar esta plantilla en vivo. No tenemos C # en
+
+25
+00:01:36,000 --> 00:01:40,000
+esta lista, entonces uso otro. Ahora guarda, est bien,
+
+26
+00:01:40,000 --> 00:01:44,000
+entonces, de vuelta en nuestro proyecto de
+
+27
+00:01:44,000 --> 00:01:48,000
+prueba de unidad. Voy a crear
+
+28
+00:01:48,000 --> 00:01:52,000
+una nueva clase de prueba, FizzBuzzTests.
+
+29
+00:01:52,000 --> 00:01:56,000
+Primero voy a decorar esto
+
+30
+00:01:56,000 --> 00:02:00,000
+con TestFixture. Ahora quiero usar la plantilla de
+
+31
+00:02:00,000 --> 00:02:04,000
+vida que acabo de crear. As que si vas al
+
+32
+00:02:04,000 --> 00:02:08,000
+men de cdigo en la parte superior, puedes ver este elemento
+
+33
+00:02:08,000 --> 00:02:12,000
+del men, Insertar plantilla en vivo, nota el acceso directo, en
+
+34
+00:02:12,000 --> 00:02:16,000
+Mac es comando y J. Entonces, si presiona Comando y
+
+35
+00:02:16,000 --> 00:02:20,000
+J aqu, puede ver las plantillas activas que son aplicables
+
+36
+00:02:20,000 --> 00:02:24,000
+en este contexto. Entonces aqu tenemos TM Simplemente puede presionar enter.
+
+37
+00:02:24,000 --> 00:02:28,000
+Y esto genera automticamente esto para nuestro mtodo de prueba.
+
+38
+00:02:28,000 --> 00:02:32,000
+Y ahora podemos establecer nuestros parmetros. Entonces este primer parmetro es el
+
+39
+00:02:32,000 --> 00:02:36,000
+nombre del mtodo que estamos probando. En este
+
+40
+00:02:36,000 --> 00:02:40,000
+caso GetOutput, ahora presionamos
+
+41
+00:02:40,000 --> 00:02:44,000
+tab, llegamos al segundo
+
+42
+00:02:44,000 --> 00:02:48,000
+parmetro del escenario, InputIsDivisible
+
+43
+00:02:48,000 --> 00:02:52,000
+by 3And5. Lengeta. Y aqu tenemos
+
+44
+00:02:52,000 --> 00:02:56,000
+que especificar el comportamiento esperado. Por lo tanto,
+
+45
+00:02:56,000 --> 00:03:00,000
+debera devolver FizzBuzz. Entonces, podemos ver que las
+
+46
+00:03:00,000 --> 00:03:04,000
+plantillas en vivo lo ayudan a escribir pruebas ms rpido.
+
+47
+00:03:04,000 --> 00:03:08,000
+As que este es el primer escenario de prueba, antes
+
+48
+00:03:08,000 --> 00:03:12,000
+de implementar esto, preferira generar los stubs de prueba para
+
+49
+00:03:12,000 --> 00:03:16,000
+todos los diferentes escenarios. Entonces, el otro escenario es donde
+
+50
+00:03:16,000 --> 00:03:20,000
+la entrada es divisible solo por 3. As que
+
+51
+00:03:20,000 --> 00:03:24,000
+una vez ms, comando y
+
+52
+00:03:24,000 --> 00:03:28,000
+J, mtodo de prueba, GetOutput,
+
+53
+00:03:28,000 --> 00:03:32,000
+InputIsDivisibleBy3 solamente. Y debera devolverFizz.
+
+54
+00:03:32,000 --> 00:03:36,000
+Otro escenario, una vez un (? )
+
+55
+00:03:36,000 --> 00:03:40,000
+GetOutput, Input
+
+56
+00:03:40,000 --> 00:03:44,000
+IsDivisibleBy5Son esto
+
+57
+00:03:44,000 --> 00:03:48,000
+debera ReturnBuzz,
+
+58
+00:03:48,000 --> 00:03:52,000
+y el ltimo escenario.
+
+59
+00:03:52,000 --> 00:03:56,000
+GetOutput. InputIsNot
+
+60
+00:03:56,000 --> 00:04:00,000
+DivisibleBy3Or5.
+
+61
+00:04:00,000 --> 00:04:04,000
+Should ReturnSameNumber.
+
+62
+00:04:04,000 --> 00:04:08,000
+Entonces estos son todos los escenarios que necesitamos probar, ahora vamos
+
+63
+00:04:08,000 --> 00:04:12,000
+a implementarlos uno por uno. Entonces, voy a comenzar con el primero.
+
+64
+00:04:12,000 --> 00:04:16,000
+De vuelta a nuestro explorador de soluciones, si nos
+
+65
+00:04:16,000 --> 00:04:20,000
+fijamos en la implementacin de esta clase de FizzBuzz.
+
+66
+00:04:20,000 --> 00:04:24,000
+Puede ver que este mtodo se define como esttico, por lo que no es
+
+67
+00:04:24,000 --> 00:04:28,000
+necesario que creemos una instancia de esta clase en nuestro mtodo de prueba.
+
+68
+00:04:28,000 --> 00:04:32,000
+En otras palabras, no tenemos una parte arreglada, simplemente actuamos.
+
+69
+00:04:32,000 --> 00:04:36,000
+Entonces FizzBuzz.
+
+70
+00:04:36,000 --> 00:04:40,000
+Salida. Quieres un nmero que sea divisible por 3 y 5.
+
+71
+00:04:40,000 --> 00:04:44,000
+As que voy a ir con 15. Obtenga el resultado
+
+72
+00:04:44,000 --> 00:04:48,000
+Y luego afirmar que
+
+73
+00:04:48,000 --> 00:04:52,000
+el resultado es igual
+
+74
+00:04:52,000 --> 00:04:56,000
+a FizzBuzz. Ahora, cuando pruebes cadenas, te
+
+75
+00:04:56,000 --> 00:05:00,000
+dije que es mejor no ser especfico, especialmente cuando lidias
+
+76
+00:05:00,000 --> 00:05:04,000
+con mensajes de error. Porque un simple cambio puede romper fcilmente tus pruebas.
+
+77
+00:05:04,000 --> 00:05:08,000
+Pero en este caso, quiero verificar la coincidencia exacta,
+
+78
+00:05:08,000 --> 00:05:12,000
+porque ese es el propsito de esta funcin GetOutput,
+
+79
+00:05:12,000 --> 00:05:16,000
+queremos asegurarnos de que devuelve exactamente esta cadena.
+
+80
+00:05:16,000 --> 00:05:20,000
+Ahora el segundo escenario. Para ahorrar tiempo, voy
+
+81
+00:05:20,000 --> 00:05:24,000
+a copiar estas dos lneas, pgalas aqu.
+
+82
+00:05:24,000 --> 00:05:28,000
+Esta vez voy a usar 3 como argumento para este mtodo.
+
+83
+00:05:28,000 --> 00:05:32,000
+y afirmar que el resultado es Fizz.
+
+84
+00:05:32,000 --> 00:05:36,000
+Una vez
+
+85
+00:05:36,000 --> 00:05:40,000
+ms, Copiar,
+
+86
+00:05:40,000 --> 00:05:44,000
+plantearlo aqu. Esta vez, la
+
+87
+00:05:44,000 --> 00:05:48,000
+entrada debera ser 5 y el
+
+88
+00:05:48,000 --> 00:05:52,000
+resultado debera ser Buzz. Y finalmente, el ltimo caso de prueba.
+
+89
+00:05:52,000 --> 00:05:56,000
+Una vez ms, copie, pegue, voy a usar un nmero
+
+90
+00:05:56,000 --> 00:06:00,000
+simple como 1 que no es divisible por 3 o 5.
+
+91
+00:06:00,000 --> 00:06:04,000
+Y afirme que el resultado es 1.
+
+92
+00:06:04,000 --> 00:06:08,000
+Ahora ejecutemos todas las pruebas en esta clase. Entonces Comando y
+
+93
+00:06:08,000 --> 00:06:12,000
+T y comando y R.
+
+94
+00:06:12,000 --> 00:06:16,000
+Para que pueda ver todos los casos de prueba aprobados con xito.
+
+95
+00:06:16,000 --> 00:06:19,000
+Hermosa.
+

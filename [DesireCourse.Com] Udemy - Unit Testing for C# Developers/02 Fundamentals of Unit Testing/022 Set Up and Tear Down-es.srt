@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ahora mira la implementacin de estos mtodos
+
+2
+00:00:04,000 --> 00:00:08,000
+de prueba aqu. Cada mtodo de prueba parece que
+
+3
+00:00:08,000 --> 00:00:12,000
+es la nica prueba en el mundo. No estamos convocando una
+
+4
+00:00:12,000 --> 00:00:16,000
+prueba en otra prueba. Y cada prueba est usando una
+
+5
+00:00:16,000 --> 00:00:20,000
+nueva instancia de la clase de matemtica. Esto es extremadamente importante.
+
+6
+00:00:20,000 --> 00:00:24,000
+En cada prueba, quiere comenzar con un
+
+7
+00:00:24,000 --> 00:00:28,000
+estado fresco y limpio. Por lo tanto, no
+
+8
+00:00:28,000 --> 00:00:32,000
+debe crear un campo privado aqu, como math_math privado.
+
+9
+00:00:32,000 --> 00:00:36,000
+Y luego reutilzalo en diferentes pruebas. Porque es posible que una
+
+10
+00:00:36,000 --> 00:00:40,000
+prueba deje algn estado, en este objeto matemtico, y ese
+
+11
+00:00:40,000 --> 00:00:44,000
+estado se filtre en otra prueba e impacte en el
+
+12
+00:00:44,000 --> 00:00:48,000
+resultado de esa prueba. Por lo tanto, cada
+
+13
+00:00:48,000 --> 00:00:52,000
+prueba debe ejecutarse utilizando un estado fresco y limpio.
+
+14
+00:00:52,000 --> 00:00:56,000
+Sin embargo, no me gusta el hecho de
+
+15
+00:00:56,000 --> 00:01:00,000
+que al comienzo de cada mtodo de prueba
+
+16
+00:01:00,000 --> 00:01:04,000
+estemos inicializando este objeto matemtico. Parece un poco redundante, pero en este caso no es
+
+17
+00:01:04,000 --> 00:01:08,000
+gran cosa, porque es solo una lnea de cdigo. Pero en el mundo real
+
+18
+00:01:08,000 --> 00:01:12,000
+cuando trabajas con aplicaciones ms complejas, es posible que tu parte
+
+19
+00:01:12,000 --> 00:01:16,000
+arreglada sea unas pocas lneas de cdigo, hechas con dos, tres
+
+20
+00:01:16,000 --> 00:01:20,000
+o cuatro lneas de cdigo. No desea repetir todas esas cuatro
+
+21
+00:01:20,000 --> 00:01:24,000
+lneas en cada mtodo de prueba. Djame mostrarte una forma ms
+
+22
+00:01:24,000 --> 00:01:28,000
+limpia de reescribir estas pruebas. En NUnit
+
+23
+00:01:28,000 --> 00:01:32,000
+tenemos dos atributos especiales.
+
+24
+00:01:32,000 --> 00:01:36,000
+SetUp y TearDown.
+
+25
+00:01:36,000 --> 00:01:40,000
+Aqu puede crear un mtodo y decorarlo con un atributo SetUp
+
+26
+00:01:40,000 --> 00:01:44,000
+y, a continuacin, el corredor de prueba NUnit llamar a ese
+
+27
+00:01:44,000 --> 00:01:48,000
+mtodo antes de ejecutar cada prueba. Y esta es una gran oportunidad
+
+28
+00:01:48,000 --> 00:01:52,000
+para nosotros para inicializar nuestro objeto matemtico. De forma similar, si
+
+29
+00:01:52,000 --> 00:01:56,000
+creamos un mtodo y lo decoramos con el atributo
+
+30
+00:01:56,000 --> 00:02:00,000
+TearDown, el corredor de prueba NUnit llamar a ese
+
+31
+00:02:00,000 --> 00:02:04,000
+mtodo despus de cada prueba. Ahora en este curso no vamos a usar
+
+32
+00:02:04,000 --> 00:02:08,000
+un atributo TearDown, porque esto se usa a menudo con pruebas de integracin, porque en
+
+33
+00:02:08,000 --> 00:02:12,000
+sus pruebas de integracin, puede crear algunos datos en su base de datos, y luego
+
+34
+00:02:12,000 --> 00:02:16,000
+desea hacer una limpieza despus de cada prueba. Ah es donde usamos el
+
+35
+00:02:16,000 --> 00:02:20,000
+atributo TearDown, por lo que en esta conferencia, djame
+
+36
+00:02:20,000 --> 00:02:24,000
+mostrarte cmo usar el atributo SetUp para reescribir estas
+
+37
+00:02:24,000 --> 00:02:28,000
+pruebas y hacerlas ms limpias. Voy a crear un
+
+38
+00:02:28,000 --> 00:02:32,000
+mtodo pblico vaco, podemos llamarlo cualquier cosa,
+
+39
+00:02:32,000 --> 00:02:36,000
+el nombre no importa, pero por convencin
+
+40
+00:02:36,000 --> 00:02:40,000
+utilizamos SetUp, ahora aplicamos el atributo SetUp
+
+41
+00:02:40,000 --> 00:02:44,000
+y aqu podemos inicializar nuestro objeto matemtico
+
+42
+00:02:44,000 --> 00:02:48,000
+a una nueva instancia de la clase de matemticas
+
+43
+00:02:48,000 --> 00:02:52,000
+Entonces, aunque he definido un campo privado aqu,
+
+44
+00:02:52,000 --> 00:02:56,000
+lo usaremos en otra prueba, pero estoy reinicializando
+
+45
+00:02:56,000 --> 00:03:00,000
+esto en una nueva instancia antes de cada prueba.
+
+46
+00:03:00,000 --> 00:03:04,000
+Ahora en esto, puede eliminar la primera
+
+47
+00:03:04,000 --> 00:03:08,000
+lnea de cada prueba. Y, por supuesto,
+
+48
+00:03:08,000 --> 00:03:12,000
+necesitamos hacer referencia a nuestro campo
+
+49
+00:03:12,000 --> 00:03:16,000
+privado aqu, de manera similar, en
+
+50
+00:03:16,000 --> 00:03:20,000
+nuestra segunda prueba, nuestra tercera prueba
+
+51
+00:03:20,000 --> 00:03:24,000
+y la ltima prueba. Y puedes ver cada
+
+52
+00:03:24,000 --> 00:03:28,000
+prueba, solo hay dos lneas de cdigo.
+
+53
+00:03:28,000 --> 00:03:32,000
+Por lo tanto, use el mtodo de configuracin
+
+54
+00:03:32,000 --> 00:03:36,000
+para inicializar el objeto que va a probar.
+

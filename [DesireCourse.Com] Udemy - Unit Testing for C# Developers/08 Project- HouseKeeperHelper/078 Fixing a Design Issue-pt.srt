@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, o que devemos testar aqui?
+
+2
+00:00:04,000 --> 00:00:08,000
+Bem, como eu lhe disse antes, voc deve sempre testar
+
+3
+00:00:08,000 --> 00:00:12,000
+o resultado de um mtodo. Portanto, apenas para atualizar sua
+
+4
+00:00:12,000 --> 00:00:16,000
+memria, temos dois tipos de funes, funes de consulta
+
+5
+00:00:16,000 --> 00:00:20,000
+que retornam algum tipo de valor e funes de
+
+6
+00:00:20,000 --> 00:00:24,000
+comando que executam uma tarefa. Neste caso, que tipo de funo
+
+7
+00:00:24,000 --> 00:00:28,000
+voc acha que o SendStatementEmails ?  uma funo de consulta ou
+
+8
+00:00:28,000 --> 00:00:32,000
+ uma funo de comando? Bem,  uma funo de comando, que tambm
+
+9
+00:00:32,000 --> 00:00:36,000
+est retornando algum valor, um booleano, certo? Mas sua principal tarefa
+
+10
+00:00:36,000 --> 00:00:40,000
+ realizar alguma ao, ou seja, salvar a
+
+11
+00:00:40,000 --> 00:00:44,000
+declarao e envi-la por e-mail para a governanta.
+
+12
+00:00:44,000 --> 00:00:48,000
+Ento, para testar o resultado desse mtodo,
+
+13
+00:00:48,000 --> 00:00:52,000
+devemos ter 1 ou. mais testes unitrios para o valor
+
+14
+00:00:52,000 --> 00:00:56,000
+que ele retorna, talvez em algumas condies ele retorne true, em
+
+15
+00:00:56,000 --> 00:01:00,000
+outras condies ele retorna false. Alm disso, como  uma funo
+
+16
+00:01:00,000 --> 00:01:04,000
+de comando, devemos nos certificar de que esse mtodo executa as
+
+17
+00:01:04,000 --> 00:01:08,000
+tarefas que ele deve executar. Portanto, nesse caso, devemos
+
+18
+00:01:08,000 --> 00:01:12,000
+ter vrios testes de interao para garantir
+
+19
+00:01:12,000 --> 00:01:16,000
+que esse objeto, esse objeto auxiliar de
+
+20
+00:01:16,000 --> 00:01:20,000
+governanta, converse com outros objetos como statementGenerator
+
+21
+00:01:20,000 --> 00:01:24,000
+e emailSender corretamente. Ento testes de interao. Agora,  mais fcil
+
+22
+00:01:24,000 --> 00:01:28,000
+comear com testes baseados em estado. Ento, queremos escrever testes
+
+23
+00:01:28,000 --> 00:01:32,000
+unitrios para garantir que este teste unitrio retorne
+
+24
+00:01:32,000 --> 00:01:36,000
+o valor correto. Agora olhe para esta implementao,
+
+25
+00:01:36,000 --> 00:01:40,000
+a nica maneira de sair deste mtodo  aqui, retornar true.
+
+26
+00:01:40,000 --> 00:01:44,000
+Ento, no importa o que, este mtodo est
+
+27
+00:01:44,000 --> 00:01:48,000
+sempre retornando verdadeiro, no h lugar algum neste
+
+28
+00:01:48,000 --> 00:01:52,000
+cdigo, onde estamos retornando falso. Portanto, no h realmente nenhum valor para escrever esses testes unitrios.
+
+29
+00:01:52,000 --> 00:01:56,000
+E isso me faz pensar que esse
+
+30
+00:01:56,000 --> 00:02:00,000
+mtodo seria melhor para definir como nulo.
+
+31
+00:02:00,000 --> 00:02:04,000
+Ento, voc realmente no precisa desta declarao de retorno,
+
+32
+00:02:04,000 --> 00:02:08,000
+aqui, e podemos reduzir essa implementao em uma linha.
+
+33
+00:02:08,000 --> 00:02:12,000
+Tornando este mtodo mais curto, ento este  outro
+
+34
+00:02:12,000 --> 00:02:16,000
+benefcio de escrever testes unitrios. Eles ajudam voc a criar um
+
+35
+00:02:16,000 --> 00:02:20,000
+design melhor, para seus mtodos e funes. Porque para cada mtodo, para cada
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo pblico que voc vai testar, voc olha para esse mtodo
+
+37
+00:02:24,000 --> 00:02:28,000
+da perspectiva de seus clientes. Como esses clientes vo
+
+38
+00:02:28,000 --> 00:02:32,000
+usar esse mtodo? Eles realmente precisam desse
+
+39
+00:02:32,000 --> 00:02:36,000
+valor de retorno, esse booleano? Provavelmente no, porque se este
+
+40
+00:02:36,000 --> 00:02:40,000
+mtodo est sempre retornando true, os clientes deste mtodo no
+
+41
+00:02:40,000 --> 00:02:44,000
+tero nenhuma tomada de deciso, ok? Ento, com uma simples mudana, no
+
+42
+00:02:44,000 --> 00:02:48,000
+precisamos mais escrever nenhum teste baseado em estado para esse mtodo. Na
+
+43
+00:02:48,000 --> 00:02:52,000
+prxima aula, vamos comear a escrever nossos primeiros testes de interao.
+
+44
+00:02:52,000 --> 00:02:56,000
+Queremos ter certeza de que essa classe
+
+45
+00:02:56,000 --> 00:02:59,000
+fale com o statementGenerator corretamente.
+

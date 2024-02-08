@@ -1,0 +1,276 @@
+1
+00:00:00,000 --> 00:00:04,000
+En esta conferencia, voy a mostrarte cmo probar los
+
+2
+00:00:04,000 --> 00:00:08,000
+mtodos que generan un evento. Entonces, aqu en nuestro mtodo de
+
+3
+00:00:08,000 --> 00:00:12,000
+registro, una vez que el evento se almacena en nuestro almacenamiento, usted
+
+4
+00:00:12,000 --> 00:00:16,000
+plantea este evento, error, registro. Podemos ver que el
+
+5
+00:00:16,000 --> 00:00:20,000
+registro de errores es un evento del tipo
+
+6
+00:00:20,000 --> 00:00:24,000
+controlador de eventos de guid. Si todo esto le suena extrao,
+
+7
+00:00:24,000 --> 00:00:28,000
+tendr que ver mi curso de C # MS, porque all he cubierto
+
+8
+00:00:28,000 --> 00:00:32,000
+los eventos y los delegados en detalle. As que, bsicamente, aqu
+
+9
+00:00:32,000 --> 00:00:36,000
+estamos planteando este evento ErrorLogged y, como argumento par,
+
+10
+00:00:36,000 --> 00:00:40,000
+estamos enviando un nuevo guid. Quizs esta es
+
+11
+00:00:40,000 --> 00:00:44,000
+la ID que genera nuestro almacenamiento.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces, para probar el mtodo de registro lo llamamos, le damos un
+
+13
+00:00:48,000 --> 00:00:52,000
+mensaje de error vlido y verificamos que genera el evento ErrorLogged con
+
+14
+00:00:52,000 --> 00:00:56,000
+un nuevo guid, est bien? Entonces, de
+
+15
+00:00:56,000 --> 00:01:00,000
+vuelta en nuestra clase
+
+16
+00:01:00,000 --> 00:01:04,000
+de prueba, otra prueba,
+
+17
+00:01:04,000 --> 00:01:08,000
+vaco pblico Log ValidError,
+
+18
+00:01:08,000 --> 00:01:12,000
+esa es la situacin. Usted debe
+
+19
+00:01:12,000 --> 00:01:16,000
+RaiseErrorLogged Event. Bueno?
+
+20
+00:01:16,000 --> 00:01:20,000
+Entonces, voy a crear un objeto logger,
+
+21
+00:01:20,000 --> 00:01:24,000
+ErrorLogger, ahora cmo podemos verificar que este
+
+22
+00:01:24,000 --> 00:01:28,000
+objeto genere un evento. En realidad
+
+23
+00:01:28,000 --> 00:01:32,000
+es muy simple. Antes de actuar, te vas
+
+24
+00:01:32,000 --> 00:01:36,000
+a suscribir a ese evento. Por lo tanto, si el mtodo de
+
+25
+00:01:36,000 --> 00:01:40,000
+registro plantea el evento, se nos notificar. Ahora, para suscribirse a este
+
+26
+00:01:40,000 --> 00:01:44,000
+evento, escribimos logger. ErrorLogged. Este es
+
+27
+00:01:44,000 --> 00:01:48,000
+nuestro evento, verdad? Nos suscribimos al agregar
+
+28
+00:01:48,000 --> 00:01:52,000
+un nuevo controlador, utilizamos una expresin lambda aqu,
+
+29
+00:01:52,000 --> 00:01:56,000
+remitente y args. Entonces estos son nuestros parmetros,
+
+30
+00:01:56,000 --> 00:02:00,000
+el remitente es la fuente del evento y args es
+
+31
+00:02:00,000 --> 00:02:04,000
+el argumento del evento. Entonces, estos parmetros van
+
+32
+00:02:04,000 --> 00:02:08,000
+a y aqu est el cuerpo de una funcin.
+
+33
+00:02:08,000 --> 00:02:12,000
+Entonces, esta expresin lambda representa nuestro
+
+34
+00:02:12,000 --> 00:02:16,000
+controlador de eventos. Cuando se produce el evento
+
+35
+00:02:16,000 --> 00:02:20,000
+ErrorLogged, esta funcin se ejecutar. Entonces, en el cuerpo de
+
+36
+00:02:20,000 --> 00:02:24,000
+esta funcin, puedo obtener el argumento del evento, en este
+
+37
+00:02:24,000 --> 00:02:28,000
+caso, el ID del evento. Entonces, voy a definir
+
+38
+00:02:28,000 --> 00:02:32,000
+una variable llamada id, e inicialmente la configuro
+
+39
+00:02:32,000 --> 00:02:36,000
+en un guid vaco. Ahora, cuando se
+
+40
+00:02:36,000 --> 00:02:40,000
+produce el evento ErrorLogged, voy a
+
+41
+00:02:40,000 --> 00:02:44,000
+configurar ID, a args. Cul es la identificacin de este error?
+
+42
+00:02:44,000 --> 00:02:48,000
+Ahora, actuamos, entonces
+
+43
+00:02:48,000 --> 00:02:52,000
+logger. log A presentacin nuestra
+
+44
+00:02:52,000 --> 00:02:56,000
+afirmacin es muy simple. Si se produce este evento,
+
+45
+00:02:56,000 --> 00:03:00,000
+esta funcin se ejecuta, y eso significa que ID ya
+
+46
+00:03:00,000 --> 00:03:04,000
+no ser un GUID vaco. Ser el
+
+47
+00:03:04,000 --> 00:03:08,000
+valor que viene con
+
+48
+00:03:08,000 --> 00:03:12,000
+el evento, por lo
+
+49
+00:03:12,000 --> 00:03:16,000
+que afirmamos, ese id
+
+50
+00:03:16,000 --> 00:03:20,000
+no es igual a
+
+51
+00:03:20,000 --> 00:03:24,000
+Guid. Vaco. Vamos a ejecutar esta prueba.
+
+52
+00:03:24,000 --> 00:03:28,000
+Est bien, pas muy bien, pero una
+
+53
+00:03:28,000 --> 00:03:32,000
+vez ms quiero asegurarme de que estamos
+
+54
+00:03:32,000 --> 00:03:36,000
+probando lo correcto. As que de vuelta a nuestra clase
+
+55
+00:03:36,000 --> 00:03:40,000
+ErrorLogger, esta es la lnea que es responsable de hacer que la prueba pase.
+
+56
+00:03:40,000 --> 00:03:44,000
+As que voy a comentarlo y ver si nuestra prueba an se aprueba o no.
+
+57
+00:03:44,000 --> 00:03:48,000
+De vuelta aqu, vamos a volver a
+
+58
+00:03:48,000 --> 00:03:52,000
+ejecutar esta prueba, est bien, fall, as
+
+59
+00:03:52,000 --> 00:03:56,000
+que estamos probando lo correcto, ahora, volvamos
+
+60
+00:03:56,000 --> 00:04:00,000
+a esto. As que, recapitulando, para probar
+
+61
+00:04:00,000 --> 00:04:04,000
+el mtodo que plantea un evento, todo lo que tenemos
+
+62
+00:04:04,000 --> 00:04:08,000
+que hacer es suscribirnos a ese evento en su mtodo
+
+63
+00:04:08,000 --> 00:04:12,000
+de prueba, antes de actuar. En tu controlador de eventos
+
+64
+00:04:12,000 --> 00:04:16,000
+vas a obtener algn valor. En este caso, estamos
+
+65
+00:04:16,000 --> 00:04:20,000
+obteniendo un nuevo guid. Por lo tanto, si se
+
+66
+00:04:20,000 --> 00:04:24,000
+produce este evento, entonces, nuestra identificacin ya no debera ser
+
+67
+00:04:24,000 --> 00:04:28,000
+una gua vaca despus de actuar. Y es por eso que
+
+68
+00:04:28,000 --> 00:04:32,000
+tenemos una simple afirmacin para asegurarnos de que ID no
+
+69
+00:04:32,000 --> 00:04:34,000
+sea una gua vaca.
+

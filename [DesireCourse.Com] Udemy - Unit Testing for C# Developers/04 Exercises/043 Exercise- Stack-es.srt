@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, un ejercicio ms.
+
+2
+00:00:04,000 --> 00:00:08,000
+Esta vez, quiero que veas la clase de pila.
+
+3
+00:00:08,000 --> 00:00:12,000
+As que aqu tenemos una implementacin bsica de una pila,
+
+4
+00:00:12,000 --> 00:00:16,000
+tenemos algunos miembros pblicos, tenemos esta cuenta, que es una
+
+5
+00:00:16,000 --> 00:00:20,000
+propiedad del cuerpo de expresin, que devuelve la cantidad de
+
+6
+00:00:20,000 --> 00:00:24,000
+objetos en la pila, tenemos el mtodo push, que agrega
+
+7
+00:00:24,000 --> 00:00:28,000
+un objeto en la parte superior de la pila, tenemos
+
+8
+00:00:28,000 --> 00:00:32,000
+el mtodo Pop, que elimina el objeto en la parte
+
+9
+00:00:32,000 --> 00:00:36,000
+superior de la pila, y tambin lo devuelve, y finalmente
+
+10
+00:00:36,000 --> 00:00:40,000
+el mtodo Peek, que devuelve el objeto en la parte
+
+11
+00:00:40,000 --> 00:00:44,000
+superior de la pila sin eliminarlo. Entonces, adelante, escriba un montn de
+
+12
+00:00:44,000 --> 00:00:48,000
+pruebas de unidad para esta clase y luego veremos mi solucin.
+

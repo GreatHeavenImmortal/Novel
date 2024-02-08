@@ -1,0 +1,452 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, once we generate
+
+2
+00:00:04,000 --> 00:00:08,000
+a statement, then we should email it to the housekeeper.
+
+3
+00:00:08,000 --> 00:00:12,000
+So, back to our test class,
+
+4
+00:00:12,000 --> 00:00:16,000
+I'm going to select this method
+
+5
+00:00:16,000 --> 00:00:20,000
+duplicate it, the scenario is
+
+6
+00:00:20,000 --> 00:00:24,000
+WhenCalled, it should
+
+7
+00:00:24,000 --> 00:00:28,000
+EmailTheStatement. And here we are assuming
+
+8
+00:00:28,000 --> 00:00:32,000
+a happy path, so no errors, so, let's
+
+9
+00:00:32,000 --> 00:00:36,000
+remove the first line. Now this time in our arrange part
+
+10
+00:00:36,000 --> 00:00:40,000
+we need to program this statementGeneratorMock.
+
+11
+00:00:40,000 --> 00:00:44,000
+So, I'm going to select this, cut,
+
+12
+00:00:44,000 --> 00:00:48,000
+and move it here, instead of verify, we're going to use SetUp.
+
+13
+00:00:48,000 --> 00:00:52,000
+Okay? And SetUp doesn't take
+
+14
+00:00:52,000 --> 00:00:56,000
+the second argument, Times.Never, so let's delete this,
+
+15
+00:00:56,000 --> 00:01:00,000
+instead we should call
+
+16
+00:01:00,000 --> 00:01:04,000
+.Returns, here we should return
+
+17
+00:01:04,000 --> 00:01:08,000
+the statement file name. So, like this.
+
+18
+00:01:08,000 --> 00:01:12,000
+filename. But as you learned, it's better to extract
+
+19
+00:01:12,000 --> 00:01:16,000
+this and store it in a private field to reduce the noise in
+
+20
+00:01:16,000 --> 00:01:20,000
+the code. So, alt and enter. Refactor,
+
+21
+00:01:20,000 --> 00:01:24,000
+introduce field, let's call this
+
+22
+00:01:24,000 --> 00:01:28,000
+statementFileName.
+
+23
+00:01:28,000 --> 00:01:32,000
+Okay? Now, let's delete this line here
+
+24
+00:01:32,000 --> 00:01:36,000
+and initialize this field upon declaration.
+
+25
+00:01:36,000 --> 00:01:40,000
+So, private
+
+26
+00:01:40,000 --> 00:01:44,000
+readonly string, set this to
+
+27
+00:01:44,000 --> 00:01:48,000
+fileName. Okay? Now back in our
+
+28
+00:01:48,000 --> 00:01:52,000
+test, so here's our arrange part,
+
+29
+00:01:52,000 --> 00:01:56,000
+but I don't like the way this code is formatted, it's very confusing.
+
+30
+00:01:56,000 --> 00:02:00,000
+So, see how I format this. I put SetUp here,
+
+31
+00:02:00,000 --> 00:02:04,000
+then, put the close (?) in parenthesis, on
+
+32
+00:02:04,000 --> 00:02:08,000
+this line and a line returns a
+
+33
+00:02:08,000 --> 00:02:12,000
+SetUp. We can also remove this line break
+
+34
+00:02:12,000 --> 00:02:16,000
+that's better. Now finally
+
+35
+00:02:16,000 --> 00:02:20,000
+our Assertion. So,
+
+36
+00:02:20,000 --> 00:02:24,000
+here's our emailSender object, let's Verify
+
+37
+00:02:24,000 --> 00:02:28,000
+es goes to, we want to verify that email
+
+38
+00:02:28,000 --> 00:02:32,000
+method is called with these arguments, so the email
+
+39
+00:02:32,000 --> 00:02:36,000
+address of the housekeeper is Housekeeper.
+
+40
+00:02:36,000 --> 00:02:40,000
+Email. And for email body,
+
+41
+00:02:40,000 --> 00:02:44,000
+we should use houseKeeper.statement
+
+42
+00:02:44,000 --> 00:02:48,000
+EmailBody. And the third argument here,
+
+43
+00:02:48,000 --> 00:02:52,000
+is the statement file name.
+
+44
+00:02:52,000 --> 00:02:56,000
+And we have that as a private field, so statment
+
+45
+00:02:56,000 --> 00:03:00,000
+FileName. Now this line is getting a little too long so
+
+46
+00:03:00,000 --> 00:03:04,000
+let's break it up into multiple lines.
+
+47
+00:03:04,000 --> 00:03:08,000
+So each argument on a separate line.
+
+48
+00:03:08,000 --> 00:03:12,000
+And finally, the last argument should be the
+
+49
+00:03:12,000 --> 00:03:16,000
+subject of the email. So if you look at the service
+
+50
+00:03:16,000 --> 00:03:20,000
+look this is where
+
+51
+00:03:20,000 --> 00:03:24,000
+we construct the subject. We can put this string
+
+52
+00:03:24,000 --> 00:03:28,000
+in our test, but I'm not quite a fan of that, because it is possible that some
+
+53
+00:03:28,000 --> 00:03:32,000
+times in the future we're going to change the subject of the email.
+
+54
+00:03:32,000 --> 00:03:36,000
+So in our unit test, I don't want to check for this exact string.
+
+55
+00:03:36,000 --> 00:03:40,000
+Otherwise, this test is going to be fragile. So,
+
+56
+00:03:40,000 --> 00:03:44,000
+back in the test, we can use
+
+57
+00:03:44,000 --> 00:03:48,000
+It.IsAnystring
+
+58
+00:03:48,000 --> 00:03:52,000
+This is a little bit more flexible.
+
+59
+00:03:52,000 --> 00:03:56,000
+Okay? Now, let's run this test.
+
+60
+00:03:56,000 --> 00:04:00,000
+It passed, I want to make sure we're testing the right thing, so
+
+61
+00:04:00,000 --> 00:04:04,000
+back in our service, this is where we send the email,
+
+62
+00:04:04,000 --> 00:04:08,000
+if you comment out this line, that test should fail.
+
+63
+00:04:08,000 --> 00:04:12,000
+So, back here let's run this test one more time.
+
+64
+00:04:12,000 --> 00:04:16,000
+It failed,
+
+65
+00:04:16,000 --> 00:04:20,000
+beautiful. So we have a trustworthy test,
+
+66
+00:04:20,000 --> 00:04:24,000
+now back in the service let's bring this back in.
+
+67
+00:04:24,000 --> 00:04:28,000
+Beautiful. Now look at this conditional statement,
+
+68
+00:04:28,000 --> 00:04:32,000
+here. If this statement generator returns
+
+69
+00:04:32,000 --> 00:04:36,000
+a file name that is null or white space, we are not going to
+
+70
+00:04:36,000 --> 00:04:40,000
+send the email. So here we need 3 more unit tests.
+
+71
+00:04:40,000 --> 00:04:44,000
+If the file name is null, white space, or
+
+72
+00:04:44,000 --> 00:04:48,000
+empty string. And then we want to verify that this method is not called.
+
+73
+00:04:48,000 --> 00:04:52,000
+Just like before. So,
+
+74
+00:04:52,000 --> 00:04:56,000
+to save time, I'm going to duplicate this method.
+
+75
+00:04:56,000 --> 00:05:00,000
+And change the scenario
+
+76
+00:05:00,000 --> 00:05:04,000
+to statement
+
+77
+00:05:04,000 --> 00:05:08,000
+FileNameIsNullAnd
+
+78
+00:05:08,000 --> 00:05:12,000
+ShouldNotEmailTheStatement. So here,
+
+79
+00:05:12,000 --> 00:05:16,000
+in the arrange part, you want to change the return value,
+
+80
+00:05:16,000 --> 00:05:20,000
+to null. Now here we have a compilation issue
+
+81
+00:05:20,000 --> 00:05:24,000
+because this method return has two overloads.
+
+82
+00:05:24,000 --> 00:05:28,000
+One that returns a string and the other that returns
+
+83
+00:05:28,000 --> 00:05:32,000
+a funk. When we pass null here the compiler
+
+84
+00:05:32,000 --> 00:05:36,000
+is not sure which overload we are interested in.
+
+85
+00:05:36,000 --> 00:05:40,000
+So, to get around that we can simply pass a funk here,
+
+86
+00:05:40,000 --> 00:05:44,000
+a lambda expression that returns null.
+
+87
+00:05:44,000 --> 00:05:48,000
+So this is the arrange part, we act, now when verifying
+
+88
+00:05:48,000 --> 00:05:52,000
+we want to pass a second argument for the Verify method, and
+
+89
+00:05:52,000 --> 00:05:56,000
+set the  number of times never.
+
+90
+00:05:56,000 --> 00:06:00,000
+Now here, Times.Never.
+
+91
+00:06:00,000 --> 00:06:04,000
+Also, we can remove the noise in this test
+
+92
+00:06:04,000 --> 00:06:08,000
+because we don't really care about these exact arguments because we are not going to call this
+
+93
+00:06:08,000 --> 00:06:12,000
+method anyway. So I would rather to replace
+
+94
+00:06:12,000 --> 00:06:16,000
+these three strings with It IsAny string.
+
+95
+00:06:16,000 --> 00:06:20,000
+So, quickly, It Is
+
+96
+00:06:20,000 --> 00:06:24,000
+Any string, duplicate it twice,
+
+97
+00:06:24,000 --> 00:06:28,000
+and delete these two arguments.
+
+98
+00:06:28,000 --> 00:06:32,000
+Now the test is cleaner, let's run it,
+
+99
+00:06:32,000 --> 00:06:36,000
+it passed, beautiful, now finally let's
+
+100
+00:06:36,000 --> 00:06:40,000
+duplicate it a couple more times, and test
+
+101
+00:06:40,000 --> 00:06:44,000
+for white space and empty string. So StatementFileIs
+
+102
+00:06:44,000 --> 00:06:48,000
+EmptyString,
+
+103
+00:06:48,000 --> 00:06:52,000
+so here in the arrange part we want to return
+
+104
+00:06:52,000 --> 00:06:56,000
+an empty string and
+
+105
+00:06:56,000 --> 00:07:00,000
+the Assertion is exactly the same, now one more time I'm going to duplicate this,
+
+106
+00:07:00,000 --> 00:07:04,000
+and this time,
+
+107
+00:07:04,000 --> 00:07:08,000
+we should change the scenario to Statement
+
+108
+00:07:08,000 --> 00:07:12,000
+FileNameIsWhiteSpace.
+
+109
+00:07:12,000 --> 00:07:16,000
+So, a simple change like
+
+110
+00:07:16,000 --> 00:07:20,000
+this. Now, let's run all the tests in this class.
+
+111
+00:07:20,000 --> 00:07:24,000
+So, I put the cursor on the class name, and run the tests,
+
+112
+00:07:24,000 --> 00:07:28,000
+all tests are
+
+113
+00:07:28,000 --> 00:07:31,000
+passing, beautiful.
+

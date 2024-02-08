@@ -1,0 +1,260 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en la ltima conferencia, aprendiste cmo
+
+2
+00:00:04,000 --> 00:00:08,000
+inyectar dependencias usando propiedades. Este enfoque funciona en muchos
+
+3
+00:00:08,000 --> 00:00:12,000
+escenarios, pero algunos marcos de inyeccin de dependencias no pueden
+
+4
+00:00:12,000 --> 00:00:16,000
+inyectar dependencias a travs de propiedades. Entonces, una forma
+
+5
+00:00:16,000 --> 00:00:20,000
+alternativa es inyectar dependencias a travs
+
+6
+00:00:20,000 --> 00:00:24,000
+de parmetros de constructor. As que aqu en nuestro
+
+7
+00:00:24,000 --> 00:00:28,000
+constructor, voy a agregar un parmetro IFileReader y luego voy
+
+8
+00:00:28,000 --> 00:00:32,000
+a cambiar esta propiedad pblica a un campo privado, porque
+
+9
+00:00:32,000 --> 00:00:36,000
+vamos a inyectar una dependencia en el momento de crear
+
+10
+00:00:36,000 --> 00:00:40,000
+un objeto de servicio de video. Entonces, voy a eliminar
+
+11
+00:00:40,000 --> 00:00:44,000
+el getter y el setter. Cambie lo pblico a
+
+12
+00:00:44,000 --> 00:00:48,000
+lo privado, y finalmente siga la convencin de nomenclatura. net nombramos FileReader para subrayar minsculas
+
+13
+00:00:48,000 --> 00:00:52,000
+f FileReader y un ltimo cambio,
+
+14
+00:00:52,000 --> 00:00:56,000
+aqu siempre estamos inicializando este lector
+
+15
+00:00:56,000 --> 00:01:00,000
+de archivos a un nuevo FileReader
+
+16
+00:01:00,000 --> 00:01:04,000
+que es la nueva implementacin. Queremos tener flexibilidad aqu. Entonces, debemos reemplazar esto con el argumento que obtenemos
+
+17
+00:01:04,000 --> 00:01:08,000
+en el constructor.
+
+18
+00:01:08,000 --> 00:01:12,000
+fileReader. Entonces llamamos a esto inyeccin de
+
+19
+00:01:12,000 --> 00:01:16,000
+constructor de aproximacin. Sin embargo, hay un par de otros problemas con este
+
+20
+00:01:16,000 --> 00:01:20,000
+enfoque, y voy a mostrarle que no tiene solucin. Un problema es que debido a
+
+21
+00:01:20,000 --> 00:01:24,000
+que hemos cambiado la firma de
+
+22
+00:01:24,000 --> 00:01:28,000
+este constructor, lo ms probable es que hayamos roto algn cdigo en otro lugar. Entonces, si observas la clase de programa, puedes ver que
+
+23
+00:01:28,000 --> 00:01:32,000
+esta diapositiva est rota, porque
+
+24
+00:01:32,000 --> 00:01:36,000
+ahora tenemos que pasar un argumento a este constructor. Entonces, una forma es pasar un
+
+25
+00:01:36,000 --> 00:01:40,000
+nuevo objeto FileReader. Pero voy a mostrarte
+
+26
+00:01:40,000 --> 00:01:44,000
+una mejor manera. Entonces, borremos esto.
+
+27
+00:01:44,000 --> 00:01:48,000
+De vuelta en
+
+28
+00:01:48,000 --> 00:01:52,000
+nuestro servicio de video, aumente un
+
+29
+00:01:52,000 --> 00:01:56,000
+constructor separado que no tome ningn parmetro. Entonces, un constructor predeterminado.
+
+30
+00:01:56,000 --> 00:02:00,000
+En este constructor, puede configurar
+
+31
+00:02:00,000 --> 00:02:04,000
+un lector de archivos para un nuevo objeto FileReader. Entonces, en nuestro cdigo de produccin, vamos a usar este constructor,
+
+32
+00:02:04,000 --> 00:02:08,000
+pero en nuestro cdigo de prueba,
+
+33
+00:02:08,000 --> 00:02:12,000
+vamos a usar este constructor para poder pasar un FileReader falso. Con este enfoque, podemos ver que nuestro cdigo
+
+34
+00:02:12,000 --> 00:02:16,000
+ya no est roto. Ahora podemos hacer que
+
+35
+00:02:16,000 --> 00:02:20,000
+esto sea un poco mejor. Entonces, podemos combinar estos
+
+36
+00:02:20,000 --> 00:02:24,000
+dos constructores en un constructor. Por lo tanto, voy
+
+37
+00:02:24,000 --> 00:02:28,000
+a eliminar el constructor
+
+38
+00:02:28,000 --> 00:02:32,000
+predeterminado y a hacer que este parmetro sea opcional. As que establecemos esto como nulo, y eso significa que siempre que
+
+39
+00:02:32,000 --> 00:02:36,000
+creamos un objeto de servicio de
+
+40
+00:02:36,000 --> 00:02:40,000
+video no necesariamente tenemos que pasar el objeto lector de archivos como argumento.
+
+41
+00:02:40,000 --> 00:02:44,000
+Entonces, si miran la clase de programa, pueden ver
+
+42
+00:02:44,000 --> 00:02:48,000
+que el cdigo sigue funcionando, no tenemos un error
+
+43
+00:02:48,000 --> 00:02:52,000
+de compilacin, ahora de vuelta en el servicio de
+
+44
+00:02:52,000 --> 00:02:56,000
+video, voy a cambiar esta lnea a algo como esto. Entonces, FileReader,? nuevo FileReader. Qu significa esto?
+
+45
+00:02:56,000 --> 00:03:00,000
+Eso significa que fileReader no
+
+46
+00:03:00,000 --> 00:03:04,000
+es nulo, vas a usar
+
+47
+00:03:04,000 --> 00:03:08,000
+eso para configurar este frito privado, de lo contrario, si
+
+48
+00:03:08,000 --> 00:03:12,000
+es nulo, aqu vas a actualizar el objeto FileReader real. Entonces, en nuestro cdigo de produccin, en este caso
+
+49
+00:03:12,000 --> 00:03:16,000
+aqu, estamos creando un nuevo servicio de video sin
+
+50
+00:03:16,000 --> 00:03:20,000
+ningn argumento para el constructor. En este
+
+51
+00:03:20,000 --> 00:03:24,000
+caso, nuestro argumento es nulo. Entonces, con esta implementacin, vas
+
+52
+00:03:24,000 --> 00:03:28,000
+a configurar fileReader. nuevo. Objeto FileReader
+
+53
+00:03:28,000 --> 00:03:32,000
+En nuestra prueba de unidad, vamos a
+
+54
+00:03:32,000 --> 00:03:36,000
+pasar un objeto FileReader falso. Voy a usar eso para configurar este campo fileReader.
+
+55
+00:03:36,000 --> 00:03:40,000
+Bueno? As que, de vuelta a nuestra prueba de unidad, ya no
+
+56
+00:03:40,000 --> 00:03:44,000
+tenemos estas propiedades, por lo tanto,
+
+57
+00:03:44,000 --> 00:03:48,000
+elimnelas. En su lugar, al crear
+
+58
+00:03:48,000 --> 00:03:52,000
+un objeto de servicio de video, pasamos un nuevo FakeFileReader. Vamos a ejecutar la prueba una vez
+
+59
+00:03:52,000 --> 00:03:56,000
+ms, est bien, as que todava estoy
+
+60
+00:03:56,000 --> 00:04:00,000
+de paso, excelente. Entonces este enfoque
+
+61
+00:04:00,000 --> 00:04:04,000
+es lo que llamamos inyeccin de constructor. Y, por lo que yo s, la mayora de las inyecciones de dependencia
+
+62
+00:04:04,000 --> 00:04:08,000
+son compatibles con la inyeccin de constructor. En la prxima conferencia, vamos a tener una
+
+63
+00:04:08,000 --> 00:04:12,000
+visin general rpida del marco de inyeccin de dependencia.
+
+64
+00:04:12,000 --> 00:04:16,000
+&nbsp;
+
+65
+00:04:16,000 --> 00:04:20,000
+&nbsp;
+

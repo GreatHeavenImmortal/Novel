@@ -1,0 +1,288 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, because this code
+
+2
+00:00:04,000 --> 00:00:08,000
+touches an external resource, we need to do some refactoring.
+
+3
+00:00:08,000 --> 00:00:12,000
+And open up this class for testability. So,
+
+4
+00:00:12,000 --> 00:00:16,000
+back in our solution in the Mocking folder, I'm going to create
+
+5
+00:00:16,000 --> 00:00:20,000
+a new class, called File
+
+6
+00:00:20,000 --> 00:00:24,000
+Downloader. You want to isolate all the code, but
+
+7
+00:00:24,000 --> 00:00:28,000
+downloading the file inside this class.
+
+8
+00:00:28,000 --> 00:00:32,000
+So here we need a simple method, public_void,
+
+9
+00:00:32,000 --> 00:00:36,000
+DownloadFile that takes two parameters.
+
+10
+00:00:36,000 --> 00:00:40,000
+One is the url of the file, and the other
+
+11
+00:00:40,000 --> 00:00:44,000
+is the path and the file system to store it.
+
+12
+00:00:44,000 --> 00:00:48,000
+Now, back in installer helper,
+
+13
+00:00:48,000 --> 00:00:52,000
+so these are the lines that we need to move into that new class.
+
+14
+00:00:52,000 --> 00:00:56,000
+But I'm not going to cut this code from here yet. I'm simply going to
+
+15
+00:00:56,000 --> 00:01:00,000
+copy it, and you will see why in a second. So copy,
+
+16
+00:01:00,000 --> 00:01:04,000
+paste it here. Alright first we need
+
+17
+00:01:04,000 --> 00:01:08,000
+our web client object. So, back to our helper
+
+18
+00:01:08,000 --> 00:01:12,000
+class, I'm going to cut this first line and move the
+
+19
+00:01:12,000 --> 00:01:16,000
+the WebClient object into our new class.
+
+20
+00:01:16,000 --> 00:01:20,000
+Let's import NameSpace.
+
+21
+00:01:20,000 --> 00:01:24,000
+Beautiful. So, here we need to make a couple
+
+22
+00:01:24,000 --> 00:01:28,000
+simple changes. I'm not going to use this customer name
+
+23
+00:01:28,000 --> 00:01:32,000
+and installerName here. Because these concepts
+
+24
+00:01:32,000 --> 00:01:36,000
+do not fall within the scope of FileDownloader
+
+25
+00:01:36,000 --> 00:01:40,000
+they belong installer helper. Because this
+
+26
+00:01:40,000 --> 00:01:44,000
+class knows bout customerNames, it knows about installerNames
+
+27
+00:01:44,000 --> 00:01:48,000
+this is a higher level class in our application. FileDownloader
+
+28
+00:01:48,000 --> 00:01:52,000
+in contrast is a low level class, it's dumb,
+
+29
+00:01:52,000 --> 00:01:56,000
+it knows nothing about our business domain, all it knows about is
+
+30
+00:01:56,000 --> 00:02:00,000
+how to get a file from this url and store it at this location
+
+31
+00:02:00,000 --> 00:02:04,000
+Okay? So, instead of using string
+
+32
+00:02:04,000 --> 00:02:08,000
+format to construct the URL. I'm going to pass
+
+33
+00:02:08,000 --> 00:02:12,000
+the url argument, that we get here, and also as a second argument,
+
+34
+00:02:12,000 --> 00:02:16,000
+I'm going to use this path (?). Now let's put them
+
+35
+00:02:16,000 --> 00:02:20,000
+on one line, so basically all we're doing is
+
+36
+00:02:20,000 --> 00:02:24,000
+here is encapsulating the
+
+37
+00:02:24,000 --> 00:02:28,000
+code that touches an external resource inside
+
+38
+00:02:28,000 --> 00:02:32,000
+it's FileDownloader. And the reason we're doing this is to extract
+
+39
+00:02:32,000 --> 00:02:36,000
+an interface so we can mock this interface in our unit tests.
+
+40
+00:02:36,000 --> 00:02:40,000
+I'll tell you something. If this web client class was
+
+41
+00:02:40,000 --> 00:02:44,000
+designed properly, we didn't have to create a separate class
+
+42
+00:02:44,000 --> 00:02:48,000
+like FileDownloader in order to extract an interface.
+
+43
+00:02:48,000 --> 00:02:52,000
+Sometimes when you work with third party libraries, you may
+
+44
+00:02:52,000 --> 00:02:56,000
+notice that some of their classes come with interfaces.
+
+45
+00:02:56,000 --> 00:03:00,000
+For example, if we did have an interface like
+
+46
+00:03:00,000 --> 00:03:04,000
+IWebClient, then we can simply inject that interface
+
+47
+00:03:04,000 --> 00:03:08,000
+inside installerHelper, and then we didn't have to
+
+48
+00:03:08,000 --> 00:03:12,000
+create an extra class like this. So,
+
+49
+00:03:12,000 --> 00:03:16,000
+let's remove this, now,
+
+50
+00:03:16,000 --> 00:03:20,000
+let's extract an interface here, refactor,
+
+51
+00:03:20,000 --> 00:03:24,000
+extract interface, and let's select this method,
+
+52
+00:03:24,000 --> 00:03:28,000
+next, beautiful. So we have
+
+53
+00:03:28,000 --> 00:03:32,000
+IFileDownloader. Next, we're going to inject this into the constructor,
+
+54
+00:03:32,000 --> 00:03:36,000
+of installerHelper. So, constructor,
+
+55
+00:03:36,000 --> 00:03:40,000
+Inject File (?)
+
+56
+00:03:40,000 --> 00:03:44,000
+IFileDownloader, call it fileDownloader.
+
+57
+00:03:44,000 --> 00:03:48,000
+And next, we're going to create and initialize
+
+58
+00:03:48,000 --> 00:03:52,000
+the private field. So, look
+
+59
+00:03:52,000 --> 00:03:56,000
+we have this private read on the field of type IFile
+
+60
+00:03:56,000 --> 00:04:00,000
+Downloader, and this is initialized using the argument that
+
+61
+00:04:00,000 --> 00:04:04,000
+we get from the constructor, basic dependency injection.
+
+62
+00:04:04,000 --> 00:04:08,000
+Now finally, in DownloadInstaller
+
+63
+00:04:08,000 --> 00:04:12,000
+method, instead of using this client object, we're going to use
+
+64
+00:04:12,000 --> 00:04:16,000
+fileDownloader, and the rest of the code is fine.
+
+65
+00:04:16,000 --> 00:04:20,000
+So this method DownloadInstaller is a
+
+66
+00:04:20,000 --> 00:04:24,000
+higher level method, is delegating the task of downloading the file
+
+67
+00:04:24,000 --> 00:04:28,000
+for this fileDownloader object, but it knows about customer
+
+68
+00:04:28,000 --> 00:04:32,000
+names and installerNames, so it uses this concept
+
+69
+00:04:32,000 --> 00:04:36,000
+to construct a URL. If everything goes well, it's going to return true,
+
+70
+00:04:36,000 --> 00:04:40,000
+if something goes wrong it's going to return false. So here we have two
+
+71
+00:04:40,000 --> 00:04:44,000
+execution paths, and we need to write two unit tests for this class.
+
+72
+00:04:44,000 --> 00:04:47,000
+And, that's what I'm going to show you next.
+

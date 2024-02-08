@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now it's time for an exercise.
+
+2
+00:00:04,000 --> 00:00:08,000
+So in our project, open up the Mocking folder and look at
+
+3
+00:00:08,000 --> 00:00:12,000
+VideoService class. What I want you to do
+
+4
+00:00:12,000 --> 00:00:16,000
+is write the required unit tests for this method. Get
+
+5
+00:00:16,000 --> 00:00:20,000
+UnprocessedVideosAsCsv. Let's see what's happening
+
+6
+00:00:20,000 --> 00:00:24,000
+here. First, we're creating an empty list, then we're
+
+7
+00:00:24,000 --> 00:00:28,000
+using this VideoContext object, which is part of editing
+
+8
+00:00:28,000 --> 00:00:32,000
+framework. We use this to read data from a database.
+
+9
+00:00:32,000 --> 00:00:36,000
+So here we have a quarry, we're getting the list of videos that are not quite
+
+10
+00:00:36,000 --> 00:00:40,000
+processed. So each video has this property, IsProcessed, it's
+
+11
+00:00:40,000 --> 00:00:44,000
+boolean, we're simply recording the videos that are not processed.
+
+12
+00:00:44,000 --> 00:00:48,000
+Then, we iterate over them, and for each video
+
+13
+00:00:48,000 --> 00:00:52,000
+we get it's ID and add it to our list.
+
+14
+00:00:52,000 --> 00:00:56,000
+And finally, we join all these ID's, using a comma
+
+15
+00:00:56,000 --> 00:01:00,000
+and return them as a string. So as you can see,
+
+16
+00:01:00,000 --> 00:01:04,000
+this method is very similar to what you see in a lot of real world applications.
+
+17
+00:01:04,000 --> 00:01:08,000
+So go ahead, and do this exercise, and in the next lecture you can
+
+18
+00:01:08,000 --> 00:01:11,000
+see my solution.
+

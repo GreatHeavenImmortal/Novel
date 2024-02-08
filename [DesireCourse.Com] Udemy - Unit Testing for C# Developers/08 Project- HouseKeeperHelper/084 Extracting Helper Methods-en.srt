@@ -1,0 +1,483 @@
+1
+00:00:00,000 --> 00:00:04,000
+So, look at these 3 tests that we
+
+2
+00:00:04,000 --> 00:00:08,000
+wrote in the last lecture. Here's one example.
+
+3
+00:00:08,000 --> 00:00:12,000
+This test is not too bad, it's fairly short, but I'm not
+
+4
+00:00:12,000 --> 00:00:16,000
+100 percent happy with this implementation. We can take this to the next level and make it
+
+5
+00:00:16,000 --> 00:00:20,000
+cleaner and more maintainable. Look, this arrange
+
+6
+00:00:20,000 --> 00:00:24,000
+part is 3 lines of code and we have
+
+7
+00:00:24,000 --> 00:00:28,000
+kind of repeated this in a few different places. The only
+
+8
+00:00:28,000 --> 00:00:32,000
+difference is the arguments that we pass
+
+9
+00:00:32,000 --> 00:00:36,000
+to the returns method. Now in contrast,
+
+10
+00:00:36,000 --> 00:00:40,000
+look at how we implemented this scenario.
+
+11
+00:00:40,000 --> 00:00:44,000
+Where housekeeper's email is empty string or
+
+12
+00:00:44,000 --> 00:00:48,000
+white space. or null.  Our arrange part
+
+13
+00:00:48,000 --> 00:00:52,000
+is only one line of code. So the first thing I want to
+
+14
+00:00:52,000 --> 00:00:56,000
+improve here is change the implementation
+
+15
+00:00:56,000 --> 00:01:00,000
+of these test methods, and instead of programming the mock
+
+16
+00:01:00,000 --> 00:01:04,000
+here, I want to program the mock in our SetUp method,
+
+17
+00:01:04,000 --> 00:01:08,000
+and then here we can simply set statementFileName
+
+18
+00:01:08,000 --> 00:01:12,000
+to let's say null for this test case.
+
+19
+00:01:12,000 --> 00:01:16,000
+But currently, this doesn't work because we defined this field as
+
+20
+00:01:16,000 --> 00:01:20,000
+readonly. So, first let's
+
+21
+00:01:20,000 --> 00:01:24,000
+move these few lines inside our SetUp method.
+
+22
+00:01:24,000 --> 00:01:28,000
+Cut. Okay,  here's the
+
+23
+00:01:28,000 --> 00:01:32,000
+SetUp method. So this is where
+
+24
+00:01:32,000 --> 00:01:36,000
+we're initializing the statement generator object. So,
+
+25
+00:01:36,000 --> 00:01:40,000
+right after I want to paste this code and then
+
+26
+00:01:40,000 --> 00:01:44,000
+add a line break. So these two lines, highly
+
+27
+00:01:44,000 --> 00:01:48,000
+related, they're purely for programming our statement generator Mock
+
+28
+00:01:48,000 --> 00:01:52,000
+Now, instead of returning null here,
+
+29
+00:01:52,000 --> 00:01:56,000
+I'm going to return statementFileName.
+
+30
+00:01:56,000 --> 00:02:00,000
+Okay? And here in the SetUp method,
+
+31
+00:02:00,000 --> 00:02:04,000
+I want to set the initial values for the happy paths.
+
+32
+00:02:04,000 --> 00:02:08,000
+And then in test cases where we're testing something negative,
+
+33
+00:02:08,000 --> 00:02:12,000
+we will modify that happy path. So here,
+
+34
+00:02:12,000 --> 00:02:16,000
+we set statementFileName to an actual
+
+35
+00:02:16,000 --> 00:02:20,000
+value like fileName, and then we can overwrite
+
+36
+00:02:20,000 --> 00:02:24,000
+this in those three negative tests. You can set it to null,
+
+37
+00:02:24,000 --> 00:02:28,000
+empty string, or white space, Now let's get rid of
+
+38
+00:02:28,000 --> 00:02:32,000
+this compilation issue. So, we need to remove
+
+39
+00:02:32,000 --> 00:02:36,000
+the read only modifier here. And
+
+40
+00:02:36,000 --> 00:02:40,000
+with this new implementation, we should initialize this field
+
+41
+00:02:40,000 --> 00:02:44,000
+inside the SetUp method, because we want to make sure that
+
+42
+00:02:44,000 --> 00:02:48,000
+before each test we have a clean state. So,
+
+43
+00:02:48,000 --> 00:02:52,000
+let's delete this initialization here, okay
+
+44
+00:02:52,000 --> 00:02:56,000
+now, back to our negative unit tests. So, towards the
+
+45
+00:02:56,000 --> 00:03:00,000
+end here, okay, here's one, send
+
+46
+00:03:00,000 --> 00:03:04,000
+statementEmails where StatementFileName is empty string.
+
+47
+00:03:04,000 --> 00:03:08,000
+So we can simplify these three lines and
+
+48
+00:03:08,000 --> 00:03:12,000
+instead add statementFileName, set it to an empty
+
+49
+00:03:12,000 --> 00:03:16,000
+string. Here is another one.
+
+50
+00:03:16,000 --> 00:03:20,000
+We set statementFileName to
+
+51
+00:03:20,000 --> 00:03:24,000
+white space, look, test is already cleaner.
+
+52
+00:03:24,000 --> 00:03:28,000
+And here's the other negative test case.
+
+53
+00:03:28,000 --> 00:03:32,000
+Let's run these tests, so I'm going to put the cursor on the class name,
+
+54
+00:03:32,000 --> 00:03:36,000
+and run all the tests,
+
+55
+00:03:36,000 --> 00:03:40,000
+okay. These three tests, they all
+
+56
+00:03:40,000 --> 00:03:44,000
+broke. Why? Let me explain. So,
+
+57
+00:03:44,000 --> 00:03:48,000
+look at the SetUp method.
+
+58
+00:03:48,000 --> 00:03:52,000
+Here we set statementFileName, to this string, statement fileName,
+
+59
+00:03:52,000 --> 00:03:56,000
+and then programmed this Mock to return
+
+60
+00:03:56,000 --> 00:04:00,000
+this value. So even though we overwrite
+
+61
+00:04:00,000 --> 00:04:04,000
+the value of this field in our test methods,
+
+62
+00:04:04,000 --> 00:04:08,000
+this mock is programmed ahead of time to return
+
+63
+00:04:08,000 --> 00:04:12,000
+a fileName. So we are not testing the scenario
+
+64
+00:04:12,000 --> 00:04:16,000
+where our statement generator cannot generate a statement
+
+65
+00:04:16,000 --> 00:04:20,000
+file. How do we solve this issue? It's very easy.
+
+66
+00:04:20,000 --> 00:04:24,000
+In the last lecture I told you that this Returns method has
+
+67
+00:04:24,000 --> 00:04:28,000
+two overloads. One that takes an extra value, like a string.
+
+68
+00:04:28,000 --> 00:04:32,000
+And the other that takes a funk, a delegate, a lambda expression.
+
+69
+00:04:32,000 --> 00:04:36,000
+We use that for lazy evaluation.
+
+70
+00:04:36,000 --> 00:04:40,000
+So, if instead of passing this private field here,
+
+71
+00:04:40,000 --> 00:04:44,000
+we pass. a lambda expression,
+
+72
+00:04:44,000 --> 00:04:48,000
+the lambda expression, a function with no arguments,
+
+73
+00:04:48,000 --> 00:04:52,000
+goes to this private field. Here we have
+
+74
+00:04:52,000 --> 00:04:56,000
+lazy evaluation. So, with this technique, we'll be able to
+
+75
+00:04:56,000 --> 00:05:00,000
+change the value of these fields in our test methods,
+
+76
+00:05:00,000 --> 00:05:04,000
+and this expression will be evaluated later. Now,
+
+77
+00:05:04,000 --> 00:05:08,000
+let's run all the tests, so I put the cursor
+
+78
+00:05:08,000 --> 00:05:12,000
+back on the class name, and run the tests,
+
+79
+00:05:12,000 --> 00:05:16,000
+you can see they're all passing, beautiful. Now,
+
+80
+00:05:16,000 --> 00:05:20,000
+let's have one final look at the tests
+
+81
+00:05:20,000 --> 00:05:24,000
+we wrote in the last lecture. So these three negative tests
+
+82
+00:05:24,000 --> 00:05:28,000
+we can see their Assertion is exactly the same.
+
+83
+00:05:28,000 --> 00:05:32,000
+You're verifying that this method is not called
+
+84
+00:05:32,000 --> 00:05:36,000
+and we're using it IsAny string and Times.Never. And this is
+
+85
+00:05:36,000 --> 00:05:40,000
+repeated in the last three tests.
+
+86
+00:05:40,000 --> 00:05:44,000
+So when writing unit tests, it's very helpful to extract some
+
+87
+00:05:44,000 --> 00:05:48,000
+private helper methods, to make your tests more readable.
+
+88
+00:05:48,000 --> 00:05:52,000
+For example, here, we can select this code,
+
+89
+00:05:52,000 --> 00:05:56,000
+and extract it into a private method, so alt and enter,
+
+90
+00:05:56,000 --> 00:06:00,000
+refactor this, extract method,
+
+91
+00:06:00,000 --> 00:06:04,000
+We can call this VerifyEmail
+
+92
+00:06:04,000 --> 00:06:08,000
+NotSent. It's very descriptive.
+
+93
+00:06:08,000 --> 00:06:12,000
+Next, look at this test method, only three lines of code.
+
+94
+00:06:12,000 --> 00:06:16,000
+It can't be simpler than this, we set the statement file name to null,
+
+95
+00:06:16,000 --> 00:06:20,000
+act and verify that EmailIsNotSent.
+
+96
+00:06:20,000 --> 00:06:24,000
+Now, I'm going to move this to the bottom of
+
+97
+00:06:24,000 --> 00:06:28,000
+this class, because we put. all the helper methods down in
+
+98
+00:06:28,000 --> 00:06:32,000
+the bottom. And
+
+99
+00:06:32,000 --> 00:06:36,000
+modify these two occurrences, to call
+
+100
+00:06:36,000 --> 00:06:40,000
+VerifyEmailNotSent. And one
+
+101
+00:06:40,000 --> 00:06:44,000
+more here.
+
+102
+00:06:44,000 --> 00:06:48,000
+Okay. Much, much better. Now,
+
+103
+00:06:48,000 --> 00:06:52,000
+potentially in the other test case, where we want to assert that email
+
+104
+00:06:52,000 --> 00:06:56,000
+is sent, again, again we can extract this into helper
+
+105
+00:06:56,000 --> 00:07:00,000
+method called VerifyEmailSent. And this way we'll
+
+106
+00:07:00,000 --> 00:07:04,000
+have symmetry in our code. So, let's do this too.
+
+107
+00:07:04,000 --> 00:07:08,000
+Alt and enter. Refactor. Extract
+
+108
+00:07:08,000 --> 00:07:12,000
+method. VerifyEmailSent.
+
+109
+00:07:12,000 --> 00:07:16,000
+Much better. And also we don't need
+
+110
+00:07:16,000 --> 00:07:20,000
+these few lines anymore, because we
+
+111
+00:07:20,000 --> 00:07:24,000
+programmed our statement generator mock to return a valid
+
+112
+00:07:24,000 --> 00:07:28,000
+file name inside the SetUp method, so let's delete
+
+113
+00:07:28,000 --> 00:07:32,000
+these two lines, and move this helper method
+
+114
+00:07:32,000 --> 00:07:36,000
+down the bottom.
+
+115
+00:07:36,000 --> 00:07:40,000
+Like this. So this is what you call
+
+116
+00:07:40,000 --> 00:07:44,000
+proper unit test. Very, very short,
+
+117
+00:07:44,000 --> 00:07:48,000
+very clean. In one of the companies I worked at a few years ago,
+
+118
+00:07:48,000 --> 00:07:52,000
+we had unit tests that were 50 lines of  code, that's
+
+119
+00:07:52,000 --> 00:07:56,000
+not a unit test. That kind of unit test slows you down, it breaks
+
+120
+00:07:56,000 --> 00:08:00,000
+easily, and when it breaks it takes you more time to figure out what
+
+121
+00:08:00,000 --> 00:08:02,000
+is going on.

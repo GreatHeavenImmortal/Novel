@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,000
+Para gravar testes de unidade e integrao, voc precisa
+
+2
+00:00:04,000 --> 00:00:08,000
+de uma estrutura de teste. Existem vrios frameworks de testes
+
+3
+00:00:08,000 --> 00:00:12,000
+por a, mas os mais populares so: NUnit: que
+
+4
+00:00:12,000 --> 00:00:16,000
+ um dos frameworks mais antigos, temos o MSTest,
+
+5
+00:00:16,000 --> 00:00:20,000
+que  o framework de testes da Microsoft integrado
+
+6
+00:00:20,000 --> 00:00:24,000
+ao Visual Studio, e o Xunit, que ganhou mais
+
+7
+00:00:24,000 --> 00:00:28,000
+popularidade nos ltimos dois anos. Todas essas estruturas fornecem uma
+
+8
+00:00:28,000 --> 00:00:32,000
+biblioteca de utilitrios para escrever seus testes e um executor de
+
+9
+00:00:32,000 --> 00:00:36,000
+testes que executa seus testes e fornece um relatrio de testes
+
+10
+00:00:36,000 --> 00:00:40,000
+de aprovao e reprovao. Qual estrutura  melhor? Depende de quem voc pergunta
+
+11
+00:00:40,000 --> 00:00:44,000
+e qual  a melhor definio deles. Diferentes pessoas gostam
+
+12
+00:00:44,000 --> 00:00:48,000
+de ferramentas diferentes. Ento, aqui est a minha sugesto: no fique preso nas ferramentas.
+
+13
+00:00:48,000 --> 00:00:52,000
+Neste curso, nosso foco est nos fundamentos da escrita de testes
+
+14
+00:00:52,000 --> 00:00:56,000
+de qualidade que lhe do valor.  isso
+
+15
+00:00:56,000 --> 00:01:00,000
+que importa. Voc sempre pode usar uma estrutura diferente ao
+
+16
+00:01:00,000 --> 00:01:04,000
+passar de um projeto ou equipe para outro. Neste curso, voc comear com
+
+17
+00:01:04,000 --> 00:01:08,000
+o MSTest porque ele est integrado ao Visual Studio e
+
+18
+00:01:08,000 --> 00:01:12,000
+no requer etapas adicionais. Mas logo depois, vou
+
+19
+00:01:12,000 --> 00:01:16,000
+mostrar como instalar o NUnit e executar testes
+
+20
+00:01:16,000 --> 00:01:20,000
+do NUnit no Visual Studio. Voc pode usar qualquer uma dessas
+
+21
+00:01:20,000 --> 00:01:24,000
+estruturas, que  puramente sua deciso pessoal. Mas para a maior parte deste
+
+22
+00:01:24,000 --> 00:01:28,000
+curso, usarei o NUnit porque ele tem uma histria mais longa do
+
+23
+00:01:28,000 --> 00:01:32,000
+que o MSTest e eu pessoalmente acho um framework de testes mais elegante.
+
+24
+00:01:32,000 --> 00:01:36,000
+Agora, uma ferramenta opcional que eu recomendo  o ReSharper, porque ele
+
+25
+00:01:36,000 --> 00:01:40,000
+tem um executor de teste mais rpido e mais potente do que
+
+26
+00:01:40,000 --> 00:01:44,000
+o criado no Visual Studio. S para voc saber, o ReSharper  um
+
+27
+00:01:44,000 --> 00:01:48,000
+produto comercial e eu no sou afiliado deles! Voc pode decidir comprar uma
+
+28
+00:01:48,000 --> 00:01:52,000
+licena ou no. Isso  inteiramente sua escolha. O que eu
+
+29
+00:01:52,000 --> 00:01:56,000
+quero enfatizar  que voc no precisa do ReSharper
+
+30
+00:01:56,000 --> 00:02:00,000
+para escrever ou executar testes. Mas eu uso o ReSharper porque
+
+31
+00:02:00,000 --> 00:02:04,000
+ um enorme impulsionador de produtividade. Outra ferramenta opcional  o
+
+32
+00:02:04,000 --> 00:02:08,000
+Rider. Se voc gosta do Visual Studio + ReSharper, mas
+
+33
+00:02:08,000 --> 00:02:12,000
+acha que o Visual Studio  muito lento para voc,
+
+34
+00:02:12,000 --> 00:02:16,000
+recomendo que experimente o Rider. O Rider  basicamente
+
+35
+00:02:16,000 --> 00:02:20,000
+um IDE multiplataforma construdo pela JetBrains, a mesma
+
+36
+00:02:20,000 --> 00:02:24,000
+empresa que fez o ReSharper. Ento voc tem um super
+
+37
+00:02:24,000 --> 00:02:28,000
+rpido IDE + ReSharper com exatamente os mesmos atalhos que
+
+38
+00:02:28,000 --> 00:02:32,000
+voc usa no Visual Studio. Neste curso, vou gravar os primeiros
+
+39
+00:02:32,000 --> 00:02:36,000
+vdeos com o Visual Studio porque esse  o IDE padro para
+
+40
+00:02:36,000 --> 00:02:40,000
+a maioria de vocs, mas depois eu vou mudar para o Rider
+
+41
+00:02:40,000 --> 00:02:44,000
+porque  muito mais rpido. Voc pode usar o Visual Studio com ou sem o ReSharper.
+
+42
+00:02:44,000 --> 00:02:48,000
+Isso est perfeitamente bem. Seu foco deve estar nos
+
+43
+00:02:48,000 --> 00:02:52,000
+fundamentos da escrita de bons testes e no no ferramental.
+

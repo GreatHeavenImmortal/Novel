@@ -1,0 +1,572 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ok, a primeira coisa que precisamos fazer para testar
+
+2
+00:00:04,000 --> 00:00:08,000
+essa classe  refatorar esse cdigo e remover as
+
+3
+00:00:08,000 --> 00:00:12,000
+partes que tocam recursos externos. Ento, aqui temos trs pontos em
+
+4
+00:00:12,000 --> 00:00:16,000
+que trabalhamos com recursos externos. Aqui est um ponto em
+
+5
+00:00:16,000 --> 00:00:20,000
+que consultamos nosso banco de dados, eis outro ponto em que
+
+6
+00:00:20,000 --> 00:00:24,000
+tocamos no sistema de arquivos, e aqui est o ltimo ponto
+
+7
+00:00:24,000 --> 00:00:28,000
+em que enviamos um email. Ento, vamos comear
+
+8
+00:00:28,000 --> 00:00:32,000
+o primeiro, UnitOfWork. Na ltima seo, onde lidamos
+
+9
+00:00:32,000 --> 00:00:36,000
+com o banco de dados, mostramos como extrair a
+
+10
+00:00:36,000 --> 00:00:40,000
+lgica da consulta e encapsul-la dentro de um repositrio.
+
+11
+00:00:40,000 --> 00:00:44,000
+Ento, como eu disse antes, usamos o padro de repositrio para
+
+12
+00:00:44,000 --> 00:00:48,000
+encapsular as consultas, neste caso no temos uma consulta complexa, estamos
+
+13
+00:00:48,000 --> 00:00:52,000
+simplesmente obtendo todas as donas de casa do banco de dados.
+
+14
+00:00:52,000 --> 00:00:56,000
+Portanto, no h realmente nenhuma necessidade de extrair uma
+
+15
+00:00:56,000 --> 00:01:00,000
+nova classe chamada HousekeeperRepository. Eu simplesmente extrairia uma
+
+16
+00:01:00,000 --> 00:01:04,000
+interface desta unidade de trabalho. Portanto, no trabalhamos diretamente com uma
+
+17
+00:01:04,000 --> 00:01:08,000
+implementao concreta da unidade de trabalho que afeta o banco de dados.
+
+18
+00:01:08,000 --> 00:01:12,000
+Ento, vamos para essa unidade
+
+19
+00:01:12,000 --> 00:01:16,000
+de classe de trabalho, ela
+
+20
+00:01:16,000 --> 00:01:20,000
+est definida aqui agora, alt
+
+21
+00:01:20,000 --> 00:01:24,000
+e enter, refatorar e extrair interface.
+
+22
+00:01:24,000 --> 00:01:28,000
+Ento, IUnitOfWork, e ns adicionamos este mtodo de consulta
+
+23
+00:01:28,000 --> 00:01:32,000
+aqui, em seguida, aqui est a nossa interface, linda,
+
+24
+00:01:32,000 --> 00:01:36,000
+agora de volta ao nosso ajudante de governanta, olha
+
+25
+00:01:36,000 --> 00:01:40,000
+este mtodo  definido como esttico. Ento, como voc aprendeu na ltima seo,
+
+26
+00:01:40,000 --> 00:01:44,000
+a nica maneira de injetar uma dependncia aqui  usar um parmetro nesse
+
+27
+00:01:44,000 --> 00:01:48,000
+mtodo, mas voc j viu a soluo na ltima seo, portanto, nesta seo,
+
+28
+00:01:48,000 --> 00:01:52,000
+voc deseja usar a injeo de construtor. Ento, vou remover o
+
+29
+00:01:52,000 --> 00:01:56,000
+modificador esttico e tornar esse mtodo um
+
+30
+00:01:56,000 --> 00:02:00,000
+mtodo de instncia. As chances so de que isso vai
+
+31
+00:02:00,000 --> 00:02:04,000
+quebrar algumas partes do cdigo, e vamos ter problemas de compilao, mas vamos supor
+
+32
+00:02:04,000 --> 00:02:08,000
+que no vamos ter muitas mudanas. Ento, agora temos um erro
+
+33
+00:02:08,000 --> 00:02:12,000
+de compilao porque esse mtodo  definido em uma classe esttica.
+
+34
+00:02:12,000 --> 00:02:16,000
+Portanto, devemos tambm remover o modificador esttico aqui.
+
+35
+00:02:16,000 --> 00:02:20,000
+Ok, agora podemos adicionar um
+
+36
+00:02:20,000 --> 00:02:24,000
+construtor e injetar um IUnitOfWorkObject.
+
+37
+00:02:24,000 --> 00:02:28,000
+Ento UnitOfWork agora aqui podemos usar Rider ou
+
+38
+00:02:28,000 --> 00:02:32,000
+ReSharper para criar e inicializar rapidamente um campo
+
+39
+00:02:32,000 --> 00:02:36,000
+privado, ento pressionamos alt e enter e a
+
+40
+00:02:36,000 --> 00:02:40,000
+primeira opo  introduzir o campo somente leitura,
+
+41
+00:02:40,000 --> 00:02:44,000
+sublinhando a unidade de trabalho. Ento voc pode ver
+
+42
+00:02:44,000 --> 00:02:48,000
+o Rider criou este campo privado e inicializou
+
+43
+00:02:48,000 --> 00:02:52,000
+usando este argumento aqui. Com isso, no precisamos mais desse
+
+44
+00:02:52,000 --> 00:02:56,000
+campo esttico somente para leitura. Ento, delete e agora
+
+45
+00:02:56,000 --> 00:03:00,000
+temos um erro de compilao aqui porque
+
+46
+00:03:00,000 --> 00:03:04,000
+UnitOfWork no existe, ento vamos mudar isso
+
+47
+00:03:04,000 --> 00:03:08,000
+para sublinhar UnitOfWork. Ok bonito.
+
+48
+00:03:08,000 --> 00:03:12,000
+Ento, refatoramos o primeiro ponto em que
+
+49
+00:03:12,000 --> 00:03:16,000
+tocamos um recurso externo. Agora, o segundo ponto  onde
+
+50
+00:03:16,000 --> 00:03:20,000
+salvamos a instruo no sistema de arquivos. Ento, de volta
+
+51
+00:03:20,000 --> 00:03:24,000
+ao gerenciador de solues, eu vou criar
+
+52
+00:03:24,000 --> 00:03:28,000
+uma nova classe, vamos chamar isso de
+
+53
+00:03:28,000 --> 00:03:32,000
+Gerador de Declaraes. OK.
+
+54
+00:03:32,000 --> 00:03:36,000
+Agora, de volta  nossa classe HousekeeperHelper,
+
+55
+00:03:36,000 --> 00:03:40,000
+vamos para a implementao do mtodo SaveStatement,
+
+56
+00:03:40,000 --> 00:03:44,000
+est aqui, ento vou tornar isso pblico,
+
+57
+00:03:44,000 --> 00:03:48,000
+agora, podemos selecionar esse cdigo, cort-lo e
+
+58
+00:03:48,000 --> 00:03:52,000
+voltar ao nosso novo gerador de instrues
+
+59
+00:03:52,000 --> 00:03:56,000
+de classe, cole aqui. Vamos importar
+
+60
+00:03:56,000 --> 00:04:00,000
+a nebulizao (? ) declaraes, bonito e, finalmente, precisamos
+
+61
+00:04:00,000 --> 00:04:04,000
+extrair uma interface desta classe. Ento, o cursor
+
+62
+00:04:04,000 --> 00:04:08,000
+est no nome da classe, alt
+
+63
+00:04:08,000 --> 00:04:12,000
+e enter, refatorar e extrair interface.
+
+64
+00:04:12,000 --> 00:04:16,000
+Ok, note que aqui no temos
+
+65
+00:04:16,000 --> 00:04:20,000
+membros para selecionar. Ento, eu esqueci de remover este
+
+66
+00:04:20,000 --> 00:04:24,000
+modificador esttico, porque ns no podemos colocar membros estticos em uma interface,
+
+67
+00:04:24,000 --> 00:04:28,000
+ por isso que voc deve evitar o uso esttico porque voc
+
+68
+00:04:28,000 --> 00:04:32,000
+no pode extrair de uma interface e Mock que a interface em
+
+69
+00:04:32,000 --> 00:04:36,000
+sua unidade testa. Ento, vamos remover isso. Mais uma vez.
+
+70
+00:04:36,000 --> 00:04:40,000
+Extraia a interface.
+
+71
+00:04:40,000 --> 00:04:44,000
+Ok, agora temos esse mtodo
+
+72
+00:04:44,000 --> 00:04:48,000
+SaveStatement, vamos selecion-lo. A seguir, linda, aqui
+
+73
+00:04:48,000 --> 00:04:52,000
+est nossa nova interface e, finalmente, precisamos injetar
+
+74
+00:04:52,000 --> 00:04:56,000
+isso dentro de nossa classe auxiliar de governanta.
+
+75
+00:04:56,000 --> 00:05:00,000
+Ento vamos ao construtor.
+
+76
+00:05:00,000 --> 00:05:04,000
+aqui est o construtor,
+
+77
+00:05:04,000 --> 00:05:08,000
+vamos injetar o IStatementGenerator.
+
+78
+00:05:08,000 --> 00:05:12,000
+E mais uma vez podemos usar Rider
+
+79
+00:05:12,000 --> 00:05:16,000
+ou ReSharper para criar e inicializar rapidamente
+
+80
+00:05:16,000 --> 00:05:20,000
+um campo privado. Ento, alt e enter,
+
+81
+00:05:20,000 --> 00:05:24,000
+introduza o campo somente leitura. Agora, finalmente, vamos corrigir
+
+82
+00:05:24,000 --> 00:05:28,000
+esse problema de compilao. Ento,
+
+83
+00:05:28,000 --> 00:05:32,000
+chamamos de statementGenerator.
+
+84
+00:05:32,000 --> 00:05:36,000
+SaveStatement. E finalmente, o ltimo ponto, 
+
+85
+00:05:36,000 --> 00:05:40,000
+para onde enviar um email. Bem aqui.
+
+86
+00:05:40,000 --> 00:05:44,000
+Ento, mais uma vez, precisamos criar uma nova classe e usar esse mtodo
+
+87
+00:05:44,000 --> 00:05:48,000
+de etapa particular dentro dessa classe. Ento, de volta
+
+88
+00:05:48,000 --> 00:05:52,000
+ao explorador de solues, vamos adicionar
+
+89
+00:05:52,000 --> 00:05:56,000
+uma nova classe chamada this EmailSender.
+
+90
+00:05:56,000 --> 00:06:00,000
+Agora, de volta aqui, vamos para
+
+91
+00:06:00,000 --> 00:06:04,000
+a implementao deste mtodo, est bem
+
+92
+00:06:04,000 --> 00:06:08,000
+aqui, ento vou selecionar isso, recortar
+
+93
+00:06:08,000 --> 00:06:12,000
+e voltar no remetente do email, col-lo aqui.
+
+94
+00:06:12,000 --> 00:06:16,000
+Agora, vamos importar todas as referncias ausentes,
+
+95
+00:06:16,000 --> 00:06:20,000
+pronto, agora, voc precisa tornar esse mtodo
+
+96
+00:06:20,000 --> 00:06:24,000
+pblico e remover o modificador esttico.
+
+97
+00:06:24,000 --> 00:06:28,000
+E com isso estamos prontos para extrair uma interface desta classe.
+
+98
+00:06:28,000 --> 00:06:32,000
+Ento, refatorar, extrair
+
+99
+00:06:32,000 --> 00:06:36,000
+interface. Vamos selecionar esse
+
+100
+00:06:36,000 --> 00:06:40,000
+membro, prximo, feito e, finalmente, de volta
+
+101
+00:06:40,000 --> 00:06:44,000
+ nossa classe housekeeperHelper, precisamos injetar isso
+
+102
+00:06:44,000 --> 00:06:48,000
+dentro do construtor. Ento, nosso construtor tem
+
+103
+00:06:48,000 --> 00:06:52,000
+dois parmetros, e se eu colocar o terceiro, ele
+
+104
+00:06:52,000 --> 00:06:56,000
+no vai caber na tela. Por isso, sempre preste muita
+
+105
+00:06:56,000 --> 00:07:00,000
+ateno na formatao do seu cdigo, neste caso eu prefiro
+
+106
+00:07:00,000 --> 00:07:04,000
+colocar cada parmetro em uma nica linha, assim podemos ver
+
+107
+00:07:04,000 --> 00:07:08,000
+claramente quais parmetros temos aqui. Ento, IEmailSender, emailSender,
+
+108
+00:07:08,000 --> 00:07:12,000
+e agora vamos inicializar este campo
+
+109
+00:07:12,000 --> 00:07:16,000
+privado, pronto, e a ltima coisa.
+
+110
+00:07:16,000 --> 00:07:20,000
+Precisamos corrigir esse problema de compilao.
+
+111
+00:07:20,000 --> 00:07:24,000
+E use este objeto emailSender.
+
+112
+00:07:24,000 --> 00:07:28,000
+Na verdade, notei que h mais um ponto em que
+
+113
+00:07:28,000 --> 00:07:32,000
+trabalhamos em um recurso externo. Olhe para esta linha.
+
+114
+00:07:32,000 --> 00:07:36,000
+ExtraMessageBox. Exposio. Eu no estou
+
+115
+00:07:36,000 --> 00:07:40,000
+totalmente certo do que esta classe , mas parece que
+
+116
+00:07:40,000 --> 00:07:44,000
+ algum tipo de ajudante que exibe uma caixa de
+
+117
+00:07:44,000 --> 00:07:48,000
+mensagem, ento provavelmente esse cdigo-fonte  usado em um aplicativo
+
+118
+00:07:48,000 --> 00:07:52,000
+de formato WPF ou Windows. Portanto, ao executar nossos testes de
+
+119
+00:07:52,000 --> 00:07:56,000
+unidade, no queremos exibir uma caixa de mensagem, que tambm  considerada
+
+120
+00:07:56,000 --> 00:08:00,000
+um recurso externo. Queremos apenas testar a lgica, no queremos executar o
+
+121
+00:08:00,000 --> 00:08:04,000
+aplicativo e ver uma caixa de mensagem. Ento, precisamos trabalhar com
+
+122
+00:08:04,000 --> 00:08:08,000
+uma interface aqui. Agora, vamos ver a declarao
+
+123
+00:08:08,000 --> 00:08:12,000
+dessa caixa de mensagem extra. Eu criei isso aqui, ento tudo
+
+124
+00:08:12,000 --> 00:08:16,000
+o que precisamos fazer  extrair uma interface, no precisamos envolver isso
+
+125
+00:08:16,000 --> 00:08:20,000
+dentro de outra classe como, auxiliar de caixa de mensagem extra, no
+
+126
+00:08:20,000 --> 00:08:24,000
+h necessidade de criar uma classe extra. Ento, se voc tem controle sobre
+
+127
+00:08:24,000 --> 00:08:28,000
+uma classe existente, simplesmente extraia uma interface daquela classe se voc estiver
+
+128
+00:08:28,000 --> 00:08:32,000
+usando um cdigo de terceiros que no tenha uma interface, ento voc
+
+129
+00:08:32,000 --> 00:08:36,000
+ter que encapsular esse cdigo dentro de uma classe em sua aplicao
+
+130
+00:08:36,000 --> 00:08:40,000
+que voc pode controlar. Ok, ento,
+
+131
+00:08:40,000 --> 00:08:44,000
+primeiro precisamos remover esse
+
+132
+00:08:44,000 --> 00:08:48,000
+modificador esttico e extrair
+
+133
+00:08:48,000 --> 00:08:52,000
+uma interface chamada IXtraMessage
+
+134
+00:08:52,000 --> 00:08:56,000
+Box. Vamos adicionar este mtodo aqui. Agora,
+
+135
+00:08:56,000 --> 00:09:00,000
+precisamos injetar isso dentro
+
+136
+00:09:00,000 --> 00:09:04,000
+do construtor. SoI
+
+137
+00:09:04,000 --> 00:09:08,000
+XtraMessageBox. Vamos apenas
+
+138
+00:09:08,000 --> 00:09:12,000
+chamar este messageBox. E crie e inicialize
+
+139
+00:09:12,000 --> 00:09:16,000
+este campo privado. E, finalmente,
+
+140
+00:09:16,000 --> 00:09:20,000
+podemos substituir isso pela caixa
+
+141
+00:09:20,000 --> 00:09:24,000
+de mensagens. Exposio. Portanto, com essas refatoraes,
+
+142
+00:09:24,000 --> 00:09:28,000
+esse cdigo agora  fracamente acoplado e testvel, portanto, na prxima
+
+143
+00:09:28,000 --> 00:09:32,000
+palestra, vamos escrever nosso primeiro teste unitrio para esse mtodo.
+

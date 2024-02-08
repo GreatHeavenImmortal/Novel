@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:04,000
+No mundo real,  medida que voc modifica seu cdigo,
+
+2
+00:00:04,000 --> 00:00:08,000
+ possvel que voc possa quebrar um ou mais testes.
+
+3
+00:00:08,000 --> 00:00:12,000
+Agora, quando o seu novo teste na unidade, voc pode ficar
+
+4
+00:00:12,000 --> 00:00:16,000
+frustrado, voc pode pensar que esses testes esto ficando no caminho,
+
+5
+00:00:16,000 --> 00:00:20,000
+e eles esto deixando-o mais lento, ento voc pode ficar tentado
+
+6
+00:00:20,000 --> 00:00:24,000
+a excluir esses testes, ou coment-los. Mas esta  uma abordagem muito ruim, porque
+
+7
+00:00:24,000 --> 00:00:28,000
+havia uma razo para escrever esses testes. Assim, podemos implantar e refatorar
+
+8
+00:00:28,000 --> 00:00:32,000
+seu cdigo com mais confiana. Ento, nesta palestra, eu quero
+
+9
+00:00:32,000 --> 00:00:36,000
+mostrar uma tcnica para desabilitar temporariamente um teste para que voc
+
+10
+00:00:36,000 --> 00:00:40,000
+possa se concentrar em algum trabalho em outro lugar e ento
+
+11
+00:00:40,000 --> 00:00:44,000
+consertar esse teste em algum lugar no futuro, no NUnit, temos
+
+12
+00:00:44,000 --> 00:00:48,000
+este til atributo chamado Ignorar. Este atributo leva um argumento
+
+13
+00:00:48,000 --> 00:00:52,000
+e esta  a razo pela qual queremos ignorar este teste.
+
+14
+00:00:52,000 --> 00:00:56,000
+Isso  muito til, porque podemos ver essa mensagem
+
+15
+00:00:56,000 --> 00:01:00,000
+ao executar nossos testes. Isso nos lembrar por que desativamos esses testes.
+
+16
+00:01:00,000 --> 00:01:04,000
+Ento, vamos adicionar uma mensagem aqui,
+
+17
+00:01:04,000 --> 00:01:08,000
+porque eu queria. Agora, vou executar todos
+
+18
+00:01:08,000 --> 00:01:12,000
+os testes neste projeto, veja o teste do
+
+19
+00:01:12,000 --> 00:01:16,000
+mtodo do aplicativo. Voc pode ver esse aviso
+
+20
+00:01:16,000 --> 00:01:20,000
+amarelo, ignor-lo, porque eu queria. Ento, esta  a
+
+21
+00:01:20,000 --> 00:01:24,000
+melhor abordagem, excluindo um teste ou comentando.
+
+22
+00:01:24,000 --> 00:01:28,000
+Porque quando voc comenta um teste, voc se esquece de remover esse comentrio mais tarde.
+
+23
+00:01:28,000 --> 00:01:32,000
+Mas o atributo Ignore e esta mensagem de aviso iro lembr-lo.
+

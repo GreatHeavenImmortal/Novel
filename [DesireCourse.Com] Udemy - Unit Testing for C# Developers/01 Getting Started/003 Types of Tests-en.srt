@@ -1,0 +1,239 @@
+1
+00:00:00,000 --> 00:00:04,000
+In automated testing, we have 3
+
+2
+00:00:04,000 --> 00:00:08,000
+types of tests: unit tests, integration tests
+
+3
+00:00:08,000 --> 00:00:12,000
+and end-to-end tests. A unit test is what I showed you
+
+4
+00:00:12,000 --> 00:00:16,000
+earlier in this section. You test a unit of the application
+
+5
+00:00:16,000 --> 00:00:20,000
+without its external dependencies such as files,
+
+6
+00:00:20,000 --> 00:00:24,000
+databases, message queues, web services and so on.
+
+7
+00:00:24,000 --> 00:00:28,000
+Now, note this keyword here: external dependencies.
+
+8
+00:00:28,000 --> 00:00:32,000
+This is really important, as you'll find out shortly. So,
+
+9
+00:00:32,000 --> 00:00:36,000
+these unit tests exercise your code without
+
+10
+00:00:36,000 --> 00:00:40,000
+any external dependencies, they are cheap to write and they execute
+
+11
+00:00:40,000 --> 00:00:44,000
+fast. So, you can run hundreds of them in just a few
+
+12
+00:00:44,000 --> 00:00:48,000
+seconds, and this way you can verify that each building block
+
+13
+00:00:48,000 --> 00:00:52,000
+in our application is working as expected. However,
+
+14
+00:00:52,000 --> 00:00:56,000
+since you're not testing these classes or components with their external dependencies,
+
+15
+00:00:56,000 --> 00:01:00,000
+you can't get a lot of confidence in the reliability
+
+16
+00:01:00,000 --> 00:01:04,000
+of your application. So, that's when integration
+
+17
+00:01:04,000 --> 00:01:08,000
+tests come to the rescue. An integration test, tests
+
+18
+00:01:08,000 --> 00:01:12,000
+a class or a component with its external dependencies.
+
+19
+00:01:12,000 --> 00:01:16,000
+So, it tests the integration of your application
+
+20
+00:01:16,000 --> 00:01:20,000
+code with these concrete dependencies like files, databases
+
+21
+00:01:20,000 --> 00:01:24,000
+and so on. Again, note that I'm emphasizing the word
+
+22
+00:01:24,000 --> 00:01:28,000
+"external" here. These tests, take longer to execute
+
+23
+00:01:28,000 --> 00:01:32,000
+because they often involve reading or writing to a database,
+
+24
+00:01:32,000 --> 00:01:36,000
+but they give us more confidence in the health of our application.
+
+25
+00:01:36,000 --> 00:01:40,000
+Now, traditionally, an integration test
+
+26
+00:01:40,000 --> 00:01:44,000
+is defined as a test that takes a few units or classes
+
+27
+00:01:44,000 --> 00:01:48,000
+and test their behavior as a whole.
+
+28
+00:01:48,000 --> 00:01:52,000
+So, based on this definition, if you test 2 classes together
+
+29
+00:01:52,000 --> 00:01:56,000
+some people believe you're writing an integration test and not a unit
+
+30
+00:01:56,000 --> 00:02:00,000
+test, even if none of these classes talk to an external
+
+31
+00:02:00,000 --> 00:02:04,000
+resource like a database. Chances are you've heard this definition before.
+
+32
+00:02:04,000 --> 00:02:08,000
+Now I'll tell you what. This definition is a great recipe
+
+33
+00:02:08,000 --> 00:02:12,000
+for writing fragile tests that are coupled to your
+
+34
+00:02:12,000 --> 00:02:16,000
+implementation detail. So, as you change the implementation of your
+
+35
+00:02:16,000 --> 00:02:20,000
+classes, these tests are gonna break and you'll end up
+
+36
+00:02:20,000 --> 00:02:24,000
+wasting a lot of time fixing them. Not only won't they give you any
+
+37
+00:02:24,000 --> 00:02:28,000
+values, but they actually slow you down! I'm gonna show you an
+
+38
+00:02:28,000 --> 00:02:32,000
+example of this later in the course when I talk about fakes
+
+39
+00:02:32,000 --> 00:02:36,000
+and mocks. If you've done unit testing before and failed,
+
+40
+00:02:36,000 --> 00:02:40,000
+chances are you followed this definition! So, once again, a
+
+41
+00:02:40,000 --> 00:02:44,000
+unit test tests a class or multiple classes with
+
+42
+00:02:44,000 --> 00:02:48,000
+out their external dependencies. They test a unit of
+
+43
+00:02:48,000 --> 00:02:52,000
+work. An integration test tests a class or multiple
+
+44
+00:02:52,000 --> 00:02:56,000
+classes with their external dependencies.
+
+45
+00:02:56,000 --> 00:03:00,000
+You also have another type of test called end-to-end test
+
+46
+00:03:00,000 --> 00:03:04,000
+that drives an application through its user-interface.
+
+47
+00:03:04,000 --> 00:03:08,000
+There are specific tools built for creating end-to-end tests.
+
+48
+00:03:08,000 --> 00:03:12,000
+One popular tool that you might have heard of is Selenium,
+
+49
+00:03:12,000 --> 00:03:16,000
+which allows us to record the interaction of a user with our
+
+50
+00:03:16,000 --> 00:03:20,000
+application and then play it back and check if the application is returning
+
+51
+00:03:20,000 --> 00:03:24,000
+the right result or not. These tests give you the greatest
+
+52
+00:03:24,000 --> 00:03:28,000
+amount of confidence about the health of your application but they have
+
+53
+00:03:28,000 --> 00:03:32,000
+2 big problems. The first problem is that they are very slow.
+
+54
+00:03:32,000 --> 00:03:36,000
+Because they require launching the application and testing it through the
+
+55
+00:03:36,000 --> 00:03:40,000
+UI. So, every test is going to launch the application, potentially
+
+56
+00:03:40,000 --> 00:03:44,000
+login, navigate to an internal page, submit a form
+
+57
+00:03:44,000 --> 00:03:48,000
+and inspect the result. Very slow. The second problem
+
+58
+00:03:48,000 --> 00:03:52,000
+is that they're very brittle, because a small enhancement to the application
+
+59
+00:03:52,000 --> 00:03:56,000
+or a small change in the user-interface can easily break
+
+60
+00:03:56,000 --> 00:04:00,000
+these tests.

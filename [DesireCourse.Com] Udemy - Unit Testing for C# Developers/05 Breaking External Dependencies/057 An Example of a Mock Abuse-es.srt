@@ -1,0 +1,292 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, de vuelta en nuestra carpeta
+
+2
+00:00:04,000 --> 00:00:08,000
+Mocking, mira esta clase de productos.
+
+3
+00:00:08,000 --> 00:00:12,000
+Esta clase de producto tiene una propiedad llamada
+
+4
+00:00:12,000 --> 00:00:16,000
+ListPrice y un mtodo llamado GetPrice que toma
+
+5
+00:00:16,000 --> 00:00:20,000
+un argumento del cliente. Entonces aqu revisamos si el cliente
+
+6
+00:00:20,000 --> 00:00:24,000
+IsGold, les damos un 30% de descuento. De lo contrario,
+
+7
+00:00:24,000 --> 00:00:28,000
+devolvemos el ListPrice. Y aqu est la definicin de la clase de cliente.
+
+8
+00:00:28,000 --> 00:00:32,000
+Un ejemplo muy simple, pero podemos usarlo para ver qu
+
+9
+00:00:32,000 --> 00:00:36,000
+pasa cuando abusas de burlas. Entonces, sigamos adelante y escriba una
+
+10
+00:00:36,000 --> 00:00:40,000
+prueba unitaria para este mtodo para el escenario donde el cliente
+
+11
+00:00:40,000 --> 00:00:44,000
+es un cliente de oro. Entonces, de vuelta
+
+12
+00:00:44,000 --> 00:00:48,000
+en nuestro explorador de soluciones, en
+
+13
+00:00:48,000 --> 00:00:52,000
+la carpeta Mocking, agreguemos una nueva
+
+14
+00:00:52,000 --> 00:00:56,000
+clase, Product Tests. Agregamos el
+
+15
+00:00:56,000 --> 00:01:00,000
+atributo TestFixture y escribimos
+
+16
+00:01:00,000 --> 00:01:04,000
+el Test para que
+
+17
+00:01:04,000 --> 00:01:08,000
+GetPrice, para GoldCustomer, aplique
+
+18
+00:01:08,000 --> 00:01:12,000
+Apply30Percent Discount. Ahora, creemos un
+
+19
+00:01:12,000 --> 00:01:16,000
+objeto de producto. Nuevo producto,
+
+20
+00:01:16,000 --> 00:01:20,000
+y configure su ListPrice en
+
+21
+00:01:20,000 --> 00:01:24,000
+100 dlares. Bueno? Ahora, actuemos,
+
+22
+00:01:24,000 --> 00:01:28,000
+entonces, producto GetPrice, le damos
+
+23
+00:01:28,000 --> 00:01:32,000
+un objeto de cliente y
+
+24
+00:01:32,000 --> 00:01:36,000
+establecemos que IsGold sea verdadero.
+
+25
+00:01:36,000 --> 00:01:40,000
+Luego, obtenga el resultado, y
+
+26
+00:01:40,000 --> 00:01:44,000
+finalmente, Assert That, result, es
+
+27
+00:01:44,000 --> 00:01:48,000
+igual a, 70 dlares.
+
+28
+00:01:48,000 --> 00:01:52,000
+Vamos a ejecutar esta prueba.
+
+29
+00:01:52,000 --> 00:01:56,000
+De acuerdo, pas, hermoso. Ahora, de vuelta en
+
+30
+00:01:56,000 --> 00:02:00,000
+nuestra clase de productos, djame mostrarte lo que
+
+31
+00:02:00,000 --> 00:02:04,000
+sucede cuando abusas de burlas. Entonces la gente que usa
+
+32
+00:02:04,000 --> 00:02:08,000
+burlas extrae (? ) ellos en la interfaz de cada clase. As que aqu,
+
+33
+00:02:08,000 --> 00:02:12,000
+vamos a extraer una interfaz de la clase de cliente,
+
+34
+00:02:12,000 --> 00:02:16,000
+refactorizar una interfaz de extraccin. Lo llamamos iCustomer con
+
+35
+00:02:16,000 --> 00:02:20,000
+una propiedad, de acuerdo? Y luego, en el
+
+36
+00:02:20,000 --> 00:02:24,000
+mtodo GetPrice, en lugar de Cliente pasas
+
+37
+00:02:24,000 --> 00:02:28,000
+un objeto ICustomer. Ahora, volviendo a nuestra prueba de
+
+38
+00:02:28,000 --> 00:02:32,000
+unidad, la prueba actual de la unidad est funcionando, porque este objetivo
+
+39
+00:02:32,000 --> 00:02:36,000
+del cliente que estamos aprobando implementa, por supuesto, la interfaz ICustomer, por
+
+40
+00:02:36,000 --> 00:02:40,000
+lo que esta prueba est perfectamente bien. Sin embargo, las personas que usan
+
+41
+00:02:40,000 --> 00:02:44,000
+burlas en todas partes, no escriben una prueba unitaria como esta.
+
+42
+00:02:44,000 --> 00:02:48,000
+En cambio, escriben una prueba unitaria como esta. As que voy a duplicar
+
+43
+00:02:48,000 --> 00:02:52,000
+esto, y cambiar el nombre del segundo mtodo de
+
+44
+00:02:52,000 --> 00:02:56,000
+prueba, agreguemos dos al final, para que podamos compararlos
+
+45
+00:02:56,000 --> 00:03:00,000
+uno al lado del otro. Por lo tanto, aqu
+
+46
+00:03:00,000 --> 00:03:04,000
+tenemos que crear un objeto simulado, por
+
+47
+00:03:04,000 --> 00:03:08,000
+lo que el cliente var es un
+
+48
+00:03:08,000 --> 00:03:12,000
+nuevo simulacro de ICustomer. Y luego tenemos que programar
+
+49
+00:03:12,000 --> 00:03:16,000
+este simulacro, as que cliente. Preparar.
+
+50
+00:03:16,000 --> 00:03:20,000
+C va a c. IsGold
+
+51
+00:03:20,000 --> 00:03:24,000
+Devuelve verdadero.
+
+52
+00:03:24,000 --> 00:03:28,000
+Bueno. Y luego, en lugar de
+
+53
+00:03:28,000 --> 00:03:32,000
+pasar un nuevo objeto de cliente, pasamos al cliente. Objeto. Compare estas dos pruebas una al lado
+
+54
+00:03:32,000 --> 00:03:36,000
+de la otra. Cul es ms simple? Cul es ms limpio?
+
+55
+00:03:36,000 --> 00:03:40,000
+Cul es ms fcil de entender? Por supuesto, el primero.
+
+56
+00:03:40,000 --> 00:03:44,000
+Y aqu, ests lidiando con un ejemplo muy simple. Entonces, nuestra prueba de unidad tiene dos
+
+57
+00:03:44,000 --> 00:03:48,000
+lneas de cdigo adicionales como esta configuracin
+
+58
+00:03:48,000 --> 00:03:52,000
+de un objeto simulado, imagine en un escenario de la vida real donde se
+
+59
+00:03:52,000 --> 00:03:56,000
+trata de un cdigo ms complejo, va a tener algunos objetos simulados, si est
+
+60
+00:03:56,000 --> 00:04:00,000
+te vas a burlar de todo, y tus pruebas comienzan a ponerse realmente atascadas.
+
+61
+00:04:00,000 --> 00:04:04,000
+Tendr una prueba que toma todo el script de arriba a abajo.
+
+62
+00:04:04,000 --> 00:04:08,000
+Sus pruebas deben ser idealmente dentro de 3-5 lneas de cdigo.
+
+63
+00:04:08,000 --> 00:04:12,000
+Esta es una prueba de unidad ideal. Pero, por supuesto, no en escenarios de la vida
+
+64
+00:04:12,000 --> 00:04:16,000
+real, no siempre es posible
+
+65
+00:04:16,000 --> 00:04:20,000
+escribir pruebas tan cortas de unidades, pero si sigues
+
+66
+00:04:20,000 --> 00:04:24,000
+las mejores prcticas que te he enseado en este
+
+67
+00:04:24,000 --> 00:04:28,000
+curso, puedes lograr pruebas pequeas, sostenibles y confiables . Entonces, 3-5 lneas es ideal, incluso 5-10 lneas estn bien,
+
+68
+00:04:28,000 --> 00:04:32,000
+siempre y cuando no ests
+
+69
+00:04:32,000 --> 00:04:36,000
+haciendo este tipo de burla, esto es realmente, muy malo
+
+70
+00:04:36,000 --> 00:04:40,000
+y sola hacer esto antes, y me di cuenta de
+
+71
+00:04:40,000 --> 00:04:44,000
+que difcil que esta es una receta para el desastre. Entonces, una vez ms, use simulaciones, pero elimine los recursos externos
+
+72
+00:04:44,000 --> 00:04:48,000
+de las pruebas de su unidad.
+
+73
+00:04:48,000 --> 00:04:52,000
+&nbsp;
+

@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:04,000
+In this section, I'm going to give you a more challenging
+
+2
+00:00:04,000 --> 00:00:08,000
+exercise. So, inside this Mocking folder,
+
+3
+00:00:08,000 --> 00:00:12,000
+look at this BookingHelper class.
+
+4
+00:00:12,000 --> 00:00:16,000
+Here we have one method called OverlappingBookings
+
+5
+00:00:16,000 --> 00:00:20,000
+Exist. So it takes a booking object, first it checks
+
+6
+00:00:20,000 --> 00:00:24,000
+if this booking is cancelled or not. If it's cancelled it's
+
+7
+00:00:24,000 --> 00:00:28,000
+going to return an empty string. Otherwise, it's going to
+
+8
+00:00:28,000 --> 00:00:32,000
+run a query to get all the existing bookings
+
+9
+00:00:32,000 --> 00:00:36,000
+that are not cancelled, and their ID
+
+10
+00:00:36,000 --> 00:00:40,000
+does not equal the ID of this booking object that is passed here.
+
+11
+00:00:40,000 --> 00:00:44,000
+Now in this implementation, this code is using some wrappers
+
+12
+00:00:44,000 --> 00:00:48,000
+around entity framework. In your applications, you may have
+
+13
+00:00:48,000 --> 00:00:52,000
+a different mechanism to query your database. You may use
+
+14
+00:00:52,000 --> 00:00:56,000
+entity framework, you may use a different ORM. Or you may use
+
+15
+00:00:56,000 --> 00:01:00,000
+plain ADO.NET objects like SQL connection, SQL command and so on.
+
+16
+00:01:00,000 --> 00:01:04,000
+What matters here is that this code is accessing some
+
+17
+00:01:04,000 --> 00:01:08,000
+external resource, in this case, a database. And as you learned,
+
+18
+00:01:08,000 --> 00:01:12,000
+we need to refactor this code, and make it loosely coupled and testable.
+
+19
+00:01:12,000 --> 00:01:16,000
+So next, once we get all the existing
+
+20
+00:01:16,000 --> 00:01:20,000
+bookings that are not cancelled, excluding the booking
+
+21
+00:01:20,000 --> 00:01:24,000
+that is passed to this method, you want to check if this
+
+22
+00:01:24,000 --> 00:01:28,000
+booking object we passed here, overlaps with any of the existing
+
+23
+00:01:28,000 --> 00:01:32,000
+bookings. And finally, if there's no
+
+24
+00:01:32,000 --> 00:01:36,000
+overlap, this method is going to return an empty string. Otherwise
+
+25
+00:01:36,000 --> 00:01:40,000
+it's going to return the reference for the first booking that over
+
+26
+00:01:40,000 --> 00:01:44,000
+laps with this existing booking. So, go ahead
+
+27
+00:01:44,000 --> 00:01:48,000
+and spend some time, and write all the required unit tests
+
+28
+00:01:48,000 --> 00:01:52,000
+for this method. Make sure to test all the execution paths,
+
+29
+00:01:52,000 --> 00:01:56,000
+make sure your tests are clean, maintainable and trustworthy,
+
+30
+00:01:56,000 --> 00:02:00,000
+so all the best practices you have learned in this course I want you to
+
+31
+00:02:00,000 --> 00:02:04,000
+apply them in your solution. So pause the video now,
+
+32
+00:02:04,000 --> 00:02:08,000
+do this exercise, and when you're done, come back, resume and see
+
+33
+00:02:08,000 --> 00:02:12,000
+how I write unit tests for this method.
+

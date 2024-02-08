@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, ento estamos prontos para comear nossa jornada
+
+2
+00:00:04,000 --> 00:00:08,000
+de teste de unidade. A partir desta palestra, em todas
+
+3
+00:00:08,000 --> 00:00:12,000
+as palestras eu vou mostrar uma ou duas tcnicas, voc vai
+
+4
+00:00:12,000 --> 00:00:16,000
+comear com exemplos simples e ento esses exemplos vo se tornando
+
+5
+00:00:16,000 --> 00:00:20,000
+mais complexos, voc est pronto? Vamos comear.
+
+6
+00:00:20,000 --> 00:00:24,000
+Ento, projeto TestNinja, abra a pasta fundamental e veja
+
+7
+00:00:24,000 --> 00:00:28,000
+esta aula de matemtica. O primeiro teste que voc quer
+
+8
+00:00:28,000 --> 00:00:32,000
+escrever  para este mtodo add aqui. Mtodo muito simples, com
+
+9
+00:00:32,000 --> 00:00:36,000
+apenas uma linha de cdigo. Quantos testes precisamos aqui?
+
+10
+00:00:36,000 --> 00:00:40,000
+Bem, veja quantos caminhos de execuo ns temos neste mtodo.
+
+11
+00:00:40,000 --> 00:00:44,000
+Voc tem apenas um nico caminho de execuo, voc no tem declaraes condicionais,
+
+12
+00:00:44,000 --> 00:00:48,000
+voc no tem e e l's (? ) ou
+
+13
+00:00:48,000 --> 00:00:52,000
+mudar (? ) caso. Ento, ao testar esse
+
+14
+00:00:52,000 --> 00:00:56,000
+mtodo, vou fornecer nossos argumentos como um e dois e verificar
+
+15
+00:00:56,000 --> 00:01:00,000
+se esse mtodo retorna trs. Se isso funcionar, ento no preciso test-lo
+
+16
+00:01:00,000 --> 00:01:04,000
+novamente, com outro conjunto de argumentos, ok? Portanto, apenas um nico teste 
+
+17
+00:01:04,000 --> 00:01:08,000
+suficiente para o mtodo add. Agora, de volta
+
+18
+00:01:08,000 --> 00:01:12,000
+ao nosso projeto de teste de
+
+19
+00:01:12,000 --> 00:01:16,000
+unidade, vou adicionar uma nova classe
+
+20
+00:01:16,000 --> 00:01:20,000
+e chamar isso de testes de matemtica.
+
+21
+00:01:20,000 --> 00:01:24,000
+Primeiro, devo aplicar o atributo do equipamento de
+
+22
+00:01:24,000 --> 00:01:28,000
+teste aqui, caso contrrio, o executor do teste
+
+23
+00:01:28,000 --> 00:01:32,000
+NUnit no executar o teste neste teste.
+
+24
+00:01:32,000 --> 00:01:36,000
+Agora ns criamos um mtodo public void, e usamos
+
+25
+00:01:36,000 --> 00:01:40,000
+a conveno que eu lhe disse antes, ento o
+
+26
+00:01:40,000 --> 00:01:44,000
+mtodo no teste  Add. Agora, que cenrio estamos testando aqui?
+
+27
+00:01:44,000 --> 00:01:48,000
+Neste caso, estamos lidando com um nico cenrio. Ento eu vou usar
+
+28
+00:01:48,000 --> 00:01:52,000
+um termo genrico. Como quando chamado.
+
+29
+00:01:52,000 --> 00:01:56,000
+Ento, o mtodo add, quando chamado, o que deveria fazer?
+
+30
+00:01:56,000 --> 00:02:00,000
+Deve retornar a soma do argumento.
+
+31
+00:02:00,000 --> 00:02:04,000
+OK? Agora precisamos decorar
+
+32
+00:02:04,000 --> 00:02:08,000
+esse mtodo com o atributo test.
+
+33
+00:02:08,000 --> 00:02:12,000
+Ento aqui ns temos trs partes. Organize, aja
+
+34
+00:02:12,000 --> 00:02:16,000
+e afirme. No arranjo, criamos uma
+
+35
+00:02:16,000 --> 00:02:20,000
+nova instncia, da classe matemtica, certifique-se de usar a
+
+36
+00:02:20,000 --> 00:02:24,000
+classe matemtica definida no TestNinja. fundamentos.
+
+37
+00:02:24,000 --> 00:02:28,000
+No aquele definido no espao principal do sistema do qual faz parte. net,
+
+38
+00:02:28,000 --> 00:02:32,000
+framework. OK? Agora ns
+
+39
+00:02:32,000 --> 00:02:36,000
+adicionamos a matemtica. add, ns damos dois argumentos, mas
+
+40
+00:02:36,000 --> 00:02:40,000
+quais argumentos devemos usar aqui?  melhor usar valores
+
+41
+00:02:40,000 --> 00:02:44,000
+simples como 1 e 2, ao contrrio de alguns
+
+42
+00:02:44,000 --> 00:02:48,000
+nmeros aleatrios mgicos como 952. Porque quando algum olha para
+
+43
+00:02:48,000 --> 00:02:52,000
+esse cdigo, eles se perguntam: qual  o significado de 952?
+
+44
+00:02:52,000 --> 00:02:56,000
+Esse nmero tem um significado especial no domnio do aplicativo, isso 
+
+45
+00:02:56,000 --> 00:03:00,000
+uma constante definida em outro lugar,  a ideia de um registro
+
+46
+00:03:00,000 --> 00:03:04,000
+no banco de dados, portanto, no queremos criar tais confuses para outros.
+
+47
+00:03:04,000 --> 00:03:08,000
+E usamos valores simples, 1 e 2.
+
+48
+00:03:08,000 --> 00:03:12,000
+Obtemos o resultado e, em seguida, precisamos verificar se o
+
+49
+00:03:12,000 --> 00:03:16,000
+resultado  igual a 3. Ento, afirme
+
+50
+00:03:16,000 --> 00:03:20,000
+esse resultado, 
+
+51
+00:03:20,000 --> 00:03:24,000
+igual a 3.
+
+52
+00:03:24,000 --> 00:03:28,000
+Vamos rodar esse teste. Portanto, se voc estiver usando
+
+53
+00:03:28,000 --> 00:03:32,000
+Rider ou ReSharper, seu atalho ser comando e T
+
+54
+00:03:32,000 --> 00:03:36,000
+e Command e R no Mac, ou Control T
+
+55
+00:03:36,000 --> 00:03:40,000
+e Control R no Windows. E se voc estiver usando o Visual Studio
+
+56
+00:03:40,000 --> 00:03:44,000
+sem o ReSharper, precisar executar todos os testes. Infelizmente no me lembro do atalho para isso,
+
+57
+00:03:44,000 --> 00:03:48,000
+ento voc precisa procurar por si mesmo. Ento, vamos executar este teste.
+
+58
+00:03:48,000 --> 00:03:52,000
+Ok, nosso teste passou, lindo.
+

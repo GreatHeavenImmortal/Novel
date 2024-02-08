@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:04,000
+Entonces, en esta seccin, aprendi sobre las pruebas
+
+2
+00:00:04,000 --> 00:00:08,000
+automatizadas y sus beneficios. Ms especficamente, aprendi que le
+
+3
+00:00:08,000 --> 00:00:12,000
+ayuda a refactorizar su cdigo con confianza y a
+
+4
+00:00:12,000 --> 00:00:16,000
+lanzar software de mejor calidad y con menos errores.
+
+5
+00:00:16,000 --> 00:00:20,000
+Aprendi sobre tres tipos de pruebas, unidad, integracin y
+
+6
+00:00:20,000 --> 00:00:24,000
+pruebas de extremo a extremo. Y tambin viste un vistazo a
+
+7
+00:00:24,000 --> 00:00:28,000
+las pruebas unitarias en accin. Aprendi a escribir una prueba bsica
+
+8
+00:00:28,000 --> 00:00:32,000
+de unidad en Visual Studio y, finalmente, aprendi cmo ejecutar y depurar
+
+9
+00:00:32,000 --> 00:00:36,000
+las pruebas de su unidad. En la siguiente seccin, vamos a ver
+
+10
+00:00:36,000 --> 00:00:40,000
+las tcnicas centrales para escribir pruebas unitarias. Entonces, te ver en la prxima seccin!
+

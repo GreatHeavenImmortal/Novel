@@ -1,0 +1,36 @@
+<html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>079 An Alternative Solution</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p>In the last lecture, I argued that the return type of this method should be <strong>void</strong> because it always returns true.
+
+  </p>
+
+
+
+<p>Later, however, I realized that it would actually be better to keep the return type as boolean and write a unit test for the scenario where the download fails. In that test, we assert that the method under test should return false.
+
+  </p>
+
+
+
+<p>Obviously, this test will fail because the method under test always returns true. This is an indication of a bug in the production code and our unit test helps us find it.
+
+  </p>
+
+
+
+<p>This is another case where you should think of your methods as block boxes when unit testing them. Don’t write tests based on the existing implementation because the exiting implementation may be incomplete and/or have a bug. Treat the method under test as a black box, give it different inputs and verify that the outcome is correct. 
+
+  </p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>

@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:04,000
+Muitas pessoas novas no teste de unidade assumem que,
+
+2
+00:00:04,000 --> 00:00:08,000
+para testar uma classe, eles devem test-la em isolamento,
+
+3
+00:00:08,000 --> 00:00:12,000
+sem quaisquer dependncias, independentemente de essas dependncias tocarem recursos
+
+4
+00:00:12,000 --> 00:00:16,000
+externos ou no. Eu segui esse caminho e
+
+5
+00:00:16,000 --> 00:00:20,000
+aprendi da maneira mais difcil, que essa abordagem  uma
+
+6
+00:00:20,000 --> 00:00:24,000
+receita para o desastre. Quando voc zomba de todas as dependncias de
+
+7
+00:00:24,000 --> 00:00:28,000
+uma classe, voc acaba com vrios problemas. Primeiro, voc v uma
+
+8
+00:00:28,000 --> 00:00:32,000
+exploso de interfaces em seu aplicativo e essas
+
+9
+00:00:32,000 --> 00:00:36,000
+interfaces no servem para nada. Para cada classe voc tem uma interface,
+
+10
+00:00:36,000 --> 00:00:40,000
+no importa o que essa classe faa. Em segundo lugar, seus construtores de
+
+11
+00:00:40,000 --> 00:00:44,000
+classe explodem com muitos parmetros. Se voc tem construtores como esse,
+
+12
+00:00:44,000 --> 00:00:48,000
+geralmente  um sintoma de que voc est zombando de dependncias
+
+13
+00:00:48,000 --> 00:00:52,000
+que no devem ser ridicularizadas. O terceiro problema  que seus
+
+14
+00:00:52,000 --> 00:00:56,000
+testes comeam a ficar volumosos e volumosos. Suas partes configuradas ou organizadas ficam
+
+15
+00:00:56,000 --> 00:01:00,000
+complexas porque lidam com tantos objetos simulados que devem ser injetados no
+
+16
+00:01:00,000 --> 00:01:04,000
+objeto que voc est testando. Alm disso, estes testes
+
+17
+00:01:04,000 --> 00:01:08,000
+so frequentemente muito frgeis, porque esto fortemente
+
+18
+00:01:08,000 --> 00:01:12,000
+acoplados (? ) desenhar. Conforme voc altera sua
+
+19
+00:01:12,000 --> 00:01:16,000
+implementao, esses testes so interrompidos com frequncia, porque eles no testam o comportamento
+
+20
+00:01:16,000 --> 00:01:20,000
+externo em que testam a implementao. Eles sabem muito sobre seus objetos
+
+21
+00:01:20,000 --> 00:01:24,000
+e como eles interagem, ento aqui est o que voc precisa
+
+22
+00:01:24,000 --> 00:01:28,000
+fazer, usar o menos possvel. Reserve-os apenas para lidar
+
+23
+00:01:28,000 --> 00:01:32,000
+com recursos externos. H apenas uma exceo que
+
+24
+00:01:32,000 --> 00:01:36,000
+voc pode usar para outros casos, mas, por enquanto, apenas
+
+25
+00:01:36,000 --> 00:01:40,000
+suponha que os mocks devam ser reservados para remover recursos
+
+26
+00:01:40,000 --> 00:01:44,000
+externos do seu teste de unidade. Porque seno seus testes ficaro
+
+27
+00:01:44,000 --> 00:01:48,000
+lentos ou falharo. Por exemplo. Se o seu aplicativo conversar
+
+28
+00:01:48,000 --> 00:01:52,000
+com um servio da Web, voc no deseja que o servio da Web esteja
+
+29
+00:01:52,000 --> 00:01:56,000
+funcionando quando executar seus testes de unidade. Se esse servio da Web no estiver disponvel,
+
+30
+00:01:56,000 --> 00:02:00,000
+os testes que dependem desse servio da Web falharo. E mesmo se estiver
+
+31
+00:02:00,000 --> 00:02:04,000
+disponvel, seus testes ficaro lentos. Testes unitrios devem ser rpidos.
+
+32
+00:02:04,000 --> 00:02:08,000
+Ns escrevemos muitos deles. Centenas ou milhares deles, e
+
+33
+00:02:08,000 --> 00:02:12,000
+devemos execut-los o tempo todo, especialmente quando escrevemos cdigo e
+
+34
+00:02:12,000 --> 00:02:16,000
+refatoramos nosso cdigo.  por isso que usamos zombarias. Para remover esses recursos
+
+35
+00:02:16,000 --> 00:02:20,000
+externos de nossos testes de unidade para que eles possam ser
+
+36
+00:02:20,000 --> 00:02:24,000
+executados de maneira rpida e confivel. Anteriormente falei sobre uma exceo
+
+37
+00:02:24,000 --> 00:02:28,000
+para usar mocks quando voc no est lidando com recursos externos.
+
+38
+00:02:28,000 --> 00:02:32,000
+ quando voc est testando unidades com clculos complexos
+
+39
+00:02:32,000 --> 00:02:36,000
+e caminhos de execuo. Imagine que a classe A usa a classe B.
+
+40
+00:02:36,000 --> 00:02:40,000
+Nenhuma dessas classes usa recursos externos, talvez se voc quiser testar
+
+41
+00:02:40,000 --> 00:02:44,000
+os testes A e B juntos, voc acabar com vrios caminhos
+
+42
+00:02:44,000 --> 00:02:48,000
+de execuo e casos de teste. Nesse caso, no h
+
+43
+00:02:48,000 --> 00:02:52,000
+problema em testar a unidade A e B
+
+44
+00:02:52,000 --> 00:02:56,000
+de forma independente e isolada. Quando a unidade de teste A, voc
+
+45
+00:02:56,000 --> 00:03:00,000
+pode fornecer um teste duplo para B para reduzir o nmero de casos de teste.
+
+46
+00:03:00,000 --> 00:03:04,000
+Desta forma, voc lida com menos caminhos de execuo e
+
+47
+00:03:04,000 --> 00:03:08,000
+seus testes sero mais simples. Em seguida, mostrarei um exemplo de abuso de brincadeira.
+

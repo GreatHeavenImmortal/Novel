@@ -1,0 +1,76 @@
+1
+00:00:01,420 --> 00:00:05,760
+This action you learn the fundamentals of unit testing.
+
+2
+00:00:05,760 --> 00:00:11,760
+You learn about the characteristics of good unit tests that they should be small have a single responsibility
+
+3
+00:00:11,840 --> 00:00:13,340
+and no logic.
+
+4
+00:00:13,340 --> 00:00:19,860
+They should not be too generic or too specific and they should be isolated meaning each test should
+
+5
+00:00:19,860 --> 00:00:25,170
+run using a clean fresh state as if it's the only test in the world.
+
+6
+00:00:25,650 --> 00:00:31,050
+You learn about water tests and what not to test for specifically you learn that you should test the
+
+7
+00:00:31,200 --> 00:00:38,520
+outcome of a function irrespective of how it's implemented and that you should not test language features
+
+8
+00:00:38,700 --> 00:00:40,120
+or third party code.
+
+9
+00:00:40,540 --> 00:00:45,380
+We also learn a couple of basic techniques for writing clean and maintainable tests.
+
+10
+00:00:45,570 --> 00:00:51,420
+We learn how to use the set up method to do all the initialization before or test methods and how to
+
+11
+00:00:51,420 --> 00:00:53,740
+write parameterize tests.
+
+12
+00:00:53,790 --> 00:01:00,900
+And finally you learned about two ways to write reliable and trustworthy tests you either use test driven
+
+13
+00:01:00,900 --> 00:01:06,990
+development which is beyond the scope of this course or make a small change your production code that
+
+14
+00:01:06,990 --> 00:01:08,890
+should make the test fail.
+
+15
+00:01:09,300 --> 00:01:16,740
+If the test still passes that means test is not a trustworthy test that you can rely upon in the next
+
+16
+00:01:16,740 --> 00:01:17,150
+section.
+
+17
+00:01:17,150 --> 00:01:23,010
+We've been looking at the core unit testing techniques you you'll learn how to test methods that return
+
+18
+00:01:23,130 --> 00:01:29,020
+a string or a collection or throw an exception raised an event and other scenarios.
+
+19
+00:01:29,040 --> 00:01:30,410
+So we see in the next section.
+

@@ -1,0 +1,584 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ento, nesta palestra, vou mostrar a voc
+
+2
+00:00:04,000 --> 00:00:08,000
+como refatorar algum cdigo legado e torn-lo
+
+3
+00:00:08,000 --> 00:00:12,000
+testvel e fracamente acoplado. Ento, em um projeto, olhe para essa pasta de maquete.
+
+4
+00:00:12,000 --> 00:00:16,000
+Aqui temos este servio de vdeo de
+
+5
+00:00:16,000 --> 00:00:20,000
+classe, veja este mtodo. Leia o
+
+6
+00:00:20,000 --> 00:00:24,000
+VideoTitle. Ento, aqui, voc l o
+
+7
+00:00:24,000 --> 00:00:28,000
+contedo do arquivo chamado video. txt e armazene-o em uma
+
+8
+00:00:28,000 --> 00:00:32,000
+varivel chamada str. Certo? E ento ns
+
+9
+00:00:32,000 --> 00:00:36,000
+damos a este json convert para desserializar esta string
+
+10
+00:00:36,000 --> 00:00:40,000
+como um objeto json. Se voc nunca trabalhou com json, o json
+
+11
+00:00:40,000 --> 00:00:44,000
+ basicamente uma notao de objeto JavaScript. Portanto, em JavaScript, temos uma
+
+12
+00:00:44,000 --> 00:00:48,000
+notao especial para objetos usando pares de valores de chaves.
+
+13
+00:00:48,000 --> 00:00:52,000
+Voc vai ver isso em um segundo. Tudo o que estamos fazendo aqui
+
+14
+00:00:52,000 --> 00:00:56,000
+ passar uma string, e esperamos obter um objeto de vdeo real.
+
+15
+00:00:56,000 --> 00:01:00,000
+Eu defini este objeto de vdeo aqui, ento, 
+
+16
+00:01:00,000 --> 00:01:04,000
+uma classe com trs propriedades. ID, ttulo
+
+17
+00:01:04,000 --> 00:01:08,000
+e IsProcessed. Ok, ento de volta ao
+
+18
+00:01:08,000 --> 00:01:12,000
+nosso mtodo, como parte da converso dessa string com
+
+19
+00:01:12,000 --> 00:01:16,000
+o objeto json, algo pode falhar, talvez essa string
+
+20
+00:01:16,000 --> 00:01:20,000
+no esteja no formato correto. Nesse caso, no vamos obter um
+
+21
+00:01:20,000 --> 00:01:24,000
+objeto de vdeo, vamos obter null e simplesmente retornar uma mensagem de
+
+22
+00:01:24,000 --> 00:01:28,000
+erro para o cliente dessa classe. Caso contrrio, vamos retornar
+
+23
+00:01:28,000 --> 00:01:32,000
+o ttulo do vdeo. Portanto, um mtodo muito simples,
+
+24
+00:01:32,000 --> 00:01:36,000
+mas na primeira linha, estamos tocando em um recurso externo,
+
+25
+00:01:36,000 --> 00:01:40,000
+neste caso, um sistema de arquivos. Ento, queremos fazer algumas cirurgias aqui e
+
+26
+00:01:40,000 --> 00:01:44,000
+desacoplar esse cdigo do sistema de arquivos. Como eu disse antes,
+
+27
+00:01:44,000 --> 00:01:48,000
+o primeiro passo  mover todo o cdigo que
+
+28
+00:01:48,000 --> 00:01:52,000
+toca um recurso externo em uma classe separada e
+
+29
+00:01:52,000 --> 00:01:56,000
+isol-lo do resto do cdigo. Ento, neste caso, quero mover essa
+
+30
+00:01:56,000 --> 00:02:00,000
+expresso para uma classe separada. Ento, de volta ao
+
+31
+00:02:00,000 --> 00:02:04,000
+projeto, na pasta de mocking, adicionarei uma nova classe.
+
+32
+00:02:04,000 --> 00:02:08,000
+Eu vou chamar essa classe de FileReader.  responsvel por ler
+
+33
+00:02:08,000 --> 00:02:12,000
+um arquivo pdf. Ento FileReader aqui precisamos
+
+34
+00:02:12,000 --> 00:02:16,000
+apenas de um mtodo para ler o
+
+35
+00:02:16,000 --> 00:02:20,000
+contedo de um arquivo, So public, string,
+
+36
+00:02:20,000 --> 00:02:24,000
+Read talvez ele pegue o caminho do arquivo.
+
+37
+00:02:24,000 --> 00:02:28,000
+Agora, voltando ao nosso servio
+
+38
+00:02:28,000 --> 00:02:32,000
+de vdeo, vou cortar esse
+
+39
+00:02:32,000 --> 00:02:36,000
+cdigo daqui e col-lo aqui.
+
+40
+00:02:36,000 --> 00:02:40,000
+Agora, vamos importar o espao de nomes para a classe de arquivo.
+
+41
+00:02:40,000 --> 00:02:44,000
+E tambm substituir o vdeo. txt com este
+
+42
+00:02:44,000 --> 00:02:48,000
+argumento de caminho. Ento, podemos reutilizar essa
+
+43
+00:02:48,000 --> 00:02:52,000
+classe em vrios lugares. E finalmente
+
+44
+00:02:52,000 --> 00:02:56,000
+retorne o contedo. Ento, agora, o cdigo
+
+45
+00:02:56,000 --> 00:03:00,000
+que toca em um recurso externo  encapsulado
+
+46
+00:03:00,000 --> 00:03:04,000
+e isolado dentro deste FileReader, ok, agora, de
+
+47
+00:03:04,000 --> 00:03:08,000
+volta ao nosso servio de vdeo, aqui vou
+
+48
+00:03:08,000 --> 00:03:12,000
+atualizar um FileReader e depois chamar Read and
+
+49
+00:03:12,000 --> 00:03:16,000
+pass video. txt aqui. Ento, ns no mudamos
+
+50
+00:03:16,000 --> 00:03:20,000
+o comportamento de nosso aplicativo, o cdigo continua sendo a mesma coisa, mas
+
+51
+00:03:20,000 --> 00:03:24,000
+simplesmente reestruturamos ou refatoramos nosso cdigo. Agora, nessa implementao, essa
+
+52
+00:03:24,000 --> 00:03:28,000
+classe de servio de vdeo  fortemente
+
+53
+00:03:28,000 --> 00:03:32,000
+acoplada ao FileReader, porque estamos criando uma
+
+54
+00:03:32,000 --> 00:03:36,000
+instncia do FileReader aqui. E isso significa que em nossos
+
+55
+00:03:36,000 --> 00:03:40,000
+testes unitrios no podemos substituir este FileReader por um objeto falso
+
+56
+00:03:40,000 --> 00:03:44,000
+ou um teste duplo. Ento, o que devemos fazer aqui? Devemos programar
+
+57
+00:03:44,000 --> 00:03:48,000
+um contra uma interface. Ento, em vez de trabalhar com uma
+
+58
+00:03:48,000 --> 00:03:52,000
+implementao concreta, como este FileReader, devemos trabalhar com uma interface ou um contrato.
+
+59
+00:03:52,000 --> 00:03:56,000
+Ento, em tempo de execuo, podemos passar qualquer objeto que
+
+60
+00:03:56,000 --> 00:04:00,000
+implemente essa interface. OK? Ento o segundo
+
+61
+00:04:00,000 --> 00:04:04,000
+passo que voc precisa fazer aqui  extrair uma
+
+62
+00:04:04,000 --> 00:04:08,000
+interface da classe File Reader. Ento, de volta ao leitor de arquivos.
+
+63
+00:04:08,000 --> 00:04:12,000
+Eu vou declarar uma interface. Interface pblica todas
+
+64
+00:04:12,000 --> 00:04:16,000
+as interfaces em. net deve comear com
+
+65
+00:04:16,000 --> 00:04:20,000
+i e, em seguida, chamar esse FileReader.
+
+66
+00:04:20,000 --> 00:04:24,000
+Agora, como eu disse antes, as interfaces s tm declaraes.
+
+67
+00:04:24,000 --> 00:04:28,000
+Eles no tm nenhuma implementao. Ento, nessa interface, queremos declarar
+
+68
+00:04:28,000 --> 00:04:32,000
+um mtodo com essa assinatura, um mtodo chamado read.
+
+69
+00:04:32,000 --> 00:04:36,000
+Isso leva uma string e retorna uma string. Ento eu vou copiar
+
+70
+00:04:36,000 --> 00:04:40,000
+isso e colar aqui. E, a propsito, os membros
+
+71
+00:04:40,000 --> 00:04:44,000
+definem em uma interface no tem um modificador de acesso,
+
+72
+00:04:44,000 --> 00:04:48,000
+como pblico ou privado. Porque uma interface
+
+73
+00:04:48,000 --> 00:04:52,000
+define um contrato. Ento, quando uma classe implementa
+
+74
+00:04:52,000 --> 00:04:56,000
+uma interface, ela vai definir todos os membros declarados em uma
+
+75
+00:04:56,000 --> 00:05:00,000
+interface, como membros pblicos. OK? Ento, aqui est nossa interface.
+
+76
+00:05:00,000 --> 00:05:04,000
+Agora, para dizer ao compilador C Sharp
+
+77
+00:05:04,000 --> 00:05:08,000
+que este FileReader implementa esta interface ns
+
+78
+00:05:08,000 --> 00:05:12,000
+adicionamos o clon IFileReader. Ento,  assim que extramos uma
+
+79
+00:05:12,000 --> 00:05:16,000
+interface de uma classe manualmente. Mas deixe-me mostrar-lhe um caminho mais rpido.
+
+80
+00:05:16,000 --> 00:05:20,000
+Ento, vou deletar essa parte aqui, tambm vou deletar
+
+81
+00:05:20,000 --> 00:05:24,000
+a declarao da interface. Se voc estiver usando o Visual
+
+82
+00:05:24,000 --> 00:05:28,000
+Studio, voc pode clicar com o boto direito do mouse no seu
+
+83
+00:05:28,000 --> 00:05:32,000
+tipo e ir para o menu refactor. Aqui, eu estou usando o Rider, ento eu tenho que
+
+84
+00:05:32,000 --> 00:05:36,000
+pressionar Alt e entrar, e isso  um menu refactor. Quando voc vai aqui,
+
+85
+00:05:36,000 --> 00:05:40,000
+devemos ver uma ao chamada interface de extrao.
+
+86
+00:05:40,000 --> 00:05:44,000
+Ento aqui, o Rider est me perguntando qual  o
+
+87
+00:05:44,000 --> 00:05:48,000
+nome dessa interface, por padro ela sugere o IFileReader.
+
+88
+00:05:48,000 --> 00:05:52,000
+Porque segue a conveno em. lquido. Em seguida, ele est
+
+89
+00:05:52,000 --> 00:05:56,000
+me perguntando onde devo colocar uma interface, se esta prxima a essa classe,
+
+90
+00:05:56,000 --> 00:06:00,000
+ou se deveria estar em outro arquivo. Por enquanto, no h problema em
+
+91
+00:06:00,000 --> 00:06:04,000
+colocar isso ao lado desta classe. Em aplicativos corporativos mais complicados, voc pode
+
+92
+00:06:04,000 --> 00:06:08,000
+querer colocar uma interface em um arquivo separado, ou mesmo em um assembly diferente.
+
+93
+00:06:08,000 --> 00:06:12,000
+Isso est alm do escopo deste curso, ento, por enquanto, no se preocupe com isso.
+
+94
+00:06:12,000 --> 00:06:16,000
+E, finalmente, precisamos selecionar os membros que devem
+
+95
+00:06:16,000 --> 00:06:20,000
+entrar na interface. Ento, aqui, vou selecionar o mtodo de leitura. Em seguida, olhe,
+
+96
+00:06:20,000 --> 00:06:24,000
+temos essa interface aqui e nossa classe FileReader
+
+97
+00:06:24,000 --> 00:06:28,000
+implementa essa interface. Ento aqui est uma implementao dessa
+
+98
+00:06:28,000 --> 00:06:32,000
+interface onde usamos a classe de arquivo para ler o contedo
+
+99
+00:06:32,000 --> 00:06:36,000
+de um arquivo no sistema de arquivos, agora que temos essa
+
+100
+00:06:36,000 --> 00:06:40,000
+interface ou esse contrato, tambm podemos criar uma implementao falsa que
+
+101
+00:06:40,000 --> 00:06:44,000
+usamos em nossos testes de unidade. Ento, de volta ao nosso
+
+102
+00:06:44,000 --> 00:06:48,000
+explorador de solues, em nosso projeto de teste de unidade,
+
+103
+00:06:48,000 --> 00:06:52,000
+vamos adicionar uma nova classe. Nova Classe
+
+104
+00:06:52,000 --> 00:06:56,000
+E chame isso de FakeFileReader.
+
+105
+00:06:56,000 --> 00:07:00,000
+Agora, em testes unitrios, na verdade, temos dois tipos
+
+106
+00:07:00,000 --> 00:07:04,000
+diferentes de objetos falsos. Voc pode ter ouvido falar de tocos e zombarias.
+
+107
+00:07:04,000 --> 00:07:08,000
+Eles tm algumas semelhanas, mas eles tm a diferena sutil que
+
+108
+00:07:08,000 --> 00:07:12,000
+ambos representam um objeto falso. Algumas estruturas de testes de
+
+109
+00:07:12,000 --> 00:07:16,000
+unidades mais antigas diferenciam os stubs e os mocks, mas as
+
+110
+00:07:16,000 --> 00:07:20,000
+estruturas mais modernas no se diferenciam, e acho isso mais prtico.
+
+111
+00:07:20,000 --> 00:07:24,000
+Ento, aqui podemos chamar essa classe de FileReader
+
+112
+00:07:24,000 --> 00:07:28,000
+falso, ou podemos cham-lo de FileReader, ou stub
+
+113
+00:07:28,000 --> 00:07:32,000
+FileReader, todos esses nomes esto perfeitamente bem.
+
+114
+00:07:32,000 --> 00:07:36,000
+Ento eu quero chamar esse falso FileReader.
+
+115
+00:07:36,000 --> 00:07:40,000
+Agora, vou ter essa classe implementando nossa nova interface.
+
+116
+00:07:40,000 --> 00:07:44,000
+IFileReader. E isso  definido no testninja. zombando do espao do nome. Temos esse erro de
+
+117
+00:07:44,000 --> 00:07:48,000
+compilao, porque no implementamos
+
+118
+00:07:48,000 --> 00:07:52,000
+os membros declarados nessa interface, ento pressionamos alt
+
+119
+00:07:52,000 --> 00:07:56,000
+e enter, e selecionamos os membros ausentes.
+
+120
+00:07:56,000 --> 00:08:00,000
+Ento agora temos este mtodo de leitura nesta classe,
+
+121
+00:08:00,000 --> 00:08:04,000
+mas em vez de usar a classe File em. net, eu vou retornar uma string codificada.
+
+122
+00:08:04,000 --> 00:08:08,000
+Algo parecido com isto, ento eu
+
+123
+00:08:08,000 --> 00:08:12,000
+no estou acessando o sistema de arquivos, esta  uma implementao falsa. E podemos usar isso em
+
+124
+00:08:12,000 --> 00:08:16,000
+nossos testes unitrios. Alm disso, observe que defini essa classe em nosso projeto de teste
+
+125
+00:08:16,000 --> 00:08:20,000
+de unidade, portanto, isso no faz parte do nosso cdigo de produo.
+
+126
+00:08:20,000 --> 00:08:24,000
+OK? Ento, vamos rapidamente recapitular o que fizemos at agora.
+
+127
+00:08:24,000 --> 00:08:28,000
+No servio de vdeo, extramos
+
+128
+00:08:28,000 --> 00:08:32,000
+a primeira linha em uma classe separada chamada FileReader.
+
+129
+00:08:32,000 --> 00:08:36,000
+Aqui est a implementao da nossa
+
+130
+00:08:36,000 --> 00:08:40,000
+classe FileReader, e tambm extramos uma
+
+131
+00:08:40,000 --> 00:08:44,000
+interface desta classe chamada IFileReader. E finalmente criamos outra implementao dessa interface
+
+132
+00:08:44,000 --> 00:08:48,000
+chamada FakeFileReader e esta
+
+133
+00:08:48,000 --> 00:08:52,000
+ a que vamos usar em nossos
+
+134
+00:08:52,000 --> 00:08:56,000
+testes unitrios, agora ainda resta um passo. Voltando ao nosso servio de vdeo, nossa classe
+
+135
+00:08:56,000 --> 00:09:00,000
+de servio de vdeo
+
+136
+00:09:00,000 --> 00:09:04,000
+ainda est fortemente acoplada a essa classe FileReader. Mas como eu disse antes, aqui,
+
+137
+00:09:04,000 --> 00:09:08,000
+devemos programar contra
+
+138
+00:09:08,000 --> 00:09:12,000
+uma interface, neste caso o IFileReader. Ento voc no deveria realmente criar este
+
+139
+00:09:12,000 --> 00:09:16,000
+objeto FileReader aqui. Agora, h trs maneiras de
+
+140
+00:09:16,000 --> 00:09:20,000
+passar uma instncia de uma
+
+141
+00:09:20,000 --> 00:09:24,000
+classe que implementa a interface IFileReader com esse servio de vdeo. Uma maneira  pass-la como um parmetro para este mtodo, outra
+
+142
+00:09:24,000 --> 00:09:28,000
+maneira  pass-la usando uma
+
+143
+00:09:28,000 --> 00:09:32,000
+propriedade, e a ltima maneira  pass-la por um parmetro construtivo.
+
+144
+00:09:32,000 --> 00:09:36,000
+Nas prximas trs palestras, voc ver
+
+145
+00:09:36,000 --> 00:09:40,000
+cada uma dessas abordagens em ao.
+
+146
+00:09:40,000 --> 00:09:42,000
+&nbsp;
+

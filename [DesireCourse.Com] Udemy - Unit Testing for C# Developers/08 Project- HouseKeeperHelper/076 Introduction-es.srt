@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:04,000
+En esta seccin, te dar
+
+2
+00:00:04,000 --> 00:00:08,000
+otro ejercicio desafiante. Abra la carpeta Mocking
+
+3
+00:00:08,000 --> 00:00:12,000
+y mire este archivo. HouseKeeperHelper.
+
+4
+00:00:12,000 --> 00:00:16,000
+En esta clase tenemos un
+
+5
+00:00:16,000 --> 00:00:20,000
+mtodo pblico esttico llamado SendStatementEmails.
+
+6
+00:00:20,000 --> 00:00:24,000
+El trabajo de este mtodo es conseguir un grupo de cuidadores
+
+7
+00:00:24,000 --> 00:00:28,000
+de la base de datos. Para cada ama de casa va a
+
+8
+00:00:28,000 --> 00:00:32,000
+generar un archivo de declaracin y guardarlo en el disco, y luego eventualmente enviar
+
+9
+00:00:32,000 --> 00:00:36,000
+ese archivo de declaracin al ama de llaves. Entonces esta es
+
+10
+00:00:36,000 --> 00:00:40,000
+la gran imagen. Ahora, si observas la implementacin
+
+11
+00:00:40,000 --> 00:00:44,000
+de esta clase, puedes ver estos dos mtodos, EmailFile y
+
+12
+00:00:44,000 --> 00:00:48,000
+SaveStatement, ambos son mtodos privados. Como te dije antes, mira que es la misma
+
+13
+00:00:48,000 --> 00:00:52,000
+declaracin y puedes ver que es una declaracin privada. Entonces, como te dije
+
+14
+00:00:52,000 --> 00:00:56,000
+antes, no debes probar estos mtodos privados, son
+
+15
+00:00:56,000 --> 00:01:00,000
+detalles de implementacin. Y aqu tenemos EmailFile
+
+16
+00:01:00,000 --> 00:01:04,000
+nuevamente vaco esttico privado. Y el resto del
+
+17
+00:01:04,000 --> 00:01:08,000
+cdigo en este archivo son simples apndices que he
+
+18
+00:01:08,000 --> 00:01:12,000
+generado para compilar este cdigo. Porque uno de mis alumnos me envi el
+
+19
+00:01:12,000 --> 00:01:16,000
+cdigo fuente y no tena el cdigo completo, as que tuve que realizar una ingeniera inversa
+
+20
+00:01:16,000 --> 00:01:20,000
+y generar algunas clases para compilar el cdigo. As que no te preocupes
+
+21
+00:01:20,000 --> 00:01:24,000
+por nada de esto aqu. Su trabajo es escribir
+
+22
+00:01:24,000 --> 00:01:28,000
+todas las pruebas de unidades requeridas para este
+
+23
+00:01:28,000 --> 00:01:32,000
+mtodo, Enviar estados de cuenta. Ahora, antes de comenzar, quiero darte un
+
+24
+00:01:32,000 --> 00:01:36,000
+par de cosas (? ) Estos dos mtodos,
+
+25
+00:01:36,000 --> 00:01:40,000
+SaveStatement y EmailFile, ambos tocan los recursos externos,
+
+26
+00:01:40,000 --> 00:01:44,000
+por lo que no se quede atascado mirando
+
+27
+00:01:44,000 --> 00:01:48,000
+la implementacin de estos mtodos. Debe extraer estos mtodos, colocarlos en
+
+28
+00:01:48,000 --> 00:01:52,000
+clases separadas y luego usar la inyeccin de dependencia para inyectar
+
+29
+00:01:52,000 --> 00:01:56,000
+esas dependencias dentro de esta clase auxiliar de ama de llaves.
+
+30
+00:01:56,000 --> 00:02:00,000
+Por lo tanto, quiero que pause el video y use lo que aprendi en este curso para
+
+31
+00:02:00,000 --> 00:02:04,000
+escribir todas las pruebas unitarias requeridas para esta clase. A continuacin, vamos
+
+32
+00:02:04,000 --> 00:02:07,000
+a ver mi solucin.
+

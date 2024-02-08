@@ -1,0 +1,627 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, in this lecture you're going to write your first
+
+2
+00:00:04,000 --> 00:00:08,000
+unit test. So here we have this project
+
+3
+00:00:08,000 --> 00:00:12,000
+called test ninja that I'm going to use throughout this course. I
+
+4
+00:00:12,000 --> 00:00:16,000
+gave you the link to this project in the last lecture, but if you missed that, you can see
+
+5
+00:00:16,000 --> 00:00:20,000
+it attached to this lecture. So here we have this folder,
+
+6
+00:00:20,000 --> 00:00:24,000
+fundamentals, let's take a look at this reservation class,
+
+7
+00:00:24,000 --> 00:00:28,000
+so imagine you're building an application for reserving
+
+8
+00:00:28,000 --> 00:00:32,000
+a table at a restaurant. A reservation class
+
+9
+00:00:32,000 --> 00:00:36,000
+has currently one property which specifies the user
+
+10
+00:00:36,000 --> 00:00:40,000
+who made this reservation. Now in a real world application, this class
+
+11
+00:00:40,000 --> 00:00:44,000
+can have many other properties, but we don't want to get distracted with too much
+
+12
+00:00:44,000 --> 00:00:48,000
+detail. This is the method we want to test, can be
+
+13
+00:00:48,000 --> 00:00:52,000
+cancelled by a given user. So here I have implemented
+
+14
+00:00:52,000 --> 00:00:56,000
+a simple business rule. If the user is admin,
+
+15
+00:00:56,000 --> 00:01:00,000
+or the user who made this reservation, they can
+
+16
+00:01:00,000 --> 00:01:04,000
+cancel this reservation, otherwise they can't cancel this
+
+17
+00:01:04,000 --> 00:01:08,000
+reservation, okay? And if you scroll down,
+
+18
+00:01:08,000 --> 00:01:12,000
+we can see our user class, very simple, with one property.
+
+19
+00:01:12,000 --> 00:01:16,000
+IsAdmin. So let's go ahead and write the first
+
+20
+00:01:16,000 --> 00:01:20,000
+unit test, for this method. Here,
+
+21
+00:01:20,000 --> 00:01:24,000
+in the solution explorer. I'm going to add a new project to the
+
+22
+00:01:24,000 --> 00:01:28,000
+solution. So add,
+
+23
+00:01:28,000 --> 00:01:32,000
+new project. Under installed,
+
+24
+00:01:32,000 --> 00:01:36,000
+visual C# test, you should see this template,
+
+25
+00:01:36,000 --> 00:01:40,000
+Unit Test Project. If you don't see it here, chances are you
+
+26
+00:01:40,000 --> 00:01:44,000
+have not installed visual studio property. So go and download
+
+27
+00:01:44,000 --> 00:01:48,000
+the latest version of Visual Studio, currently I'm using Visual Studio
+
+28
+00:01:48,000 --> 00:01:52,000
+2017 Community Edition. So here we select
+
+29
+00:01:52,000 --> 00:01:56,000
+Unit Test Project, and we give it a name.
+
+30
+00:01:56,000 --> 00:02:00,000
+So the name of our main project is test ninja, and I'm going to call
+
+31
+00:02:00,000 --> 00:02:04,000
+this project testninja.unit
+
+32
+00:02:04,000 --> 00:02:08,000
+tests. This is the convention we follow to
+
+33
+00:02:08,000 --> 00:02:12,000
+organize our test project. We want to separate the unit test
+
+34
+00:02:12,000 --> 00:02:16,000
+and integration tests, because unit tests run pretty quickly.
+
+35
+00:02:16,000 --> 00:02:20,000
+whereas integration tests take more time. We want to separate
+
+36
+00:02:20,000 --> 00:02:24,000
+them, so we can run unit tests more frequently and
+
+37
+00:02:24,000 --> 00:02:28,000
+integration tests before committing our code to a repository.
+
+38
+00:02:28,000 --> 00:02:32,000
+Okay? Let's go ahead,
+
+39
+00:02:32,000 --> 00:02:36,000
+so Visual Studio creates this new project.
+
+40
+00:02:36,000 --> 00:02:40,000
+And you can see here we have a file, unit test
+
+41
+00:02:40,000 --> 00:02:44,000
+1, it's a simple c#class that has
+
+42
+00:02:44,000 --> 00:02:48,000
+the TestClass attribute, and it has one method called
+
+43
+00:02:48,000 --> 00:02:52,000
+TestMethod1 one with this attribute, test method. These two
+
+44
+00:02:52,000 --> 00:02:56,000
+attributes you see here, belong to MSTestFramework. So the
+
+45
+00:02:56,000 --> 00:03:00,000
+test runner we have in visual studio looks at all the
+
+46
+00:03:00,000 --> 00:03:04,000
+classes decorated, with a test class attribute. Then,
+
+47
+00:03:04,000 --> 00:03:08,000
+it looks at all the methods in this class decorated with a
+
+48
+00:03:08,000 --> 00:03:12,000
+test method attribute, and it will run them. So,
+
+49
+00:03:12,000 --> 00:03:16,000
+the first thing I want to do here is change the name of this class.
+
+50
+00:03:16,000 --> 00:03:20,000
+So, press control R and then R again
+
+51
+00:03:20,000 --> 00:03:24,000
+Now you can rename this, I'm going to call this Reservation
+
+52
+00:03:24,000 --> 00:03:28,000
+Tests. Because we are testing the
+
+53
+00:03:28,000 --> 00:03:32,000
+reservation class, so the convention we follow is the name of the
+
+54
+00:03:32,000 --> 00:03:36,000
+class, plus tests. Enter.
+
+55
+00:03:36,000 --> 00:03:40,000
+Now, similarly I'm going to rename this method
+
+56
+00:03:40,000 --> 00:03:44,000
+once again control R and R. The method I want
+
+57
+00:03:44,000 --> 00:03:48,000
+to test is CanBeCancelled
+
+58
+00:03:48,000 --> 00:03:52,000
+By. Now here we add an
+
+59
+00:03:52,000 --> 00:03:56,000
+underline, you specify a scenario
+
+60
+00:03:56,000 --> 00:04:00,000
+underlined again, and ExpectedBehavior
+
+61
+00:04:00,000 --> 00:04:04,000
+here. What is this? Let's go back to our
+
+62
+00:04:04,000 --> 00:04:08,000
+reservation class, when writing unit tests for this
+
+63
+00:04:08,000 --> 00:04:12,000
+method, we want to test all the scenarios. What
+
+64
+00:04:12,000 --> 00:04:16,000
+scenarios do we have here? We have three scenarios. One scenario
+
+65
+00:04:16,000 --> 00:04:20,000
+is when the user is an admin. The other
+
+66
+00:04:20,000 --> 00:04:24,000
+scenario is when the user is the same person who made this reservation.
+
+67
+00:04:24,000 --> 00:04:28,000
+And the third scenario is when someone else
+
+68
+00:04:28,000 --> 00:04:32,000
+tries to cancel this reservation. So here we have three
+
+69
+00:04:32,000 --> 00:04:36,000
+scenarios, or three execution paths. So there are
+
+70
+00:04:36,000 --> 00:04:40,000
+three ways to get out of this method. That's why we call this
+
+71
+00:04:40,000 --> 00:04:44,000
+three execution paths, okay? So,
+
+72
+00:04:44,000 --> 00:04:48,000
+back to our unit test class, the first
+
+73
+00:04:48,000 --> 00:04:52,000
+scenario we want to test is User
+
+74
+00:04:52,000 --> 00:04:56,000
+IsAdmin. Now what is the expected
+
+75
+00:04:56,000 --> 00:05:00,000
+behavior if the user's admin this method should return
+
+76
+00:05:00,000 --> 00:05:04,000
+true. So ReturnsTrue.
+
+77
+00:05:04,000 --> 00:05:08,000
+This is the convention we use to name and organize
+
+78
+00:05:08,000 --> 00:05:12,000
+our test methods. Every test method has three
+
+79
+00:05:12,000 --> 00:05:16,000
+parts. The first part specifies the name of the method on the test,
+
+80
+00:05:16,000 --> 00:05:20,000
+the second part is the scenario of our testing, and the third
+
+81
+00:05:20,000 --> 00:05:24,000
+part is the expected behavior. Now
+
+82
+00:05:24,000 --> 00:05:28,000
+inside every test method, we have three parts,
+
+83
+00:05:28,000 --> 00:05:32,000
+Arrange, Act,
+
+84
+00:05:32,000 --> 00:05:36,000
+and Assert. This convention is called
+
+85
+00:05:36,000 --> 00:05:40,000
+triple A, or Arrange, Act, and Assert.
+
+86
+00:05:40,000 --> 00:05:44,000
+The Arrange part is where we initialize our objects.
+
+87
+00:05:44,000 --> 00:05:48,000
+We've prepared the object we want to test, in this case we want to create an
+
+88
+00:05:48,000 --> 00:05:52,000
+instance of the reservation class, so,
+
+89
+00:05:52,000 --> 00:05:56,000
+we create a reservation object, new,
+
+90
+00:05:56,000 --> 00:06:00,000
+reservation,
+
+91
+00:06:00,000 --> 00:06:04,000
+now here the Reservation class is not recognized, so you need to press
+
+92
+00:06:04,000 --> 00:06:08,000
+control and period.
+
+93
+00:06:08,000 --> 00:06:12,000
+And in this context menu, select add reference
+
+94
+00:06:12,000 --> 00:06:16,000
+to test ninja. Okay,
+
+95
+00:06:16,000 --> 00:06:20,000
+so we have the reservation object, the Act part
+
+96
+00:06:20,000 --> 00:06:24,000
+is where we act on this object, and that basically means we're
+
+97
+00:06:24,000 --> 00:06:28,000
+going to call a method, that's the method we're going to test. In this case
+
+98
+00:06:28,000 --> 00:06:32,000
+reservation.CanBeCancelled
+
+99
+00:06:32,000 --> 00:06:36,000
+By. Now, I want to give you an argument,
+
+100
+00:06:36,000 --> 00:06:40,000
+in this case we want to give it ta user, that is an admin user.
+
+101
+00:06:40,000 --> 00:06:44,000
+So here I create a user object and set
+
+102
+00:06:44,000 --> 00:06:48,000
+IsAdmin to true.
+
+103
+00:06:48,000 --> 00:06:52,000
+So this is the act part. Now we want to get the
+
+104
+00:06:52,000 --> 00:06:56,000
+result and verify that it's correct. So, I'm going to store
+
+105
+00:06:56,000 --> 00:07:00,000
+the result in a variable called result,
+
+106
+00:07:00,000 --> 00:07:04,000
+and in the Assert part, you verify that
+
+107
+00:07:04,000 --> 00:07:08,000
+result is correct. In this case, result should be true.
+
+108
+00:07:08,000 --> 00:07:12,000
+So here I'm going to use one of the helper classes in MSTest
+
+109
+00:07:12,000 --> 00:07:16,000
+Framework. That is called Assert,
+
+110
+00:07:16,000 --> 00:07:20,000
+this class has a bunch of static methods that we use to make an
+
+111
+00:07:20,000 --> 00:07:24,000
+assertion. For example, if you want to compare two objects, we can
+
+112
+00:07:24,000 --> 00:07:28,000
+use AreEqual, other methods here like
+
+113
+00:07:28,000 --> 00:07:32,000
+IsFalse, is instance of type, is not
+
+114
+00:07:32,000 --> 00:07:36,000
+InstanceofType and so on. So here, you want to assert
+
+115
+00:07:36,000 --> 00:07:40,000
+that this result is true. So we call assert,
+
+116
+00:07:40,000 --> 00:07:44,000
+.IsTrue and pass result.
+
+117
+00:07:44,000 --> 00:07:48,000
+So this is how we write a unit test,
+
+118
+00:07:48,000 --> 00:07:52,000
+Now to run this test, we go on the top,
+
+119
+00:07:52,000 --> 00:07:56,000
+from the test menu, go to Run,
+
+120
+00:07:56,000 --> 00:08:00,000
+and select All Tests. This is what I don't like about
+
+121
+00:08:00,000 --> 00:08:04,000
+Visual Studio, because here we don't have the ability to run
+
+122
+00:08:04,000 --> 00:08:08,000
+only a particular test method, like this test method we wrote
+
+123
+00:08:08,000 --> 00:08:12,000
+in this lecture. We can only run all the tests
+
+124
+00:08:12,000 --> 00:08:16,000
+in this project. And this is why I like ReSharper, because with ReSharper
+
+125
+00:08:16,000 --> 00:08:20,000
+I can run only this test, Or, I can run
+
+126
+00:08:20,000 --> 00:08:24,000
+all the tests in this class, so it's more flexible. I want to show you
+
+127
+00:08:24,000 --> 00:08:28,000
+that later in the section. So, let's go on the top,
+
+128
+00:08:28,000 --> 00:08:32,000
+from the test menu, Run, All Tests.
+
+129
+00:08:32,000 --> 00:08:36,000
+And note the shortcut. Remember this so you can quickly run all your tests.
+
+130
+00:08:36,000 --> 00:08:40,000
+This should open this
+
+131
+00:08:40,000 --> 00:08:44,000
+Text Explorer window, if you don't see that, you can find it
+
+132
+00:08:44,000 --> 00:08:48,000
+on the top, under tests,
+
+133
+00:08:48,000 --> 00:08:52,000
+Windows, Test Explorer. Okay? So we can
+
+134
+00:08:52,000 --> 00:08:56,000
+see, we have a passing test, we have a green
+
+135
+00:08:56,000 --> 00:09:00,000
+mark, we can see the name of our test method, and the time it took
+
+136
+00:09:00,000 --> 00:09:04,000
+to run this test. In a real world application you're going to have
+
+137
+00:09:04,000 --> 00:09:08,000
+hundreds or thousands of unit tests. So when you run your tests
+
+138
+00:09:08,000 --> 00:09:12,000
+this window is going to be populated with all the tests in your
+
+139
+00:09:12,000 --> 00:09:16,000
+application. Now let me should you an example of a failing test. So,
+
+140
+00:09:16,000 --> 00:09:20,000
+I'm going to go back to the reservation class, and create a bug in our code.
+
+141
+00:09:20,000 --> 00:09:24,000
+So here, I'm going to return false.
+
+142
+00:09:24,000 --> 00:09:28,000
+Let's say the developer who wrote this code made this mistake.
+
+143
+00:09:28,000 --> 00:09:32,000
+Now as I told you before, with unit tests, we can catch bugs
+
+144
+00:09:32,000 --> 00:09:36,000
+before deploying our application. So when we create a unit test
+
+145
+00:09:36,000 --> 00:09:40,000
+class, and verify the
+
+146
+00:09:40,000 --> 00:09:44,000
+expected behavior of a method, in this case you're
+
+147
+00:09:44,000 --> 00:09:48,000
+verifying that this method is returning true, with this
+
+148
+00:09:48,000 --> 00:09:52,000
+unit test, we can catch bugs earlier, and the software
+
+149
+00:09:52,000 --> 00:09:56,000
+development life cycle. So, back to our test explorer window,
+
+150
+00:09:56,000 --> 00:10:00,000
+I'm going to run, call the test again.
+
+151
+00:10:00,000 --> 00:10:04,000
+This time, our test failed. So we can see the benefit
+
+152
+00:10:04,000 --> 00:10:08,000
+of unit tests, in action. Now here's an exercise
+
+153
+00:10:08,000 --> 00:10:12,000
+for you. As I told you before,
+
+154
+00:10:12,000 --> 00:10:16,000
+this method has three execution paths, or three
+
+155
+00:10:16,000 --> 00:10:20,000
+scenarios, I want you to use what you learned in this lecture,
+
+156
+00:10:20,000 --> 00:10:24,000
+and write the other two unit tests for this method. In this next lecture,
+
+157
+00:10:24,000 --> 00:10:27,000
+you're going to see my solution.

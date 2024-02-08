@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, entonces estamos listos para comenzar nuestro viaje
+
+2
+00:00:04,000 --> 00:00:08,000
+de prueba de unidad. A partir de esta conferencia en
+
+3
+00:00:08,000 --> 00:00:12,000
+adelante, en cada conferencia voy a mostrarte una o dos tcnicas, vas
+
+4
+00:00:12,000 --> 00:00:16,000
+a comenzar con ejemplos simples y luego estos ejemplos se volvern cada
+
+5
+00:00:16,000 --> 00:00:20,000
+vez ms complejos, ests listo? Empecemos.
+
+6
+00:00:20,000 --> 00:00:24,000
+Entonces, proyecto TestNinja, abra la carpeta de los fundamentos, y
+
+7
+00:00:24,000 --> 00:00:28,000
+mire esta clase de matemticas. La primera prueba que desea escribir
+
+8
+00:00:28,000 --> 00:00:32,000
+es para este mtodo de agregar aqu. Mtodo muy simple, con
+
+9
+00:00:32,000 --> 00:00:36,000
+solo una lnea de cdigo. Cuntas pruebas necesitamos aqu?
+
+10
+00:00:36,000 --> 00:00:40,000
+Bueno, mira cuntas rutas de ejecucin tenemos en este mtodo.
+
+11
+00:00:40,000 --> 00:00:44,000
+Solo tiene una ruta de ejecucin nica, no tiene sentencias condicionales,
+
+12
+00:00:44,000 --> 00:00:48,000
+no tiene e y l's (? ) o
+
+13
+00:00:48,000 --> 00:00:52,000
+cambiar (? ) caso. Por lo tanto, al
+
+14
+00:00:52,000 --> 00:00:56,000
+probar este mtodo, proporcionar nuestros argumentos como uno y dos y
+
+15
+00:00:56,000 --> 00:01:00,000
+verificar que este mtodo arroje tres. Si eso funciona, entonces no necesito volver a
+
+16
+00:01:00,000 --> 00:01:04,000
+probarlo, con otra serie de argumentos, de acuerdo? Entonces, solo una prueba es
+
+17
+00:01:04,000 --> 00:01:08,000
+suficiente para el mtodo add. Ahora, de regreso
+
+18
+00:01:08,000 --> 00:01:12,000
+a nuestro proyecto de pruebas unitarias,
+
+19
+00:01:12,000 --> 00:01:16,000
+voy a agregar una nueva clase
+
+20
+00:01:16,000 --> 00:01:20,000
+y llamar a estas pruebas de matemticas.
+
+21
+00:01:20,000 --> 00:01:24,000
+Primero, debera aplicar el atributo de accesorio de
+
+22
+00:01:24,000 --> 00:01:28,000
+prueba aqu, de lo contrario el corrector de
+
+23
+00:01:28,000 --> 00:01:32,000
+prueba NUnit no ejecutar el en esta prueba.
+
+24
+00:01:32,000 --> 00:01:36,000
+Ahora creamos un mtodo de vaco pblico y utilizamos la
+
+25
+00:01:36,000 --> 00:01:40,000
+convencin que te dije antes, por lo que el mtodo
+
+26
+00:01:40,000 --> 00:01:44,000
+en la prueba es Agregar. Ahora qu escenario estamos probando aqu?
+
+27
+00:01:44,000 --> 00:01:48,000
+En este caso, estamos lidiando con un solo escenario. As que voy a
+
+28
+00:01:48,000 --> 00:01:52,000
+usar un trmino genrico. Como WhenCalled.
+
+29
+00:01:52,000 --> 00:01:56,000
+Entonces el mtodo add, cuando se llama, qu debera hacer?
+
+30
+00:01:56,000 --> 00:02:00,000
+Debera devolver la suma del argumento.
+
+31
+00:02:00,000 --> 00:02:04,000
+Bueno? Ahora tenemos que decorar
+
+32
+00:02:04,000 --> 00:02:08,000
+este mtodo con el atributo de prueba.
+
+33
+00:02:08,000 --> 00:02:12,000
+Entonces aqu tenemos tres partes. Arregle, acte
+
+34
+00:02:12,000 --> 00:02:16,000
+y afirme. En el arreglo, creamos una nueva
+
+35
+00:02:16,000 --> 00:02:20,000
+instancia de la clase de matemtica, asegrese de usar la clase
+
+36
+00:02:20,000 --> 00:02:24,000
+de matemtica definida en TestNinja. fundamentos.
+
+37
+00:02:24,000 --> 00:02:28,000
+No es el definido en el espacio principal del sistema que forma parte de. NET
+
+38
+00:02:28,000 --> 00:02:32,000
+Framework. Bueno? Ahora agregamos
+
+39
+00:02:32,000 --> 00:02:36,000
+las matemticas. agregar, le damos dos argumentos, pero
+
+40
+00:02:36,000 --> 00:02:40,000
+qu argumentos deberamos usar aqu? Lo mejor es usar valores
+
+41
+00:02:40,000 --> 00:02:44,000
+simples como 1 y 2, a diferencia de algunos nmeros
+
+42
+00:02:44,000 --> 00:02:48,000
+aleatorios mgicos como 952. Porque cuando alguien mira este
+
+43
+00:02:48,000 --> 00:02:52,000
+cdigo, se preguntan, cul es el significado de 952?
+
+44
+00:02:52,000 --> 00:02:56,000
+Este nmero tiene un significado especial en el dominio de la aplicacin, es
+
+45
+00:02:56,000 --> 00:03:00,000
+una constante definida en otro lugar, es la idea de un registro en
+
+46
+00:03:00,000 --> 00:03:04,000
+la base de datos, por lo que no queremos crear tales confusiones para otros.
+
+47
+00:03:04,000 --> 00:03:08,000
+Y utilizamos valores simples, 1 y 2.
+
+48
+00:03:08,000 --> 00:03:12,000
+Obtenemos el resultado, y luego necesitamos verificar que el
+
+49
+00:03:12,000 --> 00:03:16,000
+resultado sea igual a 3. Entonces afirme
+
+50
+00:03:16,000 --> 00:03:20,000
+que el resultado, es
+
+51
+00:03:20,000 --> 00:03:24,000
+igual a 3.
+
+52
+00:03:24,000 --> 00:03:28,000
+Vamos a ejecutar esta prueba. Entonces, si est utilizando
+
+53
+00:03:28,000 --> 00:03:32,000
+Rider o ReSharper, su atajo es comando y T,
+
+54
+00:03:32,000 --> 00:03:36,000
+y Command y R en Mac, o Control T
+
+55
+00:03:36,000 --> 00:03:40,000
+y Control R en Windows. Y si est usando Visual Studio
+
+56
+00:03:40,000 --> 00:03:44,000
+sin ReSharper, debe ejecutar todas las pruebas. Lamentablemente, no recuerdo el atajo para
+
+57
+00:03:44,000 --> 00:03:48,000
+eso, as que debes buscarlo t mismo. Entonces, ejecutemos esta prueba.
+
+58
+00:03:48,000 --> 00:03:52,000
+De acuerdo, nuestra prueba pas, hermosa.
+

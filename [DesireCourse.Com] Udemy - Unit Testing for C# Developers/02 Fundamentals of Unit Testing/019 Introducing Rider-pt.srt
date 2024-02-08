@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, agora deixe-me dar uma breve
+
+2
+00:00:04,000 --> 00:00:08,000
+introduo ao Rider. O Rider  uma ID
+
+3
+00:00:08,000 --> 00:00:12,000
+de plataforma cruzada construda pela Jet Brains, a mesma empresa
+
+4
+00:00:12,000 --> 00:00:16,000
+que criou o ReSharper.  super rpido,  leve e  o
+
+5
+00:00:16,000 --> 00:00:20,000
+meu IDE preferido no momento da gravao deste vdeo. Se voc quiser usar o
+
+6
+00:00:20,000 --> 00:00:24,000
+Visual Studio, tudo bem, mas deixe-me mostrar um dos meus
+
+7
+00:00:24,000 --> 00:00:28,000
+recursos favoritos no Rider, que voc tambm pode obter com
+
+8
+00:00:28,000 --> 00:00:32,000
+o ReSharper, dentro do Visual Studio. Veja este cone que temos
+
+9
+00:00:32,000 --> 00:00:36,000
+diante deste mtodo de teste. Basta clicar nele, veja, com
+
+10
+00:00:36,000 --> 00:00:40,000
+o Rider ou com o ReSharper, podemos executar um nico teste,
+
+11
+00:00:40,000 --> 00:00:44,000
+e isso  algo que atualmente no temos no Visual Studio.
+
+12
+00:00:44,000 --> 00:00:48,000
+No Visual Studio, voc s pode executar todos os testes em seu projeto.
+
+13
+00:00:48,000 --> 00:00:52,000
+mas isso  muito ineficiente, porque em um grande aplicativo
+
+14
+00:00:52,000 --> 00:00:56,000
+do mundo real, voc pode ter centenas ou milhares de testes.
+
+15
+00:00:56,000 --> 00:01:00,000
+s vezes voc est trabalhando em um teste especfico, voc est fazendo alteraes
+
+16
+00:01:00,000 --> 00:01:04,000
+e deseja executar apenas esse teste. Voc no quer executar todos os testes e
+
+17
+00:01:04,000 --> 00:01:08,000
+esperar toda vez que estiver fazendo uma mudana simples, em um nico mtodo de teste.
+
+18
+00:01:08,000 --> 00:01:12,000
+Alm disso, aqui podemos executar todos os testes dentro desta classe
+
+19
+00:01:12,000 --> 00:01:16,000
+de teste de reserva, voc pode ver que temos este cone
+
+20
+00:01:16,000 --> 00:01:20,000
+aqui, para que possamos executar todos os testes dentro desta classe.
+
+21
+00:01:20,000 --> 00:01:24,000
+O atalho para executar este  o comando e T e,
+
+22
+00:01:24,000 --> 00:01:28,000
+em seguida, comando e R. Se voc estiver no Windows, o atalho 
+
+23
+00:01:28,000 --> 00:01:32,000
+o controle T e o controle R. E aqui est nosso corredor
+
+24
+00:01:32,000 --> 00:01:36,000
+de descanso, que  mais rpido que o corredor de
+
+25
+00:01:36,000 --> 00:01:40,000
+teste que obtemos no Visual Studio. Ento, essas so algumas das razes que
+
+26
+00:01:40,000 --> 00:01:44,000
+eu amo o ReSharper, mas, novamente, voc no precisa obter o ReSharper, Rider, voc
+
+27
+00:01:44,000 --> 00:01:48,000
+pode simplesmente usar o Visual Studio no Windows, e isso est perfeitamente bem.
+
+28
+00:01:48,000 --> 00:01:52,000
+Mas vou usar o Rider pelo resto do curso.
+

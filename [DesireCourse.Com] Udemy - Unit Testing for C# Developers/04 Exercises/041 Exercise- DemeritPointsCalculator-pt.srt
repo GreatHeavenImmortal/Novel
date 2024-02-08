@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, agora vamos dar uma olhada em outro exerccio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Ento, mais uma vez na pasta Fundamentals,
+
+3
+00:00:08,000 --> 00:00:12,000
+abra esta classe. DemeritPointsCalculator.
+
+4
+00:00:12,000 --> 00:00:16,000
+Ento aqui temos um mtodo. Calcule
+
+5
+00:00:16,000 --> 00:00:20,000
+DemeritPoints. Ns damos a ele a velocidade de um
+
+6
+00:00:20,000 --> 00:00:24,000
+carro que vai nos dizer quantos DemeritPoints esse driver deve pegar por excesso de velocidade.
+
+7
+00:00:24,000 --> 00:00:28,000
+Ento este  o algoritmo que implementei aqui.
+
+8
+00:00:28,000 --> 00:00:32,000
+Para cada cinco quilmetros acima do limite
+
+9
+00:00:32,000 --> 00:00:36,000
+de velocidade, que  65, vamos dar
+
+10
+00:00:36,000 --> 00:00:40,000
+um ponto ao driver. Portanto, se o motorista
+
+11
+00:00:40,000 --> 00:00:44,000
+estiver a 15 km acima do limite de velocidade,
+
+12
+00:00:44,000 --> 00:00:48,000
+ele dever receber trs DemeritPoints. Ento, v em frente e escreva testes de unidade para
+
+13
+00:00:48,000 --> 00:00:52,000
+essa funo, para garantir que ela seja implementada corretamente. Em seguida, vamos
+
+14
+00:00:52,000 --> 00:00:54,000
+ver minha soluo.
+

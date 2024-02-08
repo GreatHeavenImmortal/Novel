@@ -1,0 +1,464 @@
+1
+00:00:00,000 --> 00:00:04,000
+Bien, entonces de vuelta en nuestro explorador de
+
+2
+00:00:04,000 --> 00:00:08,000
+soluciones, dentro de la carpeta Mocking, agreguemos una
+
+3
+00:00:08,000 --> 00:00:12,000
+nueva clase llamada BookingRepository. As que vamos a encapsular esa
+
+4
+00:00:12,000 --> 00:00:16,000
+consulta dentro de una clase de repositorio. O puede llamar
+
+5
+00:00:16,000 --> 00:00:20,000
+a este BookingStorage. Lo que sea que prefieras.
+
+6
+00:00:20,000 --> 00:00:24,000
+Entonces, aqu deberamos tener un mtodo
+
+7
+00:00:24,000 --> 00:00:28,000
+que devuelva un objeto IQueryable.
+
+8
+00:00:28,000 --> 00:00:32,000
+de reserva Por qu IQueryable?
+
+9
+00:00:32,000 --> 00:00:36,000
+porque si observas la clase de ayuda de reserva,
+
+10
+00:00:36,000 --> 00:00:40,000
+mira esta implementacin. Est usando unitOfWork. Consulta de reserva,
+
+11
+00:00:40,000 --> 00:00:44,000
+y aqu est la lgica para la consulta.
+
+12
+00:00:44,000 --> 00:00:48,000
+Entonces este mtodo devuelve un IQueryableObject,
+
+13
+00:00:48,000 --> 00:00:52,000
+y ms adelante, estamos personalizando esa
+
+14
+00:00:52,000 --> 00:00:56,000
+consulta an ms. Bueno? Entonces, de vuelta
+
+15
+00:00:56,000 --> 00:01:00,000
+en el Depsito de reservas, deberamos devolver un
+
+16
+00:01:00,000 --> 00:01:04,000
+IQueryable de Booking y llamar a este mtodo
+
+17
+00:01:04,000 --> 00:01:08,000
+Reservas de Getactive. Ahora, de vuelta
+
+18
+00:01:08,000 --> 00:01:12,000
+en la clase BookingHelper, vamos a mover
+
+19
+00:01:12,000 --> 00:01:16,000
+estas pocas lneas donde tocamos la base
+
+20
+00:01:16,000 --> 00:01:20,000
+de datos, dentro de nuestro BookingRepository.
+
+21
+00:01:20,000 --> 00:01:24,000
+Y aqu volvemos las reservas. Ahora aqu tenemos un problema de
+
+22
+00:01:24,000 --> 00:01:28,000
+compilacin, y vamos a solucionarlo en un segundo, pero quiero decirte otra
+
+23
+00:01:28,000 --> 00:01:32,000
+forma de refactorizar este cdigo. En lugar de extraer estas
+
+24
+00:01:32,000 --> 00:01:36,000
+pocas lneas, podramos extraer una interfaz de la unidad de
+
+25
+00:01:36,000 --> 00:01:40,000
+clase de trabajo, as que en lugar de instanciar esta
+
+26
+00:01:40,000 --> 00:01:44,000
+unidad de trabajo dentro de nuestro BookingHelper aqu, podramos inyectar
+
+27
+00:01:44,000 --> 00:01:48,000
+una IUnidad de trabajo, entonces, en nuestras pruebas de unidad,
+
+28
+00:01:48,000 --> 00:01:52,000
+podramos burlarnos de la Interfaz de unidad de trabajo.
+
+29
+00:01:52,000 --> 00:01:56,000
+Entonces ese enfoque est perfectamente bien. Sin embargo, la razn
+
+30
+00:01:56,000 --> 00:02:00,000
+por la que extraje estas pocas lneas es
+
+31
+00:02:00,000 --> 00:02:04,000
+porque quiero encapsular esta consulta dentro de este mtodo.
+
+32
+00:02:04,000 --> 00:02:08,000
+Y esto es para una mejor separacin de preocupaciones. Porque es posible que
+
+33
+00:02:08,000 --> 00:02:12,000
+en algn otro lugar de la aplicacin, desee obtener
+
+34
+00:02:12,000 --> 00:02:16,000
+la lista de reservas activas. Tal vez quieras mostrarlos
+
+35
+00:02:16,000 --> 00:02:20,000
+en alguna parte para administradores. En ese caso, no queremos
+
+36
+00:02:20,000 --> 00:02:24,000
+repetir esta lgica especficamente la parte donde verificamos el estado
+
+37
+00:02:24,000 --> 00:02:28,000
+de la reserva. No queremos repetir esto en varios lugares. Y es por eso
+
+38
+00:02:28,000 --> 00:02:32,000
+que utilizamos el patrn de repositorio para encapsular las consultas y ubicarlas en
+
+39
+00:02:32,000 --> 00:02:36,000
+el lugar al que realmente pertenecen. Ahora podra preguntar, cmo
+
+40
+00:02:36,000 --> 00:02:40,000
+es que no extraje estas lneas adicionales aqu,
+
+41
+00:02:40,000 --> 00:02:44,000
+porque esta es la lgica especfica para este mtodo?
+
+42
+00:02:44,000 --> 00:02:48,000
+Porque una vez que ponemos reservas activas, podemos ver si
+
+43
+00:02:48,000 --> 00:02:52,000
+hay una superposicin entre cualquiera de esas reservas y el
+
+44
+00:02:52,000 --> 00:02:56,000
+objeto de reserva que pasamos aqu. Bueno?
+
+45
+00:02:56,000 --> 00:03:00,000
+Entonces, de vuelta en nuestro repositorio de reservas, aqu
+
+46
+00:03:00,000 --> 00:03:04,000
+tenemos este problema de compilacin, porque no tenemos el
+
+47
+00:03:04,000 --> 00:03:08,000
+ID de esta reserva. Entonces, voy a agregar un parmetro
+
+48
+00:03:08,000 --> 00:03:12,000
+a este mtodo, solo necesitamos una ID, no un objeto de
+
+49
+00:03:12,000 --> 00:03:16,000
+reserva, por lo que quiero pasar, un entero, y llamar a
+
+50
+00:03:16,000 --> 00:03:20,000
+esa ID de reserva excluida. Ahora, es posible que, en algn otro
+
+51
+00:03:20,000 --> 00:03:24,000
+lugar de nuestra aplicacin, deseemos llamar a este mtodo para obtener reservas activas sin
+
+52
+00:03:24,000 --> 00:03:28,000
+pasar un ID de reserva para excluir. Solo queremos ver todas las
+
+53
+00:03:28,000 --> 00:03:32,000
+reservas activas en la aplicacin. Por lo tanto, quiero
+
+54
+00:03:32,000 --> 00:03:36,000
+dejar esto como nulo y establecerlo como
+
+55
+00:03:36,000 --> 00:03:40,000
+nulo, y de esta manera este ser
+
+56
+00:03:40,000 --> 00:03:44,000
+un argumento opcional. Ahora, tenemos que modificar
+
+57
+00:03:44,000 --> 00:03:48,000
+esta consulta de esta manera. Entonces, primero verificamos solo el
+
+58
+00:03:48,000 --> 00:03:52,000
+estado de la reserva, borremos la primera parte, donde verificamos el
+
+59
+00:03:52,000 --> 00:03:56,000
+ID de la reserva, ahora si nuestro parmetro tiene un valor,
+
+60
+00:03:56,000 --> 00:04:00,000
+por lo tanto, excluimos aBookingiD. HasValue personalizar
+
+61
+00:04:00,000 --> 00:04:04,000
+an ms esta consulta.
+
+62
+00:04:04,000 --> 00:04:08,000
+Por lo tanto, establecemos reservas, que es un
+
+63
+00:04:08,000 --> 00:04:12,000
+objeto IQueryable, para reservas. Dnde, y aqu escribimos
+
+64
+00:04:12,000 --> 00:04:16,000
+alguna lgica de consulta adicional. Entonces b va, y ahora
+
+65
+00:04:16,000 --> 00:04:20,000
+pegamos la parte que cortamos. Y finalmente,
+
+66
+00:04:20,000 --> 00:04:24,000
+modifiquemos esto. Quieres comparar, b. Identificacin con
+
+67
+00:04:24,000 --> 00:04:28,000
+identificacin de reserva excluida. valor.
+
+68
+00:04:28,000 --> 00:04:32,000
+Entonces con esta tcnica, puedo construir consultas dinmicas.
+
+69
+00:04:32,000 --> 00:04:36,000
+Y, por cierto, aqu realmente hice trampa, porque no debera
+
+70
+00:04:36,000 --> 00:04:40,000
+haber modificado la lgica en este mtodo, sin cubrirlo con
+
+71
+00:04:40,000 --> 00:04:44,000
+una prueba de integracin. Porque es posible que
+
+72
+00:04:44,000 --> 00:04:48,000
+cometas un error como parte de romper esta
+
+73
+00:04:48,000 --> 00:04:52,000
+lgica en algn tipo de lgica construida dinmicamente.
+
+74
+00:04:52,000 --> 00:04:56,000
+Sin embargo, debido a que nuestro enfoque se centra en las pruebas unitarias en este
+
+75
+00:04:56,000 --> 00:05:00,000
+curso, y las pruebas de integracin son un tema para otro curso, no podemos escribir
+
+76
+00:05:00,000 --> 00:05:04,000
+una prueba de integracin para este mtodo. Pero una vez que aprende las pruebas
+
+77
+00:05:04,000 --> 00:05:08,000
+de integracin, en sus aplicaciones, antes de realizar cualquier refactorizacin, siempre es mejor
+
+78
+00:05:08,000 --> 00:05:12,000
+escribir lo suficiente para escribir lo suficiente como para escribir las pruebas de
+
+79
+00:05:12,000 --> 00:05:16,000
+unidad o de integracin adecuadas para un mtodo, para asegurarse de que, como
+
+80
+00:05:16,000 --> 00:05:20,000
+parte de su refactorizacin, no rompiendo nada Bueno.
+
+81
+00:05:20,000 --> 00:05:24,000
+Entonces, aqu tenemos una clase de repositorio que encapsula la
+
+82
+00:05:24,000 --> 00:05:28,000
+lgica para obtener consultas activas. Ahora tenemos que extraer
+
+83
+00:05:28,000 --> 00:05:32,000
+una interfaz de esta clase. Entonces alt y enter.
+
+84
+00:05:32,000 --> 00:05:36,000
+Refactor y interfaz de extraccin.
+
+85
+00:05:36,000 --> 00:05:40,000
+Agreguemos este mtodo aqu, a continuacin, y
+
+86
+00:05:40,000 --> 00:05:44,000
+aqu est nuestra interfaz. Hermosa.
+
+87
+00:05:44,000 --> 00:05:48,000
+Ahora, de regreso en nuestra clase Booking Helper,
+
+88
+00:05:48,000 --> 00:05:52,000
+necesitamos inyectar una instancia de una clase que
+
+89
+00:05:52,000 --> 00:05:56,000
+implemente la interfaz IBookingRepository. Como aprendi antes, puede inyectarlo
+
+90
+00:05:56,000 --> 00:06:00,000
+como un parmetro aqu, o usar una propiedad, o usar
+
+91
+00:06:00,000 --> 00:06:04,000
+un constructor para esta clase. Sin embargo, puede ver que este
+
+92
+00:06:04,000 --> 00:06:08,000
+mtodo se declara como esttico. Entonces no podemos usar constructor, o
+
+93
+00:06:08,000 --> 00:06:12,000
+inyeccin de propiedad aqu. Entonces tenemos dos opciones. Una es inyectar esta
+
+94
+00:06:12,000 --> 00:06:16,000
+dependencia usando un parmetro en este mtodo, o eliminar el modificador esttico,
+
+95
+00:06:16,000 --> 00:06:20,000
+y hacer de este mtodo un mtodo de instancia, y luego podemos
+
+96
+00:06:20,000 --> 00:06:24,000
+usar la inyeccin de constructor. La mayora de estos
+
+97
+00:06:24,000 --> 00:06:28,000
+enfoques generan problemas. El problema con el primer enfoque es
+
+98
+00:06:28,000 --> 00:06:32,000
+que la infraestructura de inyeccin de dependencias que utiliza puede no ser compatible con
+
+99
+00:06:32,000 --> 00:06:36,000
+la inyeccin de parmetros. Es posible que solo sea compatible con la inyeccin de constructor. Si ese es el
+
+100
+00:06:36,000 --> 00:06:40,000
+caso, realmente necesita modificar este mtodo y eliminar el modificador esttico.
+
+101
+00:06:40,000 --> 00:06:44,000
+Pero el problema con este enfoque es que tal vez hayas usado
+
+102
+00:06:44,000 --> 00:06:48,000
+este mtodo en diferentes lugares de la aplicacin, y tienes que ir
+
+103
+00:06:48,000 --> 00:06:52,000
+y modificar todos esos lugares. Y es probable que pueda romper algo en el camino.
+
+104
+00:06:52,000 --> 00:06:56,000
+Estas son nuestras limitaciones, para el resto de la seccin
+
+105
+00:06:56,000 --> 00:07:00,000
+asumo que el marco de inyeccin de dependencias que potencialmente
+
+106
+00:07:00,000 --> 00:07:04,000
+utiliza en nuestra aplicacin admite la inyeccin de parmetros.
+
+107
+00:07:04,000 --> 00:07:08,000
+Y es demasiado costoso modificar este mtodo y convertirlo
+
+108
+00:07:08,000 --> 00:07:12,000
+en un mtodo de instancia. Entonces, con esa suposicin,
+
+109
+00:07:12,000 --> 00:07:16,000
+voy a agregar IBookingRepository como un parmetro aqu,
+
+110
+00:07:16,000 --> 00:07:20,000
+y lo llamar repositorio. Entonces, podemos obtener todas
+
+111
+00:07:20,000 --> 00:07:24,000
+las reservas activas. As que var reservas,
+
+112
+00:07:24,000 --> 00:07:28,000
+configurarlo en el repositorio. GetActiveBookings y
+
+113
+00:07:28,000 --> 00:07:32,000
+pasamos la reserva. Id como
+
+114
+00:07:32,000 --> 00:07:36,000
+un argumento aqu. As que ahora, nuestro mtodo est dbilmente
+
+115
+00:07:36,000 --> 00:07:40,000
+acoplado, y est listo para las pruebas. En la prxima conferencia,
+
+116
+00:07:40,000 --> 00:07:44,000
+vamos a escribir nuestra primera prueba unitaria.
+

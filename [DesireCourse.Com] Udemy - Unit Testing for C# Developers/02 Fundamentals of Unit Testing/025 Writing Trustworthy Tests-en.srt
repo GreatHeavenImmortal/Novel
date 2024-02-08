@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:04,000
+At the beginning of this section, I
+
+2
+00:00:04,000 --> 00:00:08,000
+told you the characteristics of good unit tests. One
+
+3
+00:00:08,000 --> 00:00:12,000
+characteristic that I didn't tell you about earlier, is that your unit tests
+
+4
+00:00:12,000 --> 00:00:16,000
+should be trustworthy. I didn't tell you about this earlier, because
+
+5
+00:00:16,000 --> 00:00:20,000
+I want to show you with a real example. What do I mean by a trustworthy
+
+6
+00:00:20,000 --> 00:00:24,000
+test? A trustworthy test is the kind of test we can rely on.
+
+7
+00:00:24,000 --> 00:00:28,000
+So if the test passes, you know that your code is working,
+
+8
+00:00:28,000 --> 00:00:32,000
+and if it fails, you know that there is something wrong with your code.
+
+9
+00:00:32,000 --> 00:00:36,000
+But how can we write trustworthy tests? Well, there are two
+
+10
+00:00:36,000 --> 00:00:40,000
+ways, one way is to use test-driven development, or
+
+11
+00:00:40,000 --> 00:00:44,000
+TDD. With test-driven development, we start
+
+12
+00:00:44,000 --> 00:00:48,000
+by writing a failing test, then we write enough production
+
+13
+00:00:48,000 --> 00:00:52,000
+code, to make that test pass. So if the test passes that
+
+14
+00:00:52,000 --> 00:00:56,000
+means you have written the right production code to make that test pass.
+
+15
+00:00:56,000 --> 00:01:00,000
+And if the test fails, that means that something was wrong with the production code.
+
+16
+00:01:00,000 --> 00:01:04,000
+So, using TDD is one way to write trustworthy
+
+17
+00:01:04,000 --> 00:01:08,000
+tests. But as I told you before, TDD can get complex
+
+18
+00:01:08,000 --> 00:01:12,000
+in some real world scenarios. So far we have been writing tests
+
+19
+00:01:12,000 --> 00:01:16,000
+after the production code. This approach is
+
+20
+00:01:16,000 --> 00:01:20,000
+a little bit risky, because you may test the wrong thing. But
+
+21
+00:01:20,000 --> 00:01:24,000
+if you test the wrong thing, your test may pass, but your production code
+
+22
+00:01:24,000 --> 00:01:28,000
+might have a bug, so this is an example of untrustworthy tests.
+
+23
+00:01:28,000 --> 00:01:32,000
+I'm going to simulate this scenario in this lecture, and then show you
+
+24
+00:01:32,000 --> 00:01:36,000
+this technique to write trustworthy tests, even if you write
+
+25
+00:01:36,000 --> 00:01:40,000
+your tests after the production code,
+
+26
+00:01:40,000 --> 00:01:44,000
+So, back in our math class, I'm going to create a bug
+
+27
+00:01:44,000 --> 00:01:48,000
+in this add method. Instead of returning the sum of A and B.
+
+28
+00:01:48,000 --> 00:01:52,000
+I'm going to return 0. So,
+
+29
+00:01:52,000 --> 00:01:56,000
+back to our math tests, you currently have a test
+
+30
+00:01:56,000 --> 00:02:00,000
+with the add method, I want to disable the ignore attribute so we run this test,
+
+31
+00:02:00,000 --> 00:02:04,000
+we give this method one and two and we expect three.
+
+32
+00:02:04,000 --> 00:02:08,000
+But our method is returning zero, so the test should fail.
+
+33
+00:02:08,000 --> 00:02:12,000
+Let's verify this. So command and T, and command and R.
+
+34
+00:02:12,000 --> 00:02:16,000
+Okay, our test method
+
+35
+00:02:16,000 --> 00:02:20,000
+failed, you can see we expect a three, but we got zero.
+
+36
+00:02:20,000 --> 00:02:24,000
+Beautiful. So, this is a trustworthy test, because it
+
+37
+00:02:24,000 --> 00:02:28,000
+is testing the right thing. However, when you write your
+
+38
+00:02:28,000 --> 00:02:32,000
+tests, after the production code, it is possible you may make
+
+39
+00:02:32,000 --> 00:02:36,000
+a mistake in the implementation of that test. In other words,
+
+40
+00:02:36,000 --> 00:02:40,000
+your test might have a bug. You can't test your test, right?
+
+41
+00:02:40,000 --> 00:02:44,000
+So, let me simulate this scenario, and then show you the solution
+
+42
+00:02:44,000 --> 00:02:48,000
+to make sure your test is trustworthy. I'm going to comment out this line,
+
+43
+00:02:48,000 --> 00:02:52,000
+and rewrite my assertion like this. Assert
+
+44
+00:02:52,000 --> 00:02:56,000
+That_math,
+
+45
+00:02:56,000 --> 00:03:00,000
+as our private field, Is
+
+46
+00:03:00,000 --> 00:03:04,000
+not null. So you know that our math
+
+47
+00:03:04,000 --> 00:03:08,000
+object is not null. So this test should always pass.
+
+48
+00:03:08,000 --> 00:03:12,000
+Now this is an exaggerated example, of course in a real world
+
+49
+00:03:12,000 --> 00:03:16,000
+scenario, you're not going to write an assertion like this. But what I'm pointing out here,
+
+50
+00:03:16,000 --> 00:03:20,000
+is that when you write your tests after the production code,
+
+51
+00:03:20,000 --> 00:03:24,000
+it is possible that you may make a mistake in the implementation of your test.
+
+52
+00:03:24,000 --> 00:03:28,000
+Now this test is not testing the right thing. It's not testing
+
+53
+00:03:28,000 --> 00:03:32,000
+the result of the add method. So when you run this,
+
+54
+00:03:32,000 --> 00:03:36,000
+it passes. It's not
+
+55
+00:03:36,000 --> 00:03:40,000
+a trustworthy test. Our production code has a bug, but our test
+
+56
+00:03:40,000 --> 00:03:44,000
+is passing. So you might ask, how can we prevent this scenario
+
+57
+00:03:44,000 --> 00:03:48,000
+from happening when writing tests after the production code?
+
+58
+00:03:48,000 --> 00:03:52,000
+Here's the technique that I'm going to share with you.
+
+59
+00:03:52,000 --> 00:03:56,000
+You go to your production code, and make a simple change
+
+60
+00:03:56,000 --> 00:04:00,000
+on the line that is supposed to make that line pass.
+
+61
+00:04:00,000 --> 00:04:04,000
+So, I'm going to delete this line temporarily, imagine this is the implementation
+
+62
+00:04:04,000 --> 00:04:08,000
+of our ad method. So this line,
+
+63
+00:04:08,000 --> 00:04:12,000
+is supposed to make our test pass. I'm going to comment
+
+64
+00:04:12,000 --> 00:04:16,000
+out this line, make a small change,
+
+65
+00:04:16,000 --> 00:04:20,000
+and return 1. Now we run our tests again.
+
+66
+00:04:20,000 --> 00:04:24,000
+So, back to this test, I'm going to run it again,
+
+67
+00:04:24,000 --> 00:04:28,000
+the test still passing, I
+
+68
+00:04:28,000 --> 00:04:32,000
+created a bug in the production code, I made a change,
+
+69
+00:04:32,000 --> 00:04:36,000
+so instead of returning 0, I return 1, and the test
+
+70
+00:04:36,000 --> 00:04:40,000
+is still passing. That means the test is not testing the right thing.
+
+71
+00:04:40,000 --> 00:04:44,000
+I can return anything here, like int.Max value,
+
+72
+00:04:44,000 --> 00:04:48,000
+and this test will still pass.
+
+73
+00:04:48,000 --> 00:04:52,000
+Not a trustworthy test
+
+74
+00:04:52,000 --> 00:04:56,000
+so the test has a bug. Have a look here, okay,
+
+75
+00:04:56,000 --> 00:05:00,000
+the assertion is wrong, so I'm going to delete this,
+
+76
+00:05:00,000 --> 00:05:04,000
+and bring back this original assertion.
+
+77
+00:05:04,000 --> 00:05:08,000
+Now we run this, our test
+
+78
+00:05:08,000 --> 00:05:12,000
+failed. So this is a trustworthy test, it's testing the right thing.
+
+79
+00:05:12,000 --> 00:05:16,000
+In this case, this testing that results
+
+80
+00:05:16,000 --> 00:05:20,000
+is equal to three. So, we go back to our production code,
+
+81
+00:05:20,000 --> 00:05:24,000
+and fix the issue.
+
+82
+00:05:24,000 --> 00:05:28,000
+Return A + B. So,
+
+83
+00:05:28,000 --> 00:05:32,000
+here is what I want you to take away. When you write your tests after
+
+84
+00:05:32,000 --> 00:05:36,000
+the production code, run your test if it passes, then go
+
+85
+00:05:36,000 --> 00:05:40,000
+in the production code, and make a small change in the line that is
+
+86
+00:05:40,000 --> 00:05:44,000
+supposed to make the test pass. Create a bug, return
+
+87
+00:05:44,000 --> 00:05:48,000
+a different value, maybe comment out that line, if you change the line
+
+88
+00:05:48,000 --> 00:05:52,000
+that is supposed to make the test pass, and then your test still passes
+
+89
+00:05:52,000 --> 00:05:56,000
+that means that test is not testing the right thing. Because if you modify
+
+90
+00:05:56,000 --> 00:06:00,000
+that line, and create a bug, the test should fail, right?
+
+91
+00:06:00,000 --> 00:06:04,000
+So, make sure to write trustworthy tests that give you value. So when
+
+92
+00:06:04,000 --> 00:06:08,000
+they pass you know your code is working, and when they fail you know that there is
+
+93
+00:06:08,000 --> 00:06:11,000
+probably something wrong with the code.
+

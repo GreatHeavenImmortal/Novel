@@ -1,0 +1,234 @@
+1
+00:00:00,000 --> 00:00:04,000
+When it comes to automated testing,
+
+2
+00:00:04,000 --> 00:00:08,000
+there are two schools of thought. On one side of the spectrum, we have
+
+3
+00:00:08,000 --> 00:00:12,000
+this super smart developer who thinks, he's an amazing coder,
+
+4
+00:00:12,000 --> 00:00:16,000
+he writes bug free code, and he doesn't need to write tests for his code.
+
+5
+00:00:16,000 --> 00:00:20,000
+In fact, he thinks writing automated tests is a waste of time
+
+6
+00:00:20,000 --> 00:00:24,000
+because they slow you down… He argues that they delay
+
+7
+00:00:24,000 --> 00:00:28,000
+your delivery, and every time you change your application code,
+
+8
+00:00:28,000 --> 00:00:32,000
+you have to deal with a bunch of broken tests, and all this is costly.
+
+9
+00:00:32,000 --> 00:00:36,000
+Oh and by the way, this is a true story! I didn't make this up! In
+
+10
+00:00:36,000 --> 00:00:40,000
+fact, I heard this from one of my previous co-workers! 
+
+11
+00:00:40,000 --> 00:00:44,000
+On the other side of the spectrum, we have this highly opinionated developer
+
+12
+00:00:44,000 --> 00:00:48,000
+who thinks you're not a developer if you don't write tests… 
+
+13
+00:00:48,000 --> 00:00:52,000
+If you go for a job interview at their company, they're gonna give you a unit
+
+14
+00:00:52,000 --> 00:00:56,000
+testing challenge to see if you're good at writing tests or not.
+
+15
+00:00:56,000 --> 00:01:00,000
+They have automated tests for everything and
+
+16
+00:01:00,000 --> 00:01:04,000
+they don't have any manual testing at their company. So who's right?
+
+17
+00:01:04,000 --> 00:01:08,000
+Neither of them! I want you to ignore both these extreme
+
+18
+00:01:08,000 --> 00:01:12,000
+viewpoints and take the middle ground. In every application,
+
+19
+00:01:12,000 --> 00:01:16,000
+it is absolutely essential to have a level of automated
+
+20
+00:01:16,000 --> 00:01:20,000
+testing. Yes, it is true that writing automated tests take time!
+
+21
+00:01:20,000 --> 00:01:24,000
+These tests are not automatically generated! You need to write them by
+
+22
+00:01:24,000 --> 00:01:28,000
+hand! And you need to keep them in good shape and maintain them
+
+23
+00:01:28,000 --> 00:01:32,000
+just like your application code. However, if you
+
+24
+00:01:32,000 --> 00:01:36,000
+don't spend this time writing these tests, then you're likely to spend
+
+25
+00:01:36,000 --> 00:01:40,000
+more time fixing the bugs after deploying your application.
+
+26
+00:01:40,000 --> 00:01:44,000
+In fact, multiple studies have shown that the later
+
+27
+00:01:44,000 --> 00:01:48,000
+we catch bugs, the more costly it gets to fix them.
+
+28
+00:01:48,000 --> 00:01:52,000
+So, when you have a suite of automated tests, you can
+
+29
+00:01:52,000 --> 00:01:56,000
+catch these bugs earlier in the software development lifecycle,
+
+30
+00:01:56,000 --> 00:02:00,000
+specifically when you're writing the code. Uncle Bob,
+
+31
+00:02:00,000 --> 00:02:04,000
+or Robert C Martin, has a metaphor and compares unit testing
+
+32
+00:02:04,000 --> 00:02:08,000
+to double entry book keeping. Every transaction
+
+33
+00:02:08,000 --> 00:02:12,000
+is entered twice; once in the credit books,
+
+34
+00:02:12,000 --> 00:02:16,000
+and once in the debit books. The two entries participate
+
+35
+00:02:16,000 --> 00:02:20,000
+in very different calculations but eventually result in
+
+36
+00:02:20,000 --> 00:02:24,000
+a final result of zero. Of course, the effort is now double
+
+37
+00:02:24,000 --> 00:02:28,000
+but accountants believe this practice is worth the effort
+
+38
+00:02:28,000 --> 00:02:32,000
+because it reduces the chance for errors. Uncle Bob argues
+
+39
+00:02:32,000 --> 00:02:36,000
+that writing tests is exactly like double entry book keeping!
+
+40
+00:02:36,000 --> 00:02:40,000
+For every piece of logic we have in our application code,
+
+41
+00:02:40,000 --> 00:02:44,000
+somewhere we have a test that verifies that logic is implemented
+
+42
+00:02:44,000 --> 00:02:48,000
+properly. Some people complain that they don't have
+
+43
+00:02:48,000 --> 00:02:52,000
+time to write tests! Here's a question for you… Imagine
+
+44
+00:02:52,000 --> 00:02:56,000
+you're a pilot. Would you fly your passengers if you're behind the
+
+45
+00:02:56,000 --> 00:03:00,000
+schedule? Of course not! If you were a surgeon,
+
+46
+00:03:00,000 --> 00:03:04,000
+would you rush the surgery just to make sure you finish the operation according
+
+47
+00:03:04,000 --> 00:03:08,000
+to the schedule? Of course not! So, if a pilot can delay a
+
+48
+00:03:08,000 --> 00:03:12,000
+flight, you can delay your delivery schedule and focus on
+
+49
+00:03:12,000 --> 00:03:16,000
+delivering quality software with less defects.
+
+50
+00:03:16,000 --> 00:03:20,000
+Your boss or client may think they're losing money if you don't release this
+
+51
+00:03:20,000 --> 00:03:24,000
+new shiny feature in time, but when you rush the delivery,
+
+52
+00:03:24,000 --> 00:03:28,000
+and don't write your tests, you end up writing bad code with many
+
+53
+00:03:28,000 --> 00:03:32,000
+bugs and then you have to spend more time and money fixing
+
+54
+00:03:32,000 --> 00:03:36,000
+those bugs. So, you need to explain this to your boss or client
+
+55
+00:03:36,000 --> 00:03:40,000
+who is rushing you to delivery! So, the reality is that
+
+56
+00:03:40,000 --> 00:03:44,000
+building software is costly. You either choose to pay that cost upfront by
+
+57
+00:03:44,000 --> 00:03:48,000
+writing tests, or pay a far greater cost after
+
+58
+00:03:48,000 --> 00:03:52,000
+releasing your software.
+
+
+

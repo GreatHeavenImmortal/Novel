@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:04,000
+In the next lecture, you're going to write your first
+
+2
+00:00:04,000 --> 00:00:08,000
+unit test. So download the zip file I have attached to this lecture
+
+3
+00:00:08,000 --> 00:00:12,000
+this is a Visual Studio solution that includes some code you're going to
+
+4
+00:00:12,000 --> 00:00:15,000
+test throughout this course.

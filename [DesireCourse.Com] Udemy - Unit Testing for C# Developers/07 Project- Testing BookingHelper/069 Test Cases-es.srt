@@ -1,0 +1,220 @@
+1
+00:00:00,000 --> 00:00:04,000
+Como te dije antes, cuando quiero probar un mtodo, primero
+
+2
+00:00:04,000 --> 00:00:08,000
+hago una lluvia de ideas sobre todas las diferentes posibilidades
+
+3
+00:00:08,000 --> 00:00:12,000
+y casos de prueba. Por lo tanto, voy a colapsar
+
+4
+00:00:12,000 --> 00:00:16,000
+este mtodo para no perdernos en los detalles de implementacin, y
+
+5
+00:00:16,000 --> 00:00:20,000
+verlo como una caja negra. Cules son los diversos casos de
+
+6
+00:00:20,000 --> 00:00:24,000
+prueba que necesitamos escribir para este mtodo? Bueno, imagina que tenemos
+
+7
+00:00:24,000 --> 00:00:28,000
+una reserva existente. Es posible que nuestra nueva
+
+8
+00:00:28,000 --> 00:00:32,000
+reserva comience y termine antes de esta reserva existente.
+
+9
+00:00:32,000 --> 00:00:36,000
+En este caso, no tenemos una superposicin. El otro escenario es que
+
+10
+00:00:36,000 --> 00:00:40,000
+nuestra nueva reserva termina en el medio de una reserva existente.
+
+11
+00:00:40,000 --> 00:00:44,000
+En este caso, tenemos una superposicin, por lo que nuestros mtodos deben devolver
+
+12
+00:00:44,000 --> 00:00:48,000
+la referencia de una reserva existente. Tambin es posible que
+
+13
+00:00:48,000 --> 00:00:52,000
+esta nueva reserva termine despus de una reserva existente.
+
+14
+00:00:52,000 --> 00:00:56,000
+De nuevo, tenemos una superposicin, o bien, nuestra nueva reserva puede comenzar en
+
+15
+00:00:56,000 --> 00:01:00,000
+el medio de una reserva existente y finalizar despus, o puede finalizar despus
+
+16
+00:01:00,000 --> 00:01:04,000
+de la mitad de una reserva existente. Y finalmente, la ltima
+
+17
+00:01:04,000 --> 00:01:08,000
+posibilidad es cuando esta nueva reserva comienza y termina
+
+18
+00:01:08,000 --> 00:01:12,000
+despus de una reserva existente. En este caso, no tenemos una superposicin, y
+
+19
+00:01:12,000 --> 00:01:16,000
+nuestros mtodos deben devolver una cadena vaca. Ahora, suponiendo que tenemos una
+
+20
+00:01:16,000 --> 00:01:20,000
+superposicin, tenemos dos escenarios ms, uno es que la reserva existente
+
+21
+00:01:20,000 --> 00:01:24,000
+se cancela, en este caso este mtodo devolver una cadena vaca
+
+22
+00:01:24,000 --> 00:01:28,000
+porque no tenemos una superposicin. O bien, es posible que
+
+23
+00:01:28,000 --> 00:01:32,000
+esta nueva reserva se cancele. Nuevamente, este mtodo asumir
+
+24
+00:01:32,000 --> 00:01:36,000
+que no hay superposicin. Entonces, estos son todos los casos de
+
+25
+00:01:36,000 --> 00:01:40,000
+prueba que necesitamos escribir para este mtodo. As que de
+
+26
+00:01:40,000 --> 00:01:44,000
+vuelta en nuestra solucin en nuestro proyecto
+
+27
+00:01:44,000 --> 00:01:48,000
+de pruebas unitarias, dentro de la carpeta
+
+28
+00:01:48,000 --> 00:01:52,000
+Mocking, agreguemos una nueva clase llamada BookingHelperTests.
+
+29
+00:01:52,000 --> 00:01:56,000
+Y aqu aplicamos el atributo de
+
+30
+00:01:56,000 --> 00:02:00,000
+accesorio de prueba. Y escribe nuestra primera
+
+31
+00:02:00,000 --> 00:02:04,000
+prueba de unidad. Pruebe para que
+
+32
+00:02:04,000 --> 00:02:08,000
+el mtodo que estamos probando sea
+
+33
+00:02:08,000 --> 00:02:12,000
+Overlapping BookingsExist. El primer
+
+34
+00:02:12,000 --> 00:02:16,000
+escenario es cuando nuestra
+
+35
+00:02:16,000 --> 00:02:20,000
+nueva reserva comienza y
+
+36
+00:02:20,000 --> 00:02:24,000
+termina antes de una
+
+37
+00:02:24,000 --> 00:02:28,000
+reserva existente, entonces, Booking StartsAndFinishesBefore AnExistingBooking.
+
+38
+00:02:28,000 --> 00:02:32,000
+Y esperamos que este mtodo devuelva una cadena vaca.
+
+39
+00:02:32,000 --> 00:02:36,000
+Porque no hay superposicin. Entonces, devuelve
+
+40
+00:02:36,000 --> 00:02:40,000
+EmptyString. Ahora, podemos ver que el nombre
+
+41
+00:02:40,000 --> 00:02:44,000
+de este mtodo es demasiado largo, y esto no es necesariamente
+
+42
+00:02:44,000 --> 00:02:48,000
+algo malo porque nuestro nombre de mtodo es muy descriptivo, nos
+
+43
+00:02:48,000 --> 00:02:52,000
+dice exactamente lo que estamos probando, sin embargo, aunque he reducido
+
+44
+00:02:52,000 --> 00:02:56,000
+el tamao de fuente, el nombre del mtodo an no se
+
+45
+00:02:56,000 --> 00:03:00,000
+ajusta completamente a la pantalla. As que aqu, para que sea ms
+
+46
+00:03:00,000 --> 00:03:04,000
+fcil para ti ver todos estos mtodos de prueba, voy a tomar el nombre
+
+47
+00:03:04,000 --> 00:03:08,000
+del mtodo aqu, y ponerlo en la clase. As que
+
+48
+00:03:08,000 --> 00:03:12,000
+la reserva de ayudante,
+
+49
+00:03:12,000 --> 00:03:16,000
+subrayar OverlappingBookings ExistTests. Y de esta manera podemos hacer que
+
+50
+00:03:16,000 --> 00:03:20,000
+estos mtodos sean un poco ms cortos. Eso es mejor.
+
+51
+00:03:20,000 --> 00:03:24,000
+Ahora, de vuelta en nuestra clase
+
+52
+00:03:24,000 --> 00:03:28,000
+BookingHelper, ampliemos esto. Entonces, tenemos esta dependencia concreta, y
+
+53
+00:03:28,000 --> 00:03:32,000
+tenemos que deshacernos de ella. Entonces, en la prxima
+
+54
+00:03:32,000 --> 00:03:36,000
+conferencia, voy a extraer este cdigo en una
+
+55
+00:03:36,000 --> 00:03:40,000
+clase separada y a aislarlo de nuestra clase BookingHelper.
+

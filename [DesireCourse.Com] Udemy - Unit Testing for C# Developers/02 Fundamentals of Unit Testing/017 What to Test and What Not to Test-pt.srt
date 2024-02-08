@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:04,000
+Uma das perguntas mais comuns que recebo  "Mosh, eu
+
+2
+00:00:04,000 --> 00:00:08,000
+no sei o que testar! "Ento, nesta palestra eu vou
+
+3
+00:00:08,000 --> 00:00:12,000
+dar uma receita simples que ir gui-lo ao escrever testes.
+
+4
+00:00:12,000 --> 00:00:16,000
+Muitas vezes, quando voc no sabe o que testar, provavelmente  porque voc
+
+5
+00:00:16,000 --> 00:00:20,000
+est lidando com um cdigo mal escrito. Quando seus mtodos tm mais de 10 linhas de cdigo,
+
+6
+00:00:20,000 --> 00:00:24,000
+ claro que voc no sabe o que testar e como! Mesmo eu no teria
+
+7
+00:00:24,000 --> 00:00:28,000
+a menor ideia!  por isso que digo que testes unitrios
+
+8
+00:00:28,000 --> 00:00:32,000
+e codificao limpa andam de mos dadas. Se o seu cdigo estiver limpo
+
+9
+00:00:32,000 --> 00:00:36,000
+e estruturado corretamente, ser mais fcil test-lo. Agora, supondo que seu
+
+10
+00:00:36,000 --> 00:00:40,000
+cdigo esteja limpo, como regra geral, voc deve testar
+
+11
+00:00:40,000 --> 00:00:44,000
+o resultado de uma funo. Na programao, temos dois tipos de funes.
+
+12
+00:00:44,000 --> 00:00:48,000
+consultas e comandos. As funes de consulta
+
+13
+00:00:48,000 --> 00:00:52,000
+retornam algum valor. Eles no necessariamente precisam consultar um banco de dados!
+
+14
+00:00:52,000 --> 00:00:56,000
+Isso significa apenas que o papel deles  retornar algum valor.
+
+15
+00:00:56,000 --> 00:01:00,000
+Portanto, para testar uma funo de consulta, voc deve escrever um
+
+16
+00:01:00,000 --> 00:01:04,000
+teste e verificar se sua funo est retornando o valor correto.
+
+17
+00:01:04,000 --> 00:01:08,000
+Agora, voc pode ter vrios caminhos de execuo nessa funo. Nesse caso, voc deve
+
+18
+00:01:08,000 --> 00:01:12,000
+testar todos os caminhos de execuo e certificar-se de
+
+19
+00:01:12,000 --> 00:01:16,000
+que cada caminho de execuo resulte no valor correto.
+
+20
+00:01:16,000 --> 00:01:20,000
+Um mtodo de comando executa uma ao.
+
+21
+00:01:20,000 --> 00:01:24,000
+Isso geralmente envolve alterar o estado de um objeto na memria e /
+
+22
+00:01:24,000 --> 00:01:28,000
+ou gravar em um banco de dados, ou chamar um servio da Web
+
+23
+00:01:28,000 --> 00:01:32,000
+ou enviar uma mensagem para uma fila de mensagens e assim por diante.
+
+24
+00:01:32,000 --> 00:01:36,000
+Estes so todos os comandos, eles esto fazendo uma mudana no sistema.
+
+25
+00:01:36,000 --> 00:01:40,000
+Tais funes podem retornar um valor tambm. Por exemplo, o mtodo que cria
+
+26
+00:01:40,000 --> 00:01:44,000
+um novo pedido e o grava em um banco de dados pode
+
+27
+00:01:44,000 --> 00:01:48,000
+retornar um objeto de pedido que pode incluir um ID exclusivo.
+
+28
+00:01:48,000 --> 00:01:52,000
+Para testar esse mtodo, semelhante aos mtodos de consulta, voc deve
+
+29
+00:01:52,000 --> 00:01:56,000
+testar o resultado desse mtodo. Se o resultado for alterar o
+
+30
+00:01:56,000 --> 00:02:00,000
+estado de um objeto na memria, voc deve testar se o objeto
+
+31
+00:02:00,000 --> 00:02:04,000
+est agora no estado correto. Se o resultado for falar sobre
+
+32
+00:02:04,000 --> 00:02:08,000
+um recurso externo, como um banco de dados ou servio da web,
+
+33
+00:02:08,000 --> 00:02:12,000
+voc deve verificar se a classe no teste est fazendo a chamada
+
+34
+00:02:12,000 --> 00:02:16,000
+certa para essas dependncias externas. Vamos ver como lidar com
+
+35
+00:02:16,000 --> 00:02:20,000
+dependncias externas na prxima seo. Ento, tenha uma receita bsica sobre
+
+36
+00:02:20,000 --> 00:02:24,000
+o que testar e como. Agora, vamos dar uma olhada no que no
+
+37
+00:02:24,000 --> 00:02:28,000
+testar: voc nunca deve testar os recursos de linguagem. Por exemplo, se voc tiver uma
+
+38
+00:02:28,000 --> 00:02:32,000
+classe C # simples que seja principalmente uma pasta de propriedades,
+
+39
+00:02:32,000 --> 00:02:36,000
+no dever testar essas propriedades. Voc no deve defini-los e depois ler o
+
+40
+00:02:36,000 --> 00:02:40,000
+valor deles para garantir que as propriedades estejam funcionando. Porque desta forma, voc est testando
+
+41
+00:02:40,000 --> 00:02:44,000
+os recursos de linguagem C #! O mesmo acontece quando voc est
+
+42
+00:02:44,000 --> 00:02:48,000
+lidando com cdigo de terceiros. Ento, se voc estiver usando
+
+43
+00:02:48,000 --> 00:02:52,000
+uma biblioteca de terceiros, como qualquer framework, voc no deve
+
+44
+00:02:52,000 --> 00:02:56,000
+escrever testes sobre seus mtodos. Voc deve assumir que eles esto devidamente testados.
+
+45
+00:02:56,000 --> 00:03:00,000
+e voc s deve testar seu cdigo.
+

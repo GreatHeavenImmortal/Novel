@@ -1,0 +1,107 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, now let me give you an overview
+
+2
+00:00:04,000 --> 00:00:08,000
+of how I have structured this course real quick. In the next section,
+
+3
+00:00:08,000 --> 00:00:12,000
+you're going to learn the fundamentals of unit testing. In this section,
+
+4
+00:00:12,000 --> 00:00:16,000
+we'll be looking at characteristics of good and trustworthy unit
+
+5
+00:00:16,000 --> 00:00:20,000
+tests, we'll be looking at naming and organizing tests,
+
+6
+00:00:20,000 --> 00:00:24,000
+writing some basic unit tests, as well as creating parameterized
+
+7
+00:00:24,000 --> 00:00:28,000
+tests. Once you master the fundamentals, then
+
+8
+00:00:28,000 --> 00:00:32,000
+we'll be looking at the core unit testing techniques. In this section,
+
+9
+00:00:32,000 --> 00:00:36,000
+in each lecture, I'm going to show you an example of a function to test.
+
+10
+00:00:36,000 --> 00:00:40,000
+Each function shows you a scenario that you see in a lot of real world applications.
+
+11
+00:00:40,000 --> 00:00:44,000
+The following section is all about exercises.
+
+12
+00:00:44,000 --> 00:00:48,000
+So in that section, I will give you three unit testing exercises,
+
+13
+00:00:48,000 --> 00:00:52,000
+and you will have a chance to put what you learned in the first two sections
+
+14
+00:00:52,000 --> 00:00:56,000
+in practice. For each exercise, you can see my solution as well.
+
+15
+00:00:56,000 --> 00:01:00,000
+Now up to this point all our unit tests are for
+
+16
+00:01:00,000 --> 00:01:04,000
+simple classes that don't have any external dependencies.
+
+17
+00:01:04,000 --> 00:01:08,000
+But in the real world our code often talks to a database, a web
+
+18
+00:01:08,000 --> 00:01:12,000
+service and so on. So section five is all about dealing with
+
+19
+00:01:12,000 --> 00:01:16,000
+these external dependencies. In this section, you will learn about
+
+20
+00:01:16,000 --> 00:01:20,000
+concepts such as dependency injection, and mocking.
+
+21
+00:01:20,000 --> 00:01:24,000
+The following section, again, is all about exercises. So,
+
+22
+00:01:24,000 --> 00:01:28,000
+we'll look at three examples of code that touches an external resource.
+
+23
+00:01:28,000 --> 00:01:32,000
+And finally, the last two sections include more
+
+24
+00:01:32,000 --> 00:01:36,000
+challenges and exercises. I will show you a snippet of source code,
+
+25
+00:01:36,000 --> 00:01:40,000
+taken from a real project, and your job is to write all the
+
+26
+00:01:40,000 --> 00:01:44,000
+necessary unit tests for that code. And of course, we're going to see
+
+27
+00:01:44,000 --> 00:01:46,000
+my solution as well.

@@ -1,0 +1,380 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, before we get started, I want to show
+
+2
+00:00:04,000 --> 00:00:08,000
+you a shortcut to generate a test method quickly. This
+
+3
+00:00:08,000 --> 00:00:12,000
+shortcut only works if you're using ReSharper in Visual Studio or
+
+4
+00:00:12,000 --> 00:00:16,000
+if you're using the Rider ID. So, in Rider
+
+5
+00:00:16,000 --> 00:00:20,000
+you can go to your preferences dialogue box
+
+6
+00:00:20,000 --> 00:00:24,000
+and search for live templates. So,
+
+7
+00:00:24,000 --> 00:00:28,000
+here we have this concept called Life Templates, which is like code snippets,
+
+8
+00:00:28,000 --> 00:00:32,000
+in Visual Studio, with this we can quickly generate some code.
+
+9
+00:00:32,000 --> 00:00:36,000
+So here I'm going to add a new live template,
+
+10
+00:00:36,000 --> 00:00:40,000
+give it an abbreviation, I'm going to
+
+11
+00:00:40,000 --> 00:00:44,000
+use tm, as a short for test method.
+
+12
+00:00:44,000 --> 00:00:48,000
+And for the template text I'm going to add the basic test method.
+
+13
+00:00:48,000 --> 00:00:52,000
+So, all our test methods have the test attribute.
+
+14
+00:00:52,000 --> 00:00:56,000
+We have public void, the name of the method,
+
+15
+00:00:56,000 --> 00:01:00,000
+the scenario we're testing, and the ExpectedBehavior.
+
+16
+00:01:00,000 --> 00:01:04,000
+Okay, now I want to convert
+
+17
+00:01:04,000 --> 00:01:08,000
+these parts into parameters that I can set
+
+18
+00:01:08,000 --> 00:01:12,000
+at run time. So, we simply
+
+19
+00:01:12,000 --> 00:01:16,000
+surround them with $ signs like this and you can see their color changes
+
+20
+00:01:16,000 --> 00:01:20,000
+so this indicates that each of these is a parameter.
+
+21
+00:01:20,000 --> 00:01:24,000
+Okay?
+
+22
+00:01:24,000 --> 00:01:28,000
+Now here we have this warning, no applicable context
+
+23
+00:01:28,000 --> 00:01:32,000
+yet. Click Define, so this is basically where we specify
+
+24
+00:01:32,000 --> 00:01:36,000
+where we can use this live template. We don't have C#
+
+25
+00:01:36,000 --> 00:01:40,000
+in this list, so I use other. Now save,
+
+26
+00:01:40,000 --> 00:01:44,000
+okay, so, back in our unit testing
+
+27
+00:01:44,000 --> 00:01:48,000
+project. I'm going to create a new test class,
+
+28
+00:01:48,000 --> 00:01:52,000
+FizzBuzzTests.
+
+29
+00:01:52,000 --> 00:01:56,000
+First I'm going to decorate this with
+
+30
+00:01:56,000 --> 00:02:00,000
+TestFixture. Now I want to
+
+31
+00:02:00,000 --> 00:02:04,000
+use the life template that I just created. So if you go to the
+
+32
+00:02:04,000 --> 00:02:08,000
+code menu on the top, you can see this menu item,
+
+33
+00:02:08,000 --> 00:02:12,000
+Insert Live Template, note the shortcut, on Mac
+
+34
+00:02:12,000 --> 00:02:16,000
+it's command and J. So, if you press Command
+
+35
+00:02:16,000 --> 00:02:20,000
+and J here, you can see the live templates that are applicable in this
+
+36
+00:02:20,000 --> 00:02:24,000
+context. So here we have TM. You can simply press enter.
+
+37
+00:02:24,000 --> 00:02:28,000
+And this automatically generates this stuff for our test method.
+
+38
+00:02:28,000 --> 00:02:32,000
+And now we can set our parameters. So this first parameter
+
+39
+00:02:32,000 --> 00:02:36,000
+is the name of the method we're testing. In this case
+
+40
+00:02:36,000 --> 00:02:40,000
+GetOutput, now we press tab,
+
+41
+00:02:40,000 --> 00:02:44,000
+we get to the second parameter of the scenario,
+
+42
+00:02:44,000 --> 00:02:48,000
+InputIsDivisible by
+
+43
+00:02:48,000 --> 00:02:52,000
+3And5. Tab. And here we
+
+44
+00:02:52,000 --> 00:02:56,000
+need to specify the expected behavior. So it should Return
+
+45
+00:02:56,000 --> 00:03:00,000
+FizzBuzz. So,
+
+46
+00:03:00,000 --> 00:03:04,000
+we can see live templates help you write tests faster.
+
+47
+00:03:04,000 --> 00:03:08,000
+So this is the first test scenario, before I implement this,
+
+48
+00:03:08,000 --> 00:03:12,000
+I would rather generate the test stubs for all different
+
+49
+00:03:12,000 --> 00:03:16,000
+scenarios. So the other scenario is where the
+
+50
+00:03:16,000 --> 00:03:20,000
+input is divisible by 3 only. So once again,
+
+51
+00:03:20,000 --> 00:03:24,000
+command and J, test method, GetOutput,
+
+52
+00:03:24,000 --> 00:03:28,000
+InputIsDivisibleBy3
+
+53
+00:03:28,000 --> 00:03:32,000
+Only. And it should ReturnFizz.
+
+54
+00:03:32,000 --> 00:03:36,000
+Another scenario, once a (?)
+
+55
+00:03:36,000 --> 00:03:40,000
+GetOutput, Input
+
+56
+00:03:40,000 --> 00:03:44,000
+IsDivisibleBy5Only
+
+57
+00:03:44,000 --> 00:03:48,000
+this should ReturnBuzz,
+
+58
+00:03:48,000 --> 00:03:52,000
+and the last scenario.
+
+59
+00:03:52,000 --> 00:03:56,000
+GetOutput. InputIsNot
+
+60
+00:03:56,000 --> 00:04:00,000
+DivisibleBy3Or5.
+
+61
+00:04:00,000 --> 00:04:04,000
+Should ReturnSameNumber.
+
+62
+00:04:04,000 --> 00:04:08,000
+So these are all the scenarios we need to test, now
+
+63
+00:04:08,000 --> 00:04:12,000
+let's implement them one by one. So, I'm going to start with the first one.
+
+64
+00:04:12,000 --> 00:04:16,000
+Back to our solution explorer, if you look at the
+
+65
+00:04:16,000 --> 00:04:20,000
+implementation of this FizzBuzz class.
+
+66
+00:04:20,000 --> 00:04:24,000
+You can see that this method is defined as a static,
+
+67
+00:04:24,000 --> 00:04:28,000
+So we don't have to create an instance of this class in our test method.
+
+68
+00:04:28,000 --> 00:04:32,000
+In other words, we don't have an arranged part, we simply act.
+
+69
+00:04:32,000 --> 00:04:36,000
+So FizzBuzz.
+
+70
+00:04:36,000 --> 00:04:40,000
+Output. You want a number that is divisible by 3 and 5.
+
+71
+00:04:40,000 --> 00:04:44,000
+So I'm gong to go with 15. Get the result.
+
+72
+00:04:44,000 --> 00:04:48,000
+And then Assert
+
+73
+00:04:48,000 --> 00:04:52,000
+that result, is equal to,
+
+74
+00:04:52,000 --> 00:04:56,000
+FizzBuzz. Now when testing strings,
+
+75
+00:04:56,000 --> 00:05:00,000
+I told you its better not to be specific, especially when you're dealing with
+
+76
+00:05:00,000 --> 00:05:04,000
+error messages. Because a simple change can easily break your tests.
+
+77
+00:05:04,000 --> 00:05:08,000
+But in this case, I want to check for the exact match,
+
+78
+00:05:08,000 --> 00:05:12,000
+because that's the purpose of this GetOutput function, we want to
+
+79
+00:05:12,000 --> 00:05:16,000
+make sure it's returning exactly this string.
+
+80
+00:05:16,000 --> 00:05:20,000
+Now the second scenario. To save time, I'm going to
+
+81
+00:05:20,000 --> 00:05:24,000
+copy these two lines, paste them here.
+
+82
+00:05:24,000 --> 00:05:28,000
+This time I'm going to use 3 as the argument to this method.
+
+83
+00:05:28,000 --> 00:05:32,000
+and Assert that result is Fizz.
+
+84
+00:05:32,000 --> 00:05:36,000
+One more time,
+
+85
+00:05:36,000 --> 00:05:40,000
+Copy,
+
+86
+00:05:40,000 --> 00:05:44,000
+raise it here. This time, the
+
+87
+00:05:44,000 --> 00:05:48,000
+input should be 5, and the result should be
+
+88
+00:05:48,000 --> 00:05:52,000
+Buzz. And finally, the last test case.
+
+89
+00:05:52,000 --> 00:05:56,000
+Once again, copy, paste, I'm going to use
+
+90
+00:05:56,000 --> 00:06:00,000
+a simple number like 1 that is not divisible by 3 or 5.
+
+91
+00:06:00,000 --> 00:06:04,000
+And Assert that result is 1.
+
+92
+00:06:04,000 --> 00:06:08,000
+Now let's run all the tests in this class. So Command and T
+
+93
+00:06:08,000 --> 00:06:12,000
+and command and R.
+
+94
+00:06:12,000 --> 00:06:16,000
+So you can see all test cases passed successfully.
+
+95
+00:06:16,000 --> 00:06:19,000
+Beautiful.
+

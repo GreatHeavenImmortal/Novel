@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:04,000
+En las pruebas unitarias que hemos escrito hasta ahora,
+
+2
+00:00:04,000 --> 00:00:08,000
+afirmamos que nuestros mtodos arrojaron el valor correcto o
+
+3
+00:00:08,000 --> 00:00:12,000
+establecieron el estado correcto. Esto es lo que llamamos pruebas basadas en el estado.
+
+4
+00:00:12,000 --> 00:00:16,000
+Porque probamos los cambios de estado en nuestra aplicacin.
+
+5
+00:00:16,000 --> 00:00:20,000
+Sin embargo, a veces estoy tratando con el cdigo que
+
+6
+00:00:20,000 --> 00:00:24,000
+toca recursos externos, necesitamos verificar que la clase que estamos
+
+7
+00:00:24,000 --> 00:00:28,000
+probando interacta con otra clase correctamente, esto es lo que
+
+8
+00:00:28,000 --> 00:00:32,000
+llamamos Pruebas de Interaccin. Porque probamos la interaccin
+
+9
+00:00:32,000 --> 00:00:36,000
+de una clase, con otra. Por ejemplo, aqu en nuestra clase de servicio
+
+10
+00:00:36,000 --> 00:00:40,000
+de orden, cuando hacemos un pedido, este pedido debe escribirse en un almacenamiento, sea lo
+
+11
+00:00:40,000 --> 00:00:44,000
+que fuere el almacenamiento, no nos importa. Puede ser una base de datos o
+
+12
+00:00:44,000 --> 00:00:48,000
+un almacenamiento en la nube, una de las pruebas unitarias que debemos escribir para
+
+13
+00:00:48,000 --> 00:00:52,000
+el mtodo de orden de lugar es verificar que este objeto OrderService interacte con
+
+14
+00:00:52,000 --> 00:00:56,000
+la propiedad del objeto de almacenamiento. Entonces, debemos verificar que nuestro
+
+15
+00:00:56,000 --> 00:01:00,000
+cdigo llame al mtodo de almacenamiento del objeto de almacenamiento
+
+16
+00:01:00,000 --> 00:01:04,000
+con el argumento correcto. Ese es el objeto de orden que recibimos aqu.
+
+17
+00:01:04,000 --> 00:01:08,000
+En la prxima conferencia, voy a mostrarte cmo probar la
+
+18
+00:01:08,000 --> 00:01:12,000
+interaccin entre objetos, sin embargo, recuerda reservar este enfoque solo
+
+19
+00:01:12,000 --> 00:01:16,000
+para tratar con recursos externos. Porque con las pruebas
+
+20
+00:01:16,000 --> 00:01:20,000
+de interaccin, sus pruebas comienzan a juntar
+
+21
+00:01:20,000 --> 00:01:24,000
+su (? ) implementacin. Verifica que se llame
+
+22
+00:01:24,000 --> 00:01:28,000
+al mtodo correcto con los argumentos correctos. A medida que refactoriza y
+
+23
+00:01:28,000 --> 00:01:32,000
+reestructura su cdigo, es posible que mueva algunos de estos mtodos.
+
+24
+00:01:32,000 --> 00:01:36,000
+Y con eso, puedes romper una o ms pruebas. Entonces, como he enfatizado a
+
+25
+00:01:36,000 --> 00:01:40,000
+lo largo de este curso, sus pruebas deberan probar el
+
+26
+00:01:40,000 --> 00:01:44,000
+comportamiento externo y no la implementacin. Por lo tanto, prefieren las pruebas basadas en
+
+27
+00:01:44,000 --> 00:01:48,000
+el estado para las pruebas de interaccin. Y, use la prueba
+
+28
+00:01:48,000 --> 00:01:52,000
+de interaccin solo cuando trate con recursos externos.
+

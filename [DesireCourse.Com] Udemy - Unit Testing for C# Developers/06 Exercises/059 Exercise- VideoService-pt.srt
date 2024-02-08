@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tudo bem, agora  hora de fazer um exerccio.
+
+2
+00:00:04,000 --> 00:00:08,000
+Portanto, em nosso projeto, abra a pasta Mocking e
+
+3
+00:00:08,000 --> 00:00:12,000
+observe a classe VideoService. O que eu quero que voc faa 
+
+4
+00:00:12,000 --> 00:00:16,000
+escrever os testes de unidade necessrios para este mtodo. Obter
+
+5
+00:00:16,000 --> 00:00:20,000
+UnprocessedVideosAsCsv. Vamos ver o que
+
+6
+00:00:20,000 --> 00:00:24,000
+est acontecendo aqui. Primeiro, estamos criando uma lista
+
+7
+00:00:24,000 --> 00:00:28,000
+vazia e, em seguida, estamos usando esse objeto VideoContext, que
+
+8
+00:00:28,000 --> 00:00:32,000
+faz parte da estrutura de edio. Usamos isso para ler dados de um banco de dados.
+
+9
+00:00:32,000 --> 00:00:36,000
+Ento, aqui temos uma pedreira, estamos recebendo a lista de
+
+10
+00:00:36,000 --> 00:00:40,000
+vdeos que no so processados. Ento, cada vdeo tem essa propriedade,
+
+11
+00:00:40,000 --> 00:00:44,000
+IsProcessed,  booleano, estamos simplesmente gravando os vdeos que no so processados.
+
+12
+00:00:44,000 --> 00:00:48,000
+Em seguida, fazemos uma iterao sobre eles e, para cada
+
+13
+00:00:48,000 --> 00:00:52,000
+vdeo, obtemos seu ID e o adicionamos  nossa lista.
+
+14
+00:00:52,000 --> 00:00:56,000
+E finalmente, juntamos todos esses ID's, usando uma vrgula e
+
+15
+00:00:56,000 --> 00:01:00,000
+os retornamos como uma string. Ento, como voc pode ver, esse mtodo
+
+16
+00:01:00,000 --> 00:01:04,000
+ muito parecido com o que voc v em muitos aplicativos do mundo real.
+
+17
+00:01:04,000 --> 00:01:08,000
+Ento, v em frente e faa este exerccio, e na
+
+18
+00:01:08,000 --> 00:01:11,000
+prxima palestra voc poder ver minha soluo.
+

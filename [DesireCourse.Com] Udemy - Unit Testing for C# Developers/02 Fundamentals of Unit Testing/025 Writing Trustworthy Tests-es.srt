@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:04,000
+Al comienzo de esta seccin, te dije las caractersticas
+
+2
+00:00:04,000 --> 00:00:08,000
+de las buenas pruebas unitarias. Una caracterstica que no
+
+3
+00:00:08,000 --> 00:00:12,000
+les mencion antes, es que sus pruebas unitarias
+
+4
+00:00:12,000 --> 00:00:16,000
+deben ser confiables. No te cont sobre esto antes,
+
+5
+00:00:16,000 --> 00:00:20,000
+porque quiero mostrarte un ejemplo real. Qu quiero decir con
+
+6
+00:00:20,000 --> 00:00:24,000
+una prueba confiable? Una prueba confiable es el tipo de prueba en la que podemos confiar.
+
+7
+00:00:24,000 --> 00:00:28,000
+Entonces, si la prueba pasa, usted sabe que su cdigo est funcionando,
+
+8
+00:00:28,000 --> 00:00:32,000
+y si falla, usted sabe que hay algo mal con su cdigo.
+
+9
+00:00:32,000 --> 00:00:36,000
+Pero, cmo podemos escribir pruebas confiables? Bueno, hay dos formas,
+
+10
+00:00:36,000 --> 00:00:40,000
+una es usar el desarrollo basado en
+
+11
+00:00:40,000 --> 00:00:44,000
+pruebas o TDD. Con el desarrollo basado en pruebas,
+
+12
+00:00:44,000 --> 00:00:48,000
+comenzamos escribiendo una prueba de falla, luego escribimos suficiente cdigo de produccin,
+
+13
+00:00:48,000 --> 00:00:52,000
+para hacer que la prueba pase. Entonces, si la prueba pasa, significa
+
+14
+00:00:52,000 --> 00:00:56,000
+que ha escrito el cdigo de produccin correcto para que pase la prueba.
+
+15
+00:00:56,000 --> 00:01:00,000
+Y si la prueba falla, eso significa que algo estaba mal con el cdigo de produccin.
+
+16
+00:01:00,000 --> 00:01:04,000
+Entonces, usar TDD es una forma de
+
+17
+00:01:04,000 --> 00:01:08,000
+escribir pruebas confiables. Pero como te dije antes, TDD puede volverse
+
+18
+00:01:08,000 --> 00:01:12,000
+complejo en algunos escenarios del mundo real. Hasta ahora hemos estado escribiendo pruebas
+
+19
+00:01:12,000 --> 00:01:16,000
+despus del cdigo de produccin. Este enfoque es un poco arriesgado,
+
+20
+00:01:16,000 --> 00:01:20,000
+porque puede probar algo incorrecto. Pero si prueba algo incorrecto, su
+
+21
+00:01:20,000 --> 00:01:24,000
+prueba puede pasar, pero su cdigo de produccin podra tener un error,
+
+22
+00:01:24,000 --> 00:01:28,000
+por lo que este es un ejemplo de pruebas poco confiables.
+
+23
+00:01:28,000 --> 00:01:32,000
+Voy a simular este escenario en esta conferencia, y luego
+
+24
+00:01:32,000 --> 00:01:36,000
+te mostrar esta tcnica para escribir pruebas confiables, incluso si
+
+25
+00:01:36,000 --> 00:01:40,000
+escribes tus pruebas despus del cdigo de produccin. Entonces, de
+
+26
+00:01:40,000 --> 00:01:44,000
+vuelta en nuestra clase de matemtica, voy a crear un
+
+27
+00:01:44,000 --> 00:01:48,000
+error en este mtodo de agregar. En lugar de devolver la suma de A y B.
+
+28
+00:01:48,000 --> 00:01:52,000
+Voy a devolver 0. Entonces, de vuelta a nuestras pruebas
+
+29
+00:01:52,000 --> 00:01:56,000
+de matemticas, actualmente tiene una prueba con el mtodo de agregar,
+
+30
+00:01:56,000 --> 00:02:00,000
+quiero desactivar el atributo de ignorar para que ejecutemos esta prueba,
+
+31
+00:02:00,000 --> 00:02:04,000
+le damos a este mtodo uno y dos y esperamos tres.
+
+32
+00:02:04,000 --> 00:02:08,000
+Pero nuestro mtodo regresa a cero, por lo que la prueba debera fallar.
+
+33
+00:02:08,000 --> 00:02:12,000
+Vamos a verificar esto As que comando y T, y comando y R.
+
+34
+00:02:12,000 --> 00:02:16,000
+De acuerdo, nuestro mtodo de prueba fall, se
+
+35
+00:02:16,000 --> 00:02:20,000
+puede ver que esperamos un tres, pero tenemos cero.
+
+36
+00:02:20,000 --> 00:02:24,000
+Hermosa. Entonces, esta es una prueba confiable,
+
+37
+00:02:24,000 --> 00:02:28,000
+porque est probando lo correcto. Sin embargo, cuando escribe sus pruebas,
+
+38
+00:02:28,000 --> 00:02:32,000
+despus del cdigo de produccin, es posible que cometa un error en
+
+39
+00:02:32,000 --> 00:02:36,000
+la implementacin de esa prueba. En otras palabras, su
+
+40
+00:02:36,000 --> 00:02:40,000
+prueba podra tener un error. No puedes probar tu prueba, verdad?
+
+41
+00:02:40,000 --> 00:02:44,000
+Entonces, permtanme simular este escenario, y luego mostrarles la solucin para asegurarse
+
+42
+00:02:44,000 --> 00:02:48,000
+de que su prueba sea confiable. Voy a comentar esta lnea, y
+
+43
+00:02:48,000 --> 00:02:52,000
+reescribir mi afirmacin de esta manera. Assert That_math,
+
+44
+00:02:52,000 --> 00:02:56,000
+como nuestro campo
+
+45
+00:02:56,000 --> 00:03:00,000
+privado, no es
+
+46
+00:03:00,000 --> 00:03:04,000
+nulo. Entonces sabes que nuestro
+
+47
+00:03:04,000 --> 00:03:08,000
+objeto matemtico no es nulo. Entonces esta prueba siempre debe pasar.
+
+48
+00:03:08,000 --> 00:03:12,000
+Ahora bien, este es un ejemplo exagerado, por supuesto en un escenario del mundo real,
+
+49
+00:03:12,000 --> 00:03:16,000
+no vas a escribir una afirmacin como esta. Pero lo que estoy sealando aqu,
+
+50
+00:03:16,000 --> 00:03:20,000
+es que cuando escribe sus pruebas despus del cdigo de produccin, es
+
+51
+00:03:20,000 --> 00:03:24,000
+posible que cometa un error en la implementacin de su prueba.
+
+52
+00:03:24,000 --> 00:03:28,000
+Ahora esta prueba no est probando lo correcto. No est probando el
+
+53
+00:03:28,000 --> 00:03:32,000
+resultado del mtodo de agregar. Entonces cuando
+
+54
+00:03:32,000 --> 00:03:36,000
+ejecutas esto, pasa. No es
+
+55
+00:03:36,000 --> 00:03:40,000
+una prueba confiable. Nuestro cdigo de produccin tiene un
+
+56
+00:03:40,000 --> 00:03:44,000
+error, pero nuestra prueba est pasando. Entonces, podra preguntar: cmo podemos evitar
+
+57
+00:03:44,000 --> 00:03:48,000
+que ocurra este escenario al escribir pruebas despus del cdigo de produccin?
+
+58
+00:03:48,000 --> 00:03:52,000
+Esta es la tcnica que voy a compartir contigo.
+
+59
+00:03:52,000 --> 00:03:56,000
+Acceda a su cdigo de produccin y realice un cambio simple en
+
+60
+00:03:56,000 --> 00:04:00,000
+la lnea que se supone debe hacer que esa lnea pase.
+
+61
+00:04:00,000 --> 00:04:04,000
+Por lo tanto, voy a eliminar esta lnea temporalmente, imagine que esta es
+
+62
+00:04:04,000 --> 00:04:08,000
+la implementacin de nuestro mtodo de anuncios. Entonces, se supone que esta lnea
+
+63
+00:04:08,000 --> 00:04:12,000
+debe hacer que pase nuestra prueba. Voy a comentar
+
+64
+00:04:12,000 --> 00:04:16,000
+esta lnea, hacer un pequeo cambio
+
+65
+00:04:16,000 --> 00:04:20,000
+y regresar 1. Ahora corremos nuestras pruebas nuevamente.
+
+66
+00:04:20,000 --> 00:04:24,000
+Entonces, volviendo a esta prueba, voy a ejecutarla de
+
+67
+00:04:24,000 --> 00:04:28,000
+nuevo, la prueba sigue pasando, cre un error en
+
+68
+00:04:28,000 --> 00:04:32,000
+el cdigo de produccin, hice un cambio, as que
+
+69
+00:04:32,000 --> 00:04:36,000
+en lugar de devolver 0, devuelvo 1, y la
+
+70
+00:04:36,000 --> 00:04:40,000
+prueba sigue siendo paso. Eso significa que la prueba no est probando lo correcto.
+
+71
+00:04:40,000 --> 00:04:44,000
+Puedo devolver algo aqu, como int. Valor mximo,
+
+72
+00:04:44,000 --> 00:04:48,000
+y esta prueba an pasar.
+
+73
+00:04:48,000 --> 00:04:52,000
+No es una prueba confiable, por lo que la
+
+74
+00:04:52,000 --> 00:04:56,000
+prueba tiene un error. Eche un vistazo aqu, est
+
+75
+00:04:56,000 --> 00:05:00,000
+bien, la afirmacin es incorrecta, as que voy a
+
+76
+00:05:00,000 --> 00:05:04,000
+eliminar esto, y traer de vuelta esta afirmacin original.
+
+77
+00:05:04,000 --> 00:05:08,000
+Ahora ejecutamos esto, nuestra
+
+78
+00:05:08,000 --> 00:05:12,000
+prueba fall. As que esta es una prueba confiable, est probando lo correcto.
+
+79
+00:05:12,000 --> 00:05:16,000
+En este caso, esta prueba resultante es
+
+80
+00:05:16,000 --> 00:05:20,000
+igual a tres. Entonces, volvemos a nuestro
+
+81
+00:05:20,000 --> 00:05:24,000
+cdigo de produccin y solucionamos el problema.
+
+82
+00:05:24,000 --> 00:05:28,000
+Devuelve A + B. Entonces, esto es lo
+
+83
+00:05:28,000 --> 00:05:32,000
+que quiero que te lleves. Cuando escriba sus pruebas despus del
+
+84
+00:05:32,000 --> 00:05:36,000
+cdigo de produccin, ejecute su prueba si pasa, luego ingrese el cdigo
+
+85
+00:05:36,000 --> 00:05:40,000
+de produccin y realice un pequeo cambio en la lnea que se
+
+86
+00:05:40,000 --> 00:05:44,000
+supone que har que pase la prueba. Cree un error, devuelva un valor diferente,
+
+87
+00:05:44,000 --> 00:05:48,000
+tal vez comente esa lnea, si cambia la lnea que se supone que hace
+
+88
+00:05:48,000 --> 00:05:52,000
+pasar el examen, y luego su prueba todava pasa, lo que significa que el
+
+89
+00:05:52,000 --> 00:05:56,000
+examen no est probando lo correcto. Porque si modificas esa lnea
+
+90
+00:05:56,000 --> 00:06:00,000
+y creas un error, la prueba debera fallar, verdad?
+
+91
+00:06:00,000 --> 00:06:04,000
+Por lo tanto, asegrese de escribir pruebas confiables que le den valor. Entonces cuando pasan saben que
+
+92
+00:06:04,000 --> 00:06:08,000
+su cdigo est funcionando, y cuando fallan, saben que
+
+93
+00:06:08,000 --> 00:06:11,000
+probablemente haya algo mal con el cdigo.
+

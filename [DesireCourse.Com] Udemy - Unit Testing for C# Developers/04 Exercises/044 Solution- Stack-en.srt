@@ -1,0 +1,900 @@
+1
+00:00:00,000 --> 00:00:04,000
+Alright, so here in our unit testing
+
+2
+00:00:04,000 --> 00:00:08,000
+project, I'm going to add a new class called Stack
+
+3
+00:00:08,000 --> 00:00:12,000
+Tests. And just like always,
+
+4
+00:00:12,000 --> 00:00:16,000
+apply the TestFixture attribute,
+
+5
+00:00:16,000 --> 00:00:20,000
+Alright, we're ready to write our first test, now here
+
+6
+00:00:20,000 --> 00:00:24,000
+we're dealing with an interesting situation. If you look at the implementation
+
+7
+00:00:24,000 --> 00:00:28,000
+of the stack, you can see that we have the private
+
+8
+00:00:28,000 --> 00:00:32,000
+read only feed of type list, so this is the
+
+9
+00:00:32,000 --> 00:00:36,000
+internal or implementation detail of the stack, and this public members
+
+10
+00:00:36,000 --> 00:00:40,000
+stack we have represent the public API or the public
+
+11
+00:00:40,000 --> 00:00:44,000
+contract, for the public interface of this class.
+
+12
+00:00:44,000 --> 00:00:48,000
+In our tests, we should only use these public members. So we are not
+
+13
+00:00:48,000 --> 00:00:52,000
+so we're not going to work with this list object. Because chances are
+
+14
+00:00:52,000 --> 00:00:56,000
+in the future, you may decide to use an array instead of a list.
+
+15
+00:00:56,000 --> 00:01:00,000
+Or some other kind of data structure. So,
+
+16
+00:01:00,000 --> 00:01:04,000
+back to our test class. So first I'm going to write a couple of tests
+
+17
+00:01:04,000 --> 00:01:08,000
+for the push method. So,
+
+18
+00:01:08,000 --> 00:01:12,000
+Push, now what she we test here? Our
+
+19
+00:01:12,000 --> 00:01:16,000
+Push method takes an object. Here we need to test 2
+
+20
+00:01:16,000 --> 00:01:20,000
+scenarios. One is where the object is null, in that case
+
+21
+00:01:20,000 --> 00:01:24,000
+the push method should throw an argue and null exception.
+
+22
+00:01:24,000 --> 00:01:28,000
+The other scenario we need to test is where we give it a valid object
+
+23
+00:01:28,000 --> 00:01:32,000
+and we ensure that the push method has this object
+
+24
+00:01:32,000 --> 00:01:36,000
+for a stack. So the first scenario is
+
+25
+00:01:36,000 --> 00:01:40,000
+ArgumentIsNull, it should Throw
+
+26
+00:01:40,000 --> 00:01:44,000
+ArgumentNull Exception.
+
+27
+00:01:44,000 --> 00:01:48,000
+So, I'm going to create a stack, new
+
+28
+00:01:48,000 --> 00:01:52,000
+Stack, note that we have another stack class defined
+
+29
+00:01:52,000 --> 00:01:56,000
+in system.collection name space, but here we should use the stack
+
+30
+00:01:56,000 --> 00:02:00,000
+that is defined in testninja.fundamentals.
+
+31
+00:02:00,000 --> 00:02:04,000
+So Stack of string.
+
+32
+00:02:04,000 --> 00:02:08,000
+Now, I'm going to Assert That
+
+33
+00:02:08,000 --> 00:02:12,000
+here I'll pass a lambda expression, when we call
+
+34
+00:02:12,000 --> 00:02:16,000
+stack.Push with null argument
+
+35
+00:02:16,000 --> 00:02:20,000
+this method should Throw
+
+36
+00:02:20,000 --> 00:02:24,000
+ArgumentNullException. Let's verify this
+
+37
+00:02:24,000 --> 00:02:28,000
+Okay, here's our new test, and it successfully
+
+38
+00:02:28,000 --> 00:02:32,000
+passed. Beautiful. Now the second
+
+39
+00:02:32,000 --> 00:02:36,000
+test. Push
+
+40
+00:02:36,000 --> 00:02:40,000
+Valid Argument, it should AddTheObject
+
+41
+00:02:40,000 --> 00:02:44,000
+ToTheStack.
+
+42
+00:02:44,000 --> 00:02:48,000
+So first I'm going to create this stack object,
+
+43
+00:02:48,000 --> 00:02:52,000
+new Stack of strings,
+
+44
+00:02:52,000 --> 00:02:56,000
+now, we call the push method, give it a
+
+45
+00:02:56,000 --> 00:03:00,000
+valid argument, like a as a string, and
+
+46
+00:03:00,000 --> 00:03:04,000
+finally we assert That stack
+
+47
+00:03:04,000 --> 00:03:08,000
+.Count is equal to one.
+
+48
+00:03:08,000 --> 00:03:12,000
+So once again, we don't have access to this private
+
+49
+00:03:12,000 --> 00:03:16,000
+field in this class, so we're not going to go on this list to verify
+
+50
+00:03:16,000 --> 00:03:20,000
+that is contains this object. You have to
+
+51
+00:03:20,000 --> 00:03:24,000
+use the public API, or public members of the stack to make sure
+
+52
+00:03:24,000 --> 00:03:28,000
+it's behaving properly, in this case the simplest way
+
+53
+00:03:28,000 --> 00:03:32,000
+to verify this, is to use the Count property. Now
+
+54
+00:03:32,000 --> 00:03:36,000
+it is possible that the Count property is not implemented properly.
+
+55
+00:03:36,000 --> 00:03:40,000
+For example look currently this is
+
+56
+00:03:40,000 --> 00:03:44,000
+implemented as an expression body property, so Count
+
+57
+00:03:44,000 --> 00:03:48,000
+goes to simply return the list of Count. But what if
+
+58
+00:03:48,000 --> 00:03:52,000
+this property was implemented like this, then
+
+59
+00:03:52,000 --> 00:03:56,000
+our test would pass, but we actually have a bug in the implementation,
+
+60
+00:03:56,000 --> 00:04:00,000
+stack.Count. So, I'm going to write a
+
+61
+00:04:00,000 --> 00:04:04,000
+separate test for this property, because it has
+
+62
+00:04:04,000 --> 00:04:08,000
+some logic. So, Test method, Count
+
+63
+00:04:08,000 --> 00:04:12,000
+I want to test that when this stack is empty, Count
+
+64
+00:04:12,000 --> 00:04:16,000
+is 0. Then when you add an object to the stack, Count is
+
+65
+00:04:16,000 --> 00:04:20,000
+1. This way I can ensure the count property is implemented
+
+66
+00:04:20,000 --> 00:04:24,000
+properly. So, back here EmptyStack
+
+67
+00:04:24,000 --> 00:04:28,000
+is the scenario, it should ReturnZero.
+
+68
+00:04:28,000 --> 00:04:32,000
+So,
+
+69
+00:04:32,000 --> 00:04:36,000
+let's create a Stack object, new set of strings,
+
+70
+00:04:36,000 --> 00:04:40,000
+we don't add anything here, we simply Assert
+
+71
+00:04:40,000 --> 00:04:44,000
+that stack.Count is
+
+72
+00:04:44,000 --> 00:04:48,000
+equal to 0. Let's run this
+
+73
+00:04:48,000 --> 00:04:52,000
+Test.
+
+74
+00:04:52,000 --> 00:04:56,000
+Okay, our test failed. We expected 0,
+
+75
+00:04:56,000 --> 00:05:00,000
+however we got 1.
+
+76
+00:05:00,000 --> 00:05:04,000
+Because here I replaced list.count
+
+77
+00:05:04,000 --> 00:05:08,000
+with 1. So let's revert this back.
+
+78
+00:05:08,000 --> 00:05:12,000
+We return list.count, now back in our test
+
+79
+00:05:12,000 --> 00:05:16,000
+class I'm going to run this test one more time.
+
+80
+00:05:16,000 --> 00:05:20,000
+Okay, so our count property is working,
+
+81
+00:05:20,000 --> 00:05:24,000
+excellent. And we have two tests
+
+82
+00:05:24,000 --> 00:05:28,000
+for the Push method. Now let's write a few tests for
+
+83
+00:05:28,000 --> 00:05:32,000
+the Pop method. So,
+
+84
+00:05:32,000 --> 00:05:36,000
+test method Pop, what are the scenarios
+
+85
+00:05:36,000 --> 00:05:40,000
+we need to test? One is when we need to call this method on an
+
+86
+00:05:40,000 --> 00:05:44,000
+empty stack. In that case we should get an invalid
+
+87
+00:05:44,000 --> 00:05:48,000
+operation exception. So Pop EmptyStack
+
+88
+00:05:48,000 --> 00:05:52,000
+should ThrowInvalidOperation
+
+89
+00:05:52,000 --> 00:05:56,000
+Exception. That's one scenario.
+
+90
+00:05:56,000 --> 00:06:00,000
+Now the second scenario.
+
+91
+00:06:00,000 --> 00:06:04,000
+So Pop, in this case we want to test this method when
+
+92
+00:06:04,000 --> 00:06:08,000
+our stack has a few objects, so Stack
+
+93
+00:06:08,000 --> 00:06:12,000
+WithAFewObjects, what is the
+
+94
+00:06:12,000 --> 00:06:16,000
+expected behavior of this method? It should return
+
+95
+00:06:16,000 --> 00:06:20,000
+the object on top of the stack and remove it from the stack at the same time.
+
+96
+00:06:20,000 --> 00:06:24,000
+So here we need to write two separate tests.
+
+97
+00:06:24,000 --> 00:06:28,000
+One to ensure that this method returns the object on the top,
+
+98
+00:06:28,000 --> 00:06:32,000
+and the other to ensure that this method removes that object from the
+
+99
+00:06:32,000 --> 00:06:36,000
+stack. So, Returns
+
+100
+00:06:36,000 --> 00:06:40,000
+ObjectOnTheTop.
+
+101
+00:06:40,000 --> 00:06:44,000
+and I'm going to duplicate this
+
+102
+00:06:44,000 --> 00:06:48,000
+here the second expected behavior is
+
+103
+00:06:48,000 --> 00:06:52,000
+RemoveThisObjectFromTopOf
+
+104
+00:06:52,000 --> 00:06:56,000
+the stack. Okay? So let's implement this test method
+
+105
+00:06:56,000 --> 00:07:00,000
+one by one. I'm going to create an empty stack
+
+106
+00:07:00,000 --> 00:07:04,000
+new Stack of strings. And a
+
+107
+00:07:04,000 --> 00:07:08,000
+Assert That, when we call
+
+108
+00:07:08,000 --> 00:07:12,000
+stack.Pop we get
+
+109
+00:07:12,000 --> 00:07:16,000
+an InvalidOperationException. So ThrowsInvalid
+
+110
+00:07:16,000 --> 00:07:20,000
+OperationException. Let's run this test,
+
+111
+00:07:20,000 --> 00:07:24,000
+beautiful, now earlier I told you
+
+112
+00:07:24,000 --> 00:07:28,000
+about writing trust worthy tests, so here, even though
+
+113
+00:07:28,000 --> 00:07:32,000
+this test is passing, I want to make sure that it's testing the right thing,
+
+114
+00:07:32,000 --> 00:07:36,000
+I want to make sure this is a test I can rely upon in the future.
+
+115
+00:07:36,000 --> 00:07:40,000
+So, I'm going to go back in the stack class,
+
+116
+00:07:40,000 --> 00:07:44,000
+here is our Pop method. This is the line that is responsible
+
+117
+00:07:44,000 --> 00:07:48,000
+for making that test pass. So if I comment this
+
+118
+00:07:48,000 --> 00:07:52,000
+out, and go back here, run this
+
+119
+00:07:52,000 --> 00:07:56,000
+test, it should fail. So, let's run it.
+
+120
+00:07:56,000 --> 00:08:00,000
+Okay, this time it failed,
+
+121
+00:08:00,000 --> 00:08:04,000
+because we expected an InvalidOperationException, however
+
+122
+00:08:04,000 --> 00:08:08,000
+we got ArgumentOutOfRangeException. So this verifies
+
+123
+00:08:08,000 --> 00:08:12,000
+that my test was testing the right thing. But why did we get ArgumentOutOf
+
+124
+00:08:12,000 --> 00:08:16,000
+RangeException? Let's have a quick look.
+
+125
+00:08:16,000 --> 00:08:20,000
+The reason was for an empty stack, Count is 0,
+
+126
+00:08:20,000 --> 00:08:24,000
+so we try to access an item and index
+
+127
+00:08:24,000 --> 00:08:28,000
+minus one in this list, and that's why we got ArgumentOutOfRange Exception.
+
+128
+00:08:28,000 --> 00:08:32,000
+So, I'm going to bring these two lines back,
+
+129
+00:08:32,000 --> 00:08:36,000
+okay now let's move onto the next test.
+
+130
+00:08:36,000 --> 00:08:40,000
+What if you're dealing with a
+
+131
+00:08:40,000 --> 00:08:44,000
+stack that has a few objects? You want to make sure that this
+
+132
+00:08:44,000 --> 00:08:48,000
+Pop method returns the object on top of the stack. So,
+
+133
+00:08:48,000 --> 00:08:52,000
+in the arrange part, I'm going to create a stack
+
+134
+00:08:52,000 --> 00:08:56,000
+with three objects. Stack, new Stack,
+
+135
+00:08:56,000 --> 00:09:00,000
+of string. I'm going to
+
+136
+00:09:00,000 --> 00:09:04,000
+Push three objects here, 1, 2,
+
+137
+00:09:04,000 --> 00:09:08,000
+and 3. So this is our
+
+138
+00:09:08,000 --> 00:09:12,000
+Arrange part. As you can see the Arrange part is not always
+
+139
+00:09:12,000 --> 00:09:16,000
+one line of code, it can do multiple lines. So, you bring
+
+140
+00:09:16,000 --> 00:09:20,000
+this object into the right state and its ready for testing
+
+141
+00:09:20,000 --> 00:09:24,000
+this particular scenario. Okay? Now,
+
+142
+00:09:24,000 --> 00:09:28,000
+you Act. So we call stack
+
+143
+00:09:28,000 --> 00:09:32,000
+to Pop. You get the result,
+
+144
+00:09:32,000 --> 00:09:36,000
+and finally we need to Assert.
+
+145
+00:09:36,000 --> 00:09:40,000
+We want to Assert.That result
+
+146
+00:09:40,000 --> 00:09:41,700
+is EqualTo c.
+
+147
+00:09:41,700 --> 00:09:44,000
+is EqualTo c.
+
+148
+00:09:44,000 --> 00:09:48,000
+Let's run this test. Okay,
+
+149
+00:09:48,000 --> 00:09:52,000
+the test is passing, once again, I want to make sure that there is no
+
+150
+00:09:52,000 --> 00:09:56,000
+bug in this test. So,
+
+151
+00:09:56,000 --> 00:10:00,000
+Back in our Stack class, this is the line that is responsible
+
+152
+00:10:00,000 --> 00:10:04,000
+for making that test pass. So I'm going to change this
+
+153
+00:10:04,000 --> 00:10:08,000
+temporarily and return
+
+154
+00:10:08,000 --> 00:10:12,000
+list of 0. I'm going to return the first element in the list.
+
+155
+00:10:12,000 --> 00:10:16,000
+So this should break my test right? Back to our test,
+
+156
+00:10:16,000 --> 00:10:20,000
+let's run this one more time,
+
+157
+00:10:20,000 --> 00:10:24,000
+Okay, this time it failed because we expected
+
+158
+00:10:24,000 --> 00:10:28,000
+c, but we got a. So when
+
+159
+00:10:28,000 --> 00:10:32,000
+you write your tests after your production code, use this technique
+
+160
+00:10:32,000 --> 00:10:36,000
+to (?) your tests in the right thing (?). Now back in the stack class,
+
+161
+00:10:36,000 --> 00:10:40,000
+let's revert this back.
+
+162
+00:10:40,000 --> 00:10:44,000
+And the last test for the Pop method, we want to make sure
+
+163
+00:10:44,000 --> 00:10:48,000
+that this method actually removes this object on top
+
+164
+00:10:48,000 --> 00:10:52,000
+of the stack. So I'm going to copy
+
+165
+00:10:52,000 --> 00:10:56,000
+this code, into this new test
+
+166
+00:10:56,000 --> 00:11:00,000
+I'm going to change the Assertion,
+
+167
+00:11:00,000 --> 00:11:04,000
+so here we don't really care about the result, just Pop an object
+
+168
+00:11:04,000 --> 00:11:08,000
+and then Assert that stack.Count
+
+169
+00:11:08,000 --> 00:11:12,000
+Is EqualTo 2.
+
+170
+00:11:12,000 --> 00:11:16,000
+Now, let's run this test.
+
+171
+00:11:16,000 --> 00:11:20,000
+Okay, the test passed, beautiful, and by the way
+
+172
+00:11:20,000 --> 00:11:24,000
+these two failed tests they are not actually failed anymore, these are the results
+
+173
+00:11:24,000 --> 00:11:28,000
+of previous test execution. So if I run the tests
+
+174
+00:11:28,000 --> 00:11:32,000
+inside stack tests again. All of them are going to pass.
+
+175
+00:11:32,000 --> 00:11:36,000
+There you go. Now finally, we need to test
+
+176
+00:11:36,000 --> 00:11:40,000
+the Peek method. So,
+
+177
+00:11:40,000 --> 00:11:44,000
+Peek, what are the scenarios here? The first scenario
+
+178
+00:11:44,000 --> 00:11:48,000
+is when we call this method on an empty stack. Doesn't make sense.
+
+179
+00:11:48,000 --> 00:11:52,000
+There is nothing to Peek. So this method should throw an
+
+180
+00:11:52,000 --> 00:11:56,000
+InvalidOperationException. So, empty stack,
+
+181
+00:11:56,000 --> 00:12:00,000
+ThrowInvalidOperation
+
+182
+00:12:00,000 --> 00:12:04,000
+Exception.
+
+183
+00:12:04,000 --> 00:12:08,000
+Alright, next test. Peek, Stack,
+
+184
+00:12:08,000 --> 00:12:12,000
+WithObjects. Here we want
+
+185
+00:12:12,000 --> 00:12:16,000
+to make sure that this method returns the object on top of
+
+186
+00:12:16,000 --> 00:12:20,000
+the stack. So ReturnObjectOnTopOf
+
+187
+00:12:20,000 --> 00:12:24,000
+TheStack. Also, I want to write one more
+
+188
+00:12:24,000 --> 00:12:28,000
+test here, to make sure that unlike the Pop method, this
+
+189
+00:12:28,000 --> 00:12:32,000
+method does not remove that object from the step. So,
+
+190
+00:12:32,000 --> 00:12:36,000
+another test, Peek,
+
+191
+00:12:36,000 --> 00:12:40,000
+StackWithObjects.
+
+192
+00:12:40,000 --> 00:12:44,000
+DoesNotRemoveTheObject
+
+193
+00:12:44,000 --> 00:12:48,000
+OnTopOfTheStack. Okay?
+
+194
+00:12:48,000 --> 00:12:52,000
+Now, let's implement them one by one. So,
+
+195
+00:12:52,000 --> 00:12:56,000
+if I create an empty stack, stack
+
+196
+00:12:56,000 --> 00:13:00,000
+of strings, and Assert that
+
+197
+00:13:00,000 --> 00:13:04,000
+when we call stack.Peek,
+
+198
+00:13:04,000 --> 00:13:08,000
+you get an exception, so this throws InvalidOperation
+
+199
+00:13:08,000 --> 00:13:12,000
+Exception. Let's run this test.
+
+200
+00:13:12,000 --> 00:13:16,000
+It's passing, beautiful. Let's move on
+
+201
+00:13:16,000 --> 00:13:20,000
+to the next test, now we need a stack with a
+
+202
+00:13:20,000 --> 00:13:24,000
+few objects. So I'm going to borrow some code from this other test
+
+203
+00:13:24,000 --> 00:13:28,000
+this here,
+
+204
+00:13:28,000 --> 00:13:32,000
+and Act part we should call
+
+205
+00:13:32,000 --> 00:13:36,000
+the Peek method, get the result,
+
+206
+00:13:36,000 --> 00:13:40,000
+and finally Assert
+
+207
+00:13:40,000 --> 00:13:44,000
+that result IsEqualTo c
+
+208
+00:13:44,000 --> 00:13:48,000
+Let's run the test.
+
+209
+00:13:48,000 --> 00:13:52,000
+It's passing, excellent,
+
+210
+00:13:52,000 --> 00:13:56,000
+and the last test. I'm going to copy all this code from here.
+
+211
+00:13:56,000 --> 00:14:00,000
+into this other test,
+
+212
+00:14:00,000 --> 00:14:04,000
+here we don't care about the result, we just want to check the count
+
+213
+00:14:04,000 --> 00:14:08,000
+is not changed. So we assert that stack
+
+214
+00:14:08,000 --> 00:14:12,000
+.Count is still three, is EqualTo
+
+215
+00:14:12,000 --> 00:14:16,000
+3. Let's run this test.
+
+216
+00:14:16,000 --> 00:14:20,000
+Beautiful. So we have a
+
+217
+00:14:20,000 --> 00:14:24,000
+total of 9 tests for the stack class and they're all passing.
+
+218
+00:14:24,000 --> 00:14:28,000
+And by the way, this is one way
+
+219
+00:14:28,000 --> 00:14:32,000
+to test the stack class. Chances are the way you have written
+
+220
+00:14:32,000 --> 00:14:36,000
+your test is different, and it doesn't really matter as long as you have tested
+
+221
+00:14:36,000 --> 00:14:40,000
+various scenarios, and verify the stack class is behaving
+
+222
+00:14:40,000 --> 00:14:44,000
+as you expect. So don't get hung up if the name of your methods
+
+223
+00:14:44,000 --> 00:14:48,000
+or how you have implemented each test method is different than mine. Even if I tried
+
+224
+00:14:48,000 --> 00:14:52,000
+to test this class tomorrow, chances are my code is going to look different from
+
+225
+00:14:52,000 --> 00:14:55,000
+what you see in this lecture.
+
